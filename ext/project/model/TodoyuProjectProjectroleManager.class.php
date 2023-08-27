@@ -38,7 +38,7 @@ class TodoyuProjectProjectroleManager {
 	/**
 	 * Get projectrole
 	 *
-	 * @param	Integer		$idProjectrole
+	 * @param	integer		$idProjectrole
 	 * @return	TodoyuProjectProjectrole
 	 */
 	public static function getProjectrole($idProjectrole) {
@@ -50,8 +50,8 @@ class TodoyuProjectProjectroleManager {
 	/**
 	 * Save projectrole
 	 *
-	 * @param	Array		$data
-	 * @return	Integer		$idProjectrole
+	 * @param	array		$data
+	 * @return	integer		$idProjectrole
 	 */
 	public static function saveProjectrole(array $data) {
 		$idProjectrole	= intval($data['id']);
@@ -74,8 +74,8 @@ class TodoyuProjectProjectroleManager {
 	/**
 	 * Add new projectrole
 	 *
-	 * @param	Array		$data
-	 * @return	Integer		New projectrole ID
+	 * @param	array		$data
+	 * @return	integer		New projectrole ID
 	 */
 	public static function addProjectrole(array $data = array()) {
 		return TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -86,9 +86,9 @@ class TodoyuProjectProjectroleManager {
 	/**
 	 * Update project role record with given data
 	 *
-	 * @param	Integer		$idProjectrole
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idProjectrole
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function updateProjectrole($idProjectrole, array $data) {
 		$idProjectrole	= intval($idProjectrole);
@@ -101,8 +101,8 @@ class TodoyuProjectProjectroleManager {
 	/**
 	 * Sets deleted flag for project role
 	 *
-	 * @param	Integer		$idProjectrole
-	 * @return	Boolean
+	 * @param	integer		$idProjectrole
+	 * @return	boolean
 	 */
 	public static function deleteProjectrole($idProjectrole) {
 		return TodoyuRecordManager::deleteRecord(self::TABLE, $idProjectrole);
@@ -113,8 +113,8 @@ class TodoyuProjectProjectroleManager {
 	/**
 	 * Get label of projectrole
 	 *
-	 * @param	Integer		$idProjectrole
-	 * @return	String
+	 * @param	integer		$idProjectrole
+	 * @return	string
 	 */
 	public static function getLabel($idProjectrole) {
 		$idProjectrole	= intval($idProjectrole);
@@ -133,7 +133,7 @@ class TodoyuProjectProjectroleManager {
 	/**
 	 * Get all active project roles, optionally parse to render title labels
 	 *
-	 * @param	Boolean	$parse
+	 * @param	boolean	$parse
 	 * @return	Array
 	 */
 	public static function getProjectroles($parse = true) {
@@ -156,8 +156,8 @@ class TodoyuProjectProjectroleManager {
 	/**
 	 * Get role IDs of given person in given project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idProject
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getPersonRoleIDs($idProject, $idPerson = 0) {
@@ -194,8 +194,8 @@ class TodoyuProjectProjectroleManager {
 	/**
 	 * Check whether the project role is in use and therefor not deletable
 	 *
-	 * @param	Integer		$idProjectrole
-	 * @return	Boolean
+	 * @param	integer		$idProjectrole
+	 * @return	boolean
 	 */
 	public static function isDeletable($idProjectrole) {
 		$idProjectrole	= intval($idProjectrole);

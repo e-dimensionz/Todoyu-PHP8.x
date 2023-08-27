@@ -1,6 +1,6 @@
 <ul id="{$name}-tabs" class="tabs {$class}" >
-	{foreach $tabs tab}
-		{include "tabhead.tmpl"}
+	{foreach $tabs as $tab}
+		{include "core/view/tabhead.tmpl"}
 	{/foreach}
 </ul>
 <script type="text/javascript">

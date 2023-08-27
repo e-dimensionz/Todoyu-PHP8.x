@@ -36,7 +36,7 @@ class TodoyuBookmarkBookmark extends TodoyuBaseObject {
 	/**
 	 * Constructor of the class
 	 *
-	 * @param	Integer	$idBookmark
+	 * @param	integer	$idBookmark
 	 */
 	public function __construct($idBookmark) {
 		parent::__construct($idBookmark, 'ext_bookmark_bookmark');
@@ -58,7 +58,7 @@ class TodoyuBookmarkBookmark extends TodoyuBaseObject {
 	/**
 	 * Get item ID of bookmark
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getItemID() {
 		return $this->getInt('id_item');
@@ -69,7 +69,7 @@ class TodoyuBookmarkBookmark extends TodoyuBaseObject {
 	/**
 	 * Get item type of bookmark
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getItemType() {
 		return $this->getInt('type');
@@ -80,7 +80,7 @@ class TodoyuBookmarkBookmark extends TodoyuBaseObject {
 	/**
 	 * Get label of bookmark
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getTitle() {
 		return $this->get('title');

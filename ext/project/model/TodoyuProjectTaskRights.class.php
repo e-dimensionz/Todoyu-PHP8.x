@@ -30,7 +30,7 @@ class TodoyuProjectTaskRights {
 	 * Deny access
 	 * Shortcut for project
 	 *
-	 * @param	String		$right		Denied right
+	 * @param	string		$right		Denied right
 	 */
 	private static function deny($right) {
 		TodoyuRightsManager::deny('project', $right);
@@ -42,8 +42,8 @@ class TodoyuProjectTaskRights {
 	 * Check whether person can edit a task
 	 * Check whether person has edit rights and if person can edit a status
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isEditAllowed($idTask) {
 		if( TodoyuAuth::isAdmin() ) {
@@ -86,8 +86,8 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Check whether a task can get deleted
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isDeleteAllowed($idTask) {
 		if( TodoyuAuth::isAdmin() ) {
@@ -120,8 +120,8 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Check whether a status change of a task is allowed
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isStatusChangeAllowed($idTask) {
 		$idTask		= intval($idTask);
@@ -146,8 +146,8 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Check whether task edit for status of given task is allowed
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isStatusEditAllowed($idTask) {
 		$idTask		= intval($idTask);
@@ -164,8 +164,8 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Check whether person can edit tasks/containers in this project
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isEditInProjectAllowed($idTask) {
 		$idTask		= intval($idTask);
@@ -196,8 +196,8 @@ class TodoyuProjectTaskRights {
 	 * -Must be allowed to see the task to be cloned
 	 * -Must be allowed to edit tasks in the resulting status
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isCloneAllowed($idTask) {
 			// Must be in project area
@@ -243,8 +243,8 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Check whether a task can get deleted by project rights
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isDeleteInProjectAllowed($idTask) {
 		if( TodoyuAuth::isAdmin() ) {
@@ -272,9 +272,9 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Check whether person can add a new task under the parent task
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$isContainer		Element to be added is container?
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @param	boolean		$isContainer		Element to be added is container?
+	 * @return	boolean
 	 */
 	public static function isAddInTaskProjectAllowed($idTask, $isContainer = false) {
 		$idTask		= intval($idTask);
@@ -288,8 +288,8 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Check whether person can add a new container under the parent task
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isAddInContainerProjectAllowed($idTask) {
 		return self::isAddInTaskProjectAllowed($idTask, true);
@@ -300,9 +300,9 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Check whether a person can add a new task/container in this project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Boolean		$isContainer	added element is a container?
-	 * @return	Boolean
+	 * @param	integer		$idProject
+	 * @param	boolean		$isContainer	added element is a container?
+	 * @return	boolean
 	 */
 	public static function isAddInProjectAllowed($idProject, $isContainer = false) {
 		$idProject	= intval($idProject);
@@ -331,7 +331,7 @@ class TodoyuProjectTaskRights {
 	 * Check whether quick-add of tasks is allowed
 	 * Needs at least one project where he can add tasks
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isQuickAddAllowed() {
 		$projectIDs	= TodoyuProjectProjectManager::getProjectIDsForTaskAdd();
@@ -344,8 +344,8 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Check whether a person can see the task
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isSeeAllowed($idTask) {
 		$idTask	= intval($idTask);
@@ -386,8 +386,8 @@ class TodoyuProjectTaskRights {
 
 
 	/**
-	 * @param	Boolean		$isPublic
-	 * @return	Boolean
+	 * @param	boolean		$isPublic
+	 * @return	boolean
 	 */
 	public static function isSeePublicFlagAllowed($isPublic) {
 		return $isPublic && (Todoyu::person()->isInternal() || TodoyuAuth::isAdmin());
@@ -398,8 +398,8 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Check whether user can use drag and drop for tasks
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isDragAndDropForTaskAllowed($idTask) {
 		$idTask	= intval($idTask);
@@ -421,9 +421,9 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Check whether person can see a taskstatus
 	 *
-	 * @param	String		$status
-	 * @param	String		$type
-	 * @return	Boolean
+	 * @param	string		$status
+	 * @param	string		$type
+	 * @return	boolean
 	 */
 	public static function hasStatusRight($status, $type = 'see') {
 		$group = self::getStatusRightGroupByType($type);
@@ -436,8 +436,8 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Gives back the right group of the task status query
 	 *
-	 * @param	String		$type
-	 * @return	String
+	 * @param	string		$type
+	 * @return	string
 	 */
 	protected static function getStatusRightGroupByType($type = 'see') {
 		switch( $type ) {
@@ -464,7 +464,7 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Restrict access to persons who are allowed to add tasks in the project if this task
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 */
 	public static function restrictEdit($idTask) {
 		if( ! self::isEditAllowed($idTask) ) {
@@ -477,7 +477,7 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Restrict access if person cannot delete the task
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 */
 	public static function restrictDelete($idTask) {
 		if( ! self::isDeleteAllowed($idTask) ) {
@@ -490,7 +490,7 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Restrict access to persons who are allowed to add tasks in the project of this task
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 */
 	public static function restrictAddSubTask($idTask) {
 		if( ! self::isAddInTaskProjectAllowed($idTask) ) {
@@ -514,7 +514,7 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Restrict access to persons who are allowed to add tasks in the project
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 */
 	public static function restrictAddToProject($idProject) {
 		if( ! self::isAddInProjectAllowed($idProject) ) {
@@ -527,7 +527,7 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Restrict access to persons who are allowed to see the task
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 */
 	public static function restrictSee($idTask) {
 		if( ! self::isSeeAllowed($idTask) ) {
@@ -540,8 +540,8 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Checks if the change of status is allowed
 	 *
-	 * @param	String	$status		Status key
-	 * @param	Integer	$idTask
+	 * @param	string	$status		Status key
+	 * @param	integer	$idTask
 	 */
 	public static function restrictStatusChangeTo($status, $idTask) {
 		self::restrictSee($idTask);
@@ -554,7 +554,7 @@ class TodoyuProjectTaskRights {
 	/**
 	 * Restrict access to task drag and drop
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 */
 	public static function restrictDragAndDrop($idTask) {
 		if( !self::isDragAndDropForTaskAllowed($idTask) ) {

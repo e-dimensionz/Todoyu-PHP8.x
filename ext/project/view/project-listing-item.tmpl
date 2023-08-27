@@ -2,16 +2,16 @@
 	<h3 id="project-{$project.id}-header" class="projectheader contextmenuproject" onclick="Todoyu.Ext.project.Project.toggleDetails({$project.id})">
 		<span class="headLabel bcStatus{$project.status}"><!-- //--></span>
 		<span class="projectName">
-			{htmlencode $project.fulltitle}
+			{$project.fulltitle|escape}
 		</span>
 		<span class="projectNumber">
 			{$project.id}
 		</span>
 	</h3>
 
-{if isAllowedSeeProjectDetails($project.id)}
-	<div id="project-{$project.id}-details" class="projectDetails" {if ! $details} style="display:none"{/if}>
-		{$details}
+{if fn_isAllowedSeeProjectDetails($project.id)}
+	<div id="project-{$project.id}-details" class="projectDetails" {if ! isset($details) or ! $details} style="display:none"{/if}>
+		{if isset($details)}{$details}{/if}
 	</div>
 {/if}
 

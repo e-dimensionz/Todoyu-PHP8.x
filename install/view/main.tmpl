@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>todoyu Installer - {Label $title}</title>
+	<title>todoyu Installer - {Label text=$title}</title>
 	<link rel="shortcut icon" href="../favicon.ico" />
-	{foreach $assets.css cssHref}
+	{foreach $assets.css as $cssHref}
 		<link href="{$cssHref}" rel="stylesheet" type="text/css" />
 	{/foreach}
-	{foreach $assets.js jsSrc}
+	{foreach $assets.js as $jsSrc}
 		<script type="text/javascript" src="{$jsSrc}"></script>
 	{/foreach}
 	<meta http-equiv="expires" content="0" />
@@ -26,8 +26,8 @@
 					<h1 class="defaultCursor"><span class="title">todoyu</span></h1>
 					<img src="asset/img/banner.jpg">
 					<p class="slogan">
-					{Label install.installer.slogan.line1} &ndash;<br />
-					{Label install.installer.slogan.line2}
+					{Label text='install.installer.slogan.line1'} &ndash;<br />
+					{Label text='install.installer.slogan.line2'}
 					</p>
 				</div>
 				<div class="panelFooter"><!-- panel footer --></div>
@@ -37,7 +37,7 @@
 			<div id="contentBox">
 				<div class="content">
 						<h1 class="headerLine">
-							<span class="title">Todoyu Installer - {Label $title}</span>
+							<span class="title">Todoyu Installer - {Label text=$title}</span>
 						</h1>
 					<div class="boxContent">
 
@@ -60,10 +60,10 @@
 				{* ------------------- Footer ----------------- *}
 				<div id="footer">
 					<p>
-						<strong>todoyu.</strong> Copyright &copy; 2006-{date('Y')} snowflake productions GmbH, Switzerland<br />
+						<strong>todoyu.</strong> Copyright &copy; 2006-{$smarty.now|date_format:'%Y'} snowflake productions GmbH, Switzerland<br />
 						Extensions are copyright of their respective owners. Go to <a href="http://www.todoyu.com" target="_blank">todoyu.com</a> for details. todoyu comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions.<br />
 						Obstructing the appearance of this notice is prohibited by law.<br />
-						Installed version: {constant(TODOYU_VERSION)} ({constant(TODOYU_UPDATE)})
+						Installed version: {$smarty.const.TODOYU_VERSION} ({$smarty.const.TODOYU_UPDATE})
 					</p>
 				</div>
 			</div>

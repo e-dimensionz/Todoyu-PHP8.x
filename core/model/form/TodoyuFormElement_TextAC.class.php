@@ -31,9 +31,9 @@ class TodoyuFormElement_TextAC extends TodoyuFormElement {
 	/**
 	 * Constructor
 	 *
-	 * @param	String			$name
+	 * @param	string			$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array			$config
+	 * @param	array			$config
 	 */
 	function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		parent::__construct('textAC', $name, $fieldset, $config);
@@ -57,7 +57,7 @@ class TodoyuFormElement_TextAC extends TodoyuFormElement {
 	/**
 	 * Set form element type
 	 *
-	 * @param	String	$type
+	 * @param	string	$type
 	 */
 	public function setType($type) {
 		$this->setAttribute('type', $type);

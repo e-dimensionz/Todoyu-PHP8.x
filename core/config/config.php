@@ -32,7 +32,7 @@ Todoyu::$CONFIG['AUTOLOAD'] = array(
 	)
 );
 
-	// Template (dwoo) path config
+	// Template (smarty) path config
 Todoyu::$CONFIG['TEMPLATE']		= array(
 	'compile'	=> PATH_CACHE . DIR_SEP . 'tmpl' . DIR_SEP . 'compile',
 	'cache'		=> PATH_CACHE . DIR_SEP . 'tmpl' . DIR_SEP . 'cache',

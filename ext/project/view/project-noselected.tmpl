@@ -4,11 +4,11 @@
 
 			<div class="noProjectSelected">
 				<p class="message">
-					{Label project.ext.noproject.message.description}
-					{if allowed('project','project:add')}
-						<a href="javascript:void(0)" onclick="Todoyu.Ext.project.openProjectPopup()">{Label project.ext.noproject.message.createproject}</a>
+					{Label text='project.ext.noproject.message.description'}
+					{if fn_allowed('project','project:add')}
+						<a href="javascript:void(0)" onclick="Todoyu.Ext.project.openProjectPopup()">{Label text='project.ext.noproject.message.createproject'}</a>
 					{else}
-						{Label project.ext.noproject.message.informcontact}
+						{Label text='project.ext.noproject.message.informcontact'}
 					{/if}
 				</p>
 			</div>

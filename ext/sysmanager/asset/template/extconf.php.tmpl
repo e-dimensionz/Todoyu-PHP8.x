@@ -10,6 +10,6 @@
 	// ****************************************************************************
 
 	// Extension config
-{foreach $extConf extKey confString}
+{foreach $extConf as $extKey=>$confString}
 Todoyu::$CONFIG['EXT']['{$extKey}']['extConf'] = unserialize(stripslashes('{$confString}'));
 {/foreach}

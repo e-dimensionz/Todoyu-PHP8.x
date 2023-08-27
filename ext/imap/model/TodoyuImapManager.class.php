@@ -29,7 +29,7 @@ class TodoyuImapManager {
 	/**
 	 * Get IDs of all active accounts
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public static function getActiveAccountIDs() {
 		$accounts	= self::getAllAccounts();
@@ -47,7 +47,7 @@ class TodoyuImapManager {
 	/**
 	 * Get all configured mailbox accounts
 	 *
-	 * @param	Boolean		$onlyActive
+	 * @param	boolean		$onlyActive
 	 * @return	TodoyuImapImapAccount[]
 	 */
 	public static function getAllAccounts($onlyActive = true) {
@@ -59,8 +59,8 @@ class TodoyuImapManager {
 	/**
 	 * Get matching items: persons with email
 	 *
-	 * @param	String[]	$searchWords
-	 * @param	Integer[]	$ignoreIDs
+	 * @param	string[]	$searchWords
+	 * @param	integer[]	$ignoreIDs
 	 * @return	Array
 	 */
 	public static function getMatchingEmailPersons($searchWords, $ignoreIDs) {

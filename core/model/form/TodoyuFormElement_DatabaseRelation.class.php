@@ -29,9 +29,9 @@ class TodoyuFormElement_DatabaseRelation extends TodoyuFormElement {
 	/**
 	 * Constructor of the class
 	 *
-	 * @param	String			$name
+	 * @param	string			$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array			$config
+	 * @param	array			$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config  = array()) {
 		parent::__construct('databaseRelation', $name, $fieldset, $config);
@@ -52,7 +52,7 @@ class TodoyuFormElement_DatabaseRelation extends TodoyuFormElement {
 	/**
 	 * Set value
 	 *
-	 * @param	Array		$value
+	 * @param	array		$value
 	 */
 	public function setValue($value, $updateForm = true) {
 		$records	= TodoyuArray::assure($value);
@@ -76,7 +76,7 @@ class TodoyuFormElement_DatabaseRelation extends TodoyuFormElement {
 	/**
 	 * Get record data
 	 *
-	 * @param	Integer		$index
+	 * @param	integer		$index
 	 * @return	Array
 	 */
 	public function getRecord($index) {
@@ -121,8 +121,8 @@ class TodoyuFormElement_DatabaseRelation extends TodoyuFormElement {
 	/**
 	 * Render the field, including registered rendering hooks
 	 *
-	 * @param	Boolean	$odd
-	 * @return	String
+	 * @param	boolean	$odd
+	 * @return	string
 	 */
 	public function render($odd = false) {
 		return parent::render($odd);
@@ -133,8 +133,8 @@ class TodoyuFormElement_DatabaseRelation extends TodoyuFormElement {
 	/**
 	 * Render new record without data
 	 *
-	 * @param	Integer		$index
-	 * @return	String
+	 * @param	integer		$index
+	 * @return	string
 	 */
 	public function renderNewRecord($index = 0) {
 		$tmpl	= 'core/view/form/FormElement_DatabaseRelation_Record.tmpl';
@@ -155,8 +155,8 @@ class TodoyuFormElement_DatabaseRelation extends TodoyuFormElement {
 	/**
 	 * Render foreign record form
 	 *
-	 * @param	Integer		$index
-	 * @return	String
+	 * @param	integer		$index
+	 * @return	string
 	 */
 	protected function renderRecordForm($index) {
 		$recordForm	= $this->getRecordForm($index);
@@ -175,7 +175,7 @@ class TodoyuFormElement_DatabaseRelation extends TodoyuFormElement {
 	/**
 	 * Get form object for a record at a specific index
 	 *
-	 * @param	Integer		$index
+	 * @param	integer		$index
 	 * @return	TodoyuForm
 	 */
 	public function getRecordForm($index) {
@@ -256,7 +256,7 @@ class TodoyuFormElement_DatabaseRelation extends TodoyuFormElement {
 	/**
 	 * Get path to record form xml
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getRecordsFormXml() {
 		$recordConfig = $this->getRecordsConfig();
@@ -269,8 +269,8 @@ class TodoyuFormElement_DatabaseRelation extends TodoyuFormElement {
 	/**
 	 * Get record label defined by config
 	 *
-	 * @param	Integer		$index
-	 * @return	String
+	 * @param	integer		$index
+	 * @return	string
 	 */
 	protected function getRecordLabel($index) {
 		$config	= $this->getRecordsConfig();
@@ -315,7 +315,7 @@ class TodoyuFormElement_DatabaseRelation extends TodoyuFormElement {
 	/**
 	 * Get record with template data
 	 *
-	 * @param	Integer		$index
+	 * @param	integer		$index
 	 * @return	Array
 	 */
 	protected function getRecordTemplateData($index) {
@@ -333,7 +333,7 @@ class TodoyuFormElement_DatabaseRelation extends TodoyuFormElement {
 	/**
 	 * Check if all record forms are valid
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function areAllRecordsValid() {
 		$indexes	= $this->getRecordIndexes();
@@ -358,7 +358,7 @@ class TodoyuFormElement_DatabaseRelation extends TodoyuFormElement {
 	 * Because a databaseRelation can contain any kind of data, a custom validator function is required.
 	 * The function has to be referenced in record->validateRequired in the xml
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function validateRequired() {
 		$customValidator	= $this->config['record']['validateRequired'];
@@ -393,7 +393,7 @@ class TodoyuFormElement_DatabaseRelation extends TodoyuFormElement {
 	/**
 	 * Get amount of sub records
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getRecordsAmount() {
 		return sizeof($this->config['value']);

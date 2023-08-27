@@ -29,8 +29,8 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Get IDs of users which are also assigned to the event (all except current user)
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	Integer[]
+	 * @param	integer		$idEvent
+	 * @return	integer[]
 	 */
 	public static function getOtherAssignedUserIDs($idEvent) {
 		$idEvent	= intval($idEvent);
@@ -49,8 +49,8 @@ class TodoyuCalendarEventMailManager {
 	 * Remove auto mail fieldset, if no users are receiving auto mail info
 	 *
 	 * @param	TodoyuForm		$form
-	 * @param	Integer			$idEvent
-	 * @param	Array			$params
+	 * @param	integer			$idEvent
+	 * @param	array			$params
 	 * @return	TodoyuForm
 	 */
 	public static function hookToggleAutoMailField(TodoyuForm $form, $idEvent, array $params) {
@@ -70,9 +70,9 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Get person IDs of participants receiving auto-notification event emails
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Boolean		$ignoreCurrentUser
-	 * @return	Integer[]
+	 * @param	integer		$idEvent
+	 * @param	boolean		$ignoreCurrentUser
+	 * @return	integer[]
 	 */
 	public static function getAutoNotifiedPersonIDs($idEvent, $ignoreCurrentUser = true) {
 		$idEvent			= intval($idEvent);
@@ -102,9 +102,9 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Extract person IDs from list which are auto notified by mail
 	 *
-	 * @param	Array	$personIDs
-	 * @param	Boolean	$ignoreCurrentUser
-	 * @return	Integer[]
+	 * @param	array	$personIDs
+	 * @param	boolean	$ignoreCurrentUser
+	 * @return	integer[]
 	 */
 	public static function extractAutoNotifiedPersonIDs(array $personIDs, $ignoreCurrentUser = true) {
 		$personIDs			= TodoyuArray::intval($personIDs, true, true);
@@ -129,7 +129,7 @@ class TodoyuCalendarEventMailManager {
 
 
 	/**
-	 * @param	Integer							$idEvent
+	 * @param	integer							$idEvent
 	 * @param	TodoyuMailReceiverInterface		$mailReceiver
 	 */
 	public static function saveMailSent($idEvent, TodoyuMailReceiverInterface $mailReceiver) {
@@ -144,8 +144,8 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Log sent event email of given event to given person
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
 	 */
 	public static function addMailSent($idEvent, $idPerson) {
 		TodoyuMailManager::addMailSent(EXTID_CALENDAR, CALENDAR_TYPE_EVENT, $idEvent, $idPerson);
@@ -156,7 +156,7 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Get mail receivers the given event has been sent to by email
 	 *
-	 * @param	Integer					$idEvent
+	 * @param	integer					$idEvent
 	 * @return	TodoyuMailReceiverInterface[]
 	 */
 	public static function getEmailReceivers($idEvent) {
@@ -168,9 +168,9 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Get event mail subject label by operation ID (create, update, delete)
 	 *
-	 * @param	String		$operation
-	 * @param	Boolean		$isSeriesAction
-	 * @return	String
+	 * @param	string		$operation
+	 * @param	boolean		$isSeriesAction
+	 * @return	string
 	 */
 	public static function getEventMailSubject($operation, $isSeriesAction) {
 		$operation	= trim($operation);
@@ -183,10 +183,10 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Get data array to render event email
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPersonMailTo
-	 * @param	Boolean		$isSentBySystem
-	 * @param	Integer		$idPersonSender
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPersonMailTo
+	 * @param	boolean		$isSentBySystem
+	 * @param	integer		$idPersonSender
 	 * @return	Array
 	 */
 	public static function getMailData($idEvent, $idPersonMailTo, $isSentBySystem = false, $idPersonSender = 0) {
@@ -219,8 +219,8 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Get event email sender person template data
 	 *
-	 * @param	Integer		$idPersonSender
-	 * @param	Boolean		$isSentBySystem			Automatically sent, not by a person?
+	 * @param	integer		$idPersonSender
+	 * @param	boolean		$isSentBySystem			Automatically sent, not by a person?
 	 * @return	Array
 	 */
 	public static function getPersonSendTemplateData($idPersonSender, $isSentBySystem = false) {
@@ -256,7 +256,7 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Get person IDs of participants who are being auto-notified about event changes/creations
 	 *
-	 * @param	Array	$participantIDs
+	 * @param	array	$participantIDs
 	 * @return	Array|Integer[]
 	 */
 	public static function getAutoNotifiedPersonIDsOLD($participantIDs = array()) {
@@ -294,9 +294,9 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Hook for event moving
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd
+	 * @param	integer		$idEvent
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd
 	 */
 	public static function hookEventMoved($idEvent, $dateStart, $dateEnd) {
 		self::sendAutoInfoMails($idEvent, array('new'=>false));
@@ -307,8 +307,8 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Hook for event saving. Send auto info mails to special group users
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Array		$options
+	 * @param	integer		$idEvent
+	 * @param	array		$options
 	 */
 	public static function hookEventSaved($idEvent, array $options = array()) {
 		$options['operation'] = $options['new'] ? 'create' : 'update';
@@ -323,8 +323,8 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Hook for event delete
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Array		$options
+	 * @param	integer		$idEvent
+	 * @param	array		$options
 	 */
 	public static function hookEventDeleted($idEvent, array $options = array()) {
 		$options['operation'] = 'delete';
@@ -340,9 +340,9 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Send info mails to all assigned users of the event which are in the specified groups
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Array		$options
-	 * @return	Integer[]
+	 * @param	integer		$idEvent
+	 * @param	array		$options
+	 * @return	integer[]
 	 */
 	public static function sendAutoInfoMails($idEvent, array $options = array()) {
 		$autoMailUserIDs = self::getAutoNotifiedPersonIDs($idEvent, true);
@@ -359,10 +359,10 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Event save hook. Send emails
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	String[]	$receiverTuples
-	 * @param	Array		$options
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @param	string[]	$receiverTuples
+	 * @param	array		$options
+	 * @return	boolean
 	 */
 	public static function sendEvent($idEvent, array $receiverTuples, array $options = array()) {
 		$receiverTuples	= TodoyuArray::trim($receiverTuples);
@@ -380,10 +380,10 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Send event information email to the persons
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Array		$receiverTuples		'type:ID' or just 'ID', which defaults the type to 'contactperson'
-	 * @param	Array		$options
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @param	array		$receiverTuples		'type:ID' or just 'ID', which defaults the type to 'contactperson'
+	 * @param	array		$options
+	 * @return	boolean
 	 */
 	public static function sendEmails($idEvent, array $receiverTuples, array $options = array()) {
 		$idEvent		= intval($idEvent);
@@ -407,10 +407,10 @@ class TodoyuCalendarEventMailManager {
 	/**
 	 * Send an event email to a person, log sent email.
 	 *
-	 * @param	Integer							$idEvent
+	 * @param	integer							$idEvent
 	 * @param	TodoyuMailReceiverInterface		$mailReceiver
-	 * @param	Array							$options
-	 * @return	Boolean							Success
+	 * @param	array							$options
+	 * @return	boolean							Success
 	 */
 	public static function sendInfoMail($idEvent, $mailReceiver, array $options = array()) {
 		$idEvent		= intval($idEvent);

@@ -31,9 +31,9 @@ class TodoyuFormElement_RTE extends TodoyuFormElement_Textarea {
 	/**
 	 * Initialize RTE form element
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array		$config
+	 * @param	array		$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		TodoyuFormElement::__construct('RTE', $name, $fieldset, $config);
@@ -45,7 +45,7 @@ class TodoyuFormElement_RTE extends TodoyuFormElement_Textarea {
 	 * Build RTE initialisation JavaScript code to convert the textarea into a RTE
 	 * when displayed on the page
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	private function buildRTEjs() {
 		$extraOptions	= TodoyuArray::assure($this->config['tinymce'] ?? []);
@@ -82,8 +82,8 @@ class TodoyuFormElement_RTE extends TodoyuFormElement_Textarea {
 	/**
 	 * Set RTE text. Removed <pre> tags (copy from email programs) and adds <br> tags for the newlines in <pre>
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$updateForm
+	 * @param	string		$value
+	 * @param	boolean		$updateForm
 	 */
 	public function setValue($value, $updateForm = true) {
 		$value	= TodoyuString::cleanRTEText($value);
@@ -96,7 +96,7 @@ class TodoyuFormElement_RTE extends TodoyuFormElement_Textarea {
 	/**
 	 * Check if field is valid for required flag
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function validateRequired() {
 		return TodoyuValidator::isNotEmpty($this->getValue());

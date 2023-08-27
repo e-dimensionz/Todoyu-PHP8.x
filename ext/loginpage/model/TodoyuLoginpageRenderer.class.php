@@ -36,7 +36,7 @@ class TodoyuLoginpageRenderer {
 	/**
 	 * Render login-page panel widgets
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderPanelWidgets() {
 		return TodoyuPanelWidgetRenderer::renderPanelWidgets(self::EXTKEY);
@@ -47,8 +47,8 @@ class TodoyuLoginpageRenderer {
 	/**
 	 * Render login mask (form)
 	 *
-	 * @param	String		$status
-	 * @return	String
+	 * @param	string		$status
+	 * @return	string
 	 */
 	public static function renderLoginForm($status = null) {
 		$xml	= 'ext/loginpage/config/form/login.xml';
@@ -79,8 +79,8 @@ class TodoyuLoginpageRenderer {
 	/**
 	 * Render extended content (from registered function hooks)
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderExtendedContent(array $params) {
 		$content	= '';
@@ -101,7 +101,7 @@ class TodoyuLoginpageRenderer {
 
 
 	/**
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderForgotPasswordLink() {
 		return Todoyu::render('ext/loginpage/view/forgotpasswordlink.tmpl', array());
@@ -112,8 +112,8 @@ class TodoyuLoginpageRenderer {
 	/**
 	 * Render form for requesting email with forgotten password
 	 *
-	 * @param	String	$username
-	 * @return	String
+	 * @param	string	$username
+	 * @return	string
 	 */
 	public static function renderForgotPasswordForm($username = '') {
 		$xmlPath	= 'ext/loginpage/config/form/forgotpassword.xml';
@@ -131,7 +131,7 @@ class TodoyuLoginpageRenderer {
 	 * Renders the noscript check and sets a cookie.
 	 * To check if javaScript & cookies are enabled
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderJavascriptAndCookieCheck() {
 		$tmpl	= 'ext/loginpage/view/javascriptcheck.tmpl';

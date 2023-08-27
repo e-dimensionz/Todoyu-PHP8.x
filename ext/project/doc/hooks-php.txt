@@ -6,47 +6,47 @@ Event Hooks
 
 #project.quickcreatetask
 	Form for a new task in create popup is displayed
-	@param	Integer		$idProject
+	@param	integer		$idProject
 
 
 #project.quicktask
 	Form for a new quick task in create popup is displayed
-	@param	Integer		$idProject
+	@param	integer		$idProject
 
 
 #project.quicktask.saved
 	Quicktask was saved
-	@param	Integer		$idTask
-	@param	Integer		$idProject
-	@param	Array		$storageData
+	@param	integer		$idTask
+	@param	integer		$idProject
+	@param	array		$storageData
 
 
 #project.project.add
 	Project was added
-	@param	Integer		$idProject
+	@param	integer		$idProject
 
 
 #project.project.update
 	Project was updated
-	@param	Integer		$idProject
-	@param	Array		$data
+	@param	integer		$idProject
+	@param	array		$data
 
 
 #project.project.changeStatus
 	Project status changed
-	@param	Integer		$idProject
-	@param	Integer		$newStatus
+	@param	integer		$idProject
+	@param	integer		$newStatus
 
 
 #project.project.delete
 	Project was deleted
-	@param	Integer		$idProject
+	@param	integer		$idProject
 
 
 #project.projectpresetdata
 	Collect preset data attributes (labels and value)
 	@todo	Refactor
-	@param	Integer		$idProject
+	@param	integer		$idProject
 	@return	Array
 
 
@@ -60,46 +60,46 @@ Event Hooks
 
 #project.task.create
 	Request for a new task. Render empty task form
-	@param	Integer		$idParentTask
-	@param	Integer		$idProject
-	@param	Integer		$type
+	@param	integer		$idParentTask
+	@param	integer		$idProject
+	@param	integer		$type
 
 
 #project.task.update
 	Task updated
-	@param	Integer		$idTask
-	@param	Array		$data
+	@param	integer		$idTask
+	@param	array		$data
 
 
 #project.task.add
 	Task added
-	@param	Integer		$idTask
+	@param	integer		$idTask
 
 
 #project.task.delete
 	Task deleted
-	@param	Integer		$idTask
+	@param	integer		$idTask
 
 
 #project.task.copy
 	Task copied
-	@param	Integer		$idTaskOld
-	@param	Integer		$idTaskNew
+	@param	integer		$idTaskOld
+	@param	integer		$idTaskNew
 
 
 #project.task.lock
 	Task locked
-	@param	Integer		$idTask
+	@param	integer		$idTask
 
 
 #project.task.unlock
 	Task unlocked
-	@param	Integer		$idTask
+	@param	integer		$idTask
 
 
 #project.task.edit
 	Edit a task
-	@param	Integer		$idTask
+	@param	integer		$idTask
 
 
 
@@ -109,90 +109,90 @@ Data modification
 
 #projectCSVExportParseData
 	Modify project data for CSV export
-	@param	Array					$exportData
+	@param	array					$exportData
 	@param	TodoyouProjectProject	$project
 	@return	Array
 
 #taskCSVExportParseData
 	Modify task data for CSV export
-	@param	Array				$exportData
+	@param	array				$exportData
 	@param	TodoyuProjectTask	$project
 	@return	Array
 
 #project.properties
 	Collect project detail properties
-	@param	Array		$properties
-	@param	Integer		$idProject
+	@param	array		$properties
+	@param	integer		$idProject
 
 #project.defaultData
 	Collect project default data
-	@param	Array
+	@param	array
 	@return	Array
 
 
 #project.dataBeforeRender
 	Modify data before project details are rendered
-	@param	Array		$data
-	@param	Integer		$idProject
+	@param	array		$data
+	@param	integer		$idProject
 	@return	Array
 
 #task.dataBeforeRendering
 	Modify data before task details are rendered
-	@param	Array		$data
-	@param	Integer		$idTask
-	@param	String		$callingMethod
+	@param	array		$data
+	@param	integer		$idTask
+	@param	string		$callingMethod
 
 #onTaskStatusChanged
 	Modify task data on status change
-	@param	Array		$data
-	@param	Integer		$idTask
+	@param	array		$data
+	@param	integer		$idTask
 
 #taskdata
 	Collect task data for rendering
-	@param	Array		$data
-	@param	Integer		$idTask
+	@param	array		$data
+	@param	integer		$idTask
 
 #taskinfo
 	Collect task infos for rendering
-	@param	Array		$data
-	@param	Integer		$idTask
-	@param	Integer		$infoLevel
+	@param	array		$data
+	@param	integer		$idTask
+	@param	integer		$infoLevel
 
 #taskIcons
 	Collect task icons
-	@param	Array		$data
-	@param	Integer		$idTask
+	@param	array		$data
+	@param	integer		$idTask
 
 #taskHeaderExtras
 	Collect task header extras
-	@param	Array		$data
-	@param	Integer		$idTask
+	@param	array		$data
+	@param	integer		$idTask
 
 #task.defaultData
 	Collect task default data
-	@param	Array		$data
-	@param	Integer		$type
-	@param	Integer		$idProject
-	@param	Integer		$idParentTask
+	@param	array		$data
+	@param	integer		$type
+	@param	integer		$idProject
+	@param	integer		$idParentTask
 
 #task.defaultsForNotAllowedFields
 	Set default values for missing fields because the user was not allowed to populate them
-	@param	Array		$data
-	@param	Array		$originalData
+	@param	array		$data
+	@param	array		$originalData
 
 #task.modifyFormfieldsForContainer
 	@todo	Refactor/Remove
 	@param	TodoyuForm	$form
-	@param	Integer		$idTask
+	@param	integer		$idTask
 
 #taskcopydata
 	Modify data before task is copied
-	@param	Array		$data
-	@param	Integer		$idTask
-	@param	Integer		$idParent
-	@param	Boolean		$withSubtasks
-	@param	Integer		$idProject
+	@param	array		$data
+	@param	integer		$idTask
+	@param	integer		$idParent
+	@param	boolean		$withSubtasks
+	@param	integer		$idProject
 
 #task.statusInfos
 	Modify available status infos
-	@param	Array	$data
+	@param	array	$data

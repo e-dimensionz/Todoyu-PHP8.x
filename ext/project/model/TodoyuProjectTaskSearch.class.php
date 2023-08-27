@@ -39,9 +39,9 @@ class TodoyuProjectTaskSearch implements TodoyuSearchEngineIf {
 	/**
 	 * Search task which match the keywords
 	 *
-	 * @param	Array		$find		Keywords which must be in the task
-	 * @param	Array		$ignore		Keywords which must not be in the task
-	 * @param	Integer		$limit
+	 * @param	array		$find		Keywords which must be in the task
+	 * @param	array		$ignore		Keywords which must not be in the task
+	 * @param	integer		$limit
 	 * @return	Array
 	 */
 	public static function searchTasks(array $find, array $ignore = array(), $limit = 200) {
@@ -70,9 +70,9 @@ class TodoyuProjectTaskSearch implements TodoyuSearchEngineIf {
 	/**
 	 * Get render arrays for select options of task autocompleter suggestion
 	 *
-	 * @param	Array	$find		Array of words to search for
-	 * @param	Array	$ignore		Array of words to be ignored
-	 * @param	Integer	$limit
+	 * @param	array	$find		Array of words to search for
+	 * @param	array	$ignore		Array of words to be ignored
+	 * @param	integer	$limit
 	 * @return	Array
 	 */
 	public static function getSuggestions(array $find, array $ignore = array(), $limit = 5) {
@@ -128,7 +128,7 @@ class TodoyuProjectTaskSearch implements TodoyuSearchEngineIf {
 	 *
 	 * else create a normal like search
 	 *
-	 * @param	String	$sword
+	 * @param	string	$sword
 	 * @return	Array
 	 */
 	public static function searchTask($sword) {
@@ -158,7 +158,7 @@ class TodoyuProjectTaskSearch implements TodoyuSearchEngineIf {
 	/**
 	 * Returns the rights clause query for task
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected static function getAddToWhereRightsClause() {
 		$addToWhere = ' AND deleted = 0';

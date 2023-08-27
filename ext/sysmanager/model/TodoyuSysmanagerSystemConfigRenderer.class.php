@@ -29,8 +29,8 @@ class TodoyuSysmanagerSystemConfigRenderer {
 	/**
 	 * Render module content
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function renderModule(array $params) {
 		$tabs	= self::renderTabs($params);
@@ -44,8 +44,8 @@ class TodoyuSysmanagerSystemConfigRenderer {
 	/**
 	 * Render module body content
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function renderBody(array $params) {
 		switch($params['tab']) {
@@ -69,8 +69,8 @@ class TodoyuSysmanagerSystemConfigRenderer {
 	/**
 	 * Render body content for logo upload
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	private static function renderBodyLogo(array $params) {
 		$xmlPath= 'ext/sysmanager/config/form/config-logo.xml';
@@ -86,8 +86,8 @@ class TodoyuSysmanagerSystemConfigRenderer {
 	/**
 	 * Render content body for system config (config form)
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	private static function renderBodySystemConfig(array $params) {
 		$data	= TodoyuArray::assure(Todoyu::$CONFIG['SYSTEM']);
@@ -104,8 +104,8 @@ class TodoyuSysmanagerSystemConfigRenderer {
 	/**
 	 * Render content body for password strength settings
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	private static function renderBodyPasswordStrength(array $params) {
 		$data	= TodoyuArray::assure(Todoyu::$CONFIG['SETTINGS']['passwordStrength']);
@@ -122,8 +122,8 @@ class TodoyuSysmanagerSystemConfigRenderer {
 	/**
 	 * Render repository configuration body
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	private static function renderBodyRepository(array $params) {
 		$xml	= 'ext/sysmanager/config/form/repository-config.xml';
@@ -144,7 +144,7 @@ class TodoyuSysmanagerSystemConfigRenderer {
 	/**
 	 * Render comment for todoyu ID field explanation with link to tER
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderTodoyuIDComment() {
 		$tmpl	= 'ext/sysmanager/view/repository/config-todoyuidcomment.tmpl';
@@ -160,8 +160,8 @@ class TodoyuSysmanagerSystemConfigRenderer {
 	/**
 	 * Render tabs
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	private static function renderTabs(array $params) {
 		$name		= 'config';

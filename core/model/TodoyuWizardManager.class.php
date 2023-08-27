@@ -46,8 +46,8 @@ class TodoyuWizardManager {
 	/**
 	 * Add a wizard
 	 *
-	 * @param	String		$name
-	 * @param	String		$class
+	 * @param	string		$name
+	 * @param	string		$class
 	 */
 	public static function addWizard($name, $class) {
 		self::$wizards[$name] = $class;
@@ -57,7 +57,7 @@ class TodoyuWizardManager {
 
 	/**
 	 *
-	 * @param	String			$name
+	 * @param	string			$name
 	 * @return	TodoyuWizard
 	 */
 	public static function getWizard($name) {
@@ -71,8 +71,8 @@ class TodoyuWizardManager {
 	/**
 	 * Add wizard step
 	 *
-	 * @param	String		$wizardName
-	 * @param	Array		$stepConfig
+	 * @param	string		$wizardName
+	 * @param	array		$stepConfig
 	 */
 	public static function addStep($wizardName, array $stepConfig) {
 		self::$steps[$wizardName][$stepConfig['step']] = $stepConfig;
@@ -84,8 +84,8 @@ class TodoyuWizardManager {
 	/**
 	 * Get single wizard step
 	 *
-	 * @param	String		$wizardName
-	 * @param	String		$stepName
+	 * @param	string		$wizardName
+	 * @param	string		$stepName
 	 * @return	Array
 	 */
 	public static function getStep($wizardName, $stepName) {
@@ -97,7 +97,7 @@ class TodoyuWizardManager {
 	/**
 	 * Get all steps of a wizard
 	 *
-	 * @param	String		$wizardName
+	 * @param	string		$wizardName
 	 * @return	Array
 	 */
 	public static function getSteps($wizardName) {
@@ -109,8 +109,8 @@ class TodoyuWizardManager {
 	/**
 	 * Save current step
 	 *
-	 * @param	String		$wizardName
-	 * @param	String		$stepName
+	 * @param	string		$wizardName
+	 * @param	string		$stepName
 	 */
 	public static function setCurrentStep($wizardName, $stepName) {
 		TodoyuSession::set('wizard/' . $wizardName, $stepName);
@@ -121,8 +121,8 @@ class TodoyuWizardManager {
 	/**
 	 * Get current step
 	 *
-	 * @param	String		$wizardName
-	 * @return	String
+	 * @param	string		$wizardName
+	 * @return	string
 	 */
 	public static function getCurrentStep($wizardName) {
 		return TodoyuSession::get('wizard/' . $wizardName);

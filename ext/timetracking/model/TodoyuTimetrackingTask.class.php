@@ -29,8 +29,8 @@ class TodoyuTimetrackingTask extends TodoyuProjectTask {
 	/**
 	 * Get sum of tracked time of the task
 	 *
-	 * @param	Boolean		$checkChargeable
-	 * @return	Integer		 Seconds
+	 * @param	boolean		$checkChargeable
+	 * @return	integer		 Seconds
 	 */
 	public function getTrackedTime($checkChargeable = false) {
 		return TodoyuTimetracking::getTrackedTaskTimeTotal($this->getID(), $checkChargeable);
@@ -41,7 +41,7 @@ class TodoyuTimetrackingTask extends TodoyuProjectTask {
 	/**
 	 * Get amount of chargeable time of the task
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getChargeableTime() {
 		return $this->getTrackedTime(true);
@@ -54,7 +54,7 @@ class TodoyuTimetrackingTask extends TodoyuProjectTask {
 	 * Difference between estimated and tracked time, but only when positive
 	 * If more time than estimated was tracked, the open workload is 0 nevertheless
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getRemainingWorkload() {
 		$openTime	= $this->getEstimatedWorkload() - $this->getTrackedTime();
@@ -69,7 +69,7 @@ class TodoyuTimetrackingTask extends TodoyuProjectTask {
 	 *
 	 * @depreceated
 	 * @see		getRemainingWorkload
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getOpenWorkload() {
 		return $this->getRemainingWorkload();
@@ -80,7 +80,7 @@ class TodoyuTimetrackingTask extends TodoyuProjectTask {
 	/**
 	 * Check whether the current user currently tracks time on this task
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isTrackedByMe() {
 		return TodoyuTimetracking::isTaskTrackedByMe($this->getID());
@@ -98,7 +98,7 @@ class TodoyuTimetrackingTask extends TodoyuProjectTask {
 	/**
 	 * Check whether someone else is tracking time on this task currently
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isTrackedByOthers() {
 		return TodoyuTimeTracking::isTaskTrackedByOthers($this->getID());
@@ -113,7 +113,7 @@ class TodoyuTimetrackingTask extends TodoyuProjectTask {
 	 * - Has a trackable status
 	 * - Is not locked
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isTrackable() {
 		return $this->isTask() && !$this->isDeleted() && $this->hasTrackableStatus() && !$this->isLocked();
@@ -124,7 +124,7 @@ class TodoyuTimetrackingTask extends TodoyuProjectTask {
 	/**
 	 * Check whether task has a trackable status
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasTrackableStatus() {
 		return TodoyuTimetracking::isTrackableStatus($this->getStatus());

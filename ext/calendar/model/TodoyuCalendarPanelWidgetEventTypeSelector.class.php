@@ -37,8 +37,8 @@ class TodoyuCalendarPanelWidgetEventTypeSelector extends TodoyuPanelWidget {
 	/**
 	 * Constructor (init widget)
 	 *
-	 * @param	Array		$config
-	 * @param	Array		$params
+	 * @param	array		$config
+	 * @param	array		$params
 	 */
 	public function __construct(array $config, array $params = array()) {
 		parent::__construct(
@@ -60,7 +60,7 @@ class TodoyuCalendarPanelWidgetEventTypeSelector extends TodoyuPanelWidget {
 	/**
 	 * Render panel content (event type selector)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderContent() {
 		$selectedEventTypes	= $this->getSelectedEventTypes();
@@ -82,7 +82,7 @@ class TodoyuCalendarPanelWidgetEventTypeSelector extends TodoyuPanelWidget {
 	/**
 	 * Render widget (get evoked)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function render() {
 		$this->setContent($this->renderContent());
@@ -114,8 +114,8 @@ class TodoyuCalendarPanelWidgetEventTypeSelector extends TodoyuPanelWidget {
 	/**
 	 * Store prefs of the event type selector panel widget
 	 *
-	 * @param	Integer	$idArea
-	 * @param	String	$prefVals
+	 * @param	integer	$idArea
+	 * @param	string	$prefVals
 	 */
 	public function savePreference($idArea = 0, $prefVals = '') {
 		TodoyuPreferenceManager::savePreference(
@@ -132,7 +132,7 @@ class TodoyuCalendarPanelWidgetEventTypeSelector extends TodoyuPanelWidget {
 	/**
 	 * Shortcut for rights check - calendar 'general:use'
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		return Todoyu::allowed('calendar', 'general:use');

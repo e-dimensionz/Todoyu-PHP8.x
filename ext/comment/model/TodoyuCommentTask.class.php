@@ -40,7 +40,7 @@ class TodoyuCommentTask extends TodoyuProjectTask {
 	/**
 	 * Get comment fallback ID of project
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getCommentFallbackID() {
 		return $this->getProject()->getCommentFallbackID();
@@ -62,7 +62,7 @@ class TodoyuCommentTask extends TodoyuProjectTask {
 	/**
 	 * Check whether project has a comment fallback
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasCommentFallback() {
 		return $this->getProject()->hasCommentFallback();
@@ -73,7 +73,7 @@ class TodoyuCommentTask extends TodoyuProjectTask {
 	/**
 	 * Apply comment fallback if project has one (or try global fallback)
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array
 	 */
 	public function applyCommentFallback(array $data) {
@@ -85,7 +85,7 @@ class TodoyuCommentTask extends TodoyuProjectTask {
 	/**
 	 * Get ID of the first comment
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getFirstCommentID() {
 		return TodoyuCommentTaskManager::getFirstCommentID($this->getID());
@@ -96,7 +96,7 @@ class TodoyuCommentTask extends TodoyuProjectTask {
 	/**
 	 * Get ID of the last comment
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getLastCommentID() {
 		return TodoyuCommentTaskManager::getLastCommentID($this->getID());

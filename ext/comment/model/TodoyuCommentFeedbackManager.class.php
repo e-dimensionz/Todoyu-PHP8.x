@@ -36,9 +36,9 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Save feedback requests of given comment
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Integer[]	$feedbackPersonIDs
-	 * @return	Integer[]
+	 * @param	integer		$idComment
+	 * @param	integer[]	$feedbackPersonIDs
+	 * @return	integer[]
 	 */
 	public static function saveFeedbackRequests($idComment, $feedbackPersonIDs) {
 			// Get already stored unseen feedbacks
@@ -61,7 +61,7 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Get IDs of persons from whom a feedback is requested and who saw it already
 	 *
-	 * @param	Integer		$idComment
+	 * @param	integer		$idComment
 	 * @return	Array
 	 */
 	public static function getSeenFeedbacksPersonIDs($idComment) {
@@ -77,7 +77,7 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Get IDs of persons from whom a feedback is requested (and not yet seen)
 	 *
-	 * @param	Integer		$idComment
+	 * @param	integer		$idComment
 	 * @return	Array
 	 */
 	public static function getUnseenFeedbacksPersonIDs($idComment) {
@@ -92,7 +92,7 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Extract person IDs from given feedbacks
 	 *
-	 * @param	Array	$requests
+	 * @param	array	$requests
 	 * @return	Array
 	 */
 	public static function extractPersonIDsFromFeedbacks(array $requests = array()) {
@@ -111,8 +111,8 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Remove all unseen feedback request from given comment
 	 *
-	 * @param	Integer		$idComment
-	 * @return	Integer		Num affected rows
+	 * @param	integer		$idComment
+	 * @return	integer		Num affected rows
 	 */
 	public static function removeUnseenFeedbacks($idComment) {
 		$where	=
@@ -128,9 +128,9 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Add a new feedback request
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Integer		$idFeedbackPerson
-	 * @return	Integer
+	 * @param	integer		$idComment
+	 * @param	integer		$idFeedbackPerson
+	 * @return	integer
 	 */
 	public static function addFeedback($idComment, $idFeedbackPerson) {
 		$idComment			= intval($idComment);
@@ -154,8 +154,8 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Add feedback requests for multiple persons
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Array		$personIDs
+	 * @param	integer		$idComment
+	 * @param	array		$personIDs
 	 */
 	public static function addFeedbacks($idComment, array $personIDs) {
 		$idComment	= intval($idComment);
@@ -171,8 +171,8 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Get IDs of comments needing a feedback from the given person
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Integer[]
+	 * @param	integer		$idPerson
+	 * @return	integer[]
 	 */
 	public static function getCommentIDs($idPerson = 0) {
 		$idPerson	= Todoyu::personid($idPerson);
@@ -214,8 +214,8 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Get number of open feedbacks
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	public static function getOpenFeedbackCount($idPerson = 0 ) {
 		return sizeof(self::getCommentIDs($idPerson));
@@ -226,7 +226,7 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Get task IDs which have comments which need a feedback from the person
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getTaskIDs($idPerson = 0) {
@@ -248,9 +248,9 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Check whether the given comment has a feedback request from the given person
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idComment
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function hasFeedbackRequest($idComment, $idPerson = 0) {
 		$idComment	= intval($idComment);
@@ -274,8 +274,8 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Get feedback requests, optionally only not yet seen ones
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Boolean		$onlyUnseen
+	 * @param	integer		$idComment
+	 * @param	boolean		$onlyUnseen
 	 * @return	Array
 	 */
 	public static function getFeedbackRequests($idComment, $onlyUnseen = false) {
@@ -295,7 +295,7 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Get all seen feedback requests
 	 *
-	 * @param	Integer		$idComment
+	 * @param	integer		$idComment
 	 * @return	Array
 	 */
 	public static function getSeenFeedbackRequests($idComment) {
@@ -311,10 +311,10 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Set "seen" status of given comment's feedback
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Integer		$idPerson
-	 * @param	Boolean		$isSeen
-	 * @return	Integer
+	 * @param	integer		$idComment
+	 * @param	integer		$idPerson
+	 * @param	boolean		$isSeen
+	 * @return	integer
 	 */
 	public static function setSeenStatus($idComment, $idPerson = 0, $isSeen = true) {
 		$idComment	= intval($idComment);
@@ -336,10 +336,10 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Set a comment's feedback request as seen
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Integer		$idPerson
-	 * @param	Boolean		$isSeen
-	 * @return	Boolean
+	 * @param	integer		$idComment
+	 * @param	integer		$idPerson
+	 * @param	boolean		$isSeen
+	 * @return	boolean
 	 */
 	public static function setAsSeen($idComment, $idPerson = 0, $isSeen = true) {
 		$success	= self::setSeenStatus($idComment, $idPerson, $isSeen) > 0;
@@ -354,9 +354,9 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Set a comment's feedback request as seen
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idComment
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function setAsUnseen($idComment, $idPerson = 0) {
 		return self::setAsSeen($idComment, $idPerson, false);
@@ -367,8 +367,8 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Set all comments in a task as seen by a person
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idTask
+	 * @param	integer		$idPerson
 	 */
 	public static function setTaskCommentsAsSeen($idTask, $idPerson = 0) {
 		$idTask		= intval($idTask);
@@ -394,7 +394,7 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Get persons whom feedback to given comment is requested from
 	 *
-	 * @param	Integer	$idComment
+	 * @param	integer	$idComment
 	 * @param	Mixed	[$isSeen]
 	 * @return	Array[]
 	 */
@@ -431,8 +431,8 @@ class TodoyuCommentFeedbackManager {
 	/**
 	 * Check whether the comment has a feedback request which is not "seen" yet
 	 *
-	 * @param	Integer		$idComment
-	 * @return	Boolean		Open feedback request found
+	 * @param	integer		$idComment
+	 * @return	boolean		Open feedback request found
 	 */
 	public static function isCommentUnseen($idComment) {
 		$idComment	= intval($idComment);

@@ -1,9 +1,9 @@
 {if count($projects) > 0}
 	<div class="infoBox projectPart">
-		<h4>{Label $header}</h4>
+		<h4>{Label text=$header}</h4>
 		<div class="content overflow">
 			<table class="list projectList">
-				{foreach array_reverse($projects) project}
+				{foreach $projects|reverse_array as $project}
 					<tr class="{cycle values="odd,even"}">
 						<td class="bgStatus{$project.status}"></td>
 						<td>

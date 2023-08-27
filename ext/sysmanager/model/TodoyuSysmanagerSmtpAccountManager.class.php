@@ -36,7 +36,7 @@ class TodoyuSysmanagerSmtpAccountManager {
 	/**
 	 * Get IMAP account object
 	 *
-	 * @param	Integer				$idAccount
+	 * @param	integer				$idAccount
 	 * @return	TodoyuSysmanagerSmtpAccount
 	 */
 	public static function getAccount($idAccount) {
@@ -48,7 +48,7 @@ class TodoyuSysmanagerSmtpAccountManager {
 	/**
 	 * Get SMTP account objects for given IDs
 	 *
-	 * @param	Integer[]				$accountIDs
+	 * @param	integer[]				$accountIDs
 	 * @return	TodoyuSysmanagerSmtpAccount[]
 	 */
 	public static function getAccountsByID(array $accountIDs) {
@@ -99,7 +99,7 @@ class TodoyuSysmanagerSmtpAccountManager {
 	/**
 	 * Get options configuration for all SMTP account records
 	 *
-	 * @param	Boolean		$withPrefix
+	 * @param	boolean		$withPrefix
 	 * @return	Array
 	 */
 	public static function getAllAccountsOptions($withPrefix = false) {
@@ -122,7 +122,7 @@ class TodoyuSysmanagerSmtpAccountManager {
 	/**
 	 * Removes given IMAP account record from the database
 	 *
-	 * @param	Integer	$idAccount
+	 * @param	integer	$idAccount
 	 */
 	public static function removeAccount($idAccount) {
 		$idAccount	= intval($idAccount);
@@ -137,8 +137,8 @@ class TodoyuSysmanagerSmtpAccountManager {
 	/**
 	 * Save SMTP account record from given data
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function saveAccount(array $data) {
 		$idAccount	= intval($data['id']);

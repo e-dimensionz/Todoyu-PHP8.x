@@ -29,7 +29,7 @@ class TodoyuImapAttachment extends TodoyuBaseObject {
 	/**
 	 * Initialize the attachment object
 	 *
-	 * @param	Integer		$idAttachment
+	 * @param	integer		$idAttachment
 	 */
 	public function __construct($idAttachment) {
 		parent::__construct($idAttachment, 'ext_imap_attachment');
@@ -40,7 +40,7 @@ class TodoyuImapAttachment extends TodoyuBaseObject {
 	/**
 	 * Get ID of IMAP message the attachment belongs
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getMessageID() {
 		return $this->getInt('id_message');
@@ -62,7 +62,7 @@ class TodoyuImapAttachment extends TodoyuBaseObject {
 	/**
 	 * Get file storage path
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getFileStoragePath() {
 		$basePath	= TodoyuImapAttachmentManager::getStorageBasePath();
@@ -76,7 +76,7 @@ class TodoyuImapAttachment extends TodoyuBaseObject {
 	/**
 	 * Get file size
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getFileSize() {
 		return $this->getInt('file_size');
@@ -87,7 +87,7 @@ class TodoyuImapAttachment extends TodoyuBaseObject {
 	/**
 	 * Get mime type
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getMimeType() {
 		return $this->get('file_mime') . '/' . $this->get('file_ext');
@@ -98,7 +98,7 @@ class TodoyuImapAttachment extends TodoyuBaseObject {
 	/**
 	 * Get filename
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getFilename() {
 		return $this->get('file_name');
@@ -109,7 +109,7 @@ class TodoyuImapAttachment extends TodoyuBaseObject {
 	/**
 	 * Check whether file exists in storage
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isFileAvailable() {
 		$pathFileStorage	= $this->getFileStoragePath();
@@ -122,7 +122,7 @@ class TodoyuImapAttachment extends TodoyuBaseObject {
 	/**
 	 * Send asset as download
 	 *
-	 * @return	Boolean		Success
+	 * @return	boolean		Success
 	 */
 	public function sendAsDownload() {
 		$filePath	= $this->getFileStoragePath();
@@ -147,7 +147,7 @@ class TodoyuImapAttachment extends TodoyuBaseObject {
 	 * Check whether the asset can be downloaded
 	 * Only checks for problems with the file. No access checking
 	 *
-	 * @return	Boolean|String		True or the error message
+	 * @return	boolean|String		True or the error message
 	 */
 	public function canDownload() {
 		return TodoyuFileManager::canSendFile($this->getFileStoragePath());

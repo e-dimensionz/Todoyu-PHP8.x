@@ -29,12 +29,12 @@ class TodoyuTabheadRenderer {
 	/**
 	 * Render tabs. Parse labels
 	 *
-	 * @param	String	$name
-	 * @param	Array	$tabs
-	 * @param	String	$class
-	 * @param	String	$jsHandler
-	 * @param	String	$active
-	 * @return	String
+	 * @param	string	$name
+	 * @param	array	$tabs
+	 * @param	string	$class
+	 * @param	string	$jsHandler
+	 * @param	string	$active
+	 * @return	string
 	 */
 	public static function renderTabs($name, array $tabs, $jsHandler = '', $active = '', $class = '') {
 		foreach($tabs as $index => $tab) {

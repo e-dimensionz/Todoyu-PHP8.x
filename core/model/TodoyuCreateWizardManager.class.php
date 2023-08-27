@@ -37,8 +37,8 @@ class TodoyuCreateWizardManager {
 	/**
 	 * Add wizard config
 	 *
-	 * @param	String		$name		Name of the wizard
-	 * @param	Array		$config
+	 * @param	string		$name		Name of the wizard
+	 * @param	array		$config
 	 */
 	public static function addWizard($name, array $config) {
 		$config['name']	= $name;
@@ -50,7 +50,7 @@ class TodoyuCreateWizardManager {
 	/**
 	 * Get wizard config
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @return	Array
 	 */
 	public static function getWizard($name) {

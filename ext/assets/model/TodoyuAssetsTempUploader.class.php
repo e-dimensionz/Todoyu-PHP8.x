@@ -53,8 +53,8 @@ abstract class TodoyuAssetsTempUploader {
 	/**
 	 * Initialize
 	 *
-	 * @param	String			$type
-	 * @param	String|Integer	$idElement
+	 * @param	string			$type
+	 * @param	string|Integer	$idElement
 	 */
 	public function __construct($type, $idElement) {
 		$this->type			= $type;
@@ -65,7 +65,7 @@ abstract class TodoyuAssetsTempUploader {
 
 
 	/**
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getSessionKey() {
 		return $this->sessionKey;
@@ -76,7 +76,7 @@ abstract class TodoyuAssetsTempUploader {
 	/**
 	 * Get type
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getType() {
 		return $this->type;
@@ -87,7 +87,7 @@ abstract class TodoyuAssetsTempUploader {
 	/**
 	 * Get element ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	protected function getElementID() {
 		return $this->idElement;
@@ -98,7 +98,7 @@ abstract class TodoyuAssetsTempUploader {
 	/**
 	 * Get path to store files for current session
 	 *
-	 * @return	String		Session storage path file temp files
+	 * @return	string		Session storage path file temp files
 	 */
 	protected function getStorageDir() {
 		if( !TodoyuSession::isIn($this->sessionKey) ) {
@@ -116,7 +116,7 @@ abstract class TodoyuAssetsTempUploader {
 	/**
 	 * Add a temporary file
 	 *
-	 * @param	Array	$fileData		File upload info array from php
+	 * @param	array	$fileData		File upload info array from php
 	 */
 	public  function addFile(array $fileData) {
 		$pathStoredFile	= $this->storeFile($fileData['tmp_name']);
@@ -140,8 +140,8 @@ abstract class TodoyuAssetsTempUploader {
 	/**
 	 * Store a file to the temporary session folder
 	 *
-	 * @param	String			$sourceFile		Path to temporary uploaded file
-	 * @return	String|Boolean	Path to file in session folder or false
+	 * @param	string			$sourceFile		Path to temporary uploaded file
+	 * @return	string|Boolean	Path to file in session folder or false
 	 */
 	private function storeFile($sourceFile) {
 		$sourceFile	= TodoyuFileManager::pathAbsolute($sourceFile);
@@ -161,7 +161,7 @@ abstract class TodoyuAssetsTempUploader {
 	/**
 	 * Add file information to session
 	 *
-	 * @param	Array	$fileInfo
+	 * @param	array	$fileInfo
 	 */
 	private function saveFileInfo(array $fileInfo) {
 		TodoyuSession::set($this->sessionKey . '/files/' . $fileInfo['key'], $fileInfo);
@@ -183,7 +183,7 @@ abstract class TodoyuAssetsTempUploader {
 	/**
 	 * Delete a temporary uploaded file
 	 *
-	 * @param	String		$key		Key of the file (created at upload)
+	 * @param	string		$key		Key of the file (created at upload)
 	 */
 	public function removeFile($key) {
 		$filesInfos	= $this->getFilesInfos();

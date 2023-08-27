@@ -37,8 +37,8 @@ class TodoyuHeadManager {
 	/**
 	 * Add a new headlet
 	 *
-	 * @param	String		$className
-	 * @param	Integer		$initPosition
+	 * @param	string		$className
+	 * @param	integer		$initPosition
 	 */
 	public static function addHeadlet($className, $initPosition = 100) {
 		self::$headlets[] = array(
@@ -61,7 +61,7 @@ class TodoyuHeadManager {
 	/**
 	 * Render head with headlets
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function render() {
 		$tmpl	= 'core/view/head.tmpl';

@@ -31,9 +31,9 @@ class TodoyuFormElement_Comment extends TodoyuFormElement {
 	/**
 	 * TodoyuFormElement comment constructor
 	 *
-	 * @param	String				$name
+	 * @param	string				$name
 	 * @param	TodoyuFormFieldset		$fieldset
-	 * @param	Array				$config
+	 * @param	array				$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		parent::__construct('comment', $name, $fieldset, $config);
@@ -54,16 +54,16 @@ class TodoyuFormElement_Comment extends TodoyuFormElement {
 	/**
 	 * Get value (text) of comment
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getValueForTemplate() {
 		$value		= '';
-		$hasFunction= is_array($this->config['comment']) && is_array($this->config['comment']['@attributes']) && $this->config['comment']['@attributes']['type'] === 'function';
+		$hasFunction= isset($this->config['comment']) && is_array($this->config['comment']) && is_array($this->config['comment']['@attributes']) && $this->config['comment']['@attributes']['type'] === 'function';
 
 		if( $hasFunction ) {
 			$value	= TodoyuFunction::callUserFunction($this->config['comment']['function'], $this);
 		} else {
-			$comment= trim($this->config['comment']);
+			$comment= isset($this->config['comment']) ? trim($this->config['comment']) : '';
 
 			if( $comment !== '' ) {
 				$value	= Todoyu::Label($comment);
@@ -78,7 +78,7 @@ class TodoyuFormElement_Comment extends TodoyuFormElement {
 	/**
 	 * Set content of comment
 	 *
-	 * @param	String		$content
+	 * @param	string		$content
 	 */
 	public function setCommentText($content) {
 		$this->config['comment'] = $content;
@@ -90,7 +90,7 @@ class TodoyuFormElement_Comment extends TodoyuFormElement {
 	 * Set field value ('attribute')
 	 *
 	 * @param	Mixed		$value
-	 * @param	Boolean		$updateForm		Update the form. Can be false if the form already has the value
+	 * @param	boolean		$updateForm		Update the form. Can be false if the form already has the value
 	 */
 	public function setValue($value, $updateForm = true) {
 		$this->setCommentText($value);
@@ -105,7 +105,7 @@ class TodoyuFormElement_Comment extends TodoyuFormElement {
 	/**
 	 * Comment fields are never stored in the database
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isNoStorageField() {
 		return true;

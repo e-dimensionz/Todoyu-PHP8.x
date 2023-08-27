@@ -29,7 +29,7 @@ class TodoyuTimetrackingTaskPresetManager {
 	/**
 	 * Get timetracking task preset
 	 *
-	 * @param	Integer		$idTaskPreset
+	 * @param	integer		$idTaskPreset
 	 * @return	TodoyuTimetrackingTaskPreset
 	 */
 	public static function getTaskPreset($idTaskPreset) {

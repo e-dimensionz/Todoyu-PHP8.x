@@ -30,7 +30,7 @@ class TodoyuCalendarEventRights {
 	 * Deny access
 	 * Shortcut for calendar
 	 *
-	 * @param	String		$right		Denied right
+	 * @param	string		$right		Denied right
 	 */
 	private static function deny($right) {
 		TodoyuRightsManager::deny('calendar', $right);
@@ -41,8 +41,8 @@ class TodoyuCalendarEventRights {
 	/**
 	 * Check whether a person is allowed to see an event
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @return	boolean
 	 */
 	public static function isSeeAllowed($idEvent) {
 		$idEvent= intval($idEvent);
@@ -81,8 +81,8 @@ class TodoyuCalendarEventRights {
 	/**
 	 * Check whether person can see details of an event
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @return	boolean
 	 */
 	public static function isSeeDetailsAllowed($idEvent) {
 		$idEvent= intval($idEvent);
@@ -105,7 +105,7 @@ class TodoyuCalendarEventRights {
 	/**
 	 * Check whether person is allowed to add new events
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAddAllowed() {
 		return Todoyu::allowed('calendar', 'event:add');
@@ -117,8 +117,8 @@ class TodoyuCalendarEventRights {
 	 * Check whether person can edit an event
 	 *
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @return	boolean
 	 */
 	public static function isEditAllowed($idEvent) {
 		if( TodoyuAuth::isAdmin() ) {
@@ -139,8 +139,8 @@ class TodoyuCalendarEventRights {
 	/**
 	 * Check whether person is allowed to delete an event
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @return	boolean
 	 */
 	public static function isDeleteAllowed($idEvent) {
 		if( TodoyuAuth::isAdmin() ) {
@@ -162,9 +162,9 @@ class TodoyuCalendarEventRights {
 	 * Check whether person is allowed to do the requested action (delete / edit) for an event
 	 * Check whether person has edit rights and is assigned if necessary
 	 *
-	 * @param	String		$action
-	 * @param	Integer		$idEvent
-	 * @return	Boolean
+	 * @param	string		$action
+	 * @param	integer		$idEvent
+	 * @return	boolean
 	 */
 	private static function isEditOrDeleteAllowed($action, $idEvent) {
 		if( TodoyuAuth::isAdmin() ) {
@@ -199,7 +199,7 @@ class TodoyuCalendarEventRights {
 	/**
 	 * Check whether person is allowed to see birthdays listing in portal (admin or internal)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowedSeeBirthdaysInPortal() {
 		if( TodoyuAuth::isAdmin() ) {
@@ -216,7 +216,7 @@ class TodoyuCalendarEventRights {
 	/**
 	 * Restrict access to persons who are allowed to see the event
 	 *
-	 * @param	Integer		$idEvent
+	 * @param	integer		$idEvent
 	 */
 	public static function restrictSee($idEvent) {
 		if( ! self::isSeeAllowed($idEvent) ) {
@@ -240,7 +240,7 @@ class TodoyuCalendarEventRights {
 	/**
 	 * Restrict access to persons who are allowed to edit events
 	 *
-	 * @param	Integer		$idEvent
+	 * @param	integer		$idEvent
 	 */
 	public static function restrictEdit($idEvent) {
 		if( ! self::isEditAllowed($idEvent) ) {
@@ -253,7 +253,7 @@ class TodoyuCalendarEventRights {
 	/**
 	 * Restrict access to persons who are allowed to delete events
 	 *
-	 * @param	Integer		$idEvent
+	 * @param	integer		$idEvent
 	 */
 	public static function restrictDelete($idEvent) {
 		if( ! self::isDeleteAllowed($idEvent) ) {

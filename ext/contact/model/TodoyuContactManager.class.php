@@ -40,8 +40,8 @@ class TodoyuContactManager {
 	/**
 	 * Get contact type from XML
 	 *
-	 * @param	String	$contactType
-	 * @return	Boolean|String
+	 * @param	string	$contactType
+	 * @return	boolean|String
 	 */
 	public static function getContactTypeFromXml($contactType) {
 		$typeConfig	= Todoyu::$CONFIG['EXT']['contact']['contacttypes'][$contactType];
@@ -54,8 +54,8 @@ class TodoyuContactManager {
 	/**
 	 * Get contact type object class
 	 *
-	 * @param	String	$type
-	 * @return	String
+	 * @param	string	$type
+	 * @return	string
 	 */
 	public static function getContactTypeObjClass($type) {
 		return Todoyu::$CONFIG['EXT']['contact']['contacttypes'][$type]['objClass'];
@@ -66,8 +66,8 @@ class TodoyuContactManager {
 	/**
 	 * Get label of contact type
 	 *
-	 * @param	String	$type
-	 * @return	String
+	 * @param	string	$type
+	 * @return	string
 	 */
 	public static function getContactTypeLabel($type) {
 		return Todoyu::$CONFIG['EXT']['contact']['contacttypes'][$type]['label'];
@@ -78,8 +78,8 @@ class TodoyuContactManager {
 	/**
 	 * Get contact type object
 	 *
-	 * @param	String				$type
-	 * @param	Integer				$idRecord
+	 * @param	string				$type
+	 * @param	integer				$idRecord
 	 * @return	TodoyuBaseObject
 	 */
 	public static function getContactTypeObj($type, $idRecord) {
@@ -94,9 +94,9 @@ class TodoyuContactManager {
 	/**
 	 * Render options array (value, label, selected-state of all options)
 	 *
-	 * @param	Array	$res
-	 * @param	String	$valueField
-	 * @param	String	$labelField
+	 * @param	array	$res
+	 * @param	string	$valueField
+	 * @param	string	$labelField
 	 * @param	Mixed	$selectedIndex	Integer / null
 	 * @param	Mixed	$selectedValue	Integer / null
 	 * @return	Array					Options array
@@ -143,8 +143,8 @@ class TodoyuContactManager {
 	 * Get country label
 	 *
 	 * @param	TodoyuForm		$form
-	 * @param	Array			$option
-	 * @return	String
+	 * @param	array			$option
+	 * @return	string
 	 */
 	public static function getCountryLabel($form, $option) {
 		return $option[ 'name_' . TodoyuLabelManager::getLocale() ];
@@ -155,7 +155,7 @@ class TodoyuContactManager {
 	/**
 	 * Get options config for countries that are used in any address records
 	 *
-	 * @param	String	$mmTable
+	 * @param	string	$mmTable
 	 * @return	Array
 	 */
 	public static function getUsedCountryOptions($mmTable = '') {
@@ -188,7 +188,7 @@ class TodoyuContactManager {
 	 * Get panel widget staff selector
 	 * Try to get a custom implementation for the current area
 	 *
-	 * @param	String		$areaExtKey		Extension key of current area
+	 * @param	string		$areaExtKey		Extension key of current area
 	 * @return	TodoyuContactPanelWidgetStaffSelector	Or an extension of this class
 	 */
 	public static function getPanelWidgetStaffSelector($areaExtKey) {

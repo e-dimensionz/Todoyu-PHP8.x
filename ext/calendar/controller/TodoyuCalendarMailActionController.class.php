@@ -38,8 +38,8 @@ class TodoyuCalendarMailActionController extends TodoyuActionController {
 	/**
 	 * Show mail popup
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function popupAction(array $params) {
 		$idEvent	= intval($params['event']);
@@ -62,7 +62,7 @@ class TodoyuCalendarMailActionController extends TodoyuActionController {
 	/**
 	 * Deactivate showing of mailing popup after drag and drop change of events
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function disablePopupAction(array $params) {
 		$prefName				= 'is_mailpopupdeactivated';
@@ -76,7 +76,7 @@ class TodoyuCalendarMailActionController extends TodoyuActionController {
 	/**
 	 * Send event mail to selected persons
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function sendAction(array $params) {
 		$idEvent	= intval($params['event']);
@@ -96,8 +96,8 @@ class TodoyuCalendarMailActionController extends TodoyuActionController {
 	/**
 	 * Update auto-notification comment: list of auto-notified participants
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function autoMailCommentAction(array $params) {
 		$personIDs			= TodoyuArray::intExplode(',', $params['persons']);

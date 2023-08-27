@@ -75,10 +75,10 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Initialize form element
 	 *
-	 * @param	String		$type
-	 * @param	String		$name
+	 * @param	string		$type
+	 * @param	string		$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array		$config
+	 * @param	array		$config
 	 */
 	public function __construct($type, $name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		$this->type		= $type;
@@ -126,7 +126,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Get template for this form element
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getTemplate() {
 		return TodoyuFormFactory::getTemplate($this->type);
@@ -229,7 +229,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Get config value
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @return	Mixed
 	 */
 	public function __get($name) {
@@ -241,7 +241,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Set config value
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @param	Mixed		$value
 	 */
 	public function __set($name, $value) {
@@ -253,7 +253,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Set config value
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @param	Mixed		$value
 	 */
 	public function setAttribute($name, $value) {
@@ -265,7 +265,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Set form element label
 	 *
-	 * @param	String		$label
+	 * @param	string		$label
 	 */
 	public function setLabel($label) {
 		$this->setAttribute('label', $label);
@@ -276,7 +276,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Set required flag
 	 *
-	 * @param	Boolean		$required
+	 * @param	boolean		$required
 	 */
 	public function setRequired($required = true) {
 		$this->setAttribute('required', !!$required);
@@ -298,7 +298,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Remove options with any of the given values from options array of config (of <select> element)
 	 *
-	 * @param	Array	$values
+	 * @param	array	$values
 	 */
 	public function removeOptionsByValues(array $values) {
 		$options		= $this->config['options'];
@@ -318,7 +318,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Add user validator to given form element (field)
 	 *
-	 * @param	Array		$validatorConfig
+	 * @param	array		$validatorConfig
 	 */
 	public function addUserValidator(array $validatorConfig) {
 			// Get validator
@@ -343,7 +343,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Get config value
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @return	Mixed
 	 */
 	public function getAttribute($name) {
@@ -355,7 +355,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Remove attribute
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 */
 	public function removeAttribute($name) {
 		unset($this->config[$name]);
@@ -366,8 +366,8 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Check if an attribute is set
 	 *
-	 * @param	String		$name
-	 * @return	Boolean
+	 * @param	string		$name
+	 * @return	boolean
 	 */
 	public function hasAttribute($name) {
 		return isset($this->config[$name]);
@@ -378,7 +378,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Get form element field name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getName() {
 		return $this->name;
@@ -390,7 +390,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	 * Get absolute name of the field
 	 * Based on the position: fieldset-subfieldset-fieldname
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getAbsoluteName() {
 		return $this->getFieldset()->getAbsoluteName() . '-' . $this->name;
@@ -401,7 +401,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Get form element label
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLabel() {
 		return $this->getAttribute('label');
@@ -412,7 +412,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Get type of form element
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getType() {
 		return $this->type;
@@ -440,7 +440,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Check whether the field is empty
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isEmpty() {
 		$value	= $this->getAttribute('value');
@@ -459,7 +459,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Check whether field is empty
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasDefaultValue() {
 		return $this->hasAttribute('default');
@@ -470,7 +470,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Get default value
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDefaultValue() {
 		return $this->getAttribute('default');
@@ -482,7 +482,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	 * Set field value ('attribute')
 	 *
 	 * @param	Mixed		$value
-	 * @param	Boolean		$updateForm		Update the form. Can be false if the form already has the value
+	 * @param	boolean		$updateForm		Update the form. Can be false if the form already has the value
 	 */
 	public function setValue($value, $updateForm = true) {
 		$this->setAttribute('value', $value);
@@ -497,7 +497,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Set a new name for the field
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 */
 	public function setName($name) {
 		$this->name	= $name;
@@ -509,7 +509,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	 * Get value for template display
 	 * Override this function in custom field type if special rendering necessary
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getValueForTemplate() {
 		return $this->getValue();
@@ -531,7 +531,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Get HTML ID of field
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getHtmlID() {
 		return $this->getForm()->makeID($this->getName());
@@ -542,8 +542,8 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Get data of field to store in the database
 	 *
-	 * @param	Boolean		$force		Get the storage data, even if field is noStorage or disabled
-	 * @return	String
+	 * @param	boolean		$force		Get the storage data, even if field is noStorage or disabled
+	 * @return	string
 	 */
 	public final function getStorageData($force = false) {
 		if( !$force && ($this->isNoStorageField() || $this->isDisabled()) ) {
@@ -559,7 +559,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	 * Get storage data (internal version)
 	 * Only called if noStorageField and disabled are false
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getStorageDataInternal() {
 		return $this->getValue();
@@ -570,7 +570,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Check if field is hidden (not displayed when fieldset is rendered)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function isHidden() {
 		return $this->hasAttribute('hide');
@@ -582,7 +582,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	 * Check if field is marked as no storage. If true,
 	 * the field will not be stored in the database
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isNoStorageField() {
 		return $this->hasAttribute('noStorage');
@@ -593,7 +593,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Check if field is valid
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public final function isValid() {
 			// Don't validate disabled fields
@@ -619,7 +619,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Check whether a validator fails
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	private function hasValidatorError() {
 		$validations	= $this->getValidations();
@@ -657,7 +657,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Check whether the require validator is active and fails
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	private function hasRequiredValidatorError() {
 		if( $this->isRequired() && !$this->isRequiredCheckDisabled() ) {
@@ -683,9 +683,9 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Run the validator
 	 *
-	 * @param	String		$validatorName
-	 * @param	Array		$validatorConfig
-	 * @return	Boolean
+	 * @param	string		$validatorName
+	 * @param	array		$validatorConfig
+	 * @return	boolean
 	 */
 	private function runValidator($validatorName, array $validatorConfig) {
 		$isValid = TodoyuFormValidator::validate($validatorName, $this->getStorageData(true), $validatorConfig, $this, $this->getForm()->getFormData());
@@ -715,7 +715,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Set error message of form element
 	 *
-	 * @param	String	$message
+	 * @param	string	$message
 	 */
 	public function setErrorMessage($message) {
 		$this->error		= true;
@@ -727,7 +727,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Get field error message (can be an empty if no error occured)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getErrorMessage() {
 		return $this->errorMessage;
@@ -760,7 +760,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Check whether form element has error status ($this->error == true)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	protected function hasErrorStatus() {
 		return $this->error;
@@ -771,7 +771,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Check whether form element has validations assigned
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasValidations() {
 		return sizeof($this->getValidations()) > 0;
@@ -785,7 +785,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	 * @return	Array
 	 */
 	public function getValidations() {
-		$validations	= TodoyuArray::assure($this->config['validate']);
+		$validations	= TodoyuArray::assure($this->config['validate'] ?? []);
 
 		unset($validations['comment']);
 
@@ -797,7 +797,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Check if field is required
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isRequired() {
 		return $this->hasAttribute('required') && $this->getAttribute('required') !== false;
@@ -817,7 +817,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Validate required field value being given
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function validateRequired() {
 		return $this->getValue() ? true : false;
@@ -828,8 +828,8 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Render form element
 	 *
-	 * @param	Boolean	$odd		Odd or even?
-	 * @return	String
+	 * @param	boolean	$odd		Odd or even?
+	 * @return	string
 	 */
 	public function render($odd = false) {
 		$tmpl	= $this->getTemplate();
@@ -919,7 +919,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Check if a form field is disabled
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isDisabled() {
 		return !empty($this->config['disabled']);
@@ -930,7 +930,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Set the 'after field' text
 	 *
-	 * @param	String		$text
+	 * @param	string		$text
 	 */
 	public function setAfterFieldText($text) {
 		$this->setAttribute('textAfterField', Todoyu::Label($text));
@@ -941,7 +941,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Get the 'after field' text
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getAfterFieldText() {
 		return trim($this->getAttribute('textAfterField'));
@@ -952,8 +952,8 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Add text to the 'after field' text
 	 *
-	 * @param	String		$text
-	 * @param	String		$glue
+	 * @param	string		$text
+	 * @param	string		$glue
 	 */
 	public function addAfterFieldText($text, $glue = '<br />') {
 		$current	= $this->getAfterFieldText();
@@ -971,7 +971,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Set the 'before field' text
 	 *
-	 * @param	String		$text
+	 * @param	string		$text
 	 */
 	public function setBeforeFieldText($text) {
 		$this->setAttribute('textBeforeField', Todoyu::Label($text));
@@ -982,7 +982,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Get the 'before field' text
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getBeforeFieldText() {
 		return trim($this->getAttribute('textBeforeField'));
@@ -993,8 +993,8 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Add text to the 'before field' text
 	 *
-	 * @param	String		$text
-	 * @param	String		$glue
+	 * @param	string		$text
+	 * @param	string		$glue
 	 */
 	public function addBeforeFieldText($text, $glue = '<br />') {
 		$current	= $this->getBeforeFieldText();
@@ -1028,7 +1028,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	 * @deprecated
 	 * @todo	Remove, because the check fails when a hook inserts fields before. Or fix it.
 	 * @notice	We have a solution in js: Todoyu.Form.isFirstInputInForm()
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isFirstElement() {
 		$allFields	= $this->getForm()->getFieldnames();
@@ -1041,8 +1041,8 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Replace a field reference of a validator with a static value
 	 *
-	 * @param	String		$validatorName
-	 * @param	String		$value
+	 * @param	string		$validatorName
+	 * @param	string		$value
 	 */
 	public function replaceFieldValidatorWithValue($validatorName, $value) {
 		if( isset($this->config['validate'][$validatorName]) ) {
@@ -1056,7 +1056,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Remove a validator
 	 *
-	 * @param	String		$validatorName
+	 * @param	string		$validatorName
 	 */
 	public function removeValidator($validatorName) {
 		unset($this->config['validate'][$validatorName]);
@@ -1067,7 +1067,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Prepares the live validation
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getLiveValidation() {
 		$initScript = '';
@@ -1096,7 +1096,7 @@ abstract class TodoyuFormElement implements TodoyuFormElementInterface {
 	/**
 	 * Get the html-Id of the field, which should be live-validated
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getLiveValidationFieldId() {
 		return $this->getHtmlID();

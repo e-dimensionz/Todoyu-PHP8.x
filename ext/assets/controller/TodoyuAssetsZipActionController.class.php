@@ -29,7 +29,7 @@ class TodoyuAssetsZipActionController extends TodoyuActionController {
 	/**
 	 * Initialize controller: restrict access
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('assets', 'general:use');
@@ -40,7 +40,7 @@ class TodoyuAssetsZipActionController extends TodoyuActionController {
 	/**
 	 * Download multiple assets in a ZIP archive
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function downloadAction(array $params) {
 		$idRecord		= intval($params['record']);

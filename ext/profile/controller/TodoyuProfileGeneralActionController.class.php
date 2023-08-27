@@ -29,7 +29,7 @@ class TodoyuProfileGeneralActionController extends TodoyuActionController {
 	/**
 	 * Init controller: restrict to rights
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('profile', 'general:use');
@@ -40,8 +40,8 @@ class TodoyuProfileGeneralActionController extends TodoyuActionController {
 	/**
 	 * Load tab content
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function tabAction(array $params) {
 		$tab	= $params['tab'];
@@ -56,7 +56,7 @@ class TodoyuProfileGeneralActionController extends TodoyuActionController {
 	/**
 	 * Save data of main tab form (language preference)
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function saveMainAction(array $params) {
 		$formData	= TodoyuArray::assure($params['general']);
@@ -75,7 +75,7 @@ class TodoyuProfileGeneralActionController extends TodoyuActionController {
 	/**
 	 * Save password form
 	 *
-	 * @param	Array			$params
+	 * @param	array			$params
 	 * @return	Void|String		Failure returns re-rendered form with error messages
 	 */
 	public function savePasswordAction(array $params) {

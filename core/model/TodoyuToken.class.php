@@ -29,7 +29,7 @@ class TodoyuToken extends TodoyuBaseObject {
 	/**
 	 * Constructor
 	 *
-	 * @param	Integer		$idToken
+	 * @param	integer		$idToken
 	 */
 	public function __construct($idToken) {
 		parent::__construct($idToken, 'system_token');
@@ -40,7 +40,7 @@ class TodoyuToken extends TodoyuBaseObject {
 	/**
 	 * Get token ext ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getExtID() {
 		return (int) $this->data['ext'];
@@ -51,7 +51,7 @@ class TodoyuToken extends TodoyuBaseObject {
 	/**
 	 * Get token type ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getTokenType() {
 		return (int) $this->data['token_type'];
@@ -62,7 +62,7 @@ class TodoyuToken extends TodoyuBaseObject {
 	/**
 	 * Get token hash
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getHash() {
 		return $this->data['hash'];
@@ -73,7 +73,7 @@ class TodoyuToken extends TodoyuBaseObject {
 	/**
 	 * Check whether token is valid (owner must be active and not deleted)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isValid() {
 			// Token record must exits

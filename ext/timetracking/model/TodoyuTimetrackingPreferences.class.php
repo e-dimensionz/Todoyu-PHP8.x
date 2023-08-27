@@ -29,12 +29,12 @@ class TodoyuTimetrackingPreferences {
 	/**
 	 * Save a preference for project
 	 *
-	 * @param	String		$preference
-	 * @param	String		$value
-	 * @param	Integer		$idItem
-	 * @param	Boolean		$unique
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	string		$preference
+	 * @param	string		$value
+	 * @param	integer		$idItem
+	 * @param	boolean		$unique
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 */
 	public static function savePref($preference, $value, $idItem = 0, $unique = false, $idArea = 0, $idPerson = 0) {
 		TodoyuPreferenceManager::savePreference(EXTID_TIMETRACKING, $preference, $value, $idItem, $unique, $idArea, $idPerson);
@@ -45,12 +45,12 @@ class TodoyuTimetrackingPreferences {
 	/**
 	 * Get a preference
 	 *
-	 * @param	String		$preference
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Boolean		$unserialize
-	 * @param	Integer		$idPerson
-	 * @return	String
+	 * @param	string		$preference
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	boolean		$unserialize
+	 * @param	integer		$idPerson
+	 * @return	string
 	 */
 	public static function getPref($preference, $idItem = 0, $idArea = 0, $unserialize = false, $idPerson = 0) {
 		return TodoyuPreferenceManager::getPreference(EXTID_TIMETRACKING, $preference, $idItem, $idArea, $unserialize, $idPerson);
@@ -61,10 +61,10 @@ class TodoyuTimetrackingPreferences {
 	/**
 	 * Get  project preference
 	 *
-	 * @param	String		$preference
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	string		$preference
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getPrefs($preference, $idItem = 0, $idArea = 0, $idPerson = 0) {
@@ -76,11 +76,11 @@ class TodoyuTimetrackingPreferences {
 	/**
 	 * Delete project preference
 	 *
-	 * @param	String		$preference
-	 * @param	String		$value
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	string		$preference
+	 * @param	string		$value
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 */
 	public static function deletePref($preference, $value = null, $idItem = 0, $idArea = 0, $idPerson = 0) {
 		TodoyuPreferenceManager::deletePreference(EXTID_TIMETRACKING, $preference, $value, $idItem, $idArea, $idPerson);

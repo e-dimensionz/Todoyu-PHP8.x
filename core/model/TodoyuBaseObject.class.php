@@ -18,7 +18,6 @@
 * This copyright notice MUST APPEAR in all copies of the script.
 *****************************************************************************/
 
-//require_once( PATH_LIB . '/php/dwoo/Dwoo/IDataProvider.php');
 
 /**
  * Add basic and lot used access functions for internal member vars
@@ -27,26 +26,26 @@
  * @subpackage	Core
  * @abstract
  */
-class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
+class TodoyuBaseObject implements ArrayAccess {
 
 	/**
 	 * Record data (database row)
 	 *
-	 * @var	Array
+	 * @var	array
 	 */
 	protected $data = array();
 
 	/**
 	 * Cache for extra data, so they have to be fetched only once
 	 *
-	 * @var	Array
+	 * @var	array
 	 */
 	protected $cache = array();
 
 	/**
 	 * Table of the record
 	 *
-	 * @var	String
+	 * @var	string
 	 */
 	protected $table;
 
@@ -56,8 +55,8 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Initialize object. Only load data from database, when $idRecord is not zero
 	 *
-	 * @param	Integer		$idRecord
-	 * @param	String		$table
+	 * @param	int		$idRecord
+	 * @param	string		$table
 	 */
 	protected function __construct($idRecord, $table) {
 		$idRecord	= (int) $idRecord;
@@ -85,9 +84,9 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	 *
 	 * @deprecated
 	 * @notice	Define your own getters
-	 * @param	String		$methodName
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	string		$methodName
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function __call($methodName, $params) {
 		$methodName	= strtolower($methodName);
@@ -109,8 +108,8 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	 *
 	 * @deprecated
 	 * @notice	Define your own getters
-	 * @param	String		$memberName
-	 * @return	String
+	 * @param	string		$memberName
+	 * @return	string
 	 */
 	public function __get($memberName) {
 		$dataKey	= strtolower($memberName);
@@ -131,7 +130,7 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Get record ID
 	 *
-	 * @return	Integer
+	 * @return	int
 	 */
 	public function getID() {
 		return $this->getInt('id');
@@ -142,8 +141,8 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Get data from internal record storage
 	 *
-	 * @param	String		$key
-	 * @return	Mixed
+	 * @param	string		$key
+	 * @return	mixed
 	 */
 	public function get($key) {
 		return $this->data[$key] ?? null;
@@ -154,8 +153,8 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Get data as integer
 	 *
-	 * @param	String		$fieldName
-	 * @return	Integer
+	 * @param	string		$fieldName
+	 * @return	int
 	 */
 	public function getInt($fieldName) {
 		return intval($this->get($fieldName));
@@ -167,8 +166,8 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	 * Check whether a 'flag' field is set
 	 * Flag fields are boolean fields (tinyint(1) with 0 or 1) in the database
 	 *
-	 * @param	String		$flagName
-	 * @return	Boolean
+	 * @param	string		$flagName
+	 * @return	bool
 	 */
 	public function isFlagSet($flagName) {
 		return $this->getInt($flagName) === 1;
@@ -180,8 +179,8 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	 * Set a value
 	 * Sets the value only in the object, this in not persistent
 	 *
-	 * @param	String		$key
-	 * @param	Mixed		$value
+	 * @param	string		$key
+	 * @param	mixed		$value
 	 */
 	public function set($key, $value) {
 		$this->data[$key] = $value;
@@ -192,8 +191,8 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Check whether a property is set
 	 *
-	 * @param	String		$key
-	 * @return	Boolean
+	 * @param	string		$key
+	 * @return	bool
 	 */
 	public function has($key) {
 		return isset($this->data[$key]);
@@ -204,7 +203,7 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Update the object and the database
 	 *
-	 * @param	Array	$data
+	 * @param	array	$data
 	 */
 	protected function update(array $data) {
 			// Update database
@@ -220,8 +219,8 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Update a single field
 	 *
-	 * @param	String		$fieldName
-	 * @param	Mixed		$value			Scalar value
+	 * @param	string		$fieldName
+	 * @param	mixed		$value			Scalar value
 	 */
 	protected function updateField($fieldName, $value) {
 		$this->update(array(
@@ -234,8 +233,8 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Check whether a property is not empty
 	 *
-	 * @param	String		$key
-	 * @return	Boolean
+	 * @param	string		$key
+	 * @return	bool
 	 */
 	public function notEmpty($key) {
 		return !empty($this->data[$key]);
@@ -247,7 +246,7 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	 * Inject data.
 	 * Useful if user initialized without an ID to avoid an extra request
 	 *
-	 * @param	Array	$data
+	 * @param	array	$data
 	 */
 	public function injectData(array $data = array()) {
 		$this->data = $data;
@@ -258,7 +257,7 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Check if current user is creator of the record
 	 *
-	 * @return	Boolean
+	 * @return	bool
 	 */
 	public function isCurrentPersonCreator() {
 		return $this->getPersonCreateID() === Todoyu::personid();
@@ -269,7 +268,7 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Get data array
 	 *
-	 * @return	Array
+	 * @return	array
 	 */
 	public function getObjectData() {
 		return $this->data;
@@ -280,7 +279,7 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Get date create
 	 *
-	 * @return	Integer
+	 * @return	int
 	 */
 	public function getDateCreate() {
 		return $this->getInt('date_create');
@@ -291,7 +290,7 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Get date update
 	 *
-	 * @return	Integer
+	 * @return	int
 	 */
 	public function getDateUpdate() {
 		return $this->getInt('date_update');
@@ -302,7 +301,7 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Check whether record was updated at least once
 	 *
-	 * @return	Boolean
+	 * @return	bool
 	 */
 	public function isUpdated() {
 		return $this->getDateCreate() !== $this->getDateUpdate();
@@ -313,8 +312,8 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Get user ID of a specific type (create, update, assigned, etc)
 	 *
-	 * @param	String		$type
-	 * @return	Integer
+	 * @param	string		$type
+	 * @return	int
 	 */
 	public function getPersonID($type) {
 		$dataKey = 'id_person_' . strtolower($type);
@@ -327,7 +326,7 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Get user of a specific type (create, update, assigned, etc)
 	 *
-	 * @param	String		$type
+	 * @param	string		$type
 	 * @return	TodoyuContactPerson
 	 */
 	public function getPerson($type = null) {
@@ -341,7 +340,7 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Get ID of the creator person
 	 *
-	 * @return	Integer
+	 * @return	int
 	 */
 	public function getPersonCreateID() {
 		return $this->getPersonID('create');
@@ -363,8 +362,8 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 *
 	 *
-	 * @param	String	$key
-	 * @return	Boolean
+	 * @param	string	$key
+	 * @return	bool
 	 */
 	protected function isInCache($key) {
 		return isset($this->cache[$key]);
@@ -375,8 +374,8 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Get item from cache
 	 *
-	 * @param	String	$key
-	 * @return	Mixed
+	 * @param	string	$key
+	 * @return	mixed
 	 */
 	protected function getCacheItem($key) {
 		return $this->cache[$key];
@@ -387,8 +386,8 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Add item to cache
 	 *
-	 * @param	String	$key
-	 * @param	Mixed	$item
+	 * @param	string	$key
+	 * @param	mixed	$item
 	 */
 	protected function addToCache($key, $item) {
 		$this->cache[$key] = $item;
@@ -399,7 +398,7 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Get data array for template rendering
 	 *
-	 * @return	Array
+	 * @return	array
 	 */
 	public function getTemplateData() {
 		return $this->data;
@@ -410,7 +409,7 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	/**
 	 * Checks if the record is deleted
 	 *
-	 * @return	Boolean
+	 * @return	bool
 	 */
 	public function isDeleted() {
 		return $this->getInt('deleted') === 1;
@@ -423,8 +422,8 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 	 *
 	 * @magic
 	 * @deprecated
-	 * @param	String		$memberName
-	 * @return	Boolean
+	 * @param	string		$memberName
+	 * @return	bool
 	 */
 	public function __isset($memberName) {
 		return isset($this->data[$memberName]);
@@ -433,48 +432,48 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 
 
 	/**
-	 * Array access function to check if an attribute
+	 * array access function to check if an attribute
 	 * is set in the internal record storage
 	 *
 	 * Usage: $obj = new Obj(); isset($obj['id_person'])
 	 *
 	 * @magic
 	 * @deprecated
-	 * @param	String		$name
-	 * @return	Boolean
+	 * @param	mixed		$offset
+	 * @return	bool
 	 */
-	public function offsetExists($name) {
-		return isset($this->data[$name]);
+	public function offsetExists($offset) {
+		return isset($this->data[$offset]);
 	}
 
 
 
 	/**
-	 * Array access function to delete an attribute
+	 * array access function to delete an attribute
 	 * in the internal record storage
 	 *
 	 * Usage: $obj = new Obj(); unset($obj['id_person'])
 	 *
 	 * @magic
 	 * @deprecated
-	 * @param	String		$name
+	 * @param	TKey		$offset
 	 */
-	public function offsetUnset($name) {
-		unset($this->data[$name]);
+	public function offsetUnset($offset) {
+		unset($this->data[$offset]);
 	}
 
 
 
 	/**
-	 * Array access function to set an attribute
+	 * array access function to set an attribute
 	 * in the internal record storage
 	 *
 	 * Usage: $obj = new Obj(); $obj['id_person'] = 53;
 	 *
 	 * @magic
 	 * @deprecated
-	 * @param	String		$name
-	 * @param	String		$value
+	 * @param	TKey		$name
+	 * @param	TValue		$value
 	 */
 	public function offsetSet($name, $value) {
 		$this->data[$name] = $value;
@@ -483,15 +482,15 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 
 
 	/**
-	 * Array access function to get an attribute
+	 * array access function to get an attribute
 	 * from the internal record storage
 	 *
 	 * Usage: $obj = new Obj(); echo $obj['id_person'];
 	 *
 	 * @magic
 	 * @deprecated
-	 * @param	String		$name
-	 * @return	String
+	 * @param	string		$name
+	 * @return	string
 	 */
 	public function offsetGet($name) {
 		return $this->get($name);
@@ -500,9 +499,9 @@ class TodoyuBaseObject implements ArrayAccess, Dwoo_IDataProvider {
 
 
 	/**
-	 * Alias for getTemplateData to implement Dwoo_IDataProvider
+	 * Alias for getTemplateData
 	 *
-	 * @return	Array
+	 * @return	array
 	 */
 	public function getData() {
 		return $this->getTemplateData();

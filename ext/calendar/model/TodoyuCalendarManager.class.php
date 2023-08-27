@@ -29,8 +29,8 @@ class TodoyuCalendarManager {
 	/**
 	 * Get name of calendar mode from mode constant
 	 *
-	 * @param	Integer	$mode
-	 * @return	String
+	 * @param	integer	$mode
+	 * @return	string
 	 */
 	public static function getModeName($mode = CALENDAR_MODE_DAY) {
 		if( is_string($mode) ) {
@@ -51,7 +51,7 @@ class TodoyuCalendarManager {
 	/**
 	 * Get current selected range
 	 *
-	 * @param	Integer			$idArea
+	 * @param	integer			$idArea
 	 * @return	TodoyuDayRange
 	 */
 	public static function getCurrentRange($idArea = 0) {
@@ -96,7 +96,7 @@ class TodoyuCalendarManager {
 	/**
 	 * Get holidays for a day
 	 *
-	 * @param	Integer		$date
+	 * @param	integer		$date
 	 * @return	Array
 	 */
 	public static function getHolidaysForDay($date) {
@@ -113,10 +113,10 @@ class TodoyuCalendarManager {
 	/**
 	 * Get amount of days between two week-day numbers (0-6)
 	 *
-	 * @param	Integer 	$startDay			Timestamp of the starting day
-	 * @param	Integer 	$endDay				Timestamp of the ending day
-	 * @param	Boolean		$insideTheSameWeek	If true, the two days are inside the same week
-	 * @return	Integer
+	 * @param	integer 	$startDay			Timestamp of the starting day
+	 * @param	integer 	$endDay				Timestamp of the ending day
+	 * @param	boolean		$insideTheSameWeek	If true, the two days are inside the same week
+	 * @return	integer
 	 */
 	public static function getAmountOfDaysInbetweenWeekdayNums($startDay, $endDay, $insideTheSameWeek = true) {
 		if( $insideTheSameWeek ) {
@@ -139,8 +139,8 @@ class TodoyuCalendarManager {
 	/**
 	 * Get amount of weeks visible in calendar depending on given amount of displayed days
 	 *
-	 * @param	Integer		$amountDays
-	 * @return	Integer
+	 * @param	integer		$amountDays
+	 * @return	integer
 	 */
 	public static function getVisibleWeeksAmount($amountDays = 35) {
 		if( $amountDays === 28 ) {
@@ -160,7 +160,7 @@ class TodoyuCalendarManager {
 	 * Get date range for month of the timestamp
 	 * (include days of the previous and next month because of the calendar layout)
 	 *
-	 * @param	Integer		$timestamp
+	 * @param	integer		$timestamp
 	 * @return	Array
 	 */
 	public static function getMonthDisplayRange($timestamp) {
@@ -182,8 +182,8 @@ class TodoyuCalendarManager {
 	 * As the month view of the calendar displays 5 weeks from monday to sunday, there are always some days
 	 * out of the months before and after the selected month being displayed, this function calculates their timestamps.
 	 *
-	 * @param	Integer	$dateStart
-	 * @param	Integer	$dateEnd
+	 * @param	integer	$dateStart
+	 * @param	integer	$dateEnd
 	 * @return	Array				Timestamps of days to be shown in month view of calendar
 	 */
 	public static function getDayTimestampsForMonth($dateStart, $dateEnd) {
@@ -220,7 +220,7 @@ class TodoyuCalendarManager {
 	/**
 	 * Check whether overbooking (more than one event assigned to one person at the same time) is allowed
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isOverbookingAllowed() {
 		$extConf	= TodoyuSysmanagerExtConfManager::getExtConf('calendar');
@@ -233,8 +233,8 @@ class TodoyuCalendarManager {
 	/**
 	 * Get context menu items
 	 *
-	 * @param	Integer	$timestamp
-	 * @param	Array	$items
+	 * @param	integer	$timestamp
+	 * @param	array	$items
 	 * @return	Array
 	 */
 	public static function getContextMenuItems($timestamp, array $items) {
@@ -309,8 +309,8 @@ class TodoyuCalendarManager {
 	 * Extend company address form (hooked into contact's form building)
 	 *
 	 * @param	TodoyuForm		$form			Address form object
-	 * @param	Integer			$index
-	 * @param	Array			$params
+	 * @param	integer			$index
+	 * @param	array			$params
 	 * @return	TodoyuForm
 	 */
 	public static function hookAddHolidaysetToCompanyAddress(TodoyuForm $form, $index, array $params) {
@@ -333,8 +333,8 @@ class TodoyuCalendarManager {
 	 * Get birthday persons in time range, grouped by day
 	 * Subgroups are date keys in format Ymd
 	 *
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd
 	 * @return	Array
 	 */
 	public static function getBirthdaysByDay($dateStart, $dateEnd) {
@@ -360,8 +360,8 @@ class TodoyuCalendarManager {
 	/**
 	 * Get day keys (format Ymd, e.g. 20111224) for every day in given date range
 	 *
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd
 	 * @return	Array
 	 */
 	public static function getDayKeys($dateStart, $dateEnd) {
@@ -381,8 +381,8 @@ class TodoyuCalendarManager {
 	/**
 	 * Get height of  starting hour
 	 *
-	 * @param	Integer	$dateTime	UNIX Timestamp of the starttime or endtime
-	 * @return	Integer				Top-Y of starting hour
+	 * @param	integer	$dateTime	UNIX Timestamp of the starttime or endtime
+	 * @return	integer				Top-Y of starting hour
 	 */
 	public static function getOffsetByDayTime($dateTime) {
 		$dateTime		= intval($dateTime);
@@ -396,7 +396,7 @@ class TodoyuCalendarManager {
 	/**
 	 * Add selected persons to filter
 	 *
-	 * @param	Array		$filters
+	 * @param	array		$filters
 	 * @return	Array
 	 */
 	public static function hookEventFilterPersons(array $filters) {
@@ -410,7 +410,7 @@ class TodoyuCalendarManager {
 	/**
 	 * Add selected event types to filter
 	 *
-	 * @param	Array		$filters
+	 * @param	array		$filters
 	 * @return	Array
 	 */
 	public static function hookEventFilterEventTypes(array $filters) {
@@ -424,7 +424,7 @@ class TodoyuCalendarManager {
 	/**
 	 * Add selected holiday sets to filter
 	 *
-	 * @param	Array		$filters
+	 * @param	array		$filters
 	 * @return	Array
 	 */
 	public static function hookEventFilterHolidaySets(array $filters) {
@@ -449,9 +449,9 @@ class TodoyuCalendarManager {
 	/**
 	 * Get label for weekday by daykey (mo,tu,...)
 	 *
-	 * @param	String		$dayKey
-	 * @param	Boolean		$short
-	 * @return	String
+	 * @param	string		$dayKey
+	 * @param	boolean		$short
+	 * @return	string
 	 */
 	public static function getWeekDayLabel($dayKey, $short = false) {
 		$dateKey	= Todoyu::$CONFIG['EXT']['calendar']['weekDays'][$short?'short':'long'][strtolower($dayKey)];
@@ -464,8 +464,8 @@ class TodoyuCalendarManager {
 	/**
 	 * Get key for weekday of a date
 	 *
-	 * @param	Integer		$date
-	 * @return	String		mo,tu,we,etc
+	 * @param	integer		$date
+	 * @return	string		mo,tu,we,etc
 	 */
 	public static function getWeekDayKey($date) {
 		$map 	= array_flip(Todoyu::$CONFIG['EXT']['calendar']['weekDays']['short']);
@@ -479,7 +479,7 @@ class TodoyuCalendarManager {
 	/**
 	 * Get role IDs which are configured for auto mail notification
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public static function getAutoMailRoleIDs() {
 		$roleConfig	= TodoyuSysmanagerExtConfManager::getExtConfValue('calendar', 'autosendeventmail');

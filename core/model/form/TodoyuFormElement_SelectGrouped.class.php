@@ -29,9 +29,9 @@ class TodoyuFormElement_SelectGrouped extends TodoyuFormElement_Select {
 	/**
 	 * Initialize
 	 *
-	 * @param	String				$name
+	 * @param	string				$name
 	 * @param	TodoyuFormFieldset		$fieldset
-	 * @param	Array				$config
+	 * @param	array				$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		TodoyuFormElement::__construct('selectgrouped', $name, $fieldset, $config);
@@ -47,14 +47,14 @@ class TodoyuFormElement_SelectGrouped extends TodoyuFormElement_Select {
 	/**
 	 * Init select groups' options from function reference
 	 *
-	 * @param	Array	$source
+	 * @param	array	$source
 	 */
 	protected function initSourceFunction(array $source) {
 		$groups		= TodoyuFunction::callUserFunction($source['function'], $this);
 
 		foreach($groups as $group => $options) {
 			foreach($options as $option) {
-				$this->addOption($option['value'], $option['label'], $option['disabled'], $option['class'], $option['selected'], $group);
+				$this->addOption($option['value'], $option['label'], $option['disabled'] ?? false, $option['class'] ?? '', $option['selected'] ?? false, $group);
 			}
 		}
 	}
@@ -64,12 +64,12 @@ class TodoyuFormElement_SelectGrouped extends TodoyuFormElement_Select {
 	/**
 	 * Add new option at the end of the list
 	 *
-	 * @param	String		$group
-	 * @param	String		$value
-	 * @param	String		$label
-	 * @param	Boolean		$selected
-	 * @param	Boolean		$disabled
-	 * @param	String		$className
+	 * @param	string		$group
+	 * @param	string		$value
+	 * @param	string		$label
+	 * @param	boolean		$selected
+	 * @param	boolean		$disabled
+	 * @param	string		$className
 	 */
 	public function addOption($value, $label, $disabled = false, $className='', $selected = false, $group = null) {
 		$this->config['options'][$group][] = array(

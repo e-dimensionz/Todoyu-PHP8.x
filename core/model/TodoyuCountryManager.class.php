@@ -31,7 +31,7 @@ class TodoyuCountryManager {
 	/**
 	 *
 	 *  
-	 * @param	Integer		$idCountry
+	 * @param	integer		$idCountry
 	 * @return	TodoyuCountry
 	 */
 	public static function getCountry($idCountry) {
@@ -43,8 +43,8 @@ class TodoyuCountryManager {
 	/**
 	 * Get country by ISO code (alpha2 or alpha3)
 	 *
-	 * @param	String		$code
-	 * @param	Boolean		$alpha3
+	 * @param	string		$code
+	 * @param	boolean		$alpha3
 	 * @return	TodoyuCountry
 	 */
 	public static function getCountryByISO($code, $alpha3 = false) {
@@ -58,9 +58,9 @@ class TodoyuCountryManager {
 	/**
 	 * Get country ID by ISO code
 	 *
-	 * @param	String		$code
-	 * @param	Boolean		$isAlpha3
-	 * @return	Integer
+	 * @param	string		$code
+	 * @param	boolean		$isAlpha3
+	 * @return	integer
 	 */
 	public static function getCountryIdByISO($code, $isAlpha3 = false) {
 		$fields = 'id';

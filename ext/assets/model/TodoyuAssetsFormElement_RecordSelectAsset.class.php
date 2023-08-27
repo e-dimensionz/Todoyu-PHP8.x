@@ -26,9 +26,9 @@ class TodoyuAssetsFormElement_RecordSelectAsset extends TodoyuAssetsFormElement_
 	/**
 	 * Initialize
 	 *
-	 * @param	String				$name
+	 * @param	string				$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array				$config
+	 * @param	array				$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		TodoyuFormElement_Records::__construct('selectAsset', $name, $fieldset, $config);
@@ -58,7 +58,7 @@ class TodoyuAssetsFormElement_RecordSelectAsset extends TodoyuAssetsFormElement_
 
 		if( is_array($options) > 0 ) {
 			foreach($options as $option) {
-				$this->addOption($option['group'], $option['value'], $option['label'], $option['disabled'], $option['class']);
+				$this->addOption($option['group'], $option['value'], $option['label'], $option['disabled'] ?? false, $option['class'] ?? '');
 			}
 		}
 
@@ -70,11 +70,11 @@ class TodoyuAssetsFormElement_RecordSelectAsset extends TodoyuAssetsFormElement_
 	/**
 	 * Add option
 	 *
-	 * @param	String		$group
-	 * @param	String		$value
-	 * @param	String		$label
-	 * @param	Boolean		$disabled
-	 * @param	String		$className
+	 * @param	string		$group
+	 * @param	string		$value
+	 * @param	string		$label
+	 * @param	boolean		$disabled
+	 * @param	string		$className
 	 */
 	public function addOption($group, $value, $label, $disabled = false, $className = '') {
 		$this->config['options'][$group][] = array(

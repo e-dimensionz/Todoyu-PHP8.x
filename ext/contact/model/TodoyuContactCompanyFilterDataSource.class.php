@@ -29,7 +29,7 @@ class TodoyuContactCompanyFilterDataSource {
 	/**
 	 * Get company filter definition label
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getLabel($definitions) {
@@ -43,9 +43,9 @@ class TodoyuContactCompanyFilterDataSource {
 	/**
 	 * Get company autocompletion data
 	 *
-	 * @param	String	$input
-	 * @param	Array	$formData
-	 * @param	String	$name
+	 * @param	string	$input
+	 * @param	array	$formData
+	 * @param	string	$name
 	 * @return	Array
 	 */
 	public static function autocompleteCompanies($input, array $formData = array(), $name = '') {
@@ -66,9 +66,9 @@ class TodoyuContactCompanyFilterDataSource {
 	/**
 	 * Reduce company autocompletion to active company (is_notactive = 0) companies
 	 *
-	 * @param	String		$input
-	 * @param	Array		$formData
-	 * @param	String		$name
+	 * @param	string		$input
+	 * @param	array		$formData
+	 * @param	string		$name
 	 * @return	Array
 	 */
 	public static function autocompleteActiveCompanies($input, array $formData = array(), $name = ''){
@@ -90,7 +90,7 @@ class TodoyuContactCompanyFilterDataSource {
 	/**
 	 * Get company label
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getCompanyLabel($definitions) {
@@ -107,7 +107,7 @@ class TodoyuContactCompanyFilterDataSource {
 	/**
 	 * Get options config of countries related to any company address
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getCountryOptions(array $definitions) {

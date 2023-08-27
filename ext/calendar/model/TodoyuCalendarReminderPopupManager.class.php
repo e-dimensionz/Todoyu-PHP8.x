@@ -38,7 +38,7 @@ class TodoyuCalendarReminderPopupManager {
 	/**
 	 * Get reminder
 	 *
-	 * @param	Integer		$idReminder
+	 * @param	integer		$idReminder
 	 * @return	TodoyuCalendarReminderPopup
 	 */
 	public static function getReminder($idReminder) {
@@ -52,8 +52,8 @@ class TodoyuCalendarReminderPopupManager {
 	/**
 	 * Get person's reminder to given event
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
 	 * @return	TodoyuCalendarReminderPopup
 	 */
 	public static function getReminderByAssignment($idEvent, $idPerson = 0) {
@@ -69,9 +69,9 @@ class TodoyuCalendarReminderPopupManager {
 	/**
 	 * Update scheduled popup reminder display time of given event/person
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$timePopup
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idEvent
+	 * @param	integer		$timePopup
+	 * @param	integer		$idPerson
 	 */
 	public static function updateReminderTime($idEvent, $timePopup, $idPerson = 0) {
 		TodoyuCalendarReminderManager::updateReminderTime(self::REMINDERTYPE, $idEvent, $timePopup, $idPerson);
@@ -82,9 +82,9 @@ class TodoyuCalendarReminderPopupManager {
 	/**
 	 * Get timestamp for popup reminder of newly assigned event (advance-time from profile, fallback: extconf)
 	 *
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$dateStart
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	public static function getNewEventPopupTime($dateStart, $idPerson = 0) {
 		$dateStart	= intval($dateStart);
@@ -98,9 +98,9 @@ class TodoyuCalendarReminderPopupManager {
 	/**
 	 * Get amount of time before event when to show reminder popup
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
-	 * @return	Integer					Amount of seconds
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
+	 * @return	integer					Amount of seconds
 	 */
 	public static function getAdvanceTime($idEvent, $idPerson = 0) {
 		$idEvent	= intval($idEvent);
@@ -119,9 +119,9 @@ class TodoyuCalendarReminderPopupManager {
 	/**
 	 * Check whether given/current person can schedule a reminder for the event of the given ID
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function isReminderAllowed($idEvent, $idPerson = 0) {
 		if( ! Todoyu::allowed('calendar', 'reminders:popup') ) {
@@ -140,8 +140,8 @@ class TodoyuCalendarReminderPopupManager {
 	/**
 	 * Get person's event reminder popups advance time from current person prefs, fallback: extconf
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	public static function getDefaultAdvanceTime($idPerson = 0) {
 		return TodoyuCalendarReminderDefaultManager::getDefaultAdvanceTime(self::REMINDERTYPE, $idPerson);
@@ -150,8 +150,8 @@ class TodoyuCalendarReminderPopupManager {
 
 
 	/**
-	 * @param	Integer		$idEvent
-	 * @return	Integer					Amount of seconds
+	 * @param	integer		$idEvent
+	 * @return	integer					Amount of seconds
 	 */
 	public static function getSelectedAdvanceTimeContextMenuOptionKey($idEvent) {
 		$idEvent		= intval($idEvent);
@@ -214,8 +214,8 @@ class TodoyuCalendarReminderPopupManager {
 	/**
 	 * Get timestamp when to show reminder of given event (initially / again)
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	Integer					UNIX timestamp when to display the reminder popup
+	 * @param	integer		$idEvent
+	 * @return	integer					UNIX timestamp when to display the reminder popup
 	 */
 	public static function getDateRemind($idEvent) {
 		$reminder	= self::getReminderByAssignment($idEvent);
@@ -228,9 +228,9 @@ class TodoyuCalendarReminderPopupManager {
 	/**
 	 * Check whether the given person's reminder of the given event is dismissed already
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function isDismissed($idEvent, $idPerson = 0) {
 		$idEvent	= intval($idEvent);
@@ -245,8 +245,8 @@ class TodoyuCalendarReminderPopupManager {
 	/**
 	 * Get URL of sound to be played with given event's reminder popup
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	String
+	 * @param	integer		$idEvent
+	 * @return	string
 	 */
 	public static function getSoundFilename($idEvent) {
 		$idEvent	= intval($idEvent);
@@ -262,9 +262,9 @@ class TodoyuCalendarReminderPopupManager {
 	/**
 	 * Set given reminder dismissed
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function setReminderDismissed($idEvent, $idPerson = 0) {
 		$idEvent	= intval($idEvent);
@@ -281,9 +281,9 @@ class TodoyuCalendarReminderPopupManager {
 	/**
 	 * Update timestamp when to show given reminder again
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$timeShowAgain
-	 * @return	Integer
+	 * @param	integer		$idEvent
+	 * @param	integer		$timeShowAgain
+	 * @return	integer
 	 */
 	public static function rescheduleReminder($idEvent, $timeShowAgain) {
 		$idEvent		= intval($idEvent);
@@ -303,7 +303,7 @@ class TodoyuCalendarReminderPopupManager {
 	/**
 	 * Check whether the audio reminder is enabled (play sound)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAudioReminderEnabled() {
 		return TodoyuSysmanagerExtConfManager::getExtConfValue('calendar', 'audioreminder_active') ? true : false;
@@ -314,7 +314,7 @@ class TodoyuCalendarReminderPopupManager {
 	/**
 	 * Get context menu items for popup reminders
 	 *
-	 * @param	String		$idEvent
+	 * @param	string		$idEvent
 	 * @param array $items
 	 * @return array
 	 */

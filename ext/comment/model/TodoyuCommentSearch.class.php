@@ -29,9 +29,9 @@ class TodoyuCommentSearch implements TodoyuSearchEngineIf {
 	/**
 	 * Search comment in full-text mode, search for comment numbers. Return IDs of matching comments.
 	 *
-	 * @param	Array		$find		Keywords which have to be in the comments
-	 * @param	Array		$ignore		Keywords which must not be in the comment
-	 * @param	Integer		$limit
+	 * @param	array		$find		Keywords which have to be in the comments
+	 * @param	array		$ignore		Keywords which must not be in the comment
+	 * @param	integer		$limit
 	 * @return	Array		comment IDs
 	 */
 	public static function searchComments(array $find, array $ignore = array(), $limit = 100) {
@@ -52,7 +52,7 @@ class TodoyuCommentSearch implements TodoyuSearchEngineIf {
 	/**
 	 * Identify and extract (converted to numeric IDs) comment identification numbers from search words like 'K1', 'K2', etc.
 	 *
-	 * @param	Array	$find
+	 * @param	array	$find
 	 * @return	Array
 	 */
 	private static function getCommentIdNumsFromSearchWords(array $find) {
@@ -75,9 +75,9 @@ class TodoyuCommentSearch implements TodoyuSearchEngineIf {
 	/**
 	 * Get suggestions of comments suiting to given search request
 	 *
-	 * @param	Array		$find
-	 * @param	Array		$ignore
-	 * @param	Integer		$limit
+	 * @param	array		$find
+	 * @param	array		$ignore
+	 * @param	integer		$limit
 	 * @return	Array
 	 */
 	public static function getSuggestions(array $find, array $ignore = array(), $limit = 5) {

@@ -56,7 +56,7 @@ class TodoyuLabelManager {
 	 * Set locale. All request for labels without a locale will use this locale.
 	 * Default locale is en_GB (british english)
 	 *
-	 * @param	String		$locale
+	 * @param	string		$locale
 	 */
 	public static function setLocale($locale) {
 		self::$locale = $locale;
@@ -67,7 +67,7 @@ class TodoyuLabelManager {
 	/**
 	 * Get current locale
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getLocale() {
 		return self::$locale;
@@ -79,8 +79,8 @@ class TodoyuLabelManager {
 	 * Add a custom path for keys which are not located in the normal file structure
 	 * The folder has to contain a "locale" folder with locale key sub folders like the extensions
 	 *
-	 * @param	String		$key
-	 * @param	String		$customPath		Path relative to todoyu root
+	 * @param	string		$key
+	 * @param	string		$customPath		Path relative to todoyu root
 	 */
 	public static function addCustomPath($key, $customPath) {
 		self::$customPaths[$key] = $customPath;
@@ -91,10 +91,10 @@ class TodoyuLabelManager {
 	/**
 	 * Get label which will be parsed with wild cards like printf()
 	 *
-	 * @param	String		$labelKey
-	 * @param	Array		$data
-	 * @param	String		$locale
-	 * @return	String
+	 * @param	string		$labelKey
+	 * @param	array		$data
+	 * @param	string		$locale
+	 * @return	string
 	 */
 	public static function getFormatLabel($labelKey, array $data = array(), $locale = null) {
 		$label	= self::getLabel($labelKey, $locale);
@@ -107,9 +107,9 @@ class TodoyuLabelManager {
 	/**
 	 * Get translated label
 	 *
-	 * @param	String		$fullKey		Key to label. First part is the fileKey
-	 * @param	String		$locale			Force language. If not set, us defined language
-	 * @return	String		Translated label
+	 * @param	string		$fullKey		Key to label. First part is the fileKey
+	 * @param	string		$locale			Force language. If not set, us defined language
+	 * @return	string		Translated label
 	 */
 	public static function getLabel($fullKey, $locale = null) {
 		$locale	= is_null($locale) ? self::$locale : $locale ;
@@ -123,9 +123,9 @@ class TodoyuLabelManager {
 	/**
 	 * Get label or an empty string if not found
 	 *
-	 * @param	String		$fullKey
-	 * @param	String		$locale
-	 * @return	String
+	 * @param	string		$fullKey
+	 * @param	string		$locale
+	 * @return	string
 	 */
 	public static function getLabelOrEmpty($fullKey, $locale = null) {
 		$locale	= is_null($locale) ? self::$locale : $locale ;
@@ -139,9 +139,9 @@ class TodoyuLabelManager {
 	/**
 	 * Get label (or false if not found)
 	 *
-	 * @param	String		$fullKey
-	 * @param	String		$locale
-	 * @return	String|Boolean
+	 * @param	string		$fullKey
+	 * @param	string		$locale
+	 * @return	string|Boolean
 	 */
 	private static function getLabelInternal($fullKey, $locale) {
 		if( substr($fullKey, 0, 4) === 'LLL:' ) {
@@ -167,12 +167,12 @@ class TodoyuLabelManager {
 	/**
 	 * Get a label from internal cache. If the label is not available, load it
 	 *
-	 * @param	String		$fileKey		Filekey
-	 * @param	String		$extKey
-	 * @param	String		$fileKey		Filekey
-	 * @param	String		$labelKey		Index of the label in the file
-	 * @param	String		$locale			Locale to load the label
-	 * @return	String		The label with the key $index for $language
+	 * @param	string		$fileKey		Filekey
+	 * @param	string		$extKey
+	 * @param	string		$fileKey		Filekey
+	 * @param	string		$labelKey		Index of the label in the file
+	 * @param	string		$locale			Locale to load the label
+	 * @return	string		The label with the key $index for $language
 	 */
 	private static function getCachedLabel($extKey, $fileKey, $labelKey, $locale) {
         if(empty(self::$cache)) self::$cache = array();
@@ -192,10 +192,10 @@ class TodoyuLabelManager {
 	/**
 	 * Get path of the file which is registered for a file key
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$fileKey
-	 * @param	String		$locale
-	 * @return	String		Abs. path to file
+	 * @param	string		$extKey
+	 * @param	string		$fileKey
+	 * @param	string		$locale
+	 * @return	string		Abs. path to file
 	 */
 	private static function getFilePath($extKey, $fileKey, $locale) {
 		$localePath	= self::getLocalePath($extKey, $locale);
@@ -208,9 +208,9 @@ class TodoyuLabelManager {
 	/**
 	 * Get path where locales are stored
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$locale
-	 * @return	String
+	 * @param	string		$extKey
+	 * @param	string		$locale
+	 * @return	string
 	 */
 	public static function getLocalePath($extKey, $locale) {
 		if( array_key_exists($extKey, self::$customPaths) ) {
@@ -227,7 +227,7 @@ class TodoyuLabelManager {
 	/**
 	 * Get all fallback locales of a locale
 	 *
-	 * @param	String		$locale
+	 * @param	string		$locale
 	 * @return	Array
 	 */
 	private static function getFallbackLocales($locale) {
@@ -257,9 +257,9 @@ class TodoyuLabelManager {
 	/**
 	 * Get labels for an identifier for a locale
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$fileKey
-	 * @param	String		$locale
+	 * @param	string		$extKey
+	 * @param	string		$fileKey
+	 * @param	string		$locale
 	 * @return	Array
 	 */
 	private static function getFileLabels($extKey, $fileKey, $locale) {
@@ -295,9 +295,9 @@ class TodoyuLabelManager {
 	/**
 	 * Read labels from an XML file
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$fileKey
-	 * @param	String		$locale
+	 * @param	string		$extKey
+	 * @param	string		$fileKey
+	 * @param	string		$locale
 	 * @return	Array
 	 */
 	public static function getXmlFileLabels($extKey, $fileKey, $locale) {
@@ -316,7 +316,7 @@ class TodoyuLabelManager {
 	/**
 	 * Clear locale cache
 	 *
-	 * @param	String|Boolean	$locale
+	 * @param	string|Boolean	$locale
 	 */
 	public static function clearCache($locale = false) {
 		$pathCache	= Todoyu::$CONFIG['LOCALE']['labelCacheDir'];
@@ -337,7 +337,7 @@ class TodoyuLabelManager {
 	 * Transforms the parser result in an useful array
 	 * Structure [de][INDEX] = Label
 	 *
-	 * @param	String		$absPathToLocallangFile		Absolute path to locallang file
+	 * @param	string		$absPathToLocallangFile		Absolute path to locallang file
 	 * @return	Array
 	 */
 	private static function readXmlFile($absPathToLocallangFile) {
@@ -366,7 +366,7 @@ class TodoyuLabelManager {
 	/**
 	 * Transform the output of the XML parser to an useful array
 	 *
-	 * @param	Array		$xmlValueArray
+	 * @param	array		$xmlValueArray
 	 * @return	Array
 	 */
 	private static function extractLabelsFromXmlResult(array $xmlValueArray) {
@@ -395,9 +395,9 @@ class TodoyuLabelManager {
 	/**
 	 * Save locallang array to cache
 	 *
-	 * @param	String		$pathFile
-	 * @param	Array		$labels
-	 * @return	Boolean
+	 * @param	string		$pathFile
+	 * @param	array		$labels
+	 * @return	boolean
 	 */
 	private static function writeCachedLabelFile($pathFile, array $labels) {
 		$cacheData	= serialize($labels);
@@ -410,7 +410,7 @@ class TodoyuLabelManager {
 	/**
 	 * Load cache file and get back locallang array
 	 *
-	 * @param	String		$cacheFile
+	 * @param	string		$cacheFile
 	 * @return	Array
 	 */
 	private static function readCachedLabelFile($cacheFile) {
@@ -429,10 +429,10 @@ class TodoyuLabelManager {
 	/**
 	 * Make cache file name. Based on the path to the XML file and its modification time
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$fileKey
-	 * @param	String		$locale
-	 * @return	String
+	 * @param	string		$extKey
+	 * @param	string		$fileKey
+	 * @param	string		$locale
+	 * @return	string
 	 */
 	private static function getCacheFileName($extKey, $fileKey, $locale) {
 		return TodoyuFileManager::pathAbsolute(Todoyu::$CONFIG['LOCALE']['labelCacheDir'] . DIR_SEP . $locale . DIR_SEP . $extKey . '.' . $fileKey . '.labels');
@@ -440,4 +440,3 @@ class TodoyuLabelManager {
 
 }
 
-?>

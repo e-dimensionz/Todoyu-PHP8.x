@@ -29,7 +29,7 @@ class TodoyuProjectPanelwidgetProjectlistActionController extends TodoyuActionCo
 	/**
 	 * Initialize controller: restrict access (project extension must be allowed)
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('project', 'general:area');
@@ -40,8 +40,8 @@ class TodoyuProjectPanelwidgetProjectlistActionController extends TodoyuActionCo
 	/**
 	 * Get project list for current filter
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function listAction(array $params) {
 		$search	= trim($params['search']);

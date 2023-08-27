@@ -36,9 +36,9 @@ class TodoyuCalendarEventSearch implements TodoyuSearchEngineIf {
 	/**
 	 * Search project in full-text mode. Return the ID of the matching projects
 	 *
-	 * @param	Array		$find		Keywords which have to be in the events
-	 * @param	Array		$ignore		Keywords which must not be in the event
-	 * @param	Integer		$limit
+	 * @param	array		$find		Keywords which have to be in the events
+	 * @param	array		$ignore		Keywords which must not be in the event
+	 * @param	integer		$limit
 	 * @return	Array		Project IDs
 	 */
 	public static function searchEvents(array $find, array $ignore = array(), $limit = 100) {
@@ -53,9 +53,9 @@ class TodoyuCalendarEventSearch implements TodoyuSearchEngineIf {
 	/**
 	 * Get suggestions data array for event search
 	 *
-	 * @param	Array		$find
-	 * @param	Array		$ignore
-	 * @param	Integer		$limit
+	 * @param	array		$find
+	 * @param	array		$ignore
+	 * @param	integer		$limit
 	 * @return	Array
 	 */
 	public static function getSuggestions(array $find, array $ignore = array(), $limit = 5) {

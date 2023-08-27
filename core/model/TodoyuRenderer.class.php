@@ -29,7 +29,7 @@ class TodoyuRenderer {
 	/**
 	 * Render all navigations
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderNavigation() {
 		$tmpl	= 'core/view/navi.tmpl';
@@ -47,8 +47,8 @@ class TodoyuRenderer {
 	/**
 	 * Render autoCompletion results list
 	 *
-	 * @param	Array	$results
-	 * @return	String
+	 * @param	array	$results
+	 * @return	string
 	 */
 	public static function renderAutocompleteResults(array $results) {
 		$tmpl	= 'core/view/autocomplete-list.tmpl';
@@ -68,9 +68,9 @@ class TodoyuRenderer {
 	 * Render content area
 	 * Contains tab and body area
 	 *
-	 * @param	String		$content
-	 * @param	String		$tabs
-	 * @return	String
+	 * @param	string		$content
+	 * @param	string		$tabs
+	 * @return	string
 	 */
 	public static function renderContent($content, $tabs = '') {
 		$tmpl	= 'core/view/content.tmpl';
@@ -88,8 +88,8 @@ class TodoyuRenderer {
 	 * Render content for a iFrame which needs a JavaScript call to finish the action
 	 * The JavaScript commands are automatically executed when iFrame is loaded. This is the same like an AJAX onComplete handler
 	 *
-	 * @param	String		$javaScriptCommands
-	 * @return	String
+	 * @param	string		$javaScriptCommands
+	 * @return	string
 	 */
 	public static function renderUploadIFrameJsContent($javaScriptCommands) {
 		$tmpl	= 'core/view/htmldoc.tmpl';
@@ -106,11 +106,11 @@ class TodoyuRenderer {
 	/**
 	 * Render timerange selector form element
 	 *
-	 * @param	Integer		$id
-	 * @param	String		$name
-	 * @param	Array		$range
-	 * @param	String		$nameWrap
-	 * @return	String
+	 * @param	integer		$id
+	 * @param	string		$name
+	 * @param	array		$range
+	 * @param	string		$nameWrap
+	 * @return	string
 	 */
 	public static function renderTimerange($id, $name, array $range, $nameWrap = null) {
 		$tmpl	= 'core/view/timerange.tmpl';
@@ -128,8 +128,8 @@ class TodoyuRenderer {
 	/**
 	 * Render select with grouped options
 	 *
-	 * @param	Array	$data
-	 * @return	String
+	 * @param	array	$data
+	 * @return	string
 	 */
 	public static function renderSelectGrouped(array $data) {
 		$tmpl	= 'core/view/select-grouped.tmpl';

@@ -29,7 +29,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * constructor of the class
 	 *
-	 * @param	Integer		$idAddress
+	 * @param	integer		$idAddress
 	 */
 	function __construct($idAddress) {
 		parent::__construct($idAddress, 'ext_contact_address');
@@ -40,7 +40,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * Get address type ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getAddressTypeID() {
 		return $this->getInt('id_addresstype');
@@ -51,7 +51,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * Get label for address type
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getAddressTypeLabel() {
 		return TodoyuContactAddressTypeManager::getAddressTypeLabel($this->getAddressTypeID());
@@ -62,7 +62,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * Get timezone ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getTimezoneID() {
 		return $this->getInt('id_timezone');
@@ -73,7 +73,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * Get timezone of address
 	 *
-	 * @return	String|Boolean
+	 * @return	string|Boolean
 	 */
 	public function getTimezone() {
 		$timezone	= TodoyuStaticRecords::getTimezone($this->getTimezoneID());
@@ -86,7 +86,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * Get country ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getCountryID() {
 		return $this->getInt('id_country');
@@ -108,7 +108,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * Get holiday set ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getHolidaySetID() {
 		return $this->getInt('id_holidayset');
@@ -130,7 +130,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * Get street
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getStreet() {
 		return $this->get('street');
@@ -141,7 +141,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * Get postbox
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getPostbox() {
 		return $this->get('postbox');
@@ -152,7 +152,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * Get city
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getCity() {
 		return $this->get('city');
@@ -163,7 +163,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * Get region ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getRegionID() {
 		return $this->getInt('region');
@@ -185,12 +185,12 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * Get label for region
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getRegionLabel() {
 		$region	= $this->getRegionRecord();
 
-		if( $region['id'] > 0 ) {
+		if( !empty($region['id']) && $region['id'] > 0 ) {
 			$regionLabel = TodoyuStaticRecords::getLabel('country_zone', $region['iso_alpha3_country'] . '.' . $region['code']);
 
 			if( strpos($regionLabel, 'country_zone') === false ) {
@@ -206,7 +206,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * Get zip
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getZip() {
 		return $this->get('zip');
@@ -217,7 +217,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * Get comment
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getComment() {
 		return $this->get('comment');
@@ -228,7 +228,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * Check whether address is marked as preferred
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isPreferred() {
 		return $this->isFlagSet('is_preferred');
@@ -239,7 +239,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	/**
 	 * Get address label with all informations
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLabel() {
 		$countryLabel	= $this->getCountry()->getLabel();
@@ -267,7 +267,7 @@ class TodoyuContactAddress extends TodoyuBaseObject {
 	 * Get template data of address
 	 * Foreign data: country
 	 *
-	 * @param	Boolean		$loadForeignData
+	 * @param	boolean		$loadForeignData
 	 * @return	Array
 	 */
 	public function getTemplateData($loadForeignData = false) {

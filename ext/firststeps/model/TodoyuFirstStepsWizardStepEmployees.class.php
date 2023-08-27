@@ -39,8 +39,8 @@ class TodoyuFirstStepsWizardStepEmployees extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Save employee (add new record)
 	 *
-	 * @param	Array	$data
-	 * @return	Boolean
+	 * @param	array	$data
+	 * @return	boolean
 	 */
 	public function save(array $data) {
 		$form	= $this->getForm($data);
@@ -68,7 +68,7 @@ class TodoyuFirstStepsWizardStepEmployees extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Render content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getContent() {
 		$tmpl	= 'ext/firststeps/view/form-with-list.tmpl';
@@ -117,8 +117,8 @@ class TodoyuFirstStepsWizardStepEmployees extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Create new employee (person) record and add it the the internal company
 	 *
-	 * @param	Array	$submittedData
-	 * @return	Integer
+	 * @param	array	$submittedData
+	 * @return	integer
 	 */
 	private function addEmployee(array $submittedData) {
 		$data	= array(

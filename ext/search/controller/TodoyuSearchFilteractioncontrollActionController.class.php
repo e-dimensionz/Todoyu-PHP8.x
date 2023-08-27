@@ -25,7 +25,7 @@
 class TodoyuSearchFilteractioncontrollActionController extends TodoyuActionController {
 
 	/**
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('search', 'general:use');
@@ -36,8 +36,8 @@ class TodoyuSearchFilteractioncontrollActionController extends TodoyuActionContr
 	/**
 	 * Load filter type controls
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function loadAction(array $params) {
 		$tab		= $params['tab'];

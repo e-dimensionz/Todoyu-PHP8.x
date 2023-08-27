@@ -30,7 +30,7 @@ class TodoyuSQLParser {
 	/**
 	 * Extract all table names from SQL
 	 *
-	 * @param	String	$sql
+	 * @param	string	$sql
 	 * @return	Array
 	 */
 	private static function extractTableNames($sql) {
@@ -64,8 +64,8 @@ class TodoyuSQLParser {
 	/**
 	 * Extract one table name from SQL
 	 *
-	 * @param	String	$sql
-	 * @return	String
+	 * @param	string	$sql
+	 * @return	string
 	 */
 	private static function extractSingleTableName($sql) {
 		$tableName	= self::extractTableNames($sql);
@@ -78,7 +78,7 @@ class TodoyuSQLParser {
 	/**
 	 * Extract table keys from SQL
 	 *
-	 * @param	String	$sql
+	 * @param	string	$sql
 	 * @return	Array
 	 */
 	private static function extractTableKeys($sql) {
@@ -108,8 +108,8 @@ class TodoyuSQLParser {
 	/**
 	 * Extract column name from SQL
 	 *
-	 * @param	String	$sql
-	 * @return	String
+	 * @param	string	$sql
+	 * @return	string
 	 */
 	private static function extractColumnName($sql) {
 		$sql	= trim($sql);
@@ -130,8 +130,8 @@ class TodoyuSQLParser {
 	/**
 	 * Extract column type declaration
 	 *
-	 * @param	String	$columnSQL
-	 * @return	String
+	 * @param	string	$columnSQL
+	 * @return	string
 	 */
 	private static function extractColumnType($columnSQL) {
 		$remove	= array(
@@ -160,8 +160,8 @@ class TodoyuSQLParser {
 	 *
 	 * @todo	cleanup
 	 *
-	 * @param	String	$sql
-	 * @return	String
+	 * @param	string	$sql
+	 * @return	string
 	 */
 	private static function extractColumnAttributes($sql) {
 		return '';
@@ -185,8 +185,8 @@ class TodoyuSQLParser {
 	/**
 	 * Extract column null declaration
 	 *
-	 * @param	String	$sql
-	 * @return	String
+	 * @param	string	$sql
+	 * @return	string
 	 */
 	private static function extractColumnNull($sql) {
 		$sql	= trim($sql);
@@ -207,8 +207,8 @@ class TodoyuSQLParser {
 	/**
 	 * Extract column default declaration
 	 *
-	 * @param	String	$columnSQL
-	 * @return	String
+	 * @param	string	$columnSQL
+	 * @return	string
 	 */
 	private static function extractColumnDefault($columnSQL) {
 		$columnSQL	= str_replace('default ', 'DEFAULT ', $columnSQL);
@@ -223,8 +223,8 @@ class TodoyuSQLParser {
 	/**
 	 * Extract extra from SQL column declaration
 	 *
-	 * @param	String	$columnSQL
-	 * @return	String
+	 * @param	string	$columnSQL
+	 * @return	string
 	 */
 	private static function extractColumnExtra($columnSQL) {
 		$extra	= '';
@@ -241,7 +241,7 @@ class TodoyuSQLParser {
 	/**
 	 * Extract table structure definition from SQL (separated into table and columns definition)
 	 *
-	 * @param	String	$sql
+	 * @param	string	$sql
 	 * @return	Array
 	 */
 	private static function extractColumns($sql) {
@@ -291,12 +291,12 @@ class TodoyuSQLParser {
 	/**
 	 * Render query to carry out DB updates
 	 *
-	 * @param	String	$action
-	 * @param	String	$tableName
-	 * @param	String	$colName
-	 * @param	Array	$colStructure
-	 * @param	Array	$allTableStructure
-	 * @return	String
+	 * @param	string	$action
+	 * @param	string	$tableName
+	 * @param	string	$colName
+	 * @param	array	$colStructure
+	 * @param	array	$allTableStructure
+	 * @return	string
 	 */
 	private static function getUpdatingQuery($action, $tableName, $colName, array $colStructure, $allTablesStructure = array()) {
 		switch($action) {
@@ -336,8 +336,8 @@ class TodoyuSQLParser {
 	/**
 	 * Create SQL query from to given column structure
 	 *
-	 * @param	Array	$colStructure
-	 * @return	String
+	 * @param	array	$colStructure
+	 * @return	string
 	 */
 	private static function getFieldColumnsQueryPart(array $colStructure) {
 		$query	= $colStructure['field'] . ' '
@@ -356,8 +356,8 @@ class TodoyuSQLParser {
 	/**
 	 * Parse given columns structure and retrieve query parts
 	 *
-	 * @param	Array	$columnsStructure
-	 * @return	String
+	 * @param	array	$columnsStructure
+	 * @return	string
 	 */
 	private static function getMultipleColumnsQueryPart($columnsStructure) {
 		$queryParts	= array();
@@ -374,8 +374,8 @@ class TodoyuSQLParser {
 	/**
 	 * Create comma + newline separated list from given keys array
 	 *
-	 * @param	Array	$keysArr
-	 * @return	String
+	 * @param	array	$keysArr
+	 * @return	string
 	 */
 	private static function getKeysQueryPart(array $keysArr) {
 		$query	= implode(', ' . "\n", $keysArr);
@@ -388,7 +388,7 @@ class TodoyuSQLParser {
 	/**
 	 * Parse given SQL create query and retrieve general (table, extra, keys) and column stats (field, type, attributes, null, default, extra)
 	 *
-	 * @param	String	$query
+	 * @param	string	$query
 	 * @return	Array
 	 */
 	public static function parseCreateQuery($query) {
@@ -430,7 +430,7 @@ class TodoyuSQLParser {
 	/**
 	 * Split given SQL to extract column keys
 	 *
-	 * @param	String	$SQL
+	 * @param	string	$SQL
 	 * @return	Array
 	 */
 	private static function splitColumnKeySQL($SQL) {

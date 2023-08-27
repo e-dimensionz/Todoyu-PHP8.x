@@ -1,20 +1,20 @@
 <div class="left description">
-	{substituteLinkableElements(cleanHtml($task.description))}
+	{substituteLinkableElements text=$task.description|strip_tags:false}
 </div>
 <div class="right properties">
 	<dl>
-	{foreach $attributes attribute}
-		{$attribute.wrap.0}
-		<dt{if $attribute.classNameLabel} class="{$attribute.classNameLabel}"{else}{if $attribute.className} class="{$attribute.className}"{/if}{/if}>{Label $attribute.label}</dt>
-		<dd{if $attribute.id} id="{$attribute.id}"{/if}{if $attribute.className} class="{$attribute.className}"{/if}{if $attribute.title} title="{$attribute.title}"{/if}>
-			{if $attribute.className}<span class="icon"></span>{/if}
-			{if $attribute.value}
+	{foreach $attributes as $attribute}
+		{if isset($attribute.wrap)}{$attribute.wrap.0}{/if}
+		<dt{if isset($attribute.classNameLabel)} class="{$attribute.classNameLabel}"{else}{if isset($attribute.className)} class="{$attribute.className}"{/if}{/if}>{Label text=$attribute.label}</dt>
+		<dd{if isset($attribute.id)} id="{$attribute.id}"{/if}{if isset($attribute.className)} class="{$attribute.className}"{/if}{if isset($attribute.title)} title="{$attribute.title}"{/if}>
+			{if isset($attribute.className)}<span class="icon"></span>{/if}
+			{if isset($attribute.value)}
 				{$attribute.value}
 			{else}
 				&#8203;
 			{/if}
 		</dd>
-		{$attribute.wrap.1}
+		{if isset($attribute.wrap)}{$attribute.wrap.1}{/if}
 	{/foreach}
 	</dl>
 </div>

@@ -45,11 +45,11 @@ class TodoyuPageAssetManager {
 	/**
 	 * Add a JavaScript file to the page (it will be processed as configured)
 	 *
-	 * @param	String		$pathToFile			Path to original file
-	 * @param	Integer		$position			Position in files list
-	 * @param	Boolean		$compress			Compress content?
-	 * @param	Boolean		$merge				Include file into merge file?
-	 * @param	Boolean		$localize			Parse locale labels
+	 * @param	string		$pathToFile			Path to original file
+	 * @param	integer		$position			Position in files list
+	 * @param	boolean		$compress			Compress content?
+	 * @param	boolean		$merge				Include file into merge file?
+	 * @param	boolean		$localize			Parse locale labels
 	 * @return	Void|Boolean
 	 */
 	public static function addJavascript($pathToFile, $position = 100, $compress = true, $merge = true, $localize = true) {
@@ -92,11 +92,11 @@ class TodoyuPageAssetManager {
 	/**
 	 * Add a stylesheet file to the page (it will be processed as configured)
 	 *
-	 * @param	String		$pathToFile			Path to original file
-	 * @param	String		$media				Media type
-	 * @param	Integer		$position			Position in files list
-	 * @param	Boolean		$compress			Compress content?
-	 * @param	Boolean		$merge				Include file into merge file?
+	 * @param	string		$pathToFile			Path to original file
+	 * @param	string		$media				Media type
+	 * @param	integer		$position			Position in files list
+	 * @param	boolean		$compress			Compress content?
+	 * @param	boolean		$merge				Include file into merge file?
 	 */
 	public static function addStylesheet($pathToFile, $media = 'all', $position = 100, $compress = true, $merge = true) {
 		$pathToFile	= TodoyuFileManager::pathAbsolute($pathToFile);
@@ -177,9 +177,9 @@ class TodoyuPageAssetManager {
 	 * The md5 hash is based on the content of the configuration and the
 	 * modification times of all included files
 	 *
-	 * @param	Array		$fileConfigs
-	 * @param	String		$fileExt
-	 * @return	String
+	 * @param	array		$fileConfigs
+	 * @param	string		$fileExt
+	 * @return	string
 	 */
 	private static function buildMergefileName(array $fileConfigs, $fileExt) {
 		$files		= TodoyuArray::getColumn($fileConfigs, 'file');
@@ -252,8 +252,8 @@ class TodoyuPageAssetManager {
 	/**
 	 * Get the JavaScript merge file
 	 *
-	 * @param	Array		$fileConfigs		Configs for all files which have merging enabled
-	 * @return	String		Web path to merge file in cache
+	 * @param	array		$fileConfigs		Configs for all files which have merging enabled
+	 * @return	string		Web path to merge file in cache
 	 */
 	private static function getMergedJavascriptFile(array $fileConfigs) {
 		$locale			= Todoyu::getLocale();
@@ -296,7 +296,7 @@ class TodoyuPageAssetManager {
 	/**
 	 * Get paths to JavaScript files which are not merged (but possibly compressed and localized)
 	 *
-	 * @param	Array		$fileConfigs
+	 * @param	array		$fileConfigs
 	 * @return	Array
 	 */
 	private static function getSingleJavascriptFiles(array $fileConfigs) {
@@ -344,10 +344,10 @@ class TodoyuPageAssetManager {
 	/**
 	 * Path to single JavaScript file
 	 *
-	 * @param	String		$pathToFile
-	 * @param	Boolean		$compressed
-	 * @param	Boolean		$localized
-	 * @return	String
+	 * @param	string		$pathToFile
+	 * @param	boolean		$compressed
+	 * @param	boolean		$localized
+	 * @return	string
 	 */
 	private static function getSingleJavascriptPath($pathToFile, $compressed = false, $localized = false) {
 		$pathToFile	= TodoyuFileManager::pathAbsolute($pathToFile);
@@ -366,8 +366,8 @@ class TodoyuPageAssetManager {
 	/**
 	 * Compress JavaScript code
 	 *
-	 * @param	String		$javaScriptCode
-	 * @return	String
+	 * @param	string		$javaScriptCode
+	 * @return	string
 	 */
 	public static function compressJavaScript($javaScriptCode) {
 		require_once( PATH_LIB . '/php/jsmin.php' );
@@ -387,8 +387,8 @@ class TodoyuPageAssetManager {
 	/**
 	 * Localize a JavaScript
 	 *
-	 * @param	String	$javascriptCode
-	 * @return	String
+	 * @param	string	$javascriptCode
+	 * @return	string
 	 */
 	public static function localizeJavascript($javascriptCode) {
 		return preg_replace_callback(Todoyu::$CONFIG['CACHE']['JS']['localePattern'], array('TodoyuPageAssetManager', 'localizeJavascriptCallback'), $javascriptCode);
@@ -399,8 +399,8 @@ class TodoyuPageAssetManager {
 	/**
 	 * Callback for javascript localization
 	 *
-	 * @param	Array		$match		Regex matching data
-	 * @return	String
+	 * @param	array		$match		Regex matching data
+	 * @return	string
 	 */
 	private static function localizeJavascriptCallback(array $match) {
 		return str_replace('\'', '\\\'', Todoyu::Label($match[1]));
@@ -471,8 +471,8 @@ class TodoyuPageAssetManager {
 	/**
 	 * Parse given SCSS file into cache/css/ and return the new file path
 	 *
-	 * @param	String			$pathScss
-	 * @return	String|Boolean	Path of created CSS file in cache / false if failed
+	 * @param	string			$pathScss
+	 * @return	string|Boolean	Path of created CSS file in cache / false if failed
 	 */
 	public static function parseScssStylesheet($pathScss) {
 			// Create unique filename for parsed file
@@ -501,7 +501,7 @@ class TodoyuPageAssetManager {
 	/**
 	 * Get SassParser instance
 	 *
-	 * @param	String		$pathScss
+	 * @param	string		$pathScss
 	 * @return	SassParser
 	 */
 	public static function getSassParser($pathScss) {
@@ -530,7 +530,7 @@ class TodoyuPageAssetManager {
 	/**
 	 * Get single CSS files (non-merge)
 	 *
-	 * @param	Array		$fileConfigs
+	 * @param	array		$fileConfigs
 	 * @return	Array		List of file paths with media type attribute
 	 */
 	private static function getSingleCssFiles(array $fileConfigs) {
@@ -579,9 +579,9 @@ class TodoyuPageAssetManager {
 	/**
 	 * Get path to cached CSS file
 	 *
-	 * @param	String		$pathToFile			Path to uncached file
-	 * @param	Boolean		$compressed			Compress content with cssMin?
-	 * @return	String							Absolute path for the cache file
+	 * @param	string		$pathToFile			Path to uncached file
+	 * @param	boolean		$compressed			Compress content with cssMin?
+	 * @return	string							Absolute path for the cache file
 	 */
 	private static function getSingleStylesheetPath($pathToFile, $compressed = false) {
 		$pathToFile	= TodoyuFileManager::pathAbsolute($pathToFile);
@@ -600,7 +600,7 @@ class TodoyuPageAssetManager {
 	/**
 	 * Get merged CSS files (one for each media type)
 	 *
-	 * @param	Array		$fileConfigs
+	 * @param	array		$fileConfigs
 	 * @return	Array
 	 */
 	private static function getMergedCssFiles(array $fileConfigs) {
@@ -660,8 +660,8 @@ class TodoyuPageAssetManager {
 	/**
 	 * Compress CSS code
 	 *
-	 * @param	String		$cssCode
-	 * @return	String
+	 * @param	string		$cssCode
+	 * @return	string
 	 */
 	private static function compressStylesheet($cssCode) {
 		require_once( PATH_LIB . '/php/cssmin.php' );
@@ -674,10 +674,10 @@ class TodoyuPageAssetManager {
 	/**
 	 *  Rewrite relative CSS paths in files
 	 *
-	 * @param	String		$cssCode				CSS code
-	 * @param	String		$pathSourceFile			Absolute path to source file
-	 * @param	Boolean		$withSubFolders			Prefix dirUp (../) for single cache files
-	 * @return	String
+	 * @param	string		$cssCode				CSS code
+	 * @param	string		$pathSourceFile			Absolute path to source file
+	 * @param	boolean		$withSubFolders			Prefix dirUp (../) for single cache files
+	 * @return	string
 	 */
 	private static function rewriteRelativePaths($cssCode, $pathSourceFile, $withSubFolders = false) {
 			// Remove quotes in url() elements
@@ -710,8 +710,8 @@ class TodoyuPageAssetManager {
 	/**
 	 * Callback for make a nicer and shorter path in the CSS file url attributes
 	 *
-	 * @param	Array		$match		Matching data array
-	 * @return	String
+	 * @param	array		$match		Matching data array
+	 * @return	string
 	 */
 	private static function callbackRealpath(array $match) {
 		$realpath	= realpath(PATH_CACHE . '/css/' . $match[1]);

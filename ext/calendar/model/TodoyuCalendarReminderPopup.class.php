@@ -29,7 +29,7 @@ class TodoyuCalendarReminderPopup extends TodoyuCalendarReminder {
 	/**
 	 * Get amount of time before event when to send reminder email
 	 *
-	 * @return	Boolean|Integer
+	 * @return	boolean|Integer
 	 */
 	public function getAdvanceTime($type = CALENDAR_TYPE_EVENTREMINDER_EMAIL) {
 		return parent::getAdvanceTime($type);
@@ -40,7 +40,7 @@ class TodoyuCalendarReminderPopup extends TodoyuCalendarReminder {
 	/**
 	 * Get scheduled popup reminder time
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateRemind($reminderType = CALENDAR_TYPE_EVENTREMINDER_EMAIL) {
 		return parent::getDateRemind($reminderType);
@@ -51,7 +51,7 @@ class TodoyuCalendarReminderPopup extends TodoyuCalendarReminder {
 	/**
 	 * Get dismission state
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function isDismissed($reminderType) {
 			// Already dismissed or not scheduled at all?
@@ -64,7 +64,7 @@ class TodoyuCalendarReminderPopup extends TodoyuCalendarReminder {
 	/**
 	 * Check whether email reminding for this event/person is disabled
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isDisabled($reminderType) {
 		return parent::isDisabled($reminderType);

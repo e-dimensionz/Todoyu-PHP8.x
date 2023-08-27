@@ -39,7 +39,7 @@ class TodoyuCalendarSeriesActionController extends TodoyuActionController {
 	/**
 	 * Delete all events of a series
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function deleteAction(array $params) {
 		$idSeries			= intval($params['series']);
@@ -54,8 +54,8 @@ class TodoyuCalendarSeriesActionController extends TodoyuActionController {
 	/**
 	 * Get series config sub form (includes possible overbooking warnings)
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function configAction(array $params) {
 			// Extract from data from request

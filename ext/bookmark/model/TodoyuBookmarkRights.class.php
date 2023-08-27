@@ -29,9 +29,9 @@ class TodoyuBookmarkRights {
 	/**
 	 * Checks whether adding of bookmark is allowed (including visibility check on Element)
 	 *
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idType
-	 * @return	Boolean
+	 * @param	integer		$idItem
+	 * @param	integer		$idType
+	 * @return	boolean
 	 */
 	public static function isAddAllowed($idItem, $idType) {
 		$idItem	= intval($idItem);
@@ -44,9 +44,9 @@ class TodoyuBookmarkRights {
 	/**
 	 * Checks if seeing of bookmark is allowed (including visibility check on Element)
 	 *
-	 * @param	Integer	$idItem
-	 * @param	Integer	$idType
-	 * @return	Boolean
+	 * @param	integer	$idItem
+	 * @param	integer	$idType
+	 * @return	boolean
 	 */
 	public static function isSeeAllowed($idItem, $idType) {
 		$idItem	= intval($idItem);
@@ -70,9 +70,9 @@ class TodoyuBookmarkRights {
 	/**
 	 * Checks whether removing of bookmark is allowed (inclusive visibility check on Element)
 	 *
-	 * @param	Integer		$idBookmark
-	 * @param	Integer		$type
-	 * @return	Boolean
+	 * @param	integer		$idBookmark
+	 * @param	integer		$type
+	 * @return	boolean
 	 */
 	public static function isRemoveAllowed($idBookmark, $type) {
 		$type		= intval($type);

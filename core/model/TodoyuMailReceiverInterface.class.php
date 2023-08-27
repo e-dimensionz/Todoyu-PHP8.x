@@ -30,7 +30,7 @@ interface TodoyuMailReceiverInterface {
 	/**
 	 * Get the name of the receiver
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getName();
 
@@ -39,7 +39,7 @@ interface TodoyuMailReceiverInterface {
 	/**
 	 * Get the email address
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getAddress();
 
@@ -48,7 +48,7 @@ interface TodoyuMailReceiverInterface {
 	/**
 	 * Get the type
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getType();
 
@@ -57,7 +57,7 @@ interface TodoyuMailReceiverInterface {
 	/**
 	 * Get record ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getRecordID();
 
@@ -67,7 +67,7 @@ interface TodoyuMailReceiverInterface {
 	 * Get tuple
 	 * Combined type and record ID
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTuple();
 
@@ -92,7 +92,7 @@ interface TodoyuMailReceiverInterface {
 	/**
 	 * Check whether receiver is disabled
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isDisabled();
 
@@ -101,7 +101,7 @@ interface TodoyuMailReceiverInterface {
 	/**
 	 * Check whether receiver is enabled
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isEnabled();
 
@@ -111,7 +111,7 @@ interface TodoyuMailReceiverInterface {
 	 * Check whether receiver has a todoyu person
 	 * In this case, the object should provide a getPerson() method which returns a TodoyuContactPerson
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasPerson();
 
@@ -130,8 +130,8 @@ interface TodoyuMailReceiverInterface {
 	/**
 	 * Get label
 	 *
-	 * @param	Boolean		$withAddress
-	 * @return	String
+	 * @param	boolean		$withAddress
+	 * @return	string
 	 */
 	public function getLabel($withAddress = true);
 
@@ -141,7 +141,7 @@ interface TodoyuMailReceiverInterface {
 	 * Get mail format
 	 * "name@company.com" or "Name <name@company.com>"
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getMailFormat();
 }

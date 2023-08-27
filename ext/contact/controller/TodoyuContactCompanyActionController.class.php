@@ -38,8 +38,8 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Edit company
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function editAction(array $params) {
 		$idCompany	= intval($params['company']);
@@ -57,8 +57,8 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Show company list view with tabs
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function listAction(array $params) {
 		Todoyu::restrict('contact', 'general:area');
@@ -81,8 +81,8 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Get company paged listing
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function listingAction(array $params) {
 		Todoyu::restrict('contact', 'general:area');
@@ -103,8 +103,8 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Save company record
 	 *
-	 * @param	Array		$params
-	 * @return	String		Form HTML or company ID
+	 * @param	array		$params
+	 * @return	string		Form HTML or company ID
 	 */
 	public function saveAction(array $params) {
 		$xmlPath	= 'ext/contact/config/form/company.xml';
@@ -141,8 +141,8 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Add a sub form record to company form
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function addSubformAction(array $params) {
 		$formName	= $params['form'];
@@ -162,7 +162,7 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Remove company record
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function removeAction(array $params) {
 		$idCompany	= intval($params['company']);
@@ -182,8 +182,8 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Show company details (popUp)
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function detailAction(array $params) {
 		Todoyu::restrict('contact', 'general:area');
@@ -205,8 +205,8 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Returns the Options for the Working Location selector
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function getCompanyAddressOptionsAction(array $params) {
 		$tmpl		= 'core/view/form/FormElement_Select_Options.tmpl';
@@ -228,8 +228,8 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Render select options of regions of given country
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function regionOptionsAction(array $params) {
 		$idCountry	= intval($params['country']);
@@ -248,8 +248,8 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Content for the company-wizard popUp
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function createWizardAction(array $params) {
 		TodoyuContactCompanyRights::restrictAdd();
@@ -264,8 +264,8 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Save company from Wizard
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function saveCreateWizardAction(array $params) {
 		$xmlPath	= 'ext/contact/config/form/company.xml';
@@ -310,8 +310,8 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Renders the image - tag
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function loadimageAction(array $params) {
 		$idCompany	= trim($params['record']);
@@ -327,7 +327,7 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Output of an image
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function rendercontactimageAction(array $params) {
 		$idCompany	= $params['idImage'];
@@ -342,7 +342,7 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Output of an image
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function renderavatarAction(array $params) {
 		$idCompany	= $params['idImage'];
@@ -357,7 +357,7 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Remove given contact image
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function removeimageAction(array $params) {
 		$idCompany	= $params['idImage'];
@@ -372,7 +372,7 @@ class TodoyuContactCompanyActionController extends TodoyuActionController {
 	/**
 	 * Check for duplicated companies.
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function checkduplicatedentriesAction(array $params) {
 		$value	= $params['fieldvalue'];

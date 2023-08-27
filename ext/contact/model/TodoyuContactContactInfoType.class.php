@@ -29,7 +29,7 @@ class TodoyuContactContactInfoType extends TodoyuBaseObject {
 	/**
 	 * Constructor of the class
 	 *
-	 * @param	Integer		$idContactInfoType
+	 * @param	integer		$idContactInfoType
 	 */
 	public function __construct($idContactInfoType) {
 		parent::__construct($idContactInfoType, 'ext_contact_contactinfotype');
@@ -40,7 +40,7 @@ class TodoyuContactContactInfoType extends TodoyuBaseObject {
 	/**
 	 * Gets the header title of the contact info element (the header shown also when the element is collapsed)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle() {
 		return Todoyu::Label($this->get('title'));
@@ -51,7 +51,7 @@ class TodoyuContactContactInfoType extends TodoyuBaseObject {
 	/**
 	 * Checks if the contactinfotype is public or not
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isPublic() {
 		return intval($this->data['is_public']) === 1;

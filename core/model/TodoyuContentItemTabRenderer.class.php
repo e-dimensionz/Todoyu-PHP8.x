@@ -29,11 +29,11 @@ class TodoyuContentItemTabRenderer {
 	/**
 	 * Render all item tabs (only content of the active tab)
 	 *
-	 * @param	String		$extKey			Extension that implements the item containing the tabs
-	 * @param	String		$itemKey		Item containing the tabs, e.g. project / task / container / ...
-	 * @param	Integer		$idItem
-	 * @param	String		$activeTab
-	 * @return	String
+	 * @param	string		$extKey			Extension that implements the item containing the tabs
+	 * @param	string		$itemKey		Item containing the tabs, e.g. project / task / container / ...
+	 * @param	integer		$idItem
+	 * @param	string		$activeTab
+	 * @return	string
 	 */
 	public static function renderTabs($extKey, $itemKey, $idItem, $activeTab = '') {
 		$idItem		= intval($idItem);
@@ -55,11 +55,11 @@ class TodoyuContentItemTabRenderer {
 	/**
 	 * Render the heads of all project detail tabs
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$itemKey
-	 * @param	Integer		$idItem
-	 * @param	String		$activeTab
-	 * @return	String
+	 * @param	string		$extKey
+	 * @param	string		$itemKey
+	 * @param	integer		$idItem
+	 * @param	string		$activeTab
+	 * @return	string
 	 */
 	public static function renderTabHeads($extKey, $itemKey, $idItem, $activeTab = '') {
 		$idItem		= intval($idItem);
@@ -84,11 +84,11 @@ class TodoyuContentItemTabRenderer {
 	/**
 	 * Render item tab container with content tab of the active item
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$itemKey
-	 * @param	Integer		$idItem
-	 * @param	String		$activeTab
-	 * @return	String
+	 * @param	string		$extKey
+	 * @param	string		$itemKey
+	 * @param	integer		$idItem
+	 * @param	string		$activeTab
+	 * @return	string
 	 */
 	public static function renderTabsContent($extKey, $itemKey, $idItem, $activeTab = '') {
 		$idItem		= intval($idItem);
@@ -121,11 +121,11 @@ class TodoyuContentItemTabRenderer {
 	/**
 	 * Render content of an item tab
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$itemKey
-	 * @param	Integer		$idItem
-	 * @param	String		$tab
-	 * @return	String
+	 * @param	string		$extKey
+	 * @param	string		$itemKey
+	 * @param	integer		$idItem
+	 * @param	string		$tab
+	 * @return	string
 	 */
 	public static function renderTabContent($extKey, $itemKey, $idItem, $tab) {
 		$idItem		= intval($idItem);

@@ -29,7 +29,7 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('sysmanager', 'extensions:modify');
@@ -40,8 +40,8 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	/**
 	 * Get rendered list of available extensions updates
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function searchAction(array $params) {
 		$query	= trim($params['query']);
@@ -56,8 +56,8 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	/**
 	 * Install update of todoyu core
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function installCoreUpdateAction(array $params) {
 		$result		= TodoyuSysmanagerRepositoryManager::installCoreUpdate();
@@ -72,7 +72,7 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	/**
 	 * Install extension update from tER
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function installExtensionUpdateAction(array $params) {
 		$ext	= trim($params['extkey']);
@@ -89,8 +89,8 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	/**
 	 * Get list with available updates
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function refreshUpdateListAction(array $params) {
 		return TodoyuSysmanagerRepositoryRenderer::renderUpdate();
@@ -101,7 +101,7 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	/**
 	 * Install an extension from tER
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function installTerExtensionAction(array $params) {
 		$extKey			= trim($params['extkey']);
@@ -119,8 +119,8 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	/**
 	 * Get dialog for extension update
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function updateDialogAction(array $params) {
 		$ext	= trim($params['extension']);
@@ -133,8 +133,8 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	/**
 	 * Get dialog for extension installation
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function installDialogAction(array $params) {
 		$ext	= trim($params['extension']);
@@ -148,8 +148,8 @@ class TodoyuSysmanagerRepositoryActionController extends TodoyuActionController 
 	/**
 	 * Get dialog for core update
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function coreUpdateDialogAction(array $params) {
 		return TodoyuSysmanagerRepositoryRenderer::renderCoreUpdateDialog();

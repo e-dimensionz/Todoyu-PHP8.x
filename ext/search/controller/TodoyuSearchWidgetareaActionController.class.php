@@ -29,7 +29,7 @@ class TodoyuSearchWidgetareaActionController extends TodoyuActionController {
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('search', 'general:use');
@@ -40,7 +40,7 @@ class TodoyuSearchWidgetareaActionController extends TodoyuActionController {
 	/**
 	 * (Render and) add given search widget
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function addAction(array $params) {
 		$widgetName	= $params['name'];
@@ -57,8 +57,8 @@ class TodoyuSearchWidgetareaActionController extends TodoyuActionController {
 	/**
 	 * Load widget area
 	 *
-	 * @param	Array		$params
-	 * @return	String		rendered widget area
+	 * @param	array		$params
+	 * @return	string		rendered widget area
 	 */
 	public function loadAction(array $params) {
 		$idFilterset= intval($params['filterset']);

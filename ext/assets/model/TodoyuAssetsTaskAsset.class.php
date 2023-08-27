@@ -29,7 +29,7 @@ class TodoyuAssetsTaskAsset extends TodoyuAssetsAsset {
 	/**
 	 * Get task ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getTaskID() {
 		return $this->getParentID();

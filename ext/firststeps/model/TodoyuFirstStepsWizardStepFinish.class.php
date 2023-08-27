@@ -29,8 +29,8 @@ class TodoyuFirstStepsWizardStepFinish extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Nothing to save
 	 *
-	 * @param	Array	$data
-	 * @return	Boolean
+	 * @param	array	$data
+	 * @return	boolean
 	 */
 	public function save(array $data) {
 		return true;
@@ -41,7 +41,7 @@ class TodoyuFirstStepsWizardStepFinish extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Render content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getContent() {
 		$tmpl	= 'ext/firststeps/view/wizard-step-finish.tmpl';

@@ -29,8 +29,8 @@ class TodoyuCommentMailer {
 	/**
 	 * Send comment email to given receivers. Save status to mail-log.
 	 *
-	 * @param	Integer		$idComment
-	 * @param	String[]	$receiverTuples
+	 * @param	integer		$idComment
+	 * @param	string[]	$receiverTuples
 	 * @return	Array
 	 */
 	public static function sendEmails($idComment, array $receiverTuples) {

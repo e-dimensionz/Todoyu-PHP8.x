@@ -68,7 +68,7 @@ class TodoyuTimetracking {
 	/**
 	 * Get all currently active tracking records
 	 *
-	 * @param	Boolean	$excludeCurrentUser	Only those tracked by other users?
+	 * @param	boolean	$excludeCurrentUser	Only those tracked by other users?
 	 * @return	Array
 	 */
 	public static function getCurrentTrackingTaskIDs($excludeCurrentUser = false) {
@@ -95,7 +95,7 @@ class TodoyuTimetracking {
 	/**
 	 * Store currently running time track record
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 */
 	private static function setCurrentTracking($idTask) {
 		$data	= array(
@@ -122,7 +122,7 @@ class TodoyuTimetracking {
 	/**
 	 * Get ID of currently tracked task
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getTaskID() {
 		$record	= self::getCurrentTracking();
@@ -146,7 +146,7 @@ class TodoyuTimetracking {
 	/**
 	 * Get starttime of current time tracking
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getCurrentTrackingStart() {
 		$record	= self::getCurrentTracking();
@@ -157,8 +157,8 @@ class TodoyuTimetracking {
 
 	/**
 	 * @deprecated		wrapper
-	 * @param	Integer	$idTask
-	 * @return	Boolean
+	 * @param	integer	$idTask
+	 * @return	boolean
 	 */
 	public static function isTaskRunning($idTask) {
 		return self::isTaskTrackedByMe($idTask);
@@ -167,8 +167,8 @@ class TodoyuTimetracking {
 	/**
 	 * Check whether task is currently being tracked by the current user
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isTaskTrackedByMe($idTask) {
 		$idTask		= intval($idTask);
@@ -181,8 +181,8 @@ class TodoyuTimetracking {
 	/**
 	 * Check whether task is currently being tracked by someone else (than the current user)
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isTaskTrackedByOthers($idTask) {
 		$idTask	= intval($idTask);
@@ -195,7 +195,7 @@ class TodoyuTimetracking {
 	/**
 	 * Check whether time tracking is active
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isTrackingActive() {
 		return self::getTaskID() > 0;
@@ -206,7 +206,7 @@ class TodoyuTimetracking {
 	/**
 	 * Start time tracking for a task
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 */
 	public static function startTask($idTask) {
 		$idTask	= intval($idTask);
@@ -284,13 +284,13 @@ class TodoyuTimetracking {
 	/**
 	 * Get time of a task between start and end time
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd
-	 * @param	Boolean		$checkChargeableTime
-	 * @param	Integer		$idPerson
-	 * @param	Boolean		$addCurrentTracking
-	 * @return	Integer
+	 * @param	integer		$idTask
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd
+	 * @param	boolean		$checkChargeableTime
+	 * @param	integer		$idPerson
+	 * @param	boolean		$addCurrentTracking
+	 * @return	integer
 	 */
 	public static function getTrackedTaskTime($idTask = 0, $dateStart = 0, $dateEnd = 0, $checkChargeableTime = false, $idPerson = 0, $addCurrentTracking = false) {
 		$idTask		= intval($idTask);
@@ -341,10 +341,10 @@ class TodoyuTimetracking {
 	/**
 	 * Get total tracked time (in seconds) of a task
 	 *
-	 * @param	Integer		$idTask				Task ID
-	 * @param	Boolean		$checkChargeable	Count chargeable time if available
-	 * @param	Boolean		$addCurrentTracking
-	 * @return	Integer
+	 * @param	integer		$idTask				Task ID
+	 * @param	boolean		$checkChargeable	Count chargeable time if available
+	 * @param	boolean		$addCurrentTracking
+	 * @return	integer
 	 */
 	public static function getTrackedTaskTimeTotal($idTask, $checkChargeable = false, $addCurrentTracking = false) {
 		$idTask	= intval($idTask);
@@ -357,10 +357,10 @@ class TodoyuTimetracking {
 	/**
 	 * Get time the task was running on a specific day
 	 *
-	 * @param	Integer		$idTask: ID of a task
-	 * @param	Integer		$timestamp: timestamp of a specific day. Default will be today
-	 * @param	Integer		$idPerson
-	 * @return	String
+	 * @param	integer		$idTask: ID of a task
+	 * @param	integer		$timestamp: timestamp of a specific day. Default will be today
+	 * @param	integer		$idPerson
+	 * @return	string
 	 */
 	public static function getTrackedTaskTimeOfDay($idTask, $timestamp = 0, $idPerson = 0) {
 		$idTask		= intval($idTask);
@@ -381,7 +381,7 @@ class TodoyuTimetracking {
 	/**
 	 * Get tracked time of all tasks tracked today by current person
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getTodayTrackedTime() {
 		return self::getTrackedTaskTimeOfDay(0, NOW, Todoyu::personid());
@@ -392,9 +392,9 @@ class TodoyuTimetracking {
 	/**
 	 * Get all tracks of a person in a date range
 	 *
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd			Optional, if not given: end of day $dateStart
-	 * @param	Integer		$idPerson			Optional, default: logged-in person
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd			Optional, if not given: end of day $dateStart
+	 * @param	integer		$idPerson			Optional, default: logged-in person
 	 * @return	Array
 	 */
 	public static function getPersonTracks($dateStart, $dateEnd = 0, $idPerson = 0) {
@@ -423,7 +423,7 @@ class TodoyuTimetracking {
 	/**
 	 * Get tracked time of current tracking
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getTrackedTime() {
 		$startTime	= self::getCurrentTrackingStart();
@@ -436,7 +436,7 @@ class TodoyuTimetracking {
 	/**
 	 * Get track
 	 *
-	 * @param	Integer		$idTrack
+	 * @param	integer		$idTrack
 	 * @return	TodoyuTimetrackingTrack
 	 */
 	public static function getTrack($idTrack) {
@@ -448,7 +448,7 @@ class TodoyuTimetracking {
 	/**
 	 * Loads persons firstname and lastname of given track
 	 *
-	 * @param	Integer		$idTrack
+	 * @param	integer		$idTrack
 	 * @return	Array
 	 */
 	public static function getTrackPersonData($idTrack) {
@@ -470,8 +470,8 @@ class TodoyuTimetracking {
 	/**
 	 * Add new track record
 	 *
-	 * @param	Array		$data
-	 * @return	Integer		Track record ID
+	 * @param	array		$data
+	 * @return	integer		Track record ID
 	 */
 	public static function addRecord(array $data) {
 		$data['date_track']	= NOW;
@@ -484,9 +484,9 @@ class TodoyuTimetracking {
 	/**
 	 * Update a track record
 	 *
-	 * @param	Integer		$idTrack
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idTrack
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function updateRecord($idTrack, array $data) {
 		$idTrack = intval($idTrack);
@@ -499,10 +499,10 @@ class TodoyuTimetracking {
 	/**
 	 * Add a new timetracking record to database
 	 *
-	 * @param	Integer		$idTask				Task ID
-	 * @param	Integer		$timeTracked		In Seconds
-	 * @param	Integer		$timeChargeable		In Seconds
-	 * @return	Integer
+	 * @param	integer		$idTask				Task ID
+	 * @param	integer		$timeTracked		In Seconds
+	 * @param	integer		$timeChargeable		In Seconds
+	 * @return	integer
 	 */
 	private static function addTracking($idTask, $timeTracked, $timeChargeable = 0) {
 		$idTask			= intval($idTask);
@@ -524,11 +524,11 @@ class TodoyuTimetracking {
 	/**
 	 * Update a timetrack record. Happens if a task has been tracked again or the workload has been modified manually
 	 *
-	 * @param	Integer		$idTrack
-	 * @param	Integer		$workloadTracked
-	 * @param	Integer		$chargeableWorkload
-	 * @param	String		$comment
-	 * @return	Boolean
+	 * @param	integer		$idTrack
+	 * @param	integer		$workloadTracked
+	 * @param	integer		$chargeableWorkload
+	 * @param	string		$comment
+	 * @return	boolean
 	 */
 	private static function updateTracking($idTrack, $workloadTracked, $chargeableWorkload = null, $comment = null) {
 		$idTrack		= intval($idTrack);
@@ -555,8 +555,8 @@ class TodoyuTimetracking {
 	/**
 	 * Check whether status is allowed for more timetracking
 	 *
-	 * @param	Integer		$status
-	 * @return	Boolean
+	 * @param	integer		$status
+	 * @return	boolean
 	 */
 	public static function isTrackableStatus($status) {
 		return in_array($status, TodoyuArray::assure(Todoyu::$CONFIG['EXT']['timetracking']['trackableStatus']));
@@ -567,10 +567,10 @@ class TodoyuTimetracking {
 	/**
 	 * Check whether an item is trackable. At the moment, only task are trackable, but not containers
 	 *
-	 * @param	Integer		$type
-	 * @param	Integer		$status
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$type
+	 * @param	integer		$status
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isTrackable($type, $status, $idTask) {
 		$type	= intval($type);
@@ -591,8 +591,8 @@ class TodoyuTimetracking {
 	/**
 	 * Check whether task is trackable
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isTaskTrackable($idTask) {
 		$idTask	= intval($idTask);
@@ -606,7 +606,7 @@ class TodoyuTimetracking {
 	/**
 	 * Save currently tracked task in session
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 */
 	private static function setRunningTask($idTask) {
 		$idTask	= intval($idTask);
@@ -619,8 +619,8 @@ class TodoyuTimetracking {
 	/**
 	 * Get stored workload of a task for a day. Only one record is created for a task per day
 	 *
-	 * @param	Integer				$idTask
-	 * @param	Integer|Boolean		$timestamp
+	 * @param	integer				$idTask
+	 * @param	integer|Boolean		$timestamp
 	 * @return	Array|Boolean
 	 */
 	private static function getDayWorkloadRecord($idTask, $timestamp = false) {
@@ -641,8 +641,8 @@ class TodoyuTimetracking {
 	/**
 	 * Get context menu items for a task
 	 *
-	 * @param	Integer		$idTask		Task ID
-	 * @param	Array		$items		Current items
+	 * @param	integer		$idTask		Task ID
+	 * @param	array		$items		Current items
 	 * @return	Array
 	 */
 	public static function getContextMenuItems($idTask, array $items) {
@@ -670,9 +670,9 @@ class TodoyuTimetracking {
 	/**
 	 * Get tracked task IDs
 	 *
-	 * @param	Integer		$timeStart
-	 * @param	Integer		$timeEnd
-	 * @param	Integer		$idPerson
+	 * @param	integer		$timeStart
+	 * @param	integer		$timeEnd
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getTrackedTaskIDs($timeStart = 0, $timeEnd = 0, $idPerson = 0) {

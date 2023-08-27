@@ -48,6 +48,9 @@ RedirectMatch 403 /backup/(.*)
 # Disallow any log file download from web
 RedirectMatch 403 /log/(.*)
 
+# Disallow access to composer folder
+RedirectMatch 403 /vendor/(.*)
+
 # Disallow file download from cache
 RedirectMatch 403 /cache/language/(.*)
 RedirectMatch 403 /cache/tmpl/(.*)
@@ -56,7 +59,6 @@ RedirectMatch 403 /cache/tmpl/(.*)
 RedirectMatch 403 /ext/(.*)/config/(.*)
 RedirectMatch 403 /ext/(.*)/controller/(.*)
 RedirectMatch 403 /ext/(.*)/model/(.*)
-RedirectMatch 403 /ext/(.*)/dwoo/(.*)
 RedirectMatch 403 /ext/(.*)/locale/(.*)
 RedirectMatch 403 /ext/(.*)/test/(.*)
 RedirectMatch 403 /ext/(.*)/view/(.*)

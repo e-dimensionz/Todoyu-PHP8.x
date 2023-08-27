@@ -42,8 +42,8 @@ class TodoyuFormHook {
 	/**
 	 * Get registered hooks of a type for a form
 	 *
-	 * @param	String		$type
-	 * @param	String		$xmlPath
+	 * @param	string		$type
+	 * @param	string		$xmlPath
 	 * @return	Array		List of
 	 */
 	private static function getHooks($type, $xmlPath) {
@@ -64,10 +64,10 @@ class TodoyuFormHook {
 	/**
 	 * Call hooks for form building (adding fields)
 	 *
-	 * @param	String			$xmlPath		Path to main XML form file
+	 * @param	string			$xmlPath		Path to main XML form file
 	 * @param	TodoyuForm		$form			Form object to modify
-	 * @param	Integer			$idRecord		ID of the main record
-	 * @param	Array			$params			Optional parameter for the hook
+	 * @param	integer			$idRecord		ID of the main record
+	 * @param	array			$params			Optional parameter for the hook
 	 * @return	TodoyuForm		Modified form object
 	 */
 	public static function callBuildForm($xmlPath, TodoyuForm $form, $idRecord, array $params = array()) {
@@ -93,9 +93,9 @@ class TodoyuFormHook {
 	/**
 	 * Call hooked callbacks before form is actually rendered. Last chance for data updates
 	 *
-	 * @param	String	$xmlPath
-	 * @param	Array	$formDataVar
-	 * @param	Array	$additionalParams
+	 * @param	string	$xmlPath
+	 * @param	array	$formDataVar
+	 * @param	array	$additionalParams
 	 * @return	Mixed
 	 */
 	public static function callRenderForm($xmlPath, $formDataVar, array $additionalParams = array()) {
@@ -119,10 +119,10 @@ class TodoyuFormHook {
 	/**
 	 * Call hooks to add extra data
 	 *
-	 * @param	String		$xmlPath		Path to main XML form file
-	 * @param	Array		$data			Record data array
-	 * @param	Integer		$idRecord		Record ID
-	 * @param	Array		$params			Optional parameter for the hook
+	 * @param	string		$xmlPath		Path to main XML form file
+	 * @param	array		$data			Record data array
+	 * @param	integer		$idRecord		Record ID
+	 * @param	array		$params			Optional parameter for the hook
 	 * @return	Array
 	 */
 	public static function callLoadData($xmlPath, array $data, $idRecord = 0, array $params = array()) {
@@ -145,10 +145,10 @@ class TodoyuFormHook {
 	 * Call hooks to save submitted form data (which is not saved by the main function)
 	 * Registered functions have to modify the data array and remove their custom fields
 	 *
-	 * @param	String		$xmlPath		Path to the form XML file
-	 * @param	Array		$data			Record data array
-	 * @param	Integer		$idRecord		Record ID
-	 * @param	Array		$params			Optional parameter for the hook
+	 * @param	string		$xmlPath		Path to the form XML file
+	 * @param	array		$data			Record data array
+	 * @param	integer		$idRecord		Record ID
+	 * @param	array		$params			Optional parameter for the hook
 	 * @return	Array
 	 */
 	public static function callSaveData($xmlPath, array $data, $idRecord, array $params = array()) {
@@ -174,10 +174,10 @@ class TodoyuFormHook {
 	/**
 	 * Register callback function for a type of form event
 	 *
-	 * @param	String		$type			Type of the registered function
-	 * @param	String		$xmlPath		Path to the form XML file
-	 * @param	String		$funcRef		Function reference
-	 * @param	Integer		$position		Order of the callback function calls
+	 * @param	string		$type			Type of the registered function
+	 * @param	string		$xmlPath		Path to the form XML file
+	 * @param	string		$funcRef		Function reference
+	 * @param	integer		$position		Order of the callback function calls
 	 */
 	public static function register($type, $xmlPath, $funcRef, $position = 100) {
 		$xmlPath = TodoyuFileManager::pathWeb($xmlPath);
@@ -194,9 +194,9 @@ class TodoyuFormHook {
 	 * Register (hook-in) a buildForm function
 	 * Modify the form object before rendering
 	 *
-	 * @param	String		$xmlPath		Path to the form XML file
-	 * @param	String		$funcRef		Function reference
-	 * @param	Integer		$position		Order of the callback function calls
+	 * @param	string		$xmlPath		Path to the form XML file
+	 * @param	string		$funcRef		Function reference
+	 * @param	integer		$position		Order of the callback function calls
 	 */
 	public static function registerBuildForm($xmlPath, $funcRef, $position = 100) {
 		self::register('buildForm', $xmlPath, $funcRef, $position);
@@ -208,9 +208,9 @@ class TodoyuFormHook {
 	 * Register (hook-in) a buildForm callback function
 	 * Modify form data immediately before final rendering
 	 *
-	 * @param	String		$xmlPath		Path to the form XML file
-	 * @param	String		$funcRef		Function reference
-	 * @param	Integer		$position		Order of the callback function calls
+	 * @param	string		$xmlPath		Path to the form XML file
+	 * @param	string		$funcRef		Function reference
+	 * @param	integer		$position		Order of the callback function calls
 	 */
 	public static function registerRenderForm($xmlPath, $funcRef, $position = 100) {
 		self::register('renderForm', $xmlPath, $funcRef, $position);
@@ -221,9 +221,9 @@ class TodoyuFormHook {
 	/**
 	 * Register (hook-in) a modification function for fields of type "DatabaseRelation"
 	 *
-	 * @param	String	$xmlPath
-	 * @param	Array	$funcRef
-	 * @param	Integer	$position
+	 * @param	string	$xmlPath
+	 * @param	array	$funcRef
+	 * @param	integer	$position
 	 */
 	public static function registerDatabaseRelationFieldModifier($xmlPath, $funcRef, $position = 100) {
 		self::register('buildFormDatabaseRelation', $xmlPath, $funcRef, $position);
@@ -235,9 +235,9 @@ class TodoyuFormHook {
 	 * Register a loadData function
 	 * Load special data into the data array for custom added fields
 	 *
-	 * @param	String		$xmlPath		Path to the form XML file
-	 * @param	String		$funcRef		Function reference
-	 * @param	Integer		$position		Order of the callback function calls
+	 * @param	string		$xmlPath		Path to the form XML file
+	 * @param	string		$funcRef		Function reference
+	 * @param	integer		$position		Order of the callback function calls
 	 */
 	public static function registerLoadData($xmlPath, $funcRef, $position = 100) {
 		self::register('loadData', $xmlPath, $funcRef, $position);
@@ -249,9 +249,9 @@ class TodoyuFormHook {
 	 * Register a saveData function
 	 * Store special fields before saving basic record
 	 *
-	 * @param	String		$xmlPath		Path to the form XML file
-	 * @param	String		$funcRef		Function reference
-	 * @param	Integer		$position		Order of the callback function calls
+	 * @param	string		$xmlPath		Path to the form XML file
+	 * @param	string		$funcRef		Function reference
+	 * @param	integer		$position		Order of the callback function calls
 	 */
 	public static function registerSaveData($xmlPath, $funcRef, $position = 100) {
 		self::register('saveData', $xmlPath, $funcRef, $position);

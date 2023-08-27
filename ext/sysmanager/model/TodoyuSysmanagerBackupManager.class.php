@@ -29,8 +29,8 @@ class TodoyuSysmanagerBackupManager {
 	/**
 	 * Create a backup file of an extension for the current version
 	 *
-	 * @param	String		$extKey
-	 * @return	String		Path to backup file
+	 * @param	string		$extKey
+	 * @return	string		Path to backup file
 	 */
 	public static function createExtensionBackup($extKey) {
 		$archivePath	= TodoyuSysmanagerArchiver::createExtensionArchive($extKey);
@@ -44,7 +44,7 @@ class TodoyuSysmanagerBackupManager {
 	/**
 	 * Create a backup file of the core for the current version
 	 *
-	 * @return	String		Path to backup file
+	 * @return	string		Path to backup file
 	 */
 	public static function createCoreBackup() {
 		$archivePath	= TodoyuSysmanagerArchiver::createCoreArchive();
@@ -58,9 +58,9 @@ class TodoyuSysmanagerBackupManager {
 	/**
 	 * Move temporary backup file to backup folder
 	 *
-	 * @param	String		$tempFile
-	 * @param	String		$fileName
-	 * @return	String
+	 * @param	string		$tempFile
+	 * @param	string		$fileName
+	 * @return	string
 	 */
 	private static function addFileToBackupArchive($tempFile, $fileName) {
 		TodoyuFileManager::makeDirDeep('backup');

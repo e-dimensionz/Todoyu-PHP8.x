@@ -39,7 +39,7 @@ class TodoyuSearchFilterConditionManager {
 	/**
 	 * Get filter condition
 	 *
-	 * @param	Integer			$idFilterCondition
+	 * @param	integer			$idFilterCondition
 	 * @return	TodoyuSearchFilterCondition
 	 */
 	public static function getFilterCondition($idFilterCondition) {
@@ -53,7 +53,7 @@ class TodoyuSearchFilterConditionManager {
 	/**
 	 * Get filter condition database record
 	 *
-	 * @param	Integer		$idFilterCondition
+	 * @param	integer		$idFilterCondition
 	 * @return	Array
 	 */
 	public static function getFilterConditionRecord($idFilterCondition) {
@@ -67,7 +67,7 @@ class TodoyuSearchFilterConditionManager {
 	/**
 	 * Get filter conditions to given filter set
 	 *
-	 * @param	Integer		$idFilterset
+	 * @param	integer		$idFilterset
 	 * @return	Array
 	 */
 	public static function getFiltersetConditions($idFilterset) {
@@ -97,7 +97,7 @@ class TodoyuSearchFilterConditionManager {
 	/**
 	 * Get type filters (conditions)
 	 *
-	 * @param	String		$type
+	 * @param	string		$type
 	 * @return	Array
 	 */
 	public static function getTypeFilterConditions($type = 'TASK') {
@@ -123,7 +123,7 @@ class TodoyuSearchFilterConditionManager {
 	/**
 	 * Get conditions of a type, grouped by their optgroup attribute
 	 *
-	 * @param	String		$type
+	 * @param	string		$type
 	 * @return	Array
 	 */
 	public static function getGroupedTypeFilterConditions($type = 'TASK') {
@@ -137,8 +137,8 @@ class TodoyuSearchFilterConditionManager {
 	/**
 	 * Save all filterset conditions
 	 *
-	 * @param	Integer		$idFilterset
-	 * @param	Array		$filterConditions
+	 * @param	integer		$idFilterset
+	 * @param	array		$filterConditions
 	 * @return	Array		Condition IDs
 	 * @todo	Do not delete every filtercondition, update them
 	 */
@@ -162,11 +162,11 @@ class TodoyuSearchFilterConditionManager {
 	/**
 	 * Add a new filterset condition
 	 *
-	 * @param	Integer		$idFilterset		Parent filterset
-	 * @param	String		$filterName			Name of the filter (-function)
+	 * @param	integer		$idFilterset		Parent filterset
+	 * @param	string		$filterName			Name of the filter (-function)
 	 * @param	Mixed		$value				String or Array value data
-	 * @param	Boolean		$negate				Filter is negated
-	 * @return	Integer		Condition ID
+	 * @param	boolean		$negate				Filter is negated
+	 * @return	integer		Condition ID
 	 */
 	public static function addFilterCondition($idFilterset, $filterName, $value, $negate = false) {
 		$idFilterset= intval($idFilterset);
@@ -186,7 +186,7 @@ class TodoyuSearchFilterConditionManager {
 	/**
 	 * Delete all conditions of a filterset
 	 *
-	 * @param	Integer		$idFilterset
+	 * @param	integer		$idFilterset
 	 */
 	public static function deleteFiltersetConditions($idFilterset) {
 		$idFilterset = intval($idFilterset);
@@ -199,7 +199,7 @@ class TodoyuSearchFilterConditionManager {
 	/**
 	 * Transform the filter conditions to a valid filter condition array
 	 *
-	 * @param	Array		$filterConditions
+	 * @param	array		$filterConditions
 	 * @return	Array
 	 */
 	public static function buildFilterConditionArray(array $filterConditions = array()) {
@@ -222,7 +222,7 @@ class TodoyuSearchFilterConditionManager {
 	/**
 	 * Remove restricted filter conditions
 	 *
-	 * @param	Array		$filterConditions
+	 * @param	array		$filterConditions
 	 * @return	Array
 	 */
 	protected static function removeNotAllowedFilters(array $filterConditions) {

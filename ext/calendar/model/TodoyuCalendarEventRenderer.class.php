@@ -29,8 +29,8 @@ class TodoyuCalendarEventRenderer {
 	/**
 	 * Prepare event rendering data array
 	 *
-	 * @param	Integer		$mode			CALENDAR_MODE_DAY / ..WEEK / ..MONTH
-	 * @param	Array		$data			event parameters
+	 * @param	integer		$mode			CALENDAR_MODE_DAY / ..WEEK / ..MONTH
+	 * @param	array		$data			event parameters
 	 * @return	Array
 	 * @deprecated
 	 * @todo	Use event model for this
@@ -68,8 +68,8 @@ class TodoyuCalendarEventRenderer {
 	/**
 	 * Render event details view for display inside expanded event in list mode
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	String
+	 * @param	integer		$idEvent
+	 * @return	string
 	 */
 	public static function renderEventDetailsInList($idEvent) {
 		$idEvent	= intval($idEvent);
@@ -94,9 +94,9 @@ class TodoyuCalendarEventRenderer {
 	/**
 	 * Render create event form popup
 	 *
-	 * @param	Integer		$timestamp
-	 * @param	Boolean		$isAllDayEvent
-	 * @return	String		Form
+	 * @param	integer		$timestamp
+	 * @param	boolean		$isAllDayEvent
+	 * @return	string		Form
 	 */
 	public static function renderCreateQuickEvent($timestamp = 0, $isAllDayEvent = false) {
 		$timestamp	= intval($timestamp);
@@ -135,7 +135,7 @@ class TodoyuCalendarEventRenderer {
 	/**
 	 * Hide private data out from event attributes
 	 *
-	 * @param	Array	$data
+	 * @param	array	$data
 	 * @return	Array
 	 */
 	private static function hidePrivateData(array $data) {
@@ -150,8 +150,8 @@ class TodoyuCalendarEventRenderer {
 	/**
 	 * Render event tabs, including detail viewing tab
 	 *
-	 * @param	Integer	$idEvent
-	 * @return	String
+	 * @param	integer	$idEvent
+	 * @return	string
 	 */
 	public static function renderEventViewTabs($idEvent) {
 		$idEvent	= intval($idEvent);
@@ -177,8 +177,8 @@ class TodoyuCalendarEventRenderer {
 	/**
 	 * Render event view
 	 *
-	 * @param	Integer	$idEvent
-	 * @return	String
+	 * @param	integer	$idEvent
+	 * @return	string
 	 */
 	public static function renderEventView($idEvent) {
 		$idEvent	= intval($idEvent);
@@ -196,8 +196,8 @@ class TodoyuCalendarEventRenderer {
 
 
 	/**
-	 * @param	Array	$personIDs
-	 * @return	String
+	 * @param	array	$personIDs
+	 * @return	string
 	 */
 	public static function renderAutoMailComment(array $personIDs) {
 		$tmpl	= 'ext/calendar/view/infocomment-autonotification.tmpl';
@@ -213,10 +213,10 @@ class TodoyuCalendarEventRenderer {
 	/**
 	 * Render URL pointing to event in todoyu calendar
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Boolean		$absolute
-	 * @param	Boolean		$encode		Encode HTML entities (use & instead of &amp; as argument separator)
-	 * @return	String
+	 * @param	integer		$idEvent
+	 * @param	boolean		$absolute
+	 * @param	boolean		$encode		Encode HTML entities (use & instead of &amp; as argument separator)
+	 * @return	string
 	 */
 	public static function renderEventLinkURL($idEvent, $absolute = true, $encode = false) {
 		$idEvent	= intval($idEvent);

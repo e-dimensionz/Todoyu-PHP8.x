@@ -60,9 +60,9 @@ abstract class TodoyuTemplateDocumentAbstract {
 	/**
 	 * Initialize document
 	 *
-	 * @param	Array		$data
-	 * @param	String		$template
-	 * @param	Array		$config
+	 * @param	array		$data
+	 * @param	string		$template
+	 * @param	array		$config
 	 */
 	public final function __construct(array $data, $template, array $config = array()) {
 		$this->data		= $data;
@@ -95,7 +95,7 @@ abstract class TodoyuTemplateDocumentAbstract {
 	/**
 	 * Get document type
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getType() {
 		return str_replace('TodoyuDocument', '', get_class($this));
@@ -106,7 +106,7 @@ abstract class TodoyuTemplateDocumentAbstract {
 	/**
 	 * Get path to original template
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getTemplatePath() {
 		return $this->template;
@@ -117,7 +117,7 @@ abstract class TodoyuTemplateDocumentAbstract {
 	/**
 	 * Get content type of document
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getContentType() {
 		return $this->contentType;
@@ -128,7 +128,7 @@ abstract class TodoyuTemplateDocumentAbstract {
 	/**
 	 * Set content type of document
 	 *
-	 * @param	String		$contentType
+	 * @param	string		$contentType
 	 */
 	protected function setContentType($contentType) {
 		$this->contentType = $contentType;
@@ -139,9 +139,9 @@ abstract class TodoyuTemplateDocumentAbstract {
 	/**
 	 * Send a file to the browser
 	 *
-	 * @param	String		$pathFile		Path to file on the server
-	 * @param	String		$filename		Filename in browser
-	 * @param	String		$mimeType		Content-type of the file
+	 * @param	string		$pathFile		Path to file on the server
+	 * @param	string		$filename		Filename in browser
+	 * @param	string		$mimeType		Content-type of the file
 	 */
 	protected function sendFile($pathFile, $filename, $mimeType) {
 		$pathFile	= TodoyuFileManager::pathAbsolute($pathFile);

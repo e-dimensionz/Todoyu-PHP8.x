@@ -41,7 +41,7 @@ class TodoyuImapRawMessage {
 	/**
 	 * Initialize
 	 *
-	 * @param	String		$messageKey
+	 * @param	string		$messageKey
 	 */
 	public function __construct($messageKey) {
 		$this->messageKey	= $messageKey;
@@ -67,7 +67,7 @@ class TodoyuImapRawMessage {
 	/**
 	 * Get message storage path
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getStoragePath() {
 		return TodoyuImapRawMessageManager::getMessagePath($this->messageKey);
@@ -78,7 +78,7 @@ class TodoyuImapRawMessage {
 	/**
 	 * Get message content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getMessageContent() {
 		return TodoyuFileManager::getFileContent($this->getStoragePath());
@@ -101,7 +101,7 @@ class TodoyuImapRawMessage {
 	/**
 	 * Get raw header string
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getHeader() {
 		$this->assureDataIsLoaded();
@@ -114,7 +114,7 @@ class TodoyuImapRawMessage {
 	/**
 	 * Get raw body string
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getBody() {
 		$this->assureDataIsLoaded();
@@ -127,7 +127,7 @@ class TodoyuImapRawMessage {
 	/**
 	 * Get content in eml format
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getEmlContent() {
 		return $this->getMessageContent();
@@ -138,7 +138,7 @@ class TodoyuImapRawMessage {
 	/**
 	 * Send headers for eml download
 	 *
-	 * @param	String		$filename
+	 * @param	string		$filename
 	 */
 	protected function sendEmlDownloadHeaders($filename = '') {
 		$mime		= 'message/rfc822';
@@ -163,7 +163,7 @@ class TodoyuImapRawMessage {
 	/**
 	 * Send raw message as eml download
 	 *
-	 * @param	String $filename
+	 * @param	string $filename
 	 */
 	public function sendAsEmlDownload($filename = '') {
 		$this->sendEmlDownloadHeaders($filename);

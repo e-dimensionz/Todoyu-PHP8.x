@@ -1,10 +1,10 @@
 {extends "core/view/base.tmpl"}
 
-{block "panel"}
+{block name="panel"}
 	{$panelWidgets}
 {/block}
 
-{block "contentBody"}
+{block name="contentBody"}
 	{Header $title}
 
 	<div class="passwordResetConfirmationText {$class}">

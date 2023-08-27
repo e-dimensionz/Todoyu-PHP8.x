@@ -6,8 +6,8 @@ Event Hooks
 
 #core.contextmenu
 	Context menu was displayed
-	@param	String		$type
-	@param	String		$elementKey
+	@param	string		$type
+	@param	string		$elementKey
 	@param	Number		$left
 	@param	Number		$top
 

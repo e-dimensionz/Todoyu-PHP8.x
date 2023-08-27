@@ -34,7 +34,7 @@ class TodoyuImapMailReceiverAddress extends TodoyuMailReceiver implements Todoyu
 	/**
 	 * Initialize
 	 *
-	 * @param	Integer		$idAddress
+	 * @param	integer		$idAddress
 	 */
 	public function __construct($idAddress) {
 		parent::__construct('imapaddress', $idAddress);
@@ -47,7 +47,7 @@ class TodoyuImapMailReceiverAddress extends TodoyuMailReceiver implements Todoyu
 	/**
 	 * Get name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getName() {
 		return $this->address->getName();
@@ -58,7 +58,7 @@ class TodoyuImapMailReceiverAddress extends TodoyuMailReceiver implements Todoyu
 	/**
 	 * Get email address
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getAddress() {
 		return $this->address->getAddress();

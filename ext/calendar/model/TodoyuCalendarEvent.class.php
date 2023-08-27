@@ -29,42 +29,42 @@ interface TodoyuCalendarEvent {
 	/**
 	 * Get ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getID();
 
 	/**
 	 * Get title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle();
 
 	/**
 	 * Get description
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDescription();
 
 	/**
 	 * Get start date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateStart();
 
 	/**
 	 * Get end date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateEnd();
 
 	/**
 	 * Get duration in seconds
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDuration();
 
@@ -85,57 +85,57 @@ interface TodoyuCalendarEvent {
 	/**
 	 * Get source name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getSource();
 
 	/**
 	 * Get type name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getType();
 
 	/**
 	 * Check whether person is assigned
 	 *
-	 * @param	Integer
-	 * @return	Boolean
+	 * @param	integer
+	 * @return	boolean
 	 */
 	public function isPersonAssigned($idPerson = 0);
 
 	/**
 	 * Check whether event is flagged as day event
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isDayEvent();
 
 	/**
 	 * check whether event is private
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isPrivate();
 
 	/**
 	 * Check whether current user has access to the event
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasAccess();
 
 	/**
 	 * Check whether the current suer can edit the event
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function canEdit();
 
 	/**
 	 * Get class names for event element
 	 *
-	 * @return	String[]
+	 * @return	string[]
 	 */
 	public function getClassNames();
 
@@ -143,14 +143,14 @@ interface TodoyuCalendarEvent {
 	 * Check whether the event is overlapping another event
 	 *
 	 * @param	TodoyuCalendarEvent		$event
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isOverlapping(TodoyuCalendarEvent $event);
 
 	/**
 	 * Get template data
 	 *
-	 * @param	Boolean		$loadForeignData
+	 * @param	boolean		$loadForeignData
 	 * @return	Array
 	 */
 	public function getTemplateData($loadForeignData = false);

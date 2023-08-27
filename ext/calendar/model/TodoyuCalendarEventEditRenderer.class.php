@@ -29,8 +29,8 @@ class TodoyuCalendarEventEditRenderer {
 	/**
 	 * Render event creation main content (tab head and form)
 	 *
-	 * @param	Integer	$timestamp
-	 * @return	String	HTML
+	 * @param	integer	$timestamp
+	 * @return	string	HTML
 	 */
 	public static function renderAddView($timestamp = 0) {
 		$tabLabel	= Todoyu::Label('calendar.event.new');
@@ -45,8 +45,8 @@ class TodoyuCalendarEventEditRenderer {
 	/**
 	 * Render event updating main content (tab head and form)
 	 *
-	 * @param	Integer	$idEvent
-	 * @return	String	HTML
+	 * @param	integer	$idEvent
+	 * @return	string	HTML
 	 */
 	public static function renderEditView($idEvent) {
 		$idEvent	= intval($idEvent);
@@ -64,9 +64,9 @@ class TodoyuCalendarEventEditRenderer {
 	/**
 	 * Render event editing tab
 	 *
-	 * @param	String		$label
-	 * @param	Integer		$idTab
-	 * @return	String		HTML
+	 * @param	string		$label
+	 * @param	integer		$idTab
+	 * @return	string		HTML
 	 */
 	public static function renderEventEditTab($label, $idTab) {
 		$name		= 'eventedit';
@@ -91,10 +91,10 @@ class TodoyuCalendarEventEditRenderer {
 	/**
 	 * Render event form
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$date
-	 * @param	Array		$options
-	 * @return	String
+	 * @param	integer		$idEvent
+	 * @param	integer		$date
+	 * @param	array		$options
+	 * @return	string
 	 */
 	public static function renderEventForm($idEvent, $date = 0, array $options = array()) {
 		$idEvent= intval($idEvent);
@@ -120,8 +120,8 @@ class TodoyuCalendarEventEditRenderer {
 
 
 	/**
-	 * @param	Array		$holidaysInRange
-	 * @return	String
+	 * @param	array		$holidaysInRange
+	 * @return	string
 	 */
 	public static function renderHolidaysInRangeList($holidaysInRange) {
 		$tmpl = 'ext/calendar/view/form-warning-holiday.tmpl';

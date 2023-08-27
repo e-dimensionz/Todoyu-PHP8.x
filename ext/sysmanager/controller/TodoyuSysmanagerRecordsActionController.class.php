@@ -29,7 +29,7 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('sysmanager', 'general:records');
@@ -40,8 +40,8 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	/**
 	 * Update record module content
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function updateAction(array $params) {
 		return TodoyuSysmanagerExtRecordRenderer::renderModule($params);
@@ -52,7 +52,7 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	/**
 	 * Delete record
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function deleteAction(array $params) {
 		$ext		= trim($params['extkey']);
@@ -67,7 +67,7 @@ class TodoyuSysmanagerRecordsActionController extends TodoyuActionController {
 	/**
 	 * Save record
 	 *
-	 * @param	Array			$params
+	 * @param	array			$params
 	 * @return	Void|String		Failure returns re-rendered form with error messages
 	 */
 	public function saveAction(array $params) {

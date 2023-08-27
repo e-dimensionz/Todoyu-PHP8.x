@@ -29,7 +29,7 @@ class TodoyuSearchSearchresultsActionController extends TodoyuActionController {
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('search', 'general:use');
@@ -40,8 +40,8 @@ class TodoyuSearchSearchresultsActionController extends TodoyuActionController {
 	/**
 	 * Update search result for the submitted conditions
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function updateAction(array $params) {
 		$tab			= $params['tab'];

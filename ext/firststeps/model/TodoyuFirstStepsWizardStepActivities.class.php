@@ -38,8 +38,8 @@ class TodoyuFirstStepsWizardStepActivities extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Save activities
 	 *
-	 * @param	Array	$data
-	 * @return	Boolean
+	 * @param	array	$data
+	 * @return	boolean
 	 */
 	public function save(array $data) {
 		$activities	= TodoyuArray::assure($data['activity']);
@@ -57,7 +57,7 @@ class TodoyuFirstStepsWizardStepActivities extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Render content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getContent() {
 		if( $this->data === null ) {
@@ -85,7 +85,7 @@ class TodoyuFirstStepsWizardStepActivities extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Save activities
 	 *
-	 * @param	Array	$submittedActivities
+	 * @param	array	$submittedActivities
 	 */
 	private function saveActivities(array $submittedActivities) {
 		$dbActivities	= $this->getActivities();

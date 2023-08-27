@@ -39,7 +39,7 @@ class TodoyuFirstStepsWizard extends TodoyuWizard {
 	/**
 	 * Get name of first step in the wizard
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getFirstStep() {
 		return 'start';

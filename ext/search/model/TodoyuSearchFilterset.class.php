@@ -29,7 +29,7 @@ class TodoyuSearchFilterset extends TodoyuBaseObject {
 	/**
 	 * Initialize filterset
 	 *
-	 * @param	Integer		$idFilterset
+	 * @param	integer		$idFilterset
 	 */
 	public function __construct($idFilterset) {
 		parent::__construct($idFilterset, 'ext_search_filterset');
@@ -62,7 +62,7 @@ class TodoyuSearchFilterset extends TodoyuBaseObject {
 	/**
 	 * Get filterset conjunction
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getConjunction() {
 		return $this->get('conjunction');
@@ -111,7 +111,7 @@ class TodoyuSearchFilterset extends TodoyuBaseObject {
 	/**
 	 * Get javascript code to initialize all sorting flags of the filterset
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getResultSortingJsInitCode() {
 		$resultSortings	= $this->getResultSortingWithLabels();
@@ -126,7 +126,7 @@ class TodoyuSearchFilterset extends TodoyuBaseObject {
 	/**
 	 * Get filterset title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle() {
 		return $this->get('title');
@@ -137,7 +137,7 @@ class TodoyuSearchFilterset extends TodoyuBaseObject {
 	/**
 	 * Get filterset type
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getType() {
 		return $this->get('type');
@@ -148,7 +148,7 @@ class TodoyuSearchFilterset extends TodoyuBaseObject {
 	/**
 	 * Get matching item IDs
 	 *
-	 * @param	Integer		$limit
+	 * @param	integer		$limit
 	 * @return	Array
 	 */
 	public function getItemIDs($limit = 1000) {
@@ -170,7 +170,7 @@ class TodoyuSearchFilterset extends TodoyuBaseObject {
 	/**
 	 * Get type class
 	 *
-	 * @return		String
+	 * @return		string
 	 */
 	public function getClass() {
 		return TodoyuSearchFiltersetManager::getFiltersetTypeClass($this->getType());

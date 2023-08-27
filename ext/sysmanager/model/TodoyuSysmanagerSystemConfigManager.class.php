@@ -29,8 +29,8 @@ class TodoyuSysmanagerSystemConfigManager {
 	/**
 	 * Save uploaded image (automatically resized) as logo
 	 *
-	 * @param	Array		$logoUploadData
-	 * @return	Boolean
+	 * @param	array		$logoUploadData
+	 * @return	boolean
 	 */
 	public static function saveLogo(array $logoUploadData) {
 		$success	= false;
@@ -53,7 +53,7 @@ class TodoyuSysmanagerSystemConfigManager {
 	/**
 	 * Save data in system configuration file
 	 *
-	 * @param	Array		$formData
+	 * @param	array		$formData
 	 */
 	public static function saveSystemConfig(array $formData) {
 
@@ -78,7 +78,7 @@ class TodoyuSysmanagerSystemConfigManager {
 	/**
 	 * Save password strength file
 	 *
-	 * @param	Array	$data
+	 * @param	array	$data
 	 */
 	public static function savePasswordStrength(array $data) {
 		Todoyu::$CONFIG['SETTINGS']['passwordStrength'] = array(
@@ -97,7 +97,7 @@ class TodoyuSysmanagerSystemConfigManager {
 	/**
 	 * Save repository config (into config\settings.php)
 	 *
-	 * @param	Array	$data
+	 * @param	array	$data
 	 */
 	public static function saveRepositoryConfig(array $data) {
 		Todoyu::$CONFIG['SETTINGS']['repository'] = array(
@@ -112,8 +112,8 @@ class TodoyuSysmanagerSystemConfigManager {
 	/**
 	 * Check whether uploaded image data is valid
 	 *
-	 * @param	Array		$imageUploadData
-	 * @return	Boolean
+	 * @param	array		$imageUploadData
+	 * @return	boolean
 	 */
 	public static function isValidImageUpload(array $imageUploadData) {
 		if( substr($imageUploadData['type'], 0, 6) !== 'image/' ) {
@@ -173,7 +173,7 @@ class TodoyuSysmanagerSystemConfigManager {
 	/**
 	 * Get system setting of first day of week (0 = sunday, 1 = monday)
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getFirstDayOfWeek() {
 		$day	= Todoyu::$CONFIG['SYSTEM']['firstDayOfWeek'];

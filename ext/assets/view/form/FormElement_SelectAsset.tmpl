@@ -3,7 +3,10 @@
 {block name="field"}
 
 	{** Search field **}
-	<select id="{$htmlId}-search" class="{$inputClass} {$class}" size="{$size}" {if $elementMultiple}multiple="multiple"{/if} {if $disabled}disabled="disabled"{/if} {if $onchange}onchange="{$onchange}"{/if} {$extraAttributes}>
+	<select id="{$htmlId}-search" class="{if isset($inputClass)}{$inputClass}{/if} {if isset($class)}{$class}{/if}" {if isset($size)}size="{$size}"{/if} {if isset($elementMultiple)}multiple="multiple"{/if} {if isset($disabled) && disabled}disabled="disabled"{/if} {if isset($onchange)}onchange="{$onchange}"{/if} {if isset($extraAttributes)}{$extraAttributes}{/if}>
+        {if ! isset($multipleElements)}
+            {assign var="multipleElements" value=false}
+        {/if}
 		{include "core/view/select-grouped-options.tmpl" multiple=$multipleElements}
 	</select>
 
@@ -12,10 +15,10 @@
 
 	{** Selection list **}
 	<ul id="{$htmlId}-selection" class="selection">
-		{foreach $records record}
+		{foreach $records as $record}
 			<li id="{$htmlId}-selection-{$record.id}" class="{$record.class}">
 				<span class="icon recordIcon"></span>
-				<span class="label">{htmlencode $record.label}</span>
+				<span class="label">{$record.label|escape}</span>
 				<span class="icon remove"></span>
 			</li>
 		{/foreach}
@@ -23,7 +26,7 @@
 
 	{** Hidden selection storage **}
 	<select name="{$htmlName}" id="{$htmlId}-storage" multiple="multiple" style="display:none">
-		{foreach $value item}
+		{foreach $value as $item}
 			<option value="{$item}" selected="selected"></option>
 		{/foreach}
 	</select>

@@ -35,7 +35,7 @@ class TodoyuCalendarHolidayManager {
 	/**
 	 * Get holiday
 	 *
-	 * @param	Integer			$idHoliday
+	 * @param	integer			$idHoliday
 	 * @return	TodoyuCalendarHoliday
 	 */
 	public static function getHoliday($idHoliday) {
@@ -63,8 +63,8 @@ class TodoyuCalendarHolidayManager {
 	/**
 	 * Save holiday
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function saveHoliday(array $data) {
 		$idHoliday	= intval($data['id']);
@@ -86,8 +86,8 @@ class TodoyuCalendarHolidayManager {
 	/**
 	 * Add a new holiday record
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function addHoliday(array $data = array()) {
 		return TodoyuRecordManager::addRecord(self::TABLE , $data);
@@ -98,9 +98,9 @@ class TodoyuCalendarHolidayManager {
 	/**
 	 * Update a holiday record
 	 *
-	 * @param	Integer		$idHoliday
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idHoliday
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function updateHoliday($idHoliday, array $data) {
 		return TodoyuRecordManager::updateRecord(self::TABLE , $idHoliday, $data);
@@ -111,7 +111,7 @@ class TodoyuCalendarHolidayManager {
 	/**
 	 * Get holiday sets where the holiday is linked in
 	 *
-	 * @param	Integer		$idHoliday
+	 * @param	integer		$idHoliday
 	 * @return	Array
 	 */
 	public static function getHolidaySets($idHoliday) {
@@ -134,8 +134,8 @@ class TodoyuCalendarHolidayManager {
 	 * Save foreign records in the holiday record
 	 * - Save linked holiday sets
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idHoliday
+	 * @param	array		$data
+	 * @param	integer		$idHoliday
 	 * @return	Array
 	 */
 	protected static function saveHolidayForeignRecords(array $data, $idHoliday) {
@@ -159,7 +159,7 @@ class TodoyuCalendarHolidayManager {
 	/**
 	 * Remove all linked holiday sets to the holiday
 	 *
-	 * @param	Integer		$idHoliday
+	 * @param	integer		$idHoliday
 	 */
 	public static function removeHolidaySets($idHoliday) {
 		$idHoliday	= intval($idHoliday);
@@ -172,8 +172,8 @@ class TodoyuCalendarHolidayManager {
 	/**
 	 * Add/link a holiday set to the holiday
 	 *
-	 * @param	Integer		$idHoliday
-	 * @param	Integer		$idHolidaySet
+	 * @param	integer		$idHoliday
+	 * @param	integer		$idHolidaySet
 	 */
 	public static function addHolidaySet($idHoliday, $idHolidaySet) {
 		$idHoliday		= intval($idHoliday);
@@ -187,8 +187,8 @@ class TodoyuCalendarHolidayManager {
 	/**
 	 * Delete a holiday
 	 *
-	 * @param	Integer		$idHoliday
-	 * @return	Boolean
+	 * @param	integer		$idHoliday
+	 * @return	boolean
 	 */
 	public static function deleteHoliday($idHoliday) {
 		$idHoliday	= intval($idHoliday);
@@ -224,8 +224,8 @@ class TodoyuCalendarHolidayManager {
 	 * Get IDs of holiday sets of given addresses (IDs)
 	 *
 	 * @todo	Refactor this method. Don't support multiple addresses. Why grouping?
-	 * @param	Array		$addressIDs
-	 * @param	Boolean		$groupByHolidayset
+	 * @param	array		$addressIDs
+	 * @param	boolean		$groupByHolidayset
 	 * @return	Array
 	 */
 	public static function getHolidaysetIDsOfAddresses(array $addressIDs, $groupByHolidayset = false) {
@@ -263,7 +263,7 @@ class TodoyuCalendarHolidayManager {
 	 * Get holidays of given sets in given time span.
 	 *
 	 * @param	TodoyuDayRange	$range
-	 * @param	Integer[]		$holidaySetIDs
+	 * @param	integer[]		$holidaySetIDs
 	 * @return	Array[]
 	 */
 	public static function getHolidaysInRange(TodoyuDayRange $range, array $holidaySetIDs) {
@@ -292,9 +292,9 @@ class TodoyuCalendarHolidayManager {
 	/**
 	 * Get holidays of given persons in given timespan
 	 *
-	 * @param	Array		$personIDs
-	 * @param	Integer		$dateStart		UNIX timestamp of day at beginning of timespan
-	 * @param	Integer		$dateEnd		UNIX timestamp of day at ending of timespan
+	 * @param	array		$personIDs
+	 * @param	integer		$dateStart		UNIX timestamp of day at beginning of timespan
+	 * @param	integer		$dateEnd		UNIX timestamp of day at ending of timespan
 	 * @return	Array
 	 */
 	public static function getPersonHolidaysInTimespan(array $personIDs, $dateStart = 0, $dateEnd = 0) {
@@ -318,7 +318,7 @@ class TodoyuCalendarHolidayManager {
 	/**
 	 * AutoComplete holidays
 	 *
-	 * @param	String	$sword
+	 * @param	string	$sword
 	 * @return	Array
 	 */
 	public static function autocompleteHolidays($sword) {
@@ -342,9 +342,9 @@ class TodoyuCalendarHolidayManager {
 	/**
 	 * Get label of given holiday. Includes the holiday title plus optionally it's date and holidaysets
 	 *
-	 * @param	Integer		$idHoliday
-	 * @param	Boolean		$showDate
-	 * @return	String
+	 * @param	integer		$idHoliday
+	 * @param	boolean		$showDate
+	 * @return	string
 	 */
 	public static function getHolidayLabel($idHoliday, $showDate = false) {
 		$idHoliday	= intval($idHoliday);
@@ -367,7 +367,7 @@ class TodoyuCalendarHolidayManager {
 	 * Compile array of holidays into an array of days,
 	 * (key is date of resp. day) with holidays happening that day in a sub array
 	 *
-	 * @param	Array	$holidays
+	 * @param	array	$holidays
 	 * @return	Array
 	 */
 	public static function groupHolidaysByDays(array $holidays) {

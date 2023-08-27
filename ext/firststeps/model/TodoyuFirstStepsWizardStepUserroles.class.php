@@ -38,8 +38,8 @@ class TodoyuFirstStepsWizardStepUserroles extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Save user role
 	 *
-	 * @param	Array	$data
-	 * @return	Boolean
+	 * @param	array	$data
+	 * @return	boolean
 	 */
 	public function save(array $data) {
 		$roles	= TodoyuArray::assure($data['userrole']);
@@ -57,7 +57,7 @@ class TodoyuFirstStepsWizardStepUserroles extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Render content (auto extending list)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getContent() {
 		if( $this->data === null ) {
@@ -85,7 +85,7 @@ class TodoyuFirstStepsWizardStepUserroles extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Save the roles
 	 *
-	 * @param	Array		$submittedRoles
+	 * @param	array		$submittedRoles
 	 */
 	private function saveRoles(array $submittedRoles) {
 		$dbRoles	= $this->getRoles();

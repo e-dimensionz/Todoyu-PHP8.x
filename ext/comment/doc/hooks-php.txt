@@ -6,45 +6,45 @@ Event Hooks
 
 #comment.comment.save
 	Comment was saved (added or updated)
-	@param	Integer		$idComment
+	@param	integer		$idComment
 
 
 #comment.comment.add
 	Comment was added
-	@param	Integer		$idComment
+	@param	integer		$idComment
 
 
 #comment.comment.update
 	Comment was updated
-	@param	Integer		$idComment
-	@param	Array		$data
+	@param	integer		$idComment
+	@param	array		$data
 
 
 #comment.comment.delete
 	Comment was deleted
-	@param	Integer		$idComment
+	@param	integer		$idComment
 
 
 #comment.feedback.add
 	A feedback request was added
-	@param	Integer		$idFeedback
-	@param	Integer		$idComment
-	@param	Integer		$idFeedbackPerson
+	@param	integer		$idFeedback
+	@param	integer		$idComment
+	@param	integer		$idFeedbackPerson
 
 
 #comment.feedback.seen
 	The feedback (comment) was marked as seen
-	@param	Integer		$idComment
-	@param	Integer		$idPerson
+	@param	integer		$idComment
+	@param	integer		$idPerson
 
 
 #comment.task.seen
 	The task was marked as seen (all comments/feedbacks are seen)
-	@param	Integer		$idTask
-	@param	Integer		$idPerson
+	@param	integer		$idTask
+	@param	integer		$idPerson
 
 
 #comment.comment.email
 	The comment was sent by email
-	@param	Integer		$idComment
-	@param	Integer		$idPerson
+	@param	integer		$idComment
+	@param	integer		$idPerson

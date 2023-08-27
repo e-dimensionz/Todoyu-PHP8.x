@@ -38,8 +38,8 @@ class TodoyuCalendarPanelWidgetCalendar extends TodoyuPanelWidget {
 	/**
 	 * Constructor of PanelWidgetCalendar (initialize widget)
 	 *
-	 * @param	Array	$config
-	 * @param	Array	$params
+	 * @param	array	$config
+	 * @param	array	$params
 	 */
 	public function __construct(array $config, array $params = array()) {
 		parent::__construct(
@@ -61,7 +61,7 @@ class TodoyuCalendarPanelWidgetCalendar extends TodoyuPanelWidget {
 	/**
 	 * Get JS init code for widget
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getJsInitCode() {
 		$firstDayOfWeek	= TodoyuSysmanagerSystemConfigManager::getFirstDayOfWeek();
@@ -76,7 +76,7 @@ class TodoyuCalendarPanelWidgetCalendar extends TodoyuPanelWidget {
 	 * Render content
 	 * NOTE:	the calender HTML itself is added into the DOM via JS by the jscalendar library
 	 *
-	 * @return String
+	 * @return string
 	 */
 	public function renderContent() {
 		$tmpl	= 'ext/calendar/view/panelwidget/calendar.tmpl';
@@ -93,7 +93,7 @@ class TodoyuCalendarPanelWidgetCalendar extends TodoyuPanelWidget {
 	/**
 	 * Get date for area
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getDate() {
 		return TodoyuCalendarPreferences::getDate(AREA);
@@ -104,7 +104,7 @@ class TodoyuCalendarPanelWidgetCalendar extends TodoyuPanelWidget {
 	/**
 	 * Save calendar date for area
 	 *
-	 * @param	Integer		$timestamp
+	 * @param	integer		$timestamp
 	 */
 	public static function saveDate($timestamp) {
 		$timestamp	= intval($timestamp);
@@ -117,7 +117,7 @@ class TodoyuCalendarPanelWidgetCalendar extends TodoyuPanelWidget {
 	/**
 	 * Check panelWidget access permission
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		return Todoyu::allowed('calendar', 'general:use');

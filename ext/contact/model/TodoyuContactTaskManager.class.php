@@ -29,8 +29,8 @@ class TodoyuContactTaskManager {
 	/**
 	 * Extend task data attributes to implement person quickInfos
 	 *
-	 * @param	Array	$data
-	 * @param	Integer	$idTask
+	 * @param	array	$data
+	 * @param	integer	$idTask
 	 * @return	Array
 	 */
 	public static function hookModifyTaskPersonAttributes(array $data, $idTask) {
@@ -40,6 +40,11 @@ class TodoyuContactTaskManager {
 		$personTypes	= array('create', 'owner', 'assigned');
 		foreach($personTypes as $type) {
 			if( isset($data['person_' . $type]) ) {
+                if(empty($data['person_' . $type]['wrap'])) $data['person_' . $type]['wrap'] = [];
+                if(empty($data['person_' . $type]['wrap'][1])) $data['person_' . $type]['wrap'][1] = '';
+                if(empty($data['person_' . $type]['wrap'][1])) $data['person_' . $type]['wrap'][0] = '';
+                if(empty($data['person_' . $type]['className'])) $data['person_' . $type]['className'] = '';
+
 				$idPerson	= $task->getPersonID($type);
 
 				if( $idPerson !== 0 ) {
@@ -49,6 +54,7 @@ class TodoyuContactTaskManager {
 					$data['person_' . $type]['wrap'][1]		.= TodoyuString::wrapScript('Todoyu.Ext.contact.QuickInfoPerson.add(\'' .  $htmlID . '\');');
 					$data['person_' . $type]['className']	.= ' quickInfoPerson';
 
+                    if(empty($data['person_' . $type]['classNameLabel'])) $data['person_' . $type]['classNameLabel'] = '';
 					$data['person_' . $type]['classNameLabel']	.= ' personLabel';
 					if( strpos($data['person_' . $type]['className'], 'sectionStart') !== false ) {
 						$data['person_' . $type]['classNameLabel'] .= ' sectionStart';

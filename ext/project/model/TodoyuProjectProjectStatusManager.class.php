@@ -30,8 +30,8 @@ class TodoyuProjectProjectStatusManager {
 	/**
 	 * Get project status key by index
 	 *
-	 * @param	Integer		$idStatus
-	 * @return	Array
+	 * @param	integer		$idStatus
+	 * @return	string
 	 */
 	public static function getStatusKey($idStatus) {
 		$idStatus	= intval($idStatus);
@@ -45,7 +45,7 @@ class TodoyuProjectProjectStatusManager {
 	 * Get project status label by index or key
 	 *
 	 * @param	Mixed		$status			Status index or key
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getStatusLabel($status) {
 		if( is_numeric($status) ) {
@@ -65,7 +65,7 @@ class TodoyuProjectProjectStatusManager {
 	/**
 	 * Get all project statuses
 	 *
-	 * @param	Integer		$forceStatus
+	 * @param	integer		$forceStatus
 	 * @return	Array
 	 */
 	public static function getStatuses($forceStatus = 0) {
@@ -88,7 +88,7 @@ class TodoyuProjectProjectStatusManager {
 	/**
 	 * Get allowed status IDs
 	 *
-	 * @param	Integer		$forceStatus
+	 * @param	integer		$forceStatus
 	 * @return	Array
 	 */
 	public static function getStatusIDs($forceStatus = 0) {

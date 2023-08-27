@@ -53,10 +53,10 @@ class TodoyuNumeric {
 	 * Make sure an integer is in a range. If the integer is out of range,
 	 * set it to one of the boundaries
 	 *
-	 * @param	Integer		$integer
-	 * @param	Integer		$min
-	 * @param	Integer		$max
-	 * @return	Integer
+	 * @param	integer		$integer
+	 * @param	integer		$min
+	 * @param	integer		$max
+	 * @return	integer
 	 */
 	public static function intInRange($integer, $min = 0, $max = 2000000000) {
 		$integer = (int) $integer;
@@ -77,8 +77,8 @@ class TodoyuNumeric {
 	/**
 	 * Get the positive integer of a value
 	 *
-	 * @param	String		$value		A string or integer value
-	 * @return	Integer		Integer equal or greater than 0
+	 * @param	string		$value		A string or integer value
+	 * @return	integer		Integer equal or greater than 0
 	 */
 	public static function intPositive($value) {
 		$integer = (int) $value;
@@ -95,9 +95,9 @@ class TodoyuNumeric {
 	/**
 	 * Check whether given version is same or newer than version to be compared to
 	 *
-	 * @param	String		$actualVersion
-	 * @param	String		$atLeastVersion
-	 * @return	Boolean
+	 * @param	string		$actualVersion
+	 * @param	string		$atLeastVersion
+	 * @return	boolean
 	 */
 	public static function isVersionAtLeast($actualVersion, $atLeastVersion) {
 		return version_compare($actualVersion, $atLeastVersion) >= 0;
@@ -110,7 +110,7 @@ class TodoyuNumeric {
 	 *
 	 * @param	Float		$value				Base value
 	 * @param	Float		$percent			Percent: 25.0 or 0.25
-	 * @param	Boolean		$isFraction			Percent value is already a fraction (<0)
+	 * @param	boolean		$isFraction			Percent value is already a fraction (<0)
 	 * @return	Float
 	 */
 	public static function percent($value, $percent, $isFraction = false) {
@@ -132,9 +132,9 @@ class TodoyuNumeric {
 	 *
 	 * @param	Float			$dividend
 	 * @param	Float			$divisor
-	 * @param	Boolean			$asPercent
-	 * @param	Boolean|Integer	$round
-	 * @param	Boolean|Mixed	$default
+	 * @param	boolean			$asPercent
+	 * @param	boolean|Integer	$round
+	 * @param	boolean|Mixed	$default
 	 * @return	Float|Boolean|Mixed
 	 */
 	public static function ratio($dividend, $divisor, $asPercent = false, $round = false, $default = false) {

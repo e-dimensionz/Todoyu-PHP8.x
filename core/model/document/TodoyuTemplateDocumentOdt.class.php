@@ -20,7 +20,7 @@
 
 /**
  * Use an openOffice writer document as template, and replace all markers
- * Dwoo will process the content.xml file for Dwoo variables
+ * Smarty will process the content.xml file for Smarty variables
  *
  * @package		Todoyu
  * @subpackage	Core
@@ -49,14 +49,14 @@ class TodoyuTemplateDocumentOdt extends TodoyuTemplateDocumentOpenXML {
 	 */
 	private function prepareXML() {
 		$this->removeSoftPageBreaks();
-		$this->prepareDwooTagSpans();
+		$this->prepareSmartyTagSpans();
 		$this->prepareListXML();
 		$this->prepareRowXML();
 		$this->preparePhpXML();
 		$this->prepareForeach();
 		$this->prepareConditionXML();
 		$this->removeAnnotations();
-		$this->convertXmlEntitiesInDwooTags();
+		$this->convertXmlEntitiesInSmartyTags();
 
 //		TodoyuHeader::sendTypeXML();
 //		echo $this->xmlContent;
@@ -67,7 +67,7 @@ class TodoyuTemplateDocumentOdt extends TodoyuTemplateDocumentOpenXML {
 
 	/**
 	 * Remove soft-page-break tags from xml
-	 * They destroy all dwoo code
+	 * They destroy all Smarty code
 	 *
 	 */
 	private function removeSoftPageBreaks() {
@@ -131,12 +131,12 @@ class TodoyuTemplateDocumentOdt extends TodoyuTemplateDocumentOpenXML {
 				continue;
 			}
 
-				// Remove row markers and the dwoo tag
+				// Remove row markers and the smarty tag
 			$newRowXML	= str_replace($rowStartMatches[0], '', $rowXML, $count);
-				// Remove row markers and the dwoo tag
+				// Remove row markers and the smarty tag
 			$newRowXML	= str_replace($rowEndMatches[0], '', $newRowXML);
 				// Pre- and postfix the found markers
-			$newRowXML	= implode($rowStartMatches[1], '') . $newRowXML . implode($rowEndMatches[1], '');
+			$newRowXML	= implode('', $rowStartMatches[1]) . $newRowXML . implode('', $rowEndMatches[1]);
 
 			$replaces[$rowXML] = $newRowXML;
 		}
@@ -183,50 +183,50 @@ class TodoyuTemplateDocumentOdt extends TodoyuTemplateDocumentOpenXML {
 
 
 	/**
-	 * Prepare the XML for Dwoo tags in span
-	 * Between Dwoo braces, there may be <span> tags which add formatting information.
-	 * Move them out of the Dwoo tags
+	 * Prepare the XML for Smarty tags in span
+	 * Between Smarty braces, there may be <span> tags which add formatting information.
+	 * Move them out of the Smarty tags
 	 */
-	private function prepareDwooTagSpans() {
+	private function prepareSmartyTagSpans() {
 		$pattern	= '/{.*?}/';
 
-		$this->xmlContent = preg_replace_callback($pattern, array($this, 'replaceStyleTagsInDwooTags'), $this->xmlContent);
+		$this->xmlContent = preg_replace_callback($pattern, array($this, 'replaceStyleTagsInSmartyTags'), $this->xmlContent);
 	}
 
 
 
 	/**
-	 * Callback to replace office style tags in dwoo tags
+	 * Callback to replace office style tags in Smarty tags
 	 *
-	 * @param	Array	$matchingElements
-	 * @return	String
+	 * @param	array	$matchingElements
+	 * @return	string
 	 */
-	private function replaceStyleTagsInDwooTags(array $matchingElements) {
-		$dwooTag	= $matchingElements[0];
+	private function replaceStyleTagsInSmartyTags(array $matchingElements) {
+		$smartyTag	= $matchingElements[0];
 
 			// Replace space tags
-		$dwooTag	= str_replace('<text:s/>', '', $dwooTag);
+		$smartyTag	= str_replace('<text:s/>', '', $smartyTag);
 
 			// Pattern for open and closing tags
 		$patternWrappings	= '/(<(.*?) ?[^>]*?>)(.*?)(<\/\2>)/';
 		$replaceWrappings	= '\3';
 
-		$dwooTag	= preg_replace($patternWrappings, $replaceWrappings, $dwooTag);
+		$smartyTag	= preg_replace($patternWrappings, $replaceWrappings, $smartyTag);
 
 
 			// Move single opening tags to the start of the string
 		$patternOpen	= '/({.*?)(<[^\/]*?:[^ ] ?[^>]*?>)(.*?})/';
 		$replaceOpen	= '\2\1\3';
 
-		$dwooTag	= preg_replace($patternOpen, $replaceOpen, $dwooTag);
+		$smartyTag	= preg_replace($patternOpen, $replaceOpen, $smartyTag);
 
 			// Move single closing tags to the end of the string
 		$patternClose	= '/({.*?)(<\/.*?>)(.*?})/';
 		$replaceClose	= '\1\3\2';
 
-		$dwooTag	= preg_replace($patternClose, $replaceClose, $dwooTag);
+		$smartyTag	= preg_replace($patternClose, $replaceClose, $smartyTag);
 
-		return $dwooTag;
+		return $smartyTag;
 	}
 
 
@@ -264,10 +264,10 @@ class TodoyuTemplateDocumentOdt extends TodoyuTemplateDocumentOpenXML {
 
 
 	/**
-	 * Convert encoded entities back to original char when it's inside a dwoo tag
+	 * Convert encoded entities back to original char when it's inside a Smarty tag
 	 * Useful for < or > which are &gt; and &lt; in an XML document
 	 */
-	private function convertXmlEntitiesInDwooTags() {
+	private function convertXmlEntitiesInSmartyTags() {
 		$pattern	= '/{(.*?)(&([^;]+?);)(.*?)}/';
 
 		$this->xmlContent	= preg_replace_callback($pattern, array($this,'callbackConvertEntities'), $this->xmlContent);
@@ -277,10 +277,10 @@ class TodoyuTemplateDocumentOdt extends TodoyuTemplateDocumentOpenXML {
 
 
 	/**
-	 * Callback to convert XML entities back inside of a dwoo tag
+	 * Callback to convert XML entities back inside of a Smarty tag
 	 *
-	 * @param	Array	$match
-	 * @return	String
+	 * @param	array	$match
+	 * @return	string
 	 */
 	private static function callbackConvertEntities(array $match) {
 		$entity	= html_entity_decode($match[2], ENT_QUOTES, 'UTF-8');

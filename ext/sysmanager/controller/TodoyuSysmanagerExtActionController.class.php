@@ -29,7 +29,7 @@ class TodoyuSysmanagerExtActionController extends TodoyuActionController {
 	/**
 	 * Restrict access to admins
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('sysmanager', 'general:use');
@@ -40,8 +40,8 @@ class TodoyuSysmanagerExtActionController extends TodoyuActionController {
 	/**
 	 * Sysmanager extension default action controller method
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function defaultAction(array $params) {
 		TodoyuPage::init('ext/sysmanager/view/ext.tmpl');
@@ -81,8 +81,8 @@ class TodoyuSysmanagerExtActionController extends TodoyuActionController {
 	/**
 	 * Load and display module
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function moduleAction(array $params) {
 		$module	= trim($params['module']);

@@ -40,9 +40,9 @@ class TodoyuCommentMail extends TodoyuMail {
 	/**
 	 * Initialize comment mail
 	 *
-	 * @param	Integer							$idComment
+	 * @param	integer							$idComment
 	 * @param	TodoyuMailReceiverInterface[]	$mailReceivers
-	 * @param	Array							$config
+	 * @param	array							$config
 	 */
 	public function __construct($idComment, array $mailReceivers, array $config = array()) {
 		parent::__construct($config);
@@ -126,8 +126,8 @@ class TodoyuCommentMail extends TodoyuMail {
 	/**
 	 * Get email content
 	 *
-	 * @param	Boolean		$asHtml
-	 * @return	String
+	 * @param	boolean		$asHtml
+	 * @return	string
 	 */
 	protected function getContent($asHtml = false) {
 		$tmpl	= $this->getTemplate($asHtml);
@@ -143,8 +143,8 @@ class TodoyuCommentMail extends TodoyuMail {
 	/**
 	 * Get template
 	 *
-	 * @param	Boolean		$asHtml
-	 * @return	String
+	 * @param	boolean		$asHtml
+	 * @return	string
 	 */
 	protected function getTemplate($asHtml = false) {
 		$basePath	= 'ext/comment/view';
@@ -191,10 +191,10 @@ class TodoyuCommentMail extends TodoyuMail {
 	/**
 	 * Build task deep-link
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$encode
-	 * @param	Boolean		$absolute
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @param	boolean		$encode
+	 * @param	boolean		$absolute
+	 * @return	string
 	 */
 	private static function buildUrlForTask($idTask, $encode = true, $absolute = true) {
 		$idTask	= intval($idTask);
@@ -217,10 +217,10 @@ class TodoyuCommentMail extends TodoyuMail {
 	/**
 	 * Build comment deep-link
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Boolean		$encode
-	 * @param	Boolean		$absolute
-	 * @return	String
+	 * @param	integer		$idComment
+	 * @param	boolean		$encode
+	 * @param	boolean		$absolute
+	 * @return	string
 	 */
 	private static function buildUrlForComment($idComment, $encode = true, $absolute = true) {
 		$idComment	= intval($idComment);

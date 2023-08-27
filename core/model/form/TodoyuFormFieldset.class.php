@@ -60,7 +60,7 @@ class TodoyuFormFieldset implements ArrayAccess {
 	 * Initialize a new fieldset.
 	 *
 	 * @param	TodoyuFormFieldset	$parent		Reference to parent element (fieldset or the form)
-	 * @param	String			$name		Name of the fieldset to be accessed over $form->FIELDSETNAME->method()
+	 * @param	string			$name		Name of the fieldset to be accessed over $form->FIELDSETNAME->method()
 	 */
 	public function __construct($parent, $name) {
 		$this->parent	= $parent;
@@ -117,7 +117,7 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Get fieldset name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getName() {
 		return $this->name;
@@ -129,7 +129,7 @@ class TodoyuFormFieldset implements ArrayAccess {
 	 * Get the absolute name of the fieldset
 	 * Concatenate all parent fieldsets with a dash parent-sub-sub-...
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getAbsoluteName() {
 		if( $this->parent instanceof TodoyuForm ) {
@@ -144,7 +144,7 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Get field from the form
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @return	TodoyuFormElement
 	 */
 	public function getField($name) {
@@ -156,7 +156,7 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Get a fieldset by name
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @return	TodoyuFormFieldset
 	 */
 	public function getFieldset($name) {
@@ -168,7 +168,7 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Access elements in the fieldset over $form->FIELDSETNAME->ELEMENTNAME
 	 *
-	 * @param	String			$name		Name of the sub element
+	 * @param	string			$name		Name of the sub element
 	 * @return	TodoyuFormElement
 	 */
 	public function __get($name) {
@@ -180,7 +180,7 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Delete an element in the fieldset
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 */
 	public function __unset($name) {
 		unset($this->elements[$name]);
@@ -191,7 +191,7 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Set a fieldset attribute
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @param	Mixed		$value
 	 */
 	public function setAttribute($name, $value) {
@@ -203,11 +203,11 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Get a fieldset attribute
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @return	Mixed
 	 */
 	public function getAttribute($name) {
-		return $this->attributes[$name];
+		return $this->attributes[$name] ?? null;
 	}
 
 
@@ -215,7 +215,7 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Set fieldset legend
 	 *
-	 * @param	String		$legend
+	 * @param	string		$legend
 	 */
 	public function setLegend($legend) {
 		$this->setAttribute('legend', $legend);
@@ -226,7 +226,7 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Set fieldset class(es)
 	 *
-	 * @param	String		$className
+	 * @param	string		$className
 	 */
 	public function setClass($className) {
 		$this->setAttribute('class', $className);
@@ -237,7 +237,7 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Add class name
 	 *
-	 * @param	String		$classNames
+	 * @param	string		$classNames
 	 */
 	public function addClass($classNames) {
 		$addClasses	= TodoyuArray::trimExplode(' ', $classNames);
@@ -257,9 +257,9 @@ class TodoyuFormFieldset implements ArrayAccess {
 	 * To add a complete fieldset and its fields (e.g. form hook) use injectFieldset
 	 * @see TodoyuFormFieldset->injectFieldset();
 	 *
-	 * @param	String				$name
+	 * @param	string				$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Integer				$position
+	 * @param	integer				$position
 	 * @return	TodoyuFormFieldset
 	 */
 	public function addFieldset($name, TodoyuFormFieldset $fieldset = null, $position = null) {
@@ -290,9 +290,9 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Add the $field to the fieldset
 	 *
-	 * @param	String				$fieldName
+	 * @param	string				$fieldName
 	 * @param	TodoyuFormElement	$field			Field object
-	 * @param	String				$position		Insert position. Format: after:title, before:status
+	 * @param	string				$position		Insert position. Format: after:title, before:status
 	 * @return	TodoyuFormElement
 	 */
 	public function addField($fieldName, TodoyuFormElement $field, $position = null) {
@@ -323,8 +323,8 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Add all elements of a form to this field set
 	 *
-	 * @param	String		$xmlPath		Path to sub form XML file
-	 * @param	Integer		$position
+	 * @param	string		$xmlPath		Path to sub form XML file
+	 * @param	integer		$position
 	 */
 	public function addElementsFromXML($xmlPath, $position = null) {
 		$xmlPath	= TodoyuFileManager::pathAbsolute($xmlPath);
@@ -345,8 +345,8 @@ class TodoyuFormFieldset implements ArrayAccess {
 	 * Add elements from another XML into the fieldset after the element named $name
 	 *
 	 * @see		$this->addElementsFromXML()
-	 * @param	String		$xmlPath		Path to the xml file
-	 * @param	String		$name			Name of the field to insert the elements after
+	 * @param	string		$xmlPath		Path to the xml file
+	 * @param	string		$name			Name of the field to insert the elements after
 	 */
 	public function addElementsFromXMLAfter($xmlPath, $name) {
 		$this->addElementsFromXML($xmlPath, 'after:' . $name);
@@ -358,8 +358,8 @@ class TodoyuFormFieldset implements ArrayAccess {
 	 * Add elements from another XML into the fieldset before the element named $name
 	 *
 	 * @see		$this->addElementsFromXML()
-	 * @param	String		$xmlPath		Path to the xml file
-	 * @param	String		$name			Name of the field to insert the elements before
+	 * @param	string		$xmlPath		Path to the xml file
+	 * @param	string		$name			Name of the field to insert the elements before
 	 */
 	public function addElementsFromXMLBefore($xmlPath, $name) {
 		$this->addElementsFromXML($xmlPath, 'before:' . $name);
@@ -371,7 +371,7 @@ class TodoyuFormFieldset implements ArrayAccess {
 	 * Inject an existing fieldset into the form
 	 *
 	 * @param	TodoyuFormFieldset		$fieldset
-	 * @param	Integer				$position
+	 * @param	integer				$position
 	 * @return	TodoyuFormFieldset
 	 */
 	public function injectFieldset(TodoyuFormFieldset $fieldset, $position = null) {
@@ -386,10 +386,10 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Add a field from custom config
 	 *
-	 * @param	String		$fieldName
-	 * @param	String		$fieldType
-	 * @param	Array		$fieldConfig
-	 * @param	String		$position
+	 * @param	string		$fieldName
+	 * @param	string		$fieldType
+	 * @param	array		$fieldConfig
+	 * @param	string		$position
 	 * @return	TodoyuFormElement
 	 */
 	public function addFieldElement($fieldName, $fieldType, array $fieldConfig, $position = null) {
@@ -403,8 +403,8 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Remove a field (and cleanup field references)
 	 *
-	 * @param	String		$fieldName
-	 * @param	Boolean		$cleanup
+	 * @param	string		$fieldName
+	 * @param	boolean		$cleanup
 	 */
 	public function removeField($fieldName, $cleanup = true) {
 		unset($this->elements[$fieldName]);
@@ -474,7 +474,7 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Render fieldset with all its child elements
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function render() {
 		$template	= Todoyu::$CONFIG['FORM']['templates']['fieldset'];
@@ -490,7 +490,7 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * Render fieldset elements (without wrapping fieldset)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderElements() {
 		$content	= '';
@@ -516,8 +516,8 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * ArrayAccess: Check if an attribute is set: isset($fieldset['legend'])
 	 *
-	 * @param	String		$name
-	 * @return	Boolean
+	 * @param	string		$name
+	 * @return	boolean
 	 */
 	public function offsetExists($name) {
 		return isset($this->attributes[$name]);
@@ -528,8 +528,8 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * ArrayAccess: Get an attribute from the fieldset: echo $fieldset['legend']
 	 *
-	 * @param	String		$name
-	 * @return	String
+	 * @param	string		$name
+	 * @return	string
 	 */
 	public function offsetGet($name) {
 		return $this->getAttribute($name);
@@ -540,8 +540,8 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * ArrayAccess: Set an attribute: $fieldset['legend'] = 'New Legend'
 	 *
-	 * @param	String		$name
-	 * @param	String		$value
+	 * @param	string		$name
+	 * @param	string		$value
 	 */
 	public function offsetSet($name, $value) {
 		$this->setAttribute($name, $value);
@@ -552,7 +552,7 @@ class TodoyuFormFieldset implements ArrayAccess {
 	/**
 	 * ArrayAccess: Delete attribute: unset($fieldset['legend'])
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 */
 	public function offsetUnset($name) {
 		unset($this->attributes[$name]);

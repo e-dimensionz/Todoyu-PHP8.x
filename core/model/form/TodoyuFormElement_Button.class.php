@@ -31,9 +31,9 @@ class TodoyuFormElement_Button extends TodoyuFormElement {
 	/**
 	 * Create button element
 	 *
-	 * @param	String		$name		Button name
+	 * @param	string		$name		Button name
 	 * @param	TodoyuFormFieldset	$fieldset	Parent fieldset
-	 * @param	Array		$config		Button config
+	 * @param	array		$config		Button config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		parent::__construct('button', $name, $fieldset, $config);
@@ -60,7 +60,7 @@ class TodoyuFormElement_Button extends TodoyuFormElement {
 	/**
 	 * Get button type
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getType() {
 		return $this->getAttribute('type');
@@ -71,7 +71,7 @@ class TodoyuFormElement_Button extends TodoyuFormElement {
 	/**
 	 * Set button text
 	 *
-	 * @param	String		$label
+	 * @param	string		$label
 	 */
 	public function setText($label) {
 		$this->setAttribute('text', $label);
@@ -82,7 +82,7 @@ class TodoyuFormElement_Button extends TodoyuFormElement {
 	/**
 	 * Set class
 	 *
-	 * @param	String		$class
+	 * @param	string		$class
 	 */
 	public function setClass($class) {
 		$this->setAttribute('class', $class);
@@ -104,7 +104,7 @@ class TodoyuFormElement_Button extends TodoyuFormElement {
 	/**
 	 * Set button type
 	 *
-	 * @param	String		$type		A valid button type (button,cancel,submit)
+	 * @param	string		$type		A valid button type (button,cancel,submit)
 	 */
 	public function setType($type) {
 		$this->setAttribute('type', $type);
@@ -135,7 +135,7 @@ class TodoyuFormElement_Button extends TodoyuFormElement {
 	/**
 	 * Never save buttons
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isNoStorageField() {
 		return true;
@@ -146,8 +146,8 @@ class TodoyuFormElement_Button extends TodoyuFormElement {
 	/**
 	 * Render button to HTML
 	 *
-	 * @param	Boolean	$odd
-	 * @return	String
+	 * @param	boolean	$odd
+	 * @return	string
 	 */
 	public function render($odd = false) {
 		$tmpl	= $this->getTemplate();

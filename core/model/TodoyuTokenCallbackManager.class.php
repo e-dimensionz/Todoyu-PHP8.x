@@ -29,9 +29,9 @@ class TodoyuTokenCallbackManager {
 	/**
 	 * Register a source function to given token type
 	 *
-	 * @param	Integer		$extID
-	 * @param	Integer		$idTokenType
-	 * @param	String		$function		Function reference
+	 * @param	integer		$extID
+	 * @param	integer		$idTokenType
+	 * @param	string		$function		Function reference
 	 */
 	public static function addFunction($extID, $idTokenType, $function) {
 		$extID			= (int) $extID;
@@ -48,7 +48,7 @@ class TodoyuTokenCallbackManager {
 	 * Get registered callback of given token
 	 *
 	 * @param	TodoyuToken	$token
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getCallback(TodoyuToken $token) {
 		$extID		= $token->getExtID();
@@ -62,8 +62,8 @@ class TodoyuTokenCallbackManager {
 	/**
 	 * Get registered callback to type and extID of token
 	 *
-	 * @param	Integer		$idToken
-	 * @return	String
+	 * @param	integer		$idToken
+	 * @return	string
 	 */
 	public static function getCallbackByTokenID($idToken) {
 		$idToken	= (int) $idToken;
@@ -77,8 +77,8 @@ class TodoyuTokenCallbackManager {
 	/**
 	 * Get rendered content of callback of current token
 	 *
-	 * @param	String	$hash
-	 * @return	String
+	 * @param	string	$hash
+	 * @return	string
 	 */
 	public static function getCallbackResultByHash($hash) {
 		$token	= TodoyuTokenManager::getTokenByHash($hash);

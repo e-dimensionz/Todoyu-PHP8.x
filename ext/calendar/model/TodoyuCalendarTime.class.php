@@ -29,9 +29,9 @@ class TodoyuCalendarTime {
 	/**
 	 * Format date with given format string
 	 *
-	 * @param	Integer		$date
-	 * @param	String		$formatKey
-	 * @return	String
+	 * @param	integer		$date
+	 * @param	string		$formatKey
+	 * @return	string
 	 */
 	public static function format($date, $formatKey) {
 		$format	= Todoyu::Label($formatKey);

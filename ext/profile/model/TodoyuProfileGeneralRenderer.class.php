@@ -29,8 +29,8 @@ class TodoyuProfileGeneralRenderer {
 	/**
 	 * Render tabs in general area
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderTabs(array $params) {
 		$name		= 'profile-general';
@@ -51,8 +51,8 @@ class TodoyuProfileGeneralRenderer {
 	/**
 	 * Render tab content
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderContent(array $params) {
 		$tab	= $params['tab'];
@@ -74,7 +74,7 @@ class TodoyuProfileGeneralRenderer {
 	/**
 	 * Render content for main tab
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderContentMain() {
 		$xmlPath= 'ext/profile/config/form/general-main.xml';
@@ -100,7 +100,7 @@ class TodoyuProfileGeneralRenderer {
 	/**
 	 * Render content for password tab
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderContentPassword() {
 		$xmlPath= 'ext/profile/config/form/general-password.xml';

@@ -1,6 +1,6 @@
 {extends "list-base.tmpl"}
 
-{block name="title"}{Title "LLL:sysmanager.ext.notInstalledExtensions"}{/block}
+{block name="title"}{Title text="LLL:sysmanager.ext.notInstalledExtensions"}{/block}
 
 {block name="contentMessage"}
 	{if !empty($extensions) && sizeof($extensions)>0}
@@ -10,15 +10,15 @@
 
 {block name="edit"}
 	<td class="edit">
-		<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.Install.install('{$extKey}')" title="{Label sysmanager.extension.install}" class="install">
+		<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.Install.install('{$extKey}')" title="{Label text='sysmanager.extension.install'}" class="install">
 			<span class="hidden">install</span>
 		</a>
 
-		<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.remove('{$extKey}')" title="{Label sysmanager.extension.remove}" class="remove">
+		<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.remove('{$extKey}')" title="{Label text='sysmanager.extension.remove'}" class="remove">
 			<span class="hidden">remove</span>
 		</a>
 
-		<a href="javascript:void(0)" title="{Label sysmanager.extension.showInfo}"
+		<a href="javascript:void(0)" title="{Label text='sysmanager.extension.showInfo'}"
 			{if extMgr_hasExtInfo($extKey)}
 				onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')" class="info">
 			{else}
@@ -32,7 +32,7 @@
 {block name="noExtensions"}
 	<div class="contentMessage importInfo">
 		<div class="icon"></div>
-		{Label sysmanager.extension.install.allinstalled}
+		{Label text='sysmanager.extension.install.allinstalled'}
 	</div>
 {/block}
 

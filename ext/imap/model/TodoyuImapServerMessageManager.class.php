@@ -67,7 +67,7 @@ class TodoyuImapServerMessageManager {
 	/**
 	 * Extract information from message header string given by imap_headers()
 	 *
-	 * @param	String		$messageHeaderString
+	 * @param	string		$messageHeaderString
 	 * @return	Array|Boolean
 	 */
 	public static function getMessageHeaderStringInfo($messageHeaderString) {
@@ -96,8 +96,8 @@ class TodoyuImapServerMessageManager {
 	/**
 	 * Decode message header
 	 *
-	 * @param	String		$encodedString
-	 * @return	String
+	 * @param	string		$encodedString
+	 * @return	string
 	 */
 	public static function decodeHeader($encodedString) {
 		$decodeData		= imap_mime_header_decode($encodedString);
@@ -144,10 +144,10 @@ class TodoyuImapServerMessageManager {
 	/**
 	 * Decode content (to utf8) depending on the current encoding
 	 *
-	 * @param	String				$encodedString
-	 * @param	Integer				$encoding
-	 * @param	String|Boolean		$currentEncoding
-	 * @return	String
+	 * @param	string				$encodedString
+	 * @param	integer				$encoding
+	 * @param	string|Boolean		$currentEncoding
+	 * @return	string
 	 */
 	public static function decodePartContent($encodedString, $encoding, $currentEncoding = false) {
 		$encoding		= intval($encoding);

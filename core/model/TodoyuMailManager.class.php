@@ -40,7 +40,7 @@ class TodoyuMailManager {
 	 * 0 = mail() function
 	 * string = custom type
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getSystemMailerType() {
 		return Todoyu::$CONFIG['SYSTEM']['mailer'];
@@ -51,10 +51,10 @@ class TodoyuMailManager {
 	/**
 	 * Save log record about receivers (e.g. persons) the given mail has been sent to
 	 *
-	 * @param	Integer		$extID				EXTID of extension the record belongs to
-	 * @param	Integer		$type				Type of record (comment, event, etc.) the email refers to
-	 * @param	Integer		$idRecord			ID of record the email refers to
-	 * @param	Array		$receiverTuples		Mail receiver tuples ('type:ID' or 'ID' which defaults the type to 'contactperson')
+	 * @param	integer		$extID				EXTID of extension the record belongs to
+	 * @param	integer		$type				Type of record (comment, event, etc.) the email refers to
+	 * @param	integer		$idRecord			ID of record the email refers to
+	 * @param	array		$receiverTuples		Mail receiver tuples ('type:ID' or 'ID' which defaults the type to 'contactperson')
 	 */
 	public static function saveMailsSent($extID, $type, $idRecord, array $receiverTuples = array() ) {
 		$extID		= (int) $extID;
@@ -76,11 +76,11 @@ class TodoyuMailManager {
 	/**
 	 * Log sent email of given type to given person
 	 *
-	 * @param	Integer		$extID			EXTID of extension the record belongs to
-	 * @param	Integer		$type			Type of record (comment, event, etc.) the email refers to
-	 * @param	Integer		$idRecord		ID of record the email refers to
-	 * @param	Integer		$idReceiver
-	 * @param	String		$receiverType
+	 * @param	integer		$extID			EXTID of extension the record belongs to
+	 * @param	integer		$type			Type of record (comment, event, etc.) the email refers to
+	 * @param	integer		$idRecord		ID of record the email refers to
+	 * @param	integer		$idReceiver
+	 * @param	string		$receiverType
 	 */
 	public static function addMailSent($extID, $type, $idRecord, $idReceiver, $receiverType = 'contactperson') {
 		$extID		= (int) $extID;
@@ -106,9 +106,9 @@ class TodoyuMailManager {
 	/**
 	 * Get receivers the given comment has been emailed to
 	 *
-	 * @param	Integer		$extID			EXTID of extension the record belongs to
-	 * @param	Integer		$type			Type of record (comment, event, etc.) the email refers to
-	 * @param	Integer		$idRecord		ID of record the email refers to
+	 * @param	integer		$extID			EXTID of extension the record belongs to
+	 * @param	integer		$type			Type of record (comment, event, etc.) the email refers to
+	 * @param	integer		$idRecord		ID of record the email refers to
 	 * @return	TodoyuMailReceiverInterface[]
 	 */
 	public static function getEmailReceivers($extID, $type, $idRecord) {

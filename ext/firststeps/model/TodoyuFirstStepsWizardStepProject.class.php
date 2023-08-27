@@ -39,8 +39,8 @@ class TodoyuFirstStepsWizardStepProject extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Save/update project
 	 *
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public function save(array $data) {
 		$form	= $this->getForm($data);
@@ -62,7 +62,7 @@ class TodoyuFirstStepsWizardStepProject extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Render content
 	 *
-	 * @return		String
+	 * @return		string
 	 */
 	public function getContent() {
 		if( $this->data === null ) {
@@ -123,7 +123,7 @@ class TodoyuFirstStepsWizardStepProject extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Create empty project
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	private function createEmptyProject() {
 		$data	= array(
@@ -139,7 +139,7 @@ class TodoyuFirstStepsWizardStepProject extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Check whether the database already contains a project
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	private function hasProjects() {
 		return Todoyu::db()->queryHasResult('SELECT id FROM ext_project_project LIMIT 1');
@@ -150,8 +150,8 @@ class TodoyuFirstStepsWizardStepProject extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Update first project
 	 *
-	 * @param	Array	$submittedData
-	 * @return	Integer
+	 * @param	array	$submittedData
+	 * @return	integer
 	 */
 	private function saveProject(array $submittedData) {
 		$data	= array(

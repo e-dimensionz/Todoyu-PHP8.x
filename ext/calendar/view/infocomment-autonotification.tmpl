@@ -1,5 +1,5 @@
-{foreach $personIDs idPerson}
-	{personLabel $idPerson}{if !$dwoo.foreach.default.last}, {/if}
-{else}
-	{Label calendar.form.comment.autonotification.noroles}
+{foreach $personIDs as $idPerson}
+	{personLabel id=$idPerson}{if !$smarty.foreach.default.last}, {/if}
+{foreachelse}
+	{Label text='calendar.form.comment.autonotification.noroles'}
 {/foreach}

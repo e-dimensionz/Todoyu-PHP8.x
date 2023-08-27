@@ -30,9 +30,9 @@ class TodoyuProjectProjectViewHelper {
 	/**
 	 * Get config array for one status option
 	 *
-	 * @param	Integer		$index
-	 * @param	String		$statusKey
-	 * @param	String		$label
+	 * @param	integer		$index
+	 * @param	string		$statusKey
+	 * @param	string		$label
 	 * @return	Array
 	 */
 	public static function getStatusOption($index, $statusKey, $label) {
@@ -78,8 +78,8 @@ class TodoyuProjectProjectViewHelper {
 	 * Get label for person in project
 	 *
 	 * @param	TodoyuFormElement	$formElement		The form element
-	 * @param	Array				$data				Form data for the current record to be labeled
-	 * @return	String				Record label
+	 * @param	array				$data				Form data for the current record to be labeled
+	 * @return	string				Record label
 	 */
 	public static function getProjectPersonLabel(TodoyuFormElement $formElement, array $data) {
 		$idPerson	= intval($data['id']);
@@ -203,8 +203,8 @@ class TodoyuProjectProjectViewHelper {
 	/**
 	 * Get project label for quickTask autoCompleter suggestion
 	 *
-	 * @param	Integer		$idProject
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @return	string
 	 */
 	public static function getQuicktaskAutocompleteLabel($idProject) {
 		$idProject	= intval($idProject);

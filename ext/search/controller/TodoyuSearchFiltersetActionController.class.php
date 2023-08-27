@@ -27,7 +27,7 @@ class TodoyuSearchFiltersetActionController extends TodoyuActionController {
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('search', 'general:area');
@@ -38,7 +38,7 @@ class TodoyuSearchFiltersetActionController extends TodoyuActionController {
 	/**
 	 * Save current conditions as "current" filterset (being restored when reloading the tab)
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function saveAsCurrentAction(array $params) {
 		$type		= $params['type'];
@@ -62,8 +62,8 @@ class TodoyuSearchFiltersetActionController extends TodoyuActionController {
 	/**
 	 * Save current conditions with their settings as new filterset
 	 *
-	 * @param	Array	$params
-	 * @return	Integer
+	 * @param	array	$params
+	 * @return	integer
 	 */
 	public function saveAsNewAction(array $params) {
 		$type		= $params['type'];
@@ -90,8 +90,8 @@ class TodoyuSearchFiltersetActionController extends TodoyuActionController {
 	/**
 	 * Save conditions as filterset
 	 *
-	 * @param	Array	$params
-	 * @return	Integer
+	 * @param	array	$params
+	 * @return	integer
 	 */
 	public function saveAction(array $params) {
 		$idFilterset= intval($params['filterset']);

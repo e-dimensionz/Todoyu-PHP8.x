@@ -1,20 +1,20 @@
 <article
-		class="comment {if $isFeedbackPerson}withFeedback{/if} {if $person_create.id ==personid()} ownComment{/if}{if $is_public}{if isSeeAllCommentsAllowed()} isPublic{/if}{/if}"
+		class="comment {if $isFeedbackPerson}withFeedback{/if} {if $person_create.id == personid} ownComment{/if}{if $is_public}{if isSeeAllCommentsAllowed} isPublic{/if}{/if}"
 		id="task-comment-{$id}" xmlns="http://www.w3.org/1999/html">
 	<div class="commentBackground">
 		<div class="comment-meta" id="task-comment-{$id}-properties">
 			<div class="comment-img">
 				{if $isFeedbackPerson}
-					<a class="personApproval hasicon {if $isUnapproved}{else}isseen{/if}" href="javascript:void(0)" id="comment-{$id}-seenstatus" onclick="Todoyu.Ext.comment.Comment.toggleSeen({$id}, {personid()})"></a>
+					<a class="personApproval hasicon {if $isUnapproved}{else}isseen{/if}" href="javascript:void(0)" id="comment-{$id}-seenstatus" onclick="Todoyu.Ext.comment.Comment.toggleSeen({$id}, personid)"></a>
 				{/if}
-				{personAvatar $person_create.id}
+				{personAvatar id=$person_create.id}
 			</div>
 
 			<div class="clear">
 				<p class="personLabel">
-					{personLabel idPrefix="comment-personcreate" idRecord=$id idPerson=$person_create.id}
+					{personLabel prefix="comment-personcreate" idRecord=$id id=$person_create.id}
 				</p>
-				<p id="task-comment-{$id}-crdate" class="crdate">{dateFormat $date_create datetime}</p>
+				<p id="task-comment-{$id}-crdate" class="crdate">{$date_create|date_format:$DF.datetime}</p>
 			</div>
 		</div>
 
@@ -22,7 +22,7 @@
 		<div class="comment-body">
 
 			<div class="text" id="task-comment-{$id}-text">
-				<p>{substituteLinkableElements(cleanHtml($comment))}</p>
+				<p>{substituteLinkableElements text=$comment|strip_tags}</p>
 			</div>
 
 			<div id="task-comment-{$id}-involved" class="involved">
@@ -30,38 +30,38 @@
 					{if $involvedPersons}
 					<div class="involvedPersons" id="task-comment-{$id}-involvedPersons">
 
-						{foreach $involvedPersons involvedPerson}
+						{foreach $involvedPersons as $involvedPerson}
 							<span class="involvedPerson" id="task-comment-{$id}-involvedPerson-{$involvedPerson.key}">
 								{if $involvedPerson.feedback}
-									{if $involvedPerson.is_dummy==1 && allowed('comment', 'overrideDummy:acknowledgeFeedback')}
+									{if $involvedPerson.is_dummy==1 && fn_allowed('comment', 'overrideDummy:acknowledgeFeedback')}
 										<a href="javascript:void(0)" onclick="Todoyu.Ext.comment.Comment.toggleDummySeen({$id}, {$involvedPerson.personID}, '{$involvedPerson.fullname}')">
 									{/if}
-									{if $involvedPerson.personID==personid()}
-										<a href="javascript:void(0)" onclick="Todoyu.Ext.comment.Comment.toggleSeen({$id}, {personid()})">
+									{if $involvedPerson.personID==personid}
+										<a href="javascript:void(0)" onclick="Todoyu.Ext.comment.Comment.toggleSeen({$id}, personid)">
 									{/if}
-											<span class="icon feedback {tif $involvedPerson.feedbackSeen ? 'approved' : 'unapproved'}"></span>
-									{if $involvedPerson.is_dummy==1 && allowed('comment', 'overrideDummy:acknowledgeFeedback')}
+                                    <span class="icon feedback {if $involvedPerson.feedbackSeen}approved{else}unapproved{/if}"></span>
+									{if $involvedPerson.is_dummy==1 && fn_allowed('comment', 'overrideDummy:acknowledgeFeedback')}
 										</a>
 										{else}
-										{if $involvedPerson.personID==personid()}
+										{if $involvedPerson.personID==personid}
 											</a>
 										{/if}
 									{/if}
 
 
 								{/if}
-								{if $involvedPerson.email}
+								{if isset($involvedPerson.email)}
 									<span class="icon email"></span>
 								{/if}
 
 								<span class="label">
 									{if $involvedPerson.personID}
-										{personLabel idPrefix="comment-personfeedback" idPerson=$involvedPerson.personID}
+										{personLabel prefix="comment-personfeedback" id=$involvedPerson.personID}
 									{else}
 										{if $involvedPerson.receiverTuple}
 											{mailreceiverLabel tuple=$involvedPerson.receiverTuple}
 										{else}
-											{htmlencode $involvedPerson.label}
+											{$involvedPerson.label|escape}
 										{/if}
 									{/if}
 								</span>
@@ -83,7 +83,7 @@
 
 				{if $additionalContentItems}
 					<div class="additionalContent">
-						{foreach $additionalContentItems additionalContentItem}
+						{foreach $additionalContentItems as $additionalContentItem}
 							<div class="{$additionalContentItem.class}">{$additionalContentItem.content}</div>
 						{/foreach}
 					</div>
@@ -91,11 +91,11 @@
 
 				{if $assetInfos}
 					<div class="assets">
-						<h6>{Label comment.ext.assets.title}</h6>
+						<h6>{Label text='comment.ext.assets.title'}</h6>
 						<ul>
-							{foreach $assetInfos asset}
-								<li class="{if isAssetGDcompatibleImage($asset.id)}quickInfoAsset{/if}" id="asset-{$asset.id}-comment">
-								 <a class="asset" onclick="Todoyu.Ext.assets.downloadAsset({$asset.id})">{$asset.file_name}</a> <span class="filesize">({fileSize $asset.file_size})</span>
+							{foreach $assetInfos as $asset}
+								<li class="{if fn_isAssetGDcompatibleImage($asset.id)}quickInfoAsset{/if}" id="asset-{$asset.id}-comment">
+								 <a class="asset" onclick="Todoyu.Ext.assets.downloadAsset({$asset.id})">{$asset.file_name}</a> <span class="filesize">({fileSize bytes=$asset.file_size})</span>
 								</li>
 							{/foreach}
 						</ul>
@@ -104,13 +104,13 @@
 
 				<div class="action-bar" >
 					<div id="task-comment-{$id}-actions" class="actions">
-						{foreach $actions action}
-							<a href="{$action.href|default:"javascript:void(0)"}" {if $action.onclick}onclick="{$action.onclick}"{/if} class="icon {$action.class}" title="{Label $action.label}" id="comment-{$id}-action-{$action.id}">
-								<span class="hidden">{Label $action.label}</span>
+						{foreach $actions as $action}
+							<a href="{$action.href|default:"javascript:void(0)"}" {if $action.onclick}onclick="{$action.onclick}"{/if} class="icon {$action.class}" title="{Label text=$action.label}" id="comment-{$id}-action-{$action.id}">
+								<span class="hidden">{Label text=$action.label}</span>
 							</a>
 						{/foreach}
 					</div>
-					<div id="task-comment-{$id}-id" class="commentId" title="{Label comment.ext.id}" class="commentId">c{$id}</div>
+					<div id="task-comment-{$id}-id" class="commentId" title="{Label text='comment.ext.id'}" class="commentId">c{$id}</div>
 
 				</div>
 

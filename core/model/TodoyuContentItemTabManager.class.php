@@ -36,12 +36,12 @@ class TodoyuContentItemTabManager {
 	/**
 	 * Register an items tab
 	 *
-	 * @param	String		$extKey					Extension that originally implements the item
-	 * @param	String		$itemKey				e.g. 'project' / 'task' / 'container' ...
-	 * @param	String		$tabKey					Tab identifier
-	 * @param	String		$labelFunction			Function which renders the label or just a label string
-	 * @param	String		$contentFunction		Function which renders the content
-	 * @param	Integer		$position
+	 * @param	string		$extKey					Extension that originally implements the item
+	 * @param	string		$itemKey				e.g. 'project' / 'task' / 'container' ...
+	 * @param	string		$tabKey					Tab identifier
+	 * @param	string		$labelFunction			Function which renders the label or just a label string
+	 * @param	string		$contentFunction		Function which renders the content
+	 * @param	integer		$position
 	 */
 	public static function registerTab($extKey, $itemKey, $tabKey, $labelFunction, $contentFunction, $position = 100) {
 		self::$tabs[$extKey][$itemKey][$tabKey] = array(
@@ -57,9 +57,9 @@ class TodoyuContentItemTabManager {
 	/**
 	 * Get project detail tabs config array
 	 *
-	 * @param	String		$extKey			Extension that originally implements the item
-	 * @param	String		$itemKey		'project' / 'task' / ...
-	 * @param	Integer		$idItem
+	 * @param	string		$extKey			Extension that originally implements the item
+	 * @param	string		$itemKey		'project' / 'task' / ...
+	 * @param	integer		$idItem
 	 * @return	Array[]
 	 */
 	public static function getTabs($extKey, $itemKey, $idItem) {
@@ -88,9 +88,9 @@ class TodoyuContentItemTabManager {
 	/**
 	 * Get a project detail tab configuration
 	 *
-	 * @param	String		$extKey		Extension that originally implements the item
-	 * @param	String		$itemKey
-	 * @param	String		$tabKey
+	 * @param	string		$extKey		Extension that originally implements the item
+	 * @param	string		$itemKey
+	 * @param	string		$tabKey
 	 * @return	Array
 	 */
 	public static function getTabConfig($extKey, $itemKey, $tabKey) {
@@ -102,13 +102,13 @@ class TodoyuContentItemTabManager {
 	/**
 	 * Get all tab configs for an item type
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$itemKey
-	 * @param	Boolean		$sort		Sort by position
+	 * @param	string		$extKey
+	 * @param	string		$itemKey
+	 * @param	boolean		$sort		Sort by position
 	 * @return	Array[]
 	 */
 	public static function getTabConfigs($extKey, $itemKey, $sort = true) {
-		$tabs	= TodoyuArray::assure(self::$tabs[$extKey][$itemKey]);
+		$tabs	= TodoyuArray::assure(self::$tabs[$extKey][$itemKey] ?? []);
 
 		if( $sort ) {
 			$tabs = TodoyuArray::sortByLabel($tabs, 'position');
@@ -122,16 +122,16 @@ class TodoyuContentItemTabManager {
 	/**
 	 * Get the tab which is active by default (if no preference is stored)
 	 *
-	 * @param	String		$extKey		Extension that originally implements the item
-	 * @param	String		$itemKey
-	 * @param	Integer		$idItem
-	 * @return	String
+	 * @param	string		$extKey		Extension that originally implements the item
+	 * @param	string		$itemKey
+	 * @param	integer		$idItem
+	 * @return	string
 	 */
 	public static function getDefaultTab($extKey, $itemKey, $idItem) {
 		$tabs	= self::getTabs($extKey, $itemKey, $idItem);
 		$first	= array_shift($tabs);
 
-		return $first['id'];
+		return $first['id'] ?? null;
 	}
 
 
@@ -139,9 +139,9 @@ class TodoyuContentItemTabManager {
 	/**
 	 * Check whether tabs are registered for type
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$itemKey
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @param	string		$itemKey
+	 * @return	boolean
 	 */
 	public static function hasTabs($extKey, $itemKey) {
 		$tabs = self::getTabConfigs($extKey, $itemKey, false);

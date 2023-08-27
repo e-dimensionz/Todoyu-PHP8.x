@@ -66,8 +66,8 @@ class TodoyuDateRange {
 	/**
 	 * Initialize with range
 	 * 
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd
 	 */
 	public function __construct($dateStart = 0, $dateEnd = 0) {
 		$dateStart	= (int) $dateStart;
@@ -89,7 +89,7 @@ class TodoyuDateRange {
 	/**
 	 * Get range ID, based on start and end of the range
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getID() {
 		return date('YmdHis', $this->getStart()) . date('YmdHis', $this->getEnd());
@@ -112,7 +112,7 @@ class TodoyuDateRange {
 	/**
 	 * Get start date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getStart() {
 		return $this->dateStart;
@@ -123,7 +123,7 @@ class TodoyuDateRange {
 	/**
 	 * Get end date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getEnd() {
 		return $this->dateEnd;
@@ -134,7 +134,7 @@ class TodoyuDateRange {
 	/**
 	 * Set start date
 	 *
-	 * @param	Integer		$date
+	 * @param	integer		$date
 	 */
 	public function setStart($date) {
 		$this->dateStart = (int) $date;
@@ -145,7 +145,7 @@ class TodoyuDateRange {
 	/**
 	 * Set end date
 	 *
-	 * @param	Integer		$date
+	 * @param	integer		$date
 	 */
 	public function setEnd($date) {
 		$this->dateEnd = (int) $date;
@@ -156,12 +156,12 @@ class TodoyuDateRange {
 	/**
 	 * Set range start by date
 	 *
-	 * @param	Integer		$year
-	 * @param	Integer		$month
-	 * @param	Integer		$day
-	 * @param	Integer		$hour
-	 * @param	Integer		$minute
-	 * @param	Integer		$second
+	 * @param	integer		$year
+	 * @param	integer		$month
+	 * @param	integer		$day
+	 * @param	integer		$hour
+	 * @param	integer		$minute
+	 * @param	integer		$second
 	 */
 	public function setDateStart($year, $month, $day, $hour = 0, $minute = 0, $second = 0) {
 		$this->setStart(mktime($hour, $minute, $second, $month, $day, $year));
@@ -172,12 +172,12 @@ class TodoyuDateRange {
 	/**
 	 * Set range end by date
 	 *
-	 * @param	Integer		$year
-	 * @param	Integer		$month
-	 * @param	Integer		$day
-	 * @param	Integer		$hour
-	 * @param	Integer		$minute
-	 * @param	Integer		$second
+	 * @param	integer		$year
+	 * @param	integer		$month
+	 * @param	integer		$day
+	 * @param	integer		$hour
+	 * @param	integer		$minute
+	 * @param	integer		$second
 	 */
 	public function setDateEnd($year, $month, $day, $hour = 0, $minute = 0, $second = 0) {
 		$this->setEnd(mktime($hour, $minute, $second, $month, $day, $year));
@@ -188,8 +188,8 @@ class TodoyuDateRange {
 	/**
 	 * Set range dates (start/end)
 	 *
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd
 	 */
 	public function setRange($dateStart, $dateEnd) {
 		$this->setStart($dateStart);
@@ -201,7 +201,7 @@ class TodoyuDateRange {
 	/**
 	 * Force minimal length of range in seconds
 	 *
-	 * @param	Integer		$seconds
+	 * @param	integer		$seconds
 	 */
 	public function setMinLength($seconds) {
 		$seconds	= intval($seconds);
@@ -216,8 +216,8 @@ class TodoyuDateRange {
 	/**
 	 * Check whether this range ends before the given date
 	 *
-	 * @param	Integer		$date
-	 * @return	Boolean
+	 * @param	integer		$date
+	 * @return	boolean
 	 */
 	public function endsBefore($date) {
 		$date	= (int) $date;
@@ -230,9 +230,9 @@ class TodoyuDateRange {
 	/**
 	 * Check whether this range starts before the given date
 	 *
-	 * @param	Integer		$date
-	 * @param	Boolean		$allowSame
-	 * @return	Boolean
+	 * @param	integer		$date
+	 * @param	boolean		$allowSame
+	 * @return	boolean
 	 */
 	public function startsBefore($date, $allowSame = false) {
 		$date	= (int) $date;
@@ -249,9 +249,9 @@ class TodoyuDateRange {
 	/**
 	 * Check whether this range ends after the given date
 	 *
-	 * @param	Integer		$date
-	 * @param	Boolean		$allowSame
-	 * @return	Boolean
+	 * @param	integer		$date
+	 * @param	boolean		$allowSame
+	 * @return	boolean
 	 */
 	public function endsAfter($date, $allowSame = false) {
 		$date	= (int) $date;
@@ -268,8 +268,8 @@ class TodoyuDateRange {
 	/**
 	 * Check whether this range starts after the given date
 	 *
-	 * @param	Integer		$date
-	 * @return	Boolean
+	 * @param	integer		$date
+	 * @return	boolean
 	 */
 	public function startsAfter($date) {
 		$date	= (int) $date;
@@ -283,8 +283,8 @@ class TodoyuDateRange {
 	 * Check whether the range is active at the given date
 	 * If no date given, use current date
 	 *
-	 * @param	Integer		$date
-	 * @return	Boolean
+	 * @param	integer		$date
+	 * @return	boolean
 	 */
 	public function isActive($date = 0) {
 		$date	= TodoyuTime::time($date);
@@ -297,11 +297,11 @@ class TodoyuDateRange {
 	/**
 	 * Check whether this range is (partly) in the period between the given start and end date
 	 *
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd
-	 * @param	Boolean		$partly			It's enough when the range and the period just overlap at some date
-	 * @param	Boolean		$allowLimits	Allow the period to start or end exactly at the start or end date
-	 * @return	Boolean
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd
+	 * @param	boolean		$partly			It's enough when the range and the period just overlap at some date
+	 * @param	boolean		$allowLimits	Allow the period to start or end exactly at the start or end date
+	 * @return	boolean
 	 */
 	public function isPeriodInRange($dateStart, $dateEnd, $partly = false, $allowLimits = false) {
 		$dateStart	= (int) $dateStart;
@@ -319,9 +319,9 @@ class TodoyuDateRange {
 	/**
 	 * Check whether the given date is inside of this range
 	 *
-	 * @param	Integer		$date
-	 * @param	Boolean		$allowLimits		Allow the date to be at the start or end date
-	 * @return	Boolean
+	 * @param	integer		$date
+	 * @param	boolean		$allowLimits		Allow the date to be at the start or end date
+	 * @return	boolean
 	 */
 	public function isInRange($date, $allowLimits = true) {
 		$date = (int) $date;
@@ -335,7 +335,7 @@ class TodoyuDateRange {
 	 * Check whether the range containes another range completely
 	 *
 	 * @param	TodoyuDateRange		$range
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function contains(TodoyuDateRange $range) {
 		return $this->startsBefore($range->getStart(), true) && $this->endsAfter($range->getEnd(), true);
@@ -347,8 +347,8 @@ class TodoyuDateRange {
 	 * Check whether a range overlaps another comment
 	 *
 	 * @param	TodoyuDateRange		$range
-	 * @param	Boolean				$allowBorderTouching		See TodoyuTime::rangeOverlaps() for details
-	 * @return	Boolean
+	 * @param	boolean				$allowBorderTouching		See TodoyuTime::rangeOverlaps() for details
+	 * @return	boolean
 	 */
 	public function isOverlapping(TodoyuDateRange $range, $allowBorderTouching = false) {
 		return TodoyuTime::rangeOverlaps($this->getStart(), $this->getEnd(), $range->getStart(), $range->getEnd(), $allowBorderTouching);
@@ -359,7 +359,7 @@ class TodoyuDateRange {
 	/**
 	 * Get duration of this range in seconds
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDuration() {
 		return intval($this->dateEnd - $this->dateStart);
@@ -372,7 +372,7 @@ class TodoyuDateRange {
 	 * If end date exceeds the limit, it will be adjusted
 	 * The limit does not affect later operations
 	 *
-	 * @param	Integer		$dateEnd
+	 * @param	integer		$dateEnd
 	 */
 	public function setEndLimit($dateEnd) {
 		$dateEnd	= (int) $dateEnd;
@@ -389,7 +389,7 @@ class TodoyuDateRange {
 	 * If start date exceeds the limit, it will be adjusted
 	 * The limit does not affect later operations
 	 *
-	 * @param	Integer		$dateStart
+	 * @param	integer		$dateStart
 	 */
 	public function setStartLimit($dateStart) {
 		$dateStart	= (int) $dateStart;
@@ -416,7 +416,7 @@ class TodoyuDateRange {
 	/**
 	 * Check whether dateRange spans one full year (01.01. to 12.31.)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isFullYearRange() {
 		return $this->isInOneYear() && date('m-d', $this->getStart()) === '01-01' && date('m-d', $this->getEnd()) === '12-31';
@@ -427,7 +427,7 @@ class TodoyuDateRange {
 	/**
 	 * Check whether dateRange spans one full month
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isFullMonthRange() {
 		return $this->isInOneMonth() && $this->isStartStartOfMonth() && $this->isEndEndOfMonth();
@@ -438,7 +438,7 @@ class TodoyuDateRange {
 	/**
 	 * Check whether dateRange span lays within one (start/end the same) year
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isInOneYear() {
 		return date('Y', $this->getStart()) === date('Y', $this->getEnd());
@@ -449,7 +449,7 @@ class TodoyuDateRange {
 	/**
 	 * Check whether dateRange span lays within one (start/ end the same) month
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isInOneMonth() {
 		return date('Y-m', $this->getStart()) === date('Y-m', $this->getEnd());
@@ -460,7 +460,7 @@ class TodoyuDateRange {
 	/**
 	 * Check whether the range is inside of a day
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isInOneDay() {
 		return date('Y-m-d', $this->getStart()) === date('Y-m-d', $this->getEnd());
@@ -471,7 +471,7 @@ class TodoyuDateRange {
 	/**
 	 * Check whether dateRange starts at 1st day of month
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isStartStartOfMonth() {
 		return date('d', $this->getStart()) === '01';
@@ -482,7 +482,7 @@ class TodoyuDateRange {
 	/**
 	 * Check whether dateRange ends on last day of month
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isEndEndOfMonth() {
 		$lastDay	= date('t', $this->getEnd());
@@ -511,7 +511,7 @@ class TodoyuDateRange {
 	 * Format depends on start, end times
 	 * - Full year:
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLabel() {
 			// Full year range: 2011
@@ -548,7 +548,7 @@ class TodoyuDateRange {
 	 * One day: 15. August 2012, 15:00 - 16:00
 	 * Multi day: 15. August 2012 15:00 - 16. August 2012 18:00
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLabelWithTime() {
 		if( $this->isInOneDay() ) {
@@ -571,7 +571,7 @@ class TodoyuDateRange {
 	 * Get timestamps for days in range
 	 * The timestamps always have the time 00:00:00 for all days inside the range
 	 *
-	 * @param	String|Boolean	$format		Format timestamp with date and given format (false = integer)
+	 * @param	string|Boolean	$format		Format timestamp with date and given format (false = integer)
 	 * @return	Array
 	 */
 	public function getDayTimestamps($format = false) {
@@ -613,7 +613,7 @@ class TodoyuDateRange {
 	 * By default, it's the timestamp, but when format is a string, it will be formatted with date()
 	 * Value is the value which will be set for every item
 	 *
-	 * @param	Boolean		$format
+	 * @param	boolean		$format
 	 * @param	Mixed		$value
 	 * @return	Array
 	 * @deprecated
@@ -630,7 +630,7 @@ class TodoyuDateRange {
 	 * By default, it's the timestamp, but when format is a string, it will be formatted with date()
 	 * Value is the value which will be set for every item
 	 *
-	 * @param	Boolean|String	$keyFormat
+	 * @param	boolean|String	$keyFormat
 	 * @param	Mixed			$defaultValue
 	 * @return	Array
 	 */
@@ -646,7 +646,7 @@ class TodoyuDateRange {
 	 * Get a new date range for overlapping with the $range
 	 *
 	 * @param	TodoyuDateRange		$range
-	 * @param	Boolean				$allowBorderTouching
+	 * @param	boolean				$allowBorderTouching
 	 * @return	TodoyuDateRange|Boolean
 	 */
 	public function getOverlappingRange(TodoyuDateRange $range, $allowBorderTouching = false) {
@@ -665,7 +665,7 @@ class TodoyuDateRange {
 	/**
 	 * Get amount of intersected days
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getAmountOfDays() {
 		$dayTimestamps	= $this->getDayTimestamps();
@@ -679,7 +679,7 @@ class TodoyuDateRange {
 	/**
 	 * Get debug string of range
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function __toString() {
 		return date('r', $this->getStart()) . ' - ' . date('r', $this->getEnd());

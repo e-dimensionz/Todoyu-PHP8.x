@@ -39,9 +39,9 @@ class TodoyuProjectProjectSearch implements TodoyuSearchEngineIf {
 	 *
 	 * @todo rewrite whole method with filters if possible
 	 *
-	 * @param	Array		$searchWords		Keywords which have to be in the projects
-	 * @param	Array		$ignoreWords		Keywords which must not be in the project
-	 * @param	Integer		$limit
+	 * @param	array		$searchWords		Keywords which have to be in the projects
+	 * @param	array		$ignoreWords		Keywords which must not be in the project
+	 * @param	integer		$limit
 	 * @return	Array		Project IDs
 	 */
 	public static function searchProjects(array $searchWords, array $ignoreWords = array(), $limit = 200) {
@@ -53,9 +53,9 @@ class TodoyuProjectProjectSearch implements TodoyuSearchEngineIf {
 	/**
 	 * Get project suggestions (label and onclick)
 	 *
-	 * @param	Array		$find		Keywords which have to be in the projects
-	 * @param	Array		$ignore		Keywords which must not be in the project
-	 * @param	Integer		$limit
+	 * @param	array		$find		Keywords which have to be in the projects
+	 * @param	array		$ignore		Keywords which must not be in the project
+	 * @param	integer		$limit
 	 * @return	Array		Project IDs
 	 */
 	public static function getSuggestions(array $find, array $ignore = array(), $limit = 5) {

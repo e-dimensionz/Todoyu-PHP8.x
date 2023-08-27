@@ -24,7 +24,7 @@ class TodoyuAssetsProjectEditActionController extends TodoyuActionController {
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('assets', 'general:use');
@@ -35,8 +35,8 @@ class TodoyuAssetsProjectEditActionController extends TodoyuActionController {
 	/**
 	 * Default action: upload an asset
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function defaultAction(array $params) {
 		return $this->uploadassetfileAction($params);
@@ -47,8 +47,8 @@ class TodoyuAssetsProjectEditActionController extends TodoyuActionController {
 	/**
 	 * Render <option> tags for uploaded files in this session
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function sessionFilesAction(array $params) {
 		$idProject	= intval($params['record']);
@@ -61,8 +61,8 @@ class TodoyuAssetsProjectEditActionController extends TodoyuActionController {
 	/**
 	 * Upload an asset file
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function uploadassetfileAction(array $params) {
 		$idProject	= intval($params['project']['id']);
@@ -98,8 +98,8 @@ class TodoyuAssetsProjectEditActionController extends TodoyuActionController {
 	/**
 	 * Delete temporary (uploaded prior to creation of task) asset file
 	 *
-	 * @param	Array	$params
-	 * @return	String	Session file option elements
+	 * @param	array	$params
+	 * @return	string	Session file option elements
 	 */
 	public static function deletesessionfileAction(array $params) {
 		$fileKey	= trim($params['filekey']);
@@ -116,7 +116,7 @@ class TodoyuAssetsProjectEditActionController extends TodoyuActionController {
 	/**
 	 * Delete all temporary (uploaded prior to creation of task) asset files
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public static function deleteuploadsAction(array $params) {
 		$idProject		= intval($params['record']);

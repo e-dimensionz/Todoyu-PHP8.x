@@ -39,9 +39,9 @@ class TodoyuDbException extends Exception {
 	/**
 	 * Init TodoyuDbException
 	 *
-	 * @param	String		$message
-	 * @param	Integer		$code
-	 * @param	String		$query
+	 * @param	string		$message
+	 * @param	integer		$code
+	 * @param	string		$query
 	 */
 	public function  __construct($message, $code, $query) {
 		parent::__construct($message, $code);
@@ -54,7 +54,7 @@ class TodoyuDbException extends Exception {
 	/**
 	 * Get query
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getQuery() {
 		return $this->query;
@@ -65,7 +65,7 @@ class TodoyuDbException extends Exception {
 	/**
 	 * Get file without site path
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getFileShort() {
 		return str_replace(PATH, '', $this->getFile());
@@ -76,8 +76,8 @@ class TodoyuDbException extends Exception {
 	/**
 	 * Render database error as HTML
 	 *
-	 * @param	Boolean		$fullDoc		Render full HTML document with (<html><body, etc)
-	 * @return	String		HTML view of error
+	 * @param	boolean		$fullDoc		Render full HTML document with (<html><body, etc)
+	 * @return	string		HTML view of error
 	 */
 	public function getErrorAsHtml($fullDoc = false) {
 			// Remove full site path
@@ -117,7 +117,7 @@ class TodoyuDbException extends Exception {
 	 * Render database error as JSON
 	 *
 	 * @todo	Implement a useful format
-	 * @return	String
+	 * @return	string
 	 */
 	public function getErrorAsJson() {
 		return json_encode(array('error'=>$this->getMessage()));
@@ -128,7 +128,7 @@ class TodoyuDbException extends Exception {
 	/**
 	 * Render database error in plain text
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getErrorAsPlain() {
 			// Remove full site path

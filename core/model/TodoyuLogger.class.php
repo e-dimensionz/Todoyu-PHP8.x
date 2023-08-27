@@ -74,7 +74,7 @@ class TodoyuLogger {
 	/**
 	 * Unique key for current request. So we can group the log messages by request
 	 *
-	 * @var	String
+	 * @var	string
 	 */
 	private $requestKey;
 
@@ -122,7 +122,7 @@ class TodoyuLogger {
 	/**
 	 * Get log level
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	private function getLogLevel() {
 		if( isset(Todoyu::$CONFIG['SYSTEM']['logLevel']) ) {
@@ -157,10 +157,10 @@ class TodoyuLogger {
 	/**
 	 * Log a message. The message will be processed by all loggers
 	 *
-	 * @param	String		$message		Log message
-	 * @param	Integer		$eventLevel			Log level of current message
-	 * @param	Mixed		$data			An additional data container (for debugging)
-	 * @return	Boolean		Logged event
+	 * @param	string		$message		Log message
+	 * @param	integer		$eventLevel			Log level of current message
+	 * @param	mixed		$data			An additional data container (for debugging)
+	 * @return	boolean		Logged event
 	 */
 	private function log($message, $eventLevel = 0, $data = null) {
 		$backtrace	= debug_backtrace(false);
@@ -210,7 +210,7 @@ class TodoyuLogger {
 	 * Add file name which will be ignored while looking for the error
 	 * position in the backtrace
 	 *
-	 * @param	String		$filename
+	 * @param	string		$filename
 	 */
 	public static function addSkipFile($filename) {
 		self::getInstance()->filesSkip[] = $filename;
@@ -221,7 +221,7 @@ class TodoyuLogger {
 	/**
 	 * Add file name where error will not be logged
 	 *
-	 * @param	String		$filename
+	 * @param	string		$filename
 	 */
 	public static function addIgnoreFile($filename) {
 		self::getInstance()->filesIgnore[] = $filename;
@@ -233,8 +233,8 @@ class TodoyuLogger {
 	 * Add a logger class. Class is just provided as string and will be
 	 * instantiated on the first use of the log
 	 *
-	 * @param	String		$className
-	 * @param	Array		$config
+	 * @param	string		$className
+	 * @param	array		$config
 	 */
 	public static function addLogger($className, array $config = array()) {
 		self::getInstance()->loggerNames[] = array(
@@ -248,8 +248,8 @@ class TodoyuLogger {
 	/**
 	 * Log debug message
 	 *
-	 * @param	String		$message
-	 * @param	Mixed		$data
+	 * @param	string		$message
+	 * @param	mixed		$data
 	 */
 	public static function logCore($message, $data = null) {
 		self::getInstance()->log($message, self::LEVEL_CORE, $data);
@@ -260,8 +260,8 @@ class TodoyuLogger {
 	/**
 	 * Log debug message
 	 *
-	 * @param	String		$message
-	 * @param	Mixed		$data
+	 * @param	string		$message
+	 * @param	mixed		$data
 	 */
 	public static function logDebug($message, $data = null) {
 		self::getInstance()->log($message, self::LEVEL_DEBUG, $data);
@@ -272,8 +272,8 @@ class TodoyuLogger {
 	/**
 	 * Log notice message
 	 *
-	 * @param	String		$message
-	 * @param	Mixed		$data
+	 * @param	string		$message
+	 * @param	mixed		$data
 	 */
 	public static function logNotice($message, $data = null) {
 		self::getInstance()->log($message, self::LEVEL_NOTICE, $data);
@@ -284,8 +284,8 @@ class TodoyuLogger {
 	/**
 	 * Log error message
 	 *
-	 * @param	String		$message
-	 * @param	Mixed		$data
+	 * @param	string		$message
+	 * @param	mixed		$data
 	 */
 	public static function logError($message, $data = null) {
 		self::getInstance()->log($message, self::LEVEL_ERROR, $data);
@@ -296,8 +296,8 @@ class TodoyuLogger {
 	/**
 	 * Log security message
 	 *
-	 * @param	String		$message
-	 * @param	Mixed		$data
+	 * @param	string		$message
+	 * @param	mixed		$data
 	 */
 	public static function logSecurity($message, $data = null) {
 		self::getInstance()->log($message, self::LEVEL_SECURITY, $data);
@@ -308,8 +308,8 @@ class TodoyuLogger {
 	/**
 	 * Log fatal message
 	 *
-	 * @param	String		$message
-	 * @param	Mixed		$data
+	 * @param	string		$message
+	 * @param	mixed		$data
 	 */
 	public static function logFatal($message, $data = null) {
 		self::getInstance()->log($message, self::LEVEL_FATAL, $data);

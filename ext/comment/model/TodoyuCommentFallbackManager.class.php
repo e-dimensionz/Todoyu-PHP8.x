@@ -34,7 +34,7 @@ class TodoyuCommentFallbackManager {
 
 
 	/**
-	 * @param	Integer		$idFallback
+	 * @param	integer		$idFallback
 	 * @return	TodoyuCommentFallback
 	 */
 	public static function getFallback($idFallback) {
@@ -74,8 +74,8 @@ class TodoyuCommentFallbackManager {
 	/**
 	 * Save a fallback record
 	 *
-	 * @param	Array	$data
-	 * @return	Integer
+	 * @param	array	$data
+	 * @return	integer
 	 */
 	public static function saveFallback(array $data) {
 		$idFallback	= intval($data['id']);
@@ -98,8 +98,8 @@ class TodoyuCommentFallbackManager {
 	/**
 	 * Add a fallback record
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function addFallback(array $data = array()) {
 		return TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -110,9 +110,9 @@ class TodoyuCommentFallbackManager {
 	/**
 	 * Update a fallback record
 	 *
-	 * @param	Integer		$idFallback
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idFallback
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function updateFallback($idFallback, array $data) {
 		return TodoyuRecordManager::updateRecord(self::TABLE, $idFallback, $data);
@@ -123,7 +123,7 @@ class TodoyuCommentFallbackManager {
 	/**
 	 * Delte a fallback record
 	 *
-	 * @param	Integer		$idFallback
+	 * @param	integer		$idFallback
 	 */
 	public static function deleteFallback($idFallback) {
 		TodoyuRecordManager::deleteRecord(self::TABLE, $idFallback);
@@ -134,8 +134,8 @@ class TodoyuCommentFallbackManager {
 	/**
 	 * Check whether a fallback record is deleteable
 	 *
-	 * @param	Integer		$idFallback
-	 * @return	Boolean
+	 * @param	integer		$idFallback
+	 * @return	boolean
 	 */
 	public static function isDeletable($idFallback) {
 		$idFallback			= intval($idFallback);
@@ -157,7 +157,7 @@ class TodoyuCommentFallbackManager {
 	/**
 	 * Check whether global fallback is defined
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function hasGlobalFallback() {
 		$idFallback	= self::getGlobalFallbackID();
@@ -170,7 +170,7 @@ class TodoyuCommentFallbackManager {
 	/**
 	 * Get ID of the global fallback
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getGlobalFallbackID() {
 		$extConf	= TodoyuSysmanagerExtConfManager::getExtConf('comment');
@@ -197,8 +197,8 @@ class TodoyuCommentFallbackManager {
 	 * Add the fallback selection field into project form
 	 *
 	 * @param	TodoyuForm	$form
-	 * @param	Integer		$idProject
-	 * @param	Array		$params
+	 * @param	integer		$idProject
+	 * @param	array		$params
 	 * @return	TodoyuForm
 	 */
 	public static function hookAddFallbackField(TodoyuForm $form, $idProject, array $params) {
@@ -216,9 +216,9 @@ class TodoyuCommentFallbackManager {
 	/**
 	 * Add global fallback as default for new projects
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idProject
-	 * @param	Array		$params
+	 * @param	array		$data
+	 * @param	integer		$idProject
+	 * @param	array		$params
 	 * @return	Array
 	 */
 	public static function hookSetProjectDefaultData(array $data, $idProject, array $params = array()) {

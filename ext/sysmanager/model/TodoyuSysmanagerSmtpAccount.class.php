@@ -29,7 +29,7 @@ class TodoyuSysmanagerSmtpAccount extends TodoyuBaseObject {
 	/**
 	 * Constructor of the class
 	 * 
-	 * @param	Integer	$idAccount
+	 * @param	integer	$idAccount
 	 */
 	public function __construct($idAccount) {
 		parent::__construct($idAccount, 'ext_sysmanager_smtpaccount');
@@ -40,7 +40,7 @@ class TodoyuSysmanagerSmtpAccount extends TodoyuBaseObject {
 	/**
 	 * Get account host name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getHost() {
 		return $this->data['host'];
@@ -51,7 +51,7 @@ class TodoyuSysmanagerSmtpAccount extends TodoyuBaseObject {
 	/**
 	 * Get account username
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getUsername() {
 		return $this->data['username'];
@@ -62,7 +62,7 @@ class TodoyuSysmanagerSmtpAccount extends TodoyuBaseObject {
 	/**
 	 * Get decrypted account password
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getPassword() {
 		return TodoyuCrypto::decrypt($this->data['password']);
@@ -82,7 +82,7 @@ class TodoyuSysmanagerSmtpAccount extends TodoyuBaseObject {
 	/**
 	 * Check whether authentication is required
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isAuthenticationRequired() {
 		return $this->isFlagSet('authentication');
@@ -93,7 +93,7 @@ class TodoyuSysmanagerSmtpAccount extends TodoyuBaseObject {
 	/**
 	 * Get account port
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getPort() {
 		return $this->getInt('port');
@@ -104,7 +104,7 @@ class TodoyuSysmanagerSmtpAccount extends TodoyuBaseObject {
 	/**
 	 * Get account label (host:username)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLabel() {
 		return $this->getUsername() . ' (' . $this->getHost() . ')';
@@ -115,7 +115,7 @@ class TodoyuSysmanagerSmtpAccount extends TodoyuBaseObject {
 	/**
 	 * Check whether forced name is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasForcedName() {
 		return trim($this->getForcedName()) !== '';
@@ -126,7 +126,7 @@ class TodoyuSysmanagerSmtpAccount extends TodoyuBaseObject {
 	/**
 	 * Get forced name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getForcedName() {
 		return $this->get('forcename');
@@ -137,7 +137,7 @@ class TodoyuSysmanagerSmtpAccount extends TodoyuBaseObject {
 	/**
 	 * Get comment
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getComment() {
 		return $this->get('comment');

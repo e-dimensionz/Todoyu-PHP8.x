@@ -1,8 +1,8 @@
 <div class="logo"></div>
-<div class="version">todoyu {constant(TODOYU_VERSION)}</div>
+<div class="version">todoyu {$smarty.const.TODOYU_VERSION}</div>
 
 <p class="info">
-	&copy; 2006-{date('Y')} snowflake productions GmbH, Zurich.<br />
+	&copy; 2006-{$smarty.now|date_format:'%Y'} snowflake productions GmbH, Zurich.<br />
 	todoyu comes with absolutely no warranty.<br />
 	This is free software, and you are welcome to redistribute it <a href="http://www.todoyu.com/index.php?id=bsdlicense" target="_blank">under certain conditions</a>.
 	<br /><br />
@@ -26,7 +26,7 @@
 
 <div id="about-team" class="creditsbox names">
 		<ul id="scrollingnames">
-		{foreach $names lastname firstname}
+		{foreach $names as $lastname=>$firstname}
 			<li><div class="left">{$firstname}</div> <div class="right">{$lastname}</div></li>
 		{/foreach}
 			<li></li>
@@ -39,7 +39,7 @@
 		<h1>todoyu contains the following third party open source software:</h1>
 	</p>
 
-{foreach $thirdpartycredits product credits}
+{foreach $thirdpartycredits as $product=>$credits}
 	<p class="product">
 		<h2><a href="{$credits.url}" target="_blank">{$credits.title}</a></h2>
 		<p>

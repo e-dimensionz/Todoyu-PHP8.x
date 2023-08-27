@@ -29,7 +29,7 @@ class TodoyuCommentCommentActionController extends TodoyuActionController {
 	/**
 	 * Init comment controller: restrict rights
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('comment', 'general:use');
@@ -40,8 +40,8 @@ class TodoyuCommentCommentActionController extends TodoyuActionController {
 	/**
 	 * Add (form for adding) a new comment
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function addAction(array $params) {
 		$idTask				= intval($params['task']);
@@ -58,8 +58,8 @@ class TodoyuCommentCommentActionController extends TodoyuActionController {
 	/**
 	 * Load edit view of the comment
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function editAction(array $params) {
 		$idTask		= intval($params['task']);
@@ -76,7 +76,7 @@ class TodoyuCommentCommentActionController extends TodoyuActionController {
 	/**
 	 * Delete a comment
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function deleteAction(array $params) {
 		Todoyu::restrict('comment', 'comment:deleteOwn');
@@ -99,7 +99,7 @@ class TodoyuCommentCommentActionController extends TodoyuActionController {
 	/**
 	 * Save (update) comment (+save comment mail if option activated)
 	 *
-	 * @param	Array			$params
+	 * @param	array			$params
 	 * @return	Void|String		Failure returns re-rendered form with error messages
 	 */
 	public function saveAction(array $params) {
@@ -171,8 +171,8 @@ class TodoyuCommentCommentActionController extends TodoyuActionController {
 
 
 	/**
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function uploadassetfileAction($params) {
 		$idComment	= intval($params['comment']['id']);
@@ -208,8 +208,8 @@ class TodoyuCommentCommentActionController extends TodoyuActionController {
 
 
 	/**
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function refreshfileselectorAction($params) {
 		$idComment	= intval($params['comment']);
@@ -221,7 +221,7 @@ class TodoyuCommentCommentActionController extends TodoyuActionController {
 
 
 	/**
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function cleartempuploadsAction($params) {
 		$idComment	= intval($params['comment']);
@@ -236,7 +236,7 @@ class TodoyuCommentCommentActionController extends TodoyuActionController {
 	/**
 	 * Mark a comment with feedback request as seen/not seen
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function seenAction(array $params) {
 		$idComment	= intval($params['comment']);
@@ -260,7 +260,7 @@ class TodoyuCommentCommentActionController extends TodoyuActionController {
 	/**
 	 * Mark a comment with feedback request as seen/not seen by dummy user
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function seenbydummyAction(array $params) {
 		$idComment		= intval($params['comment']);

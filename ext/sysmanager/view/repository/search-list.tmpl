@@ -1,31 +1,31 @@
 <div class="resultinfo">
 	{if $numResults == 0}
 		{if $query == ''}
-			{Label sysmanager.repository.noNewExtensionsFound}
+			{Label text='sysmanager.repository.noNewExtensionsFound'}
 		{else}
-			{Label sysmanager.repository.noExtensionsFoundForQuery}: <strong>{htmlencode $query}</strong>
+			{Label text='sysmanager.repository.noExtensionsFoundForQuery'}: <strong>{$query|escape}</strong>
 		{/if}
 	{else}
-		{LabelFormat sysmanager.repository.extensionsFound array($numResults)}: <strong>{htmlencode $query}</strong>
+		{LabelFormat key="sysmanager.repository.extensionsFound" values=$numResults}: <strong>{$query|escape}</strong>
 	{/if}
 </div>
 
-{foreach $extensions extension}
+{foreach $extensions as $extension}
 	<div class="extension" id="repository-search-ext-{$extension.ext_key}">
 
 		<div class="main">
 			<h5>
 				<img src="{$extension.icon}" border="0" />
 				<div class="title">{$extension.title}</div>
-				<div class="author">{Label sysmanager.repository.by} {$extension.author.name}</div>
+				<div class="author">{Label text='sysmanager.repository.by'} {$extension.author.name}</div>
 
 			</h5>
 			<div class="description">{$extension.description}</div>
 			{if $extension.version.dependencies}
 				<div class="warning dependency">
-					<p>{Label sysmanager.repository.error.unresolvedDependencies}</p>
+					<p>{Label text='sysmanager.repository.error.unresolvedDependencies'}</p>
 					<ul>
-						{foreach $extension.version.dependencies dependency}
+						{foreach $extension.version.dependencies as $dependency}
 							<li id="{$extension.ext_key}-dependency-{$dependency.ext_key}">{$dependency.title_short} {$dependency.version} ({$dependency.ext_key})</li>
 						{/foreach}
 					</ul>
@@ -33,9 +33,9 @@
 			{/if}
 			{if $extension.version.conflicts}
 				<div class="warning conflicts">
-					<p>{Label sysmanager.repository.error.unresolvedConflicts}</p>
+					<p>{Label text='sysmanager.repository.error.unresolvedConflicts'}</p>
 					<ul>
-						{foreach $extension.version.conflicts conflict}
+						{foreach $extension.version.conflicts as $conflict}
 							<li id="{$extension.ext_key}-conflict-{$conflict.ext_key}">{$conflict.title_short} ({$conflict.ext_key})</li>
 						{/foreach}
 					</ul>
@@ -44,12 +44,12 @@
 		</div>
 
 		<div class="right">
-			{*<div class="rating">{for i 1 $extension.rating}* {/for}</div>*}
-			<div class="version">{Label sysmanager.extension.version}: {$extension.version.version}</div>
-			<div class="state">{Label sysmanager.extension.state}: {ExtensionStatusIcon $extension.version.state}</div>
-			<div class="costs">{if $extension.commercial}{Label sysmanager.repository.extension.costs.commercial}{else}{Label sysmanager.repository.extension.costs.free}{/if}</div>
+			{*<div class="rating">{for $i=1 to $extension.rating}* {/for}</div>*}
+			<div class="version">{Label text='sysmanager.extension.version'}: {$extension.version.version}</div>
+			<div class="state">{Label text='sysmanager.extension.state'}: {ExtensionStatusIcon state=$extension.version.state}</div>
+			<div class="costs">{if $extension.commercial}{Label text='sysmanager.repository.extension.costs.commercial'}{else}{Label text='sysmanager.repository.extension.costs.free'}{/if}</div>
 			{if ! $extension.commercial}
-				<div class="downloads">{$extension.downloads} {Label sysmanager.repository.extension.downloads}</div>
+				<div class="downloads">{$extension.downloads} {Label text='sysmanager.repository.extension.downloads'}</div>
 			{/if}
 		</div>
 

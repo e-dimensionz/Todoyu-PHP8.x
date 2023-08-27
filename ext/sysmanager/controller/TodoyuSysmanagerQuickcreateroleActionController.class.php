@@ -27,7 +27,7 @@ class TodoyuSysmanagerQuickCreateRoleActionController extends TodoyuActionContro
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrictAdmin();
@@ -38,8 +38,8 @@ class TodoyuSysmanagerQuickCreateRoleActionController extends TodoyuActionContro
 	/**
 	 * Get quick role creation form rendered
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function popupAction(array $params) {
 		return TodoyuSysmanagerRoleEditorRenderer::renderRoleQuickCreateForm($params);
@@ -50,8 +50,8 @@ class TodoyuSysmanagerQuickCreateRoleActionController extends TodoyuActionContro
 	/**
 	 * Save role record
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function saveAction(array $params) {
 		$data	= $params['role'];

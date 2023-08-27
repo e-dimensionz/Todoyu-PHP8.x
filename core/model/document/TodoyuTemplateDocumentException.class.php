@@ -38,9 +38,9 @@ class TodoyuTemplateDocumentException extends TodoyuException {
 	/**
 	 * Initialize document
 	 *
-	 * @param	String		$document
-	 * @param	String		$message
-	 * @param	Integer		$code
+	 * @param	string		$document
+	 * @param	string		$message
+	 * @param	integer		$code
 	 */
 	public function __construct($document, $message = '', $code = 0) {
 		parent::__construct($message, $code);
@@ -65,7 +65,7 @@ class TodoyuTemplateDocumentException extends TodoyuException {
 	/**
 	 * Check whether the exception has a document object
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasDocument() {
 		return $this->document instanceof TodoyuTemplateDocumentIf;

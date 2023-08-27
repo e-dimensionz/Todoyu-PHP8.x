@@ -29,7 +29,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Constructor
 	 *
-	 * @param	Integer	$idTaskpreset
+	 * @param	integer	$idTaskpreset
 	 */
 	public function __construct($idTaskpreset) {
 		parent::__construct($idTaskpreset, 'ext_project_taskpreset');
@@ -40,7 +40,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get title of task preset
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle() {
 		return $this->get('title');
@@ -51,7 +51,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get task title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTaskTitle() {
 		return $this->get('tasktitle');
@@ -62,7 +62,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Check whether task title is set in preset
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasTaskTitle() {
 		return $this->getTaskTitle() !== '';
@@ -73,7 +73,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get description
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDescription() {
 		return $this->get('description');
@@ -84,7 +84,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Check whether description is set in preset
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasDescription() {
 		return $this->getDescription() !== '' && $this->getDescription() !== '<p></p>';
@@ -95,7 +95,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get estimated workload
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getEstimatedWorkload() {
 		return $this->getInt('estimated_workload');
@@ -106,7 +106,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Check whether estimated workload is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasEstimatedWorkload() {
 		return $this->getEstimatedWorkload() !== 0;
@@ -117,7 +117,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get label for estimated workload
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getEstimatedWorkloadLabel() {
 		return TodoyuTime::formatHours($this->getEstimatedWorkload()) . ' ' . Todoyu::Label('core.date.time.hours');
@@ -128,7 +128,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get is public flag
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getIsPublic() {
 		return $this->getInt('is_public');
@@ -139,7 +139,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get label for is public
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getIsPublicLabel() {
 		$label	= $this->getIsPublic() ? 'core.global.public' : 'core.global.notpublic';
@@ -152,7 +152,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get activity ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getActivityID() {
 		return $this->getInt('id_activity');
@@ -163,7 +163,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Check whether preset has set an activity
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasActivity() {
 		return $this->getActivityID() !== 0;
@@ -185,7 +185,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get status
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getStatus() {
 		return $this->getInt('status');
@@ -196,7 +196,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Check whether a status is set in preset
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasStatus() {
 		return $this->getStatus() !== 0;
@@ -207,7 +207,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get label for status
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getStatusLabel() {
 		return TodoyuProjectTaskStatusManager::getStatusLabel($this->getStatus());
@@ -218,7 +218,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get start date based on dynamic config
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateStart() {
 		return TodoyuProjectTaskPresetManager::getDateFromDayDuration($this->getDateStartKey());
@@ -229,7 +229,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get date start key
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateStartKey() {
 		return $this->get('date_start');
@@ -240,7 +240,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Check whether the start date is set in preset
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasDateStart() {
 		return $this->get('date_start') !== '0';
@@ -251,7 +251,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get config label for date start
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDateStartLabel() {
 		return TodoyuProjectExtConfViewHelper::getDateOffsetLabel($this->getDateStartKey());
@@ -262,7 +262,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get end date based on dynamic config
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateEnd() {
 		return TodoyuProjectTaskPresetManager::getDateFromDayDuration($this->getDateEndKey());
@@ -273,7 +273,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get date end key
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateEndKey() {
 		return $this->get('date_end');
@@ -284,7 +284,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Check whether the end date is set in preset
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasDateEnd() {
 		return $this->get('date_end') !== '0';
@@ -295,7 +295,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get config label for date end
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDateEndLabel() {
 		return TodoyuProjectExtConfViewHelper::getDateOffsetLabel($this->getDateEndKey());
@@ -306,7 +306,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get deadline date based on dynamic config
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateDeadline() {
 		return TodoyuProjectTaskPresetManager::getDateFromDayDuration($this->getDateDeadlineKey());
@@ -317,7 +317,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get date deadline key
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateDeadlineKey() {
 		return $this->get('date_deadline');
@@ -328,7 +328,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Check whether the deadline date is set in preset
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasDateDeadline() {
 		return $this->get('date_deadline') !== '0';
@@ -339,7 +339,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get config label for date end
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDateDeadlineLabel() {
 		return TodoyuProjectExtConfViewHelper::getDateOffsetLabel($this->getDateDeadlineKey());
@@ -350,7 +350,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get ID of assigned person
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getPersonAssignedID() {
 		return $this->getInt('id_person_assigned');
@@ -361,7 +361,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Check whether an assigned person is set in preset
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasPersonAssigned() {
 		return $this->getPersonAssignedID() !== 0;
@@ -383,7 +383,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get ID of owner person
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getPersonOwnerID() {
 		return $this->getInt('id_person_owner');
@@ -394,7 +394,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Check whether an owner person is set in preset
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasPersonOwner() {
 		return $this->getPersonOwnerID() !== 0;
@@ -416,7 +416,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get ID of assigned person fallback
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getPersonAssignedFallbackID() {
 		return $this->getInt('id_person_assigned_fallback');
@@ -427,7 +427,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Check whether an assigned person fallback is set in preset
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasPersonAssignedFallback() {
 		return $this->getPersonAssignedFallbackID() !== 0;
@@ -449,7 +449,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get ID of owner person fallback
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getPersonOwnerFallbackID() {
 		return $this->getInt('id_person_owner_fallback');
@@ -460,7 +460,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Check whether an owner person fallback is set in preset
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasPersonOwnerFallback() {
 		return $this->getPersonOwnerFallbackID() !== 0;
@@ -482,7 +482,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get ID of assigned role fallback
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getRoleAssignedFallbackID() {
 		return $this->getInt('id_role_assigned_fallback');
@@ -493,7 +493,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Check whether an assigned role fallback is set in preset
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasRoleAssignedFallback() {
 		return $this->getRoleAssignedFallbackID() !== 0;
@@ -515,7 +515,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get ID of owner role fallback
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getRoleOwnerFallbackID() {
 		return $this->getInt('id_role_owner_fallback');
@@ -526,7 +526,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Check whether an owner role fallback is set in preset
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasRoleOwnerFallback() {
 		return $this->getRoleOwnerFallbackID() !== 0;
@@ -548,7 +548,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Get quicktask duration days
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getQuickTaskDurationDays() {
 		return $this->getInt('quicktask_duration_days');
@@ -559,7 +559,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	/**
 	 * Check whether quicktask duration days are set in preset
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasQuickTaskDurationDays() {
 		return $this->getQuickTaskDurationDays() !== 0;
@@ -605,7 +605,7 @@ class TodoyuProjectTaskPreset extends TodoyuBaseObject {
 	 * Apply preset data to task data
 	 * Fill all empty fields if configured in the task preset
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array
 	 */
 	public function apply(array $data) {

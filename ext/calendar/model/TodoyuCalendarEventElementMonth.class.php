@@ -41,7 +41,7 @@ class TodoyuCalendarEventElementMonth extends TodoyuCalendarEventElement {
 	/**
 	 * Get template
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTemplate() {
 		return 'ext/calendar/view/event/month.tmpl';
@@ -52,7 +52,7 @@ class TodoyuCalendarEventElementMonth extends TodoyuCalendarEventElement {
 	/**
 	 *
 	 *
-	 * @param	Integer		$date
+	 * @param	integer		$date
 	 * @return	Array
 	 */
 	protected function getElementTemplateData($date = 0) {
@@ -67,8 +67,8 @@ class TodoyuCalendarEventElementMonth extends TodoyuCalendarEventElement {
 	/**
 	 * Render event for a day in week view
 	 *
-	 * @param	Integer		$date
-	 * @return	String
+	 * @param	integer		$date
+	 * @return	string
 	 */
 	public function render($date = null) {
 		$tmpl	= $this->getTemplate();

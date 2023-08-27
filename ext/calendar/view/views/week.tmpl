@@ -15,8 +15,8 @@
 				<tr class="dayLabels">
 					<td rowspan="2" class="timeSpacer"></td>
 					{* ---------- Header: dates of the rendered week ------------ *}
-					{foreach $dayColumns dayColumn}
-						<th class="dayName dayCol {if $dayColumn.today}today todaywk-dayname{/if} {cycle values="odd,even"}" title="{$dayColumn.title}{if $dayColumn.today} ({Label calendar.ext.today}){/if}" scope="col" onclick="Todoyu.Ext.calendar.showDay('{$dayColumn.date}')">
+					{foreach $dayColumns as $dayColumn}
+						<th class="dayName dayCol {if $dayColumn.today}today todaywk-dayname{/if} {cycle values="odd,even"}" title="{$dayColumn.title}{if $dayColumn.today} ({Label text='calendar.ext.today'}){/if}" scope="col" onclick="Todoyu.Ext.calendar.showDay('{$dayColumn.date}')">
 						{$dayColumn.label}
 						</th>
 					{/foreach}
@@ -30,9 +30,9 @@
 						<table>
 							{* --------------- (TD Cell-width and) birthday items ------- *}
 
-							{foreach $dayEvents dayDayEvents}
+							{foreach $dayEvents as $dayDayEvents}
 								<tr>
-									{foreach $dayDayEvents dayEvent}
+									{foreach $dayDayEvents as $dayEvent}
 										{if is_array($dayEvent)}
 											<td {if $dayEvent.length > 1}colspan="{$dayEvent.length}"{/if}>
 												{$dayEvent.html}
@@ -46,7 +46,7 @@
 
 							{* Make hidden columns to assure correct width for colspans. todo: combine tables and remove this *}
 							<tr>
-								{foreach $dayColumns dayColumn}
+								{foreach $dayColumns as $dayColumn}
 									<td class="dayCol"></td>
 								{/foreach}
 							</tr>
@@ -68,24 +68,24 @@
 						<div class="tg-hourmarkerwrapper">
 							<div class="tg-hourmarkers">
 								{* --------- Hour splitting lines -------- *}
-								{for hourmarker 0 23}<div class="tg-dualmarker"></div>{/for}
+								{for $hourmarker=0 to 23}<div class="tg-dualmarker"></div>{/for}
 							</div>
 						</div>
 					</td>
 				</tr><tr>
 					<td class="colHours">
-						{for hour 0 23}
+						{for $hour=0  to 23}
 							<div class="hour">
 								{if $hour < 10}0{/if}{$hour}:00
 							</div>
 						{/for}
 					</td>
 					{* -------- Week event inserters -------- *}
-					{foreach $events dayKey eventsOfDay 'weekdays'}
+					{foreach $events as $dayKey=>$eventsOfDay}
 						<td class="dayCol {if $dayKey == $dateKeyToday}today{$amountDaysShown}{/if}">
 							<div class="tg-colwrapper">
-								<div id="tgCol{$.foreach.weekdays.index}">
-									{foreach $eventsOfDay eventHtml}
+								<div id="tgCol{$eventsOfDay@index}">
+									{foreach $eventsOfDay as $eventHtml}
 										{$eventHtml}
 									{/foreach}
 								</div>

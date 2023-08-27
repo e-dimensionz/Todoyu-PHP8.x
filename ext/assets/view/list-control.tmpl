@@ -9,8 +9,10 @@
 	</form>
 
 	{* Buttons *}
-	{Button id="$recordType-$idRecord-asset-button-upload" label="assets.ext.upload.new" class="upload"}
-	{Button id="$recordType-$idRecord-asset-button-downloadselection" label="assets.ext.download.selection" class="downloadSelection" onclick="Todoyu.Ext.assets.downloadSelection($idRecord, '$recordType')" disabled=true}
+    {assign var="btnId" value="$recordType-$idRecord-asset-button-upload"}
+    {assign var="btnDl" value="$recordType-$idRecord-asset-button-upload"}
+	{Button id=$btnId label="assets.ext.upload.new" class="upload"}
+	{Button id=$btnDl label="assets.ext.download.selection" class="downloadSelection" onclick="Todoyu.Ext.assets.downloadSelection($idRecord, '$recordType')" disabled=true}
 
 	{* Progress bar *}
 	<div id="{$recordType}-{$idRecord}-asset-progress" class="uploadProgress" style="display: none">

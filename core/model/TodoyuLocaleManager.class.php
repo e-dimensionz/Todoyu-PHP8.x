@@ -40,8 +40,8 @@ class TodoyuLocaleManager {
 	/**
 	 * Check if locale exists in list
 	 *
-	 * @param	String		$locale
-	 * @return	Boolean
+	 * @param	string		$locale
+	 * @return	boolean
 	 */
 	public static function hasSystemLocale($locale) {
 		return array_key_exists($locale, self::getSystemLocales());
@@ -85,7 +85,7 @@ class TodoyuLocaleManager {
 	/**
 	 * Get all codes (encoding type description, language abbreviation, language name) of a locale which may exists on a system
 	 *
-	 * @param	String		$locale
+	 * @param	string		$locale
 	 * @return	Array
 	 */
 	public static function getSystemLocaleCodes($locale) {
@@ -99,8 +99,8 @@ class TodoyuLocaleManager {
 	/**
 	 * Set system locale
 	 *
-	 * @param	String					$locale
-	 * @return	Boolean / String		FALSE or the new locale string
+	 * @param	string					$locale
+	 * @return	boolean / String		FALSE or the new locale string
 	 */
 	public static function setSystemLocale($locale) {
 		$localeNames	= self::getSystemLocaleCodes($locale);
@@ -118,7 +118,7 @@ class TodoyuLocaleManager {
 	/**
 	 * Get currently on the system defined locale
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getLocale() {
 		return setlocale(LC_ALL, 0);
@@ -129,7 +129,7 @@ class TodoyuLocaleManager {
 	/**
 	 * Get default fallback locale
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getDefaultLocale() {
 		return Todoyu::$CONFIG['LOCALE']['default'];
@@ -179,7 +179,7 @@ class TodoyuLocaleManager {
 	/**
 	 * Build options based on locale keys
 	 *
-	 * @param	String[]	$locales
+	 * @param	string[]	$locales
 	 * @return	Array[]
 	 */
 	private static function buildLocaleOptions(array $locales) {
@@ -200,7 +200,7 @@ class TodoyuLocaleManager {
 	/**
 	 * Get keys of all know locales
 	 *
-	 * @return	String[]
+	 * @return	string[]
 	 */
 	private static function getAllLocaleKeys() {
 		$allLocaleLabels	= TodoyuLabelManager::getXmlFileLabels('core', 'locale', 'en_GB');
@@ -234,7 +234,7 @@ class TodoyuLocaleManager {
 	/**
 	 * Get locale saved in cookie if available
 	 *
-	 * @return	String|Boolean		Locale or FALSE
+	 * @return	string|Boolean		Locale or FALSE
 	 */
 	public static function getCookieLocale() {
 		if( isset($_COOKIE['locale']) ) {

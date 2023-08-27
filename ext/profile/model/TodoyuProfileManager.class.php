@@ -29,8 +29,8 @@ class TodoyuProfileManager {
 	/**
 	 * Add a module to profile extension
 	 *
-	 * @param	String		$name
-	 * @param	Array		$config
+	 * @param	string		$name
+	 * @param	array		$config
 	 */
 	public static function addModule($name, array $config) {
 		Todoyu::$CONFIG['EXT']['profile']['module'][$name] = $config;
@@ -42,7 +42,7 @@ class TodoyuProfileManager {
 	/**
 	 * Get module configuration
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @return	Array
 	 */
 	public static function getModuleConfig($name) {

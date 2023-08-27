@@ -29,9 +29,9 @@ class TodoyuProjectTaskViewHelper {
 	/**
 	 * Get config array for one status option
 	 *
-	 * @param	Integer		$index
-	 * @param	String		$statusKey
-	 * @param	String		$label
+	 * @param	integer		$index
+	 * @param	string		$statusKey
+	 * @param	string		$label
 	 * @return	Array
 	 */
 	public static function getStatusOption($index, $statusKey, $label) {
@@ -175,9 +175,9 @@ class TodoyuProjectTaskViewHelper {
 	/**
 	 * Get filtered task autocompletion suggestions to given input
 	 *
-	 * @param	String	$input
-	 * @param	Array	$formData
-	 * @param	String	$name
+	 * @param	string	$input
+	 * @param	array	$formData
+	 * @param	string	$name
 	 * @return	Array
 	 * @deprecated
 	 * @see		TodoyuProjectTaskManager

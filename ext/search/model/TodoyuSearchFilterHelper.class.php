@@ -29,10 +29,10 @@ class TodoyuSearchFilterHelper {
 	/**
 	 * Get query parts for date field filtering
 	 *
-	 * @param	String		$tables
-	 * @param	String		$field
-	 * @param	Integer		$timestamp
-	 * @param	Boolean		$negate
+	 * @param	string		$tables
+	 * @param	string		$field
+	 * @param	integer		$timestamp
+	 * @param	boolean		$negate
 	 * @return	Array|Boolean			Query parts array / false if no date timestamp given (or 1.1.1970 00:00)
 	 */
 	public static function getDateFilterQueryparts($tables, $field, $timestamp, $negate = false) {
@@ -55,8 +55,8 @@ class TodoyuSearchFilterHelper {
 	/**
 	 * Return timestamp and conjunction logic for date-input queries
 	 *
-	 * @param	Integer		$timestamp
-	 * @param	Boolean		$negate
+	 * @param	integer		$timestamp
+	 * @param	boolean		$negate
 	 * @return	Array		[timestamp,logic]
 	 */
 	public static function getTimeAndLogicForDate($timestamp, $negate = false) {
@@ -82,7 +82,7 @@ class TodoyuSearchFilterHelper {
 	/**
 	 * Get config for dynamic date options
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getDynamicDateOptions() {
@@ -144,9 +144,9 @@ class TodoyuSearchFilterHelper {
 	/**
 	 * Calculate timestamp from dynamic date key ("today", "tomorrow", ...). Optionally suiting negated comparisom.
 	 *
-	 * @param	String		$dateRangeKey
-	 * @param	Boolean		$negate
-	 * @return	Integer
+	 * @param	string		$dateRangeKey
+	 * @param	boolean		$negate
+	 * @return	integer
 	 */
 	public static function getDynamicDateTimestamp($dateRangeKey, $negate = false) {
 		$todayStart	= TodoyuTime::getDayStart();
@@ -217,10 +217,10 @@ class TodoyuSearchFilterHelper {
 	/**
 	 * Prepare query parts for date based filter widget
 	 *
-	 * @param	String			$table
-	 * @param	String			$field
-	 * @param	String			$date		Formatted (according to current locale) date string
-	 * @param	Boolean			$negate
+	 * @param	string			$table
+	 * @param	string			$field
+	 * @param	string			$date		Formatted (according to current locale) date string
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean
 	 */
 	public static function makeFilter_date($table, $field, $date, $negate = false) {

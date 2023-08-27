@@ -40,14 +40,13 @@ table {
 		<tr>
 			<th align="left" valign="top" scope="row">Backtrace</th>
 			<td><code>
-				{foreach $trace step implode="<br />"}
-					<strong>{$step.file}</strong> : {$step.line}<br />
-					&nbsp;&nbsp;{$step.class}{$step.type}{$step.function}()<br />
-					{foreach $step.args nr argument}
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{$nr}] {$argument}<br />
-				{/foreach}
-	{/foreach}
-	</code>
-	</td>
-	</tr>
-</table>
+            {foreach from=$trace item=step implode="<br />"}
+                <strong>{$step.file}</strong> : {$step.line}<br />
+                &nbsp;&nbsp;{$step.class}{$step.type}{$step.function}()<br />
+                {foreach $step.args as $nr=>$argument}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{$nr}] {$argument}<br />
+                {/foreach}
+            {/foreach}
+	        </code></td>
+        </tr>
+    </table>

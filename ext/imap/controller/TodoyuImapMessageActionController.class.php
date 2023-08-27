@@ -27,7 +27,7 @@ class TodoyuImapMessageActionController extends TodoyuActionController {
 	/**
 	 * Get message eml file for download
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function emlAction(array $params = array()) {
 		$idMessage	= intval($params['message']);
@@ -42,7 +42,7 @@ class TodoyuImapMessageActionController extends TodoyuActionController {
 	 * Serve inline image
 	 * echo file with matching headers to simulate file download
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function inlineImageAction(array $params) {
 		$imageKey	= trim($params['image']);

@@ -42,7 +42,7 @@ class TodoyuContactMailReceiverContactInfo extends TodoyuMailReceiver {
 	/**
 	 * Initialize
 	 *
-	 * @param	Integer		$idContactInfo
+	 * @param	integer		$idContactInfo
 	 */
 	public function __construct($idContactInfo) {
 		parent::__construct('contactinfo', $idContactInfo);
@@ -93,7 +93,7 @@ class TodoyuContactMailReceiverContactInfo extends TodoyuMailReceiver {
 	/**
 	 * Get name of the person
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getName() {
 		return $this->getPerson()->getFullName();
@@ -104,7 +104,7 @@ class TodoyuContactMailReceiverContactInfo extends TodoyuMailReceiver {
 	/**
 	 * Get address
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getAddress() {
 		return $this->contactInfo->getInfo();

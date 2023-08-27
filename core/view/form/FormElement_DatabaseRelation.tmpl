@@ -10,7 +10,7 @@
 	<input type="hidden" name="{$formname}[{$fieldname}]" value="0" />
 </div>
 <div id="foreignrecords-{$idRecord}-{$fieldname}" class="foreignRecords" >
-	{foreach $records index record}
+	{foreach $records as $index=>$record}
 		{include "core/view/form/FormElement_DatabaseRelation_Record.tmpl"}
 	{/foreach}
 </div>

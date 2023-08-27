@@ -38,7 +38,7 @@ class TodoyuProfileRenderer {
 	/**
 	 * Render profile panel widgets
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderPanelWidgets() {
 		return TodoyuPanelWidgetRenderer::renderPanelWidgets(self::EXTKEY);
@@ -49,9 +49,9 @@ class TodoyuProfileRenderer {
 	/**
 	 * Render content for a module
 	 *
-	 * @param	String		$module
-	 * @param	Array		$params		Request params for sub functions
-	 * @return	String
+	 * @param	string		$module
+	 * @param	array		$params		Request params for sub functions
+	 * @return	string
 	 */
 	public static function renderContent($module, array $params) {
 		$configuration	= TodoyuProfileManager::getModuleConfig($module);
@@ -64,9 +64,9 @@ class TodoyuProfileRenderer {
 	/**
 	 * Render profile tabs
 	 *
-	 * @param	String	$module
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	string	$module
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function renderTabs($module, array $params = array()) {
 		$configuration	= TodoyuProfileManager::getModuleConfig($module);

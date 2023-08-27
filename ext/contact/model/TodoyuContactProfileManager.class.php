@@ -30,7 +30,7 @@ class TodoyuContactProfileManager {
 	/**
 	 * Get modified form for profile
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	TodoyuForm
 	 */
 	public static function getProfileForm($idPerson) {

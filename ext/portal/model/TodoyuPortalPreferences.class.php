@@ -30,12 +30,12 @@ class TodoyuPortalPreferences {
 	/**
 	 * Save a preference for portal
 	 *
-	 * @param	String		$preference
-	 * @param	String		$value
-	 * @param	Integer		$idItem
-	 * @param	Boolean		$unique
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	string		$preference
+	 * @param	string		$value
+	 * @param	integer		$idItem
+	 * @param	boolean		$unique
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 */
 	public static function savePref($preference, $value, $idItem = 0, $unique = false, $idArea = 0, $idPerson = 0) {
 		TodoyuPreferenceManager::savePreference(EXTID_PORTAL, $preference, $value, $idItem, $unique, $idArea, $idPerson);
@@ -46,12 +46,12 @@ class TodoyuPortalPreferences {
 	/**
 	 * Get a preference
 	 *
-	 * @param	String		$preference
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Boolean		$unserialize
-	 * @param	Integer		$idPerson
-	 * @return	String
+	 * @param	string		$preference
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	boolean		$unserialize
+	 * @param	integer		$idPerson
+	 * @return	string
 	 */
 	public static function getPref($preference, $idItem = 0, $idArea = 0, $unserialize = false, $idPerson = 0) {
 		return TodoyuPreferenceManager::getPreference(EXTID_PORTAL, $preference, $idItem, $idArea, $unserialize, $idPerson);
@@ -62,10 +62,10 @@ class TodoyuPortalPreferences {
 	/**
 	 * Get  project preference
 	 *
-	 * @param	String		$preference
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	string		$preference
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getPrefs($preference, $idItem = 0, $idArea = 0, $idPerson = 0) {
@@ -77,11 +77,11 @@ class TodoyuPortalPreferences {
 	/**
 	 * Delete portal preference
 	 *
-	 * @param	String		$preference
-	 * @param	String		$value
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	string		$preference
+	 * @param	string		$value
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 */
 	public static function deletePref($preference, $value = null, $idItem = 0, $idArea = 0, $idPerson = 0) {
 		TodoyuPreferenceManager::deletePreference(EXTID_PORTAL, $preference, $value, $idItem, $idArea, $idPerson);
@@ -92,7 +92,7 @@ class TodoyuPortalPreferences {
 	/**
 	 * Get currently active tab of current person
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getActiveTab() {
 		$tab = self::getPref('tab');
@@ -109,7 +109,7 @@ class TodoyuPortalPreferences {
 	/**
 	 * Save active tab of current person
 	 *
-	 * @param	String	$tabKey
+	 * @param	string	$tabKey
 	 */
 	public static function saveActiveTab($tabKey) {
 		self::savePref('tab', $tabKey, 0, true);
@@ -147,7 +147,7 @@ class TodoyuPortalPreferences {
 	/**
 	 * Save currently selected filtersets for selection tab
 	 *
-	 * @param	Array		$filtersetIDs
+	 * @param	array		$filtersetIDs
 	 */
 	public static function saveSelectionTabFiltersetIDs(array $filtersetIDs) {
 		$filtersetIDs	= TodoyuArray::intval($filtersetIDs, true);
@@ -161,8 +161,8 @@ class TodoyuPortalPreferences {
 	/**
 	 * Save filtersets of tab
 	 *
-	 * @param	String	$filtersetIDs
-	 * @param	Integer	$idTab
+	 * @param	string	$filtersetIDs
+	 * @param	integer	$idTab
 	 */
 	public static function saveTabFiltersets($filtersetIDs, $idTab = 0) {
 		$idTab			= intval($idTab);
@@ -203,8 +203,8 @@ class TodoyuPortalPreferences {
 	/**
 	 * Save expanded task status
 	 *
-	 * @param	Integer		$idTask			Task ID
-	 * @param	Boolean		$expanded		Is task now expanded?
+	 * @param	integer		$idTask			Task ID
+	 * @param	boolean		$expanded		Is task now expanded?
 	 */
 	public static function saveTaskExpandedStatus($idTask, $expanded = true) {
 		$idTask	= intval($idTask);

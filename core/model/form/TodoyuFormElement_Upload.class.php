@@ -31,9 +31,9 @@ class TodoyuFormElement_Upload extends TodoyuFormElement {
 	/**
 	 * Constructor
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array		$config
+	 * @param	array		$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		parent::__construct('upload', $name, $fieldset, $config);
@@ -54,7 +54,7 @@ class TodoyuFormElement_Upload extends TodoyuFormElement {
 	/**
 	 * Set type
 	 *
-	 * @param	String	$type
+	 * @param	string	$type
 	 */
 	public function setType($type) {
 		$this->setAttribute('type', $type);
@@ -69,6 +69,7 @@ class TodoyuFormElement_Upload extends TodoyuFormElement {
 	 */
 	protected function getData() {
 		if( $this->hasAttribute('onchange') ) {
+            if(empty($this->config['extraAttributes'])) $this->config['extraAttributes'] = '';
 			$this->config['extraAttributes'] .= 'onchange="' . $this->getForm()->parseWithFormData($this->getAttribute('onchange')) . '"';
 		}
 

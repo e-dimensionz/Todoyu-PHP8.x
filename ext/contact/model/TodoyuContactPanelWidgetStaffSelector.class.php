@@ -45,9 +45,9 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Constructor (init widget)
 	 *
-	 * @param	Array		$config
-	 * @param	Array		$params
-	 * @param	Integer		$idArea
+	 * @param	array		$config
+	 * @param	array		$params
+	 * @param	integer		$idArea
 	 */
 	public function __construct(array $config, array $params = array(), $idArea = 0) {
 		parent::__construct(
@@ -73,8 +73,8 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Render content
 	 *
-	 * @param	Boolean		$listOnly		Render list items only
-	 * @return	String
+	 * @param	boolean		$listOnly		Render list items only
+	 * @return	string
 	 */
 	public function renderContent($listOnly = false) {
 		$searchList	= parent::renderContent($listOnly);
@@ -89,7 +89,7 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	 * Render selection box
 	 * Selected persons and groups
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function renderSelection() {
 		$tmpl	= 'ext/contact/view/panelwidget/staffselector.tmpl';
@@ -175,7 +175,7 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Search groups which match to search words
 	 *
-	 * @param	Array		$searchWords
+	 * @param	array		$searchWords
 	 * @return	Array
 	 */
 	protected function searchGroups(array $searchWords) {
@@ -216,7 +216,7 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Search persons which match the search words
 	 *
-	 * @param	Array	$searchWords
+	 * @param	array	$searchWords
 	 * @return	Array
 	 */
 	protected function searchPersons(array $searchWords) {
@@ -230,8 +230,8 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Get person IDs of given jobtype
 	 *
-	 * @param	Integer		$idJobtype
-	 * @return	Integer[]
+	 * @param	integer		$idJobtype
+	 * @return	integer[]
 	 */
 	protected function getJobtypePersons($idJobtype) {
 		return TodoyuContactJobTypeManager::getPersonIDsWithJobtype($idJobtype);
@@ -242,7 +242,7 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Get person IDs of given "virtual" group (pref)
 	 *
-	 * @param	Integer	$idItem
+	 * @param	integer	$idItem
 	 * @return  Integer[]
 	 */
 	protected function getVirtualGroupPersons($idItem) {
@@ -266,8 +266,8 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	 * -persons with selected jobtypes
 	 * -selected persons
 	 *
-	 * @param	Array		$selection
-	 * @return	Integer[]
+	 * @param	array		$selection
+	 * @return	integer[]
 	 */
 	public function getPersonIDsOfSelection($selection = array()) {
 		if( empty($selection) ) {
@@ -385,7 +385,7 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Get IDs of selected groups (jobtypes)
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	protected function getSelectedGroupIDs() {
 		return $this->getSelectedTypeIDs('g');
@@ -396,7 +396,7 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Get IDs of selected persons
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	protected function getSelectedPersonIDs() {
 		return $this->getSelectedTypeIDs('p');
@@ -408,8 +408,8 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	 * Get IDs of selected items of a specific type
 	 * Type is marked with the first letter in the key
 	 *
-	 * @param	String		$type
-	 * @return	Integer[]
+	 * @param	string		$type
+	 * @return	integer[]
 	 */
 	protected function getSelectedTypeIDs($type) {
 		$items		= $this->getSelection();
@@ -430,7 +430,7 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Save selected items in preference
 	 *
-	 * @param	Array	$selection
+	 * @param	array	$selection
 	 */
 	public function saveSelection(array $selection) {
 		$selection	= TodoyuArray::trim($selection, true);
@@ -444,7 +444,7 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Check whether group search is active in config
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	protected function isGroupSearchActive() {
 		return $this->config['group'] === true;
@@ -455,8 +455,8 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Validate group title (ensure uniqueness)
 	 *
-	 * @param	String		$title
-	 * @return	String
+	 * @param	string		$title
+	 * @return	string
 	 */
 	public static function validateGroupTitle($title) {
 		$groupTitles	= self::getVirtualGroupTitles();
@@ -473,7 +473,7 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Save staff selector preferences
 	 *
-	 * @param	Array	$prefs
+	 * @param	array	$prefs
 	 */
 	public static function savePrefs(array $prefs) {
 		$prefs	= json_encode($prefs);
@@ -486,9 +486,9 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Save staff selector selection as "virtual" group (preference for current person)
 	 *
-	 * @param	String	$title
-	 * @param	String	$groupItems		JSON encoded array of type-prefixed IDs of persons and groups
-	 * @return	Integer					Auto generated ID
+	 * @param	string	$title
+	 * @param	string	$groupItems		JSON encoded array of type-prefixed IDs of persons and groups
+	 * @return	integer					Auto generated ID
 	 */
 	public function saveVirtualGroup($title, $groupItems) {
 		$pref	= json_encode(array(
@@ -505,8 +505,8 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Get virtual group preference of given ID of given/current person
 	 *
-	 * @param	Integer		$idPref
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPref
+	 * @param	integer		$idPerson
 	 * @return  stdClass|Boolean
 	 */
 	public static function getVirtualGroup($idPref, $idPerson = 0) {
@@ -530,7 +530,7 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Get all virtual group prefs of given person
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getVirtualGroups($idPerson = 0) {
@@ -544,8 +544,8 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Get titles of all virtual groups of given/current person
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	String[]
+	 * @param	integer		$idPerson
+	 * @return	string[]
 	 */
 	public static function getVirtualGroupTitles($idPerson = 0) {
 		$titles	= array();
@@ -565,7 +565,7 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Get all virtual group prefs of given person
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getVirtualGroupsIndexed($idPerson = 0) {
@@ -587,9 +587,9 @@ class TodoyuContactPanelWidgetStaffSelector extends TodoyuPanelWidgetSearchList 
 	/**
 	 * Filter virtual groups preferences of given person by matching titles
 	 *
-	 * @param	Array		$searchWords
-	 * @param	Integer		$idPerson
-	 * @param	Boolean		$excludeSelection
+	 * @param	array		$searchWords
+	 * @param	integer		$idPerson
+	 * @param	boolean		$excludeSelection
 	 * @return  Array
 	 */
 	protected function searchVirtualGroups($searchWords, $idPerson = 0, $excludeSelection = false) {

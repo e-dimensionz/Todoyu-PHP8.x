@@ -54,7 +54,7 @@ class TodoyuCalendarEventElementDayeventDay extends TodoyuCalendarEventElementDa
 	/**
 	 * Get template path
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getTemplate() {
 		return  'ext/calendar/view/event/dayevent.tmpl';

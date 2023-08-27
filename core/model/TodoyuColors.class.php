@@ -69,8 +69,8 @@ class TodoyuColors {
 	/**
 	 * Render Color CSS. If not stored up-to-date yet: save and have CSS-sprite be generated as well
 	 *
-	 * @param	String		$fileCSS
-	 * @param	String		$fileImage
+	 * @param	string		$fileCSS
+	 * @param	string		$fileImage
 	 */
 	private static function generateCSS($fileCSS, $fileImage) {
 		$fileImage	= basename($fileImage);
@@ -115,7 +115,7 @@ class TodoyuColors {
 	/**
 	 * Render CSS sprite of colors declared in Todoyu::$CONFIG['COLORS'], see constants for dimensions
 	 *
-	 * @param	String	$fileIMG
+	 * @param	string	$fileIMG
 	 */
 	private static function generateIMG($fileIMG) {
 		$colors	= TodoyuArray::assure(Todoyu::$CONFIG['COLORS']);
@@ -142,9 +142,9 @@ class TodoyuColors {
 	/**
 	 * Generates the faded color of an original
 	 *
-	 * @param	String	$color			Hexadecimal color value
-	 * @param	Integer	$percentage		Percentage to fade
-	 * @return	String					New hexadecimal color value
+	 * @param	string	$color			Hexadecimal color value
+	 * @param	integer	$percentage		Percentage to fade
+	 * @return	string					New hexadecimal color value
 	 */
 	private static function fade($color, $percentage) {
 		$percentage = 100 - $percentage;
@@ -162,8 +162,8 @@ class TodoyuColors {
 	/**
 	 * Calculate complementary color to given RBG color
 	 *
-	 * @param	String	$color
-	 * @return	String
+	 * @param	string	$color
+	 * @return	string
 	 */
 	private static function invert($color) {
 		$color = str_replace('#', '', $color);
@@ -186,8 +186,8 @@ class TodoyuColors {
 	/**
 	 * Checks brightness of a color and returns either black or white
 	 *
-	 * @param	String		$color: Color in hex
-	 * @return	String
+	 * @param	string		$color: Color in hex
+	 * @return	string
 	 */
 	private static function getBestReadableContrastTextColor($color) {
 		$color	= trim(str_replace('#', '', $color));
@@ -206,7 +206,7 @@ class TodoyuColors {
 	/**
 	 * Returns color data array of given color ID
 	 *
-	 * @param	Integer		$index
+	 * @param	integer		$index
 	 * @return	Array
 	 */
 	public static function getColorArray($index) {
@@ -230,8 +230,8 @@ class TodoyuColors {
 	/**
 	 * Returns the ID of a color by its position in the config array
 	 *
-	 * @param	Integer		$position
-	 * @return	Integer
+	 * @param	integer		$position
+	 * @return	integer
 	 */
 	private static function getColorRGB($position) {
 		$position = (int) $position;
@@ -246,8 +246,8 @@ class TodoyuColors {
 	/**
 	 * Get ID of color
 	 *
-	 * @param	Integer		$position
-	 * @return	Integer
+	 * @param	integer		$position
+	 * @return	integer
 	 */
 	private static function getColorID($position) {
 		$position = (int) $position;
@@ -266,8 +266,8 @@ class TodoyuColors {
 	/**
 	 * Get an existing color index for the given value
 	 *
-	 * @param	Integer		$inputIndex
-	 * @return	Integer
+	 * @param	integer		$inputIndex
+	 * @return	integer
 	 */
 	public static function getColorIndex($inputIndex) {
 		$inputIndex	= (int) $inputIndex;

@@ -38,9 +38,9 @@ class TodoyuProjectCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * Init filter object
 	 *
-	 * @param	Array		$activeFilters
-	 * @param	String		$conjunction
-	 * @param	Array		$sorting
+	 * @param	array		$activeFilters
+	 * @param	string		$conjunction
+	 * @param	array		$sorting
 	 */
 	public function __construct(array $activeFilters = array(), $conjunction = 'AND', array $sorting = array()) {
 		parent::__construct('COMPANY', self::TABLE, $activeFilters, $conjunction, $sorting);
@@ -51,8 +51,8 @@ class TodoyuProjectCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * Filter condition: companies with projects with given status
 	 *
-	 * @param	String			$value			Comma-separated statuses
-	 * @param	Boolean			$negate
+	 * @param	string			$value			Comma-separated statuses
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean					Query parts / false if no statuses given
 	 */
 	public function Filter_projectstatus($value, $negate = false) {
@@ -83,8 +83,8 @@ class TodoyuProjectCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 
 
 	/**
-	 * @param	Array		$value
-	 * @param	Boolean		$negate
+	 * @param	array		$value
+	 * @param	boolean		$negate
 	 */
 	public function Filter_projectFilter($value, $negate = false) {
 		$filterSets	= TodoyuArray::intExplode(',', $value, true, true);
@@ -115,8 +115,8 @@ class TodoyuProjectCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * Filter condition: companies with projects with given title fulltext
 	 *
-	 * @param	String			$searchWords
-	 * @param	Boolean			$negate
+	 * @param	string			$searchWords
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean					Query parts / false if no statuses given
 	 */
 	public function Filter_projecttitlefulltext($searchWords, $negate = false) {
@@ -158,8 +158,8 @@ class TodoyuProjectCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * Filter for companies with task created before/after date
 	 *
-	 * @param	String		$date		DD/MM/YYYY
-	 * @param	Boolean		$negate
+	 * @param	string		$date		DD/MM/YYYY
+	 * @param	boolean		$negate
 	 * @return	Array|Boolean
 	 */
 	public function Filter_dateCreateTask($date, $negate = false) {
@@ -176,8 +176,8 @@ class TodoyuProjectCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 
 
 	/**
-	 * @param	String	$dateRangeKey	"today", "tomorrow", ...
-	 * @param	Boolean	$negate
+	 * @param	string	$dateRangeKey	"today", "tomorrow", ...
+	 * @param	boolean	$negate
 	 * @return	Array|Boolean
 	 */
 	public function Filter_dateCreateTaskDynamic($dateRangeKey, $negate = false) {
@@ -194,8 +194,8 @@ class TodoyuProjectCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 
 
 	/**
-	 * @param	Integer		$timestamp
-	 * @param	Boolean		$negate
+	 * @param	integer		$timestamp
+	 * @param	boolean		$negate
 	 */
 	private static function getTaskDateCreateQueryParts($timestamp, $negate = false) {
 		$tables	= array(

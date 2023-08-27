@@ -29,8 +29,8 @@ class TodoyuContactPanelWidgetSearch extends TodoyuPanelWidgetSearchBox {
 	/**
 	 * Constructor of the class
 	 *
-	 * @param	Array	$config
-	 * @param	Array	$params
+	 * @param	array	$config
+	 * @param	array	$params
 	 */
 	public function __construct(array $config, array $params = array()) {
 		parent::__construct(
@@ -49,7 +49,7 @@ class TodoyuContactPanelWidgetSearch extends TodoyuPanelWidgetSearchBox {
 	/**
 	 * Get stored search word from contact preferences
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getSearchWord() {
 		return TodoyuContactPreferences::getSearchWord();

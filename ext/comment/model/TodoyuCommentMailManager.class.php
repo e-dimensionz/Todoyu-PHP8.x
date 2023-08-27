@@ -29,7 +29,7 @@ class TodoyuCommentMailManager {
 	/**
 	 * Save comment mail as sent for each receiver
 	 *
-	 * @param	Integer							$idComment
+	 * @param	integer							$idComment
 	 * @param	TodoyuMailReceiverInterface[]	$mailReceivers
 	 */
 	public static function saveMailSent($idComment, array $mailReceivers) {
@@ -46,8 +46,8 @@ class TodoyuCommentMailManager {
 	/**
 	 * Log sent comment email of given comment to given person
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idComment
+	 * @param	integer		$idPerson
 	 */
 	public static function addMailSent($idComment, $idPerson) {
 		TodoyuMailManager::addMailSent(EXTID_COMMENT, COMMENT_TYPE_COMMENT, $idComment, $idPerson);
@@ -58,7 +58,7 @@ class TodoyuCommentMailManager {
 	/**
 	 * Get receivers the given comment has been sent to by email
 	 *
-	 * @param	Integer		$idComment
+	 * @param	integer		$idComment
 	 * @return	TodoyuMailReceiverInterface[]
 	 */
 	public static function getEmailReceivers($idComment) {

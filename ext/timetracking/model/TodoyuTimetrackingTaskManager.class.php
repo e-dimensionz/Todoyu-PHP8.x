@@ -38,7 +38,7 @@ class TodoyuTimetrackingTaskManager {
 	/**
 	 * Get Timetracking Task
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @return TodoyuTimetrackingTask
 	 */
 	public static function getTask($idTask) {
@@ -52,7 +52,7 @@ class TodoyuTimetrackingTaskManager {
 	/**
 	 * Get time tracking task tracks
 	 *
-	 * @param	Integer	$idTask
+	 * @param	integer	$idTask
 	 * @return	Array
 	 */
 	public static function getTaskTracks($idTask) {
@@ -75,8 +75,8 @@ class TodoyuTimetrackingTaskManager {
 	/**
 	 * Get time tracking tab label
 	 *
-	 * @param	Integer	$idTask
-	 * @return	String
+	 * @param	integer	$idTask
+	 * @return	string
 	 */
 	public static function getTabLabel($idTask) {
 		return Todoyu::Label('timetracking.ext.title');
@@ -87,9 +87,9 @@ class TodoyuTimetrackingTaskManager {
 	/**
 	 * Get time tracking tab content
 	 *
-	 * @param	Integer	$idTask
-	 * @param	Boolean $active
-	 * @return	String
+	 * @param	integer	$idTask
+	 * @param	boolean $active
+	 * @return	string
 	 */
 	public static function getTabContent($idTask, $active = false) {
 		$idTask		= intval($idTask);
@@ -102,7 +102,7 @@ class TodoyuTimetrackingTaskManager {
 	/**
 	 * Save time tracking tab inline form
 	 *
-	 * @param	Array	$data
+	 * @param	array	$data
 	 */
 	public static function updateTrack(array $data) {
 		$idTrack	= intval($data['id']);
@@ -115,11 +115,11 @@ class TodoyuTimetrackingTaskManager {
 	/**
 	 * Set task default data: check whether quickTask preset contains start_timetracking
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$type
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idParentTask
-	 * @param	Boolean		$isQuickTask
+	 * @param	array		$data
+	 * @param	integer		$type
+	 * @param	integer		$idProject
+	 * @param	integer		$idParentTask
+	 * @param	boolean		$isQuickTask
 	 * @return	Array
 	 */
 	public static function hookTaskDefaultData($data, $type, $idProject, $idParentTask, $isQuickTask) {
@@ -149,8 +149,8 @@ class TodoyuTimetrackingTaskManager {
 	/**
 	 * Hook to add taskicons from extension
 	 *
-	 * @param	Array		$icons
-	 * @param	Integer		$idTask
+	 * @param	array		$icons
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function hookGetTaskIcons(array $icons, $idTask) {
@@ -180,9 +180,9 @@ class TodoyuTimetrackingTaskManager {
 	/**
 	 * Check if tracked time is over the tolerated estimated workload
 	 *
-	 * @param	Integer		$estimatedWorkload
-	 * @param	Integer		$trackedTime
-	 * @return	Boolean
+	 * @param	integer		$estimatedWorkload
+	 * @param	integer		$trackedTime
+	 * @return	boolean
 	 */
 	public static function isTrackedTimeOverTolerance($estimatedWorkload, $trackedTime) {
 		return	self::getToleranceFactor() * $estimatedWorkload < $trackedTime;
@@ -206,8 +206,8 @@ class TodoyuTimetrackingTaskManager {
 	/**
 	 * Use a hook voting to decide if status of task should be changed on tracking start
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isStatusChangeOnTrackingStartWanted($idTask) {
 		$idTask	= intval($idTask);

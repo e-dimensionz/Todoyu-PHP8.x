@@ -31,8 +31,8 @@ class TodoyuContactProfileRenderer {
 	/**
 	 * Render profile tabs
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function renderTabs(array $params) {
 		$name		= 'contact';
@@ -55,8 +55,8 @@ class TodoyuContactProfileRenderer {
 	/**
 	 * Render contact profile main content
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function renderContent(array $params) {
 		$tab	= $params['tab'];
@@ -74,7 +74,7 @@ class TodoyuContactProfileRenderer {
 	/**
 	 * Render contact profile edit form
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderContentFormPage() {
 		$idPerson	= Todoyu::personid();
@@ -94,8 +94,8 @@ class TodoyuContactProfileRenderer {
 	/**
 	 * Render form for person
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	String
+	 * @param	integer		$idPerson
+	 * @return	string
 	 */
 	public static function renderPersonForm($idPerson) {
 		$form	= TodoyuContactProfileManager::getProfileForm($idPerson);

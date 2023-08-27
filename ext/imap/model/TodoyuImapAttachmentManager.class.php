@@ -41,7 +41,7 @@ class TodoyuImapAttachmentManager {
 	/**
 	 * Get IMAP attachment record
 	 *
-	 * @param	Integer					$idAttachment
+	 * @param	integer					$idAttachment
 	 * @return	TodoyuImapAttachment
 	 */
 	public static function getAttachment($idAttachment) {
@@ -55,9 +55,9 @@ class TodoyuImapAttachmentManager {
 	/**
 	 * Get all selected DB rows of attachments as an array
 	 *
-	 * @param	String	$fields
-	 * @param	String	$where
-	 * @param	String	$order
+	 * @param	string	$fields
+	 * @param	string	$where
+	 * @param	string	$order
 	 * @return	Array[]
 	 */
 	protected static function getAttachmentsArray($fields = '*', $where = 'deleted = 0', $order = 'file_name') {
@@ -69,7 +69,7 @@ class TodoyuImapAttachmentManager {
 	/**
 	 * Get attachment files' storage base path (absolute path)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getStorageBasePath() {
 		return TodoyuFileManager::pathAbsolute(IMAP_PATH_ATTACHMENT);
@@ -80,8 +80,8 @@ class TodoyuImapAttachmentManager {
 	/**
 	 * Get full path to attachments folder of message with given message_id
 	 *
-	 * @param	String	$idMessage
-	 * @return	String
+	 * @param	string	$idMessage
+	 * @return	string
 	 */
 	public static function getStoragePath($idMessage) {
 		$idMessage	= intval($idMessage);
@@ -96,10 +96,10 @@ class TodoyuImapAttachmentManager {
 	/**
 	 * Store attachment file to the system and add attachment record to the database.
 	 *
-	 * @param	Integer		$idMessage
-	 * @param	String		$fileContent
-	 * @param	String		$filename
-	 * @return	Integer		Attachment ID
+	 * @param	integer		$idMessage
+	 * @param	string		$fileContent
+	 * @param	string		$filename
+	 * @return	integer		Attachment ID
 	 */
 	public static function addAttachment($idMessage, $filename, $fileContent) {
 		$idMessage	= intval($idMessage);
@@ -139,10 +139,10 @@ class TodoyuImapAttachmentManager {
 	/**
 	 * Save attachment into storage folder for the message
 	 *
-	 * @param	Integer		$idMessage
-	 * @param	String		$filename
-	 * @param	String		$content
-	 * @return	String
+	 * @param	integer		$idMessage
+	 * @param	string		$filename
+	 * @param	string		$content
+	 * @return	string
 	 */
 	protected static function saveAttachment($idMessage, $filename, $content) {
 		$idMessage	= intval($idMessage);
@@ -162,7 +162,7 @@ class TodoyuImapAttachmentManager {
 	/**
 	 * Get data of attachments of given message
 	 *
-	 * @param	Integer		$idMessage		ID of parent element
+	 * @param	integer		$idMessage		ID of parent element
 	 * @return	Array
 	 */
 	public static function getMessageAttachmentsData($idMessage) {
@@ -179,7 +179,7 @@ class TodoyuImapAttachmentManager {
 	/**
 	 * Get attachment objects of given message
 	 *
-	 * @param	Integer		$idMessage		ID of parent element
+	 * @param	integer		$idMessage		ID of parent element
 	 * @return	TodoyuImapAttachment[]
 	 */
 	public static function getMessageAttachmentsList($idMessage) {
@@ -197,8 +197,8 @@ class TodoyuImapAttachmentManager {
 	/**
 	 * Get ID of message the given attachment belongs to
 	 *
-	 * @param	Integer		$idAttachment
-	 * @return	Integer
+	 * @param	integer		$idAttachment
+	 * @return	integer
 	 */
 	public static function getMessageID($idAttachment) {
 		$idAttachment	= intval($idAttachment);
@@ -213,8 +213,8 @@ class TodoyuImapAttachmentManager {
 	/**
 	 * Download given attachment. Send headers and data to the browser
 	 *
-	 * @param	Integer		$idAttachment
-	 * @return	Boolean
+	 * @param	integer		$idAttachment
+	 * @return	boolean
 	 */
 	public static function downloadAttachment($idAttachment) {
 		$idAttachment	= intval($idAttachment);
@@ -228,7 +228,7 @@ class TodoyuImapAttachmentManager {
 	/**
 	 * Delete an attachment (file stays in file system)
 	 *
-	 * @param	Integer		$idAttachment
+	 * @param	integer		$idAttachment
 	 */
 	public static function deleteAttachment($idAttachment) {
 		$idAttachment	= intval($idAttachment);

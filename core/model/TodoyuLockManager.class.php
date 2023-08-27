@@ -37,9 +37,9 @@ class TodoyuLockManager {
 	/**
 	 * Lock a record
 	 *
-	 * @param	Integer		$ext
-	 * @param	String		$table
-	 * @param	Integer		$idRecord
+	 * @param	integer		$ext
+	 * @param	string		$table
+	 * @param	integer		$idRecord
 	 */
 	public static function lock($ext, $table, $idRecord) {
 		if( ! self::isLockedByExt($ext, $table, $idRecord) ) {
@@ -58,9 +58,9 @@ class TodoyuLockManager {
 	/**
 	 * Unlock a record for an extension
 	 *
-	 * @param	Integer		$ext
-	 * @param	String		$table
-	 * @param	Integer		$idRecord
+	 * @param	integer		$ext
+	 * @param	string		$table
+	 * @param	integer		$idRecord
 	 */
 	public static function unlock($ext, $table, $idRecord) {
 		$where	= '		`ext`		= ' . (int) $ext
@@ -75,9 +75,9 @@ class TodoyuLockManager {
 	/**
 	 * Check if a record is locked
 	 *
-	 * @param	String		$table
-	 * @param	Integer		$idRecord
-	 * @return	Boolean
+	 * @param	string		$table
+	 * @param	integer		$idRecord
+	 * @return	boolean
 	 */
 	public static function isLocked($table, $idRecord) {
 		$where	= '		`table`		= ' . TodoyuSql::quote($table, true)
@@ -91,9 +91,9 @@ class TodoyuLockManager {
 	/**
 	 * Check if one of the records is locked
 	 *
-	 * @param	String		$table
-	 * @param	Array		$recordIDs
-	 * @return	Boolean
+	 * @param	string		$table
+	 * @param	array		$recordIDs
+	 * @return	boolean
 	 */
 	public static function areLocked($table, array $recordIDs) {
 		$recordIDs	= TodoyuArray::intval($recordIDs, true, true);
@@ -113,10 +113,10 @@ class TodoyuLockManager {
 	/**
 	 * Check if record is locked by an extension
 	 *
-	 * @param	Integer		$extID
-	 * @param	String		$table
-	 * @param	Integer		$idRecord
-	 * @return	Boolean
+	 * @param	integer		$extID
+	 * @param	string		$table
+	 * @param	integer		$idRecord
+	 * @return	boolean
 	 */
 	public static function isLockedByExt($extID, $table, $idRecord) {
 		$where	= '		`ext`		= ' . (int) $extID
@@ -131,9 +131,9 @@ class TodoyuLockManager {
 	/**
 	 * Get number of lock for the record
 	 *
-	 * @param	String		$table
-	 * @param	Integer		$idRecord
-	 * @return	Integer
+	 * @param	string		$table
+	 * @param	integer		$idRecord
+	 * @return	integer
 	 */
 	public static function getNumLocks($table, $idRecord) {
 		$field	= 'id';

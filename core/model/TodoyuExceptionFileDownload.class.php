@@ -37,9 +37,9 @@ class TodoyuExceptionFileDownload extends TodoyuException {
 	/**
 	 * Initialize
 	 *
-	 * @param	String			$pathFile
-	 * @param	String			$message
-	 * @param	Integer			$code
+	 * @param	string			$pathFile
+	 * @param	string			$message
+	 * @param	integer			$code
 	 * @param	Exception|null	$previous
 	 */
 	public function __construct($pathFile, $message, $code = 0, $previous = null) {

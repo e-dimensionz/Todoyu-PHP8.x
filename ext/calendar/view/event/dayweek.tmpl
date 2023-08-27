@@ -11,7 +11,7 @@
 		{/if}
 
 		<div class="title">
-			{htmlencode $title}
+			{$title|escape}
 
 			{if $view == 'day' && count($persons) == 1}
 				<div class="assignedPersons">
@@ -23,9 +23,9 @@
 	</div>
 
 	<div class="content">
-		{if $description && (!$isPrivate || isPersonID($id_person))}
+		{if $description && (!$isPrivate || fn_isPersonID($id_person))}
 			<div class="description">
-				{cleanHtml $description}
+				{$description|strip_tags}
 			</div>
 		{/if}
 	</div>

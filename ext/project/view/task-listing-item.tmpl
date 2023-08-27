@@ -1,4 +1,4 @@
-<div id="task-{$task.id}" class="task status{ucfirst $task.statuskey} {$task.class} bcStatus{$task.status}">
+<div id="task-{$task.id}" class="task status{$task.statuskey|ucfirst} {if isset($task.class)}{$task.class}{/if} bcStatus{$task.status}">
 	{include "ext/project/view/task-listing-header.tmpl"}
-	{$details}
+	{if isset($details)}{$details}{/if}
 </div>

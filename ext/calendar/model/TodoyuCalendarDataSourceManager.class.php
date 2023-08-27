@@ -37,9 +37,9 @@ class TodoyuCalendarDataSourceManager {
 	/**
 	 * Add a new data source
 	 *
-	 * @param	String		$name
-	 * @param	String		$className
-	 * @param	Array		$config
+	 * @param	string		$name
+	 * @param	string		$className
+	 * @param	array		$config
 	 */
 	public static function addDataSource($name, $className, array $config = array()) {
 		self::$dataSourceConfigs[$name]	= array(
@@ -54,7 +54,7 @@ class TodoyuCalendarDataSourceManager {
 	/**
 	 * Get names of all data sources
 	 *
-	 * @return	String[]
+	 * @return	string[]
 	 */
 	public static function getDataSourceNames() {
 		return array_keys(self::$dataSourceConfigs);
@@ -65,9 +65,9 @@ class TodoyuCalendarDataSourceManager {
 	/**
 	 * Get a data source
 	 *
-	 * @param	String			$name
+	 * @param	string			$name
 	 * @param	TodoyuDayRange	$range
-	 * @param	Array			$filters
+	 * @param	array			$filters
 	 * @return	TodoyuCalendarDataSource|False
 	 */
 	public static function getDataSource($name, TodoyuDayRange $range, array $filters = array()) {
@@ -87,8 +87,8 @@ class TodoyuCalendarDataSourceManager {
 	/**
 	 * Get class name of data source
 	 *
-	 * @param	String		$name
-	 * @return	String
+	 * @param	string		$name
+	 * @return	string
 	 */
 	protected static function getDataSourceClassName($name) {
 		return self::$dataSourceConfigs[$name]['className'];
@@ -99,7 +99,7 @@ class TodoyuCalendarDataSourceManager {
 	/**
 	 * Get config of data source
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @return	Array
 	 */
 	protected static function getDataSourceConfig($name) {
@@ -112,7 +112,7 @@ class TodoyuCalendarDataSourceManager {
 	 * Get event from all data sources
 	 *
 	 * @param	TodoyuDayRange	$range
-	 * @param	Array			$filters
+	 * @param	array			$filters
 	 * @return	TodoyuCalendarEvent[]
 	 */
 	public static function getEvents(TodoyuDayRange $range, array $filters = array()) {
@@ -132,9 +132,9 @@ class TodoyuCalendarDataSourceManager {
 	/**
 	 * Get events of a data source
 	 *
-	 * @param	String			$dataSourceName
+	 * @param	string			$dataSourceName
 	 * @param	TodoyuDayRange	$range
-	 * @param	Array			$filters
+	 * @param	array			$filters
 	 * @return	TodoyuCalendarEvent[]
 	 */
 	public static function getDataSourceEvents($dataSourceName, TodoyuDayRange $range, array $filters = array()) {
@@ -146,10 +146,10 @@ class TodoyuCalendarDataSourceManager {
 	/**
 	 * Get amount of events provided by the data source
 	 *
-	 * @param	String			$dataSourceName
+	 * @param	string			$dataSourceName
 	 * @param	TodoyuDayRange	$range
-	 * @param	Array			$filters
-	 * @return	Integer
+	 * @param	array			$filters
+	 * @return	integer
 	 */
 	public static function getDataSourceEventCount($dataSourceName, TodoyuDayRange $range, array $filters = array()) {
 		return self::getDataSource($dataSourceName, $range, $filters)->getEventCount();
@@ -160,9 +160,9 @@ class TodoyuCalendarDataSourceManager {
 	/**
 	 * Get event object of data source
 	 *
-	 * @param	String		$dataSourceName		Name of the data source
-	 * @param	Integer		$idEvent
-	 * @param	Array		$params
+	 * @param	string		$dataSourceName		Name of the data source
+	 * @param	integer		$idEvent
+	 * @param	array		$params
 	 * @return	TodoyuCalendarEvent
 	 */
 	public static function getEvent($dataSourceName, $idEvent, array $params = array()) {

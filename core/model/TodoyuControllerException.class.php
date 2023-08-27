@@ -51,11 +51,11 @@ class TodoyuControllerException extends Exception {
 	/**
 	 * Initialize
 	 *
-	 * @param	String		$ext
-	 * @param	String		$ctrl
-	 * @param	String		$action
-	 * @param	String		$message
-	 * @param	Integer		$code
+	 * @param	string		$ext
+	 * @param	string		$ctrl
+	 * @param	string		$action
+	 * @param	string		$message
+	 * @param	integer		$code
 	 */
 	public function __construct($ext, $ctrl, $action, $message, $code = 0) {
 		parent::__construct($message, $code);
@@ -70,7 +70,7 @@ class TodoyuControllerException extends Exception {
 	/**
 	 * Get extension key
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getExt() {
 		return $this->ext;
@@ -81,7 +81,7 @@ class TodoyuControllerException extends Exception {
 	/**
 	 * Get controller name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getController() {
 		return $this->ctrl;
@@ -92,7 +92,7 @@ class TodoyuControllerException extends Exception {
 	/**
 	 * Get action
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getAction() {
 		return $this->action;

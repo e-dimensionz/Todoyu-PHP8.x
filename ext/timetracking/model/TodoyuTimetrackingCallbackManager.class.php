@@ -36,8 +36,8 @@ class TodoyuTimetrackingCallbackManager {
 	/**
 	 * Add a callback
 	 *
-	 * @param	String		$key			Identifier. Same as in javascript
-	 * @param	String		$function		Function reference
+	 * @param	string		$key			Identifier. Same as in javascript
+	 * @param	string		$function		Function reference
 	 */
 	public static function add($key, $function) {
 		self::$callback[$key] = $function;
@@ -48,8 +48,8 @@ class TodoyuTimetrackingCallbackManager {
 	/**
 	 * Get a callback function
 	 *
-	 * @param	String		$key
-	 * @return	String
+	 * @param	string		$key
+	 * @return	string
 	 */
 	public static function get($key) {
 		return self::$callback[$key];
@@ -60,7 +60,7 @@ class TodoyuTimetrackingCallbackManager {
 	/**
 	 * Remove a callback function
 	 *
-	 * @param	String		$key
+	 * @param	string		$key
 	 */
 	public static function remove($key) {
 		unset(self::$callback[$key]);
@@ -72,8 +72,8 @@ class TodoyuTimetrackingCallbackManager {
 	 * Call a callback function
 	 * Parameters for the callback are: $idTask, $info
 	 *
-	 * @param	String		$key
-	 * @param	Integer		$idTask
+	 * @param	string		$key
+	 * @param	integer		$idTask
 	 * @param	Mixed		$info
 	 * @return	Mixed
 	 */
@@ -86,8 +86,8 @@ class TodoyuTimetrackingCallbackManager {
 	/**
 	 * Call all registered callbacks
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Array		$data		All request data
+	 * @param	integer		$idTask
+	 * @param	array		$data		All request data
 	 * @return	Array		Results of all callbacks
 	 */
 	public static function callAll($idTask, array $data) {

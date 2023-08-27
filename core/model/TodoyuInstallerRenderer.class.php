@@ -29,8 +29,8 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Render progress panel widget listing all steps of installation
 	 *
-	 * @param	String		$step
-	 * @return	String
+	 * @param	string		$step
+	 * @return	string
 	 */
 	public static function renderProgressWidget($step) {
 		$tmpl	= 'install/view/panelwidget-progress.tmpl';
@@ -69,8 +69,8 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Render installer step: select installer language (preset for system language)
 	 *
-	 * @param	Array	$result
-	 * @return	String
+	 * @param	array	$result
+	 * @return	string
 	 */
 	public static function renderLocale(array $result) {
 		$data	= array(
@@ -93,8 +93,8 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Render installer step: todoyu end user license agreement
 	 *
-	 * @param	Array	$result
-	 * @return	String
+	 * @param	array	$result
+	 * @return	string
 	 */
 	public static function renderLicense(array $result) {
 		$data	= array(
@@ -114,8 +114,8 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Render installer step: Server Check (correct PHP version and writable files, folders)
 	 *
-	 * @param	Array	$result
-	 * @return	String
+	 * @param	array	$result
+	 * @return	string
 	 */
 	public static function renderServerCheck(array $result) {
 		$info	= TodoyuInstallerManager::checkServer();
@@ -149,7 +149,7 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Render installer step: Setup Database Connection (check DB connection details, this step repeats itself on connection failure)
 	 *
-	 * @param	Array	$result
+	 * @param	array	$result
 	 * @return	Array
 	 */
 	public static function renderDbConnection(array $result) {
@@ -170,7 +170,7 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Render installer step: Select database
 	 *
-	 * @param	Array	$result
+	 * @param	array	$result
 	 * @return	Array
 	 */
 	public static function renderDbSelect(array $result) {
@@ -213,8 +213,8 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Check whether tables from the database conflict with tables from the install SQL files
 	 *
-	 * @param	Array	$databaseTableNames
-	 * @return	Boolean
+	 * @param	array	$databaseTableNames
+	 * @return	boolean
 	 */
 	private static function hasTableConflicts(array $databaseTableNames) {
 		$tableStructures= TodoyuSQLManager::getFileTableStructures();
@@ -228,8 +228,8 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Render installer step: Import Database Tables
 	 *
-	 * @param	Array	$result
-	 * @return	String
+	 * @param	array	$result
+	 * @return	string
 	 */
 	public static function renderImportDbTables(array $result) {
 		$data	= array(
@@ -251,8 +251,8 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Render installer step: System Configuration Setup (name, email, primary language)
 	 *
-	 * @param	Array	$result
-	 * @return	String
+	 * @param	array	$result
+	 * @return	string
 	 */
 	public static function renderSystemConfig(array $result) {
 		$data	= array(
@@ -275,8 +275,8 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Render installer step: Create Administrator Account
 	 *
-	 * @param	Array	$result
-	 * @return	String
+	 * @param	array	$result
+	 * @return	string
 	 */
 	public static function renderAdminAccount(array $result) {
 		$data	= array(
@@ -297,8 +297,8 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Render installer step: Import Demo Data
 	 *
-	 * @param	Array	$result
-	 * @return	String
+	 * @param	array	$result
+	 * @return	string
 	 */
 	public static function renderImportDemoData(array $result) {
 		$data	= array(
@@ -318,8 +318,8 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Render installer step: Finish Installation
 	 *
-	 * @param	Array	$result
-	 * @return	String
+	 * @param	array	$result
+	 * @return	string
 	 */
 	public static function renderFinish(array $result) {
 		$data	= array(
@@ -346,8 +346,8 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Render updater welcome screen
 	 *
-	 * @param	Array	$result
-	 * @return	String
+	 * @param	array	$result
+	 * @return	string
 	 */
 	public static function renderUpdate(array $result) {
 		$data	= array(
@@ -367,8 +367,8 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Render detected and conducted mandatory version DB updates
 	 *
-	 * @param	Array	$result
-	 * @return	String
+	 * @param	array	$result
+	 * @return	string
 	 */
 	public static function renderUpdateToCurrentVersion(array $result) {
 		$data	= array(
@@ -398,7 +398,7 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Render update finish screen
 	 *
-	 * @param	Array		$result
+	 * @param	array		$result
 	 * @return	Array
 	 */
 	public static function renderFinishUpdate(array $result) {
@@ -419,7 +419,7 @@ class TodoyuInstallerRenderer {
 	/**
 	 * Render version selector which comes before updater
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderVersionSelector() {
 		$tmpl	= 'install/view/version-selector.tmpl';

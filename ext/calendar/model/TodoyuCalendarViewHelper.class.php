@@ -30,8 +30,8 @@ class TodoyuCalendarViewHelper {
 	 * Render title (description of shown timespan) of given calendar view
 	 *
 	 * @param	TodoyuDayRange	$range
-	 * @param	Integer			$mode			CALENDAR_MODE_DAY / ..WEEK / ..MONTH
-	 * @return	String
+	 * @param	integer			$mode			CALENDAR_MODE_DAY / ..WEEK / ..MONTH
+	 * @return	string
 	 */
 	public static function getCalendarTitle(TodoyuDayRange $range, $mode = CALENDAR_MODE_DAY) {
 		$dateStart	= $range->getStart();
@@ -153,8 +153,8 @@ class TodoyuCalendarViewHelper {
 	/**
 	 * Get options array of reminder scheduling times
 	 *
-	 * @param	Boolean		$includePastOptions
-	 * @param	Integer		$timeLeft
+	 * @param	boolean		$includePastOptions
+	 * @param	integer		$timeLeft
 	 * @return	Array
 	 */
 	public static function getRemindingTimeOptionsArray($includePastOptions = true, $timeLeft = 0) {
@@ -198,7 +198,7 @@ class TodoyuCalendarViewHelper {
 	/**
 	 * Get CLI informations link comment
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getCLIinfolinkComment() {
 		$tmpl	= 'ext/calendar/view/cli-infocomment.tmpl';
@@ -239,7 +239,7 @@ class TodoyuCalendarViewHelper {
 	 * Get options for time excerpt settings
 	 *
 	 * @param	TodoyuFormElement	$field
-	 * @param	Integer				$offset
+	 * @param	integer				$offset
 	 * @return	Array
 	 */
 	public static function getRangeTimeOptions(TodoyuFormElement $field, $offset = 0) {

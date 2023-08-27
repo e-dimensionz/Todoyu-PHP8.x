@@ -41,7 +41,7 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Get a comment
 	 *
-	 * @param	Integer		$idComment
+	 * @param	integer		$idComment
 	 * @return	TodoyuCommentComment
 	 */
 	public static function getComment($idComment) {
@@ -53,10 +53,10 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Get comment form
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Integer		$idTask
-	 * @param	Array		$formData
-	 * @param	Array		$formParams
+	 * @param	integer		$idComment
+	 * @param	integer		$idTask
+	 * @param	array		$formData
+	 * @param	array		$formParams
 	 * @return	TodoyuForm
 	 */
 	public static function getCommentForm($idComment, $idTask, array $formData = array(), array $formParams = array()) {
@@ -77,10 +77,10 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Get form with data for comment add
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$idCommentQuote
-	 * @param	Integer		$idCommentMailReply
-	 * @param	Array		$formParams
+	 * @param	integer		$idTask
+	 * @param	integer		$idCommentQuote
+	 * @param	integer		$idCommentMailReply
+	 * @param	array		$formParams
 	 * @return	TodoyuForm
 	 */
 	public static function getAddForm($idTask, $idCommentQuote, $idCommentMailReply, array $formParams = array()) {
@@ -131,9 +131,9 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Get form with data for comment edit
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$idComment
-	 * @param	Array		$formParams
+	 * @param	integer		$idTask
+	 * @param	integer		$idComment
+	 * @param	array		$formParams
 	 * @return	TodoyuForm
 	 */
 	public static function getEditForm($idTask, $idComment, array $formParams = array()) {
@@ -161,8 +161,8 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Get task ID the given comment belongs to
 	 *
-	 * @param	Integer		$idComment
-	 * @return	Integer
+	 * @param	integer		$idComment
+	 * @return	integer
 	 */
 	public static function getTaskID($idComment) {
 		$idComment	= intval($idComment);
@@ -175,8 +175,8 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Filter HTML tags inside comment text to keep only allowable ones
 	 *
-	 * @param	String		$text
-	 * @return	String
+	 * @param	string		$text
+	 * @return	string
 	 */
 	public static function filterHtmlTags($text) {
 		return strip_tags($text, Todoyu::$CONFIG['EXT']['comment']['allowedTags']);
@@ -188,7 +188,7 @@ class TodoyuCommentCommentManager {
 	 * Save comment.
 	 * Also sends comment mails if any email receivers given
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array		Data about comment saving: id, feedback, email, emailOk
 	 */
 	public static function saveComment(array $data) {
@@ -272,8 +272,8 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Add comment
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function addComment(array $data = array()) {
 		$idComment = TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -288,8 +288,8 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Update a comment
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Array		$data
+	 * @param	integer		$idComment
+	 * @param	array		$data
 	 */
 	public static function updateComment($idComment, array $data) {
 		TodoyuRecordManager::updateRecord(self::TABLE, $idComment, $data);
@@ -302,7 +302,7 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Delete a comment
 	 *
-	 * @param	Integer		$idComment
+	 * @param	integer		$idComment
 	 */
 	public static function deleteComment($idComment) {
 		TodoyuRecordManager::deleteRecord(self::TABLE, $idComment);
@@ -315,7 +315,7 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Remove comment from cache
 	 *
-	 * @param	Integer		$idComment
+	 * @param	integer		$idComment
 	 */
 	public static function removeFromCache($idComment) {
 			// Clear record cache
@@ -328,8 +328,8 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Get all comments of a task ordered by creation date
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$desc
+	 * @param	integer		$idTask
+	 * @param	boolean		$desc
 	 * @return	Array
 	 */
 	public static function getTaskComments($idTask, $desc = false) {
@@ -346,9 +346,9 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Get the IDs of all comments of a task
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$desc
-	 * @return	Integer[]
+	 * @param	integer		$idTask
+	 * @param	boolean		$desc
+	 * @return	integer[]
 	 */
 	public static function getTaskCommentIDs($idTask, $desc = true) {
 		$idTask	= intval($idTask);
@@ -375,8 +375,8 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Get the number of comments of a task
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Integer
+	 * @param	integer		$idTask
+	 * @return	integer
 	 */
 	public static function getNumberOfTaskComments($idTask) {
 		return sizeof(self::getTaskCommentIDs($idTask));
@@ -387,8 +387,8 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Change comments public flag
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Boolean		$public
+	 * @param	integer		$idComment
+	 * @param	boolean		$public
 	 */
 	public static function setPublic($idComment, $public = true) {
 		$idComment	= intval($idComment);
@@ -404,9 +404,9 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Check whether a person is the create of a comment
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idComment
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function isCreator($idComment, $idPerson = 0) {
 		$idComment	= intval($idComment);
@@ -424,10 +424,10 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Get details of persons which could receive a comment email
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$taskMembers
-	 * @param	Boolean		$projectMembers
-	 * @param	Boolean		$allInternals
+	 * @param	integer		$idTask
+	 * @param	boolean		$taskMembers
+	 * @param	boolean		$projectMembers
+	 * @param	boolean		$allInternals
 	 * @return	Array
 	 */
 	public static function getEmailReceiverIDs($idTask, $taskMembers = false, $projectMembers = false, $allInternals = false) {
@@ -488,8 +488,8 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Toggle comment public flag
 	 *
-	 * @param	Integer		$idComment
-	 * @return	Integer
+	 * @param	integer		$idComment
+	 * @return	integer
 	 */
 	public static function togglePublic($idComment) {
 		$idComment	= intval($idComment);
@@ -502,8 +502,8 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Get items for the task context menu
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Array		$items
+	 * @param	integer		$idTask
+	 * @param	array		$items
 	 * @return	Array
 	 */
 	public static function getTaskContextMenuItems($idTask, array $items) {
@@ -551,8 +551,8 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Get ID of the person which requested a feedback from the current user and the feedback is open
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Integer
+	 * @param	integer		$idTask
+	 * @return	integer
 	 */
 	public static function getOpenFeedbackRequestPersonID($idTask) {
 		$idTask	= intval($idTask);
@@ -578,8 +578,8 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Link comment IDs in given text
 	 *
-	 * @param	String		$text
-	 * @return	String
+	 * @param	string		$text
+	 * @return	string
 	 */
 	public static function linkCommentIDsInText($text) {
 		if( Todoyu::allowed('project', 'general:area') ) {
@@ -595,8 +595,8 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Repalce comment text with link version
 	 *
-	 * @param	Array		$matches
-	 * @return	String
+	 * @param	array		$matches
+	 * @return	string
 	 */
 	private static function callbackLinkCommentsInText(array $matches) {
 		$idComment	= intval($matches[3]);
@@ -615,9 +615,9 @@ class TodoyuCommentCommentManager {
 	/**
 	 * Prefix every paragraph with a ">"
 	 *
-	 * @param	String		$commentHtml
-	 * @param	String		$prefix
-	 * @return	String
+	 * @param	string		$commentHtml
+	 * @param	string		$prefix
+	 * @return	string
 	 */
 	public static function getPrefixedResponseLines($commentHtml, $prefix = COMMENT_QUOTE_PREFIX) {
 			// Quote paragraphs

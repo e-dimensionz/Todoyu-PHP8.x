@@ -7,17 +7,17 @@ Event Hooks
 
 #sysmanager.extensionInstalled
 	Extension was installed
-	@param	Integer		$idTask
+	@param	integer		$idTask
 
 
 #sysmanager.renderRecordsBody.[TYPE]
 	Render record content body for TYPE in sysmanager
-	@param	Integer		$idRecord
-	@param	String		$contentBody
+	@param	integer		$idRecord
+	@param	string		$contentBody
 
 
 #sysmanager.renderExtContent.[EXTKEY]
 	Render extension content body for EXTKEY in sysmanager
-	@param	String		$tab
-	@param	Array		$params
-	@param	String		$content
+	@param	string		$tab
+	@param	array		$params
+	@param	string		$content

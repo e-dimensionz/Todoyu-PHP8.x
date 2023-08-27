@@ -29,8 +29,8 @@ class TodoyuTimetrackingProjectFilter {
 	/**
 	 * Filter for tasks being currently tracked
 	 *
-	 * @param	Integer		$value
-	 * @param	Boolean		$negate
+	 * @param	integer		$value
+	 * @param	boolean		$negate
 	 * @return	Array					Query parts
 	 */
 	public static function Filter_isBeingTracked($value, $negate = false) {

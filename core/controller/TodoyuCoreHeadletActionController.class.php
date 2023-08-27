@@ -30,7 +30,7 @@ class TodoyuCoreHeadletActionController extends TodoyuActionController {
 	/**
 	 * Save expanded status of a panel widget
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function openAction(array $params) {
 		$headlet	= trim($params['headlet']);

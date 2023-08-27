@@ -40,8 +40,8 @@ class TodoyuPortalRenderer {
 	/**
 	 * Render tab headers for portal
 	 *
-	 * @param	String	$activeTab
-	 * @return	String
+	 * @param	string	$activeTab
+	 * @return	string
 	 */
 	public static function renderTabHeads($activeTab = '') {
 		$name		= 'portal';
@@ -60,9 +60,9 @@ class TodoyuPortalRenderer {
 	/**
 	 * Render content of a portal tab (call registered render function)
 	 *
-	 * @param	String		$tabKey
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	string		$tabKey
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderTabContent($tabKey, array $params = array()) {
 		$tab	= TodoyuPortalManager::getTabConfig($tabKey);
@@ -80,8 +80,8 @@ class TodoyuPortalRenderer {
 	/**
 	 * Get label of selection tab in portal
 	 *
-	 * @param	Boolean		$count
-	 * @return	String
+	 * @param	boolean		$count
+	 * @return	string
 	 */
 	public static function getSelectionTabLabel($count = true) {
 		$label	= Todoyu::Label('portal.ext.tab.selection');
@@ -100,8 +100,8 @@ class TodoyuPortalRenderer {
 	 * Get content of selection tab in portal
 	 * Task-list based on the selected filters in filterPresetList panelWidget
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function renderSelectionTabContent(array $params = array()) {
 			// Check whether filterSets are available as parameters
@@ -151,7 +151,7 @@ class TodoyuPortalRenderer {
 	/**
 	 * Render message if no filterset is selected
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	private static function renderNoSelectionMessage() {
 		$tmpl	= 'ext/portal/view/selection-nofilterset.tmpl';
@@ -164,7 +164,7 @@ class TodoyuPortalRenderer {
 	/**
 	 * Render panel widgets
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderPanelWidgets() {
 		return TodoyuPanelWidgetRenderer::renderPanelWidgets(self::EXTKEY);

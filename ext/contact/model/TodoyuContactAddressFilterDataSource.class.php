@@ -29,9 +29,9 @@ class TodoyuContactAddressFilterDataSource {
 	/**
 	 * Search for (stored) cities by given search string from the auto-completion
 	 *
-	 * @param	String	$input
-	 * @param	Array	$formData
-	 * @param	String	$name
+	 * @param	string	$input
+	 * @param	array	$formData
+	 * @param	string	$name
 	 * @return	Array				array (id => label)
 	 */
 	public function autocompleteCities($input, array $formData = array(), $name = '') {
@@ -52,7 +52,7 @@ class TodoyuContactAddressFilterDataSource {
 	/**
 	 * Prepare options of countries for rendering in widget.
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getCountryOptions(array $definitions) {
@@ -76,7 +76,7 @@ class TodoyuContactAddressFilterDataSource {
 	/**
 	 * Prepare options of countries of any company for rendering in widget.
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getCompanyCountryOptions(array $definitions) {
@@ -88,7 +88,7 @@ class TodoyuContactAddressFilterDataSource {
 	/**
 	 * Prepare options of countries of any person for rendering in widget.
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getPersonCountryOptions(array $definitions) {

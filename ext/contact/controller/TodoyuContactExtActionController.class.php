@@ -38,16 +38,16 @@ class TodoyuContactExtActionController extends TodoyuActionController {
 	/**
 	 * Default action: setup and render contact page view
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function defaultAction(array $params) {
 			// Get record ID from param
-		$idRecord	= intval($params['id']);
-		$type		= isset($params['tab']) ? $params['tab'] : $params['type'];
+		$idRecord	= intval($params['id'] ?? 0);
+		$type		= isset($params['tab']) ? $params['tab'] : $params['type'] ?? null;
 
 			// Save search word if provided
-		if( is_null($params['sword']) ) {
+		if( is_null($params['sword'] ?? null) ) {
 			$searchWord	= TodoyuContactPreferences::getSearchWord();
 		} else {
 			$searchWord	= trim($params['sword']);
@@ -78,8 +78,8 @@ class TodoyuContactExtActionController extends TodoyuActionController {
 	/**
 	 * Check for duplicated contactinfo entries
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function checkforduplicatedcontactinformationAction(array $params) {
 		$contactInfo		= $params['value'];
@@ -98,8 +98,8 @@ class TodoyuContactExtActionController extends TodoyuActionController {
 	/**
 	 * Check for duplicated address records
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function checkforduplicatedaddressAction(array $params) {
 		$addressInformations	= array($params['city'], $params['street'], $params['zip'], $params['postbox']);

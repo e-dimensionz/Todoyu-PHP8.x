@@ -1,9 +1,9 @@
 <div class="commentComment">
-	{cleanHtml $comment.comment}
+	{$comment.comment|strip_tags}
 </div>
 
-<p class="commentLink"><a href="{$commentlink}">{Label comment.ext.mail.showcommentinprojectview} (C{$comment.id})</a></p>
+<p class="commentLink"><a href="{$commentlink}">{Label text='comment.ext.mail.showcommentinprojectview'} (C{$comment.id})</a></p>
 <div class="commentTask">
-	<h2 class="commentTaskHeader"><a href="{$tasklink}">{htmlencode $task.title}</a></h2>
-	<div class="commentTaskDescription">{cleanHtml $task.description}</div>
+	<h2 class="commentTaskHeader"><a href="{$tasklink}">{$task.title|escape}</a></h2>
+	<div class="commentTaskDescription">{$task.description|strip_tags}</div>
 </div>

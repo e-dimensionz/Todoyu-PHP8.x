@@ -27,8 +27,8 @@ class TodoyuContactPanelWidgetExport extends TodoyuPanelWidget {
 	/**
 	 * Constructor of the class
 	 *
-	 * @param	Array	$config
-	 * @param	Array	$params
+	 * @param	array	$config
+	 * @param	array	$params
 	 */
 	function __construct(array $config, array $params = array()) {
 		parent::__construct(
@@ -47,7 +47,7 @@ class TodoyuContactPanelWidgetExport extends TodoyuPanelWidget {
 	/**
 	 * Render content of contact export panel widget
 	 *
-	 * @return String
+	 * @return string
 	 */
 	public function renderContent() {
 		$contactType = TodoyuContactPreferences::getActiveTab();
@@ -68,7 +68,7 @@ class TodoyuContactPanelWidgetExport extends TodoyuPanelWidget {
 	/**
 	 * Check whether using the contact export widget is allowed to current logged in person
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		return Todoyu::allowed('contact', 'panelwidgets:export');

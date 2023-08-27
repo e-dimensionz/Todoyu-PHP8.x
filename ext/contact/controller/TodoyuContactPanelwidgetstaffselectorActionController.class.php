@@ -27,7 +27,7 @@
 class TodoyuContactPanelwidgetstaffselectorActionController extends TodoyuActionController {
 
 	/**
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('contact', 'panelwidgets:staffSelector');
@@ -38,8 +38,8 @@ class TodoyuContactPanelwidgetstaffselectorActionController extends TodoyuAction
 	/**
 	 * Get list of matching persons and groups
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function listAction(array $params) {
 		$search			= trim($params['search']);
@@ -57,7 +57,7 @@ class TodoyuContactPanelwidgetstaffselectorActionController extends TodoyuAction
 	/**
 	 * Save selected persons preference
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function saveAction(array $params) {
 		$items	= TodoyuString::trimExplode(',', $params['selection'], true);
@@ -82,7 +82,7 @@ class TodoyuContactPanelwidgetstaffselectorActionController extends TodoyuAction
 	/**
 	 * Save selected persons + groups as new "virtual" group (preference)
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function saveGroupAction(array $params) {
 			// Validate title to be unique
@@ -107,7 +107,7 @@ class TodoyuContactPanelwidgetstaffselectorActionController extends TodoyuAction
 	/**
 	 * Delete given "virtual" group (pref)
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function deleteGroupAction(array $params) {
 		$idPref = (int) $params['group'];

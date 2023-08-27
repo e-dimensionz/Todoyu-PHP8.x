@@ -29,7 +29,7 @@ class TodoyuCalendarReminderEmail extends TodoyuCalendarReminder {
 	/**
 	 * Get scheduled email reminder time
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateRemindEmail() {
 		return $this->getInt('date_remindemail');
@@ -40,7 +40,7 @@ class TodoyuCalendarReminderEmail extends TodoyuCalendarReminder {
 	/**
 	 * Get amount of time before event when to send reminder email
 	 *
-	 * @return	Boolean|Integer
+	 * @return	boolean|Integer
 	 */
 	public function getAdvanceTime($type = CALENDAR_TYPE_EVENTREMINDER_EMAIL) {
 		return parent::getAdvanceTime($type);
@@ -51,7 +51,7 @@ class TodoyuCalendarReminderEmail extends TodoyuCalendarReminder {
 	/**
 	 * Check whether email reminding for this event/person is disabled
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isDisabled($reminderType) {
 		return parent::isDisabled($reminderType);
@@ -62,7 +62,7 @@ class TodoyuCalendarReminderEmail extends TodoyuCalendarReminder {
 	/**
 	 * Send reminder as email
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function sendAsEmail() {
 		$event		= $this->getEvent();

@@ -30,7 +30,7 @@ class TodoyuContactContactInfoManagerPerson extends TodoyuContactContactInfoMana
 	 * Delete all linked contact info records of given person
 	 *
 	 * @todo	see comment in above function 'removeContactinfoLinks'
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 */
 	public static function deleteContactInfos($idPerson) {
 		self::deleteLinkedContactInfos('person', $idPerson, array(), 'id_person');
@@ -41,9 +41,9 @@ class TodoyuContactContactInfoManagerPerson extends TodoyuContactContactInfoMana
 	/**
 	 * Get email addresses of given types of given person
 	 *
-	 * @param	Integer			$idPerson
-	 * @param	String|Boolean	$type
-	 * @param	Boolean			$onlyPreferred
+	 * @param	integer			$idPerson
+	 * @param	string|Boolean	$type
+	 * @param	boolean			$onlyPreferred
 	 * @return	Array[]
 	 */
 	public static function getEmails($idPerson, $type = false, $onlyPreferred = false) {
@@ -55,9 +55,9 @@ class TodoyuContactContactInfoManagerPerson extends TodoyuContactContactInfoMana
 	/**
 	 * Get phone numbers of given types of given person
 	 *
-	 * @param	Integer			$idPerson
-	 * @param	String|Boolean	$type
-	 * @param	Boolean			$onlyPreferred
+	 * @param	integer			$idPerson
+	 * @param	string|Boolean	$type
+	 * @param	boolean			$onlyPreferred
 	 * @return	Array
 	 */
 	public static function getPhones($idPerson, $type = false, $onlyPreferred = false) {
@@ -70,8 +70,8 @@ class TodoyuContactContactInfoManagerPerson extends TodoyuContactContactInfoMana
 	 * Get preferred email of a person
 	 * First check system email, than check "contactinfo" records. Look for preferred emails
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	String
+	 * @param	integer		$idPerson
+	 * @return	string
 	 */
 	public static function getPreferredEmail($idPerson) {
 		$idPerson	= intval($idPerson);
@@ -94,10 +94,10 @@ class TodoyuContactContactInfoManagerPerson extends TodoyuContactContactInfoMana
 	/**
 	 * Get IDs of matching email contact infos
 	 *
-	 * @param	String[]	$searchWords
-	 * @param	Integer[]	$ignoreIDs
-	 * @param	Array		$params
-	 * @return	Integer[]
+	 * @param	string[]	$searchWords
+	 * @param	integer[]	$ignoreIDs
+	 * @param	array		$params
+	 * @return	integer[]
 	 */
 	public static function getMatchingEmailContactInfoIDs(array $searchWords, array $ignoreIDs = array(), array $params = array()) {
 		$ignoreIDs	= TodoyuArray::intval($ignoreIDs);

@@ -67,7 +67,7 @@ Todoyu.Ext.calendar.ContextMenuEvent	= {
 	 * @method	getID
 	 * @param	{Element}	element
 	 * @param	{Event}		event
-	 * @return	String
+	 * @return	string
 	 */
 	getID: function(element, event) {
 		return element.id.split('-').last();

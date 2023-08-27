@@ -43,8 +43,8 @@ set_include_path(get_include_path() . PATH_SEPARATOR . PATH);
 	// Add PEAR to include path
 set_include_path(get_include_path() . PATH_SEPARATOR . PATH_PEAR);
 
-	// Load dwoo
-require_once( PATH_LIB . '/php/dwoo/dwooAutoload.php' );
+	// Load composer autoloader
+require_once( PATH . '/vendor/autoload.php' );
 
 	// Load basic classes
 require_once( PATH_CORE . '/model/Todoyu.class.php' );
@@ -84,14 +84,8 @@ spl_autoload_register( array('TodoyuAutoloader', 'load') );
 	// Register error handler
 set_error_handler(array('TodoyuErrorHandler', 'handleError'));
 
-	// Load global functions @todo: Only load dwoo plugins when needed
+	// Load global functions 
 require_once( PATH_CORE . '/inc/version.php' );
-require_once( PATH_CORE . '/model/dwoo/plugins.php' );
-require_once( PATH_CORE . '/model/dwoo/Dwoo_Plugin_restrict.php' );
-require_once( PATH_CORE . '/model/dwoo/Dwoo_Plugin_restrictAdmin.php' );
-require_once( PATH_CORE . '/model/dwoo/Dwoo_Plugin_restrictIfNone.php' );
-require_once( PATH_CORE . '/model/dwoo/Dwoo_Plugin_restrictOrOwn.php' );
-require_once( PATH_CORE . '/model/dwoo/Dwoo_Plugin_restrictInternal.php' );
 
 	// Include strptime function if not defined on windows
 if( ! function_exists('strptime') ) {

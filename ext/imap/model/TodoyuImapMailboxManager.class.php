@@ -35,7 +35,7 @@ class TodoyuImapMailboxManager {
 	 * Returns TodoyuImapMailbox instance / FALSE if connection failed
 	 *
 	 * @param	TodoyuImapImapAccount	$account
-	 * @param	Array				$options
+	 * @param	array				$options
 	 * @return	TodoyuImapMailbox
 	 */
 	public static function getMailbox(TodoyuImapImapAccount $account, array $options = array()) {
@@ -53,8 +53,8 @@ class TodoyuImapMailboxManager {
 	/**
 	 * Convert UTF-8 string to UTF7-IMAP encoding
 	 *
-	 * @param	String		$utf8String
-	 * @return	String
+	 * @param	string		$utf8String
+	 * @return	string
 	 */
 	public static function getAsImapUtf7($utf8String) {
 		return mb_convert_encoding($utf8String, 'UTF7-IMAP', 'UTF-8');
@@ -67,8 +67,8 @@ class TodoyuImapMailboxManager {
 	 * Encode
 	 *
 	 * @todo	Is there a special escape character we can use? Not found yet =(
-	 * @param	String		$folderName
-	 * @return	String
+	 * @param	string		$folderName
+	 * @return	string
 	 */
 	public static function getEscapedFolderName($folderName) {
 		$badCharacters	= TodoyuArray::assure(Todoyu::$CONFIG['EXT']['imap']['mailboxName']['badChars']);

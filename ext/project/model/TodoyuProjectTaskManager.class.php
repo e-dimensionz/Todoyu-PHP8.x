@@ -52,8 +52,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get task quick create form object
 	 *
-	 * @param	Integer			$idProject
-	 * @param	Array			$formData
+	 * @param	integer			$idProject
+	 * @param	array			$formData
 	 * @return	TodoyuForm		form object
 	 */
 	public static function getQuickCreateForm($idProject = 0, array $formData = array()) {
@@ -105,7 +105,7 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get object of a task.
 	 *
-	 * @param	Integer		$idTask		Task ID
+	 * @param	integer		$idTask		Task ID
 	 * @return	TodoyuProjectTask
 	 */
 	public static function getTask($idTask) {
@@ -117,8 +117,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get task ID by full task number
 	 *
-	 * @param	String		$fullTaskNumber			Task number separated by point (.)
-	 * @return	Integer		0 if task not found
+	 * @param	string		$fullTaskNumber			Task number separated by point (.)
+	 * @return	integer		0 if task not found
 	 */
 	public static function getTaskIDByTaskNumber($fullTaskNumber) {
 		$idTask	= 0;
@@ -146,8 +146,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get a number of tasks as array
 	 *
-	 * @param	Array	$taskIDs
-	 * @param	String	$order
+	 * @param	array	$taskIDs
+	 * @param	string	$order
 	 * @return	Array
 	 */
 	public static function getTasks(array $taskIDs, $order = 'id') {
@@ -167,8 +167,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Save a task. If a task number is given, the task will be updated, otherwise a new task will be created
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function saveTask(array $data) {
 		$xmlPath	= 'ext/project/config/form/task.xml';
@@ -220,10 +220,10 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Update task
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Array		$data
-	 * @param	Boolean		$isNew
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @param	array		$data
+	 * @param	boolean		$isNew
+	 * @return	boolean
 	 */
 	public static function updateTask($idTask, array $data, $isNew = false) {
 		$idTask	= intval($idTask);
@@ -244,8 +244,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Add a new task
 	 *
-	 * @param	Array		$data
-	 * @return	Integer		Task ID
+	 * @param	array		$data
+	 * @return	integer		Task ID
 	 */
 	public static function addTask(array $data = array()) {
 			// Create task number
@@ -269,9 +269,9 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get next sorting position for a new task. For every sub task, sorting starts new
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idParentTask
-	 * @return	Integer
+	 * @param	integer		$idProject
+	 * @param	integer		$idParentTask
+	 * @return	integer
 	 */
 	public static function getNextSortingPosition($idProject, $idParentTask) {
 		$idProject		= intval($idProject);
@@ -300,7 +300,7 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Delete a task
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 */
 	public static function deleteTask($idTask) {
 		$data	= array(
@@ -336,7 +336,7 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Delete all tasks of given project
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 */
 	public static function deleteProjectTasks($idProject) {
 		$idProject	= intval($idProject);
@@ -360,8 +360,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Add a new container
 	 *
-	 * @param	Array		$data
-	 * @return	Integer		New container ID
+	 * @param	array		$data
+	 * @return	integer		New container ID
 	 */
 	public static function addContainer(array $data) {
 		$data['type']	= TASK_TYPE_CONTAINER;
@@ -374,8 +374,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Update task status only (shortcut for updateTask)
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$newStatus
+	 * @param	integer		$idTask
+	 * @param	integer		$newStatus
 	 */
 	public static function updateTaskStatus($idTask, $newStatus) {
 		$data = array(
@@ -392,8 +392,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Update status of multiple tasks
 	 *
-	 * @param	Array		$taskIDs
-	 * @param	Integer		$status
+	 * @param	array		$taskIDs
+	 * @param	integer		$status
 	 */
 	public static function updateTaskStatuses(array $taskIDs, $status) {
 		$update	= array(
@@ -412,8 +412,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Update multiple tasks
 	 *
-	 * @param	Array		$taskIDs
-	 * @param	Array		$data
+	 * @param	array		$taskIDs
+	 * @param	array		$data
 	 */
 	public static function updateTasks(array $taskIDs, array $data) {
 		$taskIDs= TodoyuArray::intval($taskIDs);
@@ -434,8 +434,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get the project ID of a task
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Integer
+	 * @param	integer		$idTask
+	 * @return	integer
 	 */
 	public static function getProjectID($idTask) {
 		$idTask	= intval($idTask);
@@ -448,7 +448,7 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get the project object of a task
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @return	TodoyuProjectProject
 	 */
 	public static function getProject($idTask) {
@@ -463,7 +463,7 @@ class TodoyuProjectTaskManager {
 	 * Get the context menu items for a task/container
 	 *
 	 * @param	Int		$idTask
-	 * @param	Array	$items
+	 * @param	array	$items
 	 * @return	Array	Config array for context menu
 	 */
 	public static function getContextMenuItems($idTask, array $items) {
@@ -556,8 +556,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Remove empty parent menus if they have no sub entries
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Array		$items
+	 * @param	integer		$idTask
+	 * @param	array		$items
 	 * @return	Array
 	 */
 	public static function removeEmptyContextMenuParents($idTask, array $items) {
@@ -584,7 +584,7 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get the IDs of all sub tasks of a task
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function getSubTaskIDs($idTask) {
@@ -608,8 +608,8 @@ class TodoyuProjectTaskManager {
 	 * Get ALL sub tasks of a task (the whole tree, instead only the direct children)
 	 * Get also sub-sub-...-tasks
 	 *
-	 * @param	Integer			$idTask
-	 * @param	String|Boolean	$extraWhere
+	 * @param	integer			$idTask
+	 * @param	string|Boolean	$extraWhere
 	 * @return	Array
 	 */
 	public static function getAllSubTaskIDs($idTask, $extraWhere = false) {
@@ -646,8 +646,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get estimated workload of task
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Integer
+	 * @param	integer		$idTask
+	 * @return	integer
 	 */
 	public static function getEstimatedWorkload($idTask) {
 		$idTask	= intval($idTask);
@@ -660,8 +660,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get direct sub tasks (as data array) of given task (1 level)
 	 *
-	 * @param	Integer		$idTask
-	 * @param	String		$order
+	 * @param	integer		$idTask
+	 * @param	string		$order
 	 * @return	Array
 	 */
 	public static function getSubTasks($idTask, $order = 'date_create') {
@@ -682,8 +682,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get IDs of direct (1 level) sub tasks of given task
 	 *
-	 * @param	Integer		$idTask
-	 * @param	String		$order
+	 * @param	integer		$idTask
+	 * @param	string		$order
 	 * @return	Array
 	 */
 	public static function getSubTasksIDs($idTask, $order = 'sorting') {
@@ -705,8 +705,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Check whether a task has sub tasks
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function hasSubTasks($idTask) {
 		$idTask	= intval($idTask);
@@ -721,10 +721,10 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Check whether a task is a sub task of a task.
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$idParent
-	 * @param	Boolean		$checkDeep		TRUE: check all levels, FALSE: check only direct childs
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @param	integer		$idParent
+	 * @param	boolean		$checkDeep		TRUE: check all levels, FALSE: check only direct childs
+	 * @return	boolean
 	 */
 	public static function isSubTaskOf($idTask, $idParent, $checkDeep = false) {
 		$idTask		= intval($idTask);
@@ -744,8 +744,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Check whether task has a parent
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function hasParentTask($idTask) {
 		$idTask	= intval($idTask);
@@ -764,8 +764,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Check whether the given task is deleted
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isDeleted($idTask) {
 		return self::getTask($idTask)->isDeleted();
@@ -776,8 +776,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get all persons which are somehow connected with this task (and allowed to be seen by the current user)
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$withAccount
+	 * @param	integer		$idTask
+	 * @param	boolean		$withAccount
 	 * @return	Array
 	 */
 	public static function getTaskPersons($idTask, $withAccount = false) {
@@ -820,8 +820,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get IDs of persons which are assigned to the task
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$withAccount
+	 * @param	integer		$idTask
+	 * @param	boolean		$withAccount
 	 * @return	Array
 	 */
 	public static function getTaskPersonIDs($idTask, $withAccount = false) {
@@ -835,7 +835,7 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get task owner
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function getTaskOwner($idTask) {
@@ -856,7 +856,7 @@ class TodoyuProjectTaskManager {
 	 * Get all task data informations.
 	 * Information from all extensions are merged and the list is sorted
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function getAllTaskAttributes($idTask) {
@@ -872,8 +872,8 @@ class TodoyuProjectTaskManager {
 	 * Get info array for a task. This array contains the data from getTemplateData()
 	 * of the task and the data provided by all registered hooks
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$infoLevel
+	 * @param	integer		$idTask
+	 * @param	integer		$infoLevel
 	 * @return	Array
 	 */
 	public static function getTaskInfoArray($idTask, $infoLevel = 0) {
@@ -894,8 +894,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Attributes for task data list
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idTask
+	 * @param	array		$data
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function getTaskAttributes(array $data, $idTask) {
@@ -1029,9 +1029,9 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Add container info to task data
 	 *
-	 * @param	Array		$taskData
-	 * @param	Integer		$idTask
-	 * @param	Integer		$infoLevel
+	 * @param	array		$taskData
+	 * @param	integer		$idTask
+	 * @param	integer		$infoLevel
 	 * @return	Array
 	 */
 	public static function addContainerInfoToTaskData($taskData, $idTask, $infoLevel) {
@@ -1039,6 +1039,7 @@ class TodoyuProjectTaskManager {
 		$task		= self::getTask($idTask);
 
 			// Add special CSS class for containers
+            if(empty($taskData['class'])) $taskData['class'] = '';
 		if( $task->isContainer() ) {
 			$taskData['class'] .= ' container';
 		}
@@ -1051,7 +1052,7 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get all info icons
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function getAllTaskIcons($idTask) {
@@ -1071,7 +1072,7 @@ class TodoyuProjectTaskManager {
 	 * Get all task header extras
 	 * This extras will be displayed between the task label and the task number
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function getAllTaskHeaderExtras($idTask) {
@@ -1090,8 +1091,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get project task info icons
 	 *
-	 * @param	Array		$icons
-	 * @param	Integer		$idTask
+	 * @param	array		$icons
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function getTaskIcons(array $icons, $idTask) {
@@ -1149,7 +1150,7 @@ class TodoyuProjectTaskManager {
 	 * Remove a task from cache (only necessary if the task has been loaded from database
 	 * and updated after in the same request and needs to be loaded again
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 */
 	public static function removeTaskFromCache($idTask) {
 		$idTask	= intval($idTask);
@@ -1163,7 +1164,7 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Set task acknowledged
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 */
 	public static function setTaskAcknowledged($idTask) {
 		$idTask	= intval($idTask);
@@ -1182,8 +1183,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get task auto-completion label
 	 *
-	 * @param	Integer	$idTask
-	 * @return	String
+	 * @param	integer	$idTask
+	 * @return	string
 	 */
 	public static function getAutocompleteLabel($idTask) {
 		$idTask	= intval($idTask);
@@ -1205,12 +1206,12 @@ class TodoyuProjectTaskManager {
 	 * If personIDs given:	limit to tasks assigned to given persons
 	 * If statuses given:	limit to tasks with given statuses
 	 *
-	 * @param	Integer		$start
-	 * @param	Integer		$end
-	 * @param	Array		$statusIDs
-	 * @param	Array		$personIDs		(id_person_assigned)
-	 * @param	String		$limit
-	 * @param	Boolean		$getContainers
+	 * @param	integer		$start
+	 * @param	integer		$end
+	 * @param	array		$statusIDs
+	 * @param	array		$personIDs		(id_person_assigned)
+	 * @param	string		$limit
+	 * @param	boolean		$getContainers
 	 * @return	Array
 	 */
 	public static function getTasksInTimeSpan($start = 0, $end = 0, array $statusIDs = array(), array $personIDs = array(), $limit = '', $getContainers = false) {
@@ -1231,13 +1232,13 @@ class TodoyuProjectTaskManager {
 	 * If personIDs given:	limit to tasks assigned to given persons
 	 * If statuses given:	limit to tasks with given statuses
 	 *
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd
-	 * @param	Array		$projectIDs
-	 * @param	Array		$statusIDs
-	 * @param	Array		$personIDs		(id_person_assigned)
-	 * @param	String		$limit
-	 * @param	Boolean		$getContainers
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd
+	 * @param	array		$projectIDs
+	 * @param	array		$statusIDs
+	 * @param	array		$personIDs		(id_person_assigned)
+	 * @param	string		$limit
+	 * @param	boolean		$getContainers
 	 * @return	Array
 	 */
 	public static function getTaskIDsInTimeSpan($dateStart, $dateEnd, array $projectIDs = array(), array $statusIDs = array(), array $personIDs = array(), $limit = '', $getContainers = false) {
@@ -1264,12 +1265,12 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get WHERE clause for tasks in timespan query
 	 *
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd
-	 * @param	Array		$statusIDs
-	 * @param	Array		$personIDs
-	 * @param	Boolean		$getContainers
-	 * @return	String
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd
+	 * @param	array		$statusIDs
+	 * @param	array		$personIDs
+	 * @param	boolean		$getContainers
+	 * @return	string
 	 */
 	public static function getTasksInTimeSpanWhereClause($dateStart, $dateEnd, array $statusIDs = array(), array $personIDs = array(), $getContainers = false) {
 		$dateStart	= intval($dateStart);
@@ -1315,10 +1316,10 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get default task data values for a new task/container
 	 *
-	 * @param	Integer		$idParentTask
-	 * @param	Integer		$idProject
-	 * @param	Integer		$type
-	 * @param	Boolean		$isQuickTask
+	 * @param	integer		$idParentTask
+	 * @param	integer		$idProject
+	 * @param	integer		$type
+	 * @param	boolean		$isQuickTask
 	 * @return	Array
 	 */
 	public static function getTaskDefaultData($idParentTask = 0, $idProject = 0, $type = TASK_TYPE_TASK, $isQuickTask = false) {
@@ -1354,9 +1355,9 @@ class TodoyuProjectTaskManager {
 	 * Create a new task with default values and ID 0
 	 * After we have done this, we can access this template task by ID 0 over normal mechanism
 	 *
-	 * @param	Integer			$idParentTask		ID of the parent task (if it has one)
-	 * @param	Integer			$idProject			ID of the project. If task is in the root, there will be no parent task, so you have to give the project ID
-	 * @param	Integer			$type				Type of the new task
+	 * @param	integer			$idParentTask		ID of the parent task (if it has one)
+	 * @param	integer			$idProject			ID of the project. If task is in the root, there will be no parent task, so you have to give the project ID
+	 * @param	integer			$type				Type of the new task
 	 */
 	public static function createNewTaskWithDefaultsInCache($idParentTask, $idProject = 0, $type = TASK_TYPE_TASK) {
 		$idParentTask	= intval($idParentTask);
@@ -1379,7 +1380,7 @@ class TodoyuProjectTaskManager {
 	 * Set default task values if missing
 	 * Person may not be allowed to enter the values, so we use the defaults from taskpreset and extConf
 	 *
-	 * @param	Array		$taskData
+	 * @param	array		$taskData
 	 * @return	Array
 	 */
 	private static function setDefaultValuesForNotAllowedFields(array $taskData) {
@@ -1403,7 +1404,7 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Add values for required fields which are still missing
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array
 	 */
 	private static function applyMissingRequiredFields(array $data) {
@@ -1419,9 +1420,9 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get parent element date ranges. Parent means in this case container or project (not parent task)
 	 *
-	 * @param	Integer		$idTask			Task ID to check upwards from
-	 * @param	Integer		$idProject		Used for project range check, if task ID is 0
-	 * @param	Boolean		$checkSelf		Check element itself for container
+	 * @param	integer		$idTask			Task ID to check upwards from
+	 * @param	integer		$idProject		Used for project range check, if task ID is 0
+	 * @param	boolean		$checkSelf		Check element itself for container
 	 * @return	Array		[start,end]
 	 */
 	public static function getParentDateRanges($idTask, $idProject = 0, $checkSelf = false) {
@@ -1474,8 +1475,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get parent task ID
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Integer
+	 * @param	integer		$idTask
+	 * @return	integer
 	 */
 	public static function getParentTaskID($idTask) {
 		$idTask	= intval($idTask);
@@ -1494,8 +1495,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get the root line of a task (all parent task IDs)
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Integer[]
+	 * @param	integer		$idTask
+	 * @return	integer[]
 	 */
 	public static function getRootlineTaskIDs($idTask) {
 		$idTask		= intval($idTask);
@@ -1526,7 +1527,7 @@ class TodoyuProjectTaskManager {
 	 * Get array which contains all tasks in the rootline of a task
 	 * The task itself is the first element
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function getRootlineTasksData($idTask) {
@@ -1546,7 +1547,7 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get all tasks which are in the rootline of a task
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @return	TodoyuProjectTask[]
 	 */
 	public static function getRootlineTasks($idTask) {
@@ -1562,7 +1563,7 @@ class TodoyuProjectTaskManager {
 	 * Get parent task of a task
 	 * If there is no parent task (task is in project root), return false
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @return	TodoyuProjectTask	Or FALSE if there is no parent task
 	 */
 	public static function getParentTask($idTask) {
@@ -1583,8 +1584,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Check whether a task exists
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function taskExists($idTask) {
 		$idTask	= intval($idTask);
@@ -1599,9 +1600,9 @@ class TodoyuProjectTaskManager {
 	 * $mustExist is not set (default), only the format is checked.
 	 * If $mustExist is set, also a database request will check if this task exists
 	 *
-	 * @param	Integer		$fullTaskNumber			Identifier with project ID and task number
-	 * @param	Boolean		$mustExist				TRUE = Has to be in database
-	 * @return	Boolean
+	 * @param	integer		$fullTaskNumber			Identifier with project ID and task number
+	 * @param	boolean		$mustExist				TRUE = Has to be in database
+	 * @return	boolean
 	 */
 	public static function isTaskNumber($fullTaskNumber, $mustExist = false) {
 		$valid	= false;
@@ -1635,8 +1636,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Check whether string looks like a task number
 	 *
-	 * @param	String		$taskNumber
-	 * @return	Boolean
+	 * @param	string		$taskNumber
+	 * @return	boolean
 	 */
 	public static function isTaskNumberFormat($taskNumber) {
 		$taskNumber	= trim($taskNumber);
@@ -1650,8 +1651,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Check whether a task is visible (available for rendering)
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isTaskVisible($idTask) {
 		$idTask	= intval($idTask);
@@ -1672,8 +1673,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Check whether a task is expanded
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isTaskExpanded($idTask) {
 		$idTask	= intval($idTask);
@@ -1691,7 +1692,7 @@ class TodoyuProjectTaskManager {
 	 * Modify form for task edit
 	 *
 	 * @param	TodoyuForm		$form
-	 * @param	Integer			$idTask
+	 * @param	integer			$idTask
 	 * @return	TodoyuForm
 	 */
 	public static function hookModifyFormfieldsForTask(TodoyuForm $form, $idTask) {
@@ -1734,7 +1735,7 @@ class TodoyuProjectTaskManager {
 	 * Modify task form object for container editing
 	 *
 	 * @param	TodoyuForm	$taskForm			Task edit form object
-	 * @param	Integer		$idTask			Task ID
+	 * @param	integer		$idTask			Task ID
 	 * @return	TodoyuForm	Modified form object
 	 */
 	public static function hookModifyFormfieldsForContainer(TodoyuForm $taskForm, $idTask) {
@@ -1791,11 +1792,11 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Copy a task (set also a new parent)
 	 *
-	 * @param	Integer		$idTaskSource
-	 * @param	Integer		$idParent
-	 * @param	Boolean		$withSubTasks
-	 * @param	Integer		$idProject
-	 * @return	Integer
+	 * @param	integer		$idTaskSource
+	 * @param	integer		$idParent
+	 * @param	boolean		$withSubTasks
+	 * @param	integer		$idProject
+	 * @return	integer
 	 */
 	public static function copyTask($idTaskSource, $idParent, $withSubTasks = true, $idProject = 0) {
 		$idTaskSource	= intval($idTaskSource);
@@ -1843,8 +1844,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Check whether status is allowed for copied tasks
 	 *
-	 * @param	Integer		$status
-	 * @return	Boolean
+	 * @param	integer		$status
+	 * @return	boolean
 	 */
 	public static function isAllowedStatusForCopiedTask($status) {
 		$allowedStatuses	= TodoyuArray::assure(Todoyu::$CONFIG['EXT']['project']['allowedCopiedStatus']);
@@ -1857,9 +1858,9 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Move task to new position
 	 *
-	 * @param	Integer		$idTaskMove
-	 * @param	Integer		$idTaskRef
-	 * @param	String		$position
+	 * @param	integer		$idTaskMove
+	 * @param	integer		$idTaskRef
+	 * @param	string		$position
 	 */
 	public static function moveTask($idTaskMove, $idTaskRef, $position = 'in') {
 		if( $position === 'in' ) {
@@ -1875,9 +1876,9 @@ class TodoyuProjectTaskManager {
 	 * Insert a task as subtasks
 	 * Update the sorting position of the old and the new sorting group
 	 *
-	 * @param	Integer		$idTaskMove
-	 * @param	Integer		$idParentTask
-	 * @param	Integer		$idProject
+	 * @param	integer		$idTaskMove
+	 * @param	integer		$idParentTask
+	 * @param	integer		$idProject
 	 */
 	public static function insertAsSubtask($idTaskMove, $idParentTask, $idProject = 0) {
 		$taskMove	= self::getTask($idTaskMove);
@@ -1895,10 +1896,10 @@ class TodoyuProjectTaskManager {
 	 * Move a task. Change its parent
 	 * Move to another project is also supported
 	 *
-	 * @param	Integer		$idTaskMove				Task to move
-	 * @param	Integer		$idTaskParent		New parent task
-	 * @param	Integer		$idProject
-	 * @return	Integer
+	 * @param	integer		$idTaskMove				Task to move
+	 * @param	integer		$idTaskParent		New parent task
+	 * @param	integer		$idProject
+	 * @return	integer
 	 */
 	public static function changeTaskParent($idTaskMove, $idTaskParent, $idProject = 0) {
 		$idTaskMove		= intval($idTaskMove);
@@ -1949,9 +1950,9 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Clone given task
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$withSubTasks
-	 * @return	Integer
+	 * @param	integer		$idTask
+	 * @param	boolean		$withSubTasks
+	 * @return	integer
 	 */
 	public static function cloneTask($idTask, $withSubTasks = true) {
 		$idTask		= intval($idTask);
@@ -1968,10 +1969,10 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Change to sorting order of the tasks
 	 *
-	 * @param	Integer		$idTaskMove			Task which was moved
-	 * @param	Integer		$idTaskRef			Task which is the reference for after/before
-	 * @param	String		$moveMode			Mode: after or before
-	 * @return	Integer		New position
+	 * @param	integer		$idTaskMove			Task which was moved
+	 * @param	integer		$idTaskRef			Task which is the reference for after/before
+	 * @param	string		$moveMode			Mode: after or before
+	 * @return	integer		New position
 	 */
 	public static function changeTaskOrder($idTaskMove, $idTaskRef, $moveMode) {
 		$idTaskMove	= intval($idTaskMove);
@@ -2013,10 +2014,10 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Update the sorting for a group
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idParentTask		Parent task
-	 * @param	Integer		$refPosition		Reference position
-	 * @param	Boolean		$moveLowerUp		Shift every task one step to the top/bottom
+	 * @param	integer		$idProject
+	 * @param	integer		$idParentTask		Parent task
+	 * @param	integer		$refPosition		Reference position
+	 * @param	boolean		$moveLowerUp		Shift every task one step to the top/bottom
 	 */
 	public static function updateSortingGroup($idProject, $idParentTask, $refPosition, $moveLowerUp) {
 		$calc			= $moveLowerUp ? '-' : '+';
@@ -2038,8 +2039,8 @@ class TodoyuProjectTaskManager {
 	 * This is useful if you have task IDs from severals sources (filters) and
 	 * they should all be sorted by one field
 	 *
-	 * @param	Array		$taskIDs		Task IDs to sort
-	 * @param	String		$order			Order statement
+	 * @param	array		$taskIDs		Task IDs to sort
+	 * @param	string		$order			Order statement
 	 * @return	Array
 	 */
 	public static function sortTaskIDs(array $taskIDs, $order) {
@@ -2061,10 +2062,10 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Check whether a person is assigned to a task as owner or assigned person
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$idPerson
-	 * @param	Boolean		$checkCreator		Creator is an assigned person too
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @param	integer		$idPerson
+	 * @param	boolean		$checkCreator		Creator is an assigned person too
+	 * @return	boolean
 	 */
 	public static function isPersonAssigned($idTask, $idPerson = 0, $checkCreator = false) {
 		$idTask		= intval($idTask);
@@ -2092,9 +2093,9 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Check whether a person is assigned to the task's project
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function isPersonAssignedToProject($idTask, $idPerson = 0) {
 		$idTask		= intval($idTask);
@@ -2115,9 +2116,9 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Check whether a person is assigned to the task or the project
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function isPersonAssignedToTaskOrProject($idTask, $idPerson = 0) {
 		return self::isPersonAssigned($idTask, $idPerson) || self::isPersonAssignedToProject($idTask, $idPerson);
@@ -2128,10 +2129,10 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Set active project as project if new task is created in project area and no project is set (quicktask)
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$type
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idParentTask
+	 * @param	array		$data
+	 * @param	integer		$type
+	 * @param	integer		$idProject
+	 * @param	integer		$idParentTask
 	 * @return	Array
 	 */
 	public static function hookTaskDefaultDataFromEnvironment(array $data, $type, $idProject, $idParentTask = 0) {
@@ -2155,10 +2156,10 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Hook to load default task data from project preset
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$type
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idParentTask
+	 * @param	array		$data
+	 * @param	integer		$type
+	 * @param	integer		$idProject
+	 * @param	integer		$idParentTask
 	 * @return	Array
 	 */
 	public static function hookTaskDefaultDataFromPreset(array $data, $type, $idProject, $idParentTask = 0) {
@@ -2188,8 +2189,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Freeze a task
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Integer
+	 * @param	integer		$idTask
+	 * @return	integer
 	 */
 	public static function freeze($idTask) {
 		return TodoyuFreezeManager::freezeObject('TodoyuProjectTask', $idTask);
@@ -2200,8 +2201,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Unfreeze a task
 	 *
-	 * @param	Integer					$idTask
-	 * @return	Boolean|TodoyuProjectTask
+	 * @param	integer					$idTask
+	 * @return	boolean|TodoyuProjectTask
 	 */
 	public static function unfreeze($idTask) {
 		return TodoyuFreezeManager::unfreezeElement('TodoyuProjectTask', $idTask);
@@ -2212,8 +2213,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Lock a task
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$ext		ext ID
+	 * @param	integer		$idTask
+	 * @param	integer		$ext		ext ID
 	 */
 	public static function lockTask($idTask, $ext = EXTID_PROJECT) {
 		TodoyuLockManager::lock($ext, 'ext_project_task', $idTask);
@@ -2225,8 +2226,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Unlock a task
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$ext		ext ID
+	 * @param	integer		$idTask
+	 * @param	integer		$ext		ext ID
 	 */
 	public static function unlockTask($idTask, $ext = EXTID_PROJECT) {
 		TodoyuLockManager::unlock($ext, 'ext_project_task', $idTask);
@@ -2238,8 +2239,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Lock multiple tasks
 	 *
-	 * @param	Array		$taskIDs
-	 * @param	Integer		$ext		ext ID
+	 * @param	array		$taskIDs
+	 * @param	integer		$ext		ext ID
 	 */
 	public static function lockTasks(array $taskIDs, $ext = EXTID_PROJECT) {
 		foreach($taskIDs as $idTask) {
@@ -2252,8 +2253,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Unlock multiple tasks
 	 *
-	 * @param	Array		$taskIDs
-	 * @param	Integer		$ext		ext ID
+	 * @param	array		$taskIDs
+	 * @param	integer		$ext		ext ID
 	 */
 	public static function unlockTasks(array $taskIDs, $ext = EXTID_PROJECT) {
 		foreach($taskIDs as $idTask) {
@@ -2266,8 +2267,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Check whether task is locked
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isLocked($idTask) {
 		return TodoyuLockManager::isLocked('ext_project_task', $idTask);
@@ -2279,8 +2280,8 @@ class TodoyuProjectTaskManager {
 	 * Check if a container is locked
 	 * A container is not locked directly, but if a subtask is locked, the container is locked too
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function areSubtasksLocked($idTask) {
 		$idTask			= intval($idTask);
@@ -2298,8 +2299,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Link task IDs in given text
 	 *
-	 * @param	String		$text
-	 * @return	String
+	 * @param	string		$text
+	 * @return	string
 	 */
 	public static function linkTaskIDsInText($text) {
 		if( Todoyu::allowed('project', 'general:area') ) {
@@ -2316,8 +2317,8 @@ class TodoyuProjectTaskManager {
 	 * Callback to replace task number with link to task in project view
 	 * Match: 0=>all, 1=>before, 2=>number, 3=>after
 	 *
-	 * @param	Array		$matches
-	 * @return	String
+	 * @param	array		$matches
+	 * @return	string
 	 */
 	private static function callbackLinkTaskIDsInText(array $matches) {
 		$idTask			= TodoyuProjectTaskManager::getTaskIDByTaskNumber($matches[2]);
@@ -2343,8 +2344,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * if the time of task isn't set to midnight the dates in the task details are shown with time
 	 *
-	 * @param	Integer		$date
-	 * @return	String
+	 * @param	integer		$date
+	 * @return	string
 	 */
 	protected static function getTaskDetailsDateFormat($date) {
 		return date('Hi', $date) === '0000' ? 'date' : 'datetime';
@@ -2355,7 +2356,7 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get task tabs config array (labels parsed)
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function getTabs($idTask) {
@@ -2369,8 +2370,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get a tab configuration
 	 *
-	 * @param	String		$tabKey
-	 * @param	Integer		$typeID
+	 * @param	string		$tabKey
+	 * @param	integer		$typeID
 	 * @return	Array
 	 */
 	public static function getTabConfig($tabKey, $typeID = TASK_TYPE_TASK) {
@@ -2384,8 +2385,8 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get the tab which is active by default (if no preference is stored)
 	 *
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function getDefaultTab($idTask) {
 		$typeKey	= self::getTask($idTask)->getTypeKey();
@@ -2398,9 +2399,9 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get filtered task autocompletion suggestions to given input
 	 *
-	 * @param	String	$input
-	 * @param	Array	$formData
-	 * @param	String	$name
+	 * @param	string	$input
+	 * @param	array	$formData
+	 * @param	string	$name
 	 * @return	Array
 	 */
 	public static function autocompleteProjectTasks($input, array $formData, $name = '') {
@@ -2435,9 +2436,9 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get task autocomplete list
 	 *
-	 * @param	String		$input
-	 * @param	Array		$formData
-	 * @param	String		$name
+	 * @param	string		$input
+	 * @param	array		$formData
+	 * @param	string		$name
 	 * @return	Array
 	 */
 	public static function autocompleteTasks($input, array $formData, $name = '') {
@@ -2456,10 +2457,10 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get task edit form
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$type
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idParentTask
+	 * @param	integer		$idTask
+	 * @param	integer		$type
+	 * @param	integer		$idProject
+	 * @param	integer		$idParentTask
 	 * @return	TodoyuForm
 	 */
 	public static function getTaskEditForm($idTask, $type = TASK_TYPE_TASK, $idProject = 0, $idParentTask = 0) {
@@ -2501,9 +2502,9 @@ class TodoyuProjectTaskManager {
 	/**
 	 * Get task label
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$full
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @param	boolean		$full
+	 * @return	string
 	 */
 	public static function getLabel($idTask, $full = false) {
 		return self::getTask($idTask)->getLabel($full);

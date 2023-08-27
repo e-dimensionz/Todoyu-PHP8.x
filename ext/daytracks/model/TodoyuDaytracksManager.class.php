@@ -76,8 +76,8 @@ class TodoyuDaytracksManager {
 	 * Check whether a task has already been tracked today
 	 * (has a record in the database)
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isTaskTrackedToday($idTask) {
 		$idTask	= intval($idTask);
@@ -135,9 +135,9 @@ class TodoyuDaytracksManager {
 	/**
 	 * Callback to render the daytracks panelwidget content
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$info		Don't care
-	 * @return	String		Content of panelwidget
+	 * @param	integer		$idTask
+	 * @param	boolean		$info		Don't care
+	 * @return	string		Content of panelwidget
 	 */
 	public static function callbackTrackingToggle($idTask, $info) {
 		/** @var	TodoyuDaytracksPanelWidgetDaytracks $panelWidget */

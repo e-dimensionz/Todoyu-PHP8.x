@@ -36,8 +36,8 @@ class TodoyuCalendarEventAssignmentManager {
 	/**
 	 * Get assignment by person-event combination
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
 	 * @return	TodoyuCalendarEventAssignment
 	 */
 	public static function getAssignmentByEventPerson($idEvent, $idPerson = 0) {
@@ -51,9 +51,9 @@ class TodoyuCalendarEventAssignmentManager {
 	/**
 	 * Get ID of assignment by event and person
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	public static function getAssignmentIdByAssignment($idEvent, $idPerson = 0) {
 		$idEvent	= intval($idEvent);
@@ -73,7 +73,7 @@ class TodoyuCalendarEventAssignmentManager {
 	/**
 	 * Get person event assignment
 	 *
-	 * @param	Integer		$idAssignment
+	 * @param	integer		$idAssignment
 	 * @return	TodoyuCalendarEventAssignment
 	 */
 	public static function getAssignment($idAssignment) {
@@ -87,10 +87,10 @@ class TodoyuCalendarEventAssignmentManager {
 	/**
 	 * Update reminder dates
 	 *
-	 * @param	Integer			$idEvent
-	 * @param	Integer			$idPerson
-	 * @param	Integer|Boolean	$dateEmail
-	 * @param	Integer|Boolean	$datePopup
+	 * @param	integer			$idEvent
+	 * @param	integer			$idPerson
+	 * @param	integer|Boolean	$dateEmail
+	 * @param	integer|Boolean	$datePopup
 	 */
 	public static function updateReminderDates($idEvent, $idPerson = 0, $dateEmail = false, $datePopup = false) {
 		$idEvent	= intval($idEvent);
@@ -120,8 +120,8 @@ class TodoyuCalendarEventAssignmentManager {
 	/**
 	 * Remove the given person's assignment from the given event
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
 	 */
 	public static function removeAssignment($idEvent, $idPerson = 0) {
 		$idEvent	= intval($idEvent);
@@ -139,8 +139,8 @@ class TodoyuCalendarEventAssignmentManager {
 	 * Reset acknowledge flag of event assignment. Event will be show as "new"
 	 * By default, the current user will not be reset, he should already now
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Boolean		$resetForCurrentUser		Reset also for current user
+	 * @param	integer		$idEvent
+	 * @param	boolean		$resetForCurrentUser		Reset also for current user
 	 */
 	public static function resetAcknowledgment($idEvent, $resetForCurrentUser = false) {
 		$idEvent= intval($idEvent);
@@ -161,7 +161,7 @@ class TodoyuCalendarEventAssignmentManager {
 	/**
 	 * Get IDs of persons which are assigned to the event
 	 *
-	 * @param	Integer		$idEvent
+	 * @param	integer		$idEvent
 	 * @return	Array
 	 */
 	public static function getAssignedPersonIDs($idEvent) {
@@ -178,7 +178,7 @@ class TodoyuCalendarEventAssignmentManager {
 	/**
 	 * Remove all person assignments from an event
 	 *
-	 * @param	Integer		$idEvent
+	 * @param	integer		$idEvent
 	 */
 	public static function removeAllAssignments($idEvent) {
 		$idEvent= intval($idEvent);
@@ -192,8 +192,8 @@ class TodoyuCalendarEventAssignmentManager {
 	/**
 	 * Set given event acknowledged by given person
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
 	 */
 	public static function acknowledgeEvent($idEvent, $idPerson = 0) {
 		$idEvent	= intval($idEvent);
@@ -213,9 +213,9 @@ class TodoyuCalendarEventAssignmentManager {
 	/**
 	 * Update an assignment
 	 *
-	 * @param	Integer		$idAssignment
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idAssignment
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function updateAssignment($idAssignment, array $data) {
 		$idAssignment	= intval($idAssignment);
@@ -228,10 +228,10 @@ class TodoyuCalendarEventAssignmentManager {
 	/**
 	 * Update an assignment by event person combination
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function updateAssignmentByAssignment($idEvent, $idPerson, array $data) {
 		$idEvent	= intval($idEvent);

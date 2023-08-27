@@ -1,13 +1,13 @@
-<h5>{Label contact.panelwidget-staffselector.selection}</h5>
+<h5>{Label text='contact.panelwidget-staffselector.selection'}</h5>
 <ul class="selection" id="panelwidget-staffselector-selection">
-	{foreach $items item}
+	{foreach $items as $item}
 		<li id="panelwidget-{$id}-item-{$item.id}" class="{$item.class}">
 			<a href="javascript:void(0)" {if $item.title}title="{$item.title}"{/if}>
-				{htmlencode $item.label}
+				{$item.label|escape}
 			</a>
 		</li>
-	{else}
-		<p>{Label contact.panelwidget-staffselector.selection.empty}</p>
+	{foreachelse}
+		<p>{Label text='contact.panelwidget-staffselector.selection.empty'}</p>
 	{/foreach}
 </ul>
 

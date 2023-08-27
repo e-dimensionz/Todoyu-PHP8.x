@@ -56,8 +56,8 @@ class TodoyuImapServerMessagePartMultipart extends TodoyuImapServerMessagePart {
 	/**
 	 * Save part content as attachment file
 	 *
-	 * @param	Integer		$idMessage
-	 * @return	Integer		Attachment ID
+	 * @param	integer		$idMessage
+	 * @return	integer		Attachment ID
 	 */
 	public function saveAsAttachment($idMessage) {
 		return TodoyuImapAttachmentManager::addAttachment($idMessage, $this->getAttachmentName(), $this->getContent());
@@ -68,8 +68,8 @@ class TodoyuImapServerMessagePartMultipart extends TodoyuImapServerMessagePart {
 	/**
 	 * Get message part content
 	 *
-	 * @param	Integer		$options
-	 * @return	String
+	 * @param	integer		$options
+	 * @return	string
 	 */
 	public function getContent($options = 0) {
 		$options |= FT_PEEK; // Don't set as seen
@@ -91,7 +91,7 @@ class TodoyuImapServerMessagePartMultipart extends TodoyuImapServerMessagePart {
 	/**
 	 * Get attachment name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getAttachmentName() {
 		return 'message.eml';

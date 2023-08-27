@@ -36,7 +36,7 @@ class TodoyuCalendarHoliday extends TodoyuBaseObject {
 	/**
 	 * Constructor
 	 *
-	 * @param	Integer		$idHoliday
+	 * @param	integer		$idHoliday
 	 */
 	public function __construct($idHoliday) {
 		$idHoliday	= intval($idHoliday);
@@ -49,7 +49,7 @@ class TodoyuCalendarHoliday extends TodoyuBaseObject {
 	/**
 	 * Get title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle() {
 		return $this->get('title');
@@ -60,7 +60,7 @@ class TodoyuCalendarHoliday extends TodoyuBaseObject {
 	/**
 	 * Get holiday label
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLabel() {
 		return $this->getTitle();
@@ -71,7 +71,7 @@ class TodoyuCalendarHoliday extends TodoyuBaseObject {
 	/**
 	 * Get date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDate() {
 		return $this->getInt('date');
@@ -82,7 +82,7 @@ class TodoyuCalendarHoliday extends TodoyuBaseObject {
 	/**
 	 * Get description
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDescripion() {
 		return $this->get('description');
@@ -93,7 +93,7 @@ class TodoyuCalendarHoliday extends TodoyuBaseObject {
 	/**
 	 * Get working time
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getWorkingTime() {
 		return $this->getInt('workingtime');
@@ -113,7 +113,7 @@ class TodoyuCalendarHoliday extends TodoyuBaseObject {
 	/**
 	 * Get template data for holiday
 	 *
-	 * @param	Boolean		$loadForeignData
+	 * @param	boolean		$loadForeignData
 	 * @return	Array
 	 */
 	public function getTemplateData($loadForeignData	= false) {

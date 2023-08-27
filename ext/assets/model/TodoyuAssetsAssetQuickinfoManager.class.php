@@ -30,7 +30,7 @@ class TodoyuAssetsAssetQuickInfoManager {
 	 * Add items to asset quickinfo
 	 *
 	 * @param	TodoyuQuickinfo		$quickInfo
-	 * @param	Integer				$idAsset
+	 * @param	integer				$idAsset
 	 */
 	public static function addAssetInfos(TodoyuQuickinfo $quickInfo, $idAsset) {
 		$idAsset= intval($idAsset);

@@ -40,7 +40,7 @@ class TodoyuCache {
 	/**
 	 * Get element from cache
 	 *
-	 * @param	String		$key		Unique key
+	 * @param	string		$key		Unique key
 	 * @return	Mixed		Whatever is stored in the cache under the key
 	 */
 	public static function get($key) {
@@ -52,7 +52,7 @@ class TodoyuCache {
 	/**
 	 * Store data in cache identified by key
 	 *
-	 * @param	String		$key
+	 * @param	string		$key
 	 * @param	Mixed		$data
 	 */
 	public static function set($key, $data) {
@@ -66,7 +66,7 @@ class TodoyuCache {
 	/**
 	 * Remove element from cache
 	 *
-	 * @param	String		$key
+	 * @param	string		$key
 	 */
 	public static function remove($key) {
 		unset(self::$cache[$key]);
@@ -77,8 +77,8 @@ class TodoyuCache {
 	/**
 	 * Check if something is stored under $key
 	 *
-	 * @param	String		$key
-	 * @return	Boolean
+	 * @param	string		$key
+	 * @return	boolean
 	 */
 	public static function isIn($key) {
 		return self::$enabled ? array_key_exists($key, self::$cache) : false;

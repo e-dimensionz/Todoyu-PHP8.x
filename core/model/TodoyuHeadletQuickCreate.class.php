@@ -69,7 +69,7 @@ class TodoyuHeadletQuickCreate extends TodoyuHeadletTypeMenu {
 	/**
 	 * Get headlet label
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLabel() {
 		return Todoyu::Label('core.global.quickcreate.title');
@@ -80,7 +80,7 @@ class TodoyuHeadletQuickCreate extends TodoyuHeadletTypeMenu {
 	/**
 	 * Check if no items are available in the create menu
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isEmpty() {
 		return sizeof($this->getMenuItems()) === 0;

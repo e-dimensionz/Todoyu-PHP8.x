@@ -36,11 +36,11 @@ abstract class TodoyuPanelWidgetSearchBox extends TodoyuPanelWidget {
 	/**
 	 * Initialize
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$panelWidgetKey
-	 * @param	String		$title
-	 * @param	Array		$config
-	 * @param	Array		$params
+	 * @param	string		$extKey
+	 * @param	string		$panelWidgetKey
+	 * @param	string		$title
+	 * @param	array		$config
+	 * @param	array		$params
 	 */
 	public function __construct($extKey, $panelWidgetKey, $title, array $config, array $params = array()) {
 		parent::__construct(
@@ -59,7 +59,7 @@ abstract class TodoyuPanelWidgetSearchBox extends TodoyuPanelWidget {
 	/**
 	 * Set js object
 	 *
-	 * @param	String		$jsObject
+	 * @param	string		$jsObject
 	 */
 	protected function setJsObject($jsObject) {
 		$this->jsObject = $jsObject;
@@ -70,7 +70,7 @@ abstract class TodoyuPanelWidgetSearchBox extends TodoyuPanelWidget {
 	/**
 	 * Get template
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getTemplate() {
 		return 'core/view/panelwidget-searchbox.tmpl';
@@ -96,7 +96,7 @@ abstract class TodoyuPanelWidgetSearchBox extends TodoyuPanelWidget {
 	/**
 	 * Build js ini code for panelwidget
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getJsObjectInitCode() {
 		return '(function(){Todoyu.R[\'panelwidgetsearchbox-' . $this->getID() . '\'] = new ' . $this->jsObject . '();})()';
@@ -107,7 +107,7 @@ abstract class TodoyuPanelWidgetSearchBox extends TodoyuPanelWidget {
 	/**
 	 * Render content of contact search panel widget
 	 *
-	 * @return String
+	 * @return string
 	 */
 	public function renderContent() {
 		return Todoyu::render($this->getTemplate(), $this->getContentData());
@@ -118,7 +118,7 @@ abstract class TodoyuPanelWidgetSearchBox extends TodoyuPanelWidget {
 	/**
 	 * Check whether using the search widget is allowed to current logged in person
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		return true;
@@ -129,7 +129,7 @@ abstract class TodoyuPanelWidgetSearchBox extends TodoyuPanelWidget {
 	/**
 	 * Get search word
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	abstract protected function getSearchWord();
 

@@ -29,9 +29,9 @@ class TodoyuProjectProjectFilterDataSource {
 	/**
 	 * Search for projects by given search string from the auto-completion
 	 *
-	 * @param	String	$input
-	 * @param	Array	$formData
-	 * @param	String	$name
+	 * @param	string	$input
+	 * @param	array	$formData
+	 * @param	string	$name
 	 * @return	Array				array (id => label)
 	 */
 	public static function autocompleteProjects($input, array $formData = array(), $name = '') {
@@ -58,9 +58,9 @@ class TodoyuProjectProjectFilterDataSource {
 	/**
 	 * Search for projects in which adding of tasks is allowed by given search string from the auto-completion
 	 *
-	 * @param	String	$input
-	 * @param	Array	$formData
-	 * @param	String	$name
+	 * @param	string	$input
+	 * @param	array	$formData
+	 * @param	string	$name
 	 * @return	Array				array (id => label)
 	 */
 	public static function autocompleteTaskAddableProjects($input, array $formData = array(), $name = '') {
@@ -87,7 +87,7 @@ class TodoyuProjectProjectFilterDataSource {
 	/**
 	 * Get project records with given IDs
 	 *
-	 * @param	Array	$projectIDs
+	 * @param	array	$projectIDs
 	 * @return	Array
 	 */
 	private static function getProjects(array $projectIDs = array()) {
@@ -108,7 +108,7 @@ class TodoyuProjectProjectFilterDataSource {
 	/**
 	 * Gets the label for the current autocompletion value.
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public function getLabel($definitions) {
@@ -130,7 +130,7 @@ class TodoyuProjectProjectFilterDataSource {
 	/**
 	 * Prepares the options of project-status for rendering in the widget.
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getStatusOptions(array $definitions) {
@@ -154,7 +154,7 @@ class TodoyuProjectProjectFilterDataSource {
 	/**
 	 * Dynamic date options
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getDynamicDateOptions($definitions) {

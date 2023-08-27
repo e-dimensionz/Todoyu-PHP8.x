@@ -20,7 +20,7 @@ sha1					http://www.webtoolkit.info/javascript-sha1.html
 PHP
 -------------------------------------------------------------------------
 CssMin					http://code.google.com/p/cssmin/
-Dwoo					http://dwoo.org/
+Smarty					http://smarty.net/
 FirePhpCore				http://code.google.com/p/firephp/
 JsMin					http://code.google.com/p/minify/
 Mobile_Detect           https://github.com/serbanghita/Mobile-Detect

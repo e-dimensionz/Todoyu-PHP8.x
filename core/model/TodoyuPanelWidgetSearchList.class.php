@@ -39,8 +39,8 @@ abstract class TodoyuPanelWidgetSearchList extends TodoyuPanelWidget {
 	/**
 	 * Render content of the search list
 	 *
-	 * @param	Boolean		$listOnly
-	 * @return	String
+	 * @param	boolean		$listOnly
+	 * @return	string
 	 */
 	public function renderContent($listOnly = false) {
 		$this->addClass('searchList');
@@ -65,7 +65,7 @@ abstract class TodoyuPanelWidgetSearchList extends TodoyuPanelWidget {
 	/**
 	 * Render search list
 	 *
-	 * @return String
+	 * @return string
 	 */
 	public function renderList() {
 		return $this->renderContent(true);
@@ -76,7 +76,7 @@ abstract class TodoyuPanelWidgetSearchList extends TodoyuPanelWidget {
 	/**
 	 * Get template to render the search list
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getTemplate() {
 		return 'core/view/panelwidget-searchlist.tmpl';
@@ -104,7 +104,7 @@ abstract class TodoyuPanelWidgetSearchList extends TodoyuPanelWidget {
 	/**
 	 * Render filter form
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function renderSearchForm() {
 		$xmlPath= 'core/config/form/panelwidget-searchlist.xml';
@@ -126,7 +126,7 @@ abstract class TodoyuPanelWidgetSearchList extends TodoyuPanelWidget {
 	/**
 	 * Set javascript object which handles the selector
 	 *
-	 * @param	String		$jsObject
+	 * @param	string		$jsObject
 	 */
 	protected function setJsObject($jsObject) {
 		$this->jsObject = $jsObject;
@@ -137,7 +137,7 @@ abstract class TodoyuPanelWidgetSearchList extends TodoyuPanelWidget {
 	/**
 	 * Get extension ID of the panel widget
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	protected function getExtID() {
 		return TodoyuExtensions::getExtID($this->get('ext'));
@@ -148,7 +148,7 @@ abstract class TodoyuPanelWidgetSearchList extends TodoyuPanelWidget {
 	/**
 	 * Save the entered search text as user preference
 	 *
-	 * @param	String		$search
+	 * @param	string		$search
 	 */
 	public function saveSearchText($search) {
 		$pref	= 'panelwidgetsearchlist-' . $this->getID() . '-search';
@@ -162,7 +162,7 @@ abstract class TodoyuPanelWidgetSearchList extends TodoyuPanelWidget {
 	/**
 	 * Get search text from prefs
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getSearchText() {
 		$pref		= 'panelwidgetsearchlist-' . $this->getID() . '-search';

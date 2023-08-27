@@ -51,7 +51,7 @@ class TodoyuCalendarDataSourceBirthday extends TodoyuCalendarDataSource {
 	/**
 	 * Get amount of birthdays
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getEventCount() {
 		$personIDs	= $this->getBirthdayPersonIDs();
@@ -63,7 +63,7 @@ class TodoyuCalendarDataSourceBirthday extends TodoyuCalendarDataSource {
 
 	/**
 	 * Search for birthdays
-	 * @param	String		$searchWord
+	 * @param	string		$searchWord
 	 * @return	TodoyuCalendarEvent[]
 	 */
 	public function searchEvents($searchWord) {
@@ -75,7 +75,7 @@ class TodoyuCalendarDataSourceBirthday extends TodoyuCalendarDataSource {
 	/**
 	 * Get day event filter value
 	 *
-	 * @return	Boolean|Null
+	 * @return	boolean|Null
 	 */
 	private function getDayEventsFlag() {
 		return $this->getFilter('dayevents');
@@ -86,7 +86,7 @@ class TodoyuCalendarDataSourceBirthday extends TodoyuCalendarDataSource {
 	/**
 	 * Check whether day events filter value is true
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	private function areDayEventsEnabled() {
 		return $this->getDayEventsFlag() !== false;
@@ -97,7 +97,7 @@ class TodoyuCalendarDataSourceBirthday extends TodoyuCalendarDataSource {
 	/**
 	 * Check whether event type birthday is selected
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	private function isBirthdayEventTypeSelected() {
 		return in_array(EVENTTYPE_BIRTHDAY, $this->getEventTypes());
@@ -119,7 +119,7 @@ class TodoyuCalendarDataSourceBirthday extends TodoyuCalendarDataSource {
 	/**
 	 * Get IDs of persons which birthdays are in the range
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	private function getBirthdayPersonIDs() {
 		$birthdayPersonsData= TodoyuContactPersonManager::getBirthdayPersons($this->getRange());
@@ -133,7 +133,7 @@ class TodoyuCalendarDataSourceBirthday extends TodoyuCalendarDataSource {
 	/**
 	 * Get a birthday event by person ID
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	TodoyuCalendarEventBirthday
 	 */
 	public static function getEvent($idPerson) {

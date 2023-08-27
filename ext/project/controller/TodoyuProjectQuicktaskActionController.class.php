@@ -29,7 +29,7 @@ class TodoyuProjectQuicktaskActionController extends TodoyuActionController {
 	/**
 	 * Initialize controller: restrict access (project extension must be allowed)
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('project', 'general:use');
@@ -40,8 +40,8 @@ class TodoyuProjectQuicktaskActionController extends TodoyuActionController {
 	/**
 	 * Get quicktask form rendered
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function popupAction(array $params) {
 		$idProject	= intval($params['project']);
@@ -72,7 +72,7 @@ class TodoyuProjectQuicktaskActionController extends TodoyuActionController {
 	/**
 	 * Save quick task
 	 *
-	 * @param	Array			$params
+	 * @param	array			$params
 	 * @return	Void|String		Failure returns re-rendered form with error messages
 	 */
 	public function saveAction(array $params) {

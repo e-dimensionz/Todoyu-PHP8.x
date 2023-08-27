@@ -30,8 +30,8 @@ class TodoyuProjectQuickTaskManager {
 	/**
 	 * Get quicktask form which is customized for current user
 	 *
-	 * @param	Integer			$idProject
-	 * @param	Array			$formData
+	 * @param	integer			$idProject
+	 * @param	array			$formData
 	 * @return	TodoyuForm
 	 */
 	public static function getQuickTaskForm($idProject = 0, array $formData = array()) {
@@ -91,8 +91,8 @@ class TodoyuProjectQuickTaskManager {
 	/**
 	 * Adds mandatory task data to that received from quicktask form, saves new task to DB
 	 *
-	 * @param	Array	$formData
-	 * @return	Integer
+	 * @param	array	$formData
+	 * @return	integer
 	 */
 	public static function save(array $formData) {
 			// Add empty task to have a task ID to work with
@@ -157,7 +157,7 @@ class TodoyuProjectQuickTaskManager {
 	 * Get first available activity ID
 	 * If no activity is entered and no default is defined, we just use the first one
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	private static function getFirstAvailableActivityID() {
 		$field	= 'id';

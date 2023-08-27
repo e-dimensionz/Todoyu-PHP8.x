@@ -35,7 +35,7 @@ class TodoyuRoleManager {
 	/**
 	 * Get a role object
 	 *
-	 * @param	Integer		$idRole
+	 * @param	integer		$idRole
 	 * @return	TodoyuRole
 	 */
 	public static function getRole($idRole) {
@@ -49,8 +49,8 @@ class TodoyuRoleManager {
 	/**
 	 * Get label (title) of role with given ID
 	 *
-	 * @param	Integer		$idRole
-	 * @return	String
+	 * @param	integer		$idRole
+	 * @return	string
 	 */
 	public static function getLabel($idRole) {
 		$role	= self::getRole($idRole);
@@ -63,7 +63,7 @@ class TodoyuRoleManager {
 	/**
 	 * Get informations about the roles defined in $groupIDs
 	 *
-	 * @param	Array		$roleIDs		IDs of the groups to the get information from
+	 * @param	array		$roleIDs		IDs of the groups to the get information from
 	 * @return	Array
 	 */
 	public static function getRoles(array $roleIDs) {
@@ -86,7 +86,7 @@ class TodoyuRoleManager {
 	/**
 	 * Get all usergroups
 	 *
-	 * @param	Boolean		$onlyActive
+	 * @param	boolean		$onlyActive
 	 * @return	Array
 	 */
 	public static function getAllRoles($onlyActive = false) {
@@ -104,8 +104,8 @@ class TodoyuRoleManager {
 	/**
 	 * Add a new role
 	 *
-	 * @param	Array		$data
-	 * @return	Integer		New role ID
+	 * @param	array		$data
+	 * @return	integer		New role ID
 	 */
 	public static function addRole(array $data = array()) {
 		unset($data['id']);
@@ -121,9 +121,9 @@ class TodoyuRoleManager {
 	/**
 	 * Update a usergroup
 	 *
-	 * @param	Integer		$idRole
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idRole
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function updateRole($idRole, array $data) {
 		$idRole	= (int) $idRole;
@@ -136,8 +136,8 @@ class TodoyuRoleManager {
 	/**
 	 * Assign multiple persons to an event
 	 *
-	 * @param	Integer		$idRole
-	 * @param	Array		$personIDs
+	 * @param	integer		$idRole
+	 * @param	array		$personIDs
 	 */
 	public static function assignPersonsToRole($idRole, array $personIDs) {
 		$idRole		= (int) $idRole;
@@ -153,8 +153,8 @@ class TodoyuRoleManager {
 	/**
 	 * Assign a single person to a role
 	 *
-	 * @param	Integer		$idRole
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idRole
+	 * @param	integer		$idPerson
 	 */
 	public static function assignPersonToRole($idRole, $idPerson) {
 		$idRole		= (int) $idRole;
@@ -174,7 +174,7 @@ class TodoyuRoleManager {
 	/**
 	 * Remove role from cache
 	 *
-	 * @param	Integer		$idRole
+	 * @param	integer		$idRole
 	 */
 	public static function removeRoleFromCache($idRole) {
 		$idRole = (int) $idRole;
@@ -188,8 +188,8 @@ class TodoyuRoleManager {
 	/**
 	 * Save role (add or update)
 	 *
-	 * @param	Array		$data
-	 * @return	Integer		Role ID
+	 * @param	array		$data
+	 * @return	integer		Role ID
 	 */
 	public static function saveRole(array $data) {
 		$xmlPath= 'ext/sysmanager/config/form/role.xml';
@@ -222,8 +222,8 @@ class TodoyuRoleManager {
 	/**
 	 * Save foreign records of a usergroup
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idRole
+	 * @param	array		$data
+	 * @param	integer		$idRole
 	 * @return	Array
 	 */
 	public static function saveRoleForeignRecords(array $data, $idRole) {
@@ -246,8 +246,8 @@ class TodoyuRoleManager {
 	/**
 	 * Remove an user from a role
 	 *
-	 * @param	Integer		$idRole
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idRole
+	 * @param	integer		$idPerson
 	 */
 	public static function removePerson($idRole, $idPerson) {
 		$idRole		= (int) $idRole;
@@ -261,7 +261,7 @@ class TodoyuRoleManager {
 	/**
 	 * Remove all users from a role
 	 *
-	 * @param	Integer		$idRole
+	 * @param	integer		$idRole
 	 */
 	public static function removePersons($idRole) {
 		$idRole	= (int) $idRole;
@@ -274,7 +274,7 @@ class TodoyuRoleManager {
 	/**
 	 * Remove all roles for a person
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 */
 	public static function removeRoles($idPerson) {
 		$idPerson= (int) $idPerson;
@@ -287,8 +287,8 @@ class TodoyuRoleManager {
 	/**
 	 * Add a user to a usergroup
 	 *
-	 * @param	Integer		$idRole
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idRole
+	 * @param	integer		$idPerson
 	 */
 	public static function addPerson($idRole, $idPerson) {
 		$idRole		= (int) $idRole;
@@ -304,8 +304,8 @@ class TodoyuRoleManager {
 	/**
 	 * Add users to a usergroup
 	 *
-	 * @param	Integer		$idRole
-	 * @param	Array		$personIDs
+	 * @param	integer		$idRole
+	 * @param	array		$personIDs
 	 */
 	public static function addPersons($idRole, array $personIDs) {
 		$idRole		= (int) $idRole;
@@ -322,8 +322,8 @@ class TodoyuRoleManager {
 	/**
 	 * Add an user to multiple groups
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Array		$roleIDs
+	 * @param	integer		$idPerson
+	 * @param	array		$roleIDs
 	 */
 	public static function addPersonToRoles($idPerson, array $roleIDs) {
 		$idPerson	= (int) $idPerson;
@@ -337,8 +337,8 @@ class TodoyuRoleManager {
 	/**
 	 * Delete role (set deleted flag to 1)
 	 *
-	 * @param	Integer		$idRole
-	 * @return	Boolean
+	 * @param	integer		$idRole
+	 * @return	boolean
 	 */
 	public static function deleteRole($idRole) {
 		return TodoyuRecordManager::deleteRecord(self::TABLE, $idRole);
@@ -349,7 +349,7 @@ class TodoyuRoleManager {
 	/**
 	 * Get IDs of the group persons
 	 *
-	 * @param	Integer		$idRole
+	 * @param	integer		$idRole
 	 * @return	Array
 	 */
 	public static function getPersonIDs($idRole) {
@@ -369,8 +369,8 @@ class TodoyuRoleManager {
 	/**
 	 * Get number of persons in the group
 	 *
-	 * @param	Integer		$idRole
-	 * @return	Integer
+	 * @param	integer		$idRole
+	 * @return	integer
 	 */
 	public static function getNumPersons($idRole) {
 		$idRole		= (int) $idRole;
@@ -384,7 +384,7 @@ class TodoyuRoleManager {
 	/**
 	 * Get array with group users
 	 *
-	 * @param	Integer		$idRole
+	 * @param	integer		$idRole
 	 * @return	Array
 	 */
 	public static function getPersonData($idRole) {

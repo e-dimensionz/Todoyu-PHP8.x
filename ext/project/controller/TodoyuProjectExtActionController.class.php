@@ -29,7 +29,7 @@ class TodoyuProjectExtActionController extends TodoyuActionController {
 	/**
 	 * Initialize controller: restrict access (project extension must be allowed)
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('project', 'general:use');
@@ -40,8 +40,8 @@ class TodoyuProjectExtActionController extends TodoyuActionController {
 	/**
 	 * Default action: render project module page
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function defaultAction(array $params) {
 		Todoyu::restrict('project', 'general:area');
@@ -50,9 +50,9 @@ class TodoyuProjectExtActionController extends TodoyuActionController {
 		TodoyuFrontend::setActiveTab('project');
 
 			// Get deepLink parameters
-		$idProject	= intval($params['project']);
-		$idTask		= intval($params['task']);
-		$taskTab	= $params['tab'];
+		$idProject	= intval($params['project'] ?? 0);
+		$idTask		= intval($params['task'] ?? 0);
+		$taskTab	= $params['tab'] ?? null;
 
 			// Find project if only the task is given as parameter
 		if( $idTask !== 0 && $idProject === 0 ) {
@@ -135,8 +135,8 @@ class TodoyuProjectExtActionController extends TodoyuActionController {
 	 * Controller to handle direct edit access. Calls the default action first to render the whole site.
 	 * After loading the site the JS-edit method is called.
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function editAction(array $params) {
 		$idProject = intval($params['project']);
@@ -154,8 +154,8 @@ class TodoyuProjectExtActionController extends TodoyuActionController {
 	 * Controller to handle direct add task access. Calls the default action first to render the whole site.
 	 * After loading the site the JS-addTask method is called.
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function addtaskAction(array $params) {
 		$idProject = intval($params['project']);
@@ -173,8 +173,8 @@ class TodoyuProjectExtActionController extends TodoyuActionController {
 	 * Controller to handle direct add container access. Calls the default action first to render the whole site
 	 * After loading the site the JS-addContainer method is called.
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function addcontainerAction(array $params) {
 		$idProject = intval($params['project']);

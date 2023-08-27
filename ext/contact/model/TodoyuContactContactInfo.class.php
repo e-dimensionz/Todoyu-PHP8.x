@@ -29,7 +29,7 @@ class TodoyuContactContactInfo extends TodoyuBaseObject {
 	/**
 	 * constructor of the class
 	 *
-	 * @param	Integer		$idContactInfo
+	 * @param	integer		$idContactInfo
 	 */
 	function __construct($idContactInfo) {
 		parent::__construct($idContactInfo, 'ext_contact_contactinfo');
@@ -40,7 +40,7 @@ class TodoyuContactContactInfo extends TodoyuBaseObject {
 	/**
 	 * Get info
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getInfo() {
 		return $this->get('info');
@@ -51,7 +51,7 @@ class TodoyuContactContactInfo extends TodoyuBaseObject {
 	/**
 	 * Check whether contact info is preferred
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isPreferred() {
 		return $this->isFlagSet('is_preferred');
@@ -61,7 +61,7 @@ class TodoyuContactContactInfo extends TodoyuBaseObject {
 	/**
 	 * Get contact info type ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getContactInfoTypeID() {
 		return $this->getInt('id_contactinfotype');
@@ -83,7 +83,7 @@ class TodoyuContactContactInfo extends TodoyuBaseObject {
 	/**
 	 * Get type title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	function getTypeLabel() {
 		return $this->getContactInfoType()->getTitle();

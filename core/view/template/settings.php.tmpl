@@ -24,10 +24,10 @@
 	// THIS FILE IS AUTOMATICALLY UPDATED BY TODOYU
 	// ****************************************************************************
 
-{foreach $settings groupName groupSettings 'settings'}
+{foreach $settings as $groupName=>$groupSettings}
 Todoyu::$CONFIG['SETTINGS']['{$groupName}'] = array(
-{foreach $groupSettings name value 'group'}
-	'{$name}'	=> {$value}{if !$.foreach.group.last},{/if}
-{/foreach});
+    {foreach $groupSettings as $name=>$value}
+        '{$name}'	=> {$value}{if ! $value@last},{/if}
+    {/foreach});
 
 {/foreach}

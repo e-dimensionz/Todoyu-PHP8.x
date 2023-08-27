@@ -29,8 +29,8 @@ class TodoyuProfilePanelWidgetProfileModules extends TodoyuPanelWidget {
 	/**
 	 * Init
 	 *
-	 * @param	Array		$config
-	 * @param	Array		$params
+	 * @param	array		$config
+	 * @param	array		$params
 	 */
 	public function __construct(array $config, array $params = array()) {
 		parent::__construct(
@@ -52,7 +52,7 @@ class TodoyuProfilePanelWidgetProfileModules extends TodoyuPanelWidget {
 	/**
 	 * Render content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderContent() {
 		$modules	= TodoyuProfileManager::getModules();
@@ -73,7 +73,7 @@ class TodoyuProfilePanelWidgetProfileModules extends TodoyuPanelWidget {
 	/**
 	 * Check access to profile
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		return Todoyu::allowed('profile', 'general:use');

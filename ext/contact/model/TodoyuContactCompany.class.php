@@ -29,7 +29,7 @@ class TodoyuContactCompany extends TodoyuBaseObject {
 	/**
 	 * Constructor
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 */
 	public function __construct($idCompany) {
 		parent::__construct($idCompany, 'ext_contact_company');
@@ -40,7 +40,7 @@ class TodoyuContactCompany extends TodoyuBaseObject {
 	/**
 	 * Get company name (field name: title)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle() {
 		return $this->get('title');
@@ -51,7 +51,7 @@ class TodoyuContactCompany extends TodoyuBaseObject {
 	/**
 	 * Get company shortname
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getShortname() {
 		return $this->get('shortname');
@@ -62,7 +62,7 @@ class TodoyuContactCompany extends TodoyuBaseObject {
 	/**
 	 * Get company label (field name: title)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLabel() {
 		return $this->get('title');
@@ -74,7 +74,7 @@ class TodoyuContactCompany extends TodoyuBaseObject {
 	 * Get short label
 	 * Shortname or cropped title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getShortLabel() {
 		$label	= $this->getShortname();
@@ -152,7 +152,7 @@ class TodoyuContactCompany extends TodoyuBaseObject {
 	/**
 	 * Check whether company is internal
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isInternal() {
 		return $this->isFlagSet('is_internal');
@@ -191,7 +191,7 @@ class TodoyuContactCompany extends TodoyuBaseObject {
 	/**
 	 * Get correspondence locale
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLocaleCorrespondence() {
 		$localeCorrespondence	= $this->get('locale_correspondence');
@@ -208,7 +208,7 @@ class TodoyuContactCompany extends TodoyuBaseObject {
 	/**
 	 * Check whether the person has set a correspondence locale
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasLocaleCorrespondence() {
 		return trim($this->get('locale_correspondence')) !== '';
@@ -234,7 +234,7 @@ class TodoyuContactCompany extends TodoyuBaseObject {
 	/**
 	 * Get template data for company
 	 *
-	 * @param	Boolean		$loadForeignData
+	 * @param	boolean		$loadForeignData
 	 * @return	Array
 	 */
 	public function getTemplateData($loadForeignData = false) {
@@ -248,7 +248,7 @@ class TodoyuContactCompany extends TodoyuBaseObject {
 
 
 	/**
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isNotActive() {
 		return intval($this->get('is_notactive')) === 1;
@@ -257,7 +257,7 @@ class TodoyuContactCompany extends TodoyuBaseObject {
 
 
 	/**
-	 * @return	String | Boolean
+	 * @return	string | Boolean
 	 */
 	public function getEmail() {
 		$emails	= $this->getEmails();
@@ -281,7 +281,7 @@ class TodoyuContactCompany extends TodoyuBaseObject {
 
 
 	/**
-	 * @return	String | Boolean
+	 * @return	string | Boolean
 	 */
 	public function getPhone() {
 		$phones = $this->getPhones();

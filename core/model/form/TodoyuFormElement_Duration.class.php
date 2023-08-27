@@ -31,9 +31,9 @@ class TodoyuFormElement_Duration extends TodoyuFormElement_Time {
 	/**
 	 * Initialize duration field
 	 *
-	 * @param	String				$name
+	 * @param	string				$name
 	 * @param	TodoyuFormFieldset		$fieldset
-	 * @param	Array				$config
+	 * @param	array				$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		TodoyuFormElement::__construct('duration', $name, $fieldset, $config);

@@ -27,7 +27,7 @@ class TodoyuSearchPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('search', 'general:use');
@@ -38,7 +38,7 @@ class TodoyuSearchPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save current selected filterset
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function saveCurrentFilterSetAction(array $params) {
 		$idFilterset	= intval($params['value']);
@@ -51,7 +51,7 @@ class TodoyuSearchPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save preference of active search tab
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function saveActiveTabAction(array $params) {
 		$tab	= $params['value'];
@@ -64,7 +64,7 @@ class TodoyuSearchPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save active filterset preference
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function activeFiltersetAction(array $params) {
 		$idFilterset= intval($params['item']);
@@ -78,7 +78,7 @@ class TodoyuSearchPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Rename a filterset
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function renameFiltersetAction(array $params) {
 		Todoyu::restrict('search', 'general:area');
@@ -94,7 +94,7 @@ class TodoyuSearchPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Update the visibility of a filterset
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function toggleFiltersetVisibilityAction(array $params) {
 		Todoyu::restrict('search', 'general:area');
@@ -110,7 +110,7 @@ class TodoyuSearchPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Delete a filterset with its condition and all delete it from preferences possibly using it
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function deleteFiltersetAction(array $params) {
 		Todoyu::restrict('search', 'general:area');
@@ -125,7 +125,7 @@ class TodoyuSearchPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Update order of the filtersets
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function filtersetOrderAction(array $params) {
 		$orderData	= json_decode($params['value'], true);
@@ -138,7 +138,7 @@ class TodoyuSearchPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save headlet open status for quicksearch headlet
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function headletOpenAction(array $params) {
 		$open	= intval($params['open']) === 1 ? 1 : 0;

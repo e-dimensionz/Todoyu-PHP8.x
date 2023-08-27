@@ -29,7 +29,7 @@ class TodoyuTimetrackingProjectManager {
 	/**
 	 * Get timetracking project
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 * @return	TodoyuTimetrackingProject
 	 */
 	public static function getProject($idProject) {

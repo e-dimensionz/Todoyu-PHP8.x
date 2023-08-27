@@ -29,8 +29,8 @@ class TodoyuSearchManager {
 	/**
 	 * Get ID of filterset storing the current condition of the given search type tab
 	 *
-	 * @param	String		$type		'task' / 'project' etc.
-	 * @return	Integer
+	 * @param	string		$type		'task' / 'project' etc.
+	 * @return	integer
 	 */
 	public static function getIDCurrentTabFilterset($type) {
 		$field	= 'id';
@@ -48,7 +48,7 @@ class TodoyuSearchManager {
 	/**
 	 * Get current tab filterset
 	 *
-	 * @param	String	$type
+	 * @param	string	$type
 	 * @return	Array|TodoyuSearchFilterset
 	 */
 	public static function getCurrentTabFilterset($type) {
@@ -117,7 +117,7 @@ class TodoyuSearchManager {
 	/**
 	 * Convert a simple filter array (from url) to a search filter array
 	 *
-	 * @param	Array		$simpleFilterConditions
+	 * @param	array		$simpleFilterConditions
 	 * @return	Array
 	 */
 	public static function convertSimpleToFilterConditionArray(array $simpleFilterConditions) {
@@ -139,11 +139,11 @@ class TodoyuSearchManager {
 	/**
 	 * Add a new search engine and register needed functions
 	 *
-	 * @param	String		$type
-	 * @param	String		$methodSuggest
-	 * @param	String		$labelSuggest
-	 * @param	String		$labelMode
-	 * @param	Integer		$position
+	 * @param	string		$type
+	 * @param	string		$methodSuggest
+	 * @param	string		$labelSuggest
+	 * @param	string		$labelMode
+	 * @param	integer		$position
 	 */
 	public static function addEngine($type, $methodSuggest, $labelSuggest, $labelMode = '', $position = 100) {
 		$type		= strtolower(trim($type));

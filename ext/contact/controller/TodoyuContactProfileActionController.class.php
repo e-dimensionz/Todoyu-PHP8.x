@@ -27,7 +27,7 @@
 class TodoyuContactProfileActionController  extends TodoyuActionController {
 
 	/**
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('contact', 'general:profile');
@@ -38,8 +38,8 @@ class TodoyuContactProfileActionController  extends TodoyuActionController {
 	/**
 	 * Handler for the save profile action
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function saveAction($params) {
 		$data		= $params['person'];

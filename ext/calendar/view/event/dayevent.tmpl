@@ -3,7 +3,7 @@
 		<div class="typeIcon"></div>
 
 		{if $isPrivate}
-			{if isPersonID($id_person)}
+			{if fn_isPersonID($id_person)}
 				<div class="private"></div>
 			{else}
 				<div class="privateEvent"></div>
@@ -12,20 +12,20 @@
 
 		{if $view === 'day' && $persons}
 			<div class="assignedPersons">
-				{foreach $persons person}
+				{foreach $persons as $person}
 					{$person.shortname}
-					{if !$dwoo.foreach.default.last},{/if}
+					{if !$smarty.foreach.default.last},{/if}
 				{/foreach}:
 			</div>
 		{/if}
 
 		<div class="title">
-			{htmlencode $title}
+			{$title|escape}
 		</div>
 
 		{if date('ymd', $date_start) !== date('ymd', $date_end)}
 			<div class="date">
-				({dateFormat $date_start D2Mshort} - {dateFormat $date_end D2Mshort})
+				({$date_start|date_format:$DF.D2Mshort} - {$date_end|date_format:$DF.D2Mshort})
 			</div>
 		{/if}
 	</div>

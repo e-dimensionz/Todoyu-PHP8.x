@@ -37,8 +37,8 @@ class TodoyuCalendarPanelWidgetHolidaySetSelector extends TodoyuPanelWidget {
 	/**
 	 * Constructor (init widget)
 	 *
-	 * @param	Array		$config
-	 * @param	Array		$params
+	 * @param	array		$config
+	 * @param	array		$params
 	 */
 	public function __construct(array $config, array $params = array()) {
 		parent::__construct(
@@ -60,7 +60,7 @@ class TodoyuCalendarPanelWidgetHolidaySetSelector extends TodoyuPanelWidget {
 	/**
 	 * Render the whole widget
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function render() {
 		$this->setContent($this->renderContent());
@@ -73,7 +73,7 @@ class TodoyuCalendarPanelWidgetHolidaySetSelector extends TodoyuPanelWidget {
 	/**
 	 * Render widget content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderContent() {
 		$tmpl	= 'ext/calendar/view/panelwidget/holidaysetselector.tmpl';
@@ -116,8 +116,8 @@ class TodoyuCalendarPanelWidgetHolidaySetSelector extends TodoyuPanelWidget {
 	/**
 	 * Get IDs of selected holidaySets
 	 *
-	 * @param	String	$area
-	 * @return	Integer[]
+	 * @param	string	$area
+	 * @return	integer[]
 	 */
 	public static function getSelectedHolidaySetIDs($area = AREA) {
 		$selectorPref	= TodoyuCalendarPreferences::getPref('panelwidget-holidaysetselector', 0, $area);
@@ -130,8 +130,8 @@ class TodoyuCalendarPanelWidgetHolidaySetSelector extends TodoyuPanelWidget {
 	/**
 	 * Store prefs of the holidaySet selector panel widget
 	 *
-	 * @param	Integer	$idArea
-	 * @param	String	$prefVals
+	 * @param	integer	$idArea
+	 * @param	string	$prefVals
 	 */
 	public function savePreference($idArea = 0, $prefVals = '') {
 		TodoyuCalendarPreferences::savePref('panelwidget-holidaysetselector', $prefVals, 0, true);
@@ -142,7 +142,7 @@ class TodoyuCalendarPanelWidgetHolidaySetSelector extends TodoyuPanelWidget {
 	/**
 	 * Shortcut for rights check - calendar 'general:use'
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		return Todoyu::allowed('calendar', 'general:use');

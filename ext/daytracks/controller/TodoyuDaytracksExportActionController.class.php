@@ -29,7 +29,7 @@ class TodoyuDaytracksExportActionController extends TodoyuActionController {
 	/**
 	 * Init controller: restrict to rights
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('daytracks', 'general:use');
@@ -41,8 +41,8 @@ class TodoyuDaytracksExportActionController extends TodoyuActionController {
 	/**
 	 * Renders the download pop-up
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function renderpopupAction(array $params) {
 		return TodoyuDaytracksExportRenderer::renderDaytracksExportForm($params);
@@ -53,7 +53,7 @@ class TodoyuDaytracksExportActionController extends TodoyuActionController {
 	/**
 	 * Download Action for the CSV file
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function downloadAction(array $params) {
 		$form	= TodoyuDaytracksExportManager::getExportForm();
@@ -66,8 +66,8 @@ class TodoyuDaytracksExportActionController extends TodoyuActionController {
 
 
 	/**
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function viewAction(array $params) {
 		$data	= array(

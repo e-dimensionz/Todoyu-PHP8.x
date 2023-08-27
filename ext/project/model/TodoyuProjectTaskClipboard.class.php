@@ -48,9 +48,9 @@ class TodoyuProjectTaskClipboard {
 	/**
 	 * Add a task to clipboard
 	 *
-	 * @param	Integer		$idTask				Task to hold on clipboard
-	 * @param	String		$mode				Clipboard mode
-	 * @param	Boolean		$withSubTasks		Copy sub tasks
+	 * @param	integer		$idTask				Task to hold on clipboard
+	 * @param	string		$mode				Clipboard mode
+	 * @param	boolean		$withSubTasks		Copy sub tasks
 	 */
 	public static function addTask($idTask, $mode = 'copy', $withSubTasks = true) {
 		$idTask	= intval($idTask);
@@ -81,7 +81,7 @@ class TodoyuProjectTaskClipboard {
 	/**
 	 * Check whether a task is in clipboard
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function hasTask() {
 		return TodoyuClipboard::has('task');
@@ -92,7 +92,7 @@ class TodoyuProjectTaskClipboard {
 	/**
 	 * Get current clipboard mode
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getMode() {
 		$data	= self::getData();
@@ -105,7 +105,7 @@ class TodoyuProjectTaskClipboard {
 	/**
 	 * Get current task ID in clipboard
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getTaskID() {
 		$data	= self::getData();
@@ -129,7 +129,7 @@ class TodoyuProjectTaskClipboard {
 	/**
 	 * Check whether clipboard is in copy mode
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isInCopyMode() {
 		return self::getMode() === 'copy';
@@ -140,7 +140,7 @@ class TodoyuProjectTaskClipboard {
 	/**
 	 * Check whether clipboard is in cut mode
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isInCutMode() {
 		return self::getMode() === 'cut';
@@ -151,7 +151,7 @@ class TodoyuProjectTaskClipboard {
 	/**
 	 * Check whether clipboard mode copies also subtasks
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isWithSubtasks() {
 		$data	= self::getData();
@@ -173,8 +173,8 @@ class TodoyuProjectTaskClipboard {
 	/**
 	 * Add task for copy mode
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$widthSubTasks
+	 * @param	integer		$idTask
+	 * @param	boolean		$widthSubTasks
 	 */
 	public static function addTaskForCopy($idTask, $widthSubTasks = true) {
 		self::addTask($idTask, 'copy', $widthSubTasks);
@@ -185,7 +185,7 @@ class TodoyuProjectTaskClipboard {
 	/**
 	 * Add task for cut mode
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 */
 	public static function addTaskForCut($idTask) {
 		self::addTask($idTask, 'cut', true);
@@ -196,9 +196,9 @@ class TodoyuProjectTaskClipboard {
 	/**
 	 * Paste task from clipboard into given project
 	 *
-	 * @param	Integer		$idRefTask		New parent task
-	 * @param	String		$insertMode			Insert mode (before,in,after)
-	 * @return	Integer							New task ID (or old if only moved)
+	 * @param	integer		$idRefTask		New parent task
+	 * @param	string		$insertMode			Insert mode (before,in,after)
+	 * @return	integer							New task ID (or old if only moved)
 	 */
 	public static function pasteTask($idRefTask = 0, $insertMode = 'in') {
 		$idRefTask		= intval($idRefTask);
@@ -234,8 +234,8 @@ class TodoyuProjectTaskClipboard {
 	/**
 	 * Paste cut/copied task from clipboard into given project
 	 *
-	 * @param	Integer		$idProject
-	 * @return	Integer
+	 * @param	integer		$idProject
+	 * @return	integer
 	 */
 	public static function pasteTaskInProject($idProject) {
 		$idProject		= intval($idProject);
@@ -262,7 +262,7 @@ class TodoyuProjectTaskClipboard {
 	/**
 	 * Get "own" (implemented by project extension) task / project contextmenu items
 	 *
-	 * @param	String	$contextMenu	Identifier
+	 * @param	string	$contextMenu	Identifier
 	 * @return	Array
 	 */
 	public static function getContextMenuOwnItems($contextMenu = 'TaskClipboard') {
@@ -283,8 +283,8 @@ class TodoyuProjectTaskClipboard {
 	/**
 	 * Add context menu to paste tasks
 	 *
-	 * @param	Integer		$idTaskContextmenu
-	 * @param	Array		$items
+	 * @param	integer		$idTaskContextmenu
+	 * @param	array		$items
 	 * @return	Array
 	 */
 	public static function getTaskContextMenuItems($idTaskContextmenu, array $items) {
@@ -333,8 +333,8 @@ class TodoyuProjectTaskClipboard {
 	/**
 	 * Get task clipboard option items for context menu
 	 *
-	 * @param	Integer		$idProjectContextmenu
-	 * @param	Array		$items
+	 * @param	integer		$idProjectContextmenu
+	 * @param	array		$items
 	 * @return	Array
 	 */
 	public static function getProjectContextMenuItems($idProjectContextmenu, array $items) {
@@ -369,9 +369,9 @@ class TodoyuProjectTaskClipboard {
 
 	/**
 	 * @static
-	 * @param	Boolean		$isProjectArea
-	 * @param	Boolean		$isLocked
-	 * @return	String
+	 * @param	boolean		$isProjectArea
+	 * @param	boolean		$isLocked
+	 * @return	string
 	 */
 	protected static function getPasteErrorCode($isProjectArea, $isLocked) {
 		if ( ! $isProjectArea ) {
@@ -387,7 +387,7 @@ class TodoyuProjectTaskClipboard {
 
 	/**
 	 * @static
-	 * @param	Array		$ownItems
+	 * @param	array		$ownItems
 	 * @return	Array
 	 */
 	protected static function mergeItemsPasteNotAllowed($ownItems, $errorCode) {

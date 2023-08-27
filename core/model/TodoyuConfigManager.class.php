@@ -30,10 +30,10 @@ class TodoyuConfigManager {
 	/**
 	 * Save data in template PHP file
 	 *
-	 * @param	String		$savePath
-	 * @param	String		$templateFile
-	 * @param	Array		$data
-	 * @param	Boolean		$wrapAsPhp
+	 * @param	string		$savePath
+	 * @param	string		$templateFile
+	 * @param	array		$data
+	 * @param	boolean		$wrapAsPhp
 	 */
 	public static function saveConfigFile($savePath, $templateFile, array $data, $wrapAsPhp = true) {
 		TodoyuFileManager::saveTemplatedFile($savePath, $templateFile, $data, $wrapAsPhp);
@@ -45,8 +45,8 @@ class TodoyuConfigManager {
 	 * Save system config configuration
 	 * File: config/system.php
 	 *
-	 * @param	Array		$data
-	 * @param	Boolean		$generateNewKey
+	 * @param	array		$data
+	 * @param	boolean		$generateNewKey
 	 */
 	public static function saveSystemConfigConfig(array $data, $generateNewKey = false) {
 		$savePath	= 'config/system.php';

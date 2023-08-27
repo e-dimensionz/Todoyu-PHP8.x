@@ -31,9 +31,9 @@ class TodoyuFormElement_Date extends TodoyuFormElement {
 	/**
 	 * Constructor
 	 *
-	 * @param	String			$name
+	 * @param	string			$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array $config
+	 * @param	array $config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		parent::__construct('date', $name, $fieldset, $config);
@@ -61,7 +61,7 @@ class TodoyuFormElement_Date extends TodoyuFormElement {
 	/**
 	 * Generate jsCalendar setup code
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getJsSetup() {
 		$htmlID	= $this->getHtmlID();
@@ -81,8 +81,8 @@ class TodoyuFormElement_Date extends TodoyuFormElement {
 	 * Get basic calendar config
 	 * Static helper
 	 *
-	 * @param	String		$htmlID
-	 * @param	String		$format
+	 * @param	string		$htmlID
+	 * @param	string		$format
 	 * @return	Array
 	 */
 	public static function getBaseCalendarConfig($htmlID, $format) {
@@ -99,7 +99,7 @@ class TodoyuFormElement_Date extends TodoyuFormElement {
 	/**
 	 * Get key to date format
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getFormatKey() {
 		return 'date';
@@ -110,7 +110,7 @@ class TodoyuFormElement_Date extends TodoyuFormElement {
 	/**
 	 * Get date format (for strftime())
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getFormat() {
 		return TodoyuTime::getFormat($this->getFormatKey());
@@ -121,8 +121,8 @@ class TodoyuFormElement_Date extends TodoyuFormElement {
 	/**
 	 * Parse the input value (date string)
 	 *
-	 * @param	String		$dateString
-	 * @return	Integer
+	 * @param	string		$dateString
+	 * @return	integer
 	 */
 	protected function parseDate($dateString) {
 		return TodoyuTime::parseDate($dateString);
@@ -159,7 +159,7 @@ class TodoyuFormElement_Date extends TodoyuFormElement {
 	/**
 	 * Get formatted template value (datetime)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getValueForTemplate() {
 		$value	= $this->getValue();

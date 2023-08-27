@@ -29,10 +29,10 @@ class TodoyuFormManager {
 	/**
 	 * Create a form object, set record ID and call buildForm hook
 	 *
-	 * @param	String		$xmlPath
-	 * @param	Integer		$idRecord
-	 * @param	Array		$params			Optional parameters for the form hooks
-	 * @param	Array		$formData		Already available form data
+	 * @param	string		$xmlPath
+	 * @param	integer		$idRecord
+	 * @param	array		$params			Optional parameters for the form hooks
+	 * @param	array		$formData		Already available form data
 	 * @return	TodoyuForm|Boolean
 	 */
 	public static function getForm($xmlPath, $idRecord = 0, array $params = array(), array $formData = array()) {
@@ -57,13 +57,13 @@ class TodoyuFormManager {
 	/**
 	 * Render a sub record of a database relation field
 	 *
-	 * @param	String		$xmlPath
-	 * @param	String		$fieldName
-	 * @param	String		$formName
-	 * @param	Integer		$index
-	 * @param	Integer		$idRecord
-	 * @param	Array		$data
-	 * @return	String
+	 * @param	string		$xmlPath
+	 * @param	string		$fieldName
+	 * @param	string		$formName
+	 * @param	integer		$index
+	 * @param	integer		$idRecord
+	 * @param	array		$data
+	 * @return	string
 	 */
 	public static function renderSubFormRecord($xmlPath, $fieldName, $formName, $index = 0, $idRecord = 0, array $data = array()) {
 		$index		= (int) $index;
@@ -93,9 +93,9 @@ class TodoyuFormManager {
 	/**
 	 * Add a field type
 	 *
-	 * @param	String		$name
-	 * @param	String		$className
-	 * @param	String		$pathTemplate
+	 * @param	string		$name
+	 * @param	string		$className
+	 * @param	string		$pathTemplate
 	 */
 	public static function addFieldType($name, $className, $pathTemplate) {
 		Todoyu::$CONFIG['FORM']['TYPES'][$name] = array(
@@ -109,8 +109,8 @@ class TodoyuFormManager {
 	/**
 	 * Add field type records
 	 *
-	 * @param	String		$name
-	 * @param	String		$className
+	 * @param	string		$name
+	 * @param	string		$className
 	 */
 	public static function addFieldTypeRecords($name, $className) {
 		$pathTemplate	= 'core/view/form/FormElement_Records.tmpl';
@@ -125,8 +125,8 @@ class TodoyuFormManager {
 	 * Get class which represents an object of the requested type
 	 * A new instance will be created with the NEW operator
 	 *
-	 * @param	String		$type
-	 * @return	String
+	 * @param	string		$type
+	 * @return	string
 	 */
 	public static function getTypeClass($type) {
 		return Todoyu::$CONFIG['FORM']['TYPES'][$type]['class'];
@@ -137,8 +137,8 @@ class TodoyuFormManager {
 	/**
 	 * Get the template for the input type
 	 *
-	 * @param	String		$type
-	 * @return	String
+	 * @param	string		$type
+	 * @return	string
 	 */
 	public static function getTypeTemplate($type) {
 		$template	= Todoyu::$CONFIG['FORM']['TYPES'][$type]['template'];

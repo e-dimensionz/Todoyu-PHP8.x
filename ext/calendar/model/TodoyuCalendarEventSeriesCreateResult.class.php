@@ -75,9 +75,9 @@ class TodoyuCalendarEventSeriesCreateResult {
 	/**
 	 * Initialize
 	 *
-	 * @param	Integer		$idBaseEvent
-	 * @param	Integer		$idSeriesNew
-	 * @param	Integer		$idSeriesOld
+	 * @param	integer		$idBaseEvent
+	 * @param	integer		$idSeriesNew
+	 * @param	integer		$idSeriesOld
 	 */
 	public function __construct($idBaseEvent, $idSeriesNew, $idSeriesOld = 0) {
 		$this->setBaseEventID($idBaseEvent);
@@ -90,7 +90,7 @@ class TodoyuCalendarEventSeriesCreateResult {
 	/**
 	 * Set list of created events
 	 *
-	 * @param	Integer[]	$eventIDs
+	 * @param	integer[]	$eventIDs
 	 */
 	public function setCreatedEvents(array $eventIDs) {
 		$this->createdEventIDs = TodoyuArray::intval($eventIDs);
@@ -101,7 +101,7 @@ class TodoyuCalendarEventSeriesCreateResult {
 	/**
 	 * Set list of deleted events
 	 *
-	 * @param	Integer[]	$eventIDs
+	 * @param	integer[]	$eventIDs
 	 */
 	public function setDeletedEvents(array $eventIDs) {
 		$this->deletedEventIDs = TodoyuArray::intval($eventIDs);
@@ -116,7 +116,7 @@ class TodoyuCalendarEventSeriesCreateResult {
 	/**
 	 * Set base event deleted
 	 *
-	 * @param	Boolean		$deleted
+	 * @param	boolean		$deleted
 	 */
 	public function setBaseEventDeleted($deleted = true) {
 		$this->isBaseEventDeleted = $deleted;
@@ -127,7 +127,7 @@ class TodoyuCalendarEventSeriesCreateResult {
 	/**
 	 * Set base event ID
 	 *
-	 * @param	Integer		$idBaseEvent
+	 * @param	integer		$idBaseEvent
 	 */
 	public function setBaseEventID($idBaseEvent) {
 		$this->idBaseEvent = intval($idBaseEvent);
@@ -138,7 +138,7 @@ class TodoyuCalendarEventSeriesCreateResult {
 	/**
 	 * Set old series ID
 	 *
-	 * @param	Integer		$idSeriesOld
+	 * @param	integer		$idSeriesOld
 	 */
 	public function setSeriesOldID($idSeriesOld) {
 		$this->idSeriesOld = intval($idSeriesOld);
@@ -149,7 +149,7 @@ class TodoyuCalendarEventSeriesCreateResult {
 	/**
 	 * Set new series ID
 	 *
-	 * @param	Integer		$idSeriesNew
+	 * @param	integer		$idSeriesNew
 	 */
 	public function setSeriesNewID($idSeriesNew) {
 		$this->idSeriesNew = intval($idSeriesNew);
@@ -160,7 +160,7 @@ class TodoyuCalendarEventSeriesCreateResult {
 	/**
 	 * Get base event ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getBaseEventID() {
 		return $this->idBaseEvent;
@@ -171,7 +171,7 @@ class TodoyuCalendarEventSeriesCreateResult {
 	/**
 	 * Check whether base event is deleted
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isBaseEventDeleted() {
 		return $this->isBaseEventDeleted;
@@ -182,7 +182,7 @@ class TodoyuCalendarEventSeriesCreateResult {
 	/**
 	 * Get old series ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getSeriesOldID() {
 		return $this->idSeriesOld;
@@ -193,7 +193,7 @@ class TodoyuCalendarEventSeriesCreateResult {
 	/**
 	 * Get new series ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getSeriesNewID() {
 		return $this->idSeriesNew;
@@ -204,7 +204,7 @@ class TodoyuCalendarEventSeriesCreateResult {
 	/**
 	 * Get created event IDs
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public function getCreatedEventIDs() {
 		return $this->createdEventIDs;
@@ -215,7 +215,7 @@ class TodoyuCalendarEventSeriesCreateResult {
 	/**
 	 * Get deleted event IDs
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public function getDeletedEventIDs() {
 		return $this->deletedEventIDs;
@@ -226,7 +226,7 @@ class TodoyuCalendarEventSeriesCreateResult {
 	/**
 	 * Get first created event ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getFirstCreateEvent() {
 		return current($this->createdEventIDs);
@@ -238,7 +238,7 @@ class TodoyuCalendarEventSeriesCreateResult {
 	 * Get new base event ID
 	 * If base event was deleted, use first created event ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getNewBaseEventID() {
 		return $this->isBaseEventDeleted() ? $this->getFirstCreateEvent() : $this->getBaseEventID();

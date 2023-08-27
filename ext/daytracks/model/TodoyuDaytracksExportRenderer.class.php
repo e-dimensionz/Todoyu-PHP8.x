@@ -29,8 +29,8 @@ class TodoyuDaytracksExportRenderer {
 	/**
 	 * Render export form
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function renderDaytracksExportForm(array $params) {
 		$form	= TodoyuDaytracksExportManager::getExportForm();

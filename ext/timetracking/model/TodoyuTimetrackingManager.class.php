@@ -38,9 +38,9 @@ class TodoyuTimetrackingManager {
 	/**
 	 * Add time tracking specific information to task array
 	 *
-	 * @param	Array		$taskData		Task data array
-	 * @param	Integer		$idTask			Task ID
-	 * @param	Integer		$infoLevel		Task info level
+	 * @param	array		$taskData		Task data array
+	 * @param	integer		$idTask			Task ID
+	 * @param	integer		$infoLevel		Task info level
 	 * @return	Array
 	 */
 	public static function addTimetrackingInfosToTask(array $taskData, $idTask, $infoLevel = 0) {
@@ -51,6 +51,7 @@ class TodoyuTimetrackingManager {
 			// Is task? (there's no timetracking for containers)
 		if( $task->isTask() ) {
 			if( $task->isTrackedByMe() ) {
+                if(empty($taskData['class'])) $taskData['class'] = '';
 				$taskData['class'] .= ' running';
 			} elseif( TodoyuRightsManager::isAllowed('timetracking', 'task:seeCurrentTracking') && $task->isTrackedByOthers() ) {
 				$taskData['class'] .= ' runningother';
@@ -71,8 +72,8 @@ class TodoyuTimetrackingManager {
 	/**
 	 * Add timetracking infos to task info data. -More time tracked than estimated? add marking CSS class
 	 *
-	 * @param	Array		$taskInfos
-	 * @param	Integer		$idTask
+	 * @param	array		$taskInfos
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function hookAddWorkloadOverbookedWarning(array $taskInfos, $idTask) {
@@ -80,9 +81,10 @@ class TodoyuTimetrackingManager {
 
 			// Is task? (there's no timetracking for containers)
 		$task = TodoyuTimetrackingTaskManager::getTask($idTask);
-
-		if( $task->isTask() ) {
+        if( $task->isTask() ) {
 			if( TodoyuTimetrackingTaskManager::isTrackedTimeOverTolerance($task->getEstimatedWorkload(), $task->getTrackedTime()) ) {
+                if(empty($taskInfos['estimated_workload']['className'])) $taskInfos['estimated_workload']['className'] = '';
+                if(empty($taskInfos['estimated_workload']['label'])) $taskInfos['estimated_workload']['label'] = '';
 				$taskInfos['estimated_workload']['className'] .= ' overtimed';
 			}
 		}
@@ -96,8 +98,8 @@ class TodoyuTimetrackingManager {
 	 * Add billable time to taskHeaderExtra of tasks
 	 * Hook: dataModifier
 	 *
-	 * @param	Array		$extras
-	 * @param	Integer		$idTask
+	 * @param	array		$extras
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function addTimetrackingHeaderExtrasToTask(array $extras, $idTask) {
@@ -119,8 +121,8 @@ class TodoyuTimetrackingManager {
 	/**
 	 * Calculates the string given in format hh:mm:ss (hh:mm) in seconds
 	 *
-	 * @param	String	$string
-	 * @return	Integer
+	 * @param	string	$string
+	 * @return	integer
 	 */
 	public static function calculateTrackedTimeFromString($string) {
 		$timeArray = explode(':', $string);
@@ -133,7 +135,7 @@ class TodoyuTimetrackingManager {
 	/**
 	 * Save workload record
 	 *
-	 * @param	Array $data
+	 * @param	array $data
 	 */
 	public static function saveWorkloadRecord(array $data) {
 		Todoyu::db()->doInsert(self::TABLE, $data);
@@ -144,8 +146,8 @@ class TodoyuTimetrackingManager {
 	/**
 	 * Check whether task is over-timed
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isTaskOvertimed($idTask) {
 		$idTask		= intval($idTask);
@@ -214,7 +216,7 @@ class TodoyuTimetrackingManager {
 	 * Add time tracking fields to quickTask
 	 *
 	 * @param	TodoyuForm		$form
-	 * @param	Integer			$idTask
+	 * @param	integer			$idTask
 	 */
 	public static function addWorkloadFieldToQuicktask(TodoyuForm $form, $idTask) {
 		$xmlPath	= 'ext/timetracking/config/form/quicktask-tracked.xml';
@@ -232,8 +234,8 @@ class TodoyuTimetrackingManager {
 	/**
 	 * Formhook: Handle (save) special fields added to quickTask by time tracking
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idTask
+	 * @param	array		$data
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function handleQuicktaskFormSave(array $data, $idTask) {
@@ -261,8 +263,8 @@ class TodoyuTimetrackingManager {
 	/**
 	 * Add already tracked (seconds of) workload to workload record of given task.
 	 *
-	 * @param	Integer	$idTask
-	 * @param	Integer	$workload
+	 * @param	integer	$idTask
+	 * @param	integer	$workload
 	 */
 	protected static function addTrackedWorkload($idTask, $workload) {
 		$idTask		= intval($idTask);
@@ -287,9 +289,9 @@ class TodoyuTimetrackingManager {
 	 * Check whether the option 'start tracking' was checked when saving
 	 * Start tracking on server and send tracking header
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$idProject
-	 * @param	Array		$data
+	 * @param	integer		$idTask
+	 * @param	integer		$idProject
+	 * @param	array		$data
 	 */
 	public static function hookQuickTaskSaved($idTask, $idProject, array $data) {
 		if( intval($data['start_tracking']) === 1 ) {
@@ -305,7 +307,7 @@ class TodoyuTimetrackingManager {
 	 * Remove form field if the user only can edit the chargeable time
 	 *
 	 * @param	TodoyuForm		$form
-	 * @param	Integer			$idTrack
+	 * @param	integer			$idTrack
 	 * @return	Void|Boolean
 	 */
 	public static function hookModifyTrackFields(TodoyuForm $form, $idTrack) {
@@ -347,8 +349,8 @@ class TodoyuTimetrackingManager {
 	/**
 	 * Check whether a track is editable for the current person
 	 *
-	 * @param	Integer		$idTrack
-	 * @return	Boolean
+	 * @param	integer		$idTrack
+	 * @return	boolean
 	 */
 	public static function isTrackEditable($idTrack) {
 		$idTrack	= intval($idTrack);
@@ -368,8 +370,8 @@ class TodoyuTimetrackingManager {
 	/**
 	 * Callback to render content for all requested task tabs
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Array		$info		List of task IDs to render
+	 * @param	integer		$idTask
+	 * @param	array		$info		List of task IDs to render
 	 * @return	Array		Content of task tab for requested tasks
 	 */
 	public static function callbackTaskTab($idTask, array $info) {
@@ -388,9 +390,9 @@ class TodoyuTimetrackingManager {
 	/**
 	 * Callback to render the content for the tracking headlet
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$info		Don't care
-	 * @return	String		Content of the headlet
+	 * @param	integer		$idTask
+	 * @param	boolean		$info		Don't care
+	 * @return	string		Content of the headlet
 	 */
 	public static function callbackHeadletOverlayContent($idTask, $info) {
 		$headlet	= new TodoyuTimetrackingHeadletTracking();
@@ -403,7 +405,7 @@ class TodoyuTimetrackingManager {
 	/**
 	 * Add to attributes array of project preset data list
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 * @return	Array
 	 */
 	public static function getProjectPresetDataAttributes($idProject) {

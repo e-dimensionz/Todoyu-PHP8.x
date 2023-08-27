@@ -35,7 +35,7 @@ class TodoyuRoleDatasource {
 	/**
 	 * Prepares roles options for rendering in the widget.
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getRoleOptions(array $definitions) {

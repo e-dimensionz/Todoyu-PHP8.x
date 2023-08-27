@@ -38,7 +38,7 @@ class TodoyuBrowserInfo {
 	/**
 	 * Check if browser is Internet Explorer
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isIE() {
 		return stripos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false;
@@ -49,7 +49,7 @@ class TodoyuBrowserInfo {
 	/**
 	 * Check if browser is Firefox
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isFirefox() {
 		return stripos($_SERVER['HTTP_USER_AGENT'], 'firefox') !== false;
@@ -60,7 +60,7 @@ class TodoyuBrowserInfo {
 	/**
 	 * Check if browser is Safari
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isSafari() {
 		return stripos($_SERVER['HTTP_USER_AGENT'], 'safari') !== false;
@@ -71,7 +71,7 @@ class TodoyuBrowserInfo {
 	/**
 	 * Check if browser is Opera
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isOpera() {
 		return stripos($_SERVER['HTTP_USER_AGENT'], 'opera') !== false;
@@ -82,7 +82,7 @@ class TodoyuBrowserInfo {
 	/**
 	 * Check if browser is chrome
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isChrome() {
 		return stripos($_SERVER['HTTP_USER_AGENT'], 'chrome') !== false;
@@ -93,7 +93,7 @@ class TodoyuBrowserInfo {
 	/**
 	 * Get identification (name) of browser
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getBrowserIdent() {
 		$ident	= 'unknown';
@@ -118,7 +118,7 @@ class TodoyuBrowserInfo {
 	/**
 	 * Get the version of the browser
 	 *
-	 * @return	String			Version string like 5.3.21
+	 * @return	string			Version string like 5.3.21
 	 */
 	public static function getVersion() {
 		$version	= 'unknown';
@@ -159,7 +159,7 @@ class TodoyuBrowserInfo {
 	/**
 	 * Get major version of the browser
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getMajorVersion() {
 		$version	= self::getVersion();
@@ -174,7 +174,7 @@ class TodoyuBrowserInfo {
 	 * Get browser locale
 	 * Example of input string: de-ch,de-de;q=0.8,de;q=0.6,en-us;q=0.4,en;q=0.2
 	 *
-	 * @return	String		Or FALSE if not found
+	 * @return	string		Or FALSE if not found
 	 */
 	public static function getBrowserLocale() {
 		$locale		= false;
@@ -216,7 +216,7 @@ class TodoyuBrowserInfo {
 	/**
 	 * Is mobile browser
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isMobile() {
 		return self::getMobileDetect()->isMobile();

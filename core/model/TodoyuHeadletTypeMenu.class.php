@@ -52,7 +52,7 @@ abstract class TodoyuHeadletTypeMenu extends TodoyuHeadlet {
 	/**
 	 * Render headlet type menu items
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	private function renderMenuItems() {
 		$items	= $this->getMenuItems();
@@ -71,7 +71,7 @@ abstract class TodoyuHeadletTypeMenu extends TodoyuHeadlet {
 	/**
 	 * Render items of headlet type menu
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function render() {
 		$this->data['content'] = $this->renderMenuItems();

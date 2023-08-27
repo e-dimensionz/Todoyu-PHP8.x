@@ -54,7 +54,7 @@ abstract class TodoyuFirstStepsWizardStep extends TodoyuWizardStep {
 	 * Get form instance
 	 * Set data if given
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	TodoyuForm
 	 */
 	protected function getForm(array $data = null) {

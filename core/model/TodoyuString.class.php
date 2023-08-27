@@ -29,8 +29,8 @@ class TodoyuString {
 	/**
 	 * Detect encoding from a string
 	 *
-	 * @param	String		$string
-	 * @return	String		Encoding type (one of the values from the list)
+	 * @param	string		$string
+	 * @return	string		Encoding type (one of the values from the list)
 	 */
 	public static function getEncoding($string) {
 		return mb_detect_encoding($string, 'UTF-16,UTF-8,GBK,ISO-8859-15,ISO-8859-1,ASCII');
@@ -41,8 +41,8 @@ class TodoyuString {
 	/**
 	 * Check whether the given string has an upper-cased first letter
 	 *
-	 * @param	String		$string
-	 * @return	Boolean
+	 * @param	string		$string
+	 * @return	boolean
 	 */
 	public static function isUcFirst($string) {
 		$firstChar	= $string[0];
@@ -55,8 +55,8 @@ class TodoyuString {
 	/**
 	 * Check whether the given string contains HTML tag(s)
 	 *
-	 * @param	String	$string
-	 * @return	Boolean
+	 * @param	string	$string
+	 * @return	boolean
 	 */
 	public static function isContainingHTML($string) {
 		$length			= strlen($string);
@@ -70,8 +70,8 @@ class TodoyuString {
 	/**
 	 * Check whether a string is utf-8 encoded
 	 *
-	 * @param	String		$string
-	 * @return	Boolean
+	 * @param	string		$string
+	 * @return	boolean
 	 */
 	public static function isUTF8($string) {
 		return self::getEncoding($string) === 'UTF-8';
@@ -82,9 +82,9 @@ class TodoyuString {
 	/**
 	 * Convert a string to UTF-8
 	 *
-	 * @param	String		$string
-	 * @param	String		$fromCharset	Charset to convert from. If not set, we try to auto detect
-	 * @return	String						The UTF-8 encoded string
+	 * @param	string		$string
+	 * @param	string		$fromCharset	Charset to convert from. If not set, we try to auto detect
+	 * @return	string						The UTF-8 encoded string
 	 */
 	public static function convertToUTF8($string, $fromCharset = null) {
 		if( is_null($fromCharset) ) {
@@ -99,8 +99,8 @@ class TodoyuString {
 	/**
 	 * Get string as UTF-8 if it's not already
 	 *
-	 * @param	String		$string
-	 * @return	String
+	 * @param	string		$string
+	 * @return	string
 	 */
 	public static function getAsUtf8($string) {
 		return self::isUTF8($string) ? $string : self::convertToUTF8($string);
@@ -111,8 +111,8 @@ class TodoyuString {
 	/**
 	 * Checking syntax of input email address
 	 *
-	 * @param	String		$email
-	 * @return	Boolean		True if the $email is valid: Has a "@", domain name with at least one period and only allowed a-z characters.
+	 * @param	string		$email
+	 * @return	boolean		True if the $email is valid: Has a "@", domain name with at least one period and only allowed a-z characters.
 	 */
 	public static function isValidEmail($email) {
 		$email = trim ($email);
@@ -130,9 +130,9 @@ class TodoyuString {
 	/**
 	 * Check whether given string seems to be a valid phone number
 	 *
-	 * @param	String		$string
-	 * @param	String		$allowedChars		Allowed characters (besides numbers)
-	 * @return	Boolean
+	 * @param	string		$string
+	 * @param	string		$allowedChars		Allowed characters (besides numbers)
+	 * @return	boolean
 	 */
 	public static function isValidPhoneNumber($string, $allowedChars = ' /+-().[]') {
 		$length	= strlen($string);
@@ -153,11 +153,11 @@ class TodoyuString {
 	 * Crop a text to a specific length. If text is cropped, a postfix will be added (default: ...)
 	 * Per default, words will not be split and the text will mostly be a little bit shorter
 	 *
-	 * @param	String		$text
-	 * @param	Integer		$length
-	 * @param	String		$postFix
-	 * @param	Boolean		$dontSplitWords
-	 * @return	String
+	 * @param	string		$text
+	 * @param	integer		$length
+	 * @param	string		$postFix
+	 * @param	boolean		$dontSplitWords
+	 * @return	string
 	 */
 	public static function crop($text, $length, $postFix = '..', $dontSplitWords = true) {
 		$length	= (int) $length;
@@ -188,8 +188,8 @@ class TodoyuString {
 	/**
 	 * Remove all whitespace from given string
 	 *
-	 * @param	String	$string
-	 * @return	String
+	 * @param	string	$string
+	 * @return	string
 	 */
 	public static function removeAllWhitespace($string) {
 		return preg_replace('/\s+/','',$string);
@@ -200,9 +200,9 @@ class TodoyuString {
 	/**
 	 * Wrap string with given pipe-separated wrapper string, e.g. HTML tags
 	 *
-	 * @param	String	$string
-	 * @param	String	$wrap			<tag>|</tag>
-	 * @return	String
+	 * @param	string	$string
+	 * @param	string	$wrap			<tag>|</tag>
+	 * @return	string
 	 */
 	public static function wrap($string, $wrap) {
 		return str_replace('|', $string, $wrap);
@@ -213,9 +213,9 @@ class TodoyuString {
 	/**
 	 * Wrap content with a HTML tag
 	 *
-	 * @param	String		$tag
-	 * @param	String		$content
-	 * @return	String
+	 * @param	string		$tag
+	 * @param	string		$content
+	 * @return	string
 	 */
 	public static function wrapWithTag($tag, $content) {
 		return self::wrap($content, '<' . $tag . '>|</' . $tag . '>');
@@ -226,7 +226,7 @@ class TodoyuString {
 	/**
 	 * Split a camel case formatted string into its words
 	 *
-	 * @param	String		$string
+	 * @param	string		$string
 	 * @return	Array
 	 */
 	public static function splitCamelCase($string) {
@@ -238,9 +238,9 @@ class TodoyuString {
 	/**
 	 * Convert an HTML snippet into plain text. Removes html - tags from snippet
 	 *
-	 * @param	String		$html		HTML snippet
-	 * @param	Boolean		$decodeEntity
-	 * @return	String		Text version
+	 * @param	string		$html		HTML snippet
+	 * @param	boolean		$decodeEntity
+	 * @return	string		Text version
 	 */
 	public static function html2text($html, $decodeEntity = false) {
 		$text	= htmlspecialchars_decode($html);
@@ -264,8 +264,8 @@ class TodoyuString {
 	/**
 	 * Replaces html-tag <br /> with newlines
 	 *
-	 * @param	String	$string
-	 * @return	String
+	 * @param	string	$string
+	 * @return	string
 	 */
 	public static function br2nl($string) {
 		$breaks	= array(
@@ -283,12 +283,12 @@ class TodoyuString {
 	/**
 	 * Get a substring around a keyword
 	 *
-	 * @param	String		$string			The whole text
-	 * @param	String		$keyword		Keyword to find in the text
-	 * @param	Integer		$charsBefore	Characters included before the keyword
-	 * @param	Integer		$charsAfter		Characters included after the keyword
-	 * @param	Boolean		$htmlEntities
-	 * @return	String		Substring with keyword surrounded by the original text
+	 * @param	string		$string			The whole text
+	 * @param	string		$keyword		Keyword to find in the text
+	 * @param	integer		$charsBefore	Characters included before the keyword
+	 * @param	integer		$charsAfter		Characters included after the keyword
+	 * @param	boolean		$htmlEntities
+	 * @return	string		Substring with keyword surrounded by the original text
 	 */
 	public static function getSubstring($string, $keyword, $charsBefore = 20, $charsAfter = 20, $htmlEntities = true) {
 		$charsBefore= (int) $charsBefore;
@@ -318,7 +318,7 @@ class TodoyuString {
 	 *
 	 * @param   String  $string
 	 * @param   String  $start
-	 * @return  Boolean
+	 * @return  boolean
 	 */
 	public static function startsWith($string, $start) {
 		$lenStart  = strlen($start);
@@ -333,7 +333,7 @@ class TodoyuString {
 	 *
 	 * @param   String  $string
 	 * @param   String  $ending
-	 * @return  Boolean
+	 * @return  boolean
 	 */
 	public static function endsWith($string, $ending) {
 		$lenEnding  = strlen($ending);
@@ -346,11 +346,11 @@ class TodoyuString {
 	/**
 	 * Add an element to a separated list (ex: coma separated)
 	 *
-	 * @param	String		$list
-	 * @param	String		$value
-	 * @param	String		$separator
-	 * @param	Boolean		$unique
-	 * @return	String
+	 * @param	string		$list
+	 * @param	string		$value
+	 * @param	string		$separator
+	 * @param	boolean		$unique
+	 * @return	string
 	 */
 	public static function addToList($list, $value, $separator = ',', $unique = false) {
 		$items	= explode($separator, $list);
@@ -368,10 +368,10 @@ class TodoyuString {
 	/**
 	 * Check if an element is in a separated list string (ex: comma separated)
 	 *
-	 * @param	String		$item				Element to check for
-	 * @param	String		$listString			List with concatenated elements
-	 * @param	String		$listSeparator		List element separating character
-	 * @return	Boolean
+	 * @param	string		$item				Element to check for
+	 * @param	string		$listString			List with concatenated elements
+	 * @param	string		$listSeparator		List element separating character
+	 * @return	boolean
 	 */
 	public static function isInList($item, $listString, $listSeparator = ',') {
 		$list	= explode($listSeparator, $listString);
@@ -384,9 +384,9 @@ class TodoyuString {
 	/**
 	 * Remove duplicate entries from list
 	 *
-	 * @param	String	$listString
-	 * @param	String	$listSeparator
-	 * @return	String
+	 * @param	string	$listString
+	 * @param	string	$listSeparator
+	 * @return	string
 	 */
 	public static function listUnique($listString, $listSeparator = ',') {
 		$list = TodoyuArray::trimExplode($listSeparator, $listString);
@@ -400,12 +400,12 @@ class TodoyuString {
 	/**
 	 * Generate a random password. Customizable
 	 *
-	 * @param	Integer		$length
-	 * @param	Boolean		$useUpperCase
-	 * @param	Boolean		$useNumbers
-	 * @param	Boolean		$useSpecialChars
-	 * @param	Boolean		$useDoubleChars
-	 * @return	String
+	 * @param	integer		$length
+	 * @param	boolean		$useUpperCase
+	 * @param	boolean		$useNumbers
+	 * @param	boolean		$useSpecialChars
+	 * @param	boolean		$useDoubleChars
+	 * @return	string
 	 */
 	public static function generatePassword($length = 8, $useUpperCase = true, $useNumbers = true, $useSpecialChars = true, $useDoubleChars = true) {
 		$length		= (int) $length;
@@ -435,7 +435,7 @@ class TodoyuString {
 
 
 	/**
-	 * @return	String
+	 * @return	string
 	 */
 	public static function generateGoodPassword() {
 		$config		= Todoyu::$CONFIG['SETTINGS']['passwordStrength'];
@@ -457,10 +457,10 @@ class TodoyuString {
 	/**
 	 * Format a file size in the GB/MB/KB/B and add label
 	 *
-	 * @param	Integer		$fileSize
-	 * @param	Array		$labels			Custom label array (overrides the default labels
-	 * @param	Boolean		$noLabel		Don't append label
-	 * @return	String
+	 * @param	integer		$fileSize
+	 * @param	array		$labels			Custom label array (overrides the default labels
+	 * @param	boolean		$noLabel		Don't append label
+	 * @return	string
 	 */
 	public static function formatSize($fileSize, array $labels = null, $noLabel = false) {
 			// Have to use floatval instead of intval because of the max range of integer supports only for up to 2,5GB..
@@ -506,8 +506,8 @@ class TodoyuString {
 	/**
 	 * Wrap into JS tag
 	 *
-	 * @param	String	$jsCode
-	 * @return	String
+	 * @param	string	$jsCode
+	 * @return	string
 	 */
 	public static function wrapScript($jsCode) {
 		return '<script type="text/javascript">' . $jsCode . '</script>';
@@ -518,11 +518,11 @@ class TodoyuString {
 	/**
 	 * Build an URL with given parameters prefixed with todoyu path
 	 *
-	 * @param	Array		$params			Parameters as key=>value
-	 * @param	String		$hash			Hash (#hash)
-	 * @param	Boolean		$absolute		Absolute URL with host server
-	 * @param	Boolean		$dontEncode		Don't encode html entities (use & instead of &amp; as argument separator)
-	 * @return	String
+	 * @param	array		$params			Parameters as key=>value
+	 * @param	string		$hash			Hash (#hash)
+	 * @param	boolean		$absolute		Absolute URL with host server
+	 * @param	boolean		$dontEncode		Don't encode html entities (use & instead of &amp; as argument separator)
+	 * @return	string
 	 */
 	public static function buildUrl(array $params = array(), $hash = '', $absolute = false, $dontEncode = false) {
 		$query			= '/' . ltrim(PATH_WEB . '/index.php', '/');
@@ -554,8 +554,8 @@ class TodoyuString {
 	/**
 	 * Get short md5 hash of a string
 	 *
-	 * @param	String		$string
-	 * @return	String		10 characters MD5 hash value of the string
+	 * @param	string		$string
+	 * @return	string		10 characters MD5 hash value of the string
 	 */
 	public static function md5short($string) {
 		return substr(md5($string), 0, 10);
@@ -566,7 +566,7 @@ class TodoyuString {
 	/**
 	 * Analyze version string and return array of contained sub versions and attributes
 	 *
-	 * @param	String		$versionString
+	 * @param	string		$versionString
 	 * @return	Array		[major,minor,revision,status]
 	 */
 	public static function getVersionInfo($versionString) {
@@ -597,9 +597,9 @@ class TodoyuString {
 	 * Alias of TodoyuArray::trimExplode()
 	 *
 	 * @see		TodoyuArray::trimExplode()
-	 * @param	String		$delimiter
-	 * @param	String		$string
-	 * @param	Boolean		$removeEmptyValues
+	 * @param	string		$delimiter
+	 * @param	string		$string
+	 * @param	boolean		$removeEmptyValues
 	 * @return	Array
 	 */
 	public static function trimExplode($delimiter, $string, $removeEmptyValues = false) {
@@ -611,7 +611,7 @@ class TodoyuString {
 	/**
 	 * Extract the headers from a full HTTP response (including headers and content)
 	 *
-	 * @param	String		$responseContent
+	 * @param	string		$responseContent
 	 * @return	Array
 	 */
 	public static function extractHttpHeaders($responseContent) {
@@ -626,7 +626,7 @@ class TodoyuString {
 	/**
 	 * Extract header pairs from a HTTP header string
 	 *
-	 * @param	String		$headerString
+	 * @param	string		$headerString
 	 * @return	Array		array
 	 */
 	public static function extractHeadersFromString($headerString) {
@@ -652,8 +652,8 @@ class TodoyuString {
 	/**
 	 * Extract status code from http status header
 	 *
-	 * @param	String		$httpStatusHeader
-	 * @return	Integer
+	 * @param	string		$httpStatusHeader
+	 * @return	integer
 	 */
 	public static function extractHttpStatusCode($httpStatusHeader) {
 		$parts	= explode(' ', $httpStatusHeader);
@@ -666,8 +666,8 @@ class TodoyuString {
 	/**
 	 * Find registered linkable elements in given text and substitutes them by HTML hyperlinks
 	 *
-	 * @param	String	$htmlContent
-	 * @return	String
+	 * @param	string	$htmlContent
+	 * @return	string
 	 */
 	public static function substituteLinkableElements($htmlContent) {
 		$hooks	= TodoyuHookManager::getHooks('core', 'substituteLinkableElements');
@@ -686,8 +686,8 @@ class TodoyuString {
 	/**
 	 * Takes a clear text message, finds all URLs and substitutes them by HTML hyperlinks
 	 *
-	 * @param	String	$htmlContent	Message content
-	 * @return	String
+	 * @param	string	$htmlContent	Message content
+	 * @return	string
 	 */
 	public static function replaceUrlWithLink($htmlContent) {
 				// Find full links with prefixed protocol
@@ -714,8 +714,8 @@ class TodoyuString {
 	/**
 	 * Add linking for email addresses
 	 * 
-	 * @param	Array	$matches
-	 * @return	String
+	 * @param	array	$matches
+	 * @return	string
 	 */
 	public static function replaceEmailInText($matches) {
 		$replaceEmail	= '<a href="mailto:%s">%s</a>';
@@ -741,8 +741,8 @@ class TodoyuString {
 	 *  - Remove empty paragraphs from the beginning
 	 *  - Remove <pre> tags and add <br> tags for the newlines
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	public static function cleanRTEText($html) {
 		if( substr($html, 0, 13) === '<p>&nbsp;</p>' ) {
@@ -762,8 +762,8 @@ class TodoyuString {
 	/**
 	 * Remove <pre> tags and add <br> tags for line breaks
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	private static function cleanPreTagsInRTE($html) {
 		if( strpos($html, '<pre>') !== false ) {
@@ -781,8 +781,8 @@ class TodoyuString {
 	 * Callback for cleanRTEText
 	 * Add <br> tags inside the <pre> tags
 	 *
-	 * @param	Array		$match
-	 * @return	String
+	 * @param	array		$match
+	 * @return	string
 	 */
 	private static function callbackPreText(array $match) {
 		return nl2br(trim($match[1]));
@@ -793,8 +793,8 @@ class TodoyuString {
 	/**
 	 * Cleanup for XSS in tag attributes (onclick, ...)
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	private static function cleanXssTagAttributes($html) {
 		$pattern	= '/<(?:.+?)( on(?:\w{4,})=(["\'])(?:.*?)[^\\]\2)(?:[^>]*?)>/';
@@ -809,8 +809,8 @@ class TodoyuString {
 	 * Callback for XSS attribute cleanup
 	 * Replace event handler attributes from tags
 	 *
-	 * @param	Array	$match
-	 * @return	String
+	 * @param	array	$match
+	 * @return	string
 	 */
 	private static function callbackXssTagAttributes(array $match) {
 		return str_replace($match[1], '', $match[0]);
@@ -821,14 +821,14 @@ class TodoyuString {
 	/**
 	 * Returns an HTML <a href="mailto:"> - tag
 	 *
-	 * @param	String	$emailAddress
-	 * @param	String	$label
-	 * @param	Boolean	$returnAsArray
-	 * @param	String	$subject
-	 * @param	String	$mailBody
-	 * @param	String	$cc
-	 * @param	String	$bcc
-	 * @return	String
+	 * @param	string	$emailAddress
+	 * @param	string	$label
+	 * @param	boolean	$returnAsArray
+	 * @param	string	$subject
+	 * @param	string	$mailBody
+	 * @param	string	$cc
+	 * @param	string	$bcc
+	 * @return	string
 	 */
 	public static function buildMailtoATag($emailAddress, $label = '', $returnAsArray = false, $subject = '', $mailBody = '', $cc ='', $bcc = '') {
 		$linkParts	= array();
@@ -869,10 +869,10 @@ class TodoyuString {
 	/**
 	 * Returns an HTML (anchor) link tag
 	 *
-	 * @param	String	$url
-	 * @param	String	$label
-	 * @param	String	$target
-	 * @return	String
+	 * @param	string	$url
+	 * @param	string	$label
+	 * @param	string	$target
+	 * @return	string
 	 */
 	public static function buildATag($url, $label, $target = '') {
 		$attributes	= array(
@@ -891,12 +891,12 @@ class TodoyuString {
 	/**
 	 * Wrap given label with a todoyu-internal link if given ext is allowed to be used
 	 *
-	 * @param	String		$label
-	 * @param	String		$extKey
-	 * @param	Array		$params
-	 * @param	String		$hash
-	 * @param	String		$target
-	 * @return	String
+	 * @param	string		$label
+	 * @param	string		$extKey
+	 * @param	array		$params
+	 * @param	string		$hash
+	 * @param	string		$target
+	 * @return	string
 	 */
 	public static function wrapTodoyuLink($label, $extKey, array $params = array(), $hash = '', $target = '') {
 			// Check extension's general right setting
@@ -924,11 +924,11 @@ class TodoyuString {
 	/**
 	 * Returns an HTML - img tag
 	 *
-	 * @param	String		$src
-	 * @param	Integer		$width
-	 * @param	Integer		$height
-	 * @param	String		$altText
-	 * @return	String
+	 * @param	string		$src
+	 * @param	integer		$width
+	 * @param	integer		$height
+	 * @param	string		$altText
+	 * @return	string
 	 */
 	public static function getImgTag($src, $width = 0, $height = 0, $altText = '') {
 		$attributes	= array();
@@ -956,10 +956,10 @@ class TodoyuString {
 	/**
 	 * Build a HTML tag with attributes
 	 *
-	 * @param	String			$tagName
-	 * @param	Array			$attributes
-	 * @param	String|Boolean	$content			Optional HTML content to be wrapped
-	 * @return	String
+	 * @param	string			$tagName
+	 * @param	array			$attributes
+	 * @param	string|Boolean	$content			Optional HTML content to be wrapped
+	 * @return	string
 	 */
 	public static function buildHtmlTag($tagName, array $attributes = array(), $content = false) {
 		$attr	= array();
@@ -986,8 +986,8 @@ class TodoyuString {
 	 * Used code posted here:
 	 * http://tipstank.com/2010/10/29/how-to-add-javascript-function-expression-and-php-json_encode/
 	 *
-	 * @param	String		$json
-	 * @return	String
+	 * @param	string		$json
+	 * @return	string
 	 */
 	public static function enableJsFunctionInJSON($json) {
 		$pattern	= '/(?<=:)"function\((?:(?!}").)*}"/';
@@ -1001,8 +1001,8 @@ class TodoyuString {
 	/**
 	 * Callback for enableJsFunctionInJSON to replace quotes around function expressions
 	 *
-	 * @param	String		$string
-	 * @return	String
+	 * @param	string		$string
+	 * @return	string
 	 */
 	private static function escapeFunctionInJSON($string) {
 		return str_replace('\\"','\"',substr($string[0],1,-1));
@@ -1014,7 +1014,7 @@ class TodoyuString {
 	 * Convert a variable to it's PHP string representation
 	 *
 	 * @param	Mixed		$value
-	 * @return	String
+	 * @return	string
 	 * @deprecated
 	 */
 	public static function toPhpCodeString($value) {
@@ -1026,7 +1026,7 @@ class TodoyuString {
 	 * Convert a value to it's php code representation
 	 *
 	 * @param	Mixed		$value
-	 * @return	String
+	 * @return	string
 	 */
 	public static function toPhpCode($value) {
 		switch(gettype($value)) {
@@ -1059,8 +1059,8 @@ class TodoyuString {
 	/**
 	 * Convert an array to it's php code representation
 	 *
-	 * @param	Array		$array
-	 * @return	String
+	 * @param	array		$array
+	 * @return	string
 	 */
 	public static function toPhpCodeArray(array $array) {
 		$pairs	= array();
@@ -1077,9 +1077,9 @@ class TodoyuString {
 	/**
 	 * htmlentities with predefined config for todoyu
 	 *
-	 * @param	String		$string
-	 * @param	Boolean		$doubleEncode
-	 * @return	String
+	 * @param	string		$string
+	 * @param	boolean		$doubleEncode
+	 * @return	string
 	 */
 	public static function htmlentities($string, $doubleEncode = false) {
 		return htmlentities($string, ENT_QUOTES, 'UTF-8', $doubleEncode);
@@ -1092,8 +1092,8 @@ class TodoyuString {
 	 * Make sure you have a simple string without any path or file information
 	 * (which could cause an attack)
 	 *
-	 * @param	String		$pathString
-	 * @return	String
+	 * @param	string		$pathString
+	 * @return	string
 	 */
 	public static function removePathParts($pathString) {
 		return pathinfo($pathString, PATHINFO_FILENAME);
@@ -1106,8 +1106,8 @@ class TodoyuString {
 	 * " => \042
 	 * ' => \047
 	 *
-	 * @param	String		$string
-	 * @return	String
+	 * @param	string		$string
+	 * @return	string
 	 */
 	public static function escapeQuotesForHtmlAttributes($string) {
 		return str_replace(array("'", '"'), array('\047', '\042'), $string);

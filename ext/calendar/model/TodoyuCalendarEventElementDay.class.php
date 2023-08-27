@@ -41,7 +41,7 @@ class TodoyuCalendarEventElementDay extends TodoyuCalendarEventElementDayWeek {
 	/**
 	 * Get view width
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	protected function getViewWidth() {
 		return CALENDAR_DAY_EVENT_WIDTH;
@@ -68,7 +68,7 @@ class TodoyuCalendarEventElementDay extends TodoyuCalendarEventElementDayWeek {
 	 * Get position styles
 	 * Add top position data
 	 *
-	 * @return	String[]
+	 * @return	string[]
 	 */
 	protected function getPositionStyles($date) {
 		$styles	= parent::getPositionStyles($this->getEvent()->getDateStart());

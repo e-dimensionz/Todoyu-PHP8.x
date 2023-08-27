@@ -29,7 +29,7 @@ class TodoyuContactPanelwidgetStafflistActionController extends TodoyuActionCont
 	/**
 	 * Check whether use of project area is allowed
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('contact', 'panelwidgets:staffSelector');
@@ -40,8 +40,8 @@ class TodoyuContactPanelwidgetStafflistActionController extends TodoyuActionCont
 	/**
 	 * Get person list for current filter
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function listAction(array $params) {
 		$search	= trim($params['search']);

@@ -30,7 +30,7 @@ class TodoyuCalendarEventElementPortalList extends TodoyuCalendarEventElement {
 	/**
 	 * Get template to render event element
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getTemplate() {
 

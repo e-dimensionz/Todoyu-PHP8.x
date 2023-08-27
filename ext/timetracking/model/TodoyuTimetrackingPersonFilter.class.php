@@ -38,9 +38,9 @@ class TodoyuTimetrackingPersonFilter extends TodoyuSearchFilterBase implements T
 	/**
 	 * Init filter object
 	 *
-	 * @param	Array		$activeFilters
-	 * @param	String		$conjunction
-	 * @param	Array		$sorting
+	 * @param	array		$activeFilters
+	 * @param	string		$conjunction
+	 * @param	array		$sorting
 	 */
 	public function __construct(array $activeFilters = array(), $conjunction = 'AND', array $sorting = array()) {
 		parent::__construct('PERSON', self::TABLE, $activeFilters, $conjunction, $sorting);
@@ -51,8 +51,8 @@ class TodoyuTimetrackingPersonFilter extends TodoyuSearchFilterBase implements T
 	/**
 	 * Person filter: tracked time in given project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Boolean		$negate
+	 * @param	integer		$idProject
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_trackedinproject($idProject, $negate = false) {
@@ -85,8 +85,8 @@ class TodoyuTimetrackingPersonFilter extends TodoyuSearchFilterBase implements T
 	/**
 	 * Person filter: tracked time in project of given customer company
 	 *
-	 * @param	Integer		$idCompany
-	 * @param	Boolean		$negate
+	 * @param	integer		$idCompany
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_trackedforcustomer($idCompany, $negate = false) {

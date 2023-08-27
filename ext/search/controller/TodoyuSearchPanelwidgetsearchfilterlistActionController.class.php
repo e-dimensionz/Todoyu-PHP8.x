@@ -29,7 +29,7 @@ class TodoyuSearchPanelwidgetSearchfilterlistActionController extends TodoyuActi
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('search', 'general:use');
@@ -40,8 +40,8 @@ class TodoyuSearchPanelwidgetSearchfilterlistActionController extends TodoyuActi
 	/**
 	 * Update search widget filter list
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function updateAction(array $params) {
 		/**
@@ -55,8 +55,8 @@ class TodoyuSearchPanelwidgetSearchfilterlistActionController extends TodoyuActi
 
 
 	/**
-	 * @param	Array	$params
-	 * @return	Integer				Separator's (filterset) ID
+	 * @param	array	$params
+	 * @return	integer				Separator's (filterset) ID
 	 */
 	public function saveNewSeparatorAction(array $params) {
 		$type	= $params['type'];

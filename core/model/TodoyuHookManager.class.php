@@ -38,8 +38,8 @@ class TodoyuHookManager {
 	/**
 	 * Get registered hooks
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$name		If empty: get all hooks+names
+	 * @param	string		$extKey
+	 * @param	string		$name		If empty: get all hooks+names
 	 * @return	Array
 	 */
 	public static function getHooks($extKey, $name = '') {
@@ -57,7 +57,7 @@ class TodoyuHookManager {
 	/**
 	 * Get all hooks of given extension
 	 *
-	 * @param	String
+	 * @param	string
 	 * @return	Array
 	 */
 	public static function getAllHooksOfExtension($extKey) {
@@ -69,9 +69,9 @@ class TodoyuHookManager {
 	/**
 	 * Call all registered hooks for an event
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$name			Hook name
-	 * @param	Array		$params			Parameters for the hook function
+	 * @param	string		$extKey
+	 * @param	string		$name			Hook name
+	 * @param	array		$params			Parameters for the hook function
 	 * @return	Array		The return values of all hook functions
 	 */
 	public static function callHook($extKey, $name, array $params = array()) {
@@ -93,10 +93,10 @@ class TodoyuHookManager {
 	/**
 	 * Call hooks which modify a data variable (ex: an array)
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$name				Hook name
+	 * @param	string		$extKey
+	 * @param	string		$name				Hook name
 	 * @param	Mixed		$dataVar			Data variable which will be passed to each hook
-	 * @param	Array		$additionalParams	Additional parameters which will be placed after the $dataVar
+	 * @param	array		$additionalParams	Additional parameters which will be placed after the $dataVar
 	 * @return	Mixed
 	 */
 	public static function callHookDataModifier($extKey, $name, $dataVar, array $additionalParams = array()) {
@@ -125,11 +125,11 @@ class TodoyuHookManager {
 	 * NEVER will ignore other votes (except ALWAYS) and return false
 	 * One no voting will result in FALSE
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$name
-	 * @param	Array		$params
-	 * @param	Boolean		$noVotingDefault
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @param	string		$name
+	 * @param	array		$params
+	 * @param	boolean		$noVotingDefault
+	 * @return	boolean
 	 */
 	public static function callHookVoting($extKey, $name, array $params = array(), $noVotingDefault = true) {
 		$hookResults= self::callHook($extKey, $name, $params);
@@ -167,10 +167,10 @@ class TodoyuHookManager {
 	/**
 	 * Add a new hook functions for a hook event
 	 *
-	 * @param	String		$extKey			Extension key (of Ext to be extended)
-	 * @param	String		$name			Hook name
-	 * @param	String		$function		Function reference (e.g: 'Classname::method')
-	 * @param	Integer		$position		Position of the hook (order of calling)
+	 * @param	string		$extKey			Extension key (of Ext to be extended)
+	 * @param	string		$name			Hook name
+	 * @param	string		$function		Function reference (e.g: 'Classname::method')
+	 * @param	integer		$position		Position of the hook (order of calling)
 	 */
 	public static function registerHook($extKey, $name, $function, $position = 100) {
 		$extKey	= strtolower($extKey);

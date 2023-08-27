@@ -11,7 +11,7 @@
 		{/if}
 
 		<div class="title">
-			{htmlencode $title}
+			{$title|escape}
 		</div>
 	</div>
 
@@ -22,9 +22,9 @@
 			<span class="headInner">
 			{if $isPrivate}
 				{$firstAssignedPersonId = key($persons)}
-				<span class="private {if isPersonID($firstAssignedPersonId)}allowed{/if}" id="event-{$id}-private"></span>
+				<span class="private {if fn_isPersonID($firstAssignedPersonId)}allowed{/if}" id="event-{$id}-private"></span>
 			{/if}
-			{htmlencode(truncate($title, 16, '...', true))}
+			{$title|truncate:16:'...':true|escape}
 			</span>
 		</dt>
 	</dl>

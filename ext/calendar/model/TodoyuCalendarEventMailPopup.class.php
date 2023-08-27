@@ -49,9 +49,9 @@ class TodoyuCalendarEventMailPopup {
 	/**
 	 * Initialize
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	String		$operation
-	 * @param	Boolean		$asSeries
+	 * @param	integer		$idEvent
+	 * @param	string		$operation
+	 * @param	boolean		$asSeries
 	 */
 	public function __construct($idEvent, $operation, $asSeries = false) {
 		$this->event	= TodoyuCalendarEventStaticManager::getEvent($idEvent);
@@ -75,7 +75,7 @@ class TodoyuCalendarEventMailPopup {
 	/**
 	 * Get event ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getEventID() {
 		return $this->getEvent()->getID();
@@ -86,7 +86,7 @@ class TodoyuCalendarEventMailPopup {
 	/**
 	 * Get operation key
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getOperation() {
 		return $this->operation;
@@ -97,7 +97,7 @@ class TodoyuCalendarEventMailPopup {
 	/**
 	 * Check whether operation is delete
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isDeleteOperation() {
 		return $this->getOperation() === 'delete';
@@ -108,7 +108,7 @@ class TodoyuCalendarEventMailPopup {
 	/**
 	 * Check whether operation is update
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isUpdateOperation() {
 		return $this->getOperation() === 'update';
@@ -119,7 +119,7 @@ class TodoyuCalendarEventMailPopup {
 	/**
 	 * Check whether popup is for a series event
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isAsSeries() {
 		return $this->asSeries;
@@ -130,7 +130,7 @@ class TodoyuCalendarEventMailPopup {
 	/**
 	 * Check whether its necessary to render the popup
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isRequired() {
 		if( $this->getEvent()->areOtherPersonsAssigned() ) {
@@ -151,7 +151,7 @@ class TodoyuCalendarEventMailPopup {
 	/**
 	 * Render popup
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function render() {
 		$tmpl	= 'ext/calendar/view/popup/email.tmpl';
@@ -169,7 +169,7 @@ class TodoyuCalendarEventMailPopup {
 	/**
 	 * Get popup subject label
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getSubject() {
 		return Todoyu::Label('calendar.event.mail.popup.subject.' . $this->getOperation());

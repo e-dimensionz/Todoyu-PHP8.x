@@ -29,7 +29,7 @@ class TodoyuDaytracksPanelwidgetActionController extends TodoyuActionController 
 	/**
 	 * Init. Check rights for panelwidget
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('daytracks', 'general:use');
@@ -40,8 +40,8 @@ class TodoyuDaytracksPanelwidgetActionController extends TodoyuActionController 
 	/**
 	 * Update the panelwidget content
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function updateAction(array $params) {
 		$panelWidget = TodoyuPanelWidgetManager::getPanelWidget('daytracks', 'Daytracks');

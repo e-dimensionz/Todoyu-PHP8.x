@@ -30,7 +30,7 @@ class TodoyuTimetrackingRights {
 	 * Deny access
 	 * Shortcut for timetracking
 	 *
-	 * @param	String		$right		Denied right
+	 * @param	string		$right		Denied right
 	 */
 	private static function deny($right) {
 		TodoyuRightsManager::deny('timetracking', $right);
@@ -42,7 +42,7 @@ class TodoyuTimetrackingRights {
 	 * Check whether user has edit rights for this track
 	 * Deny access if right is missing
 	 *
-	 * @param	Integer		$idTrack
+	 * @param	integer		$idTrack
 	 */
 	public static function restrictEdit($idTrack) {
 		if( ! self::isEditAllowed($idTrack) ) {
@@ -55,8 +55,8 @@ class TodoyuTimetrackingRights {
 	/**
 	 * Check whether user has edit rights for this track
 	 *
-	 * @param	Integer		$idTrack
-	 * @return	Boolean
+	 * @param	integer		$idTrack
+	 * @return	boolean
 	 */
 	public static function isEditAllowed($idTrack) {
 		$idTrack	= intval($idTrack);
@@ -80,8 +80,8 @@ class TodoyuTimetrackingRights {
 	/**
 	 * Checks whether timetracking generally allowed and in particular for current task
 	 *
-	 * @param	Integer	$idTask
-	 * @return	Boolean
+	 * @param	integer	$idTask
+	 * @return	boolean
 	 */
 	public static function isTrackAllowed($idTask) {
 		if( TodoyuAuth::isAdmin() ) {
@@ -103,7 +103,7 @@ class TodoyuTimetrackingRights {
 	/**
 	 * Restricts access to track time on given task
 	 *
-	 * @param	Integer	$idTask
+	 * @param	integer	$idTask
 	 */
 	public static function restrictTrack($idTask) {
 		if( ! self::isTrackAllowed($idTask)) {
@@ -116,7 +116,7 @@ class TodoyuTimetrackingRights {
 	/**
 	 * Restricts seeing of given track (depends on see-right of task)
 	 *
-	 * @param	Integer	$idTrack
+	 * @param	integer	$idTrack
 	 */
 	public static function restrictSee($idTrack) {
 		$idTrack= intval($idTrack);

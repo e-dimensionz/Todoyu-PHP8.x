@@ -30,7 +30,7 @@ class TodoyuAssetsTempUploaderProject extends TodoyuAssetsTempUploader {
 	/**
 	 * Initialize
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 */
 	public function __construct($idProject) {
 		parent::__construct('project', $idProject);
@@ -41,7 +41,7 @@ class TodoyuAssetsTempUploaderProject extends TodoyuAssetsTempUploader {
 	/**
 	 * Hook. Removed temp files
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 */
 	public static function hookClearNewProjectFiles($idProject) {
 		$idProject		= 0;
@@ -56,8 +56,8 @@ class TodoyuAssetsTempUploaderProject extends TodoyuAssetsTempUploader {
 	 * Hook: Project create
 	 * Clear temp uploads for new project (id=0)
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$type
+	 * @param	integer		$idProject
+	 * @param	integer		$type
 	 */
 	public static function hookProjectCreate($idParentTask, $idProject, $type) {
 		self::clearProject(0);
@@ -69,7 +69,7 @@ class TodoyuAssetsTempUploaderProject extends TodoyuAssetsTempUploader {
 	 * Hook: Project edit
 	 * Clear temp uploads for this project
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 */
 	public static function hookProjectEdit($idProject) {
 		self::clearProject($idProject);
@@ -80,7 +80,7 @@ class TodoyuAssetsTempUploaderProject extends TodoyuAssetsTempUploader {
 	/**
 	 * Clear project assets (statis helper)
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 */
 	public static function clearProject($idProject) {
 		$uploader	= new self($idProject);

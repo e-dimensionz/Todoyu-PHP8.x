@@ -29,7 +29,7 @@ class TodoyuDayRange extends TodoyuDateRange {
 	/**
 	 * Get range ID
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getID() {
 		return date('Ymd', $this->getStart()) . date('Ymd', $this->getEnd());
@@ -40,7 +40,7 @@ class TodoyuDayRange extends TodoyuDateRange {
 	/**
 	 * Set start date
 	 *
-	 * @param	Integer		$date
+	 * @param	integer		$date
 	 */
 	public function setStart($date) {
 		$date	= TodoyuTime::getDayStart($date);
@@ -53,7 +53,7 @@ class TodoyuDayRange extends TodoyuDateRange {
 	/**
 	 * Set end date
 	 *
-	 * @param	Integer		$date
+	 * @param	integer		$date
 	 */
 	public function setEnd($date) {
 		$date	= TodoyuTime::getDayEnd($date);
@@ -66,9 +66,9 @@ class TodoyuDayRange extends TodoyuDateRange {
 	/**
 	 * Set range start by date
 	 *
-	 * @param	Integer		$year
-	 * @param	Integer		$month
-	 * @param	Integer		$day
+	 * @param	integer		$year
+	 * @param	integer		$month
+	 * @param	integer		$day
 	 */
 	public function setDateStart($year, $month, $day, $hour = 0, $minute = 0, $second = 0) {
 		parent::setDateStart($year, $month, $day, 0, 0, 0);
@@ -79,9 +79,9 @@ class TodoyuDayRange extends TodoyuDateRange {
 	/**
 	 * Set range end by date
 	 *
-	 * @param	Integer		$year
-	 * @param	Integer		$month
-	 * @param	Integer		$day
+	 * @param	integer		$year
+	 * @param	integer		$month
+	 * @param	integer		$day
 	 */
 	public function setDateEnd($year, $month, $day, $hour = 0, $minute = 0, $second = 0) {
 		parent::setDateEnd($year, $month, $day, 23, 59, 59);
@@ -92,7 +92,7 @@ class TodoyuDayRange extends TodoyuDateRange {
 	/**
 	 * Set same date for start and end
 	 *
-	 * @param	Integer		$date
+	 * @param	integer		$date
 	 */
 	public function setDate($date) {
 		$this->setStart($date);
@@ -104,7 +104,7 @@ class TodoyuDayRange extends TodoyuDateRange {
 	/**
 	 * Get duration of this range in days
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDurationInDays() {
 		return round($this->getDuration() / TodoyuTime::SECONDS_DAY, 0);

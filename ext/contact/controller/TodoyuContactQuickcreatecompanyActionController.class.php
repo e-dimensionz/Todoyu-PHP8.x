@@ -27,7 +27,7 @@
 class TodoyuContactQuickCreateCompanyActionController extends TodoyuActionController {
 
 	/**
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		TodoyuContactCompanyRights::restrictAdd();
@@ -38,8 +38,8 @@ class TodoyuContactQuickCreateCompanyActionController extends TodoyuActionContro
 	/**
 	 * Get quick company form rendered
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function popupAction(array $params) {
 		return TodoyuContactCompanyRenderer::renderCompanyQuickCreateForm();
@@ -50,8 +50,8 @@ class TodoyuContactQuickCreateCompanyActionController extends TodoyuActionContro
 	/**
 	 * Save company record
 	 *
-	 * @param	Array		$params
-	 * @return	String		Form HTML or company ID
+	 * @param	array		$params
+	 * @return	string		Form HTML or company ID
 	 */
 	public function saveAction(array $params) {
 			// Get form object, call save hooks, set data

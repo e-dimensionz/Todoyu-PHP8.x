@@ -103,7 +103,7 @@ class TodoyuRightsManager {
 	/**
 	 * Check whether rights stored in session haven't expired (rights definitions havent changed since)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function areRightsInSessionExpired() {
 		$timestampSession	= TodoyuSession::get('mtime');
@@ -117,7 +117,7 @@ class TodoyuRightsManager {
 	/**
 	 * Get timestamp of last change of system wide rights settings
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getLastChangeTime() {
 		$timestampFile	= TodoyuFileManager::pathAbsolute('cache/timeLastRightsChange');
@@ -148,9 +148,9 @@ class TodoyuRightsManager {
 	/**
 	 * Check if an action is allowed
 	 *
-	 * @param	String		$extKey		Extension key
-	 * @param	String		$right		Right
-	 * @return	Boolean
+	 * @param	string		$extKey		Extension key
+	 * @param	string		$right		Right
+	 * @return	boolean
 	 */
 	public static function isAllowed($extKey, $right) {
 			// Check for CLI user
@@ -192,9 +192,9 @@ class TodoyuRightsManager {
 	/**
 	 * Check if a right exists in the rights XML file
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$right
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @param	string		$right
+	 * @return	boolean
 	 */
 	public static function checkIfRightExists($extKey, $right) {
 		$rightParts		= explode(':', $right, 2);
@@ -221,7 +221,7 @@ class TodoyuRightsManager {
 	/**
 	 * Load rights array from rights XML file of given extension
 	 *
-	 * @param	String	$extKey
+	 * @param	string	$extKey
 	 * @return	Array
 	 */
 	public static function loadExtRightsMatrixFromXml($extKey) {
@@ -235,8 +235,8 @@ class TodoyuRightsManager {
 	/**
 	 * Get required rights (if any) for given section
 	 *
-	 * @param	String	$extKey
-	 * @param	String	$sectionName
+	 * @param	string	$extKey
+	 * @param	string	$sectionName
 	 * @return	Array|Boolean
 	 */
 	public static function getSectionRequirement($extKey, $sectionName) {
@@ -254,9 +254,9 @@ class TodoyuRightsManager {
 	/**
 	 * Get required rights (if any) for given right
 	 *
-	 * @param	String	$extKey
-	 * @param	String	$sectionName
-	 * @param	String	$right
+	 * @param	string	$extKey
+	 * @param	string	$sectionName
+	 * @param	string	$right
 	 * @return	Array|Boolean
 	 */
 	public static function getRightRequirement($extKey, $sectionName, $right) {
@@ -276,8 +276,8 @@ class TodoyuRightsManager {
 	/**
 	 * Get section definition node from given extension rights matrix
 	 *
-	 * @param	String			$extKey
-	 * @param	String			$sectionName
+	 * @param	string			$extKey
+	 * @param	string			$sectionName
 	 * @return	Array|Boolean
 	 */
 	public static function getSectionNode($extKey, $sectionName) {
@@ -301,9 +301,9 @@ class TodoyuRightsManager {
 	/**
 	 * Get right definition node from given extension rights matrix
 	 *
-	 * @param	String			$extKey
-	 * @param	String			$sectionName
-	 * @param	String			$right
+	 * @param	string			$extKey
+	 * @param	string			$sectionName
+	 * @param	string			$right
 	 * @return	Array|Boolean
 	 */
 	public static function getRightNode($extKey, $sectionName, $right) {
@@ -322,9 +322,9 @@ class TodoyuRightsManager {
 	/**
 	 * Search for the right if multiple right sections exist
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$sectionName
-	 * @param	String		$right
+	 * @param	string		$extKey
+	 * @param	string		$sectionName
+	 * @param	string		$right
 	 * @return	Array | Boolean
 	 */
 	protected static function extractRightNodeMultipleSection($extKey, $sectionName, $right) {
@@ -357,9 +357,9 @@ class TodoyuRightsManager {
 	 * Search for the right if only one right section exist
 	 * Because it has different Simple-XML result
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$sectionName
-	 * @param	String		$right
+	 * @param	string		$extKey
+	 * @param	string		$sectionName
+	 * @param	string		$right
 	 * @return	Array | Boolean
 	 */
 	protected static function extractRightNodeSingleSection($extKey, $sectionName, $rightNode) {
@@ -404,10 +404,10 @@ class TodoyuRightsManager {
 	/**
 	 * Add new right for a role
 	 *
-	 * @param	Integer		$extID
-	 * @param	Integer		$idRole
-	 * @param	Integer		$right
-	 * @return	Integer
+	 * @param	integer		$extID
+	 * @param	integer		$idRole
+	 * @param	integer		$right
+	 * @return	integer
 	 */
 	public static function setRight($extID, $idRole, $right) {
 		$data	= array(
@@ -424,10 +424,10 @@ class TodoyuRightsManager {
 	/**
 	 * Delete a right for a role
 	 *
-	 * @param	Integer		$extID
-	 * @param	Integer		$idRole
-	 * @param	Integer		$right
-	 * @return	Boolean
+	 * @param	integer		$extID
+	 * @param	integer		$idRole
+	 * @param	integer		$right
+	 * @return	boolean
 	 */
 	public static function deleteRight($extID, $idRole, $right) {
 		$where	= '		ext		= ' . abs($extID) .
@@ -443,9 +443,9 @@ class TodoyuRightsManager {
 	/**
 	 * Delete all role rights
 	 *
-	 * @param	Integer		$extID			ID of the extension
-	 * @param	Integer		$idRole			ID of the role
-	 * @return	Integer		Number of deleted rights
+	 * @param	integer		$extID			ID of the extension
+	 * @param	integer		$idRole			ID of the role
+	 * @return	integer		Number of deleted rights
 	 */
 	public static function deleteExtRoleRights($extID, $idRole) {
 		$extID	= (int) $extID;
@@ -461,8 +461,8 @@ class TodoyuRightsManager {
 	/**
 	 * Delete all extension rights
 	 *
-	 * @param	Integer		$extID
-	 * @return	Integer		Number of deleted rights
+	 * @param	integer		$extID
+	 * @return	integer		Number of deleted rights
 	 */
 	public static function deleteExtensionRights($extID) {
 		$extID	= (int) $extID;
@@ -497,8 +497,8 @@ class TodoyuRightsManager {
 	/**
 	 * Get extension user role rights
 	 *
-	 * @param	String	$ext
-	 * @param	Array	$roles
+	 * @param	string	$ext
+	 * @param	array	$roles
 	 * @return	Array
 	 */
 	public static function getExtRoleRights($ext, array $roles = array()) {
@@ -531,8 +531,8 @@ class TodoyuRightsManager {
 	 * Restrict access
 	 * If user has no the right, display error message (or send error header for AJAX requests)
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$right
+	 * @param	string		$extKey
+	 * @param	string		$right
 	 */
 	public static function restrict($extKey, $right) {
 		if( ! self::isAllowed($extKey, $right) ) {
@@ -567,8 +567,8 @@ class TodoyuRightsManager {
 	/**
 	 * Deny access and send no-access info
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$right
+	 * @param	string		$extKey
+	 * @param	string		$right
 	 */
 	public static function deny($extKey, $right) {
 		$output	= '';

@@ -53,8 +53,8 @@ class TodoyuContextMenu {
 	/**
 	 * Initialize context menu with ID of the processed element
 	 *
-	 * @param	String		$type
-	 * @param	Integer		$idElement
+	 * @param	string		$type
+	 * @param	integer		$idElement
 	 */
 	public function __construct($type, $idElement) {
 		$this->type			= $type;
@@ -81,7 +81,7 @@ class TodoyuContextMenu {
 	/**
 	 * Parse elements (label and jsAction)
 	 *
-	 * @param	Array	$elements
+	 * @param	array	$elements
 	 * @return	Array
 	 */
 	private function parseElements(array $elements) {
@@ -115,7 +115,7 @@ class TodoyuContextMenu {
 	/**
 	 * Get context menu elements as JSON encoded string
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getJSON() {
 		return json_encode($this->getElements());
@@ -137,8 +137,8 @@ class TodoyuContextMenu {
 	/**
 	 * Replace the #ID# placeholder with the current element ID
 	 *
-	 * @param	String		$jsAction		JavaScript link
-	 * @return	String
+	 * @param	string		$jsAction		JavaScript link
+	 * @return	string
 	 */
 	private function renderJsAction($jsAction) {
 		$jsAction	= str_replace('#ID#', $this->idElement,	$jsAction);
@@ -151,8 +151,8 @@ class TodoyuContextMenu {
 	/**
 	 * Render label if there is a function reference
 	 *
-	 * @param	String		$label
-	 * @return	String
+	 * @param	string		$label
+	 * @return	string
 	 */
 	private function renderLabel($label) {
 			// Check if there is a function reference in the label

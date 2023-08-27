@@ -28,7 +28,7 @@
 class TodoyuSearchFiltercontrollerActionController extends TodoyuActionController {
 
 	/**
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('search', 'general:area');
@@ -39,8 +39,8 @@ class TodoyuSearchFiltercontrollerActionController extends TodoyuActionControlle
 	/**
 	 * Autocomplete filter widget input (configuration is stored in filter config)
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function autocompletionAction(array $params) {
 		$widgetKey	= $params['completionID'];

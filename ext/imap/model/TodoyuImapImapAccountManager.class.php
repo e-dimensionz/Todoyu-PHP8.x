@@ -36,7 +36,7 @@ class TodoyuImapImapAccountManager {
 	/**
 	 * Get IMAP account object
 	 *
-	 * @param	Integer				$idAccount
+	 * @param	integer				$idAccount
 	 * @return	TodoyuImapImapAccount
 	 */
 	public static function getAccount($idAccount) {
@@ -48,7 +48,7 @@ class TodoyuImapImapAccountManager {
 	/**
 	 * Get IMAP account objects for given IDs
 	 *
-	 * @param	Integer[]				$accountIDs
+	 * @param	integer[]				$accountIDs
 	 * @return	TodoyuImapAccount[]
 	 */
 	public static function getAccountsByID(array $accountIDs) {
@@ -83,7 +83,7 @@ class TodoyuImapImapAccountManager {
 	/**
 	 * Get all (optionally only active ones) IMAP accounts
 	 *
-	 * @param	Boolean					$onlyActive
+	 * @param	boolean					$onlyActive
 	 * @return	TodoyuImapImapAccount[]
 	 */
 	public static function getAllAccounts($onlyActive = true) {
@@ -105,7 +105,7 @@ class TodoyuImapImapAccountManager {
 	/**
 	 * Removes given IMAP account record from the database
 	 *
-	 * @param	Integer	$idAccount
+	 * @param	integer	$idAccount
 	 */
 	public static function removeAccount($idAccount) {
 		$idAccount	= intval($idAccount);
@@ -120,8 +120,8 @@ class TodoyuImapImapAccountManager {
 	/**
 	 * Save IMAP account record from given data
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function saveAccount(array $data) {
 		$idAccount	= intval($data['id']);
@@ -151,8 +151,8 @@ class TodoyuImapImapAccountManager {
 	/**
 	 * Add an account
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function addAccount(array $data = array()) {
 		return TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -163,9 +163,9 @@ class TodoyuImapImapAccountManager {
 	/**
 	 * Update an account
 	 *
-	 * @param	Integer		$idAccount
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idAccount
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function updateAccount($idAccount, array $data) {
 		return TodoyuRecordManager::updateRecord(self::TABLE, $idAccount, $data);

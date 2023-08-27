@@ -23,6 +23,3 @@ define('EXTID_COMMENT', 105);
 define('PATH_EXT_COMMENT', PATH_EXT . '/comment');
 
 require_once( PATH_EXT_COMMENT . '/config/constants.php' );
-require_once( PATH_EXT_COMMENT . '/dwoo/plugins.php' );
-
-?>

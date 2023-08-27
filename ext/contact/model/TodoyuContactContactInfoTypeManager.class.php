@@ -38,7 +38,7 @@ class TodoyuContactContactInfoTypeManager {
 	/**
 	 * Get contact info type
 	 *
-	 * @param	Integer		$idContactInfoType
+	 * @param	integer		$idContactInfoType
 	 * @return	TodoyuContactContactInfoType
 	 */
 	public static function getContactInfoType($idContactInfoType) {
@@ -52,7 +52,7 @@ class TodoyuContactContactInfoTypeManager {
 	/**
 	 * Get all contact info types, optionally parse title labels
 	 *
-	 * @param	Boolean		$parseLabels
+	 * @param	boolean		$parseLabels
 	 * @return	Array
 	 */
 	public static function getContactInfoTypes($parseLabels = true) {
@@ -92,8 +92,8 @@ class TodoyuContactContactInfoTypeManager {
 	/**
 	 * Create new contactinfotype record with given data
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function addContactInfoType(array $data = array()) {
 		return TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -104,8 +104,8 @@ class TodoyuContactContactInfoTypeManager {
 	/**
 	 * Update contactinfo type of given ID with given data
 	 *
-	 * @param	Integer		$idContactTypeInfo
-	 * @param	Array		$data
+	 * @param	integer		$idContactTypeInfo
+	 * @param	array		$data
 	 */
 	public static function updateContactInfoType($idContactTypeInfo, array $data) {
 		TodoyuRecordManager::updateRecord(self::TABLE, $idContactTypeInfo, $data);
@@ -116,7 +116,7 @@ class TodoyuContactContactInfoTypeManager {
 	/**
 	 * Delete given contact type info record of given ID
 	 *
-	 * @param	Integer		$idContactTypeInfo
+	 * @param	integer		$idContactTypeInfo
 	 */
 	public static function deleteContactTypeInfo($idContactTypeInfo) {
 		TodoyuRecordManager::deleteRecord(self::TABLE, $idContactTypeInfo);
@@ -127,8 +127,8 @@ class TodoyuContactContactInfoTypeManager {
 	/**
 	 * Save given data into contactinfo type (update if ID given or add new record)
 	 *
-	 * @param	Array	$data
-	 * @return	Integer
+	 * @param	array	$data
+	 * @return	integer
 	 */
 	public static function saveContactInfoType(array $data) {
 		$idContactInfoType	= intval($data['id']);

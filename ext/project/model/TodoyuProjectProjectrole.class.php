@@ -29,7 +29,7 @@ class TodoyuProjectProjectrole extends TodoyuBaseObject {
 	/**
 	 * Constructor
 	 *
-	 * @param	Integer	$idProjectrole
+	 * @param	integer	$idProjectrole
 	 */
 	public function __construct($idProjectrole) {
 		parent::__construct($idProjectrole, 'ext_project_role');
@@ -40,7 +40,7 @@ class TodoyuProjectProjectrole extends TodoyuBaseObject {
 	/**
 	 * Get title of projectrole
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle() {
 		return Todoyu::Label($this->get('title'));
@@ -51,7 +51,7 @@ class TodoyuProjectProjectrole extends TodoyuBaseObject {
 	/**
 	 * Get record label
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLabel() {
 		return $this->getTitle();

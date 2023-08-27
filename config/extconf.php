@@ -39,15 +39,6 @@ Todoyu::$CONFIG['EXT']['contact']['extConf'] = unserialize(stripslashes('a:0:{}'
 Todoyu::$CONFIG['EXT']['comment']['extConf'] = unserialize(stripslashes('a:0:{}'));
 Todoyu::$CONFIG['EXT']['profile']['extConf'] = unserialize(stripslashes('a:0:{}'));
 Todoyu::$CONFIG['EXT']['assets']['extConf'] = unserialize(stripslashes('a:0:{}'));
-Todoyu::$CONFIG['EXT']['currency']['extConf'] = unserialize(stripslashes('a:0:{}'));
-Todoyu::$CONFIG['EXT']['dev']['extConf'] = unserialize(stripslashes('a:0:{}'));
-Todoyu::$CONFIG['EXT']['gantt']['extConf'] = unserialize(stripslashes('a:0:{}'));
-Todoyu::$CONFIG['EXT']['projectbilling']['extConf'] = unserialize(stripslashes('a:0:{}'));
-Todoyu::$CONFIG['EXT']['resources']['extConf'] = unserialize(stripslashes('a:0:{}'));
-Todoyu::$CONFIG['EXT']['reporting']['extConf'] = unserialize(stripslashes('a:0:{}'));
-Todoyu::$CONFIG['EXT']['projectbillingreporting']['extConf'] = unserialize(stripslashes('a:0:{}'));
-Todoyu::$CONFIG['EXT']['calendarreporting']['extConf'] = unserialize(stripslashes('a:0:{}'));
-Todoyu::$CONFIG['EXT']['minireport']['extConf'] = unserialize(stripslashes('a:0:{}'));
-Todoyu::$CONFIG['EXT']['firststeps']['extConf'] = unserialize(stripslashes('a:0:{}'));
+Todoyu::$CONFIG['EXT']['firststeps']['extConf'] = unserialize(stripslashes('a:1:{s:13:\"disableWizard\";i:1;}'));
 
 ?>

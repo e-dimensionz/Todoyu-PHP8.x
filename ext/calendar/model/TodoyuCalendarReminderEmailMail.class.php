@@ -38,8 +38,8 @@ class TodoyuCalendarReminderEmailMail extends TodoyuMail {
 	/**
 	 * Initialize with reminder
 	 *
-	 * @param	Integer		$idReminder
-	 * @param	Array		$config
+	 * @param	integer		$idReminder
+	 * @param	array		$config
 	 */
 	public function __construct($idReminder, array $config = array()) {
 		parent::__construct($config);
@@ -107,8 +107,8 @@ class TodoyuCalendarReminderEmailMail extends TodoyuMail {
 	/**
 	 * Render content for HTML/plaintext mail
 	 *
-	 * @param	Boolean		$asHTML
-	 * @return	String
+	 * @param	boolean		$asHTML
+	 * @return	string
 	 */
 	private function getContent($asHTML = true) {
 		$tmpl	= $this->getTemplate($asHTML);
@@ -125,8 +125,8 @@ class TodoyuCalendarReminderEmailMail extends TodoyuMail {
 	/**
 	 * Get filename of event reminder email template to current mode (text/HTML)
 	 *
-	 * @param	Boolean		$asHTML
-	 * @return	String
+	 * @param	boolean		$asHTML
+	 * @return	string
 	 */
 	private function getTemplate($asHTML = true) {
 		$type	= $asHTML ? 'html' : 'text';

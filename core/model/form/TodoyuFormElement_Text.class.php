@@ -31,9 +31,9 @@ class TodoyuFormElement_Text extends TodoyuFormElement {
 	/**
 	 * TodoyuFormElement text constructor
 	 *
-	 * @param	String				$name
+	 * @param	string				$name
 	 * @param	TodoyuFormFieldset		$fieldset
-	 * @param	Array				$config
+	 * @param	array				$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		parent::__construct('text', $name, $fieldset, $config);
@@ -66,7 +66,7 @@ class TodoyuFormElement_Text extends TodoyuFormElement {
 	/**
 	 * Set type attribute
 	 *
-	 * @param	String		$type
+	 * @param	string		$type
 	 */
 	public function setInputType($type) {
 		$this->setAttribute('type', $type);
@@ -89,7 +89,7 @@ class TodoyuFormElement_Text extends TodoyuFormElement {
 	 * Validate if field is required
 	 * Text = not empty if spaces are removed
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function validateRequired() {
 		return trim($this->getValue()) !== '';
@@ -100,7 +100,7 @@ class TodoyuFormElement_Text extends TodoyuFormElement {
 	/**
 	 * Get value for template (hide password)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getValueForTemplate() {
 		if( $this->getAttribute('type') === 'password' ) {
@@ -115,7 +115,7 @@ class TodoyuFormElement_Text extends TodoyuFormElement {
 	/**
 	 * Get data of field to store in the database
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getStorageDataInternal() {
 		return trim($this->getValue());

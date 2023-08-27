@@ -30,7 +30,7 @@ class TodoyuContactPersonQuickInfoManager {
 	 * Add items to person quickinfo
 	 *
 	 * @param	TodoyuQuickinfo		$quickInfo
-	 * @param	Integer				$idPerson
+	 * @param	integer				$idPerson
 	 */
 	public static function addPersonInfos(TodoyuQuickinfo $quickInfo, $idPerson) {
 		$idPerson	= intval($idPerson);

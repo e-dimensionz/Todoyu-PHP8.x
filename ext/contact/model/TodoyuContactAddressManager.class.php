@@ -56,7 +56,7 @@ class TodoyuContactAddressManager {
 	/**
 	 * Return the requested Address object
 	 *
-	 * @param	Integer			$idAddress
+	 * @param	integer			$idAddress
 	 * @return	TodoyuContactAddress
 	 */
 	public static function getAddress($idAddress) {
@@ -71,8 +71,8 @@ class TodoyuContactAddressManager {
 	 * Save the address record to table ext_contact_address
 	 * returns the ID of the saved record
 	 *
-	 * @param	Array	$data
-	 * @return	Integer
+	 * @param	array	$data
+	 * @return	integer
 	 */
 	public static function saveAddress(array $data) {
 		$idAddress	= intval($data['id']);
@@ -93,8 +93,8 @@ class TodoyuContactAddressManager {
 	/**
 	 * Add address record to DB
 	 *
-	 * @param	Array	$data
-	 * @return	Integer
+	 * @param	array	$data
+	 * @return	integer
 	 */
 	public static function addAddress(array $data = array()) {
 		return TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -105,9 +105,9 @@ class TodoyuContactAddressManager {
 	/**
 	 * Update address record in DB
 	 *
-	 * @param	Integer		$idAddress
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idAddress
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function updateAddress($idAddress, array $data) {
 		return TodoyuRecordManager::updateRecord(self::TABLE, $idAddress, $data);
@@ -118,7 +118,7 @@ class TodoyuContactAddressManager {
 	/**
 	 * Set given address record in DB deleted
 	 *
-	 * @param	Integer		$idAddress
+	 * @param	integer		$idAddress
 	 */
 	public static function deleteAddress($idAddress) {
 		$update	= array(
@@ -133,7 +133,7 @@ class TodoyuContactAddressManager {
 	/**
 	 * Remove record from cache
 	 *
-	 * @param	Integer	$idAddress
+	 * @param	integer	$idAddress
 	 */
 	protected static function removeFromCache($idAddress) {
 		$idAddress	= intval($idAddress);
@@ -147,9 +147,9 @@ class TodoyuContactAddressManager {
 	/**
 	 * Get all addresses of given company
 	 *
-	 * @param	Integer	$idCompany
-	 * @param	String	$addressFields		e.g 'ext_contact_address.*' to get all fields, otherwise comma separated field names
-	 * @param	String	$orderBy
+	 * @param	integer	$idCompany
+	 * @param	string	$addressFields		e.g 'ext_contact_address.*' to get all fields, otherwise comma separated field names
+	 * @param	string	$orderBy
 	 * @return	Array
 	 */
 	public static function getCompanyAddresses($idCompany, $addressFields = '', $orderBy = 'city') {
@@ -175,8 +175,8 @@ class TodoyuContactAddressManager {
 	/**
 	 * Get label for address type
 	 *
-	 * @param	Integer		$idAddressType
-	 * @return	String
+	 * @param	integer		$idAddressType
+	 * @return	string
 	 */
 	public static function getAddresstypeLabel($idAddressType) {
 		$idAddressType	= intval($idAddressType);
@@ -189,7 +189,7 @@ class TodoyuContactAddressManager {
 	/**
 	 * Get IDs of the most used countries over all address records
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public static function getMostUsedCountryIDs() {
 		$field	= 'id_country';
@@ -207,7 +207,7 @@ class TodoyuContactAddressManager {
 	/**
 	 * Search stored addresses for cities, optionally filter by search-word
 	 *
-	 * @param	String		$sword
+	 * @param	string		$sword
 	 * @return  String[]
 	 */
 	public static function searchStoredCities($sword = '') {
@@ -236,8 +236,8 @@ class TodoyuContactAddressManager {
 	/**
 	 * Get label of given address
 	 *
-	 * @param	Integer	$idAddress
-	 * @return	String
+	 * @param	integer	$idAddress
+	 * @return	string
 	 */
 	public static function getLabel($idAddress) {
 		$idAddress	= intval($idAddress);
@@ -257,12 +257,12 @@ class TodoyuContactAddressManager {
 	/**
 	 * Delete linked addresses
 	 *
-	 * @param	String		$mmTable
-	 * @param	Integer		$idRecord
-	 * @param	Array		$currentAddressIDs
-	 * @param	String		$fieldRecord
-	 * @param	String		$fieldInfo
-	 * @return	Integer							Amount of deleted records
+	 * @param	string		$mmTable
+	 * @param	integer		$idRecord
+	 * @param	array		$currentAddressIDs
+	 * @param	string		$fieldRecord
+	 * @param	string		$fieldInfo
+	 * @return	integer							Amount of deleted records
 	 */
 	public static function deleteLinkedAddresses($mmTable, $idRecord, array $currentAddressIDs,  $fieldRecord, $fieldInfo = 'id_address') {
 		return TodoyuDbHelper::deleteOtherMmRecords($mmTable, 'ext_contact_address', $idRecord, $currentAddressIDs, $fieldRecord, $fieldInfo);
@@ -273,9 +273,9 @@ class TodoyuContactAddressManager {
 	/**
 	 * Load data hook for address forms
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idAddress
-	 * @param	Array		$params
+	 * @param	array		$data
+	 * @param	integer		$idAddress
+	 * @param	array		$params
 	 * @return	Array
 	 */
 	public static function hookAddressLoadFormData(array $data, $idAddress, array $params = array()) {
@@ -292,7 +292,7 @@ class TodoyuContactAddressManager {
 	/**
 	 * Prepare found duplicated address-records
 	 *
-	 * @param	Array		$searchWords
+	 * @param	array		$searchWords
 	 * @return	Array
 	 */
 	public static function getDuplicatedAddresses(array $searchWords) {
@@ -328,7 +328,7 @@ class TodoyuContactAddressManager {
 	/**
 	 * Search for duplicated addresses for person & company
 	 *
-	 * @param	Array	$searchWords
+	 * @param	array	$searchWords
 	 * @return	Array
 	 */
 	protected static function searchForDuplicatedAddresses(array $searchWords) {

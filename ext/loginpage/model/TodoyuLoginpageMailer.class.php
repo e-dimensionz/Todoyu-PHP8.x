@@ -26,9 +26,9 @@ class TodoyuLoginpageMailer {
 
 	/**
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	String		$password
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @param	string		$password
+	 * @return	boolean
 	 */
 	public static function sendNewPasswordMail($idPerson, $password) {
 		$mail	= new TodoyuLoginpagePasswordResetMail($idPerson, $password);
@@ -41,9 +41,9 @@ class TodoyuLoginpageMailer {
 	/**
 	 * Send confirmation email
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	String		$hash
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @param	string		$hash
+	 * @return	boolean
 	 */
 	public static function sendConfirmationMail($idPerson, $hash) {
 		$mail	= new TodoyuLoginpagePasswordConfirmMail($idPerson, $hash);

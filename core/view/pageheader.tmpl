@@ -2,18 +2,20 @@
 <html>
 <head>
 	<title>{$pagetitle}</title>
-{foreach $metatags metatag}
+{foreach $metatags as $metatag}
 	<meta {if $metatag.name}name="{$metatag.name}"{/if} {if $metatag.httpequiv}http-equiv="{$metatag.httpequiv}"{/if} content="{$metatag.content}" />
 {/foreach}
-{foreach $cssFiles cssFile}
+{foreach $cssFiles as $cssFile}
 	<link rel="stylesheet" type="text/css" href="{$cssFile.file}" media="{$cssFile.media}" />
 {/foreach}
-{foreach $jsFiles jsFile}
+{foreach $jsFiles as $jsFile}
 	<script type="text/javascript" src="{$jsFile.file}"></script>
 {/foreach}
-{foreach $additionalHeaderData headerData}
+{if isset($additionalHeaderData)}
+{foreach $additionalHeaderData as $headerData}
 	{$headerData}
 {/foreach}
+{/if}
 <!--[if IE 8]>
 	<link rel="stylesheet" media="screen" href="cache/css/core/asset/css/compatibility/ie8.css" />
 <![endif]-->

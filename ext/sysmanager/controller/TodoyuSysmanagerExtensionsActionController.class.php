@@ -27,7 +27,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('sysmanager', 'general:extensions');
@@ -40,8 +40,8 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	/**
 	 * Default request to load a tab in the extension manager
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function tabviewAction(array $params) {
 		return TodoyuSysmanagerExtManagerRenderer::renderModule($params);
@@ -52,8 +52,8 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	/**
 	 * Install an extension
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function installAction(array $params) {
 		Todoyu::restrict('sysmanager', 'extensions:modify');
@@ -92,7 +92,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	/**
 	 * License an imported extension
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function licenseImportedExtensionAction(array $params) {
 		Todoyu::restrict('sysmanager', 'extensions:modify');
@@ -110,8 +110,8 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	/**
 	 * Uninstall an extension
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function uninstallAction(array $params) {
 		Todoyu::restrict('sysmanager', 'extensions:modify');
@@ -142,7 +142,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	/**
 	 * Download an extension packed in an archive (ZIP)
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function downloadAction(array $params) {
 		Todoyu::restrict('sysmanager', 'extensions:download');
@@ -157,7 +157,7 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	/**
 	 * Remove extension from server
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function removeAction(array $params) {
 		Todoyu::restrict('sysmanager', 'extensions:modify');
@@ -175,8 +175,8 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	/**
 	 * Show dialog for extension import
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function dialogImportAction(array $params) {
 		Todoyu::restrict('sysmanager', 'extensions:modify');
@@ -198,8 +198,8 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	/**
 	 * Get rendered extension update dialog
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function dialogUpdateAction(array $params) {
 		Todoyu::restrict('sysmanager', 'extensions:modify');
@@ -214,8 +214,8 @@ class TodoyuSysmanagerExtensionsActionController extends TodoyuActionController 
 	/**
 	 * Upload extension file to server
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function uploadAction(array $params) {
 		Todoyu::restrict('sysmanager', 'extensions:modify');

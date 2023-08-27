@@ -29,7 +29,7 @@ class TodoyuProfilePreferenceActionController extends TodoyuActionController {
 	/**
 	 * Init controller: restrict to rights
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('profile', 'general:use');
@@ -40,7 +40,7 @@ class TodoyuProfilePreferenceActionController extends TodoyuActionController {
 	/**
 	 * General panelWidget action, saves collapse status
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function pwidgetAction(array $params) {
 		$idWidget	= $params['item'];

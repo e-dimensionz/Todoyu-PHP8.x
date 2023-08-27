@@ -108,7 +108,7 @@ class TodoyuScheduler {
 	/**
 	 * Execute the given job or all due jobs if no job is given
 	 *
-	 * @param	String|Boolean		$jobClassName			False or name of a specific job
+	 * @param	string|Boolean		$jobClassName			False or name of a specific job
 	 */
 	private static function executeJobs($jobClassName = false) {
 			// Cache last execution dates for all jobs
@@ -152,9 +152,9 @@ class TodoyuScheduler {
 	/**
 	 * Add a job. Will be executed when it's due
 	 *
-	 * @param	String			$className		Class which implements the job
-	 * @param	String|Integer	$cronTime		Crontab syntax or offset in minutes
-	 * @param	Array			$options		Job options
+	 * @param	string			$className		Class which implements the job
+	 * @param	string|Integer	$cronTime		Crontab syntax or offset in minutes
+	 * @param	array			$options		Job options
 	 */
 	public static function addJob($className, $cronTime, array $options = array()) {
 		self::$jobs[$className] = array(
@@ -169,7 +169,7 @@ class TodoyuScheduler {
 	/**
 	 * Get a job by class name
 	 *
-	 * @param	String		$className
+	 * @param	string		$className
 	 * @return	Array
 	 */
 	private static function getJob($className) {
@@ -201,7 +201,7 @@ class TodoyuScheduler {
 	 * Check whether a recent block file exists
 	 * When the file exists, it means the scheduler is still running or crashed
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	private static function hasRecentBlockFile() {
 		$path	= TodoyuFileManager::pathAbsolute(self::$blockFile);
@@ -239,9 +239,9 @@ class TodoyuScheduler {
 	 * Check whether job is due
 	 * Compare interval with last execution and current time
 	 *
-	 * @param	String			$className
-	 * @param	String|Integer	$cronTime
-	 * @return	Boolean
+	 * @param	string			$className
+	 * @param	string|Integer	$cronTime
+	 * @return	boolean
 	 */
 	private static function isJobDue($className, $cronTime) {
 			// Shortcut for forced execution
@@ -270,9 +270,9 @@ class TodoyuScheduler {
 	 * Check whether a job is due by Crontab syntax
 	 *
 	 * @todo	Implement
-	 * @param	String		$cronTime
-	 * @param	Integer		$lastExecutionDate
-	 * @return	Boolean
+	 * @param	string		$cronTime
+	 * @param	integer		$lastExecutionDate
+	 * @return	boolean
 	 */
 	private static function isJobDueByCrontime($cronTime, $lastExecutionDate) {
 		return true;
@@ -283,7 +283,7 @@ class TodoyuScheduler {
 	/**
 	 * Get last execution log record
 	 *
-	 * @param	String		$className
+	 * @param	string		$className
 	 * @return	Array
 	 */
 	private static function getLastExecution($className) {
@@ -299,8 +299,8 @@ class TodoyuScheduler {
 	/**
 	 * Get date of last execution
 	 *
-	 * @param	String		$className
-	 * @return	Integer		Timestamp
+	 * @param	string		$className
+	 * @return	integer		Timestamp
 	 */
 	private static function getLastExecutionDate($className) {
 		return (int) self::$lastExecutionDates[$className];
@@ -347,10 +347,10 @@ class TodoyuScheduler {
 	/**
 	 * Log an execution
 	 *
-	 * @param	String		$className
-	 * @param	Boolean		$success
-	 * @param	String		$message
-	 * @return	Integer		Log ID
+	 * @param	string		$className
+	 * @param	boolean		$success
+	 * @param	string		$message
+	 * @return	integer		Log ID
 	 */
 	private static function logExecution($className, $success = true, $message = '') {
 		$data	= array(

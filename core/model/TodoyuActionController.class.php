@@ -74,7 +74,7 @@ abstract class TodoyuActionController {
 	 * Init function
 	 * Can be overriden in extended class. Can be used as constructor alternative
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		// Override for custom init
@@ -88,7 +88,7 @@ abstract class TodoyuActionController {
 	 * If _unknownAction() is defined, call it. First parameter is original action name, second are all parameters
 	 *
 	 * @param		String		$action
-	 * @return		String
+	 * @return		string
 	 * @throws	TodoyuControllerException
 	 */
 	public final function runAction($action = 'default') {
@@ -114,8 +114,8 @@ abstract class TodoyuActionController {
 	/**
 	 * Prototype of _unknownAction
 	 *
-	 * @param	String		$action
-	 * @param	Array		$params
+	 * @param	string		$action
+	 * @param	array		$params
 	 */
 	protected function _unknownAction($action, array $params) {
 		die('Unknown action: ' . htmlentities($action, ENT_QUOTES, 'UTF-8', false));
@@ -126,8 +126,8 @@ abstract class TodoyuActionController {
 	/**
 	 * Get method name for the action
 	 *
-	 * @param	String		$action
-	 * @return	String
+	 * @param	string		$action
+	 * @return	string
 	 */
 	protected function getActionMethodName($action) {
 		return strtolower($action) . 'Action';
@@ -138,8 +138,8 @@ abstract class TodoyuActionController {
 	/**
 	 * Check if action exists (method is defined)
 	 *
-	 * @param	String		$action
-	 * @return	Boolean
+	 * @param	string		$action
+	 * @return	boolean
 	 */
 	public function isAction($action) {
 		$funcName	= $this->getActionMethodName($action);
@@ -152,11 +152,11 @@ abstract class TodoyuActionController {
 	/**
 	 * Forward the request to anonther action controller
 	 *
-	 * @param	String		$ext
-	 * @param	String		$controller
-	 * @param	String		$action
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	string		$ext
+	 * @param	string		$controller
+	 * @param	string		$action
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function forward($ext, $controller, $action, array $params = array()) {
 		$controllerObject	= TodoyuActionDispatcher::getControllerObject($ext, $controller, $params);
@@ -180,8 +180,8 @@ abstract class TodoyuActionController {
 	 * If controller is called without an action and defaultAction is not defined in
 	 * extended object, print error
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function defaultAction(array $params) {
 		die('THERE IS NO DEFAULT ACTION DEFINED');

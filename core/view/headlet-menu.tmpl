@@ -1,7 +1,11 @@
+{if isset($id)}
+    
 <!-- <ul id="{$id}-menu"> -->
-	{foreach $items item}
+	{foreach $items as $item}
 		<li class="{$item.class}" id="menuItem-{$item.id}">
-			<a class="{$name}-item-{$item.id}">{Label $item.label}</a>
+			<a class="{$name}-item-{$item.id}">{Label text=$item.label}</a>
 		</li>
 	{/foreach}
 <!-- </ul> -->
+    
+{/if}

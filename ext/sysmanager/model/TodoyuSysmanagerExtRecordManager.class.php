@@ -29,9 +29,9 @@ class TodoyuSysmanagerExtRecordManager {
 	/**
 	 * Get configuration for the tabs
 	 *
-	 * @param	String		$ext
-	 * @param	String		$type
-	 * @param	Integer		$idRecord
+	 * @param	string		$ext
+	 * @param	string		$type
+	 * @param	integer		$idRecord
 	 * @return	Array
 	 */
 	public static function getTabsConfig($ext = '', $type = '', $idRecord = 0) {
@@ -123,9 +123,9 @@ class TodoyuSysmanagerExtRecordManager {
 	/**
 	 * Get record form object with injected save buttons
 	 *
-	 * @param	String		$ext
-	 * @param	String		$type
-	 * @param	Integer		$idRecord
+	 * @param	string		$ext
+	 * @param	string		$type
+	 * @param	integer		$idRecord
 	 * @return	TodoyuForm
 	 */
 	public static function getRecordForm($ext, $type, $idRecord = 0) {
@@ -185,10 +185,10 @@ class TodoyuSysmanagerExtRecordManager {
 	/**
 	 * Save extension record
 	 *
-	 * @param	String		$ext
-	 * @param	String		$type
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	string		$ext
+	 * @param	string		$type
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function saveRecord($ext, $type, array $data) {
 		$config		= TodoyuSysmanagerExtManager::getRecordConfig($ext, $type);
@@ -208,9 +208,9 @@ class TodoyuSysmanagerExtRecordManager {
 	/**
 	 * Delete record
 	 *
-	 * @param	String		$ext
-	 * @param	String		$type
-	 * @param	Integer		$idRecord
+	 * @param	string		$ext
+	 * @param	string		$type
+	 * @param	integer		$idRecord
 	 */
 	public static function deleteRecord($ext, $type, $idRecord) {
 		$config		= TodoyuSysmanagerExtManager::getRecordConfig($ext, $type);
@@ -228,8 +228,8 @@ class TodoyuSysmanagerExtRecordManager {
 	/**
 	 * Get row count of a table
 	 *
-	 * @param	String		$table
-	 * @return	Integer
+	 * @param	string		$table
+	 * @return	integer
 	 */
 	public static function getRecordCount($table) {
 		$fields	= 'id';

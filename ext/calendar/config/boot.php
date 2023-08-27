@@ -23,7 +23,4 @@ define('EXTID_CALENDAR', 104);
 define('PATH_EXT_CALENDAR', PATH_EXT . '/calendar');
 
 require_once( PATH_EXT_CALENDAR . '/config/constants.php' );
-require_once( PATH_EXT_CALENDAR . '/dwoo/plugins.php' );
 require_once( PATH_EXT_CALENDAR . '/config/hooks.php' );
-
-?>

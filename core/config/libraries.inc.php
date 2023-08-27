@@ -26,12 +26,12 @@ return array(
 		'license'	=> 'MIT License',
 		'licenseUrl'=> 'http://opensource.org/licenses/mit-license.php'
 	),
-	'dwoo'	=> array(
-		'title'		=> 'Dwoo template engine',
-		'url'		=> 'http://dwoo.org/',
-		'copyright'	=> '2008, Dwoo / Jordi Boggiano',
-		'license'	=> 'Modified BSD License',
-		'licenseUrl'=> ''
+	'smarty'	=> array(
+		'title'		=> 'Smarty template engine',
+		'url'		=> 'https://www.smarty.net/',
+		'copyright'	=> '2002-'.date('Y').', New Digital Group, Inc',
+		'license'	=> 'GNU LGPL v3',
+		'licenseUrl'=> 'https://www.gnu.org/licenses/lgpl-3.0.en.html'
 	),
 	'famfamfam'	=> array(
 		'title'		=> 'famfamfam Silk Icons',

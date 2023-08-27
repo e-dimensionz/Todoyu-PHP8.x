@@ -1,9 +1,9 @@
 {extends core/view/select-inline.tmpl}
 
-{block extra}
+{block name="extra"}
 
 <ul id="{$htmlID}-itemlist" class="itemList">
-	{foreach $selectedItems item}
+	{foreach $selectedItems as $item}
 		<li id="{$item.id}">{$item.label}<span class="remove"></span></li>
 	{/foreach}
 </ul>

@@ -29,12 +29,12 @@ class TodoyuFormValidator {
 	/**
 	 * Validate form field
 	 *
-	 * @param	String				$validatorName
+	 * @param	string				$validatorName
 	 * @param	Mixed				$fieldValue
-	 * @param	Array				$validatorConfig
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function validate($validatorName, $fieldValue, array $validatorConfig, TodoyuFormElement $formElement, array $formData = array()) {
 		if( method_exists('TodoyuFormValidator', $validatorName) ) {
@@ -54,10 +54,10 @@ class TodoyuFormValidator {
 	 * as a normal function in the
 	 *
 	 * @param	Mixed				$value
-	 * @param	Array				$validatorConfig
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function user($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Validate
@@ -78,9 +78,9 @@ class TodoyuFormValidator {
 		/**
 	 * Check configured allowed exception. (if applicable: validation can be ignored)
 	 *
-	 * @param	Array	$validatorConfig
-	 * @param	Array	$formData
-	 * @return	Boolean
+	 * @param	array	$validatorConfig
+	 * @param	array	$formData
+	 * @return	boolean
 	 */
 	public static function checkAllow(array $validatorConfig, array $formData) {
 		$allow	= false;
@@ -101,9 +101,9 @@ class TodoyuFormValidator {
 	/**
 	 * Check whether the value of the given field equals the given one
 	 *
-	 * @param	Array		$validatorConfig
-	 * @param	Array		$formData
-	 * @return	Boolean
+	 * @param	array		$validatorConfig
+	 * @param	array		$formData
+	 * @return	boolean
 	 */
 	public static function fieldEquals(array $validatorConfig, array $formData) {
 			// Check for allowed exceptions
@@ -129,11 +129,11 @@ class TodoyuFormValidator {
 	/**
 	 * Validate value not being empty
 	 *
-	 * @param	String				$value		Field value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value		Field value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	private static function isNotEmpty($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -151,11 +151,11 @@ class TodoyuFormValidator {
 	 * Validate value not being zero (time)
 	 * Most time fields provide the value as numeric in seconds. String version separated by : is also valid
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	private static function isNotZeroTime($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -176,11 +176,11 @@ class TodoyuFormValidator {
 	/**
 	 * Validate value not being zero
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	private static function isNotZero($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -197,11 +197,11 @@ class TodoyuFormValidator {
 	/**
 	 * Validate value having at least given minimum amount of characters
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	private static function minLength($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -220,11 +220,11 @@ class TodoyuFormValidator {
 	/**
 	 * Validate value not exceeding maximum length
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	private static function maxLength($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -244,11 +244,11 @@ class TodoyuFormValidator {
 	 * Validate maximal value of the input
 	 * Handled as floats
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	private static function max($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions;
@@ -267,11 +267,11 @@ class TodoyuFormValidator {
 	 * Validate minimal value of the input
 	 * Handled as floats
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	private static function min($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -290,11 +290,11 @@ class TodoyuFormValidator {
 	 * Validate range of the value
 	 * Handled as floats
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	private static function range($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -312,11 +312,11 @@ class TodoyuFormValidator {
 	/**
 	 * Check whether value is decimal
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	private static function isDecimal($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -333,11 +333,11 @@ class TodoyuFormValidator {
 	/**
 	 * Check whether the checked value (date) is before another date from within $config array
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig	Field config array
+	 * @param	string				$value
+	 * @param	array				$validatorConfig	Field config array
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function dateBefore($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -369,11 +369,11 @@ class TodoyuFormValidator {
 	/**
 	 * Check whether the checked value is greater than another value
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig	Field config array
+	 * @param	string				$value
+	 * @param	array				$validatorConfig	Field config array
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function greaterThan($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -404,7 +404,7 @@ class TodoyuFormValidator {
 	 * Then it will look for the field in the parent form if it exists
 	 *
 	 * @param	TodoyuForm	$form
-	 * @param	String		$fieldName
+	 * @param	string		$fieldName
 	 * @return	Mixed|Boolean
 	 */
 	public static function lookupFieldValue(TodoyuForm $form, $fieldName) {
@@ -424,7 +424,7 @@ class TodoyuFormValidator {
 	 * Detect which configuration is set and lookup the value
 	 *
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$validatorConfig
+	 * @param	array				$validatorConfig
 	 * @return	Mixed|Boolean
 	 */
 	public static function getCompareValue(TodoyuFormElement $formElement, array $validatorConfig) {
@@ -444,11 +444,11 @@ class TodoyuFormValidator {
 	 * Negate check of dateBefore. Check validity if the date is after or the same time
 	 *
 	 * @see		dateBefore()
-	 * @param	String				$value				Readable date format which works with strtotime()
-	 * @param	Array				$validatorConfig	Field config array
+	 * @param	string				$value				Readable date format which works with strtotime()
+	 * @param	array				$validatorConfig	Field config array
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function dateNotBefore($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -476,11 +476,11 @@ class TodoyuFormValidator {
 	/**
 	 * Check whether the checked value (date) is after another date from within the $config array
 	 *
-	 * @param	String				$value				Readable date format which works with strtotime()
-	 * @param	Array				$validatorConfig	Field config array
+	 * @param	string				$value				Readable date format which works with strtotime()
+	 * @param	array				$validatorConfig	Field config array
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function dateAfter($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -515,11 +515,11 @@ class TodoyuFormValidator {
 	 * Negated check of dateAfter. Check is valid if the date is before or the same time.
 	 *
 	 * @see		dateAfter()
-	 * @param	String				$value			Readable date format which works with strtotime()
-	 * @param	Array				$validatorConfig			Field config array
+	 * @param	string				$value			Readable date format which works with strtotime()
+	 * @param	array				$validatorConfig			Field config array
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function dateNotAfter($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -541,11 +541,11 @@ class TodoyuFormValidator {
 	/**
 	 * Check if date and time of a field is before another field
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function dateTimeBefore($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -569,11 +569,11 @@ class TodoyuFormValidator {
 	/**
 	 * Check if date and time are not before another field
 	 *
-	 * @param	String					$value
-	 * @param	Array					$validatorConfig
+	 * @param	string					$value
+	 * @param	array					$validatorConfig
 	 * @param	TodoyuFormElement		$formElement
-	 * @param	Array					$formData
-	 * @return	Boolean
+	 * @param	array					$formData
+	 * @return	boolean
 	 */
 	public static function dateTimeNotBefore($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -601,11 +601,11 @@ class TodoyuFormValidator {
 	/**
 	 * Check if date and time are after another field
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function dateTimeAfter($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -629,11 +629,11 @@ class TodoyuFormValidator {
 	/**
 	 * Check if date and time are not after another field
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function dateTimeNotAfter($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -655,11 +655,11 @@ class TodoyuFormValidator {
 	/**
 	 * Check whether date is in the future
 	 * 
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function dateInFuture($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -682,11 +682,11 @@ class TodoyuFormValidator {
 	/**
 	 * Check whether date is in the past
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function dateInPast($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -709,11 +709,11 @@ class TodoyuFormValidator {
 	/**
 	 * Check if two fields are equal
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig		field = other fieldname
+	 * @param	string				$value
+	 * @param	array				$validatorConfig		field = other fieldname
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function equals($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -739,11 +739,11 @@ class TodoyuFormValidator {
 	/**
 	 * Validate value to have minimum length or be empty
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function minLengthIfNotEmpty($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -766,11 +766,11 @@ class TodoyuFormValidator {
 	/**
 	 * Validate for a good password
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function goodPassword($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -804,11 +804,11 @@ class TodoyuFormValidator {
 	/**
 	 * Validate a field to be unique in the table
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function unique($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -857,11 +857,11 @@ class TodoyuFormValidator {
 	/**
 	 * Validate form field for email
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function email($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -885,11 +885,11 @@ class TodoyuFormValidator {
 	/**
 	 * Check another field in the form. If this field is not empty, the checked field needs a value too
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function requiredIfNotEmpty($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -946,11 +946,11 @@ class TodoyuFormValidator {
 	/**
 	 * Validate database relation field
 	 *
-	 * @param	String								$value
-	 * @param	Array								$validatorConfig
+	 * @param	string								$value
+	 * @param	array								$validatorConfig
 	 * @param	TodoyuFormElement_DatabaseRelation	$formElement
-	 * @param	Array								$formData
-	 * @return	Boolean
+	 * @param	array								$formData
+	 * @return	boolean
 	 */
 	public static function validateSubRecords($value, array $validatorConfig, TodoyuFormElement_DatabaseRelation $formElement, array $formData) {
 			// Check for allowed exceptions
@@ -970,10 +970,10 @@ class TodoyuFormValidator {
 	 * DB Relation: At least one record
 	 *
 	 * @param	Mixed				$value
-	 * @param	Array				$validatorConfig
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function required($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 		if( $formElement instanceof TodoyuFormElement_DatabaseRelation ) {

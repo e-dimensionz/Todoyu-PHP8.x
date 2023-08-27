@@ -30,8 +30,8 @@ class TodoyuCookieLogin {
 	 * Hook to process the "remain login" cookie if not yet logged in
 	 * Called by the core->onload hook
 	 *
-	 * @param	Array		$requestVars
-	 * @param	Array		$originalRequestVars
+	 * @param	array		$requestVars
+	 * @param	array		$originalRequestVars
 	 * @return	Array
 	 */
 	public static function hookTryCookieLogin(array $requestVars, array $originalRequestVars) {
@@ -40,7 +40,7 @@ class TodoyuCookieLogin {
 
 				// Check for cookie login data
 			$cookieName	= Todoyu::$CONFIG['AUTH']['loginCookieName'];
-			$cookieValue= $_COOKIE[$cookieName];
+			$cookieValue= $_COOKIE[$cookieName] ?? '';
 
 			if( ! empty($cookieValue) ) {
 					// Decrypt cookie data
@@ -84,7 +84,7 @@ class TodoyuCookieLogin {
 	/**
 	 * Set encrypted login cookie for direct login
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 */
 	public static function setRemainLoginCookie($idPerson) {
 		$cookieName	= Todoyu::$CONFIG['AUTH']['loginCookieName'];
@@ -111,8 +111,8 @@ class TodoyuCookieLogin {
 	/**
 	 * Generate the encrypted content for the remain login cookie
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	String
+	 * @param	integer		$idPerson
+	 * @return	string
 	 */
 	public static function generateRemainLoginCode($idPerson) {
 		$idPerson	= (int) $idPerson;
@@ -131,7 +131,7 @@ class TodoyuCookieLogin {
 	/**
 	 * Get a short hash of the current user agent
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getUserAgentShortHash() {
 		return substr(md5($_SERVER['HTTP_USER_AGENT']), 10, 10);

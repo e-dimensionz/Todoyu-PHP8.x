@@ -30,7 +30,7 @@ class TodoyuLoginpageLoginNewsManager {
 	 * Get content of news file
 	 * Checks cache first
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getNewsFileContent() {
 		$isSecure		= TodoyuRequest::isSecureRequest();
@@ -54,7 +54,7 @@ class TodoyuLoginpageLoginNewsManager {
 	 * -first try over curl
 	 * -second try over file get contents
 	 *
-	 * @param	Boolean		$isSecure
+	 * @param	boolean		$isSecure
 	 */
 	private static function downloadNewsFile($isSecure) {
 		$url		= Todoyu::$CONFIG['EXT']['loginpage']['panelWidgetLoginNews']['url'];
@@ -70,8 +70,8 @@ class TodoyuLoginpageLoginNewsManager {
 	/**
 	 * Check if a cache file exists
 	 *
-	 * @param	Boolean		$isSecure		HTTP request
-	 * @return	Boolean
+	 * @param	boolean		$isSecure		HTTP request
+	 * @return	boolean
 	 */
 	private static function hasUpToDateNewsCacheFile($isSecure) {
 		$pathCacheFile	= self::getNewsFileCachePath($isSecure);
@@ -93,8 +93,8 @@ class TodoyuLoginpageLoginNewsManager {
 	/**
 	 * Get cache path for news file
 	 *
-	 * @param	Boolean		$isSecure
-	 * @return	String
+	 * @param	boolean		$isSecure
+	 * @return	string
 	 */
 	private static function getNewsFileCachePath($isSecure) {
 		$protocol		= $isSecure ? 'https' : 'http';
@@ -107,8 +107,8 @@ class TodoyuLoginpageLoginNewsManager {
 	/**
 	 * Extract body content from an html page string
 	 *
-	 * @param	String		$content
-	 * @return	String
+	 * @param	string		$content
+	 * @return	string
 	 */
 	private static function extractBodyFromNewsFile($content) {
 		$pattern	= '/.*<body.*?>(.*?)<\/body>.*?/is';
@@ -122,8 +122,8 @@ class TodoyuLoginpageLoginNewsManager {
 	/**
 	 * Write the content to a cache file
 	 *
-	 * @param	String		$content
-	 * @param	Boolean		$isSecure
+	 * @param	string		$content
+	 * @param	boolean		$isSecure
 	 */
 	private static function writeCacheFile($content, $isSecure) {
 		$pathCacheFile	= self::getNewsFileCachePath($isSecure);

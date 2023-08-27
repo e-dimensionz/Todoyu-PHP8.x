@@ -30,12 +30,12 @@ class TodoyuListingRenderer {
 	 * Render listing for configuration
 	 *
 	 * @static
-	 * @param	String		$ext
-	 * @param	String		$name
-	 * @param	Integer		$offset
-	 * @param	Boolean		$noPaging
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	string		$ext
+	 * @param	string		$name
+	 * @param	int		$offset
+	 * @param	bool		$noPaging
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function render($ext, $name, $offset = 0, $noPaging = true, array $params = array()) {
 		$config		= TodoyuListingManager::getConfig($ext, $name);
@@ -53,14 +53,14 @@ class TodoyuListingRenderer {
 		$tmpl	= 'core/view/listing.tmpl';
 
 			// Workaround - add spaces within compounds-wrap of JSON string
-			// to prevent DWOO from mistaking it as a DWOO-plugin
+			// to prevent Smarty from mistaking it as a Smarty-plugin
 		$listingParams  = json_encode($params);
 		$listingParams  = '{ ' . substr($listingParams, 1, strlen($listingParams) - 2) . ' }';
 
 		$data	= array(
 			'ext'				=> $ext,
 			'name'				=> $name,
-			'config'			=> $config,
+			'config'			=> $config, 
 			'rows'				=> $listData['rows'],
 			'offset'			=> $offset,
 			'total'				=> $totalRows,
@@ -69,7 +69,7 @@ class TodoyuListingRenderer {
 			'pages'				=> ceil($totalRows / $size),
 			'noPaging'			=> $noPaging,
 			'nextPos'			=> $offset + $size,
-			'listingParams'		=> $listingParams
+			'listingParams'		=> $listingParams,
 		);
 
 		return Todoyu::render($tmpl, $data);

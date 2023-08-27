@@ -39,8 +39,8 @@ abstract class TodoyuLoginpagePasswordMail extends TodoyuMail {
 	/**
 	 * Initialize mail
 	 *
-	 * @param	String		$idPerson		Tuple like 'type:ID' or just 'ID' which defaults the type to 'contactperson'
-	 * @param	Array		$config
+	 * @param	string		$idPerson		Tuple like 'type:ID' or just 'ID' which defaults the type to 'contactperson'
+	 * @param	array		$config
 	 */
 	public function __construct($idPerson, array $config = array()) {
 		parent::__construct($config);
@@ -68,8 +68,8 @@ abstract class TodoyuLoginpagePasswordMail extends TodoyuMail {
 	/**
 	 * Get mail content
 	 *
-	 * @param	Boolean		$asHtml
-	 * @return	String
+	 * @param	boolean		$asHtml
+	 * @return	string
 	 */
 	private function getContent($asHtml = true) {
 		$tmpl	= $this->getTemplate($asHtml);
@@ -83,9 +83,9 @@ abstract class TodoyuLoginpagePasswordMail extends TodoyuMail {
 	/**
 	 * Get template path
 	 *
-	 * @param	String		$type
-	 * @param	Boolean		$asHtml
-	 * @return	String
+	 * @param	string		$type
+	 * @param	boolean		$asHtml
+	 * @return	string
 	 */
 	protected function getTemplatePath($type, $asHtml) {
 		$basePath	= 'ext/loginpage/view/email';
@@ -101,8 +101,8 @@ abstract class TodoyuLoginpagePasswordMail extends TodoyuMail {
 	 * Get mail template
 	 *
 	 * @abstract
-	 * @param	Boolean		$asHtml
-	 * @return	String
+	 * @param	boolean		$asHtml
+	 * @return	string
 	 */
 	abstract protected function getTemplate($asHtml = true);
 

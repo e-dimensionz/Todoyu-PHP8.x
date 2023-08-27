@@ -38,7 +38,7 @@ class TodoyuContactJobTypeManager {
 	/**
 	 * Get jobtype object
 	 *
-	 * @param	Integer		$idJobType
+	 * @param	integer		$idJobType
 	 * @return	TodoyuContactJobType
 	 */
 	public static function getJobType($idJobType) {
@@ -61,7 +61,7 @@ class TodoyuContactJobTypeManager {
 	/**
 	 * Get job types
 	 *
-	 * @param	Array	$typeIDs	optional
+	 * @param	array	$typeIDs	optional
 	 * @return	Array
 	 */
 	public static function getJobTypes($typeIDs = array()) {
@@ -123,7 +123,7 @@ class TodoyuContactJobTypeManager {
 	/**
 	 * Search in job types
 	 *
-	 * @param	String		$search
+	 * @param	string		$search
 	 * @return	Array
 	 */
 	public static function searchJobtypes($search) {
@@ -149,8 +149,8 @@ class TodoyuContactJobTypeManager {
 	/**
 	 * Save jobtype
 	 *
-	 * @param	Array	$data		Data of jobtype
-	 * @return	Integer
+	 * @param	array	$data		Data of jobtype
+	 * @return	integer
 	 */
 	public static function saveJobtype(array $data) {
 		$idJobtype	= intval($data['id']);
@@ -174,8 +174,8 @@ class TodoyuContactJobTypeManager {
 	/**
 	 * Add new jobtype
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function addJobtype(array $data = array()) {
 		return TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -186,9 +186,9 @@ class TodoyuContactJobTypeManager {
 	/**
 	 * Update jobtype record
 	 *
-	 * @param	Integer		$idJobtype
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idJobtype
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function updateJobtype($idJobtype, array $data) {
 		return TodoyuRecordManager::updateRecord(self::TABLE, $idJobtype, $data);
@@ -199,8 +199,8 @@ class TodoyuContactJobTypeManager {
 	/**
 	 * Remove jobtype record
 	 *
-	 * @param	Integer	$idJobtype
-	 * @return	Boolean
+	 * @param	integer	$idJobtype
+	 * @return	boolean
 	 */
 	public static function deleteJobtype($idJobtype) {
 		$idJobtype	= intval($idJobtype);
@@ -213,9 +213,9 @@ class TodoyuContactJobTypeManager {
 	/**
 	 * Get auto-complete list for job type
 	 *
-	 * @param	String		$input
-	 * @param	Array		$formData
-	 * @param	String		$name
+	 * @param	string		$input
+	 * @param	array		$formData
+	 * @param	string		$name
 	 * @return	Array
 	 */
 	public static function autocompleteJobtypes($input, array $formData = array(), $name = '') {
@@ -234,9 +234,9 @@ class TodoyuContactJobTypeManager {
 	/**
 	 * Get person IDs for a job type
 	 *
-	 * @param	Integer		$idJobType
-	 * @param	Boolean		$onlyInternal
-	 * @return	Integer[]
+	 * @param	integer		$idJobType
+	 * @param	boolean		$onlyInternal
+	 * @return	integer[]
 	 */
 	public static function getPersonIDsWithJobtype($idJobType = 0, $onlyInternal = true) {
 		$idJobType	= intval($idJobType);

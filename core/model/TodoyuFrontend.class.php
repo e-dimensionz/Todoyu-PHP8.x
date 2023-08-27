@@ -36,7 +36,7 @@ class TodoyuFrontend {
 	/**
 	 * Get active tab
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getActiveTab() {
 		$tab	= TodoyuPreferenceManager::getPreference(0, 'tab');
@@ -53,8 +53,8 @@ class TodoyuFrontend {
 	/**
 	 * Get active tab sub menu tab
 	 *
-	 * @param	String		$parentTab
-	 * @return	String
+	 * @param	string		$parentTab
+	 * @return	string
 	 */
 	public static function getActiveSubmenuTab($parentTab) {
 		$tab	= TodoyuPreferenceManager::getPreference(0, 'tabSubmenu_' . $parentTab);
@@ -71,7 +71,7 @@ class TodoyuFrontend {
 	/**
 	 * Set active tab (and save in preferences)
 	 *
-	 * @param	String		$activeTab
+	 * @param	string		$activeTab
 	 */
 	public static function setActiveTab($activeTab) {
 		TodoyuPreferenceManager::savePreference(0, 'tab', $activeTab, 0, true);
@@ -82,8 +82,8 @@ class TodoyuFrontend {
 	/**
 	 * Set active tab (and save in preferences)
 	 *
-	 * @param	String		$activeTab
-	 * @param	String		$parentTab
+	 * @param	string		$activeTab
+	 * @param	string		$parentTab
 	 */
 	public static function setActiveSubmenuTab($parentTab, $activeTab) {
 		$idPerson = Todoyu::personid();
@@ -97,7 +97,7 @@ class TodoyuFrontend {
 	 * Get default active tab. Because we remember the last tab,
 	 * this is only a fallback for new users
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getDefaultTab() {
 		return Todoyu::$CONFIG['FE']['TAB']['default'];
@@ -108,7 +108,7 @@ class TodoyuFrontend {
 	/**
 	 * Set default tab
 	 *
-	 * @param	String		$defaultTab
+	 * @param	string		$defaultTab
 	 */
 	public static function setDefaultTab($defaultTab) {
 		Todoyu::$CONFIG['FE']['TAB']['default'] = $defaultTab;
@@ -119,13 +119,13 @@ class TodoyuFrontend {
 	/**
 	 * Add a new tab to the configuration
 	 *
-	 * @param	String		$key
-	 * @param	String		$label
-	 * @param	String		$href
-	 * @param	Integer		$position
-	 * @param	String		$target
-	 * @param	Boolean		$override
-	 * @return	Boolean
+	 * @param	string		$key
+	 * @param	string		$label
+	 * @param	string		$href
+	 * @param	integer		$position
+	 * @param	string		$target
+	 * @param	boolean		$override
+	 * @return	boolean
 	 */
 	public static function addMenuEntry($key, $label, $href, $position = 50, $target = '', $override = false) {
 		if( isset(self::$navi[$key]) && !$override ) {
@@ -160,10 +160,10 @@ class TodoyuFrontend {
 	/**
 	 * Add multiple sub menu entries from given config array
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$parentKey
-	 * @param	Array		$itemsConfig
-	 * @param	String		$labelPrefix
+	 * @param	string		$extKey
+	 * @param	string		$parentKey
+	 * @param	array		$itemsConfig
+	 * @param	string		$labelPrefix
 	 */
 	public static function addSubMenuEntriesFromTabsConf($extKey, $parentKey, array $itemsConfig, $labelPrefix = '') {
 		foreach($itemsConfig as $itemKey => $itemConfig) {
@@ -192,12 +192,12 @@ class TodoyuFrontend {
 	/**
 	 * Add a sub menu tab
 	 *
-	 * @param	String		$parentKey
-	 * @param	String		$key
-	 * @param	String		$label
-	 * @param	String		$href
-	 * @param	Integer		$position
-	 * @param	String		$type
+	 * @param	string		$parentKey
+	 * @param	string		$key
+	 * @param	string		$label
+	 * @param	string		$href
+	 * @param	integer		$position
+	 * @param	string		$type
 	 */
 	public static function addSubmenuEntry($parentKey, $key, $label, $href, $position = 50, $type = '') {
 		self::$navi[$parentKey]['submenu'][] = array(
@@ -214,7 +214,7 @@ class TodoyuFrontend {
 	/**
 	 * Remove a menu entry
 	 *
-	 * @param	String		$key		Entry key
+	 * @param	string		$key		Entry key
 	 */
 	public static function removeMenuEntry($key) {
 		unset(self::$navi[$key]);
@@ -225,7 +225,7 @@ class TodoyuFrontend {
 	/**
 	 * Get sub menu tabs
 	 *
-	 * @param	String		$parentKey
+	 * @param	string		$parentKey
 	 * @return	Array
 	 */
 	public static function getSubmenuTabs($parentKey) {
@@ -256,6 +256,7 @@ class TodoyuFrontend {
 	public static function getMenuEntries() {
 		$active	= self::getActiveTab();
 
+        self::$navi[$active]['active'] = false;
 		if( isset(self::$navi[$active]) ) {
 			self::$navi[$active]['active'] = true;
 		}
@@ -264,10 +265,12 @@ class TodoyuFrontend {
 		foreach(self::$navi as $index => $tab) {
 			self::$navi[$index]['label'] = Todoyu::Label($tab['label']);
 
-			if( $tab['submenu'] ) {
+			if( !empty($tab['submenu'] )) {
 					// Sort by 'position', remove duplicate entries
 				self::$navi[$index]['submenu'] = TodoyuArray::sortByLabel($tab['submenu'], 'position', false, false, false, SORT_REGULAR, 'href');
-			}
+			} else {
+                self::$navi[$index]['submenu'] = false;
+            }
 		}
 
 		return TodoyuArray::sortByLabel(self::$navi, 'position');
@@ -278,8 +281,8 @@ class TodoyuFrontend {
 	/**
 	 * Set default frontend view
 	 *
-	 * @param	String	$ext
-	 * @param	String	$controller
+	 * @param	string	$ext
+	 * @param	string	$controller
 	 */
 	public static function setDefaultView($ext, $controller) {
 		Todoyu::$CONFIG['FE']['DEFAULT'] = array(

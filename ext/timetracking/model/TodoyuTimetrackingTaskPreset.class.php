@@ -29,7 +29,7 @@ class TodoyuTimetrackingTaskPreset extends TodoyuProjectTaskPreset {
 	/**
 	 * Get start timetracking
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getStartTimetracking() {
 		return $this->getInt('ext_timetracking_start_tracking');
@@ -40,7 +40,7 @@ class TodoyuTimetrackingTaskPreset extends TodoyuProjectTaskPreset {
 	/**
 	 * Get label for start timetracking
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getStartTimetrackingLabel() {
 		$label	= $this->getStartTimetracking() ? 'core.global.yes' : 'core.global.no';
@@ -53,7 +53,7 @@ class TodoyuTimetrackingTaskPreset extends TodoyuProjectTaskPreset {
 	/**
 	 * Get workload done
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getWorkloadDone() {
 		return $this->getInt('ext_timetracking_workload_done');
@@ -64,7 +64,7 @@ class TodoyuTimetrackingTaskPreset extends TodoyuProjectTaskPreset {
 	/**
 	 * Check whether workload done is set in preset
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasWorkloadDone() {
 		return $this->getWorkloadDone() !== 0;

@@ -29,8 +29,8 @@ class TodoyuRequest {
 	/**
 	 * Get parameter from request. POST data is preferred if available
 	 *
-	 * @param	String		$name			name of the variable
-	 * @param	Boolean		$intVal			Apply intval() on the value
+	 * @param	string		$name			name of the variable
+	 * @param	boolean		$intVal			Apply intval() on the value
 	 * @return	Mixed
 	 */
 	public static function getParam($name, $intVal = false) {
@@ -84,7 +84,7 @@ class TodoyuRequest {
 	/**
 	 * Get request parameter
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @return	Mixed		String, Array or Null
 	 */
 	public static function get($name) {
@@ -98,8 +98,8 @@ class TodoyuRequest {
 	/**
 	 * Get request header data
 	 *
-	 * @param	String		$name
-	 * @return	String
+	 * @param	string		$name
+	 * @return	string
 	 */
 	public static function getHeader($name) {
 		$name	= 'HTTP_' . strtoupper(str_replace('-', '_', $name));
@@ -112,7 +112,7 @@ class TodoyuRequest {
 	/**
 	 * Get request method
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getMethod() {
 		return $_SERVER['REQUEST_METHOD'];
@@ -123,8 +123,8 @@ class TodoyuRequest {
 	/**
 	 * Get information for an uploaded file
 	 *
-	 * @param	String				$name
-	 * @param	String|Boolean		$container
+	 * @param	string				$name
+	 * @param	string|Boolean		$container
 	 * @return	Array|Boolean
 	 */
 	public static function getUploadFile($name, $container = false) {
@@ -149,7 +149,7 @@ class TodoyuRequest {
 	/**
 	 * Check if request is a POST request
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isPostRequest() {
 		return self::getMethod() === 'POST';
@@ -160,7 +160,7 @@ class TodoyuRequest {
 	/**
 	 * Get current referrer URL
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getReferer() {
 		return getenv('HTTP_REFERER');
@@ -171,7 +171,7 @@ class TodoyuRequest {
 	/**
 	 * Get currently requested URL
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getRequestUrl() {
 		return $_SERVER['REQUEST_URI'];
@@ -182,7 +182,7 @@ class TodoyuRequest {
 	/**
 	 * Get requested extension
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getExt() {
 		return self::getParam('ext');
@@ -193,7 +193,7 @@ class TodoyuRequest {
 	/**
 	 * Get requested action
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getController() {
 		return self::getParam('controller');
@@ -204,7 +204,7 @@ class TodoyuRequest {
 	/**
 	 * Get command if set
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getAction() {
 		return self::getParam('action');
@@ -215,7 +215,7 @@ class TodoyuRequest {
 	/**
 	 * Get area of current request
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getArea() {
 		$area	= self::getParam('area');
@@ -236,7 +236,7 @@ class TodoyuRequest {
 	/**
 	 * Get area ID of current request
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getAreaID() {
 		return TodoyuExtensions::getExtID(self::getArea());
@@ -247,10 +247,10 @@ class TodoyuRequest {
 	/**
 	 * Check header if this is an AJAX request
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAjaxRequest() {
-		return $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest';
+		return $_SERVER['HTTP_X_REQUESTED_WITH'] ?? '' === 'XMLHttpRequest';
 	}
 
 
@@ -292,8 +292,8 @@ class TodoyuRequest {
 	 * Set the default request vars if they are not defined in the request
 	 * This is the first hook which processes the request vars
 	 *
-	 * @param	Array		$requestVars				Current request vars (may have been modified)
-	 * @param	Array		$originalRequestVars		Originally provided request vars
+	 * @param	array		$requestVars				Current request vars (may have been modified)
+	 * @param	array		$originalRequestVars		Originally provided request vars
 	 * @return	Array
 	 */
 	public static function hookSetDefaultRequestVars(array $requestVars, array $originalRequestVars) {
@@ -347,13 +347,13 @@ class TodoyuRequest {
 	/**
 	 * Send a POST request to another server
 	 *
-	 * @param	String			$host			Host name
-	 * @param	String			$getQuery		Get query params. Ex: index.php?foo=bar
-	 * @param	Array			$data			Data to send over post
-	 * @param	String			$dataVar		Name of the data var
-	 * @param	Array			$headers		Extra header to send with the request
-	 * @param	Integer			$port			Server port
-	 * @param	Integer			$timeout		Timeout
+	 * @param	string			$host			Host name
+	 * @param	string			$getQuery		Get query params. Ex: index.php?foo=bar
+	 * @param	array			$data			Data to send over post
+	 * @param	string			$dataVar		Name of the data var
+	 * @param	array			$headers		Extra header to send with the request
+	 * @param	integer			$port			Server port
+	 * @param	integer			$timeout		Timeout
 	 * @return	Array
 	 * @throws	TodoyuException
 	 */
@@ -423,7 +423,7 @@ class TodoyuRequest {
 	/**
 	 * Check whether HTTPS is enabled
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isSecureRequest() {
 		return $_SERVER['HTTPS'] === 'on';

@@ -54,7 +54,7 @@ abstract class TodoyuWizardStep {
 	 * Initialize step
 	 *
 	 * @param	TodoyuWizard	$wizard
-	 * @param	Array			$config
+	 * @param	array			$config
 	 */
 	final public function __construct(TodoyuWizard $wizard, array $config) {
 		$this->wizard	= $wizard;
@@ -68,7 +68,7 @@ abstract class TodoyuWizardStep {
 	/**
 	 * Get name of the step
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getName() {
 		return $this->config['step'];
@@ -89,7 +89,7 @@ abstract class TodoyuWizardStep {
 	/**
 	 * Get title of the step
 	 *
-	 * @return		String
+	 * @return		string
 	 */
 	public function getTitle() {
 		return Todoyu::Label($this->config['title']);
@@ -100,7 +100,7 @@ abstract class TodoyuWizardStep {
 	/**
 	 * Render content for help frame
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getHelp() {
 		return empty($this->config['help']) ? '' : Todoyu::Label($this->config['help']);
@@ -111,7 +111,7 @@ abstract class TodoyuWizardStep {
 	/**
 	 * Get step description
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getInfo() {
 		return empty($this->config['info']) ? '' : Todoyu::Label($this->config['info']);
@@ -123,8 +123,8 @@ abstract class TodoyuWizardStep {
 	 * Save step data
 	 *
 	 * @abstract
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	abstract public function save(array $data);
 
@@ -134,7 +134,7 @@ abstract class TodoyuWizardStep {
 	 * Render content
 	 *
 	 * @abstract
-	 * @return	String
+	 * @return	string
 	 */
 	abstract public function getContent();
 

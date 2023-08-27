@@ -29,7 +29,7 @@ class TodoyuCalendarEventRecurringManager {
 	/**
 	 * Get recurring event
 	 *
-	 * @param	Integer		$idEvent
+	 * @param	integer		$idEvent
 	 * @return	TodoyuCalendarEventRecurring
 	 */
 	public static function getRecurringEvent($idEvent) {

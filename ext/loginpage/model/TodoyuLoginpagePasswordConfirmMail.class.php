@@ -38,9 +38,9 @@ class TodoyuLoginpagePasswordConfirmMail extends TodoyuLoginpagePasswordMail {
 	/**
 	 * Initialize mail
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	String		$hash
-	 * @param	Array		$config
+	 * @param	integer		$idPerson
+	 * @param	string		$hash
+	 * @param	array		$config
 	 */
 	public function __construct($idPerson, $hash, array $config = array()) {
 		$this->hash		= $hash;
@@ -78,8 +78,8 @@ class TodoyuLoginpagePasswordConfirmMail extends TodoyuLoginpagePasswordMail {
 	/**
 	 * Get mail template
 	 *
-	 * @param	Boolean		$asHtml
-	 * @return	String
+	 * @param	boolean		$asHtml
+	 * @return	string
 	 */
 	protected function getTemplate($asHtml = true) {
 		return $this->getTemplatePath('confirm', $asHtml);
@@ -90,7 +90,7 @@ class TodoyuLoginpagePasswordConfirmMail extends TodoyuLoginpagePasswordMail {
 	/**
 	 * Get link to confirm password reset
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	private function getConfirmationLink() {
 		return TodoyuString::buildUrl(

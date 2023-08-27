@@ -29,7 +29,7 @@ class TodoyuDaytracksPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Init. Check rights
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('daytracks', 'general:use');
@@ -40,7 +40,7 @@ class TodoyuDaytracksPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save panelwidget extended status
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function pwidgetAction(array $params) {
 		$idWidget	= $params['item'];

@@ -29,8 +29,8 @@ class TodoyuValidator {
 	/**
 	 * Validate string being email address
 	 *
-	 * @param	String		$value
-	 * @return	Boolean
+	 * @param	string		$value
+	 * @return	boolean
 	 */
 	public static function isEmail($value) {
 		if( ! self::isNotEmpty($value) ) {
@@ -45,8 +45,8 @@ class TodoyuValidator {
 	/**
 	 * Validate variable being numeric digit
 	 *
-	 * @param	String		$value
-	 * @return	Boolean
+	 * @param	string		$value
+	 * @return	boolean
 	 */
 	public static function isDigit($value) {
 		return trim((int) $value) === trim($value);
@@ -57,8 +57,8 @@ class TodoyuValidator {
 	/**
 	 * Check if value is a number
 	 *
-	 * @param	String		$value
-	 * @return	Boolean
+	 * @param	string		$value
+	 * @return	boolean
 	 */
 	public static function isNumber($value ) {
 		return is_numeric($value);
@@ -69,8 +69,8 @@ class TodoyuValidator {
 	/**
 	 * Check if value is decimal
 	 *
-	 * @param	String		$value
-	 * @return	Boolean
+	 * @param	string		$value
+	 * @return	boolean
 	 */
 	public static function isDecimal($value) {
 		return trim(floatval($value)) === trim($value);
@@ -81,8 +81,8 @@ class TodoyuValidator {
 	/**
 	 * Validate string not being empty
 	 *
-	 * @param	String		$value
-	 * @return	String
+	 * @param	string		$value
+	 * @return	string
 	 */
 	public static function isNotEmpty($value) {
 		return trim($value) !== '' && trim($value) !== '0';
@@ -96,8 +96,8 @@ class TodoyuValidator {
 	 * @param	Float		$value
 	 * @param	Float		$bottom
 	 * @param	Float		$top
-	 * @param	Boolean		$allowRanges
-	 * @return	Boolean
+	 * @param	boolean		$allowRanges
+	 * @return	boolean
 	 */
 	public static function isInRange($value, $bottom, $top, $allowRanges = true) {
 		$value	= floatval($value);
@@ -117,8 +117,8 @@ class TodoyuValidator {
 	 *
 	 * @param	Float		$value
 	 * @param	Float		$minimum
-	 * @param	Boolean		$allowBorder
-	 * @return	Boolean
+	 * @param	boolean		$allowBorder
+	 * @return	boolean
 	 */
 	public static function isMin($value, $minimum, $allowBorder = true) {
 		$value	= floatval($value);
@@ -138,8 +138,8 @@ class TodoyuValidator {
 	 * 
 	 * @param	Float		$value
 	 * @param	Float		$maximum
-	 * @param	Boolean		$allowBorder
-	 * @return	Boolean
+	 * @param	boolean		$allowBorder
+	 * @return	boolean
 	 */
 	public static function isMax($value, $maximum, $allowBorder = true) {
 		$value	= floatval($value);
@@ -157,8 +157,8 @@ class TodoyuValidator {
 	/**
 	 * Validate timestamp not being at 00:00:00
 	 *
-	 * @param	String		$value
-	 * @return	Boolean
+	 * @param	string		$value
+	 * @return	boolean
 	 */
 	public static function isNotZerotime($value) {
 		$parts	= explode(':', $value);
@@ -172,9 +172,9 @@ class TodoyuValidator {
 	/**
 	 * Validate string being of at least given minimum length
 	 *
-	 * @param	String		$value
-	 * @param	Integer		$minLength
-	 * @return	Boolean
+	 * @param	string		$value
+	 * @param	integer		$minLength
+	 * @return	boolean
 	 */
 	public static function hasMinLength($value, $minLength) {
 		$minLength	= (int) $minLength;
@@ -187,9 +187,9 @@ class TodoyuValidator {
 	/**
 	 * Validate string not being longer than given length
 	 *
-	 * @param	String		$value
-	 * @param	Integer		$maxLength
-	 * @return	Boolean
+	 * @param	string		$value
+	 * @param	integer		$maxLength
+	 * @return	boolean
 	 */
 	public static function hasMaxLength($value, $maxLength) {
 		$maxLength	= (int) $maxLength;
@@ -202,9 +202,9 @@ class TodoyuValidator {
 	/**
 	 * Validate string not containing given illegal characters
 	 *
-	 * @param	String		$value
-	 * @param	Array		$validatorConfig
-	 * @return	Boolean
+	 * @param	string		$value
+	 * @param	array		$validatorConfig
+	 * @return	boolean
 	 * @todo	Chars should be a direct parameter. Add wrapper in TodoyuFormValidator
 	 */
 	public static function illegalChars($value, array $validatorConfig = array()) {

@@ -30,8 +30,8 @@ class TodoyuProjectTaskStatusManager {
 	/**
 	 * Get task status key by status index
 	 *
-	 * @param	Integer		$idStatus
-	 * @return	String
+	 * @param	integer		$idStatus
+	 * @return	string
 	 */
 	public static function getStatusKey($idStatus) {
 		$idStatus	= intval($idStatus);
@@ -45,7 +45,7 @@ class TodoyuProjectTaskStatusManager {
 	 * Get task status label by index or key
 	 *
 	 * @param	Mixed		$status			Status index or key
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getStatusLabel($status) {
 		if( is_numeric($status) ) {
@@ -63,8 +63,8 @@ class TodoyuProjectTaskStatusManager {
 	/**
 	 * Get allowed task statuses of given type
 	 *
-	 * @param	String		$check
-	 * @param	Integer		$forceStatus
+	 * @param	string		$check
+	 * @param	integer		$forceStatus
 	 * @return	Array
 	 */
 	public static function getStatuses($check = 'see', $forceStatus = 0) {
@@ -87,8 +87,8 @@ class TodoyuProjectTaskStatusManager {
 	/**
 	 * Get available status IDs
 	 *
-	 * @param	String		$check
-	 * @param	Integer		$forceStatus
+	 * @param	string		$check
+	 * @param	integer		$forceStatus
 	 * @return	Array
 	 */
 	public static function getStatusIDs($check = 'see', $forceStatus = 0) {
@@ -120,7 +120,7 @@ class TodoyuProjectTaskStatusManager {
 	 * The array index is the status index.
 	 * The keys are: index, key, label
 	 *
-	 * @param	String	$check
+	 * @param	string	$check
 	 * @return	Array
 	 */
 	public static function getStatusInfos($check = 'see') {

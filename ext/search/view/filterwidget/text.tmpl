@@ -2,10 +2,10 @@
 
 {block name="widgetbody"}
 	{if $definitions.wConf.autocomplete == true}
-		<input type="text" title="{Label core.global.input.autocompleter}" class="input textAC" id="widget-autocompleter-{$definitions.widgetID}" value="{htmlencode $definitions.value_label}" />
+		<input type="text" title="{Label text='core.global.input.autocompleter'}" class="input textAC" id="widget-autocompleter-{$definitions.widgetID}" value="{$definitions.value_label|escape}" />
 		<div id="widget-autocompleter-{$definitions.widgetID}-suggestions" class="acResultContainer"></div>
-		<input id="widget-autocompleter-{$definitions.widgetID}-hidden" type="hidden" class="hidden value" onchange="Todoyu.Ext.search.Filter.updateConditionValue('{$definitions.widgetID}', $F(this))" value="{htmlencode $definitions.value}" />
+		<input id="widget-autocompleter-{$definitions.widgetID}-hidden" type="hidden" class="hidden value" onchange="Todoyu.Ext.search.Filter.updateConditionValue('{$definitions.widgetID}', $F(this))" value="{$definitions.value|escape}" />
 	{else}
-		<input type="text" class="input value" onkeyup="Todoyu.Ext.search.FilterWidget.onTextEntered(this)" value="{htmlencode $definitions.value}" />
+		<input type="text" class="input value" onkeyup="Todoyu.Ext.search.FilterWidget.onTextEntered(this)" value="{$definitions.value|escape}" />
 	{/if}
 {/block}

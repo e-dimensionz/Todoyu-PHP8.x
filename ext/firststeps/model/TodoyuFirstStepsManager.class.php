@@ -29,11 +29,11 @@ class TodoyuFirstStepsManager {
 	/**
 	 * Save records which are identified only by a (title) field
 	 *
-	 * @param	Array		$newRecords		List of records which should be active after update
-	 * @param	Array		$dbRecords		List of records which are currently active in the DB
-	 * @param	String		$table
-	 * @param	String		$field			Field name which contains the 'title'
-	 * @param	Array		$extraFields	Extra field values to add to the record
+	 * @param	array		$newRecords		List of records which should be active after update
+	 * @param	array		$dbRecords		List of records which are currently active in the DB
+	 * @param	string		$table
+	 * @param	string		$field			Field name which contains the 'title'
+	 * @param	array		$extraFields	Extra field values to add to the record
 	 */
 	public static function saveLabelRecords(array $newRecords, array $dbRecords, $table, $field = 'title', array $extraFields = array()) {
 		$labelsToDelete	= TodoyuArray::diffLeft($dbRecords, $newRecords);
@@ -62,7 +62,7 @@ class TodoyuFirstStepsManager {
 	/**
 	 * Check whether the first steps wizard is enabled
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isNotDisabled() {
 		$extConf	= TodoyuSysmanagerExtConfManager::getExtConf('firststeps');

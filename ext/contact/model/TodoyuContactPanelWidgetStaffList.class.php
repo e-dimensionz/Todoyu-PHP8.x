@@ -29,8 +29,8 @@ class TodoyuContactPanelWidgetStaffList extends TodoyuPanelWidgetSearchList {
 	/**
 	 * Initialize staff list PanelWidget
 	 *
-	 * @param	Array		$config
-	 * @param	Array		$params
+	 * @param	array		$config
+	 * @param	array		$params
 	 */
 	public function __construct(array $config, array $params = array()) {
 		parent::__construct(
@@ -73,7 +73,7 @@ class TodoyuContactPanelWidgetStaffList extends TodoyuPanelWidgetSearchList {
 	/**
 	 * Get person IDs which match the filter
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	protected function getPersonIDs() {
 		$filters	= array(
@@ -96,7 +96,7 @@ class TodoyuContactPanelWidgetStaffList extends TodoyuPanelWidgetSearchList {
 	/**
 	 * Get list size limit
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	protected function getLimit() {
 		return intval($this->config['max']);
@@ -142,7 +142,7 @@ class TodoyuContactPanelWidgetStaffList extends TodoyuPanelWidgetSearchList {
 	/**
 	 * Check panelWidget access permission
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		return Todoyu::allowed('contact', 'general:use');

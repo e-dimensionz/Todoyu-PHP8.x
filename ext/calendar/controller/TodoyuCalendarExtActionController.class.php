@@ -29,7 +29,7 @@ class TodoyuCalendarExtActionController extends TodoyuActionController {
 	/**
 	 * Init controller: check permission
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('calendar', 'general:area');
@@ -41,8 +41,8 @@ class TodoyuCalendarExtActionController extends TodoyuActionController {
 	/**
 	 * Render default view of calendar when full page is reloaded
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function defaultAction(array $params) {
 			// Generate colors CSS and sprite
@@ -57,18 +57,18 @@ class TodoyuCalendarExtActionController extends TodoyuActionController {
 		TodoyuPage::setTitle('calendar.ext.page.title');
 
 
-		$idEvent	= intval($params['event']);
+		$idEvent	= intval($params['event'] ?? 0);
 
-		$activeTab	= $params['tab'];
+		$activeTab	= $params['tab'] ?? null;
 		if( empty($activeTab) ) {
 			$activeTab	= $idEvent === 0 ? TodoyuCalendarPreferences::getActiveTab() : 'view';
 		}
 
 			// Verify access rights. If not, change it to day
-		$activeTab	= TodoyuCalendarEventStaticManager::checkTabAccess($activeTab, $params['event']);
+		$activeTab	= TodoyuCalendarEventStaticManager::checkTabAccess($activeTab, $params['event'] ?? 0);
 
 			// Set date in preferences when given as parameter
-		if( is_numeric($params['date']) ) {
+		if( is_numeric($params['date'] ?? null) ) {
 			TodoyuCalendarPanelWidgetCalendar::saveDate($params['date']);
 		}
 

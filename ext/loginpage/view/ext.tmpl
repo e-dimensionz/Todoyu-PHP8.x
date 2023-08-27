@@ -1,11 +1,11 @@
 {extends "core/view/base.tmpl"}
 
-{block "panel"}
+{block name="panel"}
 	{$panelWidgets}
 {/block}
 
-{block "contentBody"}
-	{Header "LLL:loginpage.ext.loginbox.title" "noPadLeft"}
+{block name="contentBody"}
+	{Header title="LLL:loginpage.ext.loginbox.title" class="noPadLeft"}
 	{$loginForm}
 
 	{$extendedContent}

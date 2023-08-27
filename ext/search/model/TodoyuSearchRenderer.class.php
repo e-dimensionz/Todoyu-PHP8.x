@@ -38,8 +38,8 @@ class TodoyuSearchRenderer extends TodoyuRenderer {
 	/**
 	 * Render search suggestion list
 	 *
-	 * @param	Array		$suggestions
-	 * @return	String
+	 * @param	array		$suggestions
+	 * @return	string
 	 */
 	public static function renderSuggestions(array $suggestions) {
 		$tmpl	= 'ext/search/view/suggest.tmpl';
@@ -52,7 +52,7 @@ class TodoyuSearchRenderer extends TodoyuRenderer {
 	/**
 	 * Render headlet search box in the top panel
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderHeadlet() {
 		$tmpl	= 'ext/search/view/headlet.tmpl';
@@ -69,7 +69,7 @@ class TodoyuSearchRenderer extends TodoyuRenderer {
 	/**
 	 * Render panel widgets
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderPanelWidgets() {
 		return TodoyuPanelWidgetRenderer::renderPanelWidgets(self::EXTKEY);
@@ -80,9 +80,9 @@ class TodoyuSearchRenderer extends TodoyuRenderer {
 	/**
 	 * Render listing of search results
 	 *
-	 * @param	String	$type
-	 * @param	Array	$itemIDs
-	 * @return	String
+	 * @param	string	$type
+	 * @param	array	$itemIDs
+	 * @return	string
 	 */
 	public static function renderResultsListing($type, array $itemIDs) {
 		$listRenderFunc	= TodoyuSearchFilterManager::getFilterTypeResultsRenderer($type);

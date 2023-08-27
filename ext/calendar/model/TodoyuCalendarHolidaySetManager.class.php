@@ -38,7 +38,7 @@ class TodoyuCalendarHolidaySetManager {
 	/**
 	 * Get holiday set
 	 *
-	 * @param	Integer		$idHolidaySet
+	 * @param	integer		$idHolidaySet
 	 * @return	TodoyuCalendarHolidaySet
 	 */
 	public static function getHolidaySet($idHolidaySet) {
@@ -65,8 +65,8 @@ class TodoyuCalendarHolidaySetManager {
 	/**
 	 * Save a holidaySet
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function saveHolidaySet(array $data) {
 		$idHolidaySet	= intval($data['id']);
@@ -90,8 +90,8 @@ class TodoyuCalendarHolidaySetManager {
 	/**
 	 * Save holidaySet foreign data
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idHolidaySet
+	 * @param	array		$data
+	 * @param	integer		$idHolidaySet
 	 * @return	Array
 	 */
 	public static function saveHolidaySetForeignData(array $data, $idHolidaySet) {
@@ -115,8 +115,8 @@ class TodoyuCalendarHolidaySetManager {
 	/**
 	 * Add a holidaySet record
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function addHolidaySet(array $data = array()) {
 		return TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -127,9 +127,9 @@ class TodoyuCalendarHolidaySetManager {
 	/**
 	 * Update holidaySet record
 	 *
-	 * @param	Integer		$idHolidaySet
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idHolidaySet
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function updateHolidaySet($idHolidaySet, array $data) {
 		return TodoyuRecordManager::updateRecord(self::TABLE, $idHolidaySet, $data);
@@ -140,8 +140,8 @@ class TodoyuCalendarHolidaySetManager {
 	/**
 	 * Add/link a holiday to the holidaySet
 	 *
-	 * @param	Integer		$idHolidaySet
-	 * @param	Integer		$idHoliday
+	 * @param	integer		$idHolidaySet
+	 * @param	integer		$idHoliday
 	 */
 	public static function addHoliday($idHolidaySet, $idHoliday) {
 		$idHolidaySet	= intval($idHolidaySet);
@@ -155,8 +155,8 @@ class TodoyuCalendarHolidaySetManager {
 	/**
 	 * Delete a holidaySet
 	 *
-	 * @param	Integer		$idHolidaySet
-	 * @return	Boolean
+	 * @param	integer		$idHolidaySet
+	 * @return	boolean
 	 */
 	public static function deleteHolidaySet($idHolidaySet) {
 		$idHolidaySet	= intval($idHolidaySet);
@@ -169,7 +169,7 @@ class TodoyuCalendarHolidaySetManager {
 	/**
 	 * Remove/unlink all linked holidays (only the link)
 	 *
-	 * @param	Integer		$idHolidaySet
+	 * @param	integer		$idHolidaySet
 	 */
 	public static function removeHolidays($idHolidaySet) {
 		$idHolidaySet	= intval($idHolidaySet);
@@ -182,7 +182,7 @@ class TodoyuCalendarHolidaySetManager {
 	/**
 	 * Get holidays linked to the holidaySet
 	 *
-	 * @param	Integer		$idHolidaySet
+	 * @param	integer		$idHolidaySet
 	 * @return	Array
 	 */
 	public static function getHolidaysData($idHolidaySet) {
@@ -226,7 +226,7 @@ class TodoyuCalendarHolidaySetManager {
 	/**
 	 * Autocomplete holidaySets
 	 *
-	 * @param	String		$sword
+	 * @param	string		$sword
 	 * @return	Array
 	 */
 	public static function autocompleteHolidaySet($sword) {
@@ -253,7 +253,7 @@ class TodoyuCalendarHolidaySetManager {
 
 
 	/**
-	 * @param	Array		$personIDs
+	 * @param	array		$personIDs
 	 * @return	Array
 	 */
 	public static function getPersonHolidaySets($personIDs) {

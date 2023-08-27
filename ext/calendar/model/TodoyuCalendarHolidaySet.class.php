@@ -38,7 +38,7 @@ class TodoyuCalendarHolidaySet extends TodoyuBaseObject {
 	/**
 	 * Constructor
 	 *
-	 * @param	Integer	$idHolidaySet
+	 * @param	integer	$idHolidaySet
 	 */
 	function __construct($idHolidaySet) {
 		parent::__construct($idHolidaySet, self::TABLE);
@@ -49,7 +49,7 @@ class TodoyuCalendarHolidaySet extends TodoyuBaseObject {
 	/**
 	 * Get title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle() {
 		return $this->get('title');
@@ -61,7 +61,7 @@ class TodoyuCalendarHolidaySet extends TodoyuBaseObject {
 	/**
 	 * Get description
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDescription() {
 		return $this->get('description');
@@ -107,7 +107,7 @@ class TodoyuCalendarHolidaySet extends TodoyuBaseObject {
 	/**
 	 * Get template data for holiday set
 	 *
-	 * @param	Boolean	$loadForeignData
+	 * @param	boolean	$loadForeignData
 	 * @return	Array
 	 */
 	public function getTemplateData($loadForeignData = false) {

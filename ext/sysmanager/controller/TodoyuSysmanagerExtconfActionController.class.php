@@ -29,7 +29,7 @@ class TodoyuSysmanagerExtconfActionController extends TodoyuActionController {
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('sysmanager', 'extensions:config');
@@ -40,7 +40,7 @@ class TodoyuSysmanagerExtconfActionController extends TodoyuActionController {
 	/**
 	 * Save extension configuration
 	 *
-	 * @param	Array			$params
+	 * @param	array			$params
 	 * @return	Void|String		Failure returns re-rendered form with error messages
 	 */
 	public function saveAction(array $params) {

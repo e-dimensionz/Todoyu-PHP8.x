@@ -24,6 +24,3 @@ define('PATH_EXT_CONTACT', PATH_EXT . '/contact');
 
 require_once( PATH_EXT_CONTACT . '/config/constants.php' );
 require_once( PATH_EXT_CONTACT . '/config/hooks.php' );
-require_once( PATH_EXT_CONTACT . '/dwoo/plugins.php' );
-
-?>

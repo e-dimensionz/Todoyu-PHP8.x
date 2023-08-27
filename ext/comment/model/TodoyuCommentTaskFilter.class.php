@@ -39,7 +39,7 @@ class TodoyuCommentTaskFilter extends TodoyuSearchFilterBase {
 	 * Filters for unseen feedbacks
 	 *
 	 * @param	Mixed		$value
-	 * @param	Boolean		$negate
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public static function Filter_unseenFeedback($value, $negate = false) {
@@ -72,8 +72,8 @@ class TodoyuCommentTaskFilter extends TodoyuSearchFilterBase {
 	 * Filters all unseen feedbacks off current user
 	 *
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Boolean		$negate
+	 * @param	integer		$idPerson
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public static function Filter_unseenFeedbackCurrentPerson($idPerson, $negate = false) {
@@ -85,8 +85,8 @@ class TodoyuCommentTaskFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Filter for tasks which have unseen comments (with feedback request) for a person
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Boolean		$negate
+	 * @param	integer		$idPerson
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public static function Filter_unseenFeedbackPerson($idPerson, $negate = false) {
@@ -123,8 +123,8 @@ class TodoyuCommentTaskFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Filter condition: Tasks which have comment feedback which have not been seen by a member of a group
 	 *
-	 * @param	String		$groupIDs
-	 * @param	Boolean		$negate
+	 * @param	string		$groupIDs
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public static function Filter_unseenFeedbackRoles($groupIDs, $negate = false) {
@@ -161,8 +161,8 @@ class TodoyuCommentTaskFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Filter condition: Tasks which have comments which contain the given text
 	 *
-	 * @param	String		$keyword
-	 * @param	Boolean		$negate
+	 * @param	string		$keyword
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public static function Filter_fulltext($keyword, $negate = false) {
@@ -203,8 +203,8 @@ class TodoyuCommentTaskFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Filter condition: Tasks which are written by a person
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Boolean		$negate
+	 * @param	integer		$idPerson
+	 * @param	boolean		$negate
 	 * @return	Array		Or FALSE
 	 */
 	public static function Filter_commentWrittenPerson($idPerson, $negate = false) {
@@ -245,8 +245,8 @@ class TodoyuCommentTaskFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Filter condition: Tasks which have comments which are written by a member of one of the roles
 	 *
-	 * @param	String		$roleIDs
-	 * @param	Boolean		$negate
+	 * @param	string		$roleIDs
+	 * @param	boolean		$negate
 	 * @return	Array		Or FALSE
 	 */
 	public static function Filter_commentWrittenRoles($roleIDs, $negate = false) {
@@ -281,8 +281,8 @@ class TodoyuCommentTaskFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Filter condition: comment creation date
 	 *
-	 * @param	String		$date
-	 * @param	Boolean		$negate
+	 * @param	string		$date
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public static function Filter_commentDateCreate($date, $negate = false) {
@@ -315,8 +315,8 @@ class TodoyuCommentTaskFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Filter condition: Comment is public
 	 *
-	 * @param	Integer		$value
-	 * @param	Boolean		$negate
+	 * @param	integer		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public static function Filter_commentIsPublic($value, $negate = false) {
@@ -342,8 +342,8 @@ class TodoyuCommentTaskFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Filter condition: Comment is public if current user is external
 	 *
-	 * @param	Integer		$value
-	 * @param	Boolean		$negate
+	 * @param	integer		$value
+	 * @param	boolean		$negate
 	 * @return	Array|Boolean
 	 */
 	public static function Filter_commentIsPublicForExternals($value, $negate = false) {
@@ -359,8 +359,8 @@ class TodoyuCommentTaskFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Filter: Comment with feedback request from current person
 	 *
-	 * @param	Integer			$idPerson
-	 * @param	Boolean			$negate		(Has been seen / Hasn't been seen)
+	 * @param	integer			$idPerson
+	 * @param	boolean			$negate		(Has been seen / Hasn't been seen)
 	 * @return	Array|Boolean
 	 */
 	public function Filter_commentMyFeedbackRequestPerson($idPerson, $negate = false) {
@@ -400,7 +400,7 @@ class TodoyuCommentTaskFilter extends TodoyuSearchFilterBase {
 	 * Add order clause for not existing comments (task with no comments)
 	 * Add field which get the maximum date of a comment (MAX()
 	 *
-	 * @param	Boolean		$desc
+	 * @param	boolean		$desc
 	 * @return array
 	 */
 	public static function Sorting_commentLastAdd($desc = false) {
@@ -430,7 +430,7 @@ class TodoyuCommentTaskFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Get query parts to sort for last PUBLIC comment of task
 	 *
-	 * @param	Boolean		$desc
+	 * @param	boolean		$desc
 	 * @return	Array
 	 */
 	public static function Sorting_commentLastAddPublic($desc = false) {

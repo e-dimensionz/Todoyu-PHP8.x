@@ -29,7 +29,7 @@ class TodoyuSearchActionpanelActionController extends TodoyuActionController	{
 	/**
 	 * Initialize controller: restrict access
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('search', 'general:area');
@@ -40,7 +40,7 @@ class TodoyuSearchActionpanelActionController extends TodoyuActionController	{
 	/**
 	 * Controller to catch export from the search area
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function exportAction($params) {
 		$exportName	= $params['exportname'];

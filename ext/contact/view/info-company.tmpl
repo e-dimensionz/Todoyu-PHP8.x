@@ -1,20 +1,20 @@
 <div class="visitingCardContent">
 	<table>
 		<tr class="odd">
-			<td class="label">{Label contact.ext.company.attr.title}:</td>
-			<td width="70%" colspan="3">{htmlencode $title}</td>
+			<td class="label">{Label text='contact.ext.company.attr.title'}:</td>
+			<td width="70%" colspan="3">{$title|escape}</td>
 		</tr>
 		{if strlen($shortname) > 0}
 			<tr class="odd">
-				<td class="label">{Label contact.ext.company.attr.shortname}:</td>
-				<td colspan="3">{htmlencode $shortname}</td>
+				<td class="label">{Label text='contact.ext.company.attr.shortname'}:</td>
+				<td colspan="3">{$shortname|escape}</td>
 			</tr>
 		{/if}
 		<tr class="even"><td colspan="4"><br /></td></tr>
 		{if $date_enter != 0}
 			<tr>
-				<td class="label">{Label contact.ext.company.attr.date_enter}:</td>
-				<td colspan="3">{dateFormat $date_enter "date"}</td>
+				<td class="label">{Label text='contact.ext.company.attr.date_enter'}:</td>
+				<td colspan="3">{$date_enter|date_format:$DF.date}</td>
 			</tr>
 		{/if}
 
@@ -25,18 +25,18 @@
 		</tr>
 
 		{* Contact infos *}
-		{foreach $contactinfo key contactinfoData contactinfoIterator}
+		{foreach $contactinfo as $key=>$contactinfoData}
 			<tr>
-				{if $.foreach.contactinfoIterator.first}
-					<td class="label">{Label contact.ext.contactinfo}</td>
+				{if $contactinfoData@first}
+					<td class="label">{Label text='contact.ext.contactinfo'}</td>
 				{else}
 					<td class="label">&nbsp;</td>
 				{/if}
 				<td>
-					{labelContactinfotype $contactinfoData.id_contactinfotype}
+					{labelContactinfotype idContactinfotype=$contactinfoData.id_contactinfotype}
 				</td>
 				<td colspan="2">
-				 	{htmlencode $contactinfoData.info}
+				 	{$contactinfoData.info|escape}
 				</td>
 			</tr>
 		{/foreach}
@@ -47,23 +47,23 @@
 			</td>
 		</tr>
 
-		{foreach $address key addressData addressIterator}
+		{foreach $address as $key=>$addressData}
 			<tr>
-				{if $.foreach.addressIterator.first}
-					<td class="label">{Label contact.ext.address}</td>
+				{if $addressData@first}
+					<td class="label">{Label text='contact.ext.address'}</td>
 				{else}
 					<td class="label"></td>
 				{/if}
 				<td colspan="3">
-					{nl2br htmlencode($addressData.street)}<br />
-					{if $addressData.postbox} {Label contact.ext.address.attr.postbox}: {htmlencode $addressData.postbox}<br />{/if}
-					{htmlencode $addressData.zip} {htmlencode $addressData.city}<br />
-					{if $addressData.region}{htmlencode $addressData.region}{/if}
-					{if $addressData.id_country} {countryName $addressData.id_country}<br />{/if}
+					{fn_htmlencode($addressData.street)|nl2br}<br />
+					{if $addressData.postbox} {Label text='contact.ext.address.attr.postbox'}: {$addressData.postbox|escape}<br />{/if}
+					{$addressData.zip|escape} {$addressData.city|escape}<br />
+					{if $addressData.region}{$addressData.region|escape}{/if}
+					{if $addressData.id_country} {countryName id=$addressData.id_country}<br />{/if}
 					<br />
 					{if $addressData.comment}
 						<p>
-							{htmlencode $addressData.comment}
+							{$addressData.comment|escape}
 						</p>
 					{/if}
 				<td>
@@ -78,20 +78,20 @@
 			</tr>
 		{/if}
 
-		{foreach $persons key personData employeeIterator}
+		{foreach $persons as $key=>$personData}
 			<tr>
-				{if $.foreach.employeeIterator.first}
-					<td class="label">{Label contact.ext.company.attr.user}</td>
+				{if $personData@first}
+					<td class="label">{Label text='contact.ext.company.attr.user'}</td>
 				{else}
 					<td class="label"></td>
 				{/if}
 				<td>
-					{htmlencode $personData.lastname}</td>
+					{$personData.lastname|escape}</td>
 				<td>
-				 	{htmlencode $personData.firstname}
+				 	{$personData.firstname|escape}
 				</td>
 				<td>
-					{htmlencode $personData.email}
+					{$personData.email|escape}
 				</td>
 			</tr>
 		{/foreach}

@@ -1,26 +1,26 @@
-{if isAddressTypeSeeAllowed('company', $id, $address.id_addresstype)}
+{if fn_isAddressTypeSeeAllowed('company', $id, $address.id_addresstype)}
 	<div class="infoBox addressPart">
-		<h4>{addressType $address.id_addresstype}</h4>
+		<h4>{addressType idAddressType=$address.id_addresstype}</h4>
 		<div class="content overflow address">
 			{if strlen($address.street) > 0}
-				{nl2br $address.street}<br />
+				{$address.street|nl2br}<br />
 			{/if}
 
 			{if strlen($address.postbox)>0}
-				{Label contact.ext.address.attr.postbox}: {htmlencode wordwrap($address.postbox 30 cut=true)}<br />
+				{Label text='contact.ext.address.attr.postbox'}: {$address.postbox|wordwrap:30:"\n":true|escape}<br />
 			{/if}
 
 			{if strlen($address.zip)>0 || strlen($address.city)>0}
 				{$address.zip} {$address.city}<br/>
 			{/if}
-			{countryName $address.id_country}
+			{countryName id=$address.id_country}
 
 
 
 			{if strlen($address.comment) > 0}
 				<br />
 				<br />
-				{nl2br $address.comment}
+				{$address.comment|nl2br}
 			{/if}
 		</div>
 	</div>

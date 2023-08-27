@@ -7,7 +7,7 @@
 					<tr>
 						<td class="timeSpacer"></td>
 						<td class="dayEvents">
-							{foreach $dayEvents dayEventHtml}
+							{foreach $dayEvents as $dayEventHtml}
 								{$dayEventHtml}
 							{/foreach}
 						</td>
@@ -23,7 +23,7 @@
 					<td>
 						<div class="tg-hourmarkerwrapper">
 							<div class="tg-hourmarkers">
-							{for markercounter 0 23}
+							{for $markercounter=0 to 23}
 								<div class="tg-dualmarker"></div>
 							{/for}
 							</div>
@@ -32,18 +32,18 @@
 				</tr><tr>
 					{* ---------------- Textual hour (00:00 to 23:00) -------------------------- *}
 					<td class="colHours">
-						{$hourTimestamp = $timestamp}
-						{for hour 0 23}
+						{assign var="hourTimestamp" value=$timestamp}
+						{for $hour=0 to 23}
 							<div class="hour" id="createEventAt-{$hourTimestamp}">
 								{if $hour < 10}0{/if}{$hour}:00
 							</div>
-							{$hourTimestamp += 3600}
+							{assign var=hourTimestamp value=$hourTimestamp+3600}
 						{/for}
 					</td>
 					<td class="dayCol dayview{if date('d.m.y', $timestamp) == date('d.m.y', time())}Today{/if}">
 						{* ------------ Hour contents (events and related info-tooltips) -------- *}
 						<div id="tgCol0" class="tg-colwrapper">
-						{foreach $events event}
+						{foreach $events as $event}
 							{$event}
 						{/foreach}
 						</div>

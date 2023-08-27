@@ -29,16 +29,16 @@ interface TodoyuTemplateDocumentIf {
 	/**
 	 * Create a document object
 	 *
-	 * @param	Array		$data		Template data
-	 * @param	String		$template	Path the the template file (false, if the type doesn't need a template)
-	 * @param	Array		$config		Optional configuration passed to the document object
+	 * @param	array		$data		Template data
+	 * @param	string		$template	Path the the template file (false, if the type doesn't need a template)
+	 * @param	array		$config		Optional configuration passed to the document object
 	 */
 	public function __construct(array $data, $template, array $config = array());
 
 	/**
 	 * Save parsed document as a file
 	 *
-	 * @param	String		$savePath
+	 * @param	string		$savePath
 	 */
 	public function saveFile($savePath);
 
@@ -46,7 +46,7 @@ interface TodoyuTemplateDocumentIf {
 	/**
 	 * Get the content of the new document (full code as string)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getFileData();
 
@@ -55,7 +55,7 @@ interface TodoyuTemplateDocumentIf {
 	/**
 	 * Get the path to the current temporary file
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getFilePath();
 
@@ -64,7 +64,7 @@ interface TodoyuTemplateDocumentIf {
 	/**
 	 * Send the file to the browser (forces download)
 	 *
-	 * @param	String		$filename
+	 * @param	string		$filename
 	 */
 	public function sendFile($filename);
 
@@ -73,7 +73,7 @@ interface TodoyuTemplateDocumentIf {
 	/**
 	 * Get the document type
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getType();
 

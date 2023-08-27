@@ -29,7 +29,7 @@ class TodoyuProjectCompanyFilterDataSource {
 	/**
 	 * Dynamic date options
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getDynamicDateOptions($definitions) {
@@ -43,7 +43,7 @@ class TodoyuProjectCompanyFilterDataSource {
 	/**
 	 * Get filterset options for project
 	 *
-	 * @param	Array		$definitions
+	 * @param	array		$definitions
 	 * @return	Array
 	 */
 	public static function getProjectFilterSetSelectionOptions(array $definitions) {

@@ -1,5 +1,5 @@
-<div id="task-{$task.id}" class="task {$task.class} bcStatus{$task.status} {if $isExpanded}expanded{/if}">
-	{include file="task-header.tmpl"}
-	{$details}
-	{$subtasks}
+<div id="task-{$task.id}" class="task {$task.class} bcStatus{$task.status} {if isset($isExpanded) && $isExpanded}expanded{/if}">
+	{include file="ext/project/view/task-header.tmpl"}
+	{if isset($details)}{$details}{/if}
+	{if isset($subtasks)}{$subtasks}{/if}
 </div>

@@ -27,7 +27,7 @@
 class TodoyuProjectPanelwidgetprojectselectorActionController extends TodoyuActionController {
 
 	/**
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 //		Todoyu::restrict('project', 'panelwidgets:projectSelector');
@@ -38,8 +38,8 @@ class TodoyuProjectPanelwidgetprojectselectorActionController extends TodoyuActi
 	/**
 	 * Get list of matching projects and groups
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function listAction(array $params) {
 		$search			= trim($params['search']);
@@ -57,7 +57,7 @@ class TodoyuProjectPanelwidgetprojectselectorActionController extends TodoyuActi
 	/**
 	 * Save selected projects preference
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function saveAction(array $params) {
 		$items	= TodoyuString::trimExplode(',', $params['selection'], true);

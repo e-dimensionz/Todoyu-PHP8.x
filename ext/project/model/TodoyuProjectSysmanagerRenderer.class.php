@@ -29,9 +29,9 @@ class TodoyuProjectSysmanagerRenderer {
 	/**
 	 * Hooked-in when rendering taskpreset records list in sysmanager
 	 *
-	 * @param	Integer		$idTaskpreset
-	 * @param	String		$body
-	 * @return	String
+	 * @param	integer		$idTaskpreset
+	 * @param	string		$body
+	 * @return	string
 	 */
 	public static function onRenderTaskpresetRecordsBody($idTaskpreset, $body = '') {
 		$idTaskpreset	= intval($idTaskpreset);

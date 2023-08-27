@@ -29,9 +29,9 @@ class TodoyuAssetsFormElement_RecordsTaskAsset extends TodoyuAssetsFormElement_R
 	/**
 	 * Initialize
 	 *
-	 * @param	String				$name
+	 * @param	string				$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array				$config
+	 * @param	array				$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		parent::__construct('taskAsset', $name, $fieldset, $config);

@@ -29,7 +29,7 @@ class TodoyuPortalPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Initialize: restrict access
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('portal', 'general:use');
@@ -40,7 +40,7 @@ class TodoyuPortalPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save active tab ID preference
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function tabAction(array $params) {
 		$idTab	= intval($params['value']);
@@ -53,7 +53,7 @@ class TodoyuPortalPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save preference: currently selected filtersets for selection tab
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function filtersetsAction(array $params) {
 		$filtersetIDs	= explode(',', $params['value']);
@@ -70,7 +70,7 @@ class TodoyuPortalPreferenceActionController extends TodoyuActionController {
 	 *		task ID:	$params['item'],
 	 *		expanded:	$params['value'] === 1
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function taskOpenAction(array $params) {
 		$idTask		= intval($params['item']);
@@ -84,7 +84,7 @@ class TodoyuPortalPreferenceActionController extends TodoyuActionController {
 	/**
 	 * General panelWidget action, saves collapse status
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function pwidgetAction(array $params) {
 		$idWidget	= $params['item'];

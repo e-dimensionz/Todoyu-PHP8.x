@@ -39,8 +39,8 @@ class TodoyuImapAddressManager {
 	/**
 	 * Get ID of address record of given email address.
 	 *
-	 * @param	String		$address
-	 * @return	Integer
+	 * @param	string		$address
+	 * @return	integer
 	 */
 	public static function getAddressIDbyAddress($address) {
 		$field	= 'id';
@@ -62,7 +62,7 @@ class TodoyuImapAddressManager {
 	/**
 	 * Get address
 	 *
-	 * @param	Integer				$idAddress
+	 * @param	integer				$idAddress
 	 * @return	TodoyuImapAddress
 	 */
 	public static function getAddress($idAddress) {
@@ -112,8 +112,8 @@ class TodoyuImapAddressManager {
 	/**
 	 * Get address label
 	 *
-	 * @param	Integer		$idAddress
-	 * @return	String
+	 * @param	integer		$idAddress
+	 * @return	string
 	 */
 	public static function getLabel($idAddress) {
 		return self::getAddress($idAddress)->getLabel();
@@ -124,9 +124,9 @@ class TodoyuImapAddressManager {
 	/**
 	 * Create new address record from given data
 	 *
-	 * @param	String	$address
-	 * @param	String	$name
-	 * @return	Integer				Record ID
+	 * @param	string	$address
+	 * @param	string	$name
+	 * @return	integer				Record ID
 	 */
 	public static function addAddress($address, $name = '') {
 		$data	= array(
@@ -142,9 +142,9 @@ class TodoyuImapAddressManager {
 	/**
 	 * Store new address record
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idAddress
-	 * @return	Integer					Record ID
+	 * @param	array		$data
+	 * @param	integer		$idAddress
+	 * @return	integer					Record ID
 	 */
 	public static function saveAddress($data, $idAddress = 0) {
 		$idAddress	= intval($data['id']);
@@ -165,8 +165,8 @@ class TodoyuImapAddressManager {
 
 
 	/**
-	 * @param	Array		$data
-	 * @param	Integer		$idAddress
+	 * @param	array		$data
+	 * @param	integer		$idAddress
 	 */
 	public static function updateAddress($data, $idAddress) {
 		$idAddress	= intval($idAddress);
@@ -179,7 +179,7 @@ class TodoyuImapAddressManager {
 	/**
 	 * Removes given IMAP email address from the database
 	 *
-	 * @param	Integer	$idAddress
+	 * @param	integer	$idAddress
 	 */
 	public static function removeAddress($idAddress) {
 		$idAddress	= intval($idAddress);
@@ -192,9 +192,9 @@ class TodoyuImapAddressManager {
 
 
 	/**
-	 * @param	Array 		$searchWords
-	 * @param	Integer[]	$ignoreIDs
-	 * @param	Integer		$limit
+	 * @param	array 		$searchWords
+	 * @param	integer[]	$ignoreIDs
+	 * @param	integer		$limit
 	 * @return	Array
 	 */
 	public static function searchAddresses(array $searchWords, array $ignoreIDs = array(), $limit = 500) {
@@ -235,8 +235,8 @@ class TodoyuImapAddressManager {
 	/**
 	 * Get matching addresses
 	 *
-	 * @param	String[]	$searchWords
-	 * @param	Integer[]	$ignoreIDs
+	 * @param	string[]	$searchWords
+	 * @param	integer[]	$ignoreIDs
 	 * @return	Array
 	 */
 	public static function getMatchingAddresses(array $searchWords, array $ignoreIDs = array()) {
@@ -262,9 +262,9 @@ class TodoyuImapAddressManager {
 	 * Prefix all address IDs and include resp. classname attributes
 	 * Extracted emails from given address items and remove IMAP address items with identical email address
 	 *
-	 * @param	String[]	$searchWords
-	 * @param	Integer[]	$ignoreIDs
-	 * @param	Array		$persons
+	 * @param	string[]	$searchWords
+	 * @param	integer[]	$ignoreIDs
+	 * @param	array		$persons
 	 * @return	Array
 	 */
 	public static function getMatchingAddressesForMixedList(array $searchWords, array $ignoreIDs = array(), array $persons = array()) {
@@ -297,10 +297,10 @@ class TodoyuImapAddressManager {
 	/**
 	 * Get matching email receiver tuples for mail receivers records selector
 	 *
-	 * @param	String[]		$searchWords
-	 * @param	String[]		$ignoreTuples
-	 * @param	Array			$params
-	 * @return	String[]
+	 * @param	string[]		$searchWords
+	 * @param	string[]		$ignoreTuples
+	 * @param	array			$params
+	 * @return	string[]
 	 */
 	public static function getMatchingEmailReceiverImapAddress(array $searchWords, array $ignoreTuples = array(), array $params) {
 		$ignoreIDs	= array();
@@ -328,8 +328,8 @@ class TodoyuImapAddressManager {
 	/**
 	 * Extract email addresses from given records' labels
 	 *
-	 * @param	Array	$records	Records array, containing a 'label' attribute for each item
-	 * @return	String[]
+	 * @param	array	$records	Records array, containing a 'label' attribute for each item
+	 * @return	string[]
 	 */
 	private static function extractEmailAddressesFromRecords(array $records) {
 		$emailAddresses	= array();
@@ -345,7 +345,7 @@ class TodoyuImapAddressManager {
 	/**
 	 * Extract email address from given label
 	 *
-	 * @param	String	$label
+	 * @param	string	$label
 	 * @return	Mixed
 	 */
 	private static function extractEmailAddressFromLabel($label) {
@@ -358,8 +358,8 @@ class TodoyuImapAddressManager {
 
 
 	/**
-	 * @param	Integer	$idMessage
-	 * @param	String	$type
+	 * @param	integer	$idMessage
+	 * @param	string	$type
 	 * @return	TodoyuImapAddress[]
 	 */
 	public static function getAddressesByType($idMessage, $type) {
@@ -373,9 +373,9 @@ class TodoyuImapAddressManager {
 	/**
 	 * Get IDs of addresses by message and type
 	 *
-	 * @param	Integer		$idMessage
-	 * @param	Integer		$type
-	 * @return	Integer[]
+	 * @param	integer		$idMessage
+	 * @param	integer		$type
+	 * @return	integer[]
 	 */
 	public static function getAddressIDsByType($idMessage, $type) {
 		$idMessage	= intval($idMessage);
@@ -392,9 +392,9 @@ class TodoyuImapAddressManager {
 
 
 	/**
-	 * @param	Integer		$idMessage
-	 * @param	Boolean		$addressUnique
-	 * @param	Integer		$type
+	 * @param	integer		$idMessage
+	 * @param	boolean		$addressUnique
+	 * @param	integer		$type
 	 * @return	Array[]
 	 */
 	public static function getMessageAddresses($idMessage, $addressUnique = false, $type = IMAP_ADDRESS_TYPE_TO) {

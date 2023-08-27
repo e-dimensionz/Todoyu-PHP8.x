@@ -87,7 +87,7 @@ class TodoyuMail extends PHPMailer {
 	/**
 	 * Initialize with config
 	 *
-	 * @param	Array		$config
+	 * @param	array		$config
 	 */
 	public function __construct(array $config = array()) {
 		$config	= TodoyuHookManager::callHookDataModifier('core', 'mail.construct', $config);
@@ -105,7 +105,7 @@ class TodoyuMail extends PHPMailer {
 	/**
 	 * Check whether current person has an SMTP account for sending emails
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	protected function hasCurrentPersonSmtpSenderAccount() {
 		return Todoyu::person()->hasSmtpAccount();
@@ -203,7 +203,7 @@ class TodoyuMail extends PHPMailer {
 	/**
 	 * Initialize SMTP configuration: add credentials from given record
 	 *
-	 * @param	Integer		$idAccount
+	 * @param	integer		$idAccount
 	 */
 	protected function initSmtpConfig($idAccount) {
 		$idAccount	= intval($idAccount);
@@ -295,8 +295,8 @@ class TodoyuMail extends PHPMailer {
 	/**
 	 * Prefix links with TODOYU_URL to make them work in mails
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	protected function fullyQualifyLinksInHtml($html) {
 		$pattern	= '/href=["\']{1}([^"\']*?)["\']{1}/is';
@@ -323,7 +323,7 @@ class TodoyuMail extends PHPMailer {
 	/**
 	 * Set email headline (can be a label)
 	 *
-	 * @param	String		$headline
+	 * @param	string		$headline
 	 */
 	public function setHeadline($headline) {
 		$headline	= Todoyu::Label($headline);
@@ -337,7 +337,7 @@ class TodoyuMail extends PHPMailer {
 	/**
 	 * Add CSS style code
 	 *
-	 * @param	String		$cssStyle
+	 * @param	string		$cssStyle
 	 */
 	public function addCssStyles($cssStyle) {
 		$this->cssStyles[] = $cssStyle;
@@ -447,8 +447,8 @@ class TodoyuMail extends PHPMailer {
 	/**
 	 * Send mail
 	 *
-	 * @param	Boolean		$catchExceptions		Catch the exceptions and log them automatically. Returns true or false
-	 * @return	Boolean		Sending was successful
+	 * @param	boolean		$catchExceptions		Catch the exceptions and log them automatically. Returns true or false
+	 * @return	boolean		Sending was successful
 	 */
 	public function send($catchExceptions = true) {
 		$this->beforeSend();
@@ -502,7 +502,7 @@ class TodoyuMail extends PHPMailer {
 	/**
 	 * Set mail subject
 	 *
-	 * @param	String		$subject
+	 * @param	string		$subject
 	 */
 	public function setSubject($subject) {
 		$subject	= Todoyu::Label($subject);
@@ -515,7 +515,7 @@ class TodoyuMail extends PHPMailer {
 	/**
 	 * Get subject
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getSubject() {
 		return $this->Subject;
@@ -526,7 +526,7 @@ class TodoyuMail extends PHPMailer {
 	/**
 	 * Set html content of the mail
 	 *
-	 * @param	String		$html
+	 * @param	string		$html
 	 */
 	public function setHtmlContent($html) {
 		$this->contentHTML	= $html;
@@ -537,7 +537,7 @@ class TodoyuMail extends PHPMailer {
 	/**
 	 * Set plaintext content of the mail
 	 *
-	 * @param	String		$text
+	 * @param	string		$text
 	 */
 	public function setTextContent($text) {
 		$this->contentText = $text;
@@ -548,9 +548,9 @@ class TodoyuMail extends PHPMailer {
 	/**
 	 * Add an attachment
 	 *
-	 * @param	String		$path
-	 * @param	String		$name
- 	 * @return	Boolean
+	 * @param	string		$path
+	 * @param	string		$name
+ 	 * @return	boolean
 	 */
 	public function addAttachment($path, $name = '', $encoding = 'base64', $type = 'application/octet-stream') {
 		$path	= TodoyuFileManager::pathAbsolute($path);
@@ -574,8 +574,8 @@ class TodoyuMail extends PHPMailer {
 	/**
 	 * Add a person as reply to
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public function addReplyToPerson($idPerson) {
 		$idPerson		= (int) $idPerson;
@@ -600,7 +600,7 @@ class TodoyuMail extends PHPMailer {
 	/**
 	 * Add current person as reply to
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function addCurrentPersonAsReplyTo() {
 		return $this->addReplyToPerson(Todoyu::personid());

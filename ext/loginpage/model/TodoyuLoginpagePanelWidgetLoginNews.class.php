@@ -29,9 +29,9 @@ class TodoyuLoginpagePanelWidgetLoginNews extends TodoyuPanelWidget {
 	/**
 	 * Initialize projectTree PanelWidget
 	 *
-	 * @param	Array		$config
-	 * @param	Array		$params
-	 * @param	Integer		$idArea
+	 * @param	array		$config
+	 * @param	array		$params
+	 * @param	integer		$idArea
 	 */
 	public function __construct(array $config, array $params = array(), $idArea = 0) {
 		parent::__construct(
@@ -49,7 +49,7 @@ class TodoyuLoginpagePanelWidgetLoginNews extends TodoyuPanelWidget {
 	/**
 	 * Render panelwidget content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderContent() {
 		$tmpl	= 'ext/loginpage/view/panelwidget-loginnews.tmpl';

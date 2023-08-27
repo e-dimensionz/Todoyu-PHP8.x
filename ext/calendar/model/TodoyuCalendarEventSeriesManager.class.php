@@ -38,7 +38,7 @@ class TodoyuCalendarEventSeriesManager {
 	/**
 	 * Get a series
 	 *
-	 * @param	Integer		$idSeries
+	 * @param	integer		$idSeries
 	 * @return	TodoyuCalendarEventSeries
 	 */
 	public static function getSeries($idSeries) {
@@ -50,8 +50,8 @@ class TodoyuCalendarEventSeriesManager {
 	/**
 	 * Create a new series
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function addSeries(array $data) {
 		return TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -62,8 +62,8 @@ class TodoyuCalendarEventSeriesManager {
 	/**
 	 * Update a series
 	 *
-	 * @param	Integer		$idSeries
-	 * @param	Array		$data
+	 * @param	integer		$idSeries
+	 * @param	array		$data
 	 */
 	public static function updateSeries($idSeries, array $data) {
 		if( !isset($data['config']) ) {
@@ -78,8 +78,8 @@ class TodoyuCalendarEventSeriesManager {
 	/**
 	 * Delete a series (and all assigned events)
 	 *
-	 * @param	Integer		$idSeries
-	 * @return	Integer[]	Deleted event IDs
+	 * @param	integer		$idSeries
+	 * @return	integer[]	Deleted event IDs
 	 */
 	public static function deleteSeries($idSeries) {
 		$idSeries	= intval($idSeries);
@@ -102,9 +102,9 @@ class TodoyuCalendarEventSeriesManager {
 	/**
 	 * Save a series and create the series events
 	 *
-	 * @param	Array		$seriesData
-	 * @param	Integer		$idSavedEvent
-	 * @return	Integer		The new event ID, just in case it changed because of
+	 * @param	array		$seriesData
+	 * @param	integer		$idSavedEvent
+	 * @return	integer		The new event ID, just in case it changed because of
 	 */
 	public static function saveSeries(array $seriesData, $idSavedEvent) {
 		$idSeries	= intval($seriesData['id']);
@@ -140,8 +140,8 @@ class TodoyuCalendarEventSeriesManager {
 	/**
 	 * Create events for a new series
 	 *
-	 * @param	Integer		$idBaseEvent
-	 * @param	Integer		$idSeries
+	 * @param	integer		$idBaseEvent
+	 * @param	integer		$idSeries
 	 * @return	TodoyuCalendarEventSeriesCreateResult
 	 */
 	private static function createNewSeriesEvents($idBaseEvent, $idSeries) {
@@ -172,9 +172,9 @@ class TodoyuCalendarEventSeriesManager {
 	 * Create events for a modified series.
 	 * Only create events which will occur after the base event
 	 *
-	 * @param	Integer		$idBaseEvent
-	 * @param	Integer		$idSeriesOld		ID of the old series
-	 * @param	Integer		$idSeriesNew		ID of the new series
+	 * @param	integer		$idBaseEvent
+	 * @param	integer		$idSeriesOld		ID of the old series
+	 * @param	integer		$idSeriesNew		ID of the new series
 	 * @return	TodoyuCalendarEventSeriesCreateResult
 	 */
 	private static function modifySeriesAfterEvent($idBaseEvent, $idSeriesOld, $idSeriesNew) {
@@ -202,9 +202,9 @@ class TodoyuCalendarEventSeriesManager {
 	 * Create events for a modified series
 	 * The events will replace all events of the series which are not in the past
 	 *
-	 * @param	Integer		$idBaseEvent
-	 * @param	Integer		$idSeriesOld
-	 * @param	Integer		$idSeriesNew
+	 * @param	integer		$idBaseEvent
+	 * @param	integer		$idSeriesOld
+	 * @param	integer		$idSeriesNew
 	 * @return	TodoyuCalendarEventSeriesCreateResult
 	 */
 	private static function modifySeriesComplete($idBaseEvent, $idSeriesOld, $idSeriesNew) {
@@ -246,9 +246,9 @@ class TodoyuCalendarEventSeriesManager {
 	 * Combine date with time of the event
 	 * Ex: date: 2012-01-01, time: 15:10:00 => 2012-01-01 15:10:00
 	 *
-	 * @param	Integer		$date				Base date used for year,month,day
-	 * @param	Integer		$idBaseEvent		Event ID. Start date is used for hour,minuts,seconds
-	 * @return	Integer		Adjusted timestamp
+	 * @param	integer		$date				Base date used for year,month,day
+	 * @param	integer		$idBaseEvent		Event ID. Start date is used for hour,minuts,seconds
+	 * @return	integer		Adjusted timestamp
 	 */
 	private static function applyEventTimeToDate($date, $idBaseEvent) {
 		$baseEvent	= TodoyuCalendarEventStaticManager::getEvent($idBaseEvent);
@@ -265,8 +265,8 @@ class TodoyuCalendarEventSeriesManager {
 	/**
 	 * Update the series ID for an event (assign an event to a series)
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idSeries
+	 * @param	integer		$idEvent
+	 * @param	integer		$idSeries
 	 */
 	private static function setSeriesID($idEvent, $idSeries) {
 		$idEvent	= intval($idEvent);
@@ -283,11 +283,11 @@ class TodoyuCalendarEventSeriesManager {
 	/**
 	 * Delete events of a series which start after $dateStart
 	 *
-	 * @param	Integer		$idSeries
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$idEventIgnore			Ignore this event
-	 * @param	Boolean		[$allowStartInPast]
-	 * @return	Integer[]	IDs of deleted events
+	 * @param	integer		$idSeries
+	 * @param	integer		$dateStart
+	 * @param	integer		$idEventIgnore			Ignore this event
+	 * @param	boolean		[$allowStartInPast]
+	 * @return	integer[]	IDs of deleted events
 	 */
 	public static function deleteSeriesEventsAfter($idSeries, $dateStart = 0, $idEventIgnore = 0, $allowStartInPast = false) {
 		$idSeries		= intval($idSeries);
@@ -325,8 +325,8 @@ class TodoyuCalendarEventSeriesManager {
 	 * Hook to toggle series fields in event form
 	 *
 	 * @param	TodoyuForm		$form
-	 * @param	Integer			$idEvent
-	 * @param	Array			$params
+	 * @param	integer			$idEvent
+	 * @param	array			$params
 	 * @return	TodoyuForm
 	 */
 	public static function hookSetSeriesFields(TodoyuForm $form, $idEvent, array $params = array()) {
@@ -363,9 +363,9 @@ class TodoyuCalendarEventSeriesManager {
 	/**
 	 * Hook to load series data
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idEvent
-	 * @param	Array		$params
+	 * @param	array		$data
+	 * @param	integer		$idEvent
+	 * @param	array		$params
 	 * @return	Array
 	 */
 	public static function hookLoadSeriesData(array $data, $idEvent, array $params = array()) {
@@ -398,7 +398,7 @@ class TodoyuCalendarEventSeriesManager {
 	/**
 	 * Get limit for series event creation
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getCreateLimit() {
 		return intval(Todoyu::$CONFIG['EXT']['calendar']['series']['maxCreate']);
@@ -410,10 +410,10 @@ class TodoyuCalendarEventSeriesManager {
 	 * Hook which modifies event update data on event move
 	 * A moved event is remove from the series
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd
+	 * @param	array		$data
+	 * @param	integer		$idEvent
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd
 	 * @return	Array
 	 */
 	public static function hookEventMovedDataUpdate($data, $idEvent, $dateStart, $dateEnd) {
@@ -427,9 +427,9 @@ class TodoyuCalendarEventSeriesManager {
 	/**
 	 * Assign the users to the event and update the event reminders for the current user with the settings of the already saved base event
 	 *
-	 * @param	Integer		$idBaseEvent			Base event which was saved with the correct reminder settings
-	 * @param	Integer		$idEvent				New created event which needs to be assigned for all users
-	 * @param	Integer[]	$assignedPersonIDs		Assigned users
+	 * @param	integer		$idBaseEvent			Base event which was saved with the correct reminder settings
+	 * @param	integer		$idEvent				New created event which needs to be assigned for all users
+	 * @param	integer[]	$assignedPersonIDs		Assigned users
 	 */
 	public static function assignEvent($idBaseEvent, $idEvent, array $assignedPersonIDs) {
 		$idEvent			= intval($idEvent);

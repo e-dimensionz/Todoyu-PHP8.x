@@ -30,7 +30,7 @@ class TodoyuCommentRights {
 	 * Deny access
 	 * Shortcut for comment
 	 *
-	 * @param	String		$right		Denied right
+	 * @param	string		$right		Denied right
 	 */
 	private static function deny($right) {
 		TodoyuRightsManager::deny('comment', $right);
@@ -42,8 +42,8 @@ class TodoyuCommentRights {
 	 * Check whether person is allowed to edit a comment
 	 * Check whether person has editing rights and whether person can edit a status
 	 *
-	 * @param	Integer		$idComment
-	 * @return	Boolean
+	 * @param	integer		$idComment
+	 * @return	boolean
 	 */
 	public static function isEditAllowed($idComment) {
 		$idComment	= intval($idComment);
@@ -58,9 +58,9 @@ class TodoyuCommentRights {
 	/**
 	 * Check whether person can edit comments in this task
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$isCreator
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @param	boolean		$isCreator
+	 * @return	boolean
 	 */
 	public static function isEditInTaskAllowed($idTask, $isCreator = false) {
 		$idTask	= intval($idTask);
@@ -83,8 +83,8 @@ class TodoyuCommentRights {
 	/**
 	 * Check whether adding comments in given task is allowed
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function isAddInTaskAllowed($idTask) {
 		$idTask	= intval($idTask);
@@ -97,8 +97,8 @@ class TodoyuCommentRights {
 	/**
 	 * Check whether a person can see the comment
 	 *
-	 * @param	Integer		$idComment
-	 * @return	Boolean
+	 * @param	integer		$idComment
+	 * @return	boolean
 	 */
 	public static function isSeeAllowed($idComment) {
 		$idComment	= intval($idComment);
@@ -122,8 +122,8 @@ class TodoyuCommentRights {
 	/**
 	 * Check whether person can delete the given comment
 	 *
-	 * @param	Integer	$idComment
-	 * @return	Boolean
+	 * @param	integer	$idComment
+	 * @return	boolean
 	 */
 	public static function isDeleteAllowed( $idComment ) {
 		$idComment	= intval($idComment);
@@ -149,7 +149,7 @@ class TodoyuCommentRights {
 	 * Restrict access to persons which are allowed to add comments in this task
 	 *
 	 * @todo	state deny message more precisely
-	 * @param	Integer		$idComment
+	 * @param	integer		$idComment
 	 */
 	public static function restrictEdit($idComment) {
 		if( ! self::isEditAllowed($idComment) ) {
@@ -162,7 +162,7 @@ class TodoyuCommentRights {
 	/**
 	 * Restrict access to persons who are allowed to edit comments in
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @todo	state deny message more precisely
 	 */
 	public static function restrictEditInTask($idTask) {
@@ -176,7 +176,7 @@ class TodoyuCommentRights {
 	/**
 	 * Restrict access to persons who are allowed to add comments in this task
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @todo	state deny message more precisely
 	 */
 	public static function restrictAddInTask($idTask) {
@@ -193,7 +193,7 @@ class TodoyuCommentRights {
 	 * Restrict access to person which are allowed to see the comment
 	 *
 	 * @todo	state deny message more precisely
-	 * @param	Integer		$idComment
+	 * @param	integer		$idComment
 	 */
 	public static function restrictSee($idComment) {
 		$idComment	= intval($idComment);
@@ -208,7 +208,7 @@ class TodoyuCommentRights {
 	/**
 	 * Restrict delete to person which are allowed to delete comment
 	 *
-	 * @param	Integer		$idComment
+	 * @param	integer		$idComment
 	 */
 	public static function restrictDelete($idComment) {
 		$idComment	= intval($idComment);

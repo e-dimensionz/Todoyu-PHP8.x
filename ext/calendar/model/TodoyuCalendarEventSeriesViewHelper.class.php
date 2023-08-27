@@ -30,7 +30,7 @@ class TodoyuCalendarEventSeriesViewHelper {
 	 * Get label for series (comment field)
 	 *
 	 * @param	TodoyuFormElement	$field
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getSeriesLabel(TodoyuFormElement $field) {
 		$eventData	= $field->getForm()->getVar('eventData');
@@ -148,7 +148,7 @@ class TodoyuCalendarEventSeriesViewHelper {
 	 * Get series overbooking warnings
 	 *
 	 * @param	TodoyuFormElement		$field
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getOverbookingWarnings(TodoyuFormElement $field) {
 			// Dont check if all overbooking is allowed

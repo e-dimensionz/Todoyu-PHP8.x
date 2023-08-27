@@ -38,7 +38,7 @@ class TodoyuContactPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save staffselector panelwidget preferences
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function panelwidgetstaffselectorAction(array $params) {
 		$prefs	= json_decode($params['value'], true);
@@ -51,7 +51,7 @@ class TodoyuContactPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save stafflist panelwidget preference (selected person)
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function panelwidgetstafflistAction(array $params) {
 		$prefs	= json_decode($params['value'], true);
@@ -64,7 +64,7 @@ class TodoyuContactPreferenceActionController extends TodoyuActionController {
 	/**
 	 * General panelWidget action, saves collapse status
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function pwidgetAction(array $params) {
 		$idWidget	= $params['item'];

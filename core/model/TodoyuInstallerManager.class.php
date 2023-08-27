@@ -38,7 +38,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Process first step of installation: locale selection for installer and as preset for system locale
 	 *
-	 * @param	Array	$data
+	 * @param	array	$data
 	 * @return	Array
 	 */
 	public static function processLocale(array $data) {
@@ -59,7 +59,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Process installation step: license agreement accepted
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array
 	 */
 	public static function processLicense(array $data) {
@@ -77,7 +77,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Check server compatibility with todoyu
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array
 	 */
 	public static function processServerCheck(array $data) {
@@ -95,7 +95,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Check database connection data validity
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array
 	 */
 	public static function processDbConnection(array $data) {
@@ -127,7 +127,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Try saving DB server connection data
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array
 	 */
 	public static function processDbSelect(array $data) {
@@ -206,7 +206,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Import table structure
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array
 	 */
 	public static function processImportDbTables(array $data) {
@@ -229,7 +229,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Save system config file 'config/system.php' (data: name, email, primary language)
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array
 	 */
 	public static function processSystemConfig(array $data) {
@@ -255,7 +255,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Process admin account data update: create internal company, update administrator person and user data
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array
 	 */
 	public static function processAdminAccount(array $data) {
@@ -290,7 +290,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Process demo data import
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array
 	 */
 	public static function processImportDemoData(array $data) {
@@ -312,7 +312,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Process installation finish
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array
 	 */
 	public static function processFinish(array $data) {
@@ -330,7 +330,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Process update start screen
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array
 	 */
 	public static function processUpdate(array $data) {
@@ -351,7 +351,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Execute SQL files to update the database to the current version
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array
 	 * @todo	Check: return value needed?
 	 */
@@ -373,7 +373,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Process update finishing
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 * @return	Array
 	 */
 	public static function processFinishUpdate(array $data) {
@@ -436,7 +436,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Remove index.html file and its redirection to the installer
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function removeIndexRedirector() {
 		$success= false;
@@ -454,7 +454,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Update internal company DB record with given name
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 */
 	private static function saveInternalCompanyName($name) {
 		$name	= trim($name);
@@ -472,10 +472,10 @@ class TodoyuInstallerManager {
 	/**
 	 * Update admin-user password (and username)
 	 *
-	 * @param	String		$email
-	 * @param	String		$password
-	 * @param	String		$firstName
-	 * @param	String		$lastName
+	 * @param	string		$email
+	 * @param	string		$password
+	 * @param	string		$firstName
+	 * @param	string		$lastName
 	 */
 	private static function saveAdminAccountData($email, $password, $firstName, $lastName) {
 		$email		= trim($email);
@@ -504,7 +504,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Save system configuration
 	 *
-	 * @param	Array		$config
+	 * @param	array		$config
 	 */
 	public static function saveSystemConfig(array $config) {
 		$config['todoyuURL']	= TODOYU_URL;
@@ -518,7 +518,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Import data from SQL file
 	 *
-	 * @param	String		$file
+	 * @param	string		$file
 	 */
 	private static function importSqlFromFile($file) {
 		$file	= TodoyuFileManager::pathAbsolute($file);
@@ -561,7 +561,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Check if installed PHP version is at least 5.2
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function hasAdequatePhpVersion() {
 		return version_compare(PHP_VERSION, '5.2.5', '>=');
@@ -572,7 +572,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Check writable status of important files
 	 *
-	 * @param	Array	$elements
+	 * @param	array	$elements
 	 * @return	Array
 	 */
 	public static function checkWritableStatus(array $elements) {
@@ -633,7 +633,7 @@ class TodoyuInstallerManager {
 	/**
 	 * Check whether the installation has been carried out before
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isDatabaseConfigured() {
 		return (boolean)Todoyu::$CONFIG['DB']['autoconnect'];
@@ -644,9 +644,9 @@ class TodoyuInstallerManager {
 	/**
 	 * Add a new database to the server
 	 *
-	 * @param	String		$databaseName
-	 * @param	Array		$dbConfig
-	 * @return	Boolean
+	 * @param	string		$databaseName
+	 * @param	array		$dbConfig
+	 * @return	boolean
 	 */
 	public static function addDatabase($databaseName, array $dbConfig) {
 		$link	= mysqli_connect($dbConfig['server'], $dbConfig['username'], $dbConfig['password']);
@@ -660,8 +660,8 @@ class TodoyuInstallerManager {
 	/**
 	 * Save database configuration in the local config file
 	 *
-	 * @param	Array		$dbConfig
-	 * @return	Integer
+	 * @param	array		$dbConfig
+	 * @return	integer
 	 */
 	public static function saveDbConfigInFile(array $dbConfig) {
 		$tmpl	= 'install/view/configs/db.php.tmpl';
@@ -768,9 +768,9 @@ class TodoyuInstallerManager {
 	/**
 	 * Scan a folder for version files, compare them with last version
 	 *
-	 * @param	String		$pathToFolder			Path to folder
-	 * @param	String		$extension				File extension to scan for
-	 * @param	String		$lastVersion			Last version. Look only for newer updates
+	 * @param	string		$pathToFolder			Path to folder
+	 * @param	string		$extension				File extension to scan for
+	 * @param	string		$lastVersion			Last version. Look only for newer updates
 	 * @return	Array
 	 */
 	private static function getUpdateFiles($pathToFolder, $extension, $lastVersion) {
@@ -812,7 +812,7 @@ class TodoyuInstallerManager {
 	 * Find the last version of todoyu (and the database)
 	 * Tries to read to LAST_VERSION file. If not available, use to current todoyu version
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getLastVersion() {
 		$pathFile	= TodoyuFileManager::pathAbsolute(self::$lastVersionFile);
@@ -840,7 +840,7 @@ class TodoyuInstallerManager {
 	 * Move task assets to a new and better structure (from tasks/TASKID/* to PROJECTID/TASKID/*)
 	 * Used with todoyu update to v2.0.1
 	 *
-	 * @return	Boolean|Void
+	 * @return	boolean|Void
 	 */
 	public static function changeFilesAssetStructure() {
 		if( ! TodoyuInstaller::isUpdate() ) {

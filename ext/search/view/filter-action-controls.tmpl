@@ -2,11 +2,11 @@
 
 	<span class="filters">
 		<select id="filtercontrol-conditions" name="conditions">
-			<option value="none" class="default">{Label search.ext.filtercontrol.add.condition}</option>
-			{foreach $groupedConditionOptions groupLabel groupConditionOptions}
-				<optgroup label="{Label $groupLabel}">
-					{foreach $groupConditionOptions key conditionOption}
-						<option value="{$type}_{$key}">{Label $conditionOption.label}</option>
+			<option value="none" class="default">{Label text='search.ext.filtercontrol.add.condition'}</option>
+			{foreach $groupedConditionOptions as $groupLabel=>$groupConditionOptions}
+				<optgroup label="{Label text=$groupLabel}">
+					{foreach $groupConditionOptions as $key=>$conditionOption}
+						<option value="{$type}_{$key}">{Label text=$conditionOption.label}</option>
 					{/foreach}
 				</optgroup>
 			{/foreach}
@@ -20,11 +20,11 @@
 	{if !empty($groupedSortingOptions) && sizeof($groupedSortingOptions) > 0}
 		<span class="sorting">
 			<select id="filtercontrol-sorting" name="sorting">
-				<option value="none" class="default">{Label search.ext.filtercontrol.add.sorting}</option>
-				{foreach $groupedSortingOptions groupLabel groupSortingOptions}
-					<optgroup label="{Label $groupLabel}">
-						{foreach $groupSortingOptions sortingOption}
-							<option value="{$sortingOption.value}">{Label $sortingOption.label}</option>
+				<option value="none" class="default">{Label text='search.ext.filtercontrol.add.sorting'}</option>
+				{foreach $groupedSortingOptions as $groupLabel=>$groupSortingOptions}
+					<optgroup label="{Label text=$groupLabel}">
+						{foreach $groupSortingOptions as $sortingOption}
+							<option value="{$sortingOption.value}">{Label text=$sortingOption.label}</option>
 						{/foreach}
 					</optgroup>
 				{/foreach}

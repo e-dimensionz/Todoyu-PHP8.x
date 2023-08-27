@@ -29,7 +29,7 @@ class TodoyuAssetsTasktabActionController extends TodoyuActionController {
 	/**
 	 * Initialize controller: restrict access
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('assets', 'general:use');
@@ -40,8 +40,8 @@ class TodoyuAssetsTasktabActionController extends TodoyuActionController {
 	/**
 	 * Get asset list
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function listAction(array $params) {
 		$idTask	= intval($params['task']);
@@ -54,8 +54,8 @@ class TodoyuAssetsTasktabActionController extends TodoyuActionController {
 	/**
 	 * Get tab content
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function tabAction(array $params) {
 		$idTask	= intval($params['task']);

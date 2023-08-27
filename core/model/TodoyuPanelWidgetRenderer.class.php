@@ -30,9 +30,9 @@ class TodoyuPanelWidgetRenderer {
 	/**
 	 * Render widgets from config
 	 *
-	 * @param	String		$area		Extension key
-	 * @param	Array		$params		Custom parameters for current area
-	 * @return	String
+	 * @param	string		$area		Extension key
+	 * @param	array		$params		Custom parameters for current area
+	 * @return	string
 	 */
 	public static function renderPanelWidgets($area, array $params = array()) {
 		$widgetConfigs	= TodoyuPanelWidgetManager::getAreaPanelWidgets($area);

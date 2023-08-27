@@ -32,7 +32,7 @@ class TodoyuLoginpageManager {
 	public static function addLoginScreenMainTabs() {
 			// Add menu entries
 		foreach(Todoyu::$CONFIG['EXT']['loginpage']['tabs'] as $tab) {
-			TodoyuFrontend::addMenuEntry($tab['key'], $tab['label'], $tab['href'], $tab['position'], $tab['target']);
+			TodoyuFrontend::addMenuEntry($tab['key'], $tab['label'], $tab['href'] ?? 50, $tab['position'] ?? '', $tab['target'] ?? false);
 		}
 	}
 
@@ -59,10 +59,10 @@ class TodoyuLoginpageManager {
 	/**
 	 * Check whether user has the cookie to keep the remain login box checked
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function hasRemainLoginFlagCookie() {
-		return intval($_COOKIE['checkRemainLogin']) === 1;
+		return intval($_COOKIE['checkRemainLogin'] ?? 0) === 1;
 	}
 
 
@@ -81,7 +81,7 @@ class TodoyuLoginpageManager {
 	/**
 	 * Send confirmation email to user of given username
 	 *
-	 * @param	String	$userName
+	 * @param	string	$userName
 	 */
 	public static function sendConfirmationMail($userName) {
 		$person		= TodoyuContactPersonManager::getPersonByUsername($userName);
@@ -96,7 +96,7 @@ class TodoyuLoginpageManager {
 	/**
 	 * Create new password and send it to the user's email address
 	 *
-	 * @param	String	$userName
+	 * @param	string	$userName
 	 */
 	public static function createAndSendNewPassword($userName) {
 		$newPasswordPlain	= TodoyuString::generateGoodPassword();

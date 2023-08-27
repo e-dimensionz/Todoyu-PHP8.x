@@ -29,7 +29,7 @@ class TodoyuBookmarkBookmarkActionController extends TodoyuActionController {
 	/**
 	 * Initialize controller: restrict access
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('bookmark', 'general:use');
@@ -40,7 +40,7 @@ class TodoyuBookmarkBookmarkActionController extends TodoyuActionController {
 	/**
 	 * Add a bookmark
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function addAction(array $params) {
 		$idItem	= intval($params['item']);
@@ -61,7 +61,7 @@ class TodoyuBookmarkBookmarkActionController extends TodoyuActionController {
 	/**
 	 * Remove an item from bookmarks
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function removeAction(array $params) {
 		$type	= $params['type'];
@@ -86,7 +86,7 @@ class TodoyuBookmarkBookmarkActionController extends TodoyuActionController {
 	/**
 	 * Rename bookmark
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function renameAction(array $params) {
 		$type	= trim($params['type']);

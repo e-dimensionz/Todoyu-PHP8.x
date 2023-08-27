@@ -116,7 +116,7 @@ abstract class TodoyuTemplateDocumentOpenXML extends TodoyuTemplateDocumentAbstr
 	/**
 	 * Get base temp path
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getTempBasePath() {
 		if( is_null($this->tempBasePath) ) {
@@ -131,8 +131,8 @@ abstract class TodoyuTemplateDocumentOpenXML extends TodoyuTemplateDocumentAbstr
 	/**
 	 * Build absolute path located in temp folder from relative path
 	 *
-	 * @param	String		$relPath
-	 * @return	String
+	 * @param	string		$relPath
+	 * @return	string
 	 */
 	private function getTempPath($relPath) {
 		return TodoyuFileManager::pathAbsolute($this->getTempBasePath() . '/' . ltrim($relPath, '\\/'));
@@ -143,7 +143,7 @@ abstract class TodoyuTemplateDocumentOpenXML extends TodoyuTemplateDocumentAbstr
 	/**
 	 * Get path to temporary template file
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getTempFilePath() {
 		$extension		= pathinfo($this->getTemplatePath(), PATHINFO_EXTENSION);
@@ -157,7 +157,7 @@ abstract class TodoyuTemplateDocumentOpenXML extends TodoyuTemplateDocumentAbstr
 	 * Get path to extraction directory
 	 * Contains extracted content of template
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getExtractPath() {
 		return $this->getTempPath('archive');
@@ -168,7 +168,7 @@ abstract class TodoyuTemplateDocumentOpenXML extends TodoyuTemplateDocumentAbstr
 	/**
 	 * Get path to content xml document
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getXmlPath() {
 		return $this->pathXML;
@@ -179,7 +179,7 @@ abstract class TodoyuTemplateDocumentOpenXML extends TodoyuTemplateDocumentAbstr
 	/**
 	 * Set path to content xml document (relative to template root)
 	 *
-	 * @param	String		$relPath
+	 * @param	string		$relPath
 	 */
 	protected function setXmlPath($relPath) {
 		$this->pathXML = TodoyuFileManager::pathAbsolute($this->getExtractPath() . '/' . ltrim($relPath, '\\/'));
@@ -200,7 +200,7 @@ abstract class TodoyuTemplateDocumentOpenXML extends TodoyuTemplateDocumentAbstr
 	/**
 	 * Load the xml content from content.xml
 	 *
-	 * @param	String	$relPath
+	 * @param	string	$relPath
 	 */
 	protected function loadXMLContent($relPath) {
 		$this->setXmlPath($relPath);
@@ -224,7 +224,7 @@ abstract class TodoyuTemplateDocumentOpenXML extends TodoyuTemplateDocumentAbstr
 //		echo $this->xmlContent;
 //		exit();
 
-		$this->xmlParsed = Todoyu::render(new Dwoo_Template_String($this->xmlContent), $this->data);
+		$this->xmlParsed = Todoyu::render($this->xmlContent, $this->data);
 	}
 
 
@@ -252,7 +252,7 @@ abstract class TodoyuTemplateDocumentOpenXML extends TodoyuTemplateDocumentAbstr
 	/**
 	 * Get parsed XML content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getXmlParsed() {
 		if( is_null($this->xmlParsed) ) {
@@ -267,7 +267,7 @@ abstract class TodoyuTemplateDocumentOpenXML extends TodoyuTemplateDocumentAbstr
 	/**
 	 * Send the file to the browser
 	 *
-	 * @param	String		$filename
+	 * @param	string		$filename
 	 */
 	public function sendFile($filename) {
 		parent::sendFile($this->getTempFilePath(), $filename, $this->getContentType());
@@ -278,8 +278,8 @@ abstract class TodoyuTemplateDocumentOpenXML extends TodoyuTemplateDocumentAbstr
 	/**
 	 * Save the file to the server
 	 *
-	 * @param	String		$pathFile
-	 * @return	Boolean
+	 * @param	string		$pathFile
+	 * @return	boolean
 	 */
 	public function saveFile($pathFile) {
 		$pathFile	= TodoyuFileManager::pathAbsolute($pathFile);
@@ -294,7 +294,7 @@ abstract class TodoyuTemplateDocumentOpenXML extends TodoyuTemplateDocumentAbstr
 	/**
 	 * Get path of the created document
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function  getFilePath() {
 		return $this->getTempFilePath();
@@ -305,7 +305,7 @@ abstract class TodoyuTemplateDocumentOpenXML extends TodoyuTemplateDocumentAbstr
 	/**
 	 * Get file data
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getFileData() {
 		return file_get_contents($this->getFilePath());

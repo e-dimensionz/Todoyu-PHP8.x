@@ -43,7 +43,7 @@ class TodoyuLoggerFile implements TodoyuLoggerIf {
 	/**
 	 * Constructor
 	 *
-	 * @param	Array	$config
+	 * @param	array	$config
 	 */
 	public function __construct(array $config) {
 		$pathFile	= TodoyuFileManager::pathAbsolute($config['file']);
@@ -85,11 +85,11 @@ class TodoyuLoggerFile implements TodoyuLoggerIf {
 	/**
 	 * Write log message in the log file
 	 *
-	 * @param	String		$message
-	 * @param	Integer		$level
+	 * @param	string		$message
+	 * @param	integer		$level
 	 * @param	Mixed		$data
-	 * @param	Array		$info
-	 * @param	String		$requestKey
+	 * @param	array		$info
+	 * @param	string		$requestKey
 	 */
 	public function log($message, $level, $data, $info, $requestKey) {
 		$logLine	= sprintf($this->pattern, $requestKey, date('Y-m-d H:i:s'), $level, TodoyuAuth::getPerson()->getUsername(), $info['fileshort'], $info['line'], $message);

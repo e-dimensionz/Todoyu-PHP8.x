@@ -58,7 +58,7 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Get filterset
 	 *
-	 * @param	Integer						$idFilterset
+	 * @param	integer						$idFilterset
 	 * @return	TodoyuSearchFilterset		Filterset record
 	 */
 	public static function getFilterset($idFilterset) {
@@ -72,7 +72,7 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Get filterset database record
 	 *
-	 * @param	Integer		$idFilterset
+	 * @param	integer		$idFilterset
 	 * @return	Array
 	 */
 	public static function getFiltersetRecord($idFilterset) {
@@ -86,8 +86,8 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Add a new filterset
 	 *
-	 * @param	Array		$data
-	 * @return	Integer		Filterset ID
+	 * @param	array		$data
+	 * @return	integer		Filterset ID
 	 */
 	public static function addFilterset(array $data) {
 		$data['sorting']= self::getNextFiltersetSortingPosition($data['type']);
@@ -104,8 +104,8 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Get next sorting position for filterset
 	 *
-	 * @param	String		$type
-	 * @return	Integer
+	 * @param	string		$type
+	 * @return	integer
 	 */
 	private static function getNextFiltersetSortingPosition($type) {
 		$field	= 'sorting';
@@ -132,8 +132,8 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Update filterset
 	 *
-	 * @param	Integer		$idFilterset
-	 * @param	Array		$data
+	 * @param	integer		$idFilterset
+	 * @param	array		$data
 	 */
 	public static function updateFilterset($idFilterset, array $data) {
 		$idFilterset	= intval($idFilterset);
@@ -148,8 +148,8 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Delete filterset
 	 *
-	 * @param	Integer		$idFilterset			ID of the filterset
-	 * @param	Boolean		$deleteConditions		Delete linked conditions too
+	 * @param	integer		$idFilterset			ID of the filterset
+	 * @param	boolean		$deleteConditions		Delete linked conditions too
 	 */
 	public static function deleteFilterset($idFilterset, $deleteConditions = true) {
 		$idFilterset	= intval($idFilterset);
@@ -168,7 +168,7 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Get conditions of filterset
 	 *
-	 * @param	Integer		$idFilterset
+	 * @param	integer		$idFilterset
 	 * @return	Array
 	 */
 	public static function getFiltersetConditions($idFilterset) {
@@ -182,8 +182,8 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Get the type of the filterset
 	 *
-	 * @param	Integer		$idFilterset
-	 * @return	String
+	 * @param	integer		$idFilterset
+	 * @return	string
 	 */
 	public static function getFiltersetType($idFilterset) {
 		$idFilterset= intval($idFilterset);
@@ -197,8 +197,8 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Get result items to given set of filter conditions
 	 *
-	 * @param	Integer		$idFilterset
-	 * @param	Integer		$limit
+	 * @param	integer		$idFilterset
+	 * @param	integer		$limit
 	 * @return	Array
 	 */
 	public static function getFiltersetResultItemIDs($idFilterset, $limit = 1000) {
@@ -216,8 +216,8 @@ class TodoyuSearchFiltersetManager {
 	 * Combination: OR
 	 *
 	 * @note	The limit per filter is set to 500, because everything else is useless
-	 * @param	Array		$filtersetIDs
-	 * @param	Integer		$limit
+	 * @param	array		$filtersetIDs
+	 * @param	integer		$limit
 	 * @return	Array
 	 */
 	public static function getFiltersetsResultItemIDs(array $filtersetIDs, $limit = 1000) {
@@ -238,8 +238,8 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Get number of result items for a filterset
 	 *
-	 * @param	Integer		$idFilterset
-	 * @return	Integer
+	 * @param	integer		$idFilterset
+	 * @return	integer
 	 */
 	public static function getFiltersetCount($idFilterset) {
 		$idFilterset	= intval($idFilterset);
@@ -259,8 +259,8 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Get amount of result items for the combination of all filtersets
 	 *
-	 * @param	Array	$filtersetIDs
-	 * @return	Integer
+	 * @param	array	$filtersetIDs
+	 * @return	integer
 	 */
 	public static function getFiltersetsCount(array $filtersetIDs) {
 		$resultItems	= self::getFiltersetsResultItemIDs($filtersetIDs);
@@ -273,8 +273,8 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Update filterset title
 	 *
-	 * @param	Integer		$idFilterset
-	 * @param	String		$title
+	 * @param	integer		$idFilterset
+	 * @param	string		$title
 	 */
 	public static function renameFilterset($idFilterset, $title) {
 		$idFilterset	= intval($idFilterset);
@@ -290,8 +290,8 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Update filterset visibility: Set hidden attribute of the filterset
 	 *
-	 * @param	Integer		$idFilterset
-	 * @param	Boolean		$isVisible
+	 * @param	integer		$idFilterset
+	 * @param	boolean		$isVisible
 	 */
 	public static function updateFiltersetVisibility($idFilterset, $isVisible = true) {
 		$data = array(
@@ -325,9 +325,9 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Get filtersets of a type for the (current) person
 	 *
-	 * @param	String		$type
-	 * @param	Integer		$idPerson
-	 * @param	Boolean		$showHidden
+	 * @param	string		$type
+	 * @param	integer		$idPerson
+	 * @param	boolean		$showHidden
 	 * @return	Array
 	 */
 	public static function getTypeFiltersets($type = 'TASK', $idPerson = 0, $showHidden = false, $includeSeparators = false) {
@@ -344,10 +344,10 @@ class TodoyuSearchFiltersetManager {
 	 * If no person defined, it gets filtersets for the current person
 	 * If no type defined, it gets filtersets of all types (of installed extensions)
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	String		$type
-	 * @param	Boolean		$showHidden
-	 * @param	Boolean		$includeSeparators
+	 * @param	integer		$idPerson
+	 * @param	string		$type
+	 * @param	boolean		$showHidden
+	 * @param	boolean		$includeSeparators
 	 * @return	Array
 	 */
 	public static function getFiltersets($idPerson = 0, $type = null, $showHidden = false, $includeSeparators = true) {
@@ -384,8 +384,8 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Get IDs of filtersets of given person. if no type given: all types
 	 *
-	 * @param	Integer	$idPerson
-	 * @param	String	$type
+	 * @param	integer	$idPerson
+	 * @param	string	$type
 	 * @return	Array
 	 */
 	public static function getFiltersetIDs($idPerson = 0, $type = null) {
@@ -411,8 +411,8 @@ class TodoyuSearchFiltersetManager {
 	 * If no person defined, it gets filtersets for the current person
 	 * If no type defined, it gets filtersets of all types
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	String		$type
+	 * @param	integer		$idPerson
+	 * @param	string		$type
 	 * @return	Array
 	 */
 	public static function getFiltersetTitles($idPerson = 0, $type = null) {
@@ -436,7 +436,7 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Updates given order of the filterset in the database
 	 *
-	 * @param	Array	$items
+	 * @param	array	$items
 	 */
 	public static function updateOrder(array $items) {
 		$sorting	= 0;
@@ -455,8 +455,8 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Create new / update existing filterset and (re-)create the conditions in the database
 	 *
-	 * @param	Array		$filterData
-	 * @return	Integer						Filterset ID
+	 * @param	array		$filterData
+	 * @return	integer						Filterset ID
 	 */
 	public static function saveFilterset(array $filterData) {
 		$idFilterset= intval($filterData['filterset']);
@@ -487,8 +487,8 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Save (update or create new) separator
 	 *
-	 * @param	Array	$data
-	 * @return	Integer			Separator's filterset ID
+	 * @param	array	$data
+	 * @return	integer			Separator's filterset ID
 	 */
 	public static function saveFiltersetSeparator(array $data) {
 		$idFilterset= intval($data['filterset']);
@@ -514,9 +514,9 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Validate filterset title (ensure uniqueness)
 	 *
-	 * @param	String		$type
-	 * @param	String		$title
-	 * @return	String
+	 * @param	string		$type
+	 * @param	string		$title
+	 * @return	string
 	 */
 	public static function validateTitle($type, $title) {
 		$typeFiltersets	= self::getFiltersetTitles(0, $type);
@@ -533,15 +533,15 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Merges FilterObjects as one query
 	 *
-	 * @param	Array		$filterObjects
-	 * @param	Boolean		$negate
+	 * @param	array		$filterObjects
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public static function Filter_filterObject(array $filterObjects, $negate = false) {
 		$cacheID	= md5(serialize(func_get_args()));
 
 			// Prevent processing the same filterset in nested conditions
-		if( self::$filterObjectProcessing[$cacheID] ) {
+		if( !empty(self::$filterObjectProcessing[$cacheID] )) {
 			TodoyuLogger::logFatal('Filterset was nested recursively. Skipped processing. Will cause empty result');
 			return false;
 		} else {
@@ -588,7 +588,7 @@ class TodoyuSearchFiltersetManager {
 						// Add tables (they are already concatenated as string, so explode)
 					$tables	= array_merge($tables, TodoyuArray::trimExplode(',', $queryArray['tables'], true));
 						// Add joins
-					if( is_array($queryArray['join']) ) {
+					if( !empty($queryArray['join']) && is_array($queryArray['join']) ) {
 						$joins	= array_merge($joins, $queryArray['join']);
 					}
 				}
@@ -630,7 +630,7 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Get filterset options for task
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getTaskFilterSetSelectionOptions(array $definitions) {
@@ -647,7 +647,7 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Get filterset options for project
 	 *
-	 * @param	Array		$definitions
+	 * @param	array		$definitions
 	 * @return	Array
 	 */
 	public static function getProjectFilterSetSelectionOptions(array $definitions) {
@@ -664,8 +664,8 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Build options from filtersets. Exclude active if in search area
 	 *
-	 * @param	Array	$allFiltersets
-	 * @param	Integer	$activeFilterset
+	 * @param	array	$allFiltersets
+	 * @param	integer	$activeFilterset
 	 * @return	Array
 	 */
 	private static function buildFiltersetOptions(array $allFiltersets, $activeFilterset) {
@@ -691,9 +691,9 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Check to avoid from endless loop.
 	 *
-	 * @param	Integer		$idFilterset
-	 * @param	Integer		$idFiltersetToCheck
-	 * @return	Boolean
+	 * @param	integer		$idFilterset
+	 * @param	integer		$idFiltersetToCheck
+	 * @return	boolean
 	 */
 	protected static function isFiltersetUsed($idFilterset, $idFiltersetToCheck) {
 		$conditions = TodoyuSearchFilterConditionManager::getFilterSetConditions($idFilterset);
@@ -743,8 +743,8 @@ class TodoyuSearchFiltersetManager {
 	/**
 	 * Get filter class for a type
 	 *
-	 * @param	String		$type
-	 * @return	String
+	 * @param	string		$type
+	 * @return	string
 	 */
 	public static function getFiltersetTypeClass($type) {
 		TodoyuExtensions::loadAllFilters();

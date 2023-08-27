@@ -71,7 +71,7 @@ class TodoyuCli {
 	/**
 	 * Check whether the current request is an HTTP request
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isHttpCall() {
 		foreach(self::$httpVars as $httpVarKey) {
@@ -112,7 +112,7 @@ class TodoyuCli {
 	/**
 	 * Check whether mode is CLI
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isCliMode() {
 		return (defined('TODOYU_CLI') && TODOYU_CLI === true);
@@ -123,7 +123,7 @@ class TodoyuCli {
 	/**
 	 * Print message to console
 	 *
-	 * @param	String		$message
+	 * @param	string		$message
 	 */
 	public static function printLine($message) {
 		echo $message . "\n";

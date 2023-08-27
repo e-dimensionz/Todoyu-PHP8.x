@@ -29,8 +29,8 @@ class TodoyuLoginpagePanelWidgetLoginPage extends TodoyuPanelWidget {
 	/**
 	 * Initialize projectTree PanelWidget
 	 *
-	 * @param	Array		$config
-	 * @param	Array		$params
+	 * @param	array		$config
+	 * @param	array		$params
 	 */
 	public function __construct(array $config, array $params = array()) {
 		parent::__construct(
@@ -47,7 +47,7 @@ class TodoyuLoginpagePanelWidgetLoginPage extends TodoyuPanelWidget {
 	/**
 	 * Render panelWidget content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderContent() {
 		$tmpl	= 'ext/loginpage/view/panelwidget-loginpage.tmpl';

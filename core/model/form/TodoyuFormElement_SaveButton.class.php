@@ -29,9 +29,9 @@ class TodoyuFormElement_SaveButton extends TodoyuFormElement_Button {
 	/**
 	 * Initialize saveButton element
 	 *
-	 * @param	String			$name
+	 * @param	string			$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array			$config
+	 * @param	array			$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		TodoyuFormElement::__construct('saveButton', $name, $fieldset, $config);

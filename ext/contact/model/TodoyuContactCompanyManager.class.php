@@ -43,7 +43,7 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Get form object for company quick creation
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 * @return	TodoyuForm
 	 */
 	public static function getQuickCreateForm($idCompany = 0) {
@@ -86,7 +86,7 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Get a company object
 	 *
-	 * @param	Integer					$idCompany
+	 * @param	integer					$idCompany
 	 * @return	TodoyuContactCompany
 	 */
 	public static function getCompany($idCompany) {
@@ -100,8 +100,8 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Get all company records
 	 *
-	 * @param	Array		$fields			Custom field list (instead of *)
-	 * @param	String		$where			Extra WHERE clause
+	 * @param	array		$fields			Custom field list (instead of *)
+	 * @param	string		$where			Extra WHERE clause
 	 * @return	Array
 	 */
 	public static function getAllCompanies(array $fields = array(), $where = '') {
@@ -118,8 +118,8 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Save company data as record
 	 *
-	 * @param	Array		$data
-	 * @return	Integer		Company ID
+	 * @param	array		$data
+	 * @return	integer		Company ID
 	 */
 	public static function saveCompany(array $data) {
 		$idCompany	= intval($data['id']);
@@ -154,8 +154,8 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Add a company record
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function addCompany(array $data = array()) {
 		$idCompany = TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -170,8 +170,8 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Update a company record
 	 *
-	 * @param	Integer		$idCompany
-	 * @param	Array		$data
+	 * @param	integer		$idCompany
+	 * @param	array		$data
 	 */
 	public static function updateCompany($idCompany, array $data) {
 		$idCompany	= intval($idCompany);
@@ -186,7 +186,7 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Delete a company in the database (set deleted flag to 1)
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 */
 	public static function deleteCompany($idCompany) {
 		$idCompany	= intval($idCompany);
@@ -209,8 +209,8 @@ class TodoyuContactCompanyManager {
 	 * - address
 	 * - person
 	 *
-	 * @param	Array		$data			Company form data
-	 * @param	Integer		$idCompany		Company ID
+	 * @param	array		$data			Company form data
+	 * @param	integer		$idCompany		Company ID
 	 * @return	Array
 	 */
 	public static function saveCompanyForeignRecords(array $data, $idCompany) {
@@ -284,9 +284,9 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Delete all contactinfos except the given ones
 	 *
-	 * @param	Integer		$idCompany
-	 * @param	Array		$currentContactInfoIDs
-	 * @return	Integer		Deleted records
+	 * @param	integer		$idCompany
+	 * @param	array		$currentContactInfoIDs
+	 * @return	integer		Deleted records
 	 */
 	public static function deleteRemovedContactInfos($idCompany, array $currentContactInfoIDs) {
 		return TodoyuContactContactInfoManager::deleteLinkedContactInfos(self::contactTypeKey, $idCompany, $currentContactInfoIDs, 'id_company');
@@ -297,8 +297,8 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Link contact infos to company
 	 *
-	 * @param	Integer		$idCompany
-	 * @param	Array		$contactInfoIDs
+	 * @param	integer		$idCompany
+	 * @param	array		$contactInfoIDs
 	 */
 	public static function linkContactInfos($idCompany, array $contactInfoIDs) {
 		TodoyuDbHelper::addMMLinks('ext_contact_mm_company_contactinfo', 'id_company', 'id_contactinfo', $idCompany, $contactInfoIDs);
@@ -309,9 +309,9 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Delete all company addresses which are no longer active
 	 *
-	 * @param	String		$idCompany
-	 * @param	Array		$currentAddressIDs	Active addresses which will not be deleted
-	 * @return	Integer
+	 * @param	string		$idCompany
+	 * @param	array		$currentAddressIDs	Active addresses which will not be deleted
+	 * @return	integer
 	 */
 	public static function deleteRemovedAddresses($idCompany, array $currentAddressIDs) {
 		return TodoyuContactAddressManager::deleteLinkedAddresses('ext_contact_mm_company_address', $idCompany, $currentAddressIDs, 'id_company');
@@ -322,9 +322,9 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Link addresses to company
 	 *
-	 * @param	Integer		$idCompany
-	 * @param	Array		$addressIDs
-	 * @return	Integer
+	 * @param	integer		$idCompany
+	 * @param	array		$addressIDs
+	 * @return	integer
 	 */
 	public static function linkAddresses($idCompany, array $addressIDs) {
 		return TodoyuDbHelper::addMMLinks('ext_contact_mm_company_address', 'id_company', 'id_address', $idCompany, $addressIDs);
@@ -335,8 +335,8 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Save linked person and linking data
 	 *
-	 * @param	Integer		$idCompany
-	 * @param	Array		$linkData
+	 * @param	integer		$idCompany
+	 * @param	array		$linkData
 	 */
 	public static function savePersonLinks($idCompany, array $linkData) {
 		TodoyuDbHelper::saveExtendedMMLinks('ext_contact_mm_company_person', 'id_company', 'id_person', $idCompany, $linkData);
@@ -348,8 +348,8 @@ class TodoyuContactCompanyManager {
 	 * Remove person links which are no longer active
 	 * Person stays untouched, only the link with the extra data will be removed
 	 *
-	 * @param	Integer		$idCompany
-	 * @param	Array		$personIDs
+	 * @param	integer		$idCompany
+	 * @param	array		$personIDs
 	 */
 	public static function removeRemovedPersons($idCompany, array $personIDs) {
 		TodoyuDbHelper::deleteOtherMmLinks('ext_contact_mm_company_person', 'id_company', 'id_person', $idCompany, $personIDs);
@@ -362,10 +362,10 @@ class TodoyuContactCompanyManager {
 	 * Additional data are the working address and the job type
 	 * @deprecated
 	 *
-	 * @param	Integer		$idCompany
-	 * @param	Integer		$idPerson
-	 * @param	Integer		$idWorkAddress
-	 * @param	Integer		$idJobType
+	 * @param	integer		$idCompany
+	 * @param	integer		$idPerson
+	 * @param	integer		$idWorkAddress
+	 * @param	integer		$idJobType
 	 */
 	public static function addPerson($idCompany, $idPerson, $idWorkAddress = 0, $idJobType = 0) {
 		$data	= array(
@@ -383,8 +383,8 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Remove person from company
 	 *
-	 * @param	Integer		$idCompany
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idCompany
+	 * @param	integer		$idPerson
 	 */
 	public static function removePerson($idCompany, $idPerson) {
 		$idCompany	= intval($idCompany);
@@ -398,7 +398,7 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Delete all persons of a company (only the link will be removed, not the persons)
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 */
 	public static function removeAllPersons($idCompany) {
 		TodoyuDbHelper::removeMMrelations('ext_contact_mm_company_person', 'id_company', $idCompany);
@@ -410,7 +410,7 @@ class TodoyuContactCompanyManager {
 	 * Remove all contact information of a company
 	 *
 	 * @todo	Keep the contact information, or delete? Dead records at the moment. See also next functions for same problem
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 */
 	public static function removeContactinfoLinks($idCompany) {
 		$idCompany	= intval($idCompany);
@@ -425,7 +425,7 @@ class TodoyuContactCompanyManager {
 	 *
 	 * @todo	see comment in above function 'removeContactinfoLinks'
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 */
 	public static function deleteContactinfos($idCompany) {
 		TodoyuContactContactInfoManagerCompany::deleteContactInfos($idCompany);
@@ -436,7 +436,7 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Remove all address information of a company
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 */
 	public static function removeAddressesLinks($idCompany) {
 		$idCompany	= intval($idCompany);
@@ -449,8 +449,8 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Get company label
 	 *
-	 * @param	Integer	$idCompany
-	 * @return	String
+	 * @param	integer	$idCompany
+	 * @return	string
 	 */
 	public static function getLabel($idCompany) {
 		return self::getCompany($idCompany)->getLabel();
@@ -461,9 +461,9 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Search companies
 	 *
-	 * @param	String[]	$searchWords
-	 * @param	Integer		$size
-	 * @param	Integer		$offset
+	 * @param	string[]	$searchWords
+	 * @param	integer		$size
+	 * @param	integer		$offset
 	 * @return	Array
 	 */
 	public static function searchCompany(array $searchWords, $size = 100, $offset = 0) {
@@ -494,7 +494,7 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Remove company object from cache
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 */
 	public static function removeFromCache($idCompany) {
 		$idCompany	= intval($idCompany);
@@ -508,8 +508,8 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Get person records of a company
 	 *
-	 * @param	Integer		$idCompany
-	 * @param	String		$order
+	 * @param	integer		$idCompany
+	 * @param	string		$order
 	 * @return	Array
 	 */
 	public static function getCompanyPersonRecords($idCompany, $order = '') {
@@ -532,7 +532,7 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Get contact info records of a company
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 * @return	Array
 	 */
 	public static function getCompanyContactinfoRecords($idCompany) {
@@ -555,7 +555,7 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Get address records of a company
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 * @return	Array
 	 */
 	public static function getCompanyAddressRecords($idCompany) {
@@ -577,7 +577,7 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Get project records of a company
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 * @return	Array
 	 */
 	public static function getCompanyProjectRecords($idCompany) {
@@ -596,8 +596,8 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Get the number of persons on a company
 	 *
-	 * @param	Integer		$idCompany
-	 * @return	Integer
+	 * @param	integer		$idCompany
+	 * @return	integer
 	 */
 	public static function getNumPersons($idCompany) {
 		$idCompany	= intval($idCompany);
@@ -617,8 +617,8 @@ class TodoyuContactCompanyManager {
 	 * Get address label of the company
 	 * Compiled from the first address record. Using, street, zip and city
 	 *
-	 * @param	Integer		$idCompany
-	 * @return	String
+	 * @param	integer		$idCompany
+	 * @return	string
 	 */
 	public static function getCompanyAddressLabel($idCompany) {
 		$idCompany	= intval($idCompany);
@@ -635,8 +635,8 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Get place (zip and city) label of the company from the first address record.
 	 *
-	 * @param	Integer		$idCompany
-	 * @return	String
+	 * @param	integer		$idCompany
+	 * @return	string
 	 */
 	public static function getCompanyPlaceLabel($idCompany) {
 		$idCompany	= intval($idCompany);
@@ -659,9 +659,9 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Get street of first related address record of company
 	 *
-	 * @param	Integer		$idCompany
-	 * @param	Boolean		$includeStreet
-	 * @return	String
+	 * @param	integer		$idCompany
+	 * @param	boolean		$includeStreet
+	 * @return	string
 	 */
 	public static function getCompanyStreetLabel($idCompany, $includeStreet = true) {
 		$idCompany	= intval($idCompany);
@@ -682,8 +682,8 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Check whether a company has projects
 	 *
-	 * @param	Integer		$idCompany
-	 * @return	Boolean
+	 * @param	integer		$idCompany
+	 * @return	boolean
 	 */
 	public static function hasProjects($idCompany) {
 		$idCompany	= intval($idCompany);
@@ -696,8 +696,8 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Get project IDs of the company
 	 *
-	 * @param	Integer		$idCompany
-	 * @return	Integer[]
+	 * @param	integer		$idCompany
+	 * @return	integer[]
 	 */
 	public static function getProjectIDs($idCompany) {
 		$idCompany	= intval($idCompany);
@@ -716,7 +716,7 @@ class TodoyuContactCompanyManager {
 	 * Gets the preview image for the form
 	 *
 	 * @param	TodoyuFormElement_Comment		$formElement
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getPreviewImageForm(TodoyuFormElement_Comment $formElement) {
 		return TodoyuContactImageManager::renderImageForm($formElement, self::contactTypeKey);
@@ -727,7 +727,7 @@ class TodoyuContactCompanyManager {
 	/**
 	 * Get assigned project records of given company
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 * @return	Array
 	 */
 	public static function getPhones($idCompany) {

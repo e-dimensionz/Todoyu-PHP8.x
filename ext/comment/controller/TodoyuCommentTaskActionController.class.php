@@ -29,7 +29,7 @@ class TodoyuCommentTaskActionController extends TodoyuActionController {
 	/**
 	 * Initialize controller, check use right
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('comment', 'general:use');
@@ -40,8 +40,8 @@ class TodoyuCommentTaskActionController extends TodoyuActionController {
 	/**
 	 * Get task ID to comment number
 	 *
-	 * @param	Array		$params
-	 * @return	Integer
+	 * @param	array		$params
+	 * @return	integer
 	 */
 	public function getcommenttaskidAction(array $params) {
 		$idComment	= trim($params['commentnumber']);
@@ -56,8 +56,8 @@ class TodoyuCommentTaskActionController extends TodoyuActionController {
 	/**
 	 * Get comment list for task tab
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function listAction(array $params) {
 		$idTask	= intval($params['task']);
@@ -73,7 +73,7 @@ class TodoyuCommentTaskActionController extends TodoyuActionController {
 	/**
 	 * Toggle visibility of a comment
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function togglepublicAction(array $params) {
 		$idComment	= intval($params['comment']);

@@ -87,8 +87,8 @@ class TodoyuExtensions {
 	/**
 	 * Check if an extension is installed
 	 *
-	 * @param	String		$extKey
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @return	boolean
 	 */
 	public static function isInstalled($extKey) {
 		$installed	= self::getInstalledExtKeys();
@@ -103,8 +103,8 @@ class TodoyuExtensions {
 	/**
 	 * Get extID by extKey
 	 *
-	 * @param	String		$extKey
-	 * @return	Integer
+	 * @param	string		$extKey
+	 * @return	integer
 	 */
 	public static function getExtID($extKey) {
 		$name	= 'EXTID_' . strtoupper(trim($extKey));
@@ -121,9 +121,9 @@ class TodoyuExtensions {
 	/**
 	 * Check if file path is in the path of the extension
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$path
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @param	string		$path
+	 * @return	boolean
 	 */
 	public static function isPathInExtDir($extKey, $path) {
 		$path = TodoyuFileManager::pathAbsolute($path);
@@ -141,9 +141,9 @@ class TodoyuExtensions {
 	 * Get full path of the extension
 	 * This is the path an extension would have. Doesn't mean the path exists or extension is installed
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$appendPath
-	 * @return	String		Absolute path to extension
+	 * @param	string		$extKey
+	 * @param	string		$appendPath
+	 * @return	string		Absolute path to extension
 	 */
 	public static function getExtPath($extKey, $appendPath = '') {
 		return TodoyuFileManager::pathAbsolute(PATH_EXT . DIR_SEP . $extKey . DIR_SEP . trim($appendPath, '/\\'));
@@ -154,7 +154,7 @@ class TodoyuExtensions {
 	/**
 	 * Get extension information
 	 *
-	 * @param	String		$extKey			Extension key
+	 * @param	string		$extKey			Extension key
 	 * @return	Array		Or false if not defined
 	 */
 	public static function getExtInfo($extKey) {
@@ -173,8 +173,8 @@ class TodoyuExtensions {
 	/**
 	 * Get extension version
 	 *
-	 * @param	String		$extKey
-	 * @return	String|Boolean
+	 * @param	string		$extKey
+	 * @return	string|Boolean
 	 */
 	public static function getExtVersion($extKey) {
 		$info	= self::getExtInfo($extKey);
@@ -209,9 +209,9 @@ class TodoyuExtensions {
 	/**
 	 * Load a configuration file of an extension if it's available
 	 *
-	 * @param	String		$extKey		Extension key
-	 * @param	String		$type		Type of the config file (=filename)
-	 * @return	Boolean		Loading status
+	 * @param	string		$extKey		Extension key
+	 * @param	string		$type		Type of the config file (=filename)
+	 * @return	boolean		Loading status
 	 */
 	public static function loadConfig($extKey, $type) {
 		if( !isset(self::$loadedExtConfigTypes[$extKey . $type]) ) {
@@ -242,7 +242,7 @@ class TodoyuExtensions {
 	/**
 	 * Set default doc link if not defined in extension config
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 */
 	private static function setDefaultDocumentationLink($extKey) {
 		if( is_array(Todoyu::$CONFIG['EXT'][$extKey]['info']) ) {
@@ -257,8 +257,8 @@ class TodoyuExtensions {
 	/**
 	 * Load rights config of an extension
 	 *
-	 * @param	String		$extKey
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @return	boolean
 	 */
 	public static function loadRights($extKey) {
 		return self::loadConfig($extKey, 'rights');
@@ -269,8 +269,8 @@ class TodoyuExtensions {
 	/**
 	 * Load filter config of an extension
 	 *
-	 * @param	String		$extKey
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @return	boolean
 	 */
 	public static function loadFilters($extKey) {
 		return self::loadConfig($extKey, 'filters');
@@ -281,7 +281,7 @@ class TodoyuExtensions {
 	/**
 	 * Load all configuration files of an extension
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 */
 	public static function loadAllConfig($extKey) {
 		$extPath	= self::getExtPath($extKey);
@@ -299,7 +299,7 @@ class TodoyuExtensions {
 	/**
 	 * Load config of a type from all extension (require /config/type.php files of extensions)
 	 *
-	 * @param	String		$type
+	 * @param	string		$type
 	 */
 	public static function loadAllTypeConfig($type) {
 		$extKeys	= self::getInstalledExtKeys();
@@ -425,7 +425,18 @@ class TodoyuExtensions {
 		self::loadAllTypeConfig('boot');
 	}
 
-
+    public static function loadAllSmartyPlugins(){
+        $extKeys	= self::getInstalledExtKeys();
+        
+        foreach($extKeys as $extKey) {
+			$pathConfig	= 'ext/' . $extKey . '/smarty/';
+            if(TodoyuFileManager::isDir($pathConfig)){
+                $pathFile	= TodoyuFileManager::pathAbsolute($pathConfig);
+                Todoyu::addSmartyPluginDir($pathFile);
+            }
+            
+		}
+    }
 
 	/**
 	 * Load all init configs (config/init.php)
@@ -462,7 +473,7 @@ class TodoyuExtensions {
 	 * Only for backwards compatibility
 	 * Will just reload the
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 * @deprecated
 	 * @todoyu	Remove in later version
 	 */
@@ -476,8 +487,8 @@ class TodoyuExtensions {
 	/**
 	 * Check whether given extension depends on other extensions
 	 *
-	 * @param	String		$extKey
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @return	boolean
 	 */
 	public static function hasDependencies($extKey) {
 		$dependencies	= self::getDependencies($extKey);
@@ -490,7 +501,7 @@ class TodoyuExtensions {
 	/**
 	 * Get keys of extensions the given extension depends on
 	 *
-	 * @param	String	$extKey
+	 * @param	string	$extKey
 	 * @return	Array
 	 */
 	public static function getDependencies($extKey) {
@@ -504,8 +515,8 @@ class TodoyuExtensions {
 	/**
 	 * Check whether other extensions depend on given extension
 	 *
-	 * @param	String		$extKey
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @return	boolean
 	 */
 	public static function hasDependents($extKey) {
 		$dependents	= self::getDependents($extKey);
@@ -518,7 +529,7 @@ class TodoyuExtensions {
 	/**
 	 * Get all dependents of an extensions
 	 *
-	 * @param	String		$extKeyToCheck
+	 * @param	string		$extKeyToCheck
 	 * @return	Array
 	 */
 	public static function getDependents($extKeyToCheck) {
@@ -545,8 +556,8 @@ class TodoyuExtensions {
 	/**
 	 * Check if an extension has the system flag (should not be uninstalled)
 	 *
-	 * @param	String		$extKey
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @return	boolean
 	 */
 	public static function isSystemExtension($extKey) {
 		$extInfo	= self::getExtInfo($extKey);
@@ -559,8 +570,8 @@ class TodoyuExtensions {
 	/**
 	 * Check whether the extension has conflicts
 	 *
-	 * @param	String		$extKey
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @return	boolean
 	 */
 	public static function hasConflicts($extKey) {
 		return sizeof(self::getConflicts($extKey)) > 0;
@@ -571,7 +582,7 @@ class TodoyuExtensions {
 	/**
 	 * Check whether the extension conflicts with another installed extension
 	 *
-	 * @param	String		$extKeyToCheck
+	 * @param	string		$extKeyToCheck
 	 * @return	Array		List of extensions which conflict with the checked one
 	 */
 	public static function getConflicts($extKeyToCheck) {
@@ -598,8 +609,8 @@ class TodoyuExtensions {
 	/**
 	 * Get installed extension version
 	 *
-	 * @param	String		$extKey
-	 * @return	String
+	 * @param	string		$extKey
+	 * @return	string
 	 */
 	public static function getVersion($extKey) {
 		self::loadAllExtinfo();

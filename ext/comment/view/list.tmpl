@@ -1,6 +1,6 @@
 	{* Commands at top *}
 <div class="tabBlock overflow commentButtons" id="task-{$idTask}-comment-commands-top">
-	{if isAddInTaskAllowed($idTask)}
+	{if fn_isAddInTaskAllowed($idTask)}
 		{Button label="comment.ext.button.addComment" class="addComment" onclick="Todoyu.Ext.comment.add($idTask)"}
 	{/if}
 	{if !empty($comments) && sizeof($comments) > 1}
@@ -11,7 +11,7 @@
 	{* List of comments *}
 {if !empty($comments) && sizeof($comments) > 0}
 	<section class="commentList {if $desc}desc{else}asc{/if}" id="task-{$idTask}-comments">
-	{foreach $comments commentHTML}
+	{foreach $comments as $commentHTML}
 		{$commentHTML}
 	{/foreach}
 	</section>
@@ -19,7 +19,7 @@
 
 	{* Commands at bottom *}
 <div class="tabBlock overflow commentButtons" id="task-{$idTask}-comment-commands-bottom">
-	{if isAddInTaskAllowed($idTask)}
+	{if fn_isAddInTaskAllowed($idTask)}
 		{Button label="comment.ext.button.addComment" class="addComment" onclick="Todoyu.Ext.comment.add($idTask)"}
 	{/if}
 	{if !empty($comments) && sizeof($comments) > 1}

@@ -39,8 +39,8 @@ class TodoyuContactViewHelper {
 	 * Get label for a person in a form
 	 *
 	 * @param	TodoyuFormElement	$field
-	 * @param	Array				$data
-	 * @return	String
+	 * @param	array				$data
+	 * @return	string
 	 */
 	public static function getPersonLabel(TodoyuFormElement $field, array $data) {
 		$idPerson	= intval($data['id']);
@@ -77,9 +77,9 @@ class TodoyuContactViewHelper {
 	 * Get options array with all persons being employees of internal company
 	 *
 	 * @param	TodoyuFormElement	$field
-	 * @param	Boolean				$showEmail
-	 * @param	Boolean				$lastNameFirst
-	 * @param	Boolean				$onlyWithEmail		Filter out records w/o account email address?
+	 * @param	boolean				$showEmail
+	 * @param	boolean				$lastNameFirst
+	 * @param	boolean				$onlyWithEmail		Filter out records w/o account email address?
 	 * @return	Array
 	 */
 	public static function getInternalPersonOptions(TodoyuFormElement $field, $showEmail = false, $lastNameFirst = true, $onlyWithEmail = false) {
@@ -113,8 +113,8 @@ class TodoyuContactViewHelper {
 	 * Get persons address label
 	 *
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$valueArray
-	 * @return	String
+	 * @param	array				$valueArray
+	 * @return	string
 	 */
 	public static function getPersonAddressLabel(TodoyuFormElement $formElement, array $valueArray) {
 		$idAddressType	= intval($valueArray['id_addresstype']);
@@ -152,8 +152,8 @@ class TodoyuContactViewHelper {
 	 * Get label of employee (person) item
 	 *
 	 * @param	TodoyuFormElement	$field
-	 * @param	Array				$record
-	 * @return	String
+	 * @param	array				$record
+	 * @return	string
 	 */
 	public static function getEmployeeLabel(TodoyuFormElement $field, array $record) {
 		$idPerson	= intval($record['id']);
@@ -172,8 +172,8 @@ class TodoyuContactViewHelper {
 	 * Get label of address (concatenated info summary)
 	 *
 	 * @param	TodoyuFormElement	$field
-	 * @param	Array				$record
-	 * @return	String
+	 * @param	array				$record
+	 * @return	string
 	 */
 	public static function getAddressLabel(TodoyuFormElement $field, array $record) {
 		$idAddress	= intval($record['id']);
@@ -204,8 +204,8 @@ class TodoyuContactViewHelper {
 	 * Get label of contact info record ('title')
 	 *
 	 * @param	TodoyuFormElement	$field
-	 * @param	Array				$record
-	 * @return	String
+	 * @param	array				$record
+	 * @return	string
 	 */
 	public static function getContactinfoLabel(TodoyuFormElement $field, array $record) {
 		$idContactInfo	= intval($record['id']);
@@ -227,8 +227,8 @@ class TodoyuContactViewHelper {
 	 * Get label of a company
 	 *
 	 * @param	TodoyuFormElement	$field
-	 * @param	Array		$record
-	 * @return	String
+	 * @param	array		$record
+	 * @return	string
 	 */
 	public static function getCompanyLabel(TodoyuFormElement $field, array $record) {
 		$idCompany	= intval($record['id']);
@@ -353,7 +353,7 @@ class TodoyuContactViewHelper {
 	/**
 	 * Gets address(es) of employer firm
 	 *
-	 * @param	Integer	$idCompany
+	 * @param	integer	$idCompany
 	 * @return	Array
 	 */
 	public static function getWorkaddressOptions($idCompany) {

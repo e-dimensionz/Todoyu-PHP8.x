@@ -29,8 +29,8 @@ class TodoyuCalendarViewDay extends TodoyuCalendarView {
 	/**
 	 * Initialize with date and filters
 	 *
-	 * @param	Integer		$date
-	 * @param	Array		$filters
+	 * @param	integer		$date
+	 * @param	array		$filters
 	 */
 	public function __construct($date, array $filters = array()) {
 		$range	= new TodoyuCalendarRangeDay($date);
@@ -43,7 +43,7 @@ class TodoyuCalendarViewDay extends TodoyuCalendarView {
 	/**
 	 * Render day view
 	 *
-	 * @return String
+	 * @return string
 	 */
 	public function render() {
 		$tmpl		= 'ext/calendar/view/views/day.tmpl';
@@ -65,7 +65,7 @@ class TodoyuCalendarViewDay extends TodoyuCalendarView {
 	/**
 	 * Check whether full day view is enabled
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	private function isFullDayView() {
 		return TodoyuCalendarPreferences::getFullDayView();
@@ -76,8 +76,8 @@ class TodoyuCalendarViewDay extends TodoyuCalendarView {
 	/**
 	 * Get event elements to render in calendar
 	 *
-	 * @param	Array			$extraFilters
-	 * @param	Boolean|Null	$dayEvents
+	 * @param	array			$extraFilters
+	 * @param	boolean|Null	$dayEvents
 	 * @return	TodoyuCalendarEventElementDay[]
 	 */
 	private function getEventElements(array $extraFilters = array(), $dayEvents = null) {
@@ -114,7 +114,7 @@ class TodoyuCalendarViewDay extends TodoyuCalendarView {
 	/**
 	 * Pre render event elements
 	 *
-	 * @return	String[]
+	 * @return	string[]
 	 */
 	private function renderEvents() {
 		$renderedElements	= array();
@@ -145,7 +145,7 @@ class TodoyuCalendarViewDay extends TodoyuCalendarView {
 	/**
 	 * Pre render day event elements
 	 *
-	 * @return	String[]
+	 * @return	string[]
 	 */
 	private function renderDayEvents() {
 		$dayEventElements	= $this->getDayEventsElements();
@@ -163,7 +163,7 @@ class TodoyuCalendarViewDay extends TodoyuCalendarView {
 	/**
 	 * Get view title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getTitle() {
 		return TodoyuCalendarTime::format($this->getRange()->getStart(), 'calendar.ext.calendartitle.dateformat.day');

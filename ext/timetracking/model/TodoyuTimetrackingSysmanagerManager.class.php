@@ -30,8 +30,8 @@ class TodoyuTimetrackingSysmanagerManager {
 	 * Hooked-in when rendering taskpreset record form in sysmanager
 	 *
 	 * @param	TodoyuForm		$form
-	 * @param	Integer			$idTaskPreset
-	 * @param	Array			$params
+	 * @param	integer			$idTaskPreset
+	 * @param	array			$params
 	 * @return	TodoyuForm
 	 */
 	public static function hookBuildFormTaskPreset(TodoyuForm $form, $idTaskPreset, $params) {
@@ -50,7 +50,7 @@ class TodoyuTimetrackingSysmanagerManager {
 	public static function getExtConfTolerance() {
 		$extConf	= self::getExtConf();
 
-		return floatval($extConf['tolerance']);
+		return floatval($extConf['tolerance'] ?? 0);
 	}
 
 

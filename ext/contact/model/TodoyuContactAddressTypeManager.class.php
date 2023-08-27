@@ -40,7 +40,7 @@ class TodoyuContactAddressTypeManager {
 	/**
 	 * Get configuration of contact address type with given ID
 	 *
-	 * @param	Integer		$idAddressType
+	 * @param	integer		$idAddressType
 	 * @return	Array
 	 */
 	public static function getAddressType($idAddressType) {
@@ -52,8 +52,8 @@ class TodoyuContactAddressTypeManager {
 
 
 	/**
-	 * @param	Integer	$idAddressType
-	 * @return	String
+	 * @param	integer	$idAddressType
+	 * @return	string
 	 */
 	public static function getAddressTypeLabel($idAddressType) {
 		$addressType = self::getAddressType($idAddressType);

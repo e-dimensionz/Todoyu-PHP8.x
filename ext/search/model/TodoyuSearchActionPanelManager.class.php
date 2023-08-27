@@ -27,8 +27,8 @@ class TodoyuSearchActionPanelManager {
 	/**
 	 * Render action panel HTML
 	 *
-	 * @param	String	$activeTab		e.g. 'task' / 'project'
-	 * @return	String
+	 * @param	string	$activeTab		e.g. 'task' / 'project'
+	 * @return	string
 	 */
 	public static function renderActionPanel($activeTab) {
 		$tmpl = 'ext/search/view/actionpanel.tmpl';
@@ -45,10 +45,10 @@ class TodoyuSearchActionPanelManager {
 	/**
 	 * Export result items of given filter conditions with registered export function
 	 *
-	 * @param	String		$name
-	 * @param	String		$type			'task' / 'project' etc.
-	 * @param	Array		$conditions
-	 * @param	String		$conjunction	logical conjunction ('AND' / 'OR')
+	 * @param	string		$name
+	 * @param	string		$type			'task' / 'project' etc.
+	 * @param	array		$conditions
+	 * @param	string		$conjunction	logical conjunction ('AND' / 'OR')
 	 * @return	Mixed
 	 */
 	public static function dispatchExport($name, $type, $conditions, $conjunction) {
@@ -82,12 +82,12 @@ class TodoyuSearchActionPanelManager {
 	/**
 	 * Add result items type to search action panel
 	 *
-	 * @param	String	$type
-	 * @param	String	$name
-	 * @param	String	$callback
-	 * @param	String	$label
-	 * @param	String	$htmlClass
-	 * @param	String	$right
+	 * @param	string	$type
+	 * @param	string	$name
+	 * @param	string	$callback
+	 * @param	string	$label
+	 * @param	string	$htmlClass
+	 * @param	string	$right
 	 */
 	public static function addExport($type, $name, $callback, $label, $htmlClass = '', $right = '') {
 		if( ! empty($right) && strpos($right, ':') !== false ) {
@@ -113,8 +113,8 @@ class TodoyuSearchActionPanelManager {
 	/**
 	 * Get export configuration of given type/name
 	 *
-	 * @param	String		$type
-	 * @param	String		$name
+	 * @param	string		$type
+	 * @param	string		$name
 	 * @return	Array
 	 */
 	public static function getExportOfTypeAndName($type, $name) {
@@ -126,8 +126,8 @@ class TodoyuSearchActionPanelManager {
 	/**
 	 * Get type export configuration
 	 *
-	 * @param	String	$type
-	 * @return	String
+	 * @param	string	$type
+	 * @return	string
 	 */
 	public static function getExportOfType($type) {
 		return Todoyu::$CONFIG['EXT']['search']['filter'][$type]['actionpanel']['export'];

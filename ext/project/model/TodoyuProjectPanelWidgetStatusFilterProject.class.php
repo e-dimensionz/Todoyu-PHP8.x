@@ -29,9 +29,9 @@ class TodoyuProjectPanelWidgetStatusFilterProject extends TodoyuProjectPanelWidg
 	/**
 	 * Initialize panel widget status filter
 	 *
-	 * @param	Array		$config
-	 * @param	Array		$params
-	 * @param	Integer		$idArea
+	 * @param	array		$config
+	 * @param	array		$params
+	 * @param	integer		$idArea
 	 */
 	public function __construct(array $config, array $params = array(), $idArea = 0) {
 		parent::__construct(
@@ -91,7 +91,7 @@ class TodoyuProjectPanelWidgetStatusFilterProject extends TodoyuProjectPanelWidg
 	 * Check panelWidget access permission
 	 * Allowed if project area allowed and more than one status visible
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		$statuses	= TodoyuProjectProjectStatusManager::getStatuses();

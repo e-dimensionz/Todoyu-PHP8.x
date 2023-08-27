@@ -38,8 +38,8 @@ class TodoyuFirststepsExtActionController extends TodoyuActionController {
 	/**
 	 * Delete employee person
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function removeEmployeeAction(array $params) {
 		$idPerson	= intval($params['person']);
@@ -52,7 +52,7 @@ class TodoyuFirststepsExtActionController extends TodoyuActionController {
 	/**
 	 * Remove a company
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function removeCompanyAction(array $params) {
 		$idCompany	= intval($params['company']);
@@ -65,7 +65,7 @@ class TodoyuFirststepsExtActionController extends TodoyuActionController {
 	/**
 	 * Remove an assigned person from a project
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function removeAssignedPersonAction(array $params) {
 		$idPerson	= intval($params['person']);
@@ -79,7 +79,7 @@ class TodoyuFirststepsExtActionController extends TodoyuActionController {
 	/**
 	 * Disable the wizard. Save in extConf
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 
 	 */
 	public function saveDisableAction(array $params) {

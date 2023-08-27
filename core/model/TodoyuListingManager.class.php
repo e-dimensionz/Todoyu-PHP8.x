@@ -29,8 +29,8 @@ class TodoyuListingManager {
 	/**
 	 * Get listing configuration array
 	 *
-	 * @param	String		$ext
-	 * @param	String		$name
+	 * @param	string		$ext
+	 * @param	string		$name
 	 * @return	Array
 	 */
 	public static function getConfig($ext, $name) {

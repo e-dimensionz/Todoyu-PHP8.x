@@ -29,8 +29,8 @@ class TodoyuImapServerMessagePartRFC822 extends TodoyuImapServerMessagePartMulti
 	/**
 	 * Save part content as attachment file
 	 *
-	 * @param	Integer		$idMessage
-	 * @return	Integer		Attachment ID
+	 * @param	integer		$idMessage
+	 * @return	integer		Attachment ID
 	 */
 	public function saveAsAttachment($idMessage) {
 		return TodoyuImapAttachmentManager::addAttachment($idMessage, $this->getAttachmentName(), $this->getContent());
@@ -42,8 +42,8 @@ class TodoyuImapServerMessagePartRFC822 extends TodoyuImapServerMessagePartMulti
 	 * Get content of forwarded message
 	 * This is the whole eml content
 	 *
-	 * @param	Integer		$options
-	 * @return	String
+	 * @param	integer		$options
+	 * @return	string
 	 */
 	public function getContent($options = 0) {
 		$options |= FT_PEEK; // Don't set as seen
@@ -56,7 +56,7 @@ class TodoyuImapServerMessagePartRFC822 extends TodoyuImapServerMessagePartMulti
 	/**
 	 * Get attachment name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getAttachmentName() {
 		return 'message_' . $this->section . '.eml';

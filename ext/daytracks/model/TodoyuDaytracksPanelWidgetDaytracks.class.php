@@ -29,8 +29,8 @@ class TodoyuDaytracksPanelWidgetDaytracks extends TodoyuPanelWidget {
 	/**
 	 * Construct PanelWidget (init basic configuration)
 	 *
-	 * @param	Array	$config
-	 * @param	Array	$params
+	 * @param	array	$config
+	 * @param	array	$params
 	 */
 	public function __construct(array $config, array $params = array()) {
 		parent::__construct(
@@ -53,7 +53,7 @@ class TodoyuDaytracksPanelWidgetDaytracks extends TodoyuPanelWidget {
 	/**
 	 * Render widget content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderContent() {
 		$tmpl	= 'ext/daytracks/view/panelwidget-daytracks.tmpl';
@@ -88,7 +88,7 @@ class TodoyuDaytracksPanelWidgetDaytracks extends TodoyuPanelWidget {
 	/**
 	 * Get widget content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getContent() {
 		return $this->renderContent();
@@ -99,8 +99,8 @@ class TodoyuDaytracksPanelWidgetDaytracks extends TodoyuPanelWidget {
 	/**
 	 * Get context menu items for daytracks list panel widget
 	 *
-	 * @param	Integer		$idTask			Task ID
-	 * @param	Array		$items			Current items
+	 * @param	integer		$idTask			Task ID
+	 * @param	array		$items			Current items
 	 * @return	Array
 	 */
 	public static function getContextMenuItems($idTask, array $items) {
@@ -124,7 +124,7 @@ class TodoyuDaytracksPanelWidgetDaytracks extends TodoyuPanelWidget {
 	/**
 	 * Check whether panel widget is allowed
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		return Todoyu::allowed('daytracks', 'general:use');

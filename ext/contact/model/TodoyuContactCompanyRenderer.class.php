@@ -29,7 +29,7 @@ class TodoyuContactCompanyRenderer {
 	/**
 	 * Render company quick creation form
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderCompanyQuickCreateForm() {
 		$form	= TodoyuContactCompanyManager::getQuickCreateForm();
@@ -47,9 +47,9 @@ class TodoyuContactCompanyRenderer {
 	/**
 	 * Render company list
 	 *
-	 * @param	String		$searchWord
-	 * @param	Integer		$offset
-	 * @return	String
+	 * @param	string		$searchWord
+	 * @param	integer		$offset
+	 * @return	string
 	 */
 	public static function renderCompanyList($searchWord = '', $offset = 0) {
 		Todoyu::restrict('contact', 'general:area');
@@ -60,8 +60,8 @@ class TodoyuContactCompanyRenderer {
 
 
 	/**
-	 * @param	Integer[]	$companyIDs
-	 * @return	String
+	 * @param	integer[]	$companyIDs
+	 * @return	string
 	 */
 	public static function renderCompanyListingSearch($companyIDs){
 		return TodoyuListingRenderer::render('contact', 'companySearch', 0, true, array('companyIDs' => $companyIDs));
@@ -72,9 +72,9 @@ class TodoyuContactCompanyRenderer {
 	/**
 	 * Render company edit form for popup (different save and cancel handling than conventional)
 	 *
-	 * @param	Integer	$idCompany
-	 * @param	String	$idTarget		HTML Id of the input field
-	 * @return	String
+	 * @param	integer	$idCompany
+	 * @param	string	$idTarget		HTML Id of the input field
+	 * @return	string
 	 */
 	public static function renderCompanyCreateWizard($idCompany, $idTarget) {
 		$idCompany	= intval($idCompany);
@@ -110,8 +110,8 @@ class TodoyuContactCompanyRenderer {
 	/**
 	 * Render company edit form
 	 *
-	 * @param	Integer	$idCompany
-	 * @return	String
+	 * @param	integer	$idCompany
+	 * @return	string
 	 */
 	public static function renderCompanyEditForm($idCompany) {
 		$idCompany	= intval($idCompany);
@@ -140,8 +140,8 @@ class TodoyuContactCompanyRenderer {
 	/**
 	 * Render company summary
 	 *
-	 * @param	Integer	$idCompany
-	 * @return	String
+	 * @param	integer	$idCompany
+	 * @return	string
 	 */
 	public static function renderCompanyDetails($idCompany) {
 		$idCompany = intval($idCompany);
@@ -162,8 +162,8 @@ class TodoyuContactCompanyRenderer {
 	/**
 	 * Render employee list of given company
 	 *
-	 * @param	Integer		$idCompany
-	 * @return	String
+	 * @param	integer		$idCompany
+	 * @return	string
 	 */
 	public static function renderEmployeeList($idCompany) {
 		return TodoyuListingRenderer::render('contact', 'employee', 0, true, array('idCompany' => $idCompany));
@@ -174,8 +174,8 @@ class TodoyuContactCompanyRenderer {
 	/**
 	 * Render action buttons for company record
 	 *
-	 * @param	Integer		$idCompany
-	 * @return	String
+	 * @param	integer		$idCompany
+	 * @return	string
 	 */
 	public static function renderCompanyActions($idCompany) {
 		$tmpl	= 'ext/contact/view/company-actions.tmpl';

@@ -29,7 +29,7 @@ class TodoyuTimetrackingHeadletActionController extends TodoyuActionController {
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('timetracking', 'task:track');
@@ -40,8 +40,8 @@ class TodoyuTimetrackingHeadletActionController extends TodoyuActionController {
 	/**
 	 * Update headlet info content
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function updateAction(array $params) {
 		$headlet	= new TodoyuTimetrackingHeadletTracking();

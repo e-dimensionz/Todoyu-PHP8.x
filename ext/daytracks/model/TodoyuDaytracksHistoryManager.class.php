@@ -38,10 +38,10 @@ class TodoyuDaytracksHistoryManager {
 	/**
 	 * Check whether given person has time tracks in given month of given year
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Integer		$month
-	 * @param	Integer		$year
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @param	integer		$month
+	 * @param	integer		$year
+	 * @return	boolean
 	 */
 	public static function personHasTracksInMonth($idPerson, $month, $year) {
 		$idPerson	= intval($idPerson);
@@ -61,8 +61,8 @@ class TodoyuDaytracksHistoryManager {
 	/**
 	 * Get timestamp of last time tracking of given/current user
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Integer					UNIX timestamp
+	 * @param	integer		$idPerson
+	 * @return	integer					UNIX timestamp
 	 */
 	public static function getDateLastTimeTracking($idPerson = 0) {
 		$idPerson	= Todoyu::personid($idPerson);
@@ -82,7 +82,7 @@ class TodoyuDaytracksHistoryManager {
 	 * Get year month combinations of months where the user has time trackings
 	 * Result: [2010-01, 2010-02, 2010-04, ...]
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getMonthsWithTracks($idPerson = 0) {
@@ -108,7 +108,7 @@ class TodoyuDaytracksHistoryManager {
 	/**
 	 * Get the date of the first and the last tracking
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	Array		[min,max]
 	 */
 	public static function getTrackingRanges($idPerson = 0) {
@@ -134,7 +134,7 @@ class TodoyuDaytracksHistoryManager {
 	 * The years are the keys, the month the sub elements of each year
 	 * The range is starts at the first tracking, and ends at the last
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getMonthSelectorOptions($idPerson = 0) {
@@ -177,10 +177,10 @@ class TodoyuDaytracksHistoryManager {
 	 * Get all tracks in the given range (one month) for a person
 	 * The tracks are grouped by day and already summed up in the total key
 	 *
-	 * @param	Integer		$year
-	 * @param	Integer		$month
-	 * @param	Boolean		$details
-	 * @param	Integer		$idPerson
+	 * @param	integer		$year
+	 * @param	integer		$month
+	 * @param	boolean		$details
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getRangeTracks($year, $month, $details = false, $idPerson = 0) {

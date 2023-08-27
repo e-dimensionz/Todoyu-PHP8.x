@@ -29,7 +29,7 @@ class TodoyuProjectTasktreeActionController extends TodoyuActionController {
 	/**
 	 * Initialize controller: restrict access (project extension must be allowed)
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('project', 'general:area');
@@ -40,8 +40,8 @@ class TodoyuProjectTasktreeActionController extends TodoyuActionController {
 	/**
 	 * Update task tree in project view
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function updateAction(array $params) {
 		$idProject	= intval($params['project']);

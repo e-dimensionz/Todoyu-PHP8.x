@@ -1,14 +1,14 @@
 {extends "core/view/base.tmpl"}
 
 {* left panel with widgets *}
-{block "panel"}
+{block name="panel"}
 	{$panelWidgets}
 {/block}
 
-{block "contentTabs"}
+{block name="contentTabs"}
 	{$tabHeads}
 {/block}
 
-{block "contentBody"}
+{block name="contentBody"}
 	{$activeTabContent}
 {/block}

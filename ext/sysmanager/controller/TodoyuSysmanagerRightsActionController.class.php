@@ -29,7 +29,7 @@ class TodoyuSysmanagerRightsActionController extends TodoyuActionController {
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrictAdmin();
@@ -40,8 +40,8 @@ class TodoyuSysmanagerRightsActionController extends TodoyuActionController {
 	/**
 	 * Render tab in rights admin module
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function updateAction(array $params) {
 		return TodoyuSysmanagerRightsEditorRenderer::renderModule($params);
@@ -52,7 +52,7 @@ class TodoyuSysmanagerRightsActionController extends TodoyuActionController {
 	/**
 	 * Save rights
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function saveAction(array $params) {
 		$extKey	= $params['extension'];
@@ -67,8 +67,8 @@ class TodoyuSysmanagerRightsActionController extends TodoyuActionController {
 	/**
 	 * Save current extension's rights and render rights matrix
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function matrixAction(array $params) {
 		$roles	= $params['rightseditor']['roles'];

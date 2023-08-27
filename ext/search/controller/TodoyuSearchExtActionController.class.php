@@ -29,7 +29,7 @@ class TodoyuSearchExtActionController extends TodoyuActionController {
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('search', 'general:area');
@@ -40,8 +40,8 @@ class TodoyuSearchExtActionController extends TodoyuActionController {
 	/**
 	 * Render search area view
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function defaultAction(array $params) {
 		TodoyuFrontend::setActiveTab('search');
@@ -70,8 +70,8 @@ class TodoyuSearchExtActionController extends TodoyuActionController {
 	/**
 	 * Loads whole filter area on tab change
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function tabAction(array $params) {
 		$tab		= $params['tab'];

@@ -29,8 +29,8 @@ class TodoyuSysmanagerExtConfManager {
 	/**
 	 * Get path to extension config form
 	 *
-	 * @param	String		$extKey
-	 * @return	String
+	 * @param	string		$extKey
+	 * @return	string
 	 */
 	public static function getXmlPath($extKey) {
 		return 'ext/' . strtolower($extKey) . '/config/form/admin/extconf.xml';
@@ -41,8 +41,8 @@ class TodoyuSysmanagerExtConfManager {
 	/**
 	 * Check whether extension config form exists
 	 *
-	 * @param	String		$extKey
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @return	boolean
 	 */
 	public static function hasExtConf($extKey) {
 		$xmlPath = self::getXmlPath($extKey);
@@ -55,8 +55,8 @@ class TodoyuSysmanagerExtConfManager {
 	/**
 	 * Get extConf form
 	 *
-	 * @param	String			$extKey
-	 * @param	Boolean			$loadData
+	 * @param	string			$extKey
+	 * @param	boolean			$loadData
 	 * @return	TodoyuForm
 	 */
 	public static function getForm($extKey, $loadData = true) {
@@ -124,8 +124,8 @@ class TodoyuSysmanagerExtConfManager {
 	/**
 	 * Update an extension configuration
 	 *
-	 * @param	String		$extKey
-	 * @param	Array		$data
+	 * @param	string		$extKey
+	 * @param	array		$data
 	 */
 	public static function saveExtConf($extKey, array $data) {
 		self::setExtConf($extKey, $data);
@@ -138,8 +138,8 @@ class TodoyuSysmanagerExtConfManager {
 	/**
 	 * Set extension configuration array in
 	 *
-	 * @param	String		$extKey
-	 * @param	Array		$data
+	 * @param	string		$extKey
+	 * @param	array		$data
 	 */
 	public static function setExtConf($extKey, array $data) {
 		Todoyu::$CONFIG['EXT'][$extKey]['extConf'] = $data;
@@ -148,8 +148,8 @@ class TodoyuSysmanagerExtConfManager {
 
 
 	/**
-	 * @param	String	$extKey
-	 * @param	Array	$update
+	 * @param	string	$extKey
+	 * @param	array	$update
 	 */
 	public static function updateExtConf($extKey, array $update) {
 		$extConf	= self::getExtConf($extKey);
@@ -163,7 +163,7 @@ class TodoyuSysmanagerExtConfManager {
 	/**
 	 * Get config array for an extension
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 * @return	Array
 	 */
 	public static function getExtConf($extKey) {
@@ -175,7 +175,7 @@ class TodoyuSysmanagerExtConfManager {
 	/**
 	 * Get parameter value from extension configuration
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 * @param	Mixed		$parameter
 	 * @return	Mixed
 	 */

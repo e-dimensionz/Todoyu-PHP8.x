@@ -47,7 +47,7 @@ abstract class TodoyuCalendarView {
 	 * Initialize view
 	 *
 	 * @param	TodoyuDayRange	$range
-	 * @param	Array			$filters		Filters provided by arbitrary elements
+	 * @param	array			$filters		Filters provided by arbitrary elements
 	 */
 	public function __construct(TodoyuDayRange $range, array $filters) {
 		$this->range	= $range;
@@ -59,7 +59,7 @@ abstract class TodoyuCalendarView {
 	/**
 	 * Get view name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getName() {
 		return strtolower(str_replace('TodoyuCalendarView', '', get_class($this)));
@@ -103,7 +103,7 @@ abstract class TodoyuCalendarView {
 	/**
 	 * Get a filter
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @return	Mixed
 	 */
 	protected function getFilter($name) {
@@ -115,7 +115,7 @@ abstract class TodoyuCalendarView {
 	/**
 	 * Add an additional filter
 	 *
-	 * @param	String	$name
+	 * @param	string	$name
 	 * @param	Mixed	$value
 	 */
 	public function addFilter($name, $value) {
@@ -127,7 +127,7 @@ abstract class TodoyuCalendarView {
 	/**
 	 * Remove/delete a filter
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 */
 	public function removeFilter($name) {
 		unset($this->filters[$name]);
@@ -139,8 +139,8 @@ abstract class TodoyuCalendarView {
 	 * Get events from all data sources which match the given filters and the range
 	 * The dayEvents parameter is just for convenience and is passed as normal filter value
 	 *
-	 * @param	Array			$extraFilters
-	 * @param	Boolean|Null	$dayEvents
+	 * @param	array			$extraFilters
+	 * @param	boolean|Null	$dayEvents
 	 * @return	TodoyuCalendarEvent[]
 	 */
 	protected function getEvents(array $extraFilters = array(), $dayEvents = null) {
@@ -162,7 +162,7 @@ abstract class TodoyuCalendarView {
 	/**
 	 * Render the view
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	abstract public function render();
 
@@ -171,7 +171,7 @@ abstract class TodoyuCalendarView {
 	/**
 	 * Get title of the view
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	abstract protected function getTitle();
 

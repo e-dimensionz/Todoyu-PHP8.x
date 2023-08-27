@@ -1,5 +1,5 @@
 <p class="instructiontext">
-	{Label $instructionText}
+	{Label text=$instructionText}
 </p>
 
-{Button label="$buttonText" onclick="Todoyu.Ext.contact.PanelWidget.ContactExport.exportResults()" class="exportCsv $contactType" id="export-$contactType"}
+{Button label=$buttonText onclick="Todoyu.Ext.contact.PanelWidget.ContactExport.exportResults()" class="exportCsv $contactType" id="export-$contactType"}

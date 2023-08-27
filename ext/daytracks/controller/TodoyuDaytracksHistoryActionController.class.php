@@ -29,7 +29,7 @@ class TodoyuDaytracksHistoryActionController extends TodoyuActionController {
 	/**
 	 * Init controller: restrict to rights
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('daytracks', 'general:use');
@@ -40,8 +40,8 @@ class TodoyuDaytracksHistoryActionController extends TodoyuActionController {
 	/**
 	 * Update tracks history popup
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function historyAction(array $params) {
 		$year	= intval($params['year']);

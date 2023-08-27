@@ -29,12 +29,12 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Save calendar extension preference
 	 *
-	 * @param	Integer		$preference
-	 * @param	String		$value
-	 * @param	Integer		$idItem
-	 * @param	Boolean		$unique
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	integer		$preference
+	 * @param	string		$value
+	 * @param	integer		$idItem
+	 * @param	boolean		$unique
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 */
 	public static function savePref($preference, $value, $idItem = 0, $unique = false, $idArea = 0, $idPerson = 0) {
 		TodoyuPreferenceManager::savePreference(EXTID_CALENDAR, $preference, $value, $idItem, $unique, $idArea, $idPerson);
@@ -47,12 +47,12 @@ class TodoyuCalendarPreferences {
 	 * Without $value, it checks if a preference is stored, else it checks if
 	 * a preference with exactly this value is stored
 	 *
-	 * @param	String		$preference		Preference name
-	 * @param	Integer		$idItem			ID of the item
-	 * @param	String		$value			Stored value
-	 * @param	Integer		$idArea			ID of the area
-	 * @param	Integer		$idPerson		User ID
-	 * @return	Boolean
+	 * @param	string		$preference		Preference name
+	 * @param	integer		$idItem			ID of the item
+	 * @param	string		$value			Stored value
+	 * @param	integer		$idArea			ID of the area
+	 * @param	integer		$idPerson		User ID
+	 * @return	boolean
 	 */
 	public static function isPreferenceSet($preference, $idItem = 0, $value = null, $idArea = 0, $idPerson = 0) {
 		return TodoyuPreferenceManager::isPreferenceSet(EXTID_CALENDAR, $preference, $idItem, $value, $idArea, $idPerson);
@@ -63,12 +63,12 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Get given calendar extension preference
 	 *
-	 * @param	String		$preference
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Boolean		$unserialize
-	 * @param	Integer		$idPerson
-	 * @return	String|Boolean
+	 * @param	string		$preference
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	boolean		$unserialize
+	 * @param	integer		$idPerson
+	 * @return	string|Boolean
 	 */
 	public static function getPref($preference, $idItem = 0, $idArea = 0, $unserialize = false, $idPerson = 0) {
 		return TodoyuPreferenceManager::getPreference(EXTID_CALENDAR, $preference, $idItem, $idArea, $unserialize, $idPerson);
@@ -79,10 +79,10 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Get calendar extension preferences
 	 *
-	 * @param	String		$preference
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	string		$preference
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getPrefs($preference, $idItem = 0, $idArea = 0, $idPerson = 0) {
@@ -94,8 +94,8 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Get date for calendar
 	 *
-	 * @param	Integer	$idArea
-	 * @return	Integer
+	 * @param	integer	$idArea
+	 * @return	integer
 	 */
 	public static function getDate($idArea = 0) {
 		$date	= self::getPref('date', 0, $idArea);
@@ -108,8 +108,8 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Save date for calendar
 	 *
-	 * @param	Integer		$date
-	 * @param	Integer		$idArea
+	 * @param	integer		$date
+	 * @param	integer		$idArea
 	 */
 	public static function saveDate($date, $idArea = 0) {
 		$date	= intval($date);
@@ -122,7 +122,7 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Save full-day view preference (active?)
 	 *
-	 * @param	Boolean		$full
+	 * @param	boolean		$full
 	 */
 	public static function saveFullDayView($full = true) {
 		$full	= $full ? 1 : 0;
@@ -135,7 +135,7 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Save display weekend preference (on/off)
 	 *
-	 * @param	Boolean	$displayed
+	 * @param	boolean	$displayed
 	 */
 	public static function saveWeekendDisplayed($displayed = true) {
 		$displayed	= $displayed ? 1 : 0;
@@ -148,7 +148,7 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Get full-day view (active?) preference
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isWeekendDisplayed() {
 		$pref	= self::getPref('displayweekend');
@@ -161,7 +161,7 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Get full-day view (active?) preference
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function getFullDayView() {
 		$pref	= self::getPref('fulldayview', 0);
@@ -174,7 +174,7 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Get beginning hour of time excerpt preference
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getCompactViewRangeStart() {
 		if( self::isPreferenceSet('range_start') ) {
@@ -191,7 +191,7 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Get ending hour of time excerpt preference
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getCompactViewRangeEnd() {
 		if( self::isPreferenceSet('range_end') ) {
@@ -208,7 +208,7 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Save selected event types
 	 *
-	 * @param	Array		$types
+	 * @param	array		$types
 	 */
 	public static function saveEventTypes(array $types) {
 		$types	= implode(',', $types);
@@ -221,7 +221,7 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Save selected holiday sets
 	 *
-	 * @param	Array	$setIDs
+	 * @param	array	$setIDs
 	 */
 	public static function saveHolidaySets($setIDs) {
 		$setIDs	= TodoyuArray::intval($setIDs);
@@ -239,7 +239,7 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Gets the current active tab
 	 *
-	 * @return	String	tab name
+	 * @return	string	tab name
 	 */
 	public static function getActiveTab() {
 		$tab = self::getPref('tab');
@@ -252,7 +252,7 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Save the current active tab as pref
 	 *
-	 * @param	String		$tabKey		Name of the tab
+	 * @param	string		$tabKey		Name of the tab
 	 */
 	public static function saveActiveTab($tabKey) {
 		self::savePref('tab', $tabKey, 0, true);
@@ -263,7 +263,7 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Get the saved calendar date pref. If not set, return timestamp of now
 	 *
-	 * @return	Integer		Timestamp
+	 * @return	integer		Timestamp
 	 */
 	public static function getCalendarDate() {
 		$time	= self::getPref('date');
@@ -276,8 +276,8 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Save the active calendar date.
 	 *
-	 * @param	Integer		$idArea
-	 * @param	Integer		$timestamp		UNIX Timestamp
+	 * @param	integer		$idArea
+	 * @param	integer		$timestamp		UNIX Timestamp
 	 */
 	public static function saveCalendarDate($idArea, $timestamp) {
 		$timestamp	= intval($timestamp);
@@ -290,8 +290,8 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Save event display preference: expanded?
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Boolean		$expanded
+	 * @param	integer		$idEvent
+	 * @param	boolean		$expanded
 	 */
 	public static function savePortalEventExpandedStatus($idEvent, $expanded = true) {
 		$idEvent= intval($idEvent);
@@ -305,8 +305,8 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Get event display preference: expanded?
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @return	boolean
 	 */
 	public static function getPortalEventExpandedStatus($idEvent) {
 		$idEvent= intval($idEvent);
@@ -319,7 +319,7 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Save reminder email advance time
 	 *
-	 * @param	Integer		$timestamp
+	 * @param	integer		$timestamp
 	 */
 	public static function saveReminderEmailTime($timestamp) {
 		self::saveReminderTime('email', $timestamp);
@@ -330,7 +330,7 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Save reminder popup advance time
 	 *
-	 * @param	Integer		$timestamp
+	 * @param	integer		$timestamp
 	 */
 	public static function saveReminderPopupTime($timestamp) {
 		self::saveReminderTime('popup', $timestamp);
@@ -341,8 +341,8 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Save reminder email advance time
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	public static function getReminderEmailTime($idPerson = 0) {
 		return self::getReminderAdvanceTime('email', $idPerson);
@@ -353,8 +353,8 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Save reminder popup advance time
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	public static function getReminderPopupTime($idPerson = 0) {
 		return self::getReminderAdvanceTime('popup', $idPerson);
@@ -365,8 +365,8 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Save reminder advance time
 	 *
-	 * @param	String		$typeKey
-	 * @param	Integer		$timestamp
+	 * @param	string		$typeKey
+	 * @param	integer		$timestamp
 	 */
 	private static function saveReminderTime($typeKey, $timestamp) {
 		$prefName	= 'reminder' . $typeKey . '_advancetime';
@@ -380,9 +380,9 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Get reminder advance time
 	 *
-	 * @param	String				$typeKey
-	 * @param	Integer				$idPerson
-	 * @return	Integer|Boolean
+	 * @param	string				$typeKey
+	 * @param	integer				$idPerson
+	 * @return	integer|Boolean
 	 */
 	public static function getReminderAdvanceTime($typeKey, $idPerson = 0) {
 		$idPerson	= Todoyu::personid($idPerson);
@@ -396,7 +396,7 @@ class TodoyuCalendarPreferences {
 	/**
 	 * Check whether the mail popup is disabled
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isMailPopupDisabled() {
 		$prefName	= 'is_mailpopupdeactivated';

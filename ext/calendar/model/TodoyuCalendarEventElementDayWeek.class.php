@@ -49,7 +49,7 @@ abstract class TodoyuCalendarEventElementDayWeek extends TodoyuCalendarEventElem
 	/**
 	 * Get element template data
 	 *
-	 * @param	Integer		$date
+	 * @param	integer		$date
 	 * @return	Array
 	 */
 	protected function getElementTemplateData($range = 0) {
@@ -65,8 +65,8 @@ abstract class TodoyuCalendarEventElementDayWeek extends TodoyuCalendarEventElem
 	/**
 	 * Get position style string
 	 *
-	 * @param	Integer		$date
-	 * @return	String
+	 * @param	integer		$date
+	 * @return	string
 	 */
 	protected function getPositionStyleString($date) {
 		$styles	= $this->getPositionStyles($date);
@@ -79,7 +79,7 @@ abstract class TodoyuCalendarEventElementDayWeek extends TodoyuCalendarEventElem
 	/**
 	 * Get position styles
 	 *
-	 * @param	Integer		$date
+	 * @param	integer		$date
 	 * @return	Array
 	 */
 	protected function getPositionStyles($date) {
@@ -97,7 +97,7 @@ abstract class TodoyuCalendarEventElementDayWeek extends TodoyuCalendarEventElem
 	/**
 	 * Get template path
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getTemplate() {
 		return 'ext/calendar/view/event/dayweek.tmpl';
@@ -108,9 +108,9 @@ abstract class TodoyuCalendarEventElementDayWeek extends TodoyuCalendarEventElem
 	/**
 	 * Get element height
 	 *
-	 * @param	Integer		$date
-	 * @param	Boolean		$assertMinimalDuration		Assert minimal height of element (force duration to 30min)
-	 * @return	Integer
+	 * @param	integer		$date
+	 * @param	boolean		$assertMinimalDuration		Assert minimal height of element (force duration to 30min)
+	 * @return	integer
 	 */
 	public function getHeight($date, $assertMinimalDuration = true) {
 		$renderDayRange	= new TodoyuCalendarRangeDay($date);
@@ -134,7 +134,7 @@ abstract class TodoyuCalendarEventElementDayWeek extends TodoyuCalendarEventElem
 	/**
 	 * Get element width
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getWidth() {
 		$totalHorizontalElements	= $this->getMaxColumnConflictsOfConflictingElements()+1;
@@ -149,7 +149,7 @@ abstract class TodoyuCalendarEventElementDayWeek extends TodoyuCalendarEventElem
 	 * Prevents problems, if conflict count of element is 1,
 	 * but a conflicting element has a higher conflict rate and overlapps the element if it's in a neighbour column
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	private function getMaxColumnConflictsOfConflictingElements() {
 		$maxColumnConflicts = $this->getColumnConflicts();
@@ -170,7 +170,7 @@ abstract class TodoyuCalendarEventElementDayWeek extends TodoyuCalendarEventElem
 	/**
 	 * Get left offset, depending on the column the element is in
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getLeftOffset() {
 		return intval($this->getWidth() * $this->getColumnIndex());
@@ -181,7 +181,7 @@ abstract class TodoyuCalendarEventElementDayWeek extends TodoyuCalendarEventElem
 	/**
 	 * Set column index
 	 *
-	 * @param	Integer		$columnIndex
+	 * @param	integer		$columnIndex
 	 */
 	public function setColumnIndex($columnIndex) {
 		$this->columnIndex	= intval($columnIndex);
@@ -192,7 +192,7 @@ abstract class TodoyuCalendarEventElementDayWeek extends TodoyuCalendarEventElem
 	/**
 	 * Get column index
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getColumnIndex() {
 		return $this->columnIndex;
@@ -203,7 +203,7 @@ abstract class TodoyuCalendarEventElementDayWeek extends TodoyuCalendarEventElem
 	/**
 	 * Get conflicting columns count
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getColumnConflicts() {
 		return $this->columnConflicts;
@@ -238,8 +238,8 @@ abstract class TodoyuCalendarEventElementDayWeek extends TodoyuCalendarEventElem
 	/**
 	 * Get top offset, depending on the time of day of the event start
 	 *
-	 * @param	Integer		$date
-	 * @return	Integer
+	 * @param	integer		$date
+	 * @return	integer
 	 */
 	public function getTopOffset($date) {
 		$dateDayStart	= TodoyuTime::getDayStart($date);
@@ -256,7 +256,7 @@ abstract class TodoyuCalendarEventElementDayWeek extends TodoyuCalendarEventElem
 	/**
 	 * Get width for associated view. Day or week
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	abstract protected function getViewWidth();
 

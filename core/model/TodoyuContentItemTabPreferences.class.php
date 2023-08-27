@@ -29,8 +29,8 @@ class TodoyuContentItemTabPreferences {
 	/**
 	 * Get the key of the currently active tab inside the details of the given project (default if none is selected)
 	 *
-	 * @param	Integer		$idItem
-	 * @return	String
+	 * @param	integer		$idItem
+	 * @return	string
 	 */
 	public static function getActiveTab($extKey, $itemKey, $idItem) {
 		$idItem	= intval($idItem);
@@ -58,10 +58,10 @@ class TodoyuContentItemTabPreferences {
 	/**
 	 * Save active tab in project
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$itemKey
-	 * @param	Integer		$idItem
-	 * @param	String		$tabKey
+	 * @param	string		$extKey
+	 * @param	string		$itemKey
+	 * @param	integer		$idItem
+	 * @param	string		$tabKey
 	 */
 	public static function saveActiveTab($extKey, $itemKey, $idItem, $tabKey) {
 		$extID		= TodoyuExtensions::getExtID($extKey);
@@ -76,9 +76,9 @@ class TodoyuContentItemTabPreferences {
 	/**
 	 * Set forced tab for current rendering
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$itemKey
-	 * @param	String		$tab
+	 * @param	string		$extKey
+	 * @param	string		$itemKey
+	 * @param	string		$tab
 	 */
 	public static function setForcedTab($extKey, $itemKey, $tab) {
 		Todoyu::$CONFIG['EXT'][$extKey][$itemKey]['forceTab'] = $tab;
@@ -89,12 +89,13 @@ class TodoyuContentItemTabPreferences {
 	/**
 	 * Get currently forced tab (or false) inside project details
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$itemKey
-	 * @return	String		Or FALSE
+	 * @param	string		$extKey
+	 * @param	string		$itemKey
+	 * @return	string		Or FALSE
 	 */
 	public static function getForcedTab($extKey, $itemKey) {
-		return Todoyu::$CONFIG['EXT'][$extKey][$itemKey]['forceTab'];
+        if(empty(Todoyu::$CONFIG['EXT'][$extKey][$itemKey])) return false;
+		return Todoyu::$CONFIG['EXT'][$extKey][$itemKey]['forceTab'] ?? false;
 	}
 
 }

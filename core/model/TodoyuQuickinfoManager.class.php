@@ -29,9 +29,9 @@ class TodoyuQuickinfoManager {
 	/**
 	 * Register a function which will add items to this type of quickinfo
 	 *
-	 * @param	String		$type
-	 * @param	String		$function
-	 * @param	Integer		$position
+	 * @param	string		$type
+	 * @param	string		$function
+	 * @param	integer		$position
 	 */
 	public static function addFunction($type, $function, $position = 100) {
 		$type	= strtoupper(trim($type));
@@ -47,7 +47,7 @@ class TodoyuQuickinfoManager {
 	/**
 	 * Get all registered functions for a type. Ordered by position key
 	 *
-	 * @param	String		$type
+	 * @param	string		$type
 	 * @return	Array
 	 */
 	public static function getTypeFunctions($type) {

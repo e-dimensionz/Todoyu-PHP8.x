@@ -38,8 +38,8 @@ class TodoyuContactPersonActionController extends TodoyuActionController {
 	/**
 	 * Edit person, show form
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function editAction(array $params) {
 		$idPerson	= intval($params['person']);
@@ -57,8 +57,8 @@ class TodoyuContactPersonActionController extends TodoyuActionController {
 	/**
 	 * Show filtered persons list
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function listAction(array $params) {
 		Todoyu::restrict('contact', 'general:area');
@@ -81,8 +81,8 @@ class TodoyuContactPersonActionController extends TodoyuActionController {
 	/**
 	 * Get person paged listing
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function listingAction(array $params) {
 		Todoyu::restrict('contact', 'general:area');
@@ -103,8 +103,8 @@ class TodoyuContactPersonActionController extends TodoyuActionController {
 	/**
 	 * Save person
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function saveAction(array $params) {
 		$xmlPath	= 'ext/contact/config/form/person.xml';
@@ -145,8 +145,8 @@ class TodoyuContactPersonActionController extends TodoyuActionController {
 	/**
 	 * Save person from Wizard
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function saveWizardAction(array $params) {
 		$xmlPath	= 'ext/contact/config/form/person.xml';
@@ -191,8 +191,8 @@ class TodoyuContactPersonActionController extends TodoyuActionController {
 	/**
 	 * Add a sub form to the person form
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function addSubformAction(array $params) {
 		$xmlPath	= 'ext/contact/config/form/person.xml';
@@ -213,7 +213,7 @@ class TodoyuContactPersonActionController extends TodoyuActionController {
 	/**
 	 * Remove person
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function removeAction(array $params) {
 		$idPerson	= intval($params['person']);
@@ -228,8 +228,8 @@ class TodoyuContactPersonActionController extends TodoyuActionController {
 	/**
 	 * Show person info. If its an AJAX call, just returns the main-content. Else it returns the whole rendered page.
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function detailAction(array $params) {
 		$idPerson	= intval($params['person']);
@@ -251,8 +251,8 @@ class TodoyuContactPersonActionController extends TodoyuActionController {
 	 * Content for the person-wizard popUp
 	 *
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function createWizardAction(array $params) {
 		TodoyuContactPersonRights::restrictAdd();
@@ -267,8 +267,8 @@ class TodoyuContactPersonActionController extends TodoyuActionController {
 	/**
 	 * Renders the image - tag
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function loadimageAction(array $params) {
 		$idPerson	= trim($params['record']);
@@ -284,7 +284,7 @@ class TodoyuContactPersonActionController extends TodoyuActionController {
 	/**
 	 * Output of an image
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function rendercontactimageAction(array $params) {
 		$imageKey	= $params['idImage'];
@@ -299,7 +299,7 @@ class TodoyuContactPersonActionController extends TodoyuActionController {
 	/**
 	 * Output of an image
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function renderavatarAction(array $params) {
 		$imageKey	= $params['idImage'];
@@ -316,7 +316,7 @@ class TodoyuContactPersonActionController extends TodoyuActionController {
 	/**
 	 * Remove the given image
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function removeimageAction(array $params) {
 		$idPerson	= $params['idImage'];
@@ -331,8 +331,8 @@ class TodoyuContactPersonActionController extends TodoyuActionController {
 	/**
 	 * Check for duplicated entries for person
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function checkduplicatedentriesAction(array $params) {
 		$lastname	= $params['lastname'];

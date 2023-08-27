@@ -30,7 +30,7 @@ class TodoyuPortalExtActionController extends TodoyuActionController {
 	/**
 	 * Initialize: restrict access
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('portal', 'general:use');
@@ -41,8 +41,8 @@ class TodoyuPortalExtActionController extends TodoyuActionController {
 	/**
 	 * Portal default action: render portal view
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function defaultAction(array $params) {
 			// Activate FE tab

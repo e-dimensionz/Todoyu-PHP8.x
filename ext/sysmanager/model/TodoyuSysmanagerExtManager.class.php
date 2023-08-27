@@ -29,8 +29,8 @@ class TodoyuSysmanagerExtManager {
 	/**
 	 * Get extension module tab configuration
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$tab
+	 * @param	string		$extKey
+	 * @param	string		$tab
 	 * @return	Array
 	 */
 	public static function getTabConfig($extKey = '', $tab = '') {
@@ -72,8 +72,8 @@ class TodoyuSysmanagerExtManager {
 	/**
 	 * Ext information about an extension provided by the config array
 	 *
-	 * @param	String		$extKey
-	 * @param	Boolean		$load
+	 * @param	string		$extKey
+	 * @param	boolean		$load
 	 * @return	Array
 	 */
 	public static function getExtInfos($extKey, $load = false) {
@@ -91,8 +91,8 @@ class TodoyuSysmanagerExtManager {
 	/**
 	 * Check whether an extension is a system extension
 	 *
-	 * @param	String		$extKey
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @return	boolean
 	 */
 	public static function isSysExt($extKey) {
 		$extInfos	= self::getExtInfos($extKey);
@@ -105,9 +105,9 @@ class TodoyuSysmanagerExtManager {
 	/**
 	 * Add record config for automatic record editing in sysmanager extension manager
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$recordName
-	 * @param	Array		$config
+	 * @param	string		$extKey
+	 * @param	string		$recordName
+	 * @param	array		$config
 	 */
 	public static function addRecordConfig($extKey, $recordName, array $config) {
 		Todoyu::$CONFIG['EXT']['sysmanager']['records'][$extKey][$recordName] = $config;
@@ -118,8 +118,8 @@ class TodoyuSysmanagerExtManager {
 	/**
 	 * Get record type config
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$recordName
+	 * @param	string		$extKey
+	 * @param	string		$recordName
 	 * @return	Array
 	 */
 	public static function getRecordConfig($extKey, $recordName) {
@@ -133,10 +133,10 @@ class TodoyuSysmanagerExtManager {
 	/**
 	 * Get label for a record element
 	 *
-	 * @param	String		$ext
-	 * @param	String		$recordName
-	 * @param	Integer		$idRecord
-	 * @return	String
+	 * @param	string		$ext
+	 * @param	string		$recordName
+	 * @param	integer		$idRecord
+	 * @return	string
 	 */
 	public static function getRecordObjectLabel($ext, $recordName, $idRecord) {
 		$config	= self::getRecordConfig($ext, $recordName);
@@ -158,7 +158,7 @@ class TodoyuSysmanagerExtManager {
 	/**
 	 * Get all record configs
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 * @return	Array
 	 */
 	public static function getRecordConfigs($extKey) {
@@ -200,8 +200,8 @@ class TodoyuSysmanagerExtManager {
 	/**
 	 * Get record types
 	 *
-	 * @param	String	$extKey
-	 * @return	String[]
+	 * @param	string	$extKey
+	 * @return	string[]
 	 */
 	public static function getRecordTypes($extKey) {
 		$config	= self::getRecordConfigs($extKey);
@@ -214,9 +214,9 @@ class TodoyuSysmanagerExtManager {
 	/**
 	 * Get record list data
 	 *
-	 * @param	String	$extKey
-	 * @param	String	$recordName
-	 * @param	Array	$params
+	 * @param	string	$extKey
+	 * @param	string	$recordName
+	 * @param	array	$params
 	 * @return	Array
 	 */
 	public static function getRecordListData($extKey, $recordName, array $params = array()) {
@@ -239,8 +239,8 @@ class TodoyuSysmanagerExtManager {
 	/**
 	 * Add deletable flag for list with given value/callback
 	 *
-	 * @param	Array					$list		List data
-	 * @param	String|Boolean|Null		$isDeletable
+	 * @param	array					$list		List data
+	 * @param	string|Boolean|Null		$isDeletable
 	 * @return	Array
 	 */
 	private static function addDeletableFlag(array $list, $isDeletable) {
@@ -267,7 +267,7 @@ class TodoyuSysmanagerExtManager {
 	 * @todo	How are configs registered? Add Check
 	 *
 	 * @param	string	$extKey
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function extensionHasConfig($extKey) {
 		$xmlPath	= TodoyuSysmanagerExtConfManager::getXmlPath($extKey);
@@ -280,8 +280,8 @@ class TodoyuSysmanagerExtManager {
 	/**
 	 * Parse major version from a version string
 	 *
-	 * @param	String	$versionString
-	 * @return	Integer
+	 * @param	string	$versionString
+	 * @return	integer
 	 */
 	public static function parseMajorVersion($versionString) {
 		$parts	= explode('.', $versionString);
@@ -294,8 +294,8 @@ class TodoyuSysmanagerExtManager {
 	/**
 	 * Get major version of an extension
 	 *
-	 * @param	String		$extKey
-	 * @return	Integer
+	 * @param	string		$extKey
+	 * @return	integer
 	 */
 	public static function getMajorVersion($extKey) {
 		$extVersion	= TodoyuExtensions::getExtVersion($extKey);

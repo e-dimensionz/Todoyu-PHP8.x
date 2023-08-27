@@ -40,8 +40,8 @@ class TodoyuHtmlFilter {
 	/**
 	 * Callback to escape bad simple HTML tags
 	 *
-	 * @param	Array		$match
-	 * @return	String
+	 * @param	array		$match
+	 * @return	string
 	 */
 	private static function escapeBadTag(array $match) {
 		return htmlentities($match[0], ENT_QUOTES, 'UTF-8', false);
@@ -52,8 +52,8 @@ class TodoyuHtmlFilter {
 	/**
 	 * Callback to escape bad HTML tags
 	 *
-	 * @param	Array		$match
-	 * @return	String
+	 * @param	array		$match
+	 * @return	string
 	 */
 	private static function escapeBadTags(array $match) {
 		return '&lt;' . $match[1] . $match[2] . '&gt;' . $match[3] . '&lt;/' . $match[1] . '&gt;';
@@ -64,8 +64,8 @@ class TodoyuHtmlFilter {
 	/**
 	 * Escape comments in HTML
 	 *
-	 * @param	String	$html
-	 * @return	String
+	 * @param	string	$html
+	 * @return	string
 	 */
 	private static function escapeHtmlComments($html) {
 		$replace	= array(
@@ -85,8 +85,8 @@ class TodoyuHtmlFilter {
 	/**
 	 * Clean HTML code: escape all found "bad" tags (and comments)
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	public static function clean($html) {
 		if( trim($html) === '' ) {

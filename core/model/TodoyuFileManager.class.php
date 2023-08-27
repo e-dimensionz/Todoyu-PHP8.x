@@ -29,8 +29,8 @@ class TodoyuFileManager {
 	/**
 	 * Remove absolute site path from a path
 	 *
-	 * @param	String		$path
-	 * @return	String
+	 * @param	string		$path
+	 * @return	string
 	 */
 	public static function removeSitePath($path) {
 		return str_replace(PATH, '', $path);
@@ -41,8 +41,8 @@ class TodoyuFileManager {
 	/**
 	 * Get absolute path
 	 *
-	 * @param	String	$path
-	 * @return	String
+	 * @param	string	$path
+	 * @return	string
 	 */
 	public static function pathAbsolute($path) {
 		$path	= trim($path);
@@ -68,9 +68,9 @@ class TodoyuFileManager {
 	/**
 	 * Get web path of a file
 	 *
-	 * @param	String		$absolutePath
-	 * @param	Boolean		$prependDomain
-	 * @return	String
+	 * @param	string		$absolutePath
+	 * @param	boolean		$prependDomain
+	 * @return	string
 	 */
 	public static function pathWeb($absolutePath, $prependDomain = false) {
 		$pathWeb = str_replace('\\', '/', str_replace(PATH . DIR_SEP, '', self::pathAbsolute($absolutePath)));
@@ -87,9 +87,9 @@ class TodoyuFileManager {
 	/**
 	 * Delete all files inside given folder
 	 *
-	 * @param	String		$folderPath
-	 * @param	Boolean		$deleteHidden	Deletion of all files was successful
-	 * @return	Boolean		Success?
+	 * @param	string		$folderPath
+	 * @param	boolean		$deleteHidden	Deletion of all files was successful
+	 * @return	boolean		Success?
 	 */
 	public static function deleteFolderContents($folderPath, $deleteHidden = false) {
 		$folderPath = self::pathAbsolute($folderPath);
@@ -143,8 +143,8 @@ class TodoyuFileManager {
 	/**
 	 * Delete given file, return deletion whether succeeded, log failures
 	 *
-	 * @param	String		$pathFile
-	 * @return	Boolean
+	 * @param	string		$pathFile
+	 * @return	boolean
 	 */
 	public static function deleteFile($pathFile) {
 		$pathFile	= self::pathAbsolute($pathFile);
@@ -169,8 +169,8 @@ class TodoyuFileManager {
 	/**
 	 * Delete given directory and all contained files
 	 *
-	 * @param	String		$pathFolder
-	 * @return	Boolean
+	 * @param	string		$pathFolder
+	 * @return	boolean
 	 */
 	public static function deleteFolder($pathFolder) {
 		$pathFolder	= self::pathAbsolute($pathFolder);
@@ -202,9 +202,9 @@ class TodoyuFileManager {
 	/**
 	 * Replace all not allowed characters of a filename by "_" or another character
 	 *
-	 * @param	String		$dirtyFilename		Filename (not path!)
-	 * @param	String		$replacement
-	 * @return	String
+	 * @param	string		$dirtyFilename		Filename (not path!)
+	 * @param	string		$replacement
+	 * @return	string
 	 */
 	public static function makeCleanFilename($dirtyFilename, $replacement = '_') {
 		$pattern	= '|[^A-Za-z0-9\.\-_\[\]()]|';
@@ -218,9 +218,9 @@ class TodoyuFileManager {
 	 * Create multiple sub directories to create a path structure in the file system
 	 * The path will be a directory (don't give a file path as parameter!)
 	 *
-	 * @param	String		$directoryPath		Directory path to create
-	 * @param	Integer		$mode				Access rights mode
-	 * @return	Boolean
+	 * @param	string		$directoryPath		Directory path to create
+	 * @param	integer		$mode				Access rights mode
+	 * @return	boolean
 	 */
 	public static function makeDirDeep($directoryPath, $mode = null) {
 		$directoryPath	= self::pathAbsolute($directoryPath);
@@ -257,10 +257,10 @@ class TodoyuFileManager {
 	/**
 	 * Create new randomly named folder inside cache, optionally prefixed as given, return path (or false on failure)
 	 *
-	 * @param	String		$basePath
-	 * @param	Boolean		$more_entropy		Add additional entropy? (making result more unique)
-	 * @param	String		$prefix
-	 * @return	String|Boolean
+	 * @param	string		$basePath
+	 * @param	boolean		$more_entropy		Add additional entropy? (making result more unique)
+	 * @param	string		$prefix
+	 * @return	string|Boolean
 	 */
 	public static function makeRandomCacheDir($basePath, $more_entropy = false, $prefix = '') {
 		$dirName= uniqid($prefix, $more_entropy);
@@ -274,9 +274,9 @@ class TodoyuFileManager {
 	/**
 	 * Get random temp file (path) in cache
 	 *
-	 * @param	String|Boolean	$ext		File extension
-	 * @param	Boolean			$create		Create empty file with (touch)
-	 * @return	String
+	 * @param	string|Boolean	$ext		File extension
+	 * @param	boolean			$create		Create empty file with (touch)
+	 * @return	string
 	 */
 	public static function getTempFile($ext = false, $create = false) {
 		$key	= md5(PATH . NOW . microtime(true) . uniqid());
@@ -296,12 +296,24 @@ class TodoyuFileManager {
 	}
 
 
+    /**
+	 * Check if file exists. Also relative path from PATH
+	 *
+	 * @param	string		$path
+	 * @return	boolean
+	 */
+	public static function isDir($path) {
+		$path	= self::pathAbsolute($path);
+
+		return is_dir($path);
+	}
+
 
 	/**
 	 * Check if file exists. Also relative path from PATH
 	 *
-	 * @param	String		$path
-	 * @return	Boolean
+	 * @param	string		$path
+	 * @return	boolean
 	 */
 	public static function isFile($path) {
 		$path	= self::pathAbsolute($path);
@@ -314,8 +326,8 @@ class TodoyuFileManager {
 	/**
 	 * Set modification timestamp of file
 	 *
-	 * @param	String		$filePath
-	 * @return	Boolean
+	 * @param	string		$filePath
+	 * @return	boolean
 	 */
 	public static function touch($filePath) {
 		$filePath	= self::pathAbsolute($filePath);
@@ -328,11 +340,11 @@ class TodoyuFileManager {
 	/**
 	 * Save file content based on a template
 	 *
-	 * @param	String		$savePath		Path where the file is saved
-	 * @param	String		$templateFile	Path to the template file
-	 * @param	Array		$data			Template data
-	 * @param	Boolean		$wrapAsPhp		Wrap content with PHP start and end tags
-	 * @return	Integer|Boolean				Number of bytes written to file / false
+	 * @param	string		$savePath		Path where the file is saved
+	 * @param	string		$templateFile	Path to the template file
+	 * @param	array		$data			Template data
+	 * @param	boolean		$wrapAsPhp		Wrap content with PHP start and end tags
+	 * @return	integer|Boolean				Number of bytes written to file / false
 	 */
 	public static function saveTemplatedFile($savePath, $templateFile, array $data = array(), $wrapAsPhp = true) {
 		$savePath		= self::pathAbsolute($savePath);
@@ -354,11 +366,11 @@ class TodoyuFileManager {
 	/**
 	 * Move a file to the folder structure
 	 *
-	 * @param	String			$storagePath			Path of the storage directory
-	 * @param	String			$sourceFile				Path to source file
-	 * @param	String			$realFileName			
-	 * @param	Boolean			$prependTimestamp
-	 * @return	String|Boolean	New file path or FALSE
+	 * @param	string			$storagePath			Path of the storage directory
+	 * @param	string			$sourceFile				Path to source file
+	 * @param	string			$realFileName			
+	 * @param	boolean			$prependTimestamp
+	 * @return	string|Boolean	New file path or FALSE
 	 */
 	public static function addFileToStorage($storagePath, $sourceFile, $realFileName, $prependTimestamp = true) {
 		$sourceFile	= self::pathAbsolute($sourceFile);
@@ -384,8 +396,8 @@ class TodoyuFileManager {
 	/**
 	 * Set default access rights to folder or file
 	 *
-	 * @param	String		$path
-	 * @return	Boolean
+	 * @param	string		$path
+	 * @return	boolean
 	 */
 	public static function setDefaultAccessRights($path) {
 		$path	= self::pathAbsolute($path);
@@ -404,8 +416,8 @@ class TodoyuFileManager {
 	/**
 	 * Set default file access
 	 *
-	 * @param	String		$pathToFile
-	 * @return	Boolean
+	 * @param	string		$pathToFile
+	 * @return	boolean
 	 */
 	public static function setDefaultFileAccess($pathToFile) {
 		$pathToFile	= self::pathAbsolute($pathToFile);
@@ -418,8 +430,8 @@ class TodoyuFileManager {
 	/**
 	 * Set default file access
 	 *
-	 * @param	String		$pathToFolder
-	 * @return	Boolean
+	 * @param	string		$pathToFolder
+	 * @return	boolean
 	 */
 	public static function setDefaultFolderAccess($pathToFolder) {
 		$pathToFolder	= self::pathAbsolute($pathToFolder);
@@ -432,9 +444,9 @@ class TodoyuFileManager {
 	/**
 	 * Save content in file
 	 *
-	 * @param	String		$pathFile
-	 * @param	String		$content
-	 * @return	Integer|Boolean			Number of bytes written / false
+	 * @param	string		$pathFile
+	 * @param	string		$content
+	 * @return	integer|Boolean			Number of bytes written / false
 	 */
 	public static function saveFileContent($pathFile, $content) {
 		$pathFile	= self::pathAbsolute($pathFile);
@@ -448,8 +460,8 @@ class TodoyuFileManager {
 	/**
 	 * Get file content
 	 *
-	 * @param	String		$pathFile
-	 * @return	String
+	 * @param	string		$pathFile
+	 * @return	string
 	 */
 	public static function getFileContent($pathFile) {
 		$pathFile	= self::pathAbsolute($pathFile);
@@ -470,8 +482,8 @@ class TodoyuFileManager {
 	 * You can allow paths in Todoyu::$CONFIG['sendFile']['allow'] or disallow paths in Todoyu::$CONFIG['sendFile']['disallow']
 	 * Disallow tasks precedence before allow
 	 *
-	 * @param	String		$absoluteFilePath		Absolute path to file
-	 * @return	Boolean
+	 * @param	string		$absoluteFilePath		Absolute path to file
+	 * @return	boolean
 	 */
 	public static function isFileInAllowedDownloadPath($absoluteFilePath) {
 		$absoluteFilePath	= realpath($absoluteFilePath);
@@ -510,11 +522,11 @@ class TodoyuFileManager {
 	 * Reads file in small parts (1024 B)
 	 *
 	 * @throws	TodoyuExceptionFileDownload
-	 * @param	String		$pathFile
-	 * @param	String		$mimeType			Mime type of the file
-	 * @param	String		$fileName			Name of the downloaded file shown in the browser
-	 * @param	Boolean		$asAttachment
-	 * @return	Boolean		File was allowed to download and sent to browser
+	 * @param	string		$pathFile
+	 * @param	string		$mimeType			Mime type of the file
+	 * @param	string		$fileName			Name of the downloaded file shown in the browser
+	 * @param	boolean		$asAttachment
+	 * @return	boolean		File was allowed to download and sent to browser
 	 */
 	public static function sendFile($pathFile, $mimeType = null, $fileName = null, $asAttachment = true) {
 			// Get real path
@@ -550,8 +562,8 @@ class TodoyuFileManager {
 	/**
 	 * Check whether a file can get sent to the browser
 	 *
-	 * @param	String			$pathFile
-	 * @return	Boolean|String	True or an error message
+	 * @param	string			$pathFile
+	 * @return	boolean|String	True or an error message
 	 */
 	public static function canSendFile($pathFile) {
 		$pathFile	= self::pathAbsolute($pathFile);
@@ -576,9 +588,9 @@ class TodoyuFileManager {
 	/**
 	 * Append string to filename, preserving path delimiter and file extension
 	 *
-	 * @param	String	$filename
-	 * @param	String	$append
-	 * @return	String
+	 * @param	string	$filename
+	 * @param	string	$append
+	 * @return	string
 	 */
 	public static function appendToFilename($filename, $append) {
 		$pathInfo	= pathinfo($filename);
@@ -592,9 +604,9 @@ class TodoyuFileManager {
 	/**
 	 * Get folder contents
 	 *
-	 * @param	String		$pathFolder
-	 * @param	Boolean		$showHidden
-	 * @param	Boolean		$getFileStats		Get also statistics of the files?
+	 * @param	string		$pathFolder
+	 * @param	boolean		$showHidden
+	 * @param	boolean		$getFileStats		Get also statistics of the files?
 	 * @return	Array
 	 */
 	public static function getFolderContents($pathFolder, $showHidden = false, $getFileStats = false) {
@@ -630,9 +642,9 @@ class TodoyuFileManager {
 	/**
 	 * Get listing of files inside given folder
 	 *
-	 * @param	String		$pathFolder
-	 * @param	Boolean		$showHidden
-	 * @param	Array		$filters			strings needed to be contained in files looking for
+	 * @param	string		$pathFolder
+	 * @param	boolean		$showHidden
+	 * @param	array		$filters			strings needed to be contained in files looking for
 	 * @return	Array
 	 */
 	public static function getFilesInFolder($pathFolder, $showHidden = false, array $filters = array()) {
@@ -666,8 +678,8 @@ class TodoyuFileManager {
 	/**
 	 * Get sub folders in given path
 	 *
-	 * @param	String	$pathToFolder
-	 * @param	Boolean	$showHidden
+	 * @param	string	$pathToFolder
+	 * @param	boolean	$showHidden
 	 * @return	Array
 	 */
 	public static function getFoldersInFolder($pathToFolder, $showHidden = false) {
@@ -689,8 +701,8 @@ class TodoyuFileManager {
 	/**
 	 * Get file name (w/o extension)
 	 *
-	 * @param	String	$filename
-	 * @return	String					filename
+	 * @param	string	$filename
+	 * @return	string					filename
 	 */
 	public static function getFileName($filename) {
 		return pathinfo($filename, PATHINFO_FILENAME);
@@ -701,8 +713,8 @@ class TodoyuFileManager {
 	/**
 	 * Get file extension
 	 *
-	 * @param	String	$filename
-	 * @return	String					file extension (without dot)
+	 * @param	string	$filename
+	 * @return	string					file extension (without dot)
 	 */
 	public static function getFileExtension($filename) {
 		return pathinfo($filename, PATHINFO_EXTENSION);
@@ -715,9 +727,9 @@ class TodoyuFileManager {
 	 * Use the options parameters to specify special options
 	 *
 	 * @todo	Implement other transfer methods. See t3lib_div::getURL() function
-	 * @param	String		$url		URL to resource. Should be as complete as possible. Ex: http://www.todoyu.com/archive.zip
-	 * @param	Array		$options	Several options
-	 * @return	String|Array|Boolean	String if download succeeded, FALSE if download failed, Array for special options config (ex: headers)
+	 * @param	string		$url		URL to resource. Should be as complete as possible. Ex: http://www.todoyu.com/archive.zip
+	 * @param	array		$options	Several options
+	 * @return	string|Array|Boolean	String if download succeeded, FALSE if download failed, Array for special options config (ex: headers)
 	 */
 	public static function downloadFile($url, array $options = array()) {
 		if( function_exists('curl_init') ) {
@@ -736,8 +748,8 @@ class TodoyuFileManager {
 	/**
 	 * Download a file from given URL via CURL
 	 *
-	 * @param	String	$url
-	 * @param	Array	$options
+	 * @param	string	$url
+	 * @param	array	$options
 	 * @return	Array|Boolean|mixed$
 	 */
 	private static function downloadFile_CURL($url, array $options = array()) {
@@ -788,8 +800,8 @@ class TodoyuFileManager {
 	/**
 	 * Download a file via socket connection
 	 *
-	 * @param	String	$url
-	 * @param	Array	$options
+	 * @param	string	$url
+	 * @param	array	$options
 	 * @return	Array|Boolean|String
 	 */
 	private static function downloadFile_SOCKET($url, array $options = array()) {
@@ -882,10 +894,10 @@ class TodoyuFileManager {
 	/**
 	 * Save a local copy of a file from an external server
 	 *
-	 * @param	String			$url
-	 * @param	String|Boolean	$targetPath			Path to locale file or FALSE for temp file
-	 * @param	Array			$options
-	 * @return	String|Boolean	Path to local file or FALSE
+	 * @param	string			$url
+	 * @param	string|Boolean	$targetPath			Path to locale file or FALSE for temp file
+	 * @param	array			$options
+	 * @return	string|Boolean	Path to local file or FALSE
 	 */
 	public static function saveLocalCopy($url, $targetPath = false, array $options = array()) {
 		$content	= self::downloadFile($url, $options);
@@ -912,11 +924,11 @@ class TodoyuFileManager {
 	 * Copy a folder recursive to another folder
 	 * If move is set, all files are moved instead of copied
 	 *
-	 * @param	String		$sourceFolder
-	 * @param	String		$destinationFolder
-	 * @param	Array		$exclude
-	 * @param	Boolean		$move					Move instead copy
-	 * @param	Boolean		$hiddenFiles
+	 * @param	string		$sourceFolder
+	 * @param	string		$destinationFolder
+	 * @param	array		$exclude
+	 * @param	boolean		$move					Move instead copy
+	 * @param	boolean		$hiddenFiles
 	 */
 	public static function copyRecursive($sourceFolder, $destinationFolder, array $exclude = array(), $move = false, $hiddenFiles = false) {
 		$sourceFolder		= self::pathAbsolute($sourceFolder);
@@ -972,9 +984,9 @@ class TodoyuFileManager {
 	/**
 	 * Move folders and files recursive
 	 *
-	 * @param	String		$sourceFolder
-	 * @param	String		$destinationFolder
-	 * @param	Boolean		$hiddenFiles
+	 * @param	string		$sourceFolder
+	 * @param	string		$destinationFolder
+	 * @param	boolean		$hiddenFiles
 	 */
 	public static function moveRecursive($sourceFolder, $destinationFolder, $hiddenFiles = false) {
 		self::copyRecursive($sourceFolder, $destinationFolder, true, $hiddenFiles);
@@ -985,9 +997,9 @@ class TodoyuFileManager {
 	/**
 	 * Copy file. Wrapper with path fixes
 	 *
-	 * @param	String	$sourceFile
-	 * @param	String	$targetFile
-	 * @return	Boolean
+	 * @param	string	$sourceFile
+	 * @param	string	$targetFile
+	 * @return	boolean
 	 */
 	public static function copy($sourceFile, $targetFile) {
 		$sourceFile	= self::pathAbsolute($sourceFile);
@@ -1001,9 +1013,9 @@ class TodoyuFileManager {
 	/**
 	 * Rename file/folder. Wrapper with path fixes
 	 *
-	 * @param	String	$sourceFile
-	 * @param	String	$targetFile
-	 * @return	Boolean
+	 * @param	string	$sourceFile
+	 * @param	string	$targetFile
+	 * @return	boolean
 	 */
 	public static function rename($sourceFile, $targetFile) {
 		$sourceFile	= self::pathAbsolute($sourceFile);
@@ -1017,10 +1029,10 @@ class TodoyuFileManager {
 	/**
 	 * Get list of version files from a directory. Limit by min and max version and extension
 	 *
-	 * @param	String			$pathToFolder
-	 * @param	String|Boolean	$extension
-	 * @param	String			$minVersion			Min version will NOT be included
-	 * @param	String			$maxVersion			Max version will be included
+	 * @param	string			$pathToFolder
+	 * @param	string|Boolean	$extension
+	 * @param	string			$minVersion			Min version will NOT be included
+	 * @param	string			$maxVersion			Max version will be included
 	 * @return	Array
 	 */
 	public static function getVersionFiles($pathToFolder, $extension = false, $minVersion = '0.0.0', $maxVersion = '999.999.999') {
@@ -1065,7 +1077,7 @@ class TodoyuFileManager {
 	/**
 	 * Get a recursive file list of all elements
 	 *
-	 * @param	String		$pathFolder
+	 * @param	string		$pathFolder
 	 * @return	Array
 	 */
 	public static function getRecursiveFileList($pathFolder) {
@@ -1096,9 +1108,9 @@ class TodoyuFileManager {
 	 * Detect mime type of a file
 	 * If mime_content_type() is not available, try to guess it by file extension
 	 *
-	 * @param	String			$pathFile
-	 * @param	String|null		$fileName
-	 * @return	String			Empty if nothing found
+	 * @param	string			$pathFile
+	 * @param	string|null		$fileName
+	 * @return	string			Empty if nothing found
 	 */
 	public static function getMimeType($pathFile, $fileName = null) {
 		$pathFile	= self::pathAbsolute($pathFile);
@@ -1123,8 +1135,8 @@ class TodoyuFileManager {
 	/**
 	 * Try to guess the mime type by extension
 	 *
-	 * @param	String		$extension
-	 * @return	String		Mime type
+	 * @param	string		$extension
+	 * @return	string		Mime type
 	 */
 	private static function getMimeTypeByFileExtension($extension) {
 		require_once( PATH_CONFIG . '/mime.php' );
@@ -1144,10 +1156,10 @@ class TodoyuFileManager {
 	 * Include a file
 	 * Wrapper for include()
 	 *
-	 * @param	String		$pathFile
-	 * @param	Boolean		$includeOnce	use include_once() instead of include()
-	 * @param	Boolean		$silent			Ignore missing file
-	 * @return	Boolean
+	 * @param	string		$pathFile
+	 * @param	boolean		$includeOnce	use include_once() instead of include()
+	 * @param	boolean		$silent			Ignore missing file
+	 * @return	boolean
 	 */
 	public static function includeFile($pathFile, $includeOnce = false, $silent = false) {
 		$pathFile	= self::pathAbsolute($pathFile);

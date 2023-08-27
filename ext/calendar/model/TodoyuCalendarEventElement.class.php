@@ -87,7 +87,7 @@ abstract class TodoyuCalendarEventElement {
 	/**
 	 * Get name of the view
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getViewName() {
 		return $this->getView()->getName();
@@ -99,7 +99,7 @@ abstract class TodoyuCalendarEventElement {
 	 * Check whether element is overlapping with other element (based on event dates)
 	 *
 	 * @param	TodoyuCalendarEventElement		$eventElement
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isOverlapping(TodoyuCalendarEventElement $eventElement) {
 		return $this->getRange()->isOverlapping($eventElement->getRange());
@@ -124,7 +124,7 @@ abstract class TodoyuCalendarEventElement {
 	/**
 	 * Add an event element class
 	 *
-	 * @param	String		$className
+	 * @param	string		$className
 	 */
 	public function addClass($className) {
 		$this->classNames[$className]	= $className;
@@ -135,7 +135,7 @@ abstract class TodoyuCalendarEventElement {
 	/**
 	 * Remove an event element class
 	 *
-	 * @param	String		$className
+	 * @param	string		$className
 	 */
 	public function removeClass($className) {
 		unset($this->classNames[$className]);
@@ -146,7 +146,7 @@ abstract class TodoyuCalendarEventElement {
 	/**
 	 * Add multiple event element classes
 	 *
-	 * @param	String[]	$classNames
+	 * @param	string[]	$classNames
 	 */
 	public function addClasses(array $classNames) {
 		$this->classNames = array_merge($this->classNames, $classNames);
@@ -157,7 +157,7 @@ abstract class TodoyuCalendarEventElement {
 	/**
 	 * Get class names
 	 *
-	 * @return	String[]
+	 * @return	string[]
 	 */
 	public function getClasses() {
 		return array_unique($this->classNames);
@@ -169,7 +169,7 @@ abstract class TodoyuCalendarEventElement {
 	 * Get template data to render element
 	 * Merge event and custom element data depending of current view
 	 *
-	 * @param	Integer
+	 * @param	integer
 	 * @return	Array
 	 */
 	public function getTemplateData($date = 0) {
@@ -210,7 +210,7 @@ abstract class TodoyuCalendarEventElement {
 	/**
 	 * Get element specific template data
 	 *
-	 * @param	Integer		$date
+	 * @param	integer		$date
 	 * @return	Array
 	 */
 	protected function getElementTemplateData($date = 0) {
@@ -259,7 +259,7 @@ abstract class TodoyuCalendarEventElement {
 	/**
 	 * Render event for view
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function render(TodoyuDayRange $range = null) {
 		$tmpl	= $this->getTemplate();
@@ -273,7 +273,7 @@ abstract class TodoyuCalendarEventElement {
 	/**
 	 * Get path to template
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	abstract protected function getTemplate();
 

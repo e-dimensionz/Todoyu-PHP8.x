@@ -29,8 +29,8 @@ class TodoyuSearchFilterManager {
 	/**
 	 * Get configuration of a filter (or a widget)
 	 *
-	 * @param	String		$type
-	 * @param	String		$name
+	 * @param	string		$type
+	 * @param	string		$name
 	 * @return	Array		Or FALSE
 	 */
 	public static function getFilterConfig($type, $name) {
@@ -51,8 +51,8 @@ class TodoyuSearchFilterManager {
 	/**
 	 * Get configuration of a filtertype (like task or project)
 	 *
-	 * @param	String		$type
-	 * @param	String		$key
+	 * @param	string		$type
+	 * @param	string		$key
 	 * @return	Mixed
 	 */
 	public static function getFilterTypeConfig($type, $key = null) {
@@ -68,7 +68,7 @@ class TodoyuSearchFilterManager {
 	/**
 	 * Get available filter types (project,task,etc)
 	 *
-	 * @param	Boolean		$sort		Sort types by position flag
+	 * @param	boolean		$sort		Sort types by position flag
 	 * @return	Array
 	 */
 	public static function getFilterTypes($sort = false) {
@@ -99,13 +99,13 @@ class TodoyuSearchFilterManager {
 	/**
 	 * Get filter sorting for type
 	 *
-	 * @param	String	$type
-	 * @return	String
+	 * @param	string	$type
+	 * @return	string
 	 */
 	public static function getFilterDefaultSorting($type) {
 		TodoyuExtensions::loadAllFilters();
 
-		$sorting	= Todoyu::$CONFIG['FILTERS'][strtoupper($type)]['config']['defaultSorting'];
+		$sorting	= Todoyu::$CONFIG['FILTERS'][strtoupper($type)]['config']['defaultSorting'] ?? null;
 
 		return is_null($sorting) ? '' : $sorting;
 	}
@@ -115,8 +115,8 @@ class TodoyuSearchFilterManager {
 	/**
 	 * Get label of a filter type (Ex: Task)
 	 *
-	 * @param	String		$type
-	 * @return	String
+	 * @param	string		$type
+	 * @return	string
 	 */
 	public static function getFilterTypeLabel($type) {
 		TodoyuExtensions::loadAllFilters();
@@ -129,8 +129,8 @@ class TodoyuSearchFilterManager {
 	/**
 	 * Get results renderer function for a filter type
 	 *
-	 * @param	String		$type
-	 * @return	String
+	 * @param	string		$type
+	 * @return	string
 	 */
 	public static function getFilterTypeResultsRenderer($type) {
 		TodoyuExtensions::loadAllFilters();

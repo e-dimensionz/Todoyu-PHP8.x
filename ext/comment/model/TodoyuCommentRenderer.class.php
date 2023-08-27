@@ -29,8 +29,8 @@ class TodoyuCommentRenderer {
 	/**
 	 * Render a comment
 	 *
-	 * @param	Integer		$idComment
-	 * @return	String
+	 * @param	integer		$idComment
+	 * @return	string
 	 * @deprecated
 	 */
 	public static function renderComment($idComment) {
@@ -42,9 +42,9 @@ class TodoyuCommentRenderer {
 	/**
 	 * Render comment list in task tab
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$desc
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @param	boolean		$desc
+	 * @return	string
 	 * @deprecated
 	 */
 	public static function renderCommentList($idTask, $desc = true) {
@@ -56,8 +56,8 @@ class TodoyuCommentRenderer {
 	/**
 	 * Get tab label for portal feedback task: label and amount of feedbacks
 	 *
-	 * @param	Boolean		$count
-	 * @return	String
+	 * @param	boolean		$count
+	 * @return	string
 	 */
 	public static function renderPortalFeedbackTabLabel($count = true) {
 		$label	= Todoyu::Label('comment.ext.portal.tab.feedback');
@@ -75,7 +75,7 @@ class TodoyuCommentRenderer {
 	/**
 	 * Render feedback tab content in portal
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderPortalFeedbackTabContent() {
 		$amountFeedbackRequests	= TodoyuCommentFeedbackManager::getOpenFeedbackCount();

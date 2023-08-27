@@ -35,9 +35,9 @@ class TodoyuAutocompleter {
 	/**
 	 * Register given autocompleter
 	 *
-	 * @param	String	$name
-	 * @param	String	$function
-	 * @param	Array	$restrict
+	 * @param	string	$name
+	 * @param	string	$function
+	 * @param	array	$restrict
 	 */
 	public static function addAutocompleter($name, $function, array $restrict = array()) {
 		self::$autocompleter[$name]	= array(
@@ -51,7 +51,7 @@ class TodoyuAutocompleter {
 	/**
 	 * Get given autocompleter configuration
 	 *
-	 * @param	String	$name
+	 * @param	string	$name
 	 * @return	Array
 	 */
 	public static function getAutocompleter($name) {
@@ -63,10 +63,10 @@ class TodoyuAutocompleter {
 	/**
 	 * Render suggestion results list of given autocompleter
 	 *
-	 * @param	String	$name
-	 * @param	String	$input
-	 * @param	Array	$formData
-	 * @return	String
+	 * @param	string	$name
+	 * @param	string	$input
+	 * @param	array	$formData
+	 * @return	string
 	 */
 	public static function renderAutocompleteList($name, $input, array $formData = array()) {
 		$results	= self::getResults($name, $input, $formData);
@@ -79,9 +79,9 @@ class TodoyuAutocompleter {
 	/**
 	 * Get autocompleter results for given input
 	 *
-	 * @param	String		$name			Name of the autocompleter type
-	 * @param	String		$input			Text the user entered
-	 * @param	Array		$formData		All other form data
+	 * @param	string		$name			Name of the autocompleter type
+	 * @param	string		$input			Text the user entered
+	 * @param	array		$formData		All other form data
 	 * @return	Array
 	 */
 	public static function getResults($name, $input, array $formData = array()) {

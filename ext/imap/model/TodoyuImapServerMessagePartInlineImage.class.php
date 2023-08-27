@@ -29,7 +29,7 @@ class TodoyuImapServerMessagePartInlineImage extends TodoyuImapServerMessagePart
 	/**
 	 * Save inline image file in files folder
 	 *
-	 * @return	String		Storage path
+	 * @return	string		Storage path
 	 */
 	public function saveInFiles() {
 		return TodoyuImapInlineImageManager::saveImage($this->getID(), $this->getContent());
@@ -40,8 +40,8 @@ class TodoyuImapServerMessagePartInlineImage extends TodoyuImapServerMessagePart
 	/**
 	 * Save part content as attachment file
 	 *
-	 * @param	Integer		$idMessage
-	 * @return	Integer		Attachment ID
+	 * @param	integer		$idMessage
+	 * @return	integer		Attachment ID
 	 */
 	public function saveAsAttachment($idMessage) {
 		return TodoyuImapAttachmentManager::addAttachment($idMessage, $this->getAttachmentName(), $this->getContent());
@@ -52,7 +52,7 @@ class TodoyuImapServerMessagePartInlineImage extends TodoyuImapServerMessagePart
 	/**
 	 * Get attachment name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getAttachmentName() {
 		$imageName	= $this->getPartParameter('name');

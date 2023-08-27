@@ -36,8 +36,8 @@ class TodoyuContactFormhandlingActionController extends TodoyuActionController {
 	/**
 	 * Get additional sub form
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function addSubformAction(array $params) {
 		$formName	= $params['form'];
@@ -74,8 +74,8 @@ class TodoyuContactFormhandlingActionController extends TodoyuActionController {
 	/**
 	 * Render contact image upload form
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function contactimageuploadformAction(array $params) {
 		$idRecord	= intval($params['idRecord']);
@@ -95,8 +95,8 @@ class TodoyuContactFormhandlingActionController extends TodoyuActionController {
 	/**
 	 * Upload contact image file
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function uploadcontactimageAction(array $params) {
 		$file		= TodoyuRequest::getUploadFile('file', 'uploadcontactimage');
@@ -134,7 +134,7 @@ class TodoyuContactFormhandlingActionController extends TodoyuActionController {
 	/**
 	 * Removes Image form file-system
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function removeimageAction(array $params) {
 		$idRecord	= $params['record'];

@@ -29,7 +29,7 @@ class TodoyuCommentTaskManager {
 	/**
 	 *
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @return	TodoyuCommentTask
 	 */
 	public static function getTask($idTask) {
@@ -41,8 +41,8 @@ class TodoyuCommentTaskManager {
 	/**
 	 * Get label for comment tab in the task
 	 *
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function getTaskTabLabel($idTask) {
 		$idTask	= intval($idTask);
@@ -63,8 +63,8 @@ class TodoyuCommentTaskManager {
 	/**
 	 * Get tab content for a task
 	 *
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function getTaskTabContent($idTask) {
 		$idTask		= intval($idTask);
@@ -84,8 +84,8 @@ class TodoyuCommentTaskManager {
 	/**
 	 * Get last comment ID in task
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Integer
+	 * @param	integer		$idTask
+	 * @return	integer
 	 */
 	public static function getLastCommentID($idTask) {
 		$taskCommentIDs	= TodoyuCommentCommentManager::getTaskCommentIDs($idTask, true);
@@ -98,8 +98,8 @@ class TodoyuCommentTaskManager {
 	/**
 	 * Get first comment ID
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Integer
+	 * @param	integer		$idTask
+	 * @return	integer
 	 */
 	public static function getFirstCommentID($idTask) {
 		$taskCommentIDs	= TodoyuCommentCommentManager::getTaskCommentIDs($idTask, false);

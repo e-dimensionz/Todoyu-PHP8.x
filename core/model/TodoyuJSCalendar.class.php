@@ -29,7 +29,7 @@ class TodoyuJSCalendar {
 	/**
 	 * Get JSCalendar lang file suiting to system language, default: english
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	private static function getLanguageFile() {
 		$locale		= Todoyu::person()->getLocale();

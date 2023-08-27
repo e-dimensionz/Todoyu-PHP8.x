@@ -38,7 +38,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Initialize
 	 *
-	 * @param	Integer		$idSeries
+	 * @param	integer		$idSeries
 	 */
 	public function __construct($idSeries) {
 		parent::__construct($idSeries, 'ext_calendar_series');
@@ -49,7 +49,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get frequency (index constant)
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getFrequency() {
 		return $this->getInt('frequency');
@@ -60,7 +60,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Check whether series has no frequency configured = not active
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasNoFrequency() {
 		return !$this->hasFrequency();
@@ -71,7 +71,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Check whether series is configured
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasFrequency() {
 		return $this->getFrequency() !== 0;
@@ -82,7 +82,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Check whether series mode day is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasFrequencyDay() {
 		return $this->getFrequency() === CALENDAR_SERIES_FREQUENCY_DAY;
@@ -93,7 +93,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Check whether series has week frequency
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasFrequencyWeek() {
 		return $this->getFrequency() === CALENDAR_SERIES_FREQUENCY_WEEK;
@@ -104,7 +104,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Check whether series has weekday frequency
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasFrequencyWeekday() {
 		return $this->getFrequency() === CALENDAR_SERIES_FREQUENCY_WEEKDAY;
@@ -115,7 +115,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Check whether series mode month is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasFrequencyMonth() {
 		return $this->getFrequency() === CALENDAR_SERIES_FREQUENCY_MONTH;
@@ -126,7 +126,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Check whether series mode year is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasFrequencyYear() {
 		return $this->getFrequency() === CALENDAR_SERIES_FREQUENCY_YEAR;
@@ -137,7 +137,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get interval
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getInterval() {
 		$interval	= $this->getInt('interval');
@@ -150,7 +150,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Check whether interval is 1
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isOneStepInterval() {
 		return $this->getInterval() === 1;
@@ -161,7 +161,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get start date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateStart() {
 		return $this->getInt('date_start');
@@ -172,7 +172,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get end date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateEnd() {
 		return $this->getInt('date_end');
@@ -183,7 +183,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get date end for range calculation
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	protected function getDateEndForRanges() {
 		$dateEnd	= $this->getDateEnd();
@@ -200,7 +200,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Check whether series has end date
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasEndDate() {
 		return $this->getDateEnd() !== 0;
@@ -212,7 +212,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get configured day in month for monthly frequency
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getMonthDay() {
 		return $this->getInt('config');
@@ -223,7 +223,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get month day of event start date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getMonthDayFromDate() {
 		$date	= $this->getEventDate();
@@ -259,7 +259,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get configured week days
 	 *
-	 * @return	String[]
+	 * @return	string[]
 	 */
 	public function getWeekDays() {
 		$config	= $this->getConfig();
@@ -278,7 +278,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	 * Get indexes of selected weekdays
 	 * Only available on frequency week. According to date() function
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	protected function getWeekDayIndexes() {
 		$weekDays	= $this->getWeekDays();
@@ -333,7 +333,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get configured week days with labels
 	 *
-	 * @return	String[]
+	 * @return	string[]
 	 */
 	public function getWeekDayLabels() {
 		$weekDays	= $this->getWeekDays();
@@ -350,7 +350,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get start date of event
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getEventDate() {
 		$dateStart	= $this->eventData['date_start'];
@@ -370,7 +370,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get series label
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLabel() {
 		switch( $this->getFrequency() ) {
@@ -401,7 +401,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get label for day
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getLabelDay() {
 		if( $this->isOneStepInterval() ) {
@@ -418,7 +418,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get label for weekday
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getLabelWeekday() {
 		$label	= Todoyu::Label('calendar.series.label.weekday');
@@ -431,7 +431,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get label for week
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getLabelWeek() {
 		$weekDays	= $this->getWeekDayLabels();
@@ -456,7 +456,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get label for month
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getLabelMonth() {
 		if( $this->isOneStepInterval() ) {
@@ -481,7 +481,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get label for year
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getLabelYear() {
 		$yearParts	= $this->getYearParts();
@@ -505,8 +505,8 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Append date end label to series label
 	 *
-	 * @param	String	$label		Label from frequency label function
-	 * @return	String	Label with date end appended if set
+	 * @param	string	$label		Label from frequency label function
+	 * @return	string	Label with date end appended if set
 	 */
 	protected function appendDateEndLabel($label) {
 		if( $this->getDateEnd() ) {
@@ -539,7 +539,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	 * Set data from form (convert to interval storage names)
 	 * Date is a reference date for first calculation
 	 *
-	 * @param	Array		$formData
+	 * @param	array		$formData
 	 */
 	public function setFormData(array $formData) {
 		$frequency = $this->getValueFromFormData($formData, 'seriesfrequency');
@@ -574,9 +574,9 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	 * Parse a date
 	 * Possible formats: timestamp, date, datetime
 	 *
-	 * @param	String|Integer	$date
-	 * @param	Boolean		$withTime
-	 * @return	Integer
+	 * @param	string|Integer	$date
+	 * @param	boolean		$withTime
+	 * @return	integer
 	 */
 	private function parseDate($date, $withTime = false) {
 		if( is_numeric($date) ) {
@@ -630,7 +630,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Render only the series fields for live refresh
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderSeriesFields() {
 		return $this->getFieldset(false)->renderElements();
@@ -641,9 +641,9 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get ranges for series based on the base event
 	 *
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$limit
-	 * @return	Integer[]
+	 * @param	integer		$dateStart
+	 * @param	integer		$limit
+	 * @return	integer[]
 	 */
 	public function getNextStartDates($dateStart, $limit = 0) {
 		$limit		= intval($limit);
@@ -687,9 +687,9 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get ranges based on next start dates
 	 *
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$duration
-	 * @param	Integer		$limit
+	 * @param	integer		$dateStart
+	 * @param	integer		$duration
+	 * @param	integer		$limit
 	 * @return	TodoyuDateRange[]
 	 */
 	public function getNextRanges($dateStart, $duration, $limit = 0) {
@@ -709,9 +709,9 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get event ranges for daily series
 	 *
-	 * @param	Integer			$dateStart
-	 * @param	Integer			$limit
-	 * @return	Integer[]
+	 * @param	integer			$dateStart
+	 * @param	integer			$limit
+	 * @return	integer[]
 	 */
 	private function getStartDatesDay($dateStart, $limit) {
 		$counter	= 1;
@@ -739,9 +739,9 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get event ranges for weekday series
 	 *
-	 * @param	Integer			$dateStart
-	 * @param	Integer			$limit
-	 * @return	Integer[]
+	 * @param	integer			$dateStart
+	 * @param	integer			$limit
+	 * @return	integer[]
 	 */
 	private function getStartDatesWeekday($dateStart, $limit) {
 		$counter	= 1;
@@ -769,9 +769,9 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get event ranges for weekly series
 	 *
-	 * @param	Integer			$dateStart
-	 * @param	Integer			$limit
-	 * @return	Integer[]
+	 * @param	integer			$dateStart
+	 * @param	integer			$limit
+	 * @return	integer[]
 	 */
 	private function getStartDatesWeek($dateStart, $limit) {
 		$counter		= 1;
@@ -804,9 +804,9 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get event ranges for monthly series
 	 *
-	 * @param	Integer			$dateStart
-	 * @param	Integer			$limit
-	 * @return	Integer[]
+	 * @param	integer			$dateStart
+	 * @param	integer			$limit
+	 * @return	integer[]
 	 */
 	private function getStartDatesMonth($dateStart, $limit) {
 		$year		= date('Y', $dateStart);
@@ -839,9 +839,9 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get event ranges for yearly series
 	 *
-	 * @param	Integer			$dateStart
-	 * @param	Integer			$limit
-	 * @return	Integer[]
+	 * @param	integer			$dateStart
+	 * @param	integer			$limit
+	 * @return	integer[]
 	 */
 	private function getStartDatesYear($dateStart, $limit) {
 		$year		= date('Y', $dateStart);
@@ -882,8 +882,8 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	 * Get a matching start date for special week day selectino
 	 * Ex: Start day may be sunday, but series is every tuesday
 	 *
-	 * @param	Integer		$dateStart
-	 * @return	Integer		Fixed start date (or input if this matched)
+	 * @param	integer		$dateStart
+	 * @return	integer		Fixed start date (or input if this matched)
 	 */
 	private function getStartDateForWeekDay($dateStart) {
 		$weekDayIndexes	= $this->getWeekDayIndexes();
@@ -910,7 +910,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get prepared fieldset for event
 	 *
-	 * @param	Boolean		$newEvent
+	 * @param	boolean		$newEvent
 	 * @return	TodoyuFormFieldset
 	 */
 	protected function getFieldset($newEvent = false) {
@@ -942,7 +942,7 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	 * Add series fields to event form
 	 *
 	 * @param	TodoyuForm		$eventForm
-	 * @param	Boolean			$newEvent
+	 * @param	boolean			$newEvent
 	 * @return	TodoyuForm
 	 */
 	public function addSeriesFields(TodoyuForm $eventForm, $newEvent = false) {
@@ -984,8 +984,8 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get warning messages for overbooking conflicts
 	 *
-	 * @param	Boolean		$fullRangeDate
-	 * @return	String[]
+	 * @param	boolean		$fullRangeDate
+	 * @return	string[]
 	 */
 	public function getOverbookingConflictsWarningMessages($fullRangeDate = false) {
 		$overbookingConflicts	= $this->getOverbookingConflicts();
@@ -1004,8 +1004,8 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	 * Get overbooking conflicts for persons in the given ranges
 	 *
 	 * @param	TodoyuDateRange[]	$ranges
-	 * @param	Integer[]			$personIDs
-	 * @param	Integer				$limit
+	 * @param	integer[]			$personIDs
+	 * @param	integer				$limit
 	 * @return	TodoyuCalendarOverbookingConflict[]
 	 */
 	protected function getOverbookingConflictsForPersonsInRanges(array $ranges, array $personIDs, $limit = 20) {
@@ -1067,8 +1067,8 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get next valid start date for series
 	 *
-	 * @param	Integer		$date
-	 * @return	Integer
+	 * @param	integer		$date
+	 * @return	integer
 	 */
 	public function getFixedStartDate($date) {
 		switch( $this->getFrequency() ) {
@@ -1097,8 +1097,8 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	 * Get next date which is in the group of selected week days
 	 * Ex: Next monday or tuesday
 	 *
-	 * @param	Integer		$date
-	 * @return	Integer
+	 * @param	integer		$date
+	 * @return	integer
 	 */
 	private function getNextWeekDay($date) {
 		$weekDays	= $this->getWeekDayIndexes();
@@ -1119,8 +1119,8 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	/**
 	 * Get next date which is a working day in week
 	 *
-	 * @param	Integer		$date
-	 * @return	Integer
+	 * @param	integer		$date
+	 * @return	integer
 	 */
 	private function getNextWorkingDay($date) {
 		$weekEndDays	= TodoyuTime::getWeekEndDayIndexes();
@@ -1142,10 +1142,10 @@ class TodoyuCalendarEventSeries extends TodoyuBaseObject {
 	 * Create events which are based on this series and the base event
 	 * Starting from start date
 	 *
-	 * @param	Integer		$idBaseEvent
-	 * @param	Integer		$dateStart
-	 * @param	Boolean		$includeStartDate
-	 * @return	Integer[]
+	 * @param	integer		$idBaseEvent
+	 * @param	integer		$dateStart
+	 * @param	boolean		$includeStartDate
+	 * @return	integer[]
 	 */
 	public function createEvents($idBaseEvent, $dateStart, $includeStartDate = false) {
 		$idBaseEvent		= intval($idBaseEvent);

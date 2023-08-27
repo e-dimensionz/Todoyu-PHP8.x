@@ -43,7 +43,7 @@ class TodoyuTimetrackingHeadletTracking extends TodoyuHeadletTypeOverlay {
 	/**
 	 * Render content for overlay box
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderOverlayContent() {
 		if( TodoyuTimetracking::isTrackingActive() ) {
@@ -58,7 +58,7 @@ class TodoyuTimetrackingHeadletTracking extends TodoyuHeadletTypeOverlay {
 	/**
 	 * Render overlay content for active timetracking
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	private function renderOverlayContentActive() {
 		$task			= TodoyuTimetracking::getTask();
@@ -89,7 +89,7 @@ class TodoyuTimetrackingHeadletTracking extends TodoyuHeadletTypeOverlay {
 	/**
 	 * Render overlay content for inactive timetracking
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	private function renderOverlayContentInactive() {
 		$tmpl	= 'ext/timetracking/view/headlet-timetracking-inactive.tmpl';
@@ -163,7 +163,7 @@ class TodoyuTimetrackingHeadletTracking extends TodoyuHeadletTypeOverlay {
 	/**
 	 * Get healet label
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLabel() {
 		return Todoyu::Label('timetracking.ext.headlet.label');

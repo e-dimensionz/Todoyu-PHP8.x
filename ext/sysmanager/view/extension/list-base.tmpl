@@ -21,8 +21,8 @@
 			<col class="doc" />
 		</colgroup>
 
-		{include file="list-header.tmpl"}
-		{foreach $extensions extKey extInfo}
+		{include file="ext/sysmanager/view/extension/list-header.tmpl"}
+		{foreach $extensions as $extKey=>$extInfo}
 			{if $extInfo}
 				{$extTitle = cat($extKey '.ext.ext.title')}
 			{else}
@@ -30,9 +30,9 @@
 			{/if}
 			{$extTitle = Label($extTitle)}
 			<tr class="{cycle values="odd,even"} {$extKey}{if !$extInfo} missing{/if}">
-				<td class="icon"><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')">{extIcon $extKey}</a></td>
+				<td class="icon"><a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.showTab('{$extKey}', 'info')">{extIcon extKey=$extKey}</a></td>
 				<td class="extkey" title="{$extKey}"><div class="overflow">{$extKey}</div></td>
-				<td class="title"><div class="overflow">{htmlencode $extTitle}</div></td>
+				<td class="title"><div class="overflow">{$extTitle|escape}</div></td>
 
 				{block name="edit"}
 					This part is replaced by the edit block
@@ -41,22 +41,22 @@
 				<td class="version">{$extInfo.version}</td>
 				<td class="state">
 					{if $extInfo}
-						{ExtensionStatusIcon $extInfo.state}
+						{ExtensionStatusIcon state=$extInfo.state}
 					{/if}
 				</td>
-				{restrict 'sysmanager' 'extensions:download'}
+				{restrict ext='sysmanager' right='extensions:download'}
 					<td class="download">
 						{if $extInfo}
-						<a title="{Label sysmanager.extension.download}" class="icon download" href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.download('{$extKey}')">
-							<span class="hidden">{Label core.file.download}</span>
+						<a title="{Label text='sysmanager.extension.download'}" class="icon download" href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Extensions.download('{$extKey}')">
+							<span class="hidden">{Label text='core.file.download'}</span>
 						</a>
 						{/if}
 					</td>
 				{/restrict}
 				<td class="doc">
 					{if $extInfo}
-					<a title="{Label sysmanager.extension.documentation}" class="icon doc" href="{$extInfo.urlDocumentation}" target="_blank">
-						<span class="hidden">{Label sysmanager.extension.documentation}</span>
+					<a title="{Label text='sysmanager.extension.documentation'}" class="icon doc" href="{$extInfo.urlDocumentation}" target="_blank">
+						<span class="hidden">{Label text='sysmanager.extension.documentation'}</span>
 					</a>
 					{/if}
 				</td>

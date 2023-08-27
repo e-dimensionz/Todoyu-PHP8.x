@@ -29,8 +29,8 @@ class TodoyuSysmanagerExtRecordRenderer {
 	/**
 	 * Render extension record module
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderModule(array $params) {
 		$ext		= trim($params['extkey']);
@@ -49,10 +49,10 @@ class TodoyuSysmanagerExtRecordRenderer {
 	 * Render extension records tabs
 	 * They are composed dynamically, depending on current listing
 	 *
-	 * @param	String		$ext
-	 * @param	String		$type
-	 * @param	Integer		$idRecord
-	 * @return	String
+	 * @param	string		$ext
+	 * @param	string		$type
+	 * @param	integer		$idRecord
+	 * @return	string
 	 */
 	private static function renderTabs($ext, $type, $idRecord) {
 		$name		= 'records';
@@ -81,10 +81,10 @@ class TodoyuSysmanagerExtRecordRenderer {
 	 * - List records of a type
 	 * - Edit a record
 	 *
-	 * @param	String		$ext
-	 * @param	String		$type
-	 * @param	Integer		$idRecord
-	 * @return	String
+	 * @param	string		$ext
+	 * @param	string		$type
+	 * @param	integer		$idRecord
+	 * @return	string
 	 */
 	private static function renderBody($ext, $type, $idRecord) {
 		if( $idRecord !== 0 ) {
@@ -117,7 +117,7 @@ class TodoyuSysmanagerExtRecordRenderer {
 	/**
 	 * Render listing of all record types
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	private static function renderBodyAll() {
 		$recordsList	= TodoyuSysmanagerExtRecordManager::getAllRecordsList();
@@ -135,8 +135,8 @@ class TodoyuSysmanagerExtRecordRenderer {
 	/**
 	 * Render listing of extension record types
 	 *
-	 * @param	String		$ext
-	 * @return	String
+	 * @param	string		$ext
+	 * @return	string
 	 */
 	private static function renderBodyExtension($ext) {
 		$tmpl	= 'ext/sysmanager/view/records/extension.tmpl';
@@ -164,9 +164,9 @@ class TodoyuSysmanagerExtRecordRenderer {
 	/**
 	 * Render listing of given record type
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$recordType
-	 * @return	String
+	 * @param	string		$extKey
+	 * @param	string		$recordType
+	 * @return	string
 	 */
 	private static function renderBodyType($extKey, $recordType) {
 		$typeConfig = TodoyuSysmanagerExtManager::getRecordConfig($extKey, $recordType);
@@ -193,10 +193,10 @@ class TodoyuSysmanagerExtRecordRenderer {
 	/**
 	 * Render edit form for a record
 	 *
-	 * @param	String		$ext
-	 * @param	String		$type
-	 * @param	Integer		$idRecord
-	 * @return	String
+	 * @param	string		$ext
+	 * @param	string		$type
+	 * @param	integer		$idRecord
+	 * @return	string
 	 */
 	private static function renderBodyRecord($ext, $type, $idRecord) {
 		$form	= TodoyuSysmanagerExtRecordManager::getRecordForm($ext, $type, $idRecord);

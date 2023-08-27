@@ -36,7 +36,7 @@ class TodoyuTokenManager {
 	/**
 	 * Token Getter
 	 *
-	 * @param	Integer			$idToken
+	 * @param	integer			$idToken
 	 * @return	TodoyuToken
 	 */
 	public static function getToken($idToken) {
@@ -50,10 +50,10 @@ class TodoyuTokenManager {
 	/**
 	 * Get ID of token of given extension, type and owner person
 	 *
-	 * @param	Integer		$extID
-	 * @param	Integer		$idTokenType
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$extID
+	 * @param	integer		$idTokenType
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	public static function getTokenIdByPerson($extID, $idTokenType, $idPerson = 0) {
 		$extID			= (int) $extID;
@@ -75,9 +75,9 @@ class TodoyuTokenManager {
 	/**
 	 * Get token of given extension and type by owner's person ID
 	 *
-	 * @param	Integer		$extID
-	 * @param	Integer		$idTokenType
-	 * @param	Integer		$idPerson
+	 * @param	integer		$extID
+	 * @param	integer		$idTokenType
+	 * @param	integer		$idPerson
 	 * @return	TodoyuToken|Boolean
 	 */
 	public static function getTokenByPerson($extID, $idTokenType, $idPerson = 0) {
@@ -95,7 +95,7 @@ class TodoyuTokenManager {
 	/**
 	 * Get token with given hash
 	 *
-	 * @param	String		$hash
+	 * @param	string		$hash
 	 * @return	TodoyuToken|Boolean
 	 */
 	public static function getTokenByHash($hash) {
@@ -113,11 +113,11 @@ class TodoyuTokenManager {
 	/**
 	 * Generate new token hash
 	 *
-	 * @param	Integer		$extID
-	 * @param	Integer		$idTokenType
-	 * @param	Integer		$idPerson
-	 * @param	Boolean		$storeInSession
-	 * @return	String							Hash
+	 * @param	integer		$extID
+	 * @param	integer		$idTokenType
+	 * @param	integer		$idPerson
+	 * @param	boolean		$storeInSession
+	 * @return	string							Hash
 	 */
 	public static function generateHash($extID, $idTokenType, $idPerson = 0, $storeInSession = false) {
 		$extID			= (int) $extID;
@@ -148,8 +148,8 @@ class TodoyuTokenManager {
 	/**
 	 * Check given hash to (not) exist already
 	 *
-	 * @param	String	$hash
-	 * @return	Boolean
+	 * @param	string	$hash
+	 * @return	boolean
 	 */
 	public static function isUnusedHash($hash) {
 		$token	= self::getTokenByHash($hash);
@@ -162,10 +162,10 @@ class TodoyuTokenManager {
 	/**
 	 * Store hash of given extension and type in session
 	 *
-	 * @param	Integer		$idTokenType
-	 * @param	Integer		$extID
-	 * @param	String		$hash
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idTokenType
+	 * @param	integer		$extID
+	 * @param	string		$hash
+	 * @param	integer		$idPerson
 	 */
 	public static function storeHashInSession($extID, $idTokenType, $hash, $idPerson = 0) {
 		$idTokenType= (int) $idTokenType;
@@ -181,10 +181,10 @@ class TodoyuTokenManager {
 	/**
 	 * Get path to token hash value in session
 	 *
-	 * @param	Integer		$extID
-	 * @param	Integer		$idTokenType
-	 * @param	Integer		$idPerson
-	 * @return	String
+	 * @param	integer		$extID
+	 * @param	integer		$idTokenType
+	 * @param	integer		$idPerson
+	 * @return	string
 	 */
 	public static function getTokenHashSessionPath($extID, $idTokenType, $idPerson = 0) {
 		$extID		= (int) $extID;
@@ -199,10 +199,10 @@ class TodoyuTokenManager {
 	/**
 	 * Get hash of given extension, type and owner from session
 	 *
-	 * @param	Integer		$extID
-	 * @param	Integer		$idTokenType
-	 * @param	Integer		$idPerson
-	 * @return	String
+	 * @param	integer		$extID
+	 * @param	integer		$idTokenType
+	 * @param	integer		$idPerson
+	 * @return	string
 	 */
 	public static function getHashFromSession($extID, $idTokenType, $idPerson = 0) {
 		$idTokenType= (int) $idTokenType;
@@ -217,8 +217,8 @@ class TodoyuTokenManager {
 	/**
 	 * Store token to database, hash value is taken from session
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Integer		$extID
+	 * @param	integer		$idPerson
+	 * @param	integer		$extID
 	 * @param	$idTokenType
 	 */
 	public static function saveTokenFromSession($extID, $idTokenType, $idPerson = 0) {
@@ -244,8 +244,8 @@ class TodoyuTokenManager {
 	/**
 	 * Save token to DB (new or update)
 	 *
-	 * @param	Array	$data
-	 * @return	Integer			ID of token record
+	 * @param	array	$data
+	 * @return	integer			ID of token record
 	 */
 	public static function saveToken(array $data) {
 		$idToken	= (int) $data['id'];
@@ -267,8 +267,8 @@ class TodoyuTokenManager {
 	/**
 	 * Add new token record to DB
 	 *
-	 * @param	Array		$data
-	 * @return	Integer				Token record ID
+	 * @param	array		$data
+	 * @return	integer				Token record ID
 	 */
 	public static function addToken(array $data = array()) {
 		$data['date_create']		= NOW;
@@ -282,9 +282,9 @@ class TodoyuTokenManager {
 	/**
 	 * Update token
 	 *
-	 * @param	Integer		$idToken
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idToken
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function updateToken($idToken, array $data) {
 		$idToken	= (int) $idToken;
@@ -300,7 +300,7 @@ class TodoyuTokenManager {
 	 * Remove token from cache (only necessary if the token has been loaded from database
 	 * and updated after in the same request and needs to be loaded again)
 	 *
-	 * @param	Integer		$idToken
+	 * @param	integer		$idToken
 	 */
 	public static function removeTokenFromCache($idToken) {
 		$idToken	= (int) $idToken;
@@ -314,7 +314,7 @@ class TodoyuTokenManager {
 	/**
 	 * Get hash of token that was received with request
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function geTokenHashValueFromRequest() {
 		return TodoyuRequest::getParam('token');
@@ -325,7 +325,7 @@ class TodoyuTokenManager {
 	/**
 	 * Check whether token has been received with request
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function hasRequestToken() {
 		$hash	= self::geTokenHashValueFromRequest();
@@ -338,11 +338,11 @@ class TodoyuTokenManager {
 	/**
 	 * Get todoyu sharing URL for accessing public token of given specs
 	 *
-	 * @param	Integer		$extID
-	 * @param	Integer		$idTokenType
-	 * @param	Boolean		$asDownload
-	 * @param	Integer		$idPerson
-	 * @return	String|Boolean
+	 * @param	integer		$extID
+	 * @param	integer		$idTokenType
+	 * @param	boolean		$asDownload
+	 * @param	integer		$idPerson
+	 * @return	string|Boolean
 	 */
 	public static function getTokenURL($extID, $idTokenType, $asDownload = false, $idPerson = 0) {
 		$extID			= (int) $extID;
@@ -369,10 +369,10 @@ class TodoyuTokenManager {
 	/**
 	 * Check whether a token of the given specs is stored already
 	 *
-	 * @param	Integer		$extID
-	 * @param	Integer		$idTokenType
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$extID
+	 * @param	integer		$idTokenType
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function isTokenStored($extID, $idTokenType, $idPerson = 0) {
 		$extID			= (int) $extID;

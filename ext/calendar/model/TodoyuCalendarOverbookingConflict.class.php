@@ -56,7 +56,7 @@ class TodoyuCalendarOverbookingConflict {
 	/**
 	 * Get event ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getEventID() {
 		return $this->idEvent;
@@ -67,7 +67,7 @@ class TodoyuCalendarOverbookingConflict {
 	/**
 	 * Get person ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getPersonID() {
 		return $this->idPerson;
@@ -100,8 +100,8 @@ class TodoyuCalendarOverbookingConflict {
 	/**
 	 * Get warning message for conflict
 	 *
-	 * @param	Boolean		$fullRangeDate
-	 * @return	String
+	 * @param	boolean		$fullRangeDate
+	 * @return	string
 	 */
 	public function getWarningMessage($fullRangeDate = false) {
 		$range	= $this->getEvent()->getRange();

@@ -29,7 +29,7 @@ class TodoyuSearchFilterCondition extends TodoyuBaseObject {
 	/**
 	 * Initialize filter condition
 	 *
-	 * @param	Integer		$idCondition
+	 * @param	integer		$idCondition
 	 */
 	public function __construct($idCondition) {
 		parent::__construct($idCondition, 'ext_search_filtercondition');

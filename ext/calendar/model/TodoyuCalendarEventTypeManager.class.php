@@ -29,9 +29,9 @@ class TodoyuCalendarEventTypeManager {
 	/**
 	 * Add a new event type
 	 *
-	 * @param	Integer		$index
-	 * @param	String		$key
-	 * @param	String		$label
+	 * @param	integer		$index
+	 * @param	string		$key
+	 * @param	string		$label
 	 */
 	public static function addEventType($index, $key, $label) {
 		$index	= intval($index);
@@ -48,8 +48,8 @@ class TodoyuCalendarEventTypeManager {
 	/**
 	 * Get event type data
 	 *
-	 * @param	String		$index
-	 * @param	Boolean		$parseLabel
+	 * @param	string		$index
+	 * @param	boolean		$parseLabel
 	 * @return	Array
 	 */
 	public static function getEventType($index, $parseLabel = false) {
@@ -67,9 +67,9 @@ class TodoyuCalendarEventTypeManager {
 	/**
 	 * Get label of the event type
 	 *
-	 * @param	Integer		$index
-	 * @param	Boolean		$parsed
-	 * @return	String
+	 * @param	integer		$index
+	 * @param	boolean		$parsed
+	 * @return	string
 	 */
 	public static function getEventTypeLabel($index, $parsed = true) {
 		$eventType	= self::getEventType($index);
@@ -87,8 +87,8 @@ class TodoyuCalendarEventTypeManager {
 	/**
 	 * Get the key of an event type
 	 *
-	 * @param	Integer		$index
-	 * @return	String
+	 * @param	integer		$index
+	 * @return	string
 	 */
 	public static function getTypeKey($index) {
 		$eventType	= self::getEventType($index);
@@ -101,7 +101,7 @@ class TodoyuCalendarEventTypeManager {
 	/**
 	 * Get all event types
 	 *
-	 * @param	Boolean		$parseLabels
+	 * @param	boolean		$parseLabels
 	 * @return	Array
 	 */
 	public static function getEventTypes($parseLabels = false) {
@@ -138,7 +138,7 @@ class TodoyuCalendarEventTypeManager {
 	/**
 	 * Get event types which are allowed to be overbooked
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public static function getOverbookableTypeIndexes() {
 			// Is overbooking allowed for ALL event types?
@@ -154,8 +154,8 @@ class TodoyuCalendarEventTypeManager {
 	/**
 	 * Check whether (all or) the given event type is overbookable
 	 *
-	 * @param	Integer		$eventType
-	 * @return	Boolean
+	 * @param	integer		$eventType
+	 * @return	boolean
 	 */
 	public static function isOverbookable($eventType, $isDayEvent = false) {
 			// Overbooking is generally allowed?
@@ -203,7 +203,7 @@ class TodoyuCalendarEventTypeManager {
 	/**
 	 * Get all event type indexes (numerical)
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public static function getEventTypeIndexes() {
 		$eventTypes	= self::getEventTypes(false);
@@ -216,7 +216,7 @@ class TodoyuCalendarEventTypeManager {
 	/**
 	 * Get event type keys (textual)
 	 *
-	 * @return	String[]
+	 * @return	string[]
 	 */
 	public static function getEventTypeKeys() {
 		$eventTypes	= self::getEventTypes(false);

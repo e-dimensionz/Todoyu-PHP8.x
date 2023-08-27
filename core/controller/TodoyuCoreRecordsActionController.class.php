@@ -30,7 +30,7 @@ class TodoyuCoreRecordsActionController extends TodoyuActionController {
 	/**
 	 * Get json encoded list of matching records
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function listAction(array $params) {
 		$type			= trim($params['type']);

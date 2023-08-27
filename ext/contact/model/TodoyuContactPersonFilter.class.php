@@ -38,9 +38,9 @@ class TodoyuContactPersonFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Init filter object
 	 *
-	 * @param	Array		$activeFilters
-	 * @param	String		$conjunction
-	 * @param	Array		$sorting
+	 * @param	array		$activeFilters
+	 * @param	string		$conjunction
+	 * @param	array		$sorting
 	 */
 	public function __construct(array $activeFilters = array(), $conjunction = 'AND', array $sorting = array()) {
 		parent::__construct('PERSON', self::TABLE, $activeFilters, $conjunction, $sorting);
@@ -51,8 +51,8 @@ class TodoyuContactPersonFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Get person IDs which match to the given filters
 	 *
-	 * @param	Integer		$limit		Limit of results
-	 * @return	Integer[]
+	 * @param	integer		$limit		Limit of results
+	 * @return	integer[]
 	 */
 	public function getPersonIDs($limit = 100) {
 		$sortingFallback	= self::TABLE . '.lastname, ' . self::TABLE . '.firstname';
@@ -66,8 +66,8 @@ class TodoyuContactPersonFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Full-text filter for all textual person data
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_Fulltext($value, $negate = false) {
@@ -96,8 +96,8 @@ class TodoyuContactPersonFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Get filter for name (firstname, lastname, shortname)
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_Name($value, $negate = false) {
@@ -124,8 +124,8 @@ class TodoyuContactPersonFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Get filter for company
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_Company($value, $negate = false) {
@@ -153,8 +153,8 @@ class TodoyuContactPersonFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Get filter config to search for persons name attributes and its company name
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_NameAndCompany($value, $negate = false) {
@@ -195,7 +195,7 @@ class TodoyuContactPersonFilter extends TodoyuSearchFilterBase {
 	 * Persons which are employee in an internal company
 	 *
 	 * @param	Mixed		$value
-	 * @param	Boolean		$negate
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_isInternal($value, $negate = false) {
@@ -226,7 +226,7 @@ class TodoyuContactPersonFilter extends TodoyuSearchFilterBase {
 	 * Filter person salutation
 	 *
 	 * @param	Mixed		$value
-	 * @param	Boolean		$negate
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_salutation($value, $negate = false) {
@@ -249,7 +249,7 @@ class TodoyuContactPersonFilter extends TodoyuSearchFilterBase {
 	 * Filter contact information fulltext
 	 *
 	 * @param	Mixed		$value
-	 * @param	Boolean		$negate
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_contactinformation($value, $negate = false) {
@@ -275,8 +275,8 @@ class TodoyuContactPersonFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Filter by system_role
 	 *
-	 * @param	Array		$roles
-	 * @param	Boolean		$negate
+	 * @param	array		$roles
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_systemrole($roles, $negate = false) {
@@ -301,8 +301,8 @@ class TodoyuContactPersonFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Filter by jobtype
 	 *
-	 * @param	Array		$idJobtype
-	 * @param	Boolean		$negate
+	 * @param	array		$idJobtype
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_jobtype($idJobtype, $negate = false) {
@@ -328,8 +328,8 @@ class TodoyuContactPersonFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Filter by country of address
 	 *
-	 * @param	Array		$idCountry
-	 * @param	Boolean		$negate
+	 * @param	array		$idCountry
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_country($idCountry, $negate = false) {
@@ -361,8 +361,8 @@ class TodoyuContactPersonFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Get filter for street of address
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_street($value, $negate = false) {
@@ -393,8 +393,8 @@ class TodoyuContactPersonFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Get filter for zip of address
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_zip($value, $negate = false) {
@@ -425,8 +425,8 @@ class TodoyuContactPersonFilter extends TodoyuSearchFilterBase {
 	/**
 	 * Filter by city of address
 	 *
-	 * @param	Array		$city
-	 * @param	Boolean		$negate
+	 * @param	array		$city
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_city($city, $negate = false) {

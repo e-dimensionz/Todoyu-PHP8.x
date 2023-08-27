@@ -71,7 +71,7 @@ class TodoyuCacheManager {
 	/**
 	 * Clear a specific cache folter (all its content)
 	 *
-	 * @param	String		$cacheFolder		Relative path to filter from cache directory
+	 * @param	string		$cacheFolder		Relative path to filter from cache directory
 	 */
 	private static function clearCacheFolder($cacheFolder) {
 		$pathToFolder	= TodoyuFileManager::pathAbsolute(PATH_CACHE . '/' . $cacheFolder);

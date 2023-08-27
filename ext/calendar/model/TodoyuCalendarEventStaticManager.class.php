@@ -35,9 +35,9 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Get event form
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Array		$formData
-	 * @param	Array		$params
+	 * @param	integer		$idEvent
+	 * @param	array		$formData
+	 * @param	array		$params
 	 * @return	TodoyuForm
 	 */
 	public static function getEventForm($idEvent, array $formData = array(), array $params = array()) {
@@ -61,7 +61,7 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Get form object form quick create
 	 *
-	 * @param	Integer		$idEvent
+	 * @param	integer		$idEvent
 	 * @return	TodoyuForm
 	 */
 	public static function getQuickCreateForm($idEvent = 0) {
@@ -95,7 +95,7 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Get event object
 	 *
-	 * @param	Integer		$idEvent
+	 * @param	integer		$idEvent
 	 * @return	TodoyuCalendarEventStatic
 	 */
 	public static function getEvent($idEvent) {
@@ -109,9 +109,9 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Get full label of event
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Boolean		$withType
-	 * @return	String
+	 * @param	integer		$idEvent
+	 * @param	boolean		$withType
+	 * @return	string
 	 */
 	public static function getEventFullLabel($idEvent, $withType = true) {
 		return self::getEvent($idEvent)->getFullLabelHTML($withType);
@@ -122,7 +122,7 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Get event record from database
 	 *
-	 * @param	Integer		$idEvent
+	 * @param	integer		$idEvent
 	 * @return	Array
 	 */
 	public static function getEventRecord($idEvent) {
@@ -136,12 +136,12 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Get all events within given timestamps
 	 *
-	 * @param	Integer		$dateStart		timestamp at beginning of timespan
-	 * @param	Integer		$dateEnd		timestamp at end of timespan	(optionally 0, will be set to 5 years after today than)
-	 * @param	Array		$persons
-	 * @param	Array		$eventTypes
+	 * @param	integer		$dateStart		timestamp at beginning of timespan
+	 * @param	integer		$dateEnd		timestamp at end of timespan	(optionally 0, will be set to 5 years after today than)
+	 * @param	array		$persons
+	 * @param	array		$eventTypes
 	 * @param	Mixed		$dayEvents				null = both types, true = only full-day events, false = only non full-day events
-	 * @param	String		$indexField
+	 * @param	string		$indexField
 	 * @return	Array
 	 */
 	public static function getEventsInTimespan($dateStart, $dateEnd, array $persons = array(), array $eventTypes = array(), $dayEvents = null, $indexField = 'id') {
@@ -198,9 +198,9 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Get all persons assigned to an event
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Boolean		$getPersonData		Get also person data?
-	 * @param	Boolean		$getRemindersData	Get also persons reminders data?
+	 * @param	integer		$idEvent
+	 * @param	boolean		$getPersonData		Get also person data?
+	 * @param	boolean		$getRemindersData	Get also persons reminders data?
 	 * @return	Array
 	 */
 	public static function getAssignedPersonsOfEvent($idEvent, $getPersonData = false, $getRemindersData = false) {
@@ -232,7 +232,7 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Get all persons assigned to given array of events
 	 *
-	 * @param	Array $eventIDs
+	 * @param	array $eventIDs
 	 * @return	Array
 	 */
 	public static function getAssignedPersonsOfEvents(array $eventIDs) {
@@ -258,8 +258,8 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Get details of persons which could receive an event email
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Boolean		$getPersonsDetails		(false: get only ID and email)
+	 * @param	integer		$idEvent
+	 * @param	boolean		$getPersonsDetails		(false: get only ID and email)
 	 * @return	Array
 	 */
 	public static function getEmailReceivers($idEvent, $getPersonsDetails = true) {
@@ -289,10 +289,10 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Check for conflicts with other events (of non-overbookable type) for the assigned persons if overbooking is not allowed
 	 *
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd
-	 * @param	Array		$personIDs
-	 * @param	Integer		$idEvent
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd
+	 * @param	array		$personIDs
+	 * @param	integer		$idEvent
 	 * @return	Array		empty if no conflicts, information if conflicted
 	 */
 	public static function getOverbookingInfos($dateStart, $dateEnd, array $personIDs, $idEvent = 0) {
@@ -345,8 +345,8 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Delete event
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @return	boolean
 	 */
 	public static function deleteEvent($idEvent) {
 		$idEvent	= intval($idEvent);
@@ -363,8 +363,8 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Save a new event
 	 *
-	 * @param	Array	$data		event data
-	 * @return	Integer				ID of event
+	 * @param	array	$data		event data
+	 * @return	integer				ID of event
 	 */
 	public static function saveEvent(array $data) {
 		$xmlPath= 'ext/calendar/config/form/event.xml';
@@ -428,7 +428,7 @@ class TodoyuCalendarEventStaticManager {
 	 * Extract series data
 	 * Return series data and remove it from event data
 	 *
-	 * @param	Array	$eventData
+	 * @param	array	$eventData
 	 * @return	Array
 	 */
 	private static function extractSeriesData(array &$eventData) {
@@ -476,8 +476,8 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Add an event to database. Add date_create and id_person_create values
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function addEvent(array $data = array()) {
 		$idEvent	= TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -492,8 +492,8 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Update an event in the database
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Array		$data
+	 * @param	integer		$idEvent
+	 * @param	array		$data
 	 */
 	public static function updateEvent($idEvent, array $data) {
 		TodoyuRecordManager::updateRecord(self::TABLE, $idEvent, $data);
@@ -508,10 +508,10 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Move an event to a new start date
 	 *
-	 * @param	Integer				$idEvent
-	 * @param	Integer				$newStartDate
-	 * @param	String				$mode
-	 * @param	Boolean|Array		$overbookingConfirmed	True or array of overbooking infos
+	 * @param	integer				$idEvent
+	 * @param	integer				$newStartDate
+	 * @param	string				$mode
+	 * @param	boolean|Array		$overbookingConfirmed	True or array of overbooking infos
 	 * @return	Array|Boolean
 	 */
 	public static function moveEvent($idEvent, $newStartDate, $mode, $overbookingConfirmed = false) {
@@ -563,10 +563,10 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Collect overbooking errors of affected persons
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd
-	 * @return	String[]|Boolean
+	 * @param	integer		$idEvent
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd
+	 * @return	string[]|Boolean
 	 */
 	public static function getOverbookedPersonsErrors($idEvent, $dateStart, $dateEnd) {
 		$idEvent	= intval($idEvent);
@@ -592,9 +592,9 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Assign multiple persons to an event
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Array		$personIDs
-	 * @param	Integer		$dateStartOld
+	 * @param	integer		$idEvent
+	 * @param	array		$personIDs
+	 * @param	integer		$dateStartOld
 	 */
 	public static function saveAssignments($idEvent, array $personIDs, $dateStartOld = 0) {
 		$idEvent			= intval($idEvent);
@@ -625,8 +625,8 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Assign person to the event
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
 	 */
 	private static function addAssignment($idEvent, $idPerson) {
 		$idEvent		= intval($idEvent);
@@ -661,9 +661,9 @@ class TodoyuCalendarEventStaticManager {
 	 * Update assignment for a person
 	 * Update reminders if set
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
-	 * @param	Integer		$dateStartOld
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
+	 * @param	integer		$dateStartOld
 	 */
 	public static function updateAssignment($idEvent, $idPerson, $dateStartOld) {
 		$event		= self::getEvent($idEvent);
@@ -689,10 +689,10 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Update reminders in assignment for current person
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$advanceTimeEmail		Reminder time before event start for email
-	 * @param	Integer		$advanceTimePopup		Reminder time before event start for popup
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idEvent
+	 * @param	integer		$advanceTimeEmail		Reminder time before event start for email
+	 * @param	integer		$advanceTimePopup		Reminder time before event start for popup
+	 * @param	integer		$idPerson
 	 */
 	public static function updateAssignmentRemindersForPerson($idEvent, $advanceTimeEmail, $advanceTimePopup, $idPerson = 0) {
 		$idEvent			= intval($idEvent);
@@ -716,9 +716,9 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Check whether person is assigned
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function isPersonAssigned($idEvent, $idPerson) {
 		$idEvent	= intval($idEvent);
@@ -733,7 +733,7 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Remove event from cache
 	 *
-	 * @param	Integer	$idEvent
+	 * @param	integer	$idEvent
 	 */
 	public static function removeEventFromCache($idEvent) {
 		$idEvent	= intval($idEvent);
@@ -747,8 +747,8 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Set given event acknowledged by given person
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
 	 */
 	public static function acknowledgeEvent($idEvent, $idPerson = 0) {
 		$idEvent	= intval($idEvent);
@@ -772,7 +772,7 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Create new event object with default data
 	 *
-	 * @param	Integer	$timestamp
+	 * @param	integer	$timestamp
 	 */
 	public static function createNewEventWithDefaultsInCache($timestamp) {
 		$timestamp	= intval($timestamp);
@@ -789,7 +789,7 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Create event default data
 	 *
-	 * @param	Integer		$timestamp
+	 * @param	integer		$timestamp
 	 * @return	Array
 	 */
 	protected static function getEventDefaultData($timestamp) {
@@ -821,8 +821,8 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Add default context menu item for event
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Array		$items
+	 * @param	integer		$idEvent
+	 * @param	array		$items
 	 * @return	Array
 	 */
 	public static function getContextMenuItems($idEvent, array $items) {
@@ -859,8 +859,8 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Get event context menu items for display in portal
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Array		$items
+	 * @param	integer		$idEvent
+	 * @param	array		$items
 	 * @return	Array
 	 */
 	public static function getContextMenuItemsPortal($idEvent, array $items) {
@@ -896,8 +896,8 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Hook when saving event data. Modify data looking at the event type
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idEvent
+	 * @param	array		$data
+	 * @param	integer		$idEvent
 	 * @return	Array
 	 */
 	public static function hookSaveEvent(array $data, $idEvent) {
@@ -934,9 +934,9 @@ class TodoyuCalendarEventStaticManager {
 	 * Check if user has access to view or edit tab
 	 * If not, change tab to "day"
 	 *
-	 * @param	String		$tab
-	 * @param	Integer		$idEvent
-	 * @return	String		Allowed tab
+	 * @param	string		$tab
+	 * @param	integer		$idEvent
+	 * @return	string		Allowed tab
 	 */
 	public static function checkTabAccess($tab, $idEvent) {
 		$tab	= trim($tab);
@@ -960,12 +960,12 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Check event for overbookings (regardless whether allowed) and render warning message content if any found
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Array		$formData
-	 * @param	Boolean		$forPopup			For popup or annotation inside the form?
-	 * @param	Boolean		$convertDates		Dates (start/end) needed to be parsed from string, or are timestamps already?
-	 * @param	Boolean		$isDragAndDrop
-	 * @return	String
+	 * @param	integer		$idEvent
+	 * @param	array		$formData
+	 * @param	boolean		$forPopup			For popup or annotation inside the form?
+	 * @param	boolean		$convertDates		Dates (start/end) needed to be parsed from string, or are timestamps already?
+	 * @param	boolean		$isDragAndDrop
+	 * @return	string
 	 */
 	public static function getOverbookingWarning($idEvent, array $formData, $forPopup = true, $convertDates = true, $isDragAndDrop = false) {
 		$idEvent	= intval($idEvent);
@@ -1011,9 +1011,9 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Check overbooking warning for dragged & dropped event
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$dateStart
-	 * @return	String
+	 * @param	integer		$idEvent
+	 * @param	integer		$dateStart
+	 * @return	string
 	 */
 	public static function getOverbookingWarningAfterDrop($idEvent, $dateStart) {
 		$idEvent	= intval($idEvent);
@@ -1059,7 +1059,7 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Get color data for event item via assigned person, if there are multiple/no persons assigned it's colored neutral
 	 *
-	 * @param	Integer		$idEvent
+	 * @param	integer		$idEvent
 	 * @return	Array
 	 */
 	public static function getEventColorData($idEvent) {
@@ -1085,8 +1085,8 @@ class TodoyuCalendarEventStaticManager {
 	/**
 	 * Check for warnings (overbookings) to be shown prior to saving
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Array		$params
+	 * @param	integer		$idEvent
+	 * @param	array		$params
 	 * @return	Array
 	 */
 	public static function getOverbookingWarningHeaders($idEvent, array $params) {

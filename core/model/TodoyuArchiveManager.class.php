@@ -30,10 +30,10 @@ class TodoyuArchiveManager {
 	/**
 	 * Extract an archive to a folder
 	 *
-	 * @param	String			$pathArchive
-	 * @param	String			$targetFolder
+	 * @param	string			$pathArchive
+	 * @param	string			$targetFolder
 	 * @throws	TodoyuException
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function extractTo($pathArchive, $targetFolder) {
 		if( function_exists('set_time_limit') ) {
@@ -68,9 +68,9 @@ class TodoyuArchiveManager {
 	 * Extract archive on server with PHP 5.2
 	 *
 	 * @throws	TodoyuException
-	 * @param	String		$pathArchive
-	 * @param	String		$targetFolder
-	 * @return	Boolean
+	 * @param	string		$pathArchive
+	 * @param	string		$targetFolder
+	 * @return	boolean
 	 */
 	private static function extractToPhp52($pathArchive, $targetFolder) {
 		self::loadPclZip();
@@ -102,9 +102,9 @@ class TodoyuArchiveManager {
 	 * Extract archive on server with PHP 5.3
 	 *
 	 * @throws	TodoyuException
-	 * @param	String		$pathArchive
-	 * @param	String		$targetFolder
-	 * @return	Boolean
+	 * @param	string		$pathArchive
+	 * @param	string		$targetFolder
+	 * @return	boolean
 	 */
 	private static function extractToPhp53($pathArchive, $targetFolder) {
 		$archive	= new ZipArchive();
@@ -126,9 +126,9 @@ class TodoyuArchiveManager {
 	/**
 	 * Create an archive from a folder
 	 *
-	 * @param	String			$pathFolder
-	 * @param	Array			$exclude
-	 * @return	String
+	 * @param	string			$pathFolder
+	 * @param	array			$exclude
+	 * @return	string
 	 */
 	public static function createArchiveFromFolder($pathFolder, array $exclude = array()) {
 		$pathFolder		= TodoyuFileManager::pathAbsolute($pathFolder);
@@ -160,7 +160,7 @@ class TodoyuArchiveManager {
 	/**
 	 * Create an empty archive
 	 *
-	 * @param	String		$pathArchive
+	 * @param	string		$pathArchive
 	 */
 	private static function createEmptyArchive($pathArchive) {
 		self::loadPclZip();
@@ -175,10 +175,10 @@ class TodoyuArchiveManager {
 	 * Add a folder (and sub elements) to an archive
 	 *
 	 * @param	ZipArchive		&$archive
-	 * @param	String			$pathToFolder		Path to folder which elements should be added
-	 * @param	String			$baseFolder			Base folder defined to root for the archive. Base path will be removed from internal archive path
-	 * @param	Boolean			$recursive			Add also all sub folders and files
-	 * @param	Array			$exclude
+	 * @param	string			$pathToFolder		Path to folder which elements should be added
+	 * @param	string			$baseFolder			Base folder defined to root for the archive. Base path will be removed from internal archive path
+	 * @param	boolean			$recursive			Add also all sub folders and files
+	 * @param	array			$exclude
 	 */
 	private static function addFolderToArchive(ZipArchive &$archive, $pathToFolder, $baseFolder, $recursive = true, array $exclude = array()) {
 		$files		= TodoyuFileManager::getFilesInFolder($pathToFolder);
@@ -219,8 +219,8 @@ class TodoyuArchiveManager {
 	 * Replace backslash path separators (from windows) with normal slashes
 	 * When you add a file or folder with a backslash in its path, archive will contain random folders
 	 *
-	 * @param	String		$path
-	 * @return	String
+	 * @param	string		$path
+	 * @return	string
 	 */
 	private static function sanitizePath($path) {
 		return str_replace('\\', '/', $path);

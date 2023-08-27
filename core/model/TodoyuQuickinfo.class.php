@@ -53,8 +53,8 @@ class TodoyuQuickinfo {
 	 * Create a new quickinfo object
 	 * Call all registered functions to let them add items
 	 *
-	 * @param	String	$recordType		element type, e.g. 'person'
-	 * @param	String	$element		ID of element item
+	 * @param	string	$recordType		element type, e.g. 'person'
+	 * @param	string	$element		ID of element item
 	 */
 	public function __construct($recordType, $element) {
 		$this->type		= $recordType;
@@ -86,10 +86,10 @@ class TodoyuQuickinfo {
 	/**
 	 * Add new info
 	 *
-	 * @param	String		$key		Identifier and classname
-	 * @param	String		$label		Label text
-	 * @param	Integer		$position
-	 * @param	Boolean		$escape
+	 * @param	string		$key		Identifier and classname
+	 * @param	string		$label		Label text
+	 * @param	integer		$position
+	 * @param	boolean		$escape
 	 */
 	public function addInfo($key, $label, $position = 100, $escape = true, $class = '') {
 		if( $escape ) {
@@ -111,10 +111,10 @@ class TodoyuQuickinfo {
 	 * Add email address as quickinfo
 	 * Shortcut to addInfo
 	 *
-	 * @param	String		$key
-	 * @param	String		$email
-	 * @param	String		$fullName
-	 * @param	Integer		$position
+	 * @param	string		$key
+	 * @param	string		$email
+	 * @param	string		$fullName
+	 * @param	integer		$position
 	 */
 	public function addEmail($key, $email, $fullName = '', $position = 100) {
 		$email	= htmlspecialchars($email);
@@ -134,9 +134,9 @@ class TodoyuQuickinfo {
 	/**
 	 * Add HTML item. Will not be escaped
 	 *
-	 * @param	String		$key
-	 * @param	String		$html
-	 * @param	Integer		$position
+	 * @param	string		$key
+	 * @param	string		$html
+	 * @param	integer		$position
 	 */
 	public function addHTML($key, $html, $position = 100, $class = '') {
 		$this->addInfo($key, $html, $position, false, $class);
@@ -147,7 +147,7 @@ class TodoyuQuickinfo {
 	/**
 	 * Remove an info by key
 	 *
-	 * @param	String		$key
+	 * @param	string		$key
 	 */
 	public function removeInfo($key) {
 		unset($this->elements[$key]);
@@ -169,7 +169,7 @@ class TodoyuQuickinfo {
 	/**
 	 * Get infos encoded as json
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getJSON() {
 		return json_encode($this->getInfos());

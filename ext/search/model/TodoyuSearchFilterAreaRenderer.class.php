@@ -29,11 +29,11 @@ class TodoyuSearchFilterAreaRenderer {
 	/**
 	 * Render whole filter area: contains tabs, control, widget area and search results
 	 *
-	 * @param	String		$activeTab		Active tab/filter type
-	 * @param	Integer		$idFilterset	Active filterset
-	 * @param	Array		$conditions		Custom conditions instead of a stored filterset
-	 * @param	Boolean		$init			Add init script at the bottom of loaded with AJAX
-	 * @return	String
+	 * @param	string		$activeTab		Active tab/filter type
+	 * @param	integer		$idFilterset	Active filterset
+	 * @param	array		$conditions		Custom conditions instead of a stored filterset
+	 * @param	boolean		$init			Add init script at the bottom of loaded with AJAX
+	 * @return	string
 	 */
 	public static function renderFilterArea($activeTab, $idFilterset = 0, array $conditions = array(), $init = true) {
 		$idFilterset= intval($idFilterset);
@@ -89,8 +89,8 @@ class TodoyuSearchFilterAreaRenderer {
 	/**
 	 * Render type tabs. Each filter type has its own tab
 	 *
-	 * @param	String		$activeTab
-	 * @return	String
+	 * @param	string		$activeTab
+	 * @return	string
 	 */
 	public static function renderTypeTabs($activeTab = null) {
 		$tabs	= array();
@@ -124,9 +124,9 @@ class TodoyuSearchFilterAreaRenderer {
 	/**
 	 * Render filter condition controls for a type/tab
 	 *
-	 * @param	String		$tab
-	 * @param	Integer		$idFilterset
-	 * @return	String
+	 * @param	string		$tab
+	 * @param	integer		$idFilterset
+	 * @return	string
 	 */
 	public static function renderControls($tab, $idFilterset = 0) {
 		$idFilterset = intval($idFilterset);
@@ -166,8 +166,8 @@ class TodoyuSearchFilterAreaRenderer {
 	/**
 	 * Render widget
 	 *
-	 * @param	Integer		$idFilterset
-	 * @return	String
+	 * @param	integer		$idFilterset
+	 * @return	string
 	 */
 	public static function renderWidgetArea($idFilterset) {
 		$idFilterset= intval($idFilterset);
@@ -190,12 +190,12 @@ class TodoyuSearchFilterAreaRenderer {
 	/**
 	 * Render search results for search area
 	 *
-	 * @param	String		$type
-	 * @param	Integer		$idFilterset
-	 * @param	Array		$conditions
-	 * @param	String		$conjunction
-	 * @param	Array		$defaultSorting
-	 * @return	String
+	 * @param	string		$type
+	 * @param	integer		$idFilterset
+	 * @param	array		$conditions
+	 * @param	string		$conjunction
+	 * @param	array		$defaultSorting
+	 * @return	string
 	 */
 	public static function renderResults($type = 'TASK', $idFilterset = 0, array $conditions = array(), $conjunction = 'AND', array $defaultSorting = array()) {
 		$idFilterset	= intval($idFilterset);
@@ -248,11 +248,11 @@ class TodoyuSearchFilterAreaRenderer {
 	/**
 	 * Render info text about the number of matching elements in the result
 	 *
-	 * @param	String		$type
-	 * @param	Integer		$numItems
-	 * @param	Integer		$totalItems
-	 * @param	Integer		$hardLimit
-	 * @return	String
+	 * @param	string		$type
+	 * @param	integer		$numItems
+	 * @param	integer		$totalItems
+	 * @param	integer		$hardLimit
+	 * @return	string
 	 */
 	private static function renderResultInfoText($type, $numItems, $totalItems, $hardLimit) {
 		$type		= trim(strtoupper($type));

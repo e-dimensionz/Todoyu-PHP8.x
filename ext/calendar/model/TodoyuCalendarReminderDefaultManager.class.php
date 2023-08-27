@@ -29,7 +29,7 @@ class TodoyuCalendarReminderDefaultManager {
 	/**
 	 * Get default reminder time for email
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getEmailDefaultAdvanceTime() {
 		return self::getDefaultAdvanceTime(CALENDAR_TYPE_EVENTREMINDER_EMAIL);
@@ -40,7 +40,7 @@ class TodoyuCalendarReminderDefaultManager {
 	/**
 	 * Get default reminder time for popup
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getPopupDefaultAdvanceTime() {
 		return self::getDefaultAdvanceTime(CALENDAR_TYPE_EVENTREMINDER_POPUP);
@@ -51,8 +51,8 @@ class TodoyuCalendarReminderDefaultManager {
 	/**
 	 * Get default advance (time before event) reminding time of given reminder type
 	 *
-	 * @param	Integer		$type			Reminder type (constant)
-	 * @return	Integer
+	 * @param	integer		$type			Reminder type (constant)
+	 * @return	integer
 	 */
 	public static function getDefaultAdvanceTime($type) {
 		$type		= intval($type);

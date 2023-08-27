@@ -88,7 +88,7 @@ class TodoyuExportCSV extends TodoyuExportBase {
 	/**
 	 * Preparation for the CSV export
 	 *
-	 * @param	Array	$customConfig
+	 * @param	array	$customConfig
 	 */
 	protected function init(array $customConfig) {
 		$pathTemp	= 'cache/output';
@@ -100,10 +100,10 @@ class TodoyuExportCSV extends TodoyuExportBase {
 
 		$defaultConfig	= Todoyu::$CONFIG['EXPORT']['CSV'];
 
-		$this->delimiter		= $customConfig['delimiter'] ? $customConfig['delimiter'] : ($defaultConfig['delimiter'] ? $defaultConfig['delimiter'] : $this->delimiter);
-		$this->enclosure		= $customConfig['enclosure'] ? $customConfig['enclosure'] : ($defaultConfig['enclosure'] ? $defaultConfig['enclosure'] : $this->enclosure);
-		$this->charset			= $customConfig['charset'] ? $customConfig['charset'] : ($defaultConfig['charset'] ? $defaultConfig['charset'] : $this->charset);
-		$this->useTableHeaders	= $customConfig['useTableHeaders'] ? $customConfig['useTableHeaders'] : ($defaultConfig['useTableHeaders'] ? $defaultConfig['useTableHeaders'] : $this->useTableHeaders);
+		$this->delimiter		= isset($customConfig['delimiter']) && $customConfig['delimiter'] ? $customConfig['delimiter'] : ($defaultConfig['delimiter'] ? $defaultConfig['delimiter'] : $this->delimiter);
+		$this->enclosure		= isset($customConfig['enclosure']) && $customConfig['enclosure'] ? $customConfig['enclosure'] : ($defaultConfig['enclosure'] ? $defaultConfig['enclosure'] : $this->enclosure);
+		$this->charset			= isset($customConfig['charset']) && $customConfig['charset'] ? $customConfig['charset'] : ($defaultConfig['charset'] ? $defaultConfig['charset'] : $this->charset);
+		$this->useTableHeaders	= isset($customConfig['useTableHeaders']) && $customConfig['useTableHeaders'] ? $customConfig['useTableHeaders'] : ($defaultConfig['useTableHeaders'] ? $defaultConfig['useTableHeaders'] : $this->useTableHeaders);
 	}
 
 
@@ -111,7 +111,7 @@ class TodoyuExportCSV extends TodoyuExportBase {
 	/**
 	 * Creates CSV temp file and returns its content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getContent() {
 		$headers = $this->prepareHeaders();
@@ -159,7 +159,7 @@ class TodoyuExportCSV extends TodoyuExportBase {
 			foreach($record as $key => $data) {
 				$newKey = explode('_', $key);
 
-				if( !is_array($colTitles[$newKey[0]]) ) {
+				if( empty($colTitles[$newKey[0]]) || !is_array($colTitles[$newKey[0]]) ) {
 					$colTitles[$newKey[0]] = array();
 				}
 
@@ -175,18 +175,18 @@ class TodoyuExportCSV extends TodoyuExportBase {
 	/**
 	 * Unifies the layout of the record by the given unified headers array
 	 *
-	 * @param	Array	$record
-	 * @param	Array	$headers
+	 * @param	array	$record
+	 * @param	array	$headers
 	 * @return	Array
 	 */
 	private function unifyRecord($record, $headers) {
 		$realRecord = array();
 
-			foreach($headers as $key) {
-				$realRecord[$key] = $record[$key];
-			}
+        foreach($headers as $key) {
+            $realRecord[$key] = $record[$key] ?? '';
+        }
 
-			$record = $realRecord;
+        $record = $realRecord;
 
 		return $record;
 	}
@@ -196,7 +196,7 @@ class TodoyuExportCSV extends TodoyuExportBase {
 	/**
 	 * Sends the file to download
 	 *
-	 * @param	String	$filename
+	 * @param	string	$filename
 	 */
 	public function download($type = '', $filename = '') {
 		parent::download('text/csv', $filename);

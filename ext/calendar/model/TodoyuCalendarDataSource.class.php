@@ -49,9 +49,9 @@ abstract class TodoyuCalendarDataSource {
 	/**
 	 * Initialize data source with config, range and filter
 	 *
-	 * @param	Array			$config
+	 * @param	array			$config
 	 * @param	TodoyuDayRange	$range
-	 * @param	Array			$filters
+	 * @param	array			$filters
 	 */
 	public final function __construct(array $config, TodoyuDayRange $range, array $filters = array()) {
 		$this->config	= $config;
@@ -86,12 +86,12 @@ abstract class TodoyuCalendarDataSource {
 	/**
 	 * Get filter value
 	 *
-	 * @param	String		$name
-	 * @param	Boolean		$asArray
+	 * @param	string		$name
+	 * @param	boolean		$asArray
 	 * @return	Array|Mixed
 	 */
 	public function getFilter($name, $asArray = false) {
-		$filter	= $this->filters[$name];
+		$filter	= $this->filters[$name] ?? [];
 
 		if( $asArray ) {
 			$filter	= TodoyuArray::assure($filter);
@@ -114,7 +114,7 @@ abstract class TodoyuCalendarDataSource {
 	/**
 	 * Get event count
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	abstract public function getEventCount();
 
@@ -123,7 +123,7 @@ abstract class TodoyuCalendarDataSource {
 	/**
 	 * Search events
 	 *
-	 * @param	String		$searchWord
+	 * @param	string		$searchWord
 	 */
 	abstract public function searchEvents($searchWord);
 
@@ -132,7 +132,7 @@ abstract class TodoyuCalendarDataSource {
 	/**
 	 * Get event object from data source
 	 *
-	 * @param	Integer		$idEvent
+	 * @param	integer		$idEvent
 	 * @return	TodoyuCalendarEvent
 	 */
 	abstract public static function getEvent($idEvent);

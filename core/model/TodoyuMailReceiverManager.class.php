@@ -41,8 +41,8 @@ class TodoyuMailReceiverManager {
 	/**
 	 * Register an email receiver type
 	 *
-	 * @param	String		$type
-	 * @param	String		$object
+	 * @param	string		$type
+	 * @param	string		$object
 	 */
 	public static function addType($type, $object) {
 		self::$types[$type] = $object;
@@ -53,8 +53,8 @@ class TodoyuMailReceiverManager {
 	/**
 	 * Get email receiver type configuration
 	 *
-	 * @param	String		$type
-	 * @return	String
+	 * @param	string		$type
+	 * @return	string
 	 */
 	public static function getTypeClass($type) {
 		return self::$types[$type];
@@ -65,7 +65,7 @@ class TodoyuMailReceiverManager {
 	/**
 	 * Add a search callback as source for the mail receivers records selector form element
 	 *
-	 * @param	String		$callback
+	 * @param	string		$callback
 	 */
 	public static function addSearchCallback($callback) {
 		self::$searchCallbacks[$callback] = $callback;
@@ -76,7 +76,7 @@ class TodoyuMailReceiverManager {
 	/**
 	 * Get mail receiver for tuple
 	 *
-	 * @param	String				$receiverTuple		Tuple: 'type:ID', e.g. 'contactperson:232' or just ID, which sets default type: 'contactperson'
+	 * @param	string				$receiverTuple		Tuple: 'type:ID', e.g. 'contactperson:232' or just ID, which sets default type: 'contactperson'
 	 * @return	TodoyuMailReceiverInterface
 	 */
 	public static function getMailReceiver($receiverTuple) {
@@ -106,7 +106,7 @@ class TodoyuMailReceiverManager {
 	 * Get mail receiver objects for tuples
 	 * Tuples are the indexes
 	 *
-	 * @param	String[]	$receiverTuples
+	 * @param	string[]	$receiverTuples
 	 * @return	TodoyuMailReceiverInterface[]
 	 */
 	public static function getMailReceivers(array $receiverTuples) {
@@ -128,8 +128,8 @@ class TodoyuMailReceiverManager {
 	/**
 	 * Check whether the given type key is registered
 	 *
-	 * @param	String		$type
-	 * @return	Boolean
+	 * @param	string		$type
+	 * @return	boolean
 	 */
 	public static function isTypeRegistered($type) {
 		return isset(self::$types[$type]);
@@ -140,10 +140,10 @@ class TodoyuMailReceiverManager {
 	/**
 	 * Get matching email receivers as list items
 	 *
-	 * @param	String[]		$searchWords
-	 * @param	String[]		$ignoreTuples
-	 * @param	Array			$params
-	 * @param	String			$type
+	 * @param	string[]		$searchWords
+	 * @param	string[]		$ignoreTuples
+	 * @param	array			$params
+	 * @param	string			$type
 	 * @return	Array[]
 	 */
 	public static function getMatchingMailReceivers(array $searchWords, array $ignoreTuples = array(), array $params = array(), $type) {

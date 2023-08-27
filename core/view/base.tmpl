@@ -1,10 +1,12 @@
 {include "core/view/pageheader.tmpl"}
 
-<body id="todoyu-{constant(EXT)}" class="todoyu-{constant(EXT)} {trim $bodyClass}" {foreach $bodyAttributes attribut}{$attribute.name}="{$attribute.value}" {/foreach}>
+<body id="todoyu-{$smarty.const.EXT}" class="todoyu-{$smarty.const.EXT} {if isset($bodyClass)}{$bodyClass|trim}{/if}" {if isset($bodyAttributes)}{foreach $bodyAttributes as $attribut}{$attribute.name}="{$attribute.value}" {/foreach}{/if}>
 
-{foreach $bodyElements bodyElement}
-{$bodyElement}
-{/foreach}
+    {if isset($bodyElements)}
+        {foreach $bodyElements as $bodyElement}
+            {$bodyElement}
+        {/foreach}
+    {/if}
 
 <div id="header">
 	<div class="inner bclFF">
@@ -21,21 +23,23 @@
 	<div id="contentBox">
 		<div id="main">
 			<div id="panel" class="panel">
-			{block "panel"}
+			{block name="panel"}
 				{$panelWidgets}
 			{/block}
 				<div class="panelFooter"><!-- panel footer --></div>
 			</div>
 			<div id="right" class="bclFF">
 				<div id="content" class="content">
-					{if $fullContent}
-						{block "content"}{$fullContent}{/block}
+					{if isset($fullContent)}
+						{block name="content"}{$fullContent}{/block}
 					{else}
 						<div id="content-tabs">
-							{block "contentTabs"}{$tabs}{/block}
+                        {if isset($tabs)}
+							{block name="contentTabs"}{$tabs}{/block}
+                        {/if}
 						</div>
 						<div id="content-body">
-							{block "contentBody"}{$content}{/block}
+							{block name="contentBody"}{$content}{/block}
 						</div>
 					{/if}
 				</div><!-- /inner -->
@@ -52,7 +56,7 @@
 
 {if $jsInlines}
 <script type="text/javascript">
-{foreach $jsInlines jsInline}
+{foreach $jsInlines as $jsInline}
 	{$jsInline.code}
 {/foreach}
 </script>

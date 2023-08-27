@@ -45,7 +45,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * Initialize with person and search range
 	 *
-	 * @param	Integer					$idPerson
+	 * @param	integer					$idPerson
 	 * @param	TodoyuDayRange|null		$searchRange		Range in which the birthday occurs this year
 	 */
 	public function __construct($idPerson, TodoyuDayRange $searchRange = null) {
@@ -62,7 +62,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	 * Get the date at which the birthday occurs in the search range
 	 *
 	 * @param	TodoyuDayRange		$searchRange
-	 * @return	Integer
+	 * @return	integer
 	 */
 	protected function getBirthdayDateForRange(TodoyuDayRange $searchRange) {
 		$dateBirthday	= $this->getPerson()->getBirthday();
@@ -85,7 +85,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * Get ID (of the person)
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getID() {
 		return $this->getPerson()->getID();
@@ -96,7 +96,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * Get title (name of the person and age)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle() {
 		return $this->getPerson()->getFullName() . ' (' . $this->getAge() . ' ' . Todoyu::Label('calendar.ext.yearsold') . ')';
@@ -107,7 +107,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * Get description
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDescription() {
 		return $this->getTitle();
@@ -129,7 +129,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * Get start date of the birthday (morning)
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateStart() {
 		return $this->getRange()->getStart();
@@ -140,7 +140,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * Get end date of the birthday (night)
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateEnd() {
 		return $this->getRange()->getEnd();
@@ -151,7 +151,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * Get duration of the birthday
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDuration() {
 		return TodoyuTime::SECONDS_DAY;
@@ -173,7 +173,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * Birthday are always day events
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isDayEvent() {
 		return true;
@@ -184,7 +184,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * Birthdays are never private
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isPrivate() {
 		return false;
@@ -195,8 +195,8 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * No one is assigned to a birthday, it just happens ;-)
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public function isPersonAssigned($idPerson = 0) {
 		return false;
@@ -219,7 +219,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	 * Birthdays don't overlap
 	 *
 	 * @param	TodoyuCalendarEvent $event
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isOverlapping(TodoyuCalendarEvent $event) {
 		return false;
@@ -230,7 +230,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * Source name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getSource() {
 		return 'birthday';
@@ -241,7 +241,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * Type is birthday as for static events
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getType() {
 		return 'birthday';
@@ -252,7 +252,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * No one has access, because the are no details for this event
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasAccess() {
 		return false;
@@ -263,7 +263,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * No one can edit/change a birthday ;-)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function canEdit() {
 		return false;
@@ -274,7 +274,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * No users are assigned
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isCurrentPersonAssigned() {
 		return false;
@@ -287,7 +287,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	 * An additional search range must be provided, if not set on initialization
 	 *
 	 * @param	TodoyuDayRange|null		$searchRange
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getAge(TodoyuDayRange $searchRange = null) {
 		if( !is_null($searchRange) ) {
@@ -309,7 +309,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * Get template data
 	 *
-	 * @param	Boolean		$loadForeignData
+	 * @param	boolean		$loadForeignData
 	 * @return	Array
 	 */
 	public function getTemplateData($loadForeignData = false) {
@@ -349,8 +349,8 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * Get person link
 	 *
-	 * @param	String		$name
-	 * @return	String
+	 * @param	string		$name
+	 * @return	string
 	 */
 	protected function getPersonDetailLink($name) {
 		$params	= array(
@@ -367,7 +367,7 @@ class TodoyuCalendarEventBirthday implements TodoyuCalendarEvent {
 	/**
 	 * Get class names
 	 *
-	 * @return	String[]
+	 * @return	string[]
 	 */
 	public function getClassNames() {
 		return array();

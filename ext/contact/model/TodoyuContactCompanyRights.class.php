@@ -30,7 +30,7 @@ class TodoyuContactCompanyRights {
 	 * Deny access
 	 * Shortcut for contact
 	 *
-	 * @param	String		$right		Denied right
+	 * @param	string		$right		Denied right
 	 */
 	private static function deny($right) {
 		TodoyuRightsManager::deny('contact', $right);
@@ -41,8 +41,8 @@ class TodoyuContactCompanyRights {
 	/**
 	 * Checks if see given company is allowed for current person
 	 *
-	 * @param	Integer		$idCompany
-	 * @return	Boolean
+	 * @param	integer		$idCompany
+	 * @return	boolean
 	 */
 	public static function isSeeAllowed($idCompany) {
 		$idCompany	= intval($idCompany);
@@ -59,8 +59,8 @@ class TodoyuContactCompanyRights {
 	/**
 	 * Checks if edit given company is allowed for current person
 	 *
-	 * @param	Integer		$idCompany
-	 * @return	Boolean
+	 * @param	integer		$idCompany
+	 * @return	boolean
 	 */
 	public static function isEditAllowed($idCompany) {
 		$idCompany	= intval($idCompany);
@@ -88,8 +88,8 @@ class TodoyuContactCompanyRights {
 	/**
 	 * Checks whether deletion of given company is allowed for current person
 	 *
-	 * @param	Integer		$idCompany
-	 * @return	Boolean
+	 * @param	integer		$idCompany
+	 * @return	boolean
 	 */
 	public static function isDeleteAllowed($idCompany) {
 		$idCompany	= intval($idCompany);
@@ -107,7 +107,7 @@ class TodoyuContactCompanyRights {
 	/**
 	 * Returns all company IDs which are allowed to be seen by the current person
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public static function getCompanyIDsAllowedToBeSeen() {
 		$fields	= 'id';
@@ -122,7 +122,7 @@ class TodoyuContactCompanyRights {
 	/**
 	 * Get WHERE clause for all companies the current user is allowed to see
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getAllowedToBeSeenCompaniesWhereClause() {
 		$allowedCompanyIDs	= TodoyuContactCompanyManager::getInternalCompanyIDs();
@@ -183,7 +183,7 @@ class TodoyuContactCompanyRights {
 	/**
 	 * Restrict access to persons who are allowed to delete the given company
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 */
 	public static function restrictDelete($idCompany) {
 		if( ! self::isDeleteAllowed($idCompany) ) {

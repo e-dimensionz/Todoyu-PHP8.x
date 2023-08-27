@@ -27,7 +27,7 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrictAdmin();
@@ -38,8 +38,8 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 	/**
 	 * Update system config content body
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function updateAction(array $params) {
 		return TodoyuSysmanagerSystemConfigRenderer::renderBody($params);
@@ -50,8 +50,8 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 	/**
 	 * Save system configuration form
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function saveSystemConfigAction(array $params) {
 		$data	= TodoyuArray::assure($params['systemconfig']);
@@ -75,8 +75,8 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 	/**
 	 * Save uploaded logo if valid
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function logoAction(array $params) {
 		$logoData	= TodoyuRequest::getUploadFile('image', 'logo');
@@ -93,7 +93,7 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 	/**
 	 * Save password strength config
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function savePasswordStrengthAction(array $params) {
 		$data	= TodoyuArray::assure($params['passwordstrength']);
@@ -106,7 +106,7 @@ class TodoyuSysmanagerConfigActionController extends TodoyuActionController {
 	/**
 	 * Save repository config (into config\settings.php)
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function saveRepositoryConfigAction(array $params) {
 		$data	= TodoyuArray::assure($params['repository']);

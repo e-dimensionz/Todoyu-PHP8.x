@@ -29,8 +29,8 @@ class TodoyuSysmanagerExtManagerRenderer {
 	/**
 	 * Render extension module
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderModule(array $params) {
 		$extKey	= trim($params['extkey']);
@@ -47,8 +47,8 @@ class TodoyuSysmanagerExtManagerRenderer {
 	/**
 	 * Render extension management module content
 	 *
-	 * @param	Array		$params		All request params
-	 * @return	String
+	 * @param	array		$params		All request params
+	 * @return	string
 	 */
 	public static function renderModuleContent(array $params) {
 		Todoyu::restrict('sysmanager', 'general:extensions');
@@ -64,8 +64,8 @@ class TodoyuSysmanagerExtManagerRenderer {
 	/**
 	 * Render extension manager tabs
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderModuleTabs(array $params) {
 		$extKey	= $params['extkey'];
@@ -79,10 +79,10 @@ class TodoyuSysmanagerExtManagerRenderer {
 	/**
 	 * Render tabbed view
 	 *
-	 * @param	String		$extKey			Extension key of active extension
-	 * @param	String		$tab			Active tab
-	 * @param	Array		$params			Request parameters
-	 * @return	String		HTML content for tabbed view
+	 * @param	string		$extKey			Extension key of active extension
+	 * @param	string		$tab			Active tab
+	 * @param	array		$params			Request parameters
+	 * @return	string		HTML content for tabbed view
 	 */
 	public static function renderBody($extKey = '', $tab = '', array $params = array()) {
 		switch($tab) {
@@ -128,9 +128,9 @@ class TodoyuSysmanagerExtManagerRenderer {
 	/**
 	 * Render tabs based on current settings
 	 *
-	 * @param	String		$extKey		Extension key
-	 * @param	String		$tab		Active tab key
-	 * @return	String
+	 * @param	string		$extKey		Extension key
+	 * @param	string		$tab		Active tab key
+	 * @return	string
 	 */
 	public static function renderTabs($extKey = '', $tab = '') {
 		$name		= 'extension';
@@ -164,9 +164,9 @@ class TodoyuSysmanagerExtManagerRenderer {
 	/**
 	 * Render list of (installed / imported) extensions
 	 *
-	 * @param	Array		$extKeys
-	 * @param	Boolean		$areInstalled
-	 * @return	String
+	 * @param	array		$extKeys
+	 * @param	boolean		$areInstalled
+	 * @return	string
 	 */
 	public static function renderList(array $extKeys, $areInstalled = true) {
 		sort($extKeys);
@@ -190,8 +190,8 @@ class TodoyuSysmanagerExtManagerRenderer {
 	/**
 	 * Render list of installed extensions
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderListInstalled(array $params = array()) {
 		$extKeys	= TodoyuExtensions::getInstalledExtKeys();
@@ -204,8 +204,8 @@ class TodoyuSysmanagerExtManagerRenderer {
 	/**
 	 * Render list of imported/installable extensions
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function renderListImported(array $params = array()) {
 		$extKeys	= TodoyuExtensions::getNotInstalledExtKeys();
@@ -218,9 +218,9 @@ class TodoyuSysmanagerExtManagerRenderer {
 	/**
 	 * Render extension info
 	 *
-	 * @param	String		$extKey		Extension key
-	 * @param	Array		$params		Request parameters
-	 * @return	String
+	 * @param	string		$extKey		Extension key
+	 * @param	array		$params		Request parameters
+	 * @return	string
 	 */
 	public static function renderInfo($extKey, array $params = array()) {
 		$info	= TodoyuSysmanagerExtManager::getExtInfos($extKey);
@@ -239,9 +239,9 @@ class TodoyuSysmanagerExtManagerRenderer {
 	/**
 	 * Render extension info
 	 *
-	 * @param	String		$extKey		Extension key
-	 * @param	Array		$params		Request parameters
-	 * @return	String
+	 * @param	string		$extKey		Extension key
+	 * @param	array		$params		Request parameters
+	 * @return	string
 	 */
 	public static function renderConfig($extKey, array $params = array()) {
 		return TodoyuSysmanagerExtConfRenderer::renderConfig($extKey);
@@ -252,8 +252,8 @@ class TodoyuSysmanagerExtManagerRenderer {
 	/**
 	 * Render updates listing
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function renderUpdate(array $params = array()) {
 		return TodoyuSysmanagerRepositoryRenderer::renderUpdate($params);
@@ -264,8 +264,8 @@ class TodoyuSysmanagerExtManagerRenderer {
 	/**
 	 * Render extension tER search
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function renderSearch(array $params = array()) {
 		return TodoyuSysmanagerRepositoryRenderer::renderSearch($params);

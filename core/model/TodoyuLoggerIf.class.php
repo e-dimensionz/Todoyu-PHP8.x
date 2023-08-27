@@ -29,7 +29,7 @@ interface TodoyuLoggerIf {
 	/**
 	 * Initialize logger with config
 	 *
-	 * @param	Array		$config
+	 * @param	array		$config
 	 */
 	public function __construct(array $config);
 
@@ -38,11 +38,11 @@ interface TodoyuLoggerIf {
 	/**
 	 * Log a message with the logger
 	 *
-	 * @param	String		$message
-	 * @param	Integer		$level
+	 * @param	string		$message
+	 * @param	integer		$level
 	 * @param	Mixed		$data
-	 * @param	String		$info
-	 * @param	String		$requestKey
+	 * @param	string		$info
+	 * @param	string		$requestKey
 	 */
 	public function log($message, $level, $data, $info, $requestKey);
 

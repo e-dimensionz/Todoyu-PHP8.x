@@ -38,9 +38,9 @@ class TodoyuCalendarRenderer {
 	/**
 	 * Render the whole calendar (header, tabs and the actual calendar grid)
 	 *
-	 * @param	String	$tab		Active tab
-	 * @param	Array	$params		Request parameters sub functions
-	 * @return	String	Code of the calendar
+	 * @param	string	$tab		Active tab
+	 * @param	array	$params		Request parameters sub functions
+	 * @return	string	Code of the calendar
 	 */
 	public static function renderContent($tab, array $params = array()) {
 		$date	= TodoyuCalendarPanelWidgetCalendar::getDate();
@@ -52,7 +52,7 @@ class TodoyuCalendarRenderer {
 			'showCalendar'	=> in_array($tab, array('day', 'week', 'month')),
 			'rangeStart'	=> TodoyuCalendarPreferences::getCompactViewRangeStart(),
 			'rangeEnd'		=> TodoyuCalendarPreferences::getCompactViewRangeEnd(),
-			'idEvent'		=> intval($params['event'])
+			'idEvent'		=> intval($params['event'] ?? 0)
 		);
 
 			// If event view is selected, set date and add it to data array
@@ -71,7 +71,7 @@ class TodoyuCalendarRenderer {
 	/**
 	 * Render calendar panel widgets
 	 *
-	 * @return	String	HTML
+	 * @return	string	HTML
 	 */
 	public static function renderPanelWidgets() {
 		return TodoyuPanelWidgetRenderer::renderPanelWidgets(self::EXTKEY);
@@ -82,9 +82,9 @@ class TodoyuCalendarRenderer {
 	/**
 	 * Renders the calendar tabs (day, week, month)
 	 *
-	 * @param	String		$activeTab
-	 * @param	Integer		$idEvent
-	 * @return	String
+	 * @param	string		$activeTab
+	 * @param	integer		$idEvent
+	 * @return	string
 	 */
 	public static function renderTabs($activeTab = '', $idEvent = 0) {
 		if( empty($activeTab) ) {

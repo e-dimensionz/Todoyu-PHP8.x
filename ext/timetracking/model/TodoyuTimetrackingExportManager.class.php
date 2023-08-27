@@ -29,7 +29,7 @@ class TodoyuTimetrackingExportManager {
 	/**
 	 * Parses timetracking task - data for Export
 	 *
-	 * @param	Array				$exportData
+	 * @param	array				$exportData
 	 * @param	TodoyuProjectTask	$task
 	 * @return	Array
 	 */

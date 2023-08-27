@@ -36,8 +36,8 @@ class TodoyuClipboard {
 	/**
 	 * Set type data in clipboard
 	 *
-	 * @param	String		$type
-	 * @param	Array		$data
+	 * @param	string		$type
+	 * @param	array		$data
 	 */
 	public static function set($type, array $data) {
 		$type	= strtoupper(trim($type));
@@ -51,7 +51,7 @@ class TodoyuClipboard {
 	/**
 	 * Get data of type
 	 *
-	 * @param	String		$type
+	 * @param	string		$type
 	 * @return	Array
 	 */
 	public static function get($type) {
@@ -68,7 +68,7 @@ class TodoyuClipboard {
 	/**
 	 * Remove type data
 	 *
-	 * @param	String		$type
+	 * @param	string		$type
 	 */
 	public static function remove($type) {
 		$type	= strtoupper(trim($type));
@@ -82,8 +82,8 @@ class TodoyuClipboard {
 	/**
 	 * Check if type has data (something of this type is on the clipboard)
 	 *
-	 * @param	String		$type
-	 * @return	Boolean
+	 * @param	string		$type
+	 * @return	boolean
 	 */
 	public static function has($type) {
 		$type	= strtoupper(trim($type));

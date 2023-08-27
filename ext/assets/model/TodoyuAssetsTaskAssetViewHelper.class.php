@@ -29,8 +29,8 @@ class TodoyuAssetsTaskAssetViewHelper {
 	/**
 	 * Get label text for the asset tab in the task
 	 *
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function getTabLabel($idTask) {
 		$idTask	= intval($idTask);
@@ -53,8 +53,8 @@ class TodoyuAssetsTaskAssetViewHelper {
 	/**
 	 * Get the content for the asset tab in the task
 	 *
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function getTabContent($idTask) {
 		return TodoyuAssetsAssetRenderer::renderTabContent($idTask);

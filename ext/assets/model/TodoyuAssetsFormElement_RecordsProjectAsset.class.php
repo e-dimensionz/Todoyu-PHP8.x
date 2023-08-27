@@ -29,9 +29,9 @@ class TodoyuAssetsFormElement_RecordsProjectAsset extends TodoyuAssetsFormElemen
 	/**
 	 * Initialize
 	 *
-	 * @param	String				$name
+	 * @param	string				$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array				$config
+	 * @param	array				$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		parent::__construct('projectAsset', $name, $fieldset, $config);

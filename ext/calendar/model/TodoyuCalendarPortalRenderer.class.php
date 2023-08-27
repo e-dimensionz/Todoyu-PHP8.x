@@ -29,8 +29,8 @@ class TodoyuCalendarPortalRenderer {
 	/**
 	 * Get tab label for appointment tab in portal
 	 *
-	 * @param	Boolean		$count		Add count in brackets
-	 * @return	String
+	 * @param	boolean		$count		Add count in brackets
+	 * @return	string
 	 */
 	public static function getAppointmentTabLabel($count = true) {
 		$label		= Todoyu::Label('calendar.ext.portal.tab.appointments');
@@ -49,7 +49,7 @@ class TodoyuCalendarPortalRenderer {
 	/**
 	 * Get tab content for appointment tab in portal
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getAppointmentTabContent() {
 		$view	= new TodoyuCalendarViewPortalList();

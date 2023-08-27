@@ -29,12 +29,12 @@ class TodoyuSearchFilterWidgetRenderer {
 	/**
 	 * Render a filter widget
 	 *
-	 * @param	String		$type
-	 * @param	String		$widgetKey
-	 * @param	String		$widgetName
+	 * @param	string		$type
+	 * @param	string		$widgetKey
+	 * @param	string		$widgetName
 	 * @param	Mixed		$value
-	 * @param	Boolean		$negate
-	 * @return	String
+	 * @param	boolean		$negate
+	 * @return	string
 	 */
 	public static function renderWidget($type, $widgetKey, $widgetName = 'new1', $value = '', $negate = false) {
 		$config	= TodoyuSearchFilterWidgetManager::getExtendedWidgetConfig($type, $widgetKey, $widgetName, $value, $negate);
@@ -61,8 +61,8 @@ class TodoyuSearchFilterWidgetRenderer {
 	/**
 	 * Get JavaScript setup code for calendar of date filter widget
 	 *
-	 * @param	String		$widgetID
-	 * @return	String
+	 * @param	string		$widgetID
+	 * @return	string
 	 */
 	public static function getDateWidgetCalendarSetupJS($widgetID) {
 		$htmlID	= 'filterwidget-date-' . $widgetID;

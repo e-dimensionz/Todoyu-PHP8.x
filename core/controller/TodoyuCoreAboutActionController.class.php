@@ -30,8 +30,8 @@ class TodoyuCoreAboutActionController extends TodoyuActionController {
 	/**
 	 * Render about window
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function popupAction(array $params) {
 		$data	= array(

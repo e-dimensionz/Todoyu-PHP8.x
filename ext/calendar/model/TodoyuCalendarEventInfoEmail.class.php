@@ -52,10 +52,10 @@ class TodoyuCalendarEventInfoEmail extends TodoyuMail {
 	/**
 	 * Initialize
 	 *
-	 * @param	Integer							$idEvent
+	 * @param	integer							$idEvent
 	 * @param	TodoyuMailReceiverInterface		$mailReceiver
-	 * @param	Array							$options
-	 * @param	Array							$config
+	 * @param	array							$options
+	 * @param	array							$config
 	 */
 	public function __construct($idEvent, TodoyuMailReceiverInterface $mailReceiver, array $options, array $config = array()) {
 		parent::__construct($config);
@@ -77,7 +77,7 @@ class TodoyuCalendarEventInfoEmail extends TodoyuMail {
 	/**
 	 * Get receiver record ID, e.g. ID of ext_contact_person
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getIdReceiver() {
 		return $this->mailReceiver->getRecordID();
@@ -99,7 +99,7 @@ class TodoyuCalendarEventInfoEmail extends TodoyuMail {
 	/**
 	 * Get operation key
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getOperation() {
 		return $this->options['operation'];
@@ -180,8 +180,8 @@ class TodoyuCalendarEventInfoEmail extends TodoyuMail {
 	/**
 	 * Get content for email
 	 *
-	 * @param	Boolean		$asHtml
-	 * @return	String|Boolean
+	 * @param	boolean		$asHtml
+	 * @return	string|Boolean
 	 */
 	private function getContent($asHtml = false) {
 		$tmpl	= $this->getTemplate($asHtml);
@@ -198,8 +198,8 @@ class TodoyuCalendarEventInfoEmail extends TodoyuMail {
 	/**
 	 * Get filename of email template to current mode (text/HTML) and event operation
 	 *
-	 * @param	Boolean		$asHtml
-	 * @return	String|Boolean
+	 * @param	boolean		$asHtml
+	 * @return	string|Boolean
 	 */
 	private function getTemplate($asHtml = false) {
 		$basePath	= 'ext/calendar/view/emails/';

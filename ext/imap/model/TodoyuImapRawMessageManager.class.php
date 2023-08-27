@@ -29,7 +29,7 @@ class TodoyuImapRawMessageManager {
 	/**
 	 * Get raw message
 	 *
-	 * @param	String		$messageKey
+	 * @param	string		$messageKey
 	 * @return	TodoyuImapRawMessage
 	 */
 	public static function getRawMessage($messageKey) {
@@ -44,9 +44,9 @@ class TodoyuImapRawMessageManager {
 	 * Year and month are used as folders
 	 * Ex: /var/www/path/to/todoyu/files/imap/message/2012/10/ks3afhecdabef389jdabeda34535bedabesdfhassdf.eml
 	 *
-	 * @param	String		$header
-	 * @param	String		$body
-	 * @return	String		Path of the message file relative to message storage path
+	 * @param	string		$header
+	 * @param	string		$body
+	 * @return	string		Path of the message file relative to message storage path
 	 */
 	public static function saveRawMessage($header, $body) {
 		$content		= $header . "\r\n\r\n" . $body;
@@ -64,8 +64,8 @@ class TodoyuImapRawMessageManager {
 	/**
 	 * Get message storage path
 	 *
-	 * @param	String		$messageKey		Relative message filename
-	 * @return	String		Absolute path the message file
+	 * @param	string		$messageKey		Relative message filename
+	 * @return	string		Absolute path the message file
 	 */
 	public static function getMessagePath($messageKey) {
 		return TodoyuFileManager::pathAbsolute(IMAP_PATH_MESSAGES . '/' . $messageKey . '.eml');

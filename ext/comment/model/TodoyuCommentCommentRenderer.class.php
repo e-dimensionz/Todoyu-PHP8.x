@@ -28,8 +28,8 @@ class TodoyuCommentCommentRenderer {
 	/**
 	 * Render a comment
 	 *
-	 * @param	Integer		$idComment
-	 * @return	String
+	 * @param	integer		$idComment
+	 * @return	string
 	 */
 	public static function renderComment($idComment) {
 		$idComment	= intval($idComment);
@@ -45,9 +45,9 @@ class TodoyuCommentCommentRenderer {
 	/**
 	 * Render comment list in task tab
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$desc
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @param	boolean		$desc
+	 * @return	string
 	 */
 	public static function renderCommentList($idTask, $desc = true) {
 		$idTask		= intval($idTask);
@@ -75,10 +75,10 @@ class TodoyuCommentCommentRenderer {
 	/**
 	 * Render comment edit form
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$idComment
-	 * @param	Array		$formParams
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @param	integer		$idComment
+	 * @param	array		$formParams
+	 * @return	string
 	 */
 	public static function renderEditForm($idTask, $idComment, array $formParams = array()) {
 		return self::renderForm($idTask, $idComment, 0, 0, $formParams);
@@ -89,11 +89,11 @@ class TodoyuCommentCommentRenderer {
 	/**
 	 * Render comment add form
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$idCommentQuote				Quote comment
-	 * @param	Integer		$idCommentMailReply			Quote comment and reply to creator
-	 * @param	Array		$formParams
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @param	integer		$idCommentQuote				Quote comment
+	 * @param	integer		$idCommentMailReply			Quote comment and reply to creator
+	 * @param	array		$formParams
+	 * @return	string
 	 */
 	public static function renderAddForm($idTask, $idCommentQuote = 0, $idCommentMailReply = 0, array $formParams = array()) {
 		return self::renderForm($idTask, 0, $idCommentQuote, $idCommentMailReply, $formParams);
@@ -104,12 +104,12 @@ class TodoyuCommentCommentRenderer {
 	/**
 	 * Render a comment form for edit or add
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$idComment
-	 * @param	Integer		$idCommentQuote
-	 * @param	Integer		$idCommentMailReply
-	 * @param	Array		$formParams
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @param	integer		$idComment
+	 * @param	integer		$idCommentQuote
+	 * @param	integer		$idCommentMailReply
+	 * @param	array		$formParams
+	 * @return	string
 	 */
 	protected static function renderForm($idTask, $idComment = 0, $idCommentQuote = 0, $idCommentMailReply = 0, array $formParams = array()) {
 		$idComment	= intval($idComment);
@@ -134,11 +134,11 @@ class TodoyuCommentCommentRenderer {
 
 	/**
 	 * @static
-	 * @param	String		$filename
-	 * @param	String		$filekey
-	 * @param	Integer		$idComment
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	string		$filename
+	 * @param	string		$filekey
+	 * @param	integer		$idComment
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function renderFileUploadSuccess($filename, $filekey, $idComment, $idTask) {
 		$idComment			= intval($idComment);
@@ -154,10 +154,10 @@ class TodoyuCommentCommentRenderer {
 	/**
 	 *
 	 * @todo	Also check and display php.ini value here (or better in general for upload messages)
-	 * @param	Integer		$error
-	 * @param	String		$fileName
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$error
+	 * @param	string		$fileName
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function renderFileUploadFailed($error, $fileName, $idTask){
 		$idTask				= intval($idTask);
@@ -172,8 +172,8 @@ class TodoyuCommentCommentRenderer {
 
 	/**
 	 * @static
-	 * @param	String		$javaScriptString
-	 * @return	String
+	 * @param	string		$javaScriptString
+	 * @return	string
 	 */
 	protected static function renderUploadMessage($javaScriptString) {
 		$tmpl = 'core/view/htmldoc.tmpl';
@@ -189,9 +189,9 @@ class TodoyuCommentCommentRenderer {
 
 	/**
 	 * @static
-	 * @param	Integer		$idComment
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idComment
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function renderFileSelector($idComment, $idTask) {
 		$form = TodoyuCommentCommentManager::getCommentForm($idComment, $idTask, array('id_task' => $idTask, 'id' => $idComment));

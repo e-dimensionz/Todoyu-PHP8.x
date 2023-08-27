@@ -5,8 +5,8 @@
 			{$content}
 		{else}
 			<ul>
-				{foreach $labels label}
-					<li>{Label $label}</li>
+				{foreach $labels as $label}
+					<li>{Label text=$label}</li>
 				{/foreach}
 			</ul>
 		{/if}

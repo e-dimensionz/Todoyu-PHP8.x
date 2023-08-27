@@ -29,15 +29,15 @@ abstract class TodoyuFormElement_Records extends TodoyuFormElement {
 	/**
 	 * Initialize
 	 *
-	 * @param	String				$type
-	 * @param	String				$name
+	 * @param	string				$type
+	 * @param	string				$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array				$config
+	 * @param	array				$config
 	 */
 	public function __construct($type, $name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		parent::__construct('records', $name, $fieldset, $config);
 
-		if( !is_array($this->config['options']) ) {
+		if( !is_array($this->config['options'] ?? false) ) {
 			$this->config['options'] = array();
 		}
 		$this->config['multiple'] = true;
@@ -50,11 +50,12 @@ abstract class TodoyuFormElement_Records extends TodoyuFormElement {
 	/**
 	 * Init records config
 	 *
-	 * @param	String		$type
+	 * @param	string		$type
 	 */
 	protected function initRecords($type) {
 		$this->type				= 'records' . ucfirst($type);
 		$this->config['type']	= $type;
+        if(empty($this->config['class'])) $this->config['class'] = '';
 		$this->config['class'] .= ' typeRecords records' . ucfirst($type);
 
 		$this->config['options']['params']	= array();
@@ -65,7 +66,7 @@ abstract class TodoyuFormElement_Records extends TodoyuFormElement {
 	/**
 	 * Add params to options config value
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	protected function addOptionParams(array $params) {
 		$this->config['options']['params'] = array_merge($this->config['options']['params'], $params);
@@ -88,7 +89,7 @@ abstract class TodoyuFormElement_Records extends TodoyuFormElement {
 	 * Set value
 	 * Fix data if value contains whole records instead of IDs
 	 *
-	 * @param	Array		$value
+	 * @param	array		$value
 	 */
 	public function setValue($value, $updateForm = true) {
 		$value	= TodoyuArray::assure($value);
@@ -154,7 +155,7 @@ abstract class TodoyuFormElement_Records extends TodoyuFormElement {
 	 * Validate required status
 	 * The first value shall not be 0 (means please select)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function validateRequired() {
 		$firstValue	= reset($this->getValue());
@@ -167,7 +168,7 @@ abstract class TodoyuFormElement_Records extends TodoyuFormElement {
 	/**
 	 * For live validation observe the storage field (select)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getLiveValidationFieldId() {
 		return $this->getHtmlID() . '-storage';

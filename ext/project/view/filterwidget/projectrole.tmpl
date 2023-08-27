@@ -3,13 +3,13 @@
 {block name="widgetbody"}
 
 	<span>
-		<label>{Label project.ext.attr.persons.role}</label>
+		<label>{Label text='project.ext.attr.persons.role'}</label>
 		{select options=$definitions.options value=$definitions.valueProjectroles id="filterwidget-select-$definitions.widgetID" multiple=$definitions.wConf.multiple size=$definitions.wConf.size onchange="Todoyu.Ext.project.Filter.onProjectroleRoleChange('$definitions.widgetID')"}
 	</span>
 
 	<span>
-		<label>{Label contact.ext.person}</label>
-		<input type="text" title="{Label core.global.input.autocompleter}" class="input textAC" id="widget-autocompleter-{$definitions.widgetID}" value="{$definitions.valuePersonLabel}" onchange="Todoyu.Ext.project.Filter.onProjectrolePersonChange('{$definitions.widgetID}')" />
+		<label>{Label text='contact.ext.person'}</label>
+		<input type="text" title="{Label text='core.global.input.autocompleter'}" class="input textAC" id="widget-autocompleter-{$definitions.widgetID}" value="{$definitions.valuePersonLabel}" onchange="Todoyu.Ext.project.Filter.onProjectrolePersonChange('{$definitions.widgetID}')" />
 		<div id="widget-autocompleter-{$definitions.widgetID}-suggestions" class="acResultContainer"></div>
 		<input id="widget-autocompleter-{$definitions.widgetID}-hidden" type="hidden" class="hidden value" value="{$definitions.valuePerson}" />
 	</span>

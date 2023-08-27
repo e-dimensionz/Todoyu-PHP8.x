@@ -31,7 +31,7 @@ class TodoyuActionDispatcher {
 	 * Get request extension.
 	 * Fallback for last requested extension and default
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	private static function getExtension() {
 		$ext	= TodoyuRequest::getExt();
@@ -53,7 +53,7 @@ class TodoyuActionDispatcher {
 	 * Ger request controller
 	 * Fallback for default controller
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	private static function getController() {
 		$ctrl	= TodoyuRequest::getController();
@@ -70,7 +70,7 @@ class TodoyuActionDispatcher {
 	/**
 	 * Get request command/action
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	private static function getAction() {
 		return TodoyuRequest::getAction();
@@ -105,7 +105,7 @@ class TodoyuActionDispatcher {
 	/**
 	 * Call extension request handler function
 	 *
-	 * @param	String		$ext
+	 * @param	string		$ext
 	 */
 	private static function callExtOnRequestHandler($ext) {
 		$handler	= isset( Todoyu::$CONFIG['EXT_REQUEST_HANDLER'][$ext] ) ? Todoyu::$CONFIG['EXT_REQUEST_HANDLER'][$ext] : null;
@@ -121,8 +121,8 @@ class TodoyuActionDispatcher {
 	 * Register an extension request handler
 	 * This functions will be called on every extension request
 	 *
-	 * @param	String		$ext
-	 * @param	String		$function
+	 * @param	string		$ext
+	 * @param	string		$function
 	 */
 	public static function registerRequestHandler($ext, $function) {
 		Todoyu::$CONFIG['EXT_REQUEST_HANDLER'][$ext] = $function;
@@ -133,8 +133,8 @@ class TodoyuActionDispatcher {
 	/**
 	 * Print error message if requested controller not found
 	 *
-	 * @param	String		$ext
-	 * @param	String		$controller
+	 * @param	string		$ext
+	 * @param	string		$controller
 	 */
 	private static function errorControllerNotFound($ext, $controller) {
 		ob_clean();
@@ -162,9 +162,9 @@ class TodoyuActionDispatcher {
 	 * Get class name for action controller
 	 * Classname is prefixed with "Todoyu", camel case ext and controller and postfixed with "ActionController"
 	 *
-	 * @param	String		$ext
-	 * @param	String		$controller
-	 * @return	String
+	 * @param	string		$ext
+	 * @param	string		$controller
+	 * @return	string
 	 */
 	private static function getControllerClassName($ext, $controller) {
 		return 'Todoyu' . ucfirst(trim($ext)) . ucfirst(trim($controller)) . 'ActionController';
@@ -174,9 +174,9 @@ class TodoyuActionDispatcher {
 
 	/**
 	 * Get action controller object for the $ext-$controller combination
-	 * @param	String		$ext
-	 * @param	String		$controller
-	 * @param	Array		$params
+	 * @param	string		$ext
+	 * @param	string		$controller
+	 * @param	array		$params
 	 * @return	TodoyuActionController
 	 */
 	public static function getControllerObject($ext = '', $controller = '', array $params = array()) {
@@ -191,9 +191,9 @@ class TodoyuActionDispatcher {
 	/**
 	 * Check if a controller class exists
 	 *
-	 * @param	String		$ext
-	 * @param	String		$controller
-	 * @return	Boolean
+	 * @param	string		$ext
+	 * @param	string		$controller
+	 * @return	boolean
 	 */
 	public static function isController($ext, $controller) {
 		$controllerClassName = self::getControllerClassName($ext, $controller);

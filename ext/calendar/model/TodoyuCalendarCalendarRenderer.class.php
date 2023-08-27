@@ -36,14 +36,14 @@ class TodoyuCalendarCalendarRenderer {
 	/**
 	 * Render content body: calendar of day/week/month, view/edit event
 	 *
-	 * @param	String		$tab
-	 * @param	Integer		$date
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	string		$tab
+	 * @param	integer		$date
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderBody($tab, $date = 0, array $params = array()) {
 		$date		= TodoyuTime::time($date);
-		$idEvent	= intval($params['event']);
+		$idEvent	= intval($params['event'] ?? 0);
 
 		if( $idEvent === 0 && in_array($tab, array('day', 'week', 'month')) ) {
 			$eventFilters	= TodoyuCalendarManager::getAllEventFilters();
@@ -81,9 +81,9 @@ class TodoyuCalendarCalendarRenderer {
 	/**
 	 * Render calendar view for day view
 	 *
-	 * @param	Integer		$date
-	 * @param	Array		$filters
-	 * @return	String
+	 * @param	integer		$date
+	 * @param	array		$filters
+	 * @return	string
 	 */
 	public static function renderBodyDay($date, array $filters) {
 		$date	= intval($date);
@@ -97,9 +97,9 @@ class TodoyuCalendarCalendarRenderer {
 	/**
 	 * Render calendar view for week view
 	 *
-	 * @param	Integer		$date
-	 * @param	Array		$filters
-	 * @return	String
+	 * @param	integer		$date
+	 * @param	array		$filters
+	 * @return	string
 	 */
 	public static function renderBodyWeek($date, array $filters) {
 		$date	= intval($date);
@@ -113,9 +113,9 @@ class TodoyuCalendarCalendarRenderer {
 	/**
 	 * Render calendar view for month view
 	 *
-	 * @param	Integer		$date
-	 * @param	Array		$filters
-	 * @return	String
+	 * @param	integer		$date
+	 * @param	array		$filters
+	 * @return	string
 	 */
 	public static function renderBodyMonth($date, array $filters) {
 		$date	= intval($date);
@@ -129,8 +129,8 @@ class TodoyuCalendarCalendarRenderer {
 	/**
 	 * Render calendar body for event detail view
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	String
+	 * @param	integer		$idEvent
+	 * @return	string
 	 */
 	public static function renderBodyView($idEvent) {
 		$idEvent	= intval($idEvent);
@@ -143,8 +143,8 @@ class TodoyuCalendarCalendarRenderer {
 	/**
 	 * Render calendar body for event edit
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	String
+	 * @param	integer		$idEvent
+	 * @return	string
 	 */
 	public static function renderBodyEdit($idEvent) {
 		$idEvent	= intval($idEvent);

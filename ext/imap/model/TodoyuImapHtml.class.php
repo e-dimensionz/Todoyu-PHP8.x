@@ -30,8 +30,8 @@ class TodoyuImapHtml {
 	 * Get simplified html of message
 	 * All disturbing parts are removed
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	public static function getSimpleHtml($html) {
 		$html	= self::getBody($html);
@@ -55,8 +55,8 @@ class TodoyuImapHtml {
 	 * Get safe html
 	 * Remove risky parts
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	public static function getSafeHtml($html) {
 		$html	= self::removeInlineScriptTags($html);
@@ -70,8 +70,8 @@ class TodoyuImapHtml {
 	/**
 	 * Get safe and simplified html
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	public static function getSaveAndSimpleHtml($html) {
 		$html	= self::getSimpleHtml($html);
@@ -86,8 +86,8 @@ class TodoyuImapHtml {
 	/**
 	 * Extract only the body part
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	private static function getBody($html) {
 		if( stristr($html, '</body>') !== false ) {
@@ -107,8 +107,8 @@ class TodoyuImapHtml {
 	/**
 	 * Remove empty elements
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	private static function removeEmptyElements($html) {
 		$remove	= array(
@@ -128,8 +128,8 @@ class TodoyuImapHtml {
 	/**
 	 * Remove all tag attributes
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	private static function removeBadTagAttributes($html) {
 //		$attributePattern	= '/ (class|style|on\w+?)="?[^"]+"?/is';
@@ -154,8 +154,8 @@ class TodoyuImapHtml {
 	/**
 	 * Remove all tag attributes
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	protected static function removeAllTagAttributes($html) {
 		$attributePattern	= '/<(\w+) ([^\/>]+)(\/?)>/is';
@@ -170,8 +170,8 @@ class TodoyuImapHtml {
 	 * Remove inline images
 	 *
 	 * @todo	Try to handle the inline images
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	private static function removeInlineImages($html) {
 		$label			= Todoyu::Label('imap.ext.inlineImageReplacement');
@@ -188,8 +188,8 @@ class TodoyuImapHtml {
 	/**
 	 * Remove whitespaces
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	private static function removeLinebreaksAroundTags($html) {
 //		$afterPattern	= '/>[\n\r\t\s]+/i';
@@ -212,8 +212,8 @@ class TodoyuImapHtml {
 	 * Remove not allowed tags
 	 * Prepare for removing tables
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	private static function removeNotAllowedTags($html) {
 		$html	= str_replace('</tr>', '<br />', $html);
@@ -227,8 +227,8 @@ class TodoyuImapHtml {
 	/**
 	 * Replace useless whitespaces
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	private static function removeHtmlWhitespaces($html) {
 		$pattern	= "/(\n){2,}/is";
@@ -242,8 +242,8 @@ class TodoyuImapHtml {
 	/**
 	 * Remove bad tags
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	private static function removeBadTags($html) {
 		$badTags	= array(
@@ -264,8 +264,8 @@ class TodoyuImapHtml {
 	/**
 	 * Remove inline script tags
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	private static function removeInlineScriptTags($html) {
 		$inlineScript	= '/<script[^>]*?(\/>|>.*?<\/script>)/is';
@@ -278,8 +278,8 @@ class TodoyuImapHtml {
 	/**
 	 * Remove inline style tags
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	private static function removeInlineStyleTags($html) {
 		$inlineStyle	= '/<style[^>]*?>.*?<\/style>/is';

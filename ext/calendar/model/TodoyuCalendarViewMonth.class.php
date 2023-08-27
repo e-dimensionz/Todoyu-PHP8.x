@@ -29,8 +29,8 @@ class TodoyuCalendarViewMonth extends TodoyuCalendarView {
 	/**
 	 * Initialize with date and filters
 	 *
-	 * @param	Integer		$date
-	 * @param	Array		$filters
+	 * @param	integer		$date
+	 * @param	array		$filters
 	 */
 	public function __construct($date, array $filters = array()) {
 		$range	= new TodoyuCalendarRangeDisplayMonth($date);
@@ -43,7 +43,7 @@ class TodoyuCalendarViewMonth extends TodoyuCalendarView {
 	/**
 	 * Get view title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getTitle() {
 		$range			= $this->getRange();
@@ -61,7 +61,7 @@ class TodoyuCalendarViewMonth extends TodoyuCalendarView {
 	/**
 	 * Render month view
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function render() {
 		$tmpl	= 'ext/calendar/view/views/month.tmpl';

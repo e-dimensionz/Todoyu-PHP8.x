@@ -30,9 +30,9 @@ class TodoyuSearch {
 	/**
 	 * Get suggestions for the search
 	 *
-	 * @param	String	$query
-	 * @param	String	$mode
-	 * @param	Boolean	$limit
+	 * @param	string	$query
+	 * @param	string	$mode
+	 * @param	boolean	$limit
 	 * @return	Array
 	 */
 	public static function getSuggestions($query, $mode = 'all', $limit = false) {
@@ -91,13 +91,13 @@ class TodoyuSearch {
 	/**
 	 * Search table
 	 *
-	 * @param	String		$table			Table to search in
-	 * @param	Array		$fields			Fields to search in
-	 * @param	Array		$find			Words to find
-	 * @param	Array		$ignore			Words to ignore
-	 * @param	Integer		$limit
-	 * @param	String		$addToWhere
-	 * @return	String
+	 * @param	string		$table			Table to search in
+	 * @param	array		$fields			Fields to search in
+	 * @param	array		$find			Words to find
+	 * @param	array		$ignore			Words to ignore
+	 * @param	integer		$limit
+	 * @param	string		$addToWhere
+	 * @return	string
 	 */
 	public static function searchTable($table, array $fields, array $find, array $ignore = array(), $limit = 200, $addToWhere = ' AND deleted = 0') {
 		$field	= 'id';

@@ -52,7 +52,7 @@ interface TodoyuFormElementInterface {
 	/**
 	 * Render form element
 	 *
-	 * @param	Boolean	$odd
+	 * @param	boolean	$odd
 	 */
 	public function render($odd = false);
 

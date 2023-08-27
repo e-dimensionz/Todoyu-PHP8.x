@@ -2,11 +2,11 @@
 
 {block name="field"}
 
-<button class="button {$inputClass} {$class}" type="{$type|default:button}" id="{$htmlId}" {if $disabled}disabled="disabled"{/if} {if $onclick}onclick="{$onclick}{if $disable};this.onclick=''{/if};this.blur()"{/if} title="{if $title}{Label $title}{else}{Label $text}{/if}">
+<button class="button {$inputClass} {$class}" type="{$type|default:button}" id="{$htmlId}" {if isset($disable) && $disable}disabled="disabled"{/if} {if isset($onclick)}onclick="{$onclick}{if isset($disable) && $disable};this.onclick=''{/if};this.blur()"{/if} title="{if isset($title)}{Label text=$title}{else}{Label text=$text}{/if}">
 	{if ! $noIcon}
 		<span class="icon"></span>
 	{/if}
-	<span class="label">{Label $text}</span>
+	<span class="label">{Label text=$text}</span>
 </button>
 
 {/block}

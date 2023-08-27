@@ -30,7 +30,7 @@ class TodoyuImapAddress extends TodoyuBaseObject {
 	/**
 	 * Initialize
 	 *
-	 * @param	Integer		$idAddress
+	 * @param	integer		$idAddress
 	 */
 	public function __construct($idAddress) {
 		parent::__construct($idAddress, 'ext_imap_address');
@@ -41,7 +41,7 @@ class TodoyuImapAddress extends TodoyuBaseObject {
 	/**
 	 * Get mail address
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getAddress() {
 		return $this->get('address');
@@ -52,7 +52,7 @@ class TodoyuImapAddress extends TodoyuBaseObject {
 	/**
 	 * Get name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getName() {
 		return $this->get('name');
@@ -63,7 +63,7 @@ class TodoyuImapAddress extends TodoyuBaseObject {
 	/**
 	 * Check whether address has a name attached
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasName() {
 		return $this->getName() !== '';
@@ -76,7 +76,7 @@ class TodoyuImapAddress extends TodoyuBaseObject {
 	 * With name: John Doe (john@doe.com)
 	 * Without name: john@doe.com
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLabel() {
 		$label	= $this->getAddress();

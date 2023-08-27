@@ -38,9 +38,9 @@ class TodoyuContactCompanySearch implements TodoyuSearchEngineIf {
 	/**
 	 * Search company in full-text mode. Return the ID of the matching companies
 	 *
-	 * @param	Array		$find		Keywords which have to be in the company
-	 * @param	Array		$ignore		Keywords which must not be in the company
-	 * @param	Integer		$limit
+	 * @param	array		$find		Keywords which have to be in the company
+	 * @param	array		$ignore		Keywords which must not be in the company
+	 * @param	integer		$limit
 	 * @return	Array		Project IDs
 	 */
 	public static function searchCompanies(array $find, array $ignore = array(), $limit = 100) {
@@ -60,9 +60,9 @@ class TodoyuContactCompanySearch implements TodoyuSearchEngineIf {
 	/**
 	 * Get suggestions data array for company search
 	 *
-	 * @param	Array		$find
-	 * @param	Array		$ignore
-	 * @param	Integer		$limit
+	 * @param	array		$find
+	 * @param	array		$ignore
+	 * @param	integer		$limit
 	 * @return	Array
 	 */
 	public static function getSuggestions(array $find, array $ignore = array(), $limit = 5) {
@@ -107,7 +107,7 @@ class TodoyuContactCompanySearch implements TodoyuSearchEngineIf {
 	/**
 	 * Get row data for given company
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 * @return	Array
 	 */
 	public static function getCompanyListingDataRow($idCompany) {
@@ -144,9 +144,9 @@ class TodoyuContactCompanySearch implements TodoyuSearchEngineIf {
 	/**
 	 * Get listing data for companies
 	 *
-	 * @param	Integer		$size
-	 * @param	Integer		$offset
-	 * @param	Array		$params
+	 * @param	integer		$size
+	 * @param	integer		$offset
+	 * @param	array		$params
 	 * @return	Array
 	 */
 	public static function getCompanyListingData($size, $offset = 0, array $params) {
@@ -173,9 +173,9 @@ class TodoyuContactCompanySearch implements TodoyuSearchEngineIf {
 	/**
 	 * Get companies search results listing data.
 	 *
-	 * @param	Integer		$size
-	 * @param	Integer		$offset
-	 * @param	Array		$params
+	 * @param	integer		$size
+	 * @param	integer		$offset
+	 * @param	array		$params
 	 * @return  Array
 	 */
 	public static function getCompanyListingDataSearch($size, $offset = 0, array $params) {
@@ -200,9 +200,9 @@ class TodoyuContactCompanySearch implements TodoyuSearchEngineIf {
 	/**
 	 * Get listing data for employees
 	 *
-	 * @param	Integer		$size
-	 * @param	Integer		$offset
-	 * @param	Array		$params
+	 * @param	integer		$size
+	 * @param	integer		$offset
+	 * @param	array		$params
 	 * @return	Array
 	 */
 	public static function getEmployeeListingData($size, $offset = 0, array $params) {

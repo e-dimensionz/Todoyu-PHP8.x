@@ -29,9 +29,9 @@ class TodoyuSysmanagerExtImporter {
 	/**
 	 * Verify as extension archive and import uploaded file into ext system
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$pathArchive
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @param	string		$pathArchive
+	 * @return	boolean
 	 */
 	public static function importExtensionArchive($extKey, $pathArchive) {
 		$extDir		= TodoyuExtensions::getExtPath($extKey);
@@ -49,10 +49,10 @@ class TodoyuSysmanagerExtImporter {
 	 * Check whether uploaded archive file can be imported into system as extension
 	 *
 	 * @throws	TodoyuException
-	 * @param	String			$extKey
-	 * @param	String			$pathArchive
-	 * @param	Boolean			$override
-	 * @return	Boolean|String	True or error emssage
+	 * @param	string			$extKey
+	 * @param	string			$pathArchive
+	 * @param	boolean			$override
+	 * @return	boolean|String	True or error emssage
 	 */
 	public static function canImportExtension($extKey, $pathArchive, $override = false) {
 		try {
@@ -96,8 +96,8 @@ class TodoyuSysmanagerExtImporter {
 	/**
 	 * Check whether requirements of an uploaded extension (archive) are fulfilled
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$pathArchive
+	 * @param	string		$extKey
+	 * @param	string		$pathArchive
 	 * @return	Array|Boolean	True or an array with problem informations
 	 */
 	public static function areRequirementsFulfilled($extKey, $pathArchive) {
@@ -147,8 +147,8 @@ class TodoyuSysmanagerExtImporter {
 	 * Check whether given archive file contains a valid todoyu extension
 	 *
 	 * @throws	TodoyuException
-	 * @param	String		$pathArchive
-	 * @return	Boolean
+	 * @param	string		$pathArchive
+	 * @return	boolean
 	 */
 	public static function isValidExtArchive($pathArchive) {
 		$pathArchive	= TodoyuFileManager::pathAbsolute($pathArchive);

@@ -29,8 +29,8 @@ class TodoyuImapViewHelper {
 	/**
 	 * Get config array for one IMAP account option
 	 *
-	 * @param	Integer		$index
-	 * @param	String		$label
+	 * @param	integer		$index
+	 * @param	string		$label
 	 * @return	Array
 	 */
 	public static function getAccountOption($index, $label = '') {

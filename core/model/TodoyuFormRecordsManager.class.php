@@ -36,9 +36,9 @@ class TodoyuFormRecordsManager {
 	/**
 	 * Add a records type form element
 	 *
-	 * @param	String		$type
-	 * @param	String		$formElementClass
-	 * @param	String		$listCallback
+	 * @param	string		$type
+	 * @param	string		$formElementClass
+	 * @param	string		$listCallback
 	 */
 	public static function addType($type, $formElementClass, $listCallback) {
 		self::$listCallback[$type] = $listCallback;
@@ -51,8 +51,8 @@ class TodoyuFormRecordsManager {
 	/**
 	 * Get list callback function
 	 *
-	 * @param	String		$type
-	 * @return	String
+	 * @param	string		$type
+	 * @return	string
 	 */
 	protected static function getListCallback($type) {
 		return self::$listCallback[$type];
@@ -62,10 +62,10 @@ class TodoyuFormRecordsManager {
 
 	/**
 	 *
-	 * @param	String		$type
-	 * @param	String[]	$searchWords
-	 * @param	String[]	$ignoreKeys
-	 * @param	Array		$params
+	 * @param	string		$type
+	 * @param	string[]	$searchWords
+	 * @param	string[]	$ignoreKeys
+	 * @param	array		$params
 	 * @return	Array[]
 	 */
 	public static function getListItems($type, array $searchWords, array $ignoreKeys = array(), array $params = array()) {

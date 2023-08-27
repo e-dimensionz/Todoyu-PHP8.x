@@ -77,7 +77,7 @@ abstract class TodoyuHeadlet implements TodoyuHeadletInterface {
 	/**
 	 * Set reference to JavaScript headlet object
 	 *
-	 * @param	String		$jsHeadlet
+	 * @param	string		$jsHeadlet
 	 */
 	protected final function setJsHeadlet($jsHeadlet) {
 		$this->jsHeadlet = $jsHeadlet;
@@ -106,7 +106,7 @@ abstract class TodoyuHeadlet implements TodoyuHeadletInterface {
 	/**
 	 * Get headlet name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getName() {
 		return strtolower(get_class($this));
@@ -124,7 +124,7 @@ abstract class TodoyuHeadlet implements TodoyuHeadletInterface {
 	/**
 	 * Get headlet ID (for HTML)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getID() {
 		return strtolower($this->getName());
@@ -146,7 +146,7 @@ abstract class TodoyuHeadlet implements TodoyuHeadletInterface {
 	/**
 	 * Set headlet template
 	 *
-	 * @param	String		$template
+	 * @param	string		$template
 	 */
 	protected function setTemplate($template) {
 		$this->template = $template;
@@ -157,7 +157,7 @@ abstract class TodoyuHeadlet implements TodoyuHeadletInterface {
 	/**
 	 * Set headlet render data
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 */
 	protected function setData(array $data) {
 		$this->data = $data;
@@ -182,7 +182,7 @@ abstract class TodoyuHeadlet implements TodoyuHeadletInterface {
 	/**
 	 * Get current area ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	protected function getAreaID() {
 		return Todoyu::getArea();
@@ -193,7 +193,7 @@ abstract class TodoyuHeadlet implements TodoyuHeadletInterface {
 	/**
 	 * Get current area key
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getAreaKey() {
 		return Todoyu::getAreaKey();
@@ -204,8 +204,8 @@ abstract class TodoyuHeadlet implements TodoyuHeadletInterface {
 	/**
 	 * Add attribute for the button
 	 *
-	 * @param	String		$name
-	 * @param	String		$value
+	 * @param	string		$name
+	 * @param	string		$value
 	 */
 	protected function addButtonAttribute($name, $value) {
 		$this->buttonAttributes[$name][] = $value;
@@ -216,7 +216,7 @@ abstract class TodoyuHeadlet implements TodoyuHeadletInterface {
 	/**
 	 * Add classname (CSS) attribute to button config
 	 *
-	 * @param	String	$class
+	 * @param	string	$class
 	 */
 	protected function addButtonClass($class) {
 		$this->addButtonAttribute('class', trim($class) . ' ');
@@ -244,7 +244,7 @@ abstract class TodoyuHeadlet implements TodoyuHeadletInterface {
 	/**
 	 * Add headlet class
 	 *
-	 * @param	String		$class
+	 * @param	string		$class
 	 */
 	public function addClass($class) {
 		$this->class = trim($this->class . ' ' . $class);
@@ -255,7 +255,7 @@ abstract class TodoyuHeadlet implements TodoyuHeadletInterface {
 	/**
 	 * Get headlet classes
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getClass() {
 		return trim($this->class);
@@ -266,7 +266,7 @@ abstract class TodoyuHeadlet implements TodoyuHeadletInterface {
 	/**
 	 * Render headlet
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function render() {
 		$this->data['id'] = $this->getName();
@@ -288,7 +288,7 @@ abstract class TodoyuHeadlet implements TodoyuHeadletInterface {
 	 * A headlet can override this function and prevent to be rendered
 	 * Empty means, the headlet has no reason to be displayed
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isEmpty() {
 		return false;
@@ -299,7 +299,7 @@ abstract class TodoyuHeadlet implements TodoyuHeadletInterface {
 	/**
 	 * Check whether current headlet is open
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isOpen() {
 		return TodoyuHeadletManager::isOpen(get_class($this));

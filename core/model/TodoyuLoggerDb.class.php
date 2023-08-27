@@ -36,7 +36,7 @@ class TodoyuLoggerDb implements TodoyuLoggerIf {
 	/**
 	 * Constructor
 	 *
-	 * @param	Array	$config
+	 * @param	array	$config
 	 */
 	public function __construct(array $config) {
 		$this->table = trim($config['table']);
@@ -49,11 +49,11 @@ class TodoyuLoggerDb implements TodoyuLoggerIf {
 	/**
 	 * Write log message in database
 	 *
-	 * @param	String		$message
-	 * @param	Integer		$level
+	 * @param	string		$message
+	 * @param	integer		$level
 	 * @param	Mixed		$data
-	 * @param	Array		$info
-	 * @param	String		$requestKey
+	 * @param	array		$info
+	 * @param	string		$requestKey
 	 */
 	public function log($message, $level, $data, $info, $requestKey) {
 		if( Todoyu::db()->hasLink() && !empty($this->table) ) {

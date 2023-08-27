@@ -1,17 +1,19 @@
-<h1 class="title headerLine contextmenuproject" id="project-{$id}-header" {if isAllowedSeeProjectDetails($id)}onclick="Todoyu.Ext.project.Project.toggleDetails({$id})"{/if}>
+<h1 class="title headerLine contextmenuproject" id="project-{$id}-header" {if fn_isAllowedSeeProjectDetails($id)}onclick="Todoyu.Ext.project.Project.toggleDetails({$id})"{/if}>
 	<div class="projectstatus bcStatus{$status}"></div>
-	<span id="project-{$id}-titlelabel" class="title titleLabel first" title="ID:{$id} - {htmlencode $fulltitle}">
-		{htmlencode $fulltitle}
+	<span id="project-{$id}-titlelabel" class="title titleLabel first" title="ID:{$id} - {$fulltitle|escape}">
+		{$fulltitle|escape}
 	</span>
-
+    
 	<span class="projectIcons">
-		{foreach $projectIcons projectIcon}
-			<span id="{$projectIcon.id}" class="{$projectIcon.class}" title="{Label $projectIcon.label}" {if $projetIcon.onclick}onclick="{$projectIcon.onclick}"{/if}></span>
+    {if isset($projectIcons) && $projectIcons}
+		{foreach $projectIcons as $projectIcon}
+			<span id="{$projectIcon.id}" class="{$projectIcon.class}" title="{Label text=$projectIcon.label}" {if $projetIcon.onclick}onclick="{$projectIcon.onclick}"{/if}></span>
 		{/foreach}
+    {/if}
 	</span>
 </h1>
 
-{if isAllowedSeeProjectDetails($id)}
+{if fn_isAllowedSeeProjectDetails($id) && isset($details)}
 <div id="project-{$id}-details" class="projectDetails" {if ! $details} style="display:none"{/if}>
 	{$details}
 </div>

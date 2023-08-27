@@ -30,7 +30,7 @@ class TodoyuCorePanelwidgetActionController extends TodoyuActionController {
 	/**
 	 * Save expanded status of a panel widget
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function expandedAction(array $params) {
 		$widget	= $params['widget'];

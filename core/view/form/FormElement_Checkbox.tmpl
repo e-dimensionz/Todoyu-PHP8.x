@@ -3,5 +3,7 @@
 {block name="field"}
 	{*** The hidden field is a workaround, because unchecked checkboxes are not submitted ***}
 	<input type="hidden"name="{$htmlName}" value="0" />
-	<input class="{$inputClass} {$class}" type="checkbox" name="{$htmlName}" id="{$htmlId}" value="1" {if $disabled}disabled="disabled"{/if}{if $onclick}onclick="{$onclick}"{/if} {if $checked}checked="checked"{/if} {$extraAttributes} />
+	<input class="{$inputClass} {if isset($class)}{$class}{/if}" type="checkbox" name="{$htmlName}" id="{$htmlId}" 
+    value="1" {if isset($disabled) && $disabled}disabled="disabled"{/if}{if isset($onclick)}onclick="{$onclick}"{/if} 
+    {if isset($checked) and $checked}checked="checked"{/if} {if isset($extraAttributes)}{$extraAttributes}{/if} />
 {/block}

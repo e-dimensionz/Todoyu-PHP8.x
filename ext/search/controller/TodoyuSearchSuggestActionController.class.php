@@ -27,7 +27,7 @@ class TodoyuSearchSuggestActionController extends TodoyuActionController {
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('search', 'general:use');
@@ -38,8 +38,8 @@ class TodoyuSearchSuggestActionController extends TodoyuActionController {
 	/**
 	 * Get search results suggestion
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function suggestAction(array $params) {
 		$query	= $params['query'];

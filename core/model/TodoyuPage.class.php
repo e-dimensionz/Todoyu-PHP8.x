@@ -48,7 +48,7 @@ class TodoyuPage {
 	/**
 	 * Initialize page object with given template
 	 *
-	 * @param	String		$template		Path to template
+	 * @param	string		$template		Path to template
 	 */
 	public static function init($template) {
 		self::setTemplate($template);
@@ -76,7 +76,7 @@ class TodoyuPage {
 	/**
 	 * Set page template. Normally the page template will be set by the constructor
 	 *
-	 * @param	String		$template
+	 * @param	string		$template
 	 */
 	public static function setTemplate($template) {
 		self::$template = $template;
@@ -92,11 +92,11 @@ class TodoyuPage {
 		$cssFiles	= TodoyuArray::assure(Todoyu::$CONFIG['FE']['PAGE']['assets']['css']);
 
 		foreach($jsFiles as $jsFile) {
-			self::addJavascript($jsFile['file'], $jsFile['position'], $jsFile['compress'], $jsFile['merge'], $jsFile['localize']);
+			self::addJavascript($jsFile['file'], $jsFile['position'] ?? 100, $jsFile['compress'] ?? true, $jsFile['merge'] ?? true, $jsFile['localize'] ?? true);
 		}
 
 		foreach($cssFiles as $cssFile) {
-			self::addStylesheet($cssFile['file'], $cssFile['media'], $cssFile['position'], $cssFile['compress'], $cssFile['merge']);
+			self::addStylesheet($cssFile['file'], $cssFile['media'] ?? 'all', $cssFile['position'] ?? 100, $cssFile['compress'] ?? true, $cssFile['merge'] ?? true);
 		}
 	}
 
@@ -133,7 +133,7 @@ class TodoyuPage {
 	/**
 	 * Load extension CSS files
 	 *
-	 * @param	String		$ext
+	 * @param	string		$ext
 	 */
 	private static function addExtStylesheets($ext) {
 		TodoyuExtensions::loadAllAssets();
@@ -150,7 +150,7 @@ class TodoyuPage {
 	/**
 	 * Load extension JavaScript files
 	 *
-	 * @param	String		$ext
+	 * @param	string		$ext
 	 */
 	private static function addExtJavascript($ext) {
 		$files	= TodoyuArray::assure(Todoyu::$CONFIG['EXT'][$ext]['assets']['js']);
@@ -158,7 +158,7 @@ class TodoyuPage {
 
 		foreach($files as $file) {
 				// Only check for area, when merging is disabled
-			if( $file['merge'] !== true ) {
+			if( empty($file['merge']) || $file['merge'] !== true ) {
 					// Limit file to areas
 				if( isset($file['area']) ) {
 						// List of areas
@@ -175,7 +175,7 @@ class TodoyuPage {
 				}
 			}
 
-			self::addJavascript($file['file'], $file['position'], $file['compress'], $file['merge'], $file['localize']);
+			self::addJavascript($file['file'], $file['position'] ?? 100, $file['compress'] ?? true, $file['merge'] ?? true, $file['localize'] ?? true);
 		}
 	}
 
@@ -193,7 +193,7 @@ class TodoyuPage {
 	/**
 	 * Set attribute in data array
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @param	Mixed		$value
 	 */
 	public static function set($name, $value) {
@@ -205,7 +205,7 @@ class TodoyuPage {
 	/**
 	 * Remove attribute from data array
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 */
 	public static function remove($name) {
 		unset(self::$data[$name]);
@@ -216,7 +216,7 @@ class TodoyuPage {
 	/**
 	 * Append data to an array attribute
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @param	Mixed		$value
 	 */
 	public static function add($name, $value) {
@@ -228,7 +228,7 @@ class TodoyuPage {
 	/**
 	 * Prepend data to an array attribute
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @param	Mixed		$value
 	 */
 	public static function prepend($name, $value) {
@@ -242,7 +242,7 @@ class TodoyuPage {
 	/**
 	 * Append a value to an string attribute
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @param	Mixed		$value
 	 */
 	public static function append($name, $value) {
@@ -254,7 +254,7 @@ class TodoyuPage {
 	/**
 	 * Set page title
 	 *
-	 * @param	String		$title
+	 * @param	string		$title
 	 */
 	public static function setTitle($title) {
 		self::set('pagetitle', Todoyu::Label($title) . ' - todoyu');
@@ -265,7 +265,7 @@ class TodoyuPage {
 	/**
 	 * Set panelWidgets in page template
 	 *
-	 * @param	String		$panelWidgets
+	 * @param	string		$panelWidgets
 	 */
 	public static function setPanelWidgets($panelWidgets) {
 		self::set('panelWidgets', $panelWidgets);
@@ -276,7 +276,7 @@ class TodoyuPage {
 	/**
 	 * Set content marker content
 	 *
-	 * @param	String		$content
+	 * @param	string		$content
 	 */
 	public static function setContent($content) {
 		self::set('content', $content);
@@ -287,7 +287,7 @@ class TodoyuPage {
 	/**
 	 * Set tabs marker content
 	 *
-	 * @param	String		$tabs
+	 * @param	string		$tabs
 	 */
 	public static function setTabs($tabs) {
 		self::set('tabs', $tabs);
@@ -299,7 +299,7 @@ class TodoyuPage {
 	 * Set fullContent marker content
 	 * tabs and content marker are ignored then
 	 *
-	 * @param	String		$fullContent
+	 * @param	string		$fullContent
 	 */
 	public static function setFullContent($fullContent) {
 		self::set('fullContent', $fullContent);
@@ -310,7 +310,7 @@ class TodoyuPage {
 	/**
 	 * Set body ID
 	 *
-	 * @param	String		$bodyID
+	 * @param	string		$bodyID
 	 */
 	public static function setBodyID($bodyID) {
 		self::set('bodyID', $bodyID);
@@ -321,9 +321,9 @@ class TodoyuPage {
 	/**
 	 * Add a metatag
 	 *
-	 * @param	String		$name
-	 * @param	String		$content
-	 * @param	String		$httpEquiv
+	 * @param	string		$name
+	 * @param	string		$content
+	 * @param	string		$httpEquiv
 	 */
 	public static function addMetatag($name, $content, $httpEquiv = '') {
 		self::add(
@@ -341,11 +341,11 @@ class TodoyuPage {
 	/**
 	 * Add a stylesheet to the current page. The stylesheet will be managed (merged, compressed)
 	 *
-	 * @param	String		$pathToFile			Path to original file
-	 * @param	String		$media				Media type
-	 * @param	Integer		$position			File position in loading order
-	 * @param	Boolean		$compress			Compress content?
-	 * @param	Boolean		$merge				Add content to merge file
+	 * @param	string		$pathToFile			Path to original file
+	 * @param	string		$media				Media type
+	 * @param	integer		$position			File position in loading order
+	 * @param	boolean		$compress			Compress content?
+	 * @param	boolean		$merge				Add content to merge file
 	 */
 	public static function addStylesheet($pathToFile, $media = 'all', $position = 100, $compress = true, $merge = true) {
 		TodoyuPageAssetManager::addStylesheet($pathToFile, $media, $position, $compress, $merge);
@@ -356,11 +356,11 @@ class TodoyuPage {
 	/**
 	 * Add JavaScript to the current page. The script will be managed (merged, compressed, localized)
 	 *
-	 * @param	String		$pathToFile			Path to original file
-	 * @param	Integer		$position			File position in loading order
-	 * @param	Boolean		$compress			Compress content?
-	 * @param	Boolean		$merge				Add content to merge file
-	 * @param	Boolean		$localize			Localize content (replace [LLL:xxx] tags
+	 * @param	string		$pathToFile			Path to original file
+	 * @param	integer		$position			File position in loading order
+	 * @param	boolean		$compress			Compress content?
+	 * @param	boolean		$merge				Add content to merge file
+	 * @param	boolean		$localize			Localize content (replace [LLL:xxx] tags
 	 */
 	public static function addJavascript($pathToFile, $position = 100, $compress = true, $merge = true, $localize = true) {
 		TodoyuPageAssetManager::addJavascript($pathToFile, $position, $compress, $merge, $localize);
@@ -371,8 +371,8 @@ class TodoyuPage {
 	/**
 	 * Add inline JavaScript code
 	 *
-	 * @param	String		$jsCode
-	 * @param	Integer		$position
+	 * @param	string		$jsCode
+	 * @param	integer		$position
 	 */
 	public static function addJsInline($jsCode, $position = 100) {
 		self::add('jsInlines',
@@ -388,8 +388,8 @@ class TodoyuPage {
 	/**
 	 * Add JS functions which shall be called on dom loaded
 	 *
-	 * @param	String		$function
-	 * @param	Integer		$position
+	 * @param	string		$function
+	 * @param	integer		$position
 	 */
 	public static function addJsInit($function, $position = 100) {
 		self::$jsInit[] = array(
@@ -424,7 +424,7 @@ class TodoyuPage {
 	/**
 	 * Add additional header data. Can be any HTML code
 	 *
-	 * @param	String		$headerData
+	 * @param	string		$headerData
 	 */
 	public static function addAdditionalHeaderData($headerData) {
 		self::add('additionalHeaderData', $headerData);
@@ -435,8 +435,8 @@ class TodoyuPage {
 	/**
 	 * Add an attribute to the body tag
 	 *
-	 * @param	String		$name
-	 * @param	String		$value
+	 * @param	string		$name
+	 * @param	string		$value
 	 */
 	public static function addBodyAttribute($name, $value) {
 		self::add('bodyAttributes', array(
@@ -450,7 +450,7 @@ class TodoyuPage {
 	/**
 	 * Add a class to the body element
 	 *
-	 * @param	String		$class
+	 * @param	string		$class
 	 */
 	public static function addBodyClass($class) {
 		self::append('bodyClass', ' ' . $class);
@@ -461,7 +461,7 @@ class TodoyuPage {
 	/**
 	 * Add an HTML element to the body
 	 *
-	 * @param	String		$elementHtml
+	 * @param	string		$elementHtml
 	 */
 	public static function addBodyElement($elementHtml) {
 		self::add('bodyElements', $elementHtml);
@@ -505,7 +505,7 @@ class TodoyuPage {
 	/**
 	 * Render page with template
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function render() {
 			// Call hook just before page is rendered

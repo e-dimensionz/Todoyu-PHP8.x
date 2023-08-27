@@ -38,7 +38,7 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Get unique todoyu ID
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getTodoyuID() {
 		return trim(Todoyu::$CONFIG['SETTINGS']['repository']['todoyuid']);
@@ -49,7 +49,7 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Get last used search query
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getLastSearchKeyword() {
 		return TodoyuSysmanagerPreferences::getPref('repositoryQuery');
@@ -72,8 +72,8 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Install extension update
 	 *
-	 * @param	String			$extKey
-	 * @return	Boolean|String
+	 * @param	string			$extKey
+	 * @return	boolean|String
 	 */
 	public static function installExtensionUpdate($extKey) {
 		try {
@@ -116,9 +116,9 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Install a new extension from tER
 	 *
-	 * @param	String		$extKey
-	 * @param	Integer		$majorVersion
-	 * @return	Boolean|String
+	 * @param	string		$extKey
+	 * @param	integer		$majorVersion
+	 * @return	boolean|String
 	 */
 	public static function installExtensionFromTER($extKey, $majorVersion) {
 		try {
@@ -160,7 +160,7 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Install core update. Extract update files over local files
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function installCoreUpdate() {
 		$update		= self::getRepoInfo('core');
@@ -190,8 +190,8 @@ class TodoyuSysmanagerRepositoryManager {
 	 * Download and import (install) a core update
 	 *
 	 * @throws	TodoyuException
-	 * @param	String	$idVersion
-	 * @return	Boolean
+	 * @param	string	$idVersion
+	 * @return	boolean
 	 */
 	private static function downloadAndImportCoreUpdate($idVersion) {
 		$pathArchive= self::downloadArchive('core', $idVersion);
@@ -208,7 +208,7 @@ class TodoyuSysmanagerRepositoryManager {
 	 * Import the core update from an archive
 	 *
 	 * @throws	TodoyuException
-	 * @param	String				$pathArchive
+	 * @param	string				$pathArchive
 	 */
 	private static function importCoreUpdate($pathArchive) {
 		$pathTemp	= TodoyuFileManager::pathAbsolute('cache/temp/' . md5(NOW));
@@ -239,7 +239,7 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Remove folders and files from core update which should not be updated
 	 *
-	 * @param	String		$pathTempCoreUpdate			Path to temporary core update folder
+	 * @param	string		$pathTempCoreUpdate			Path to temporary core update folder
 	 */
 	private static function removeLocalElementsFromCoreUpdate($pathTempCoreUpdate) {
 			// Remove folders/files which should not be overwritten
@@ -262,10 +262,10 @@ class TodoyuSysmanagerRepositoryManager {
 	 * Download external archive file and extract it into the cache folder
 	 *
 	 * @throws	TodoyuSysmanagerRepositoryException
-	 * @param	String		$extKey
-	 * @param	Integer		$idVersion
-	 * @param	Boolean		$isUpdate
-	 * @return	Boolean		Success
+	 * @param	string		$extKey
+	 * @param	integer		$idVersion
+	 * @param	boolean		$isUpdate
+	 * @return	boolean		Success
 	 */
 	private static function downloadAndImportExtension($extKey, $idVersion, $isUpdate = false) {
 		$override	= $isUpdate;
@@ -291,9 +291,9 @@ class TodoyuSysmanagerRepositoryManager {
 	 * Register a commercial extension on tER server
 	 *
 	 * @throws	TodoyuSysmanagerRepositoryException
-	 * @param	String		$extKey
-	 * @param	Integer		$majorVersion
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @param	integer		$majorVersion
+	 * @return	boolean
 	 */
 	public static function registerCommercialExtension($extKey, $majorVersion) {
 		$repository	= new TodoyuSysmanagerRepository();
@@ -311,9 +311,9 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Download an archive from an URL to local hard drive
 	 *
-	 * @param	String		$type
-	 * @param	String		$idVersion
-	 * @return	String		Path to local archive
+	 * @param	string		$type
+	 * @param	string		$idVersion
+	 * @return	string		Path to local archive
 	 * @throws	TodoyuException
 	 */
 	private static function downloadArchive($type, $idVersion) {
@@ -331,8 +331,8 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Save path to archive of extension or core
 	 *
-	 * @param	String		$key
-	 * @param	Array		$data
+	 * @param	string		$key
+	 * @param	array		$data
 	 */
 	public static function saveRepoInfo($key, array $data) {
 		TodoyuSession::set('repository/info/' . $key, $data);
@@ -343,7 +343,7 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Get path to archive of extension or core
 	 *
-	 * @param	String		$key
+	 * @param	string		$key
 	 * @return	Array
 	 */
 	public static function getRepoInfo($key) {
@@ -365,8 +365,8 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Get license text for license type
 	 *
-	 * @param	String		$license
-	 * @return	String|Boolean
+	 * @param	string		$license
+	 * @return	string|Boolean
 	 */
 	public static function getExtensionLicenseText($license) {
 		$license	= strtolower(trim($license));
@@ -384,8 +384,8 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Get extension installation infos from repository
 	 *
-	 * @param	String		$extKey
-	 * @param	Integer		$major
+	 * @param	string		$extKey
+	 * @param	integer		$major
 	 * @return	Array
 	 */
 	public static function getExtInfoFromRepository($extKey, $major) {
@@ -409,9 +409,9 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * Check whether extension is commercial in TER
 	 *
-	 * @param	String		$extKey
-	 * @param	Integer		$major
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @param	integer		$major
+	 * @return	boolean
 	 */
 	public static function isCommercial($extKey, $major) {
 		$info	= self::getExtInfoFromRepository($extKey, $major);
@@ -425,9 +425,9 @@ class TodoyuSysmanagerRepositoryManager {
 	 * Check whether a registration is required
 	 * It's required if not free and not already licensed
 	 *
-	 * @param	String		$extKey
-	 * @param	Integer		$major
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @param	integer		$major
+	 * @return	boolean
 	 */
 	public static function isRegistrationRequired($extKey, $major) {
 		$info	= self::getExtInfoFromRepository($extKey, $major);
@@ -445,9 +445,9 @@ class TodoyuSysmanagerRepositoryManager {
 	/**
 	 * License an extension
 	 *
-	 * @param	String		$extKey
-	 * @param	Integer		$majorVersion
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @param	integer		$majorVersion
+	 * @return	boolean
 	 */
 	public static function licenseExtension($extKey, $majorVersion) {
 		try {

@@ -25,7 +25,7 @@
 class TodoyuProjectTaskExportManager {
 
 	/**
-	 * @param	Array	$taskIDs
+	 * @param	array	$taskIDs
 	 */
 	public static function exportCSV(array $taskIDs) {
 		$taskIDs	= TodoyuArray::intval($taskIDs);
@@ -42,7 +42,7 @@ class TodoyuProjectTaskExportManager {
 
 
 	/**
-	 * @param	Array	$taskIDs
+	 * @param	array	$taskIDs
 	 * @return	Array
 	 */
 	public static function prepareDataForExport(array $taskIDs) {

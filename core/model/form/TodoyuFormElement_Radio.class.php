@@ -29,9 +29,9 @@ class TodoyuFormElement_Radio extends TodoyuFormElement {
 	/**
 	 * Constructor of the class
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array		$config
+	 * @param	array		$config
 	 */
 	function __construct($name, TodoyuFormFieldset $fieldset, array $config  = array()) {
 		parent::__construct('radio', $name, $fieldset, $config);
@@ -64,7 +64,7 @@ class TodoyuFormElement_Radio extends TodoyuFormElement {
 	/**
 	 * Init options from a XML list
 	 *
-	 * @param	Array		$source
+	 * @param	array		$source
 	 */
 	protected function initSourceList(array $source) {
 		if( is_array($source['option']) ) {
@@ -79,7 +79,7 @@ class TodoyuFormElement_Radio extends TodoyuFormElement {
 	/**
 	 * Initialize source function
 	 *
-	 * @param	Array	$source
+	 * @param	array	$source
 	 */
 	protected function initSourceFunction(array $source) {
 		if( TodoyuFunction::isFunctionReference($source['function']) ) {
@@ -96,7 +96,7 @@ class TodoyuFormElement_Radio extends TodoyuFormElement {
 	/**
 	 * Detect if lazy init is defined (grab data when form is rendered)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	protected function isLazyInit() {
 		return isset($this->config['source']['lazyInit']);
@@ -118,9 +118,9 @@ class TodoyuFormElement_Radio extends TodoyuFormElement {
 	/**
 	 * Add a new option at the end of the list
 	 *
-	 * @param	String		$value
-	 * @param	String		$label
-	 * @param	Boolean		$disabled
+	 * @param	string		$value
+	 * @param	string		$label
+	 * @param	boolean		$disabled
 	 */
 	public function addOption($value, $label, $disabled = false) {
 		$this->config['options'][] = array(
@@ -136,9 +136,9 @@ class TodoyuFormElement_Radio extends TodoyuFormElement {
 	 * Set an option. The (first) option with the same value will be replaced.
 	 * If no option with this value exists, a new options will be added
 	 *
-	 * @param	String		$value
-	 * @param	String		$label
-	 * @param	Boolean		$disabled
+	 * @param	string		$value
+	 * @param	string		$label
+	 * @param	boolean		$disabled
 	 * @deprecated
 	 */
 	public function setOption($value, $label, $disabled = false) {
@@ -160,8 +160,8 @@ class TodoyuFormElement_Radio extends TodoyuFormElement {
 	/**
 	 * Get the index of the option by its value
 	 *
-	 * @param	String		$value
-	 * @return	Integer		Or false if not found
+	 * @param	string		$value
+	 * @return	integer		Or false if not found
 	 * @deprecated
 	 */
 	protected function getOptionIndexByValue($value) {
@@ -184,7 +184,7 @@ class TodoyuFormElement_Radio extends TodoyuFormElement {
 	/**
 	 * Add value to selected-values list
 	 *
-	 * @param	String		$value
+	 * @param	string		$value
 	 */
 	public function addCheckedValue($value) {
 		$this->setValue(TodoyuString::addToList($this->getValue(), $value, ',', true));

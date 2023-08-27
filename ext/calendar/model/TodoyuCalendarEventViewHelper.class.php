@@ -136,7 +136,7 @@ class TodoyuCalendarEventViewHelper {
 	 * Get auto-notification information comment: preset roles' persons
 	 *
 	 * @param	TodoyuFormElement	$field
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getAutoNotificationComment(TodoyuFormElement $field) {
 		$idEvent				= $field->getForm()->getRecordID();
@@ -180,9 +180,9 @@ class TodoyuCalendarEventViewHelper {
 	/**
 	 * Get autocomplete persons for events (only staff)
 	 *
-	 * @param	String		$input
-	 * @param	Array		$formData
-	 * @param	String		$name
+	 * @param	string		$input
+	 * @param	array		$formData
+	 * @param	string		$name
 	 * @return	Array
 	 */
 	public static function autocompleteEventPersons($input, array $formData, $name) {
@@ -222,8 +222,8 @@ class TodoyuCalendarEventViewHelper {
 	/**
 	 * Get edit tab label
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	String
+	 * @param	integer		$idEvent
+	 * @return	string
 	 */
 	public static function getEventEditTabLabel($idEvent) {
 		$event	= TodoyuCalendarEventStaticManager::getEvent($idEvent);
@@ -236,8 +236,8 @@ class TodoyuCalendarEventViewHelper {
 	/**
 	 * Get detail view tab label
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	String
+	 * @param	integer		$idEvent
+	 * @return	string
 	 */
 	public static function getEventViewTabLabel($idEvent) {
 		$event	= TodoyuCalendarEventStaticManager::getEvent($idEvent);

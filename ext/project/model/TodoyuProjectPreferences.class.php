@@ -29,12 +29,12 @@ class TodoyuProjectPreferences {
 	/**
 	 * Save a preference for project
 	 *
-	 * @param	String		$preference
-	 * @param	String		$value
-	 * @param	Integer		$idItem
-	 * @param	Boolean		$unique
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	string		$preference
+	 * @param	string		$value
+	 * @param	integer		$idItem
+	 * @param	boolean		$unique
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 */
 	public static function savePref($preference, $value, $idItem = 0, $unique = false, $idArea = 0, $idPerson = 0) {
 		TodoyuPreferenceManager::savePreference(EXTID_PROJECT, $preference, $value, $idItem, $unique, $idArea, $idPerson);
@@ -45,12 +45,12 @@ class TodoyuProjectPreferences {
 	/**
 	 * Get a preference
 	 *
-	 * @param	String		$preference
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Boolean		$unserialize
-	 * @param	Integer		$idPerson
-	 * @return	String
+	 * @param	string		$preference
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	boolean		$unserialize
+	 * @param	integer		$idPerson
+	 * @return	string
 	 */
 	public static function getPref($preference, $idItem = 0, $idArea = 0, $unserialize = false, $idPerson = 0) {
 		return TodoyuPreferenceManager::getPreference(EXTID_PROJECT, $preference, $idItem, $idArea, $unserialize, $idPerson);
@@ -61,10 +61,10 @@ class TodoyuProjectPreferences {
 	/**
 	 * Get all preferences of project
 	 *
-	 * @param	String		$preference
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	string		$preference
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getPrefs($preference, $idItem = 0, $idArea = 0, $idPerson = 0) {
@@ -76,11 +76,11 @@ class TodoyuProjectPreferences {
 	/**
 	 * Delete project preference
 	 *
-	 * @param	String		$preference
-	 * @param	String		$value
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	string		$preference
+	 * @param	string		$value
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 */
 	public static function deletePref($preference, $value = null, $idItem = 0, $idArea = 0, $idPerson = 0) {
 		TodoyuPreferenceManager::deletePreference(EXTID_PROJECT, $preference, $value, $idItem, $idArea, $idPerson);
@@ -91,9 +91,9 @@ class TodoyuProjectPreferences {
 	/**
 	 * Save visibility of the sub tasks of a task
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$isVisible
-	 * @param	Integer		$idArea
+	 * @param	integer		$idTask
+	 * @param	boolean		$isVisible
+	 * @param	integer		$idArea
 	 */
 	public static function saveSubTasksVisibility($idTask, $isVisible = true, $idArea = EXTID_PROJECT) {
 		$idTask	= intval($idTask);
@@ -111,8 +111,8 @@ class TodoyuProjectPreferences {
 	/**
 	 * Get visible sub tasks
 	 *
-	 * @param	Integer 	$idArea
-	 * @return	Integer[]
+	 * @param	integer 	$idArea
+	 * @return	integer[]
 	 */
 	public static function getVisibleSubTaskIDs($idArea = EXTID_PROJECT) {
 		$idArea	= intval($idArea);
@@ -125,8 +125,8 @@ class TodoyuProjectPreferences {
 	/**
 	 * Save expanded (displaying it's details) task status
 	 *
-	 * @param	Integer		$idTask			Task ID
-	 * @param	Boolean		$expanded		Is task now expanded?
+	 * @param	integer		$idTask			Task ID
+	 * @param	boolean		$expanded		Is task now expanded?
 	 */
 	public static function saveTaskExpandedStatus($idTask, $expanded = true) {
 		$idTask	= intval($idTask);
@@ -158,7 +158,7 @@ class TodoyuProjectPreferences {
 	/**
 	 * Save open project tabs (ID of the open projects)
 	 *
-	 * @param	Array		$projectIDs
+	 * @param	array		$projectIDs
 	 */
 	public static function saveOpenProjectTabs(array $projectIDs = array()) {
 		$projectIDs	= TodoyuArray::intval($projectIDs, true, true);
@@ -172,8 +172,8 @@ class TodoyuProjectPreferences {
 	/**
 	 * Save pref: details being expanded?
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Boolean		$expanded
+	 * @param	integer		$idProject
+	 * @param	boolean		$expanded
 	 */
 	public static function saveExpandedDetails($idProject, $expanded = true) {
 		$idProject	= intval($idProject);
@@ -190,8 +190,8 @@ class TodoyuProjectPreferences {
 	/**
 	 * Check whether given project details are expanded
 	 *
-	 * @param	Integer		$idProject
-	 * @return	Boolean
+	 * @param	integer		$idProject
+	 * @return	boolean
 	 */
 	public static function isProjectDetailsExpanded($idProject) {
 		$idProject	= intval($idProject);
@@ -219,7 +219,7 @@ class TodoyuProjectPreferences {
 	/**
 	 * Remove projects which are not allowed to be seen from array of project IDs
 	 *
-	 * @param	Array	$projectIDs
+	 * @param	array	$projectIDs
 	 * @return	Array
 	 */
 	public static function unsetForbiddenProjectIDs($projectIDs = array()) {
@@ -237,7 +237,7 @@ class TodoyuProjectPreferences {
 	/**
 	 * Add a new project to the open tab list
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 */
 	public static function addOpenProject($idProject) {
 		self::addOpenProjects(array($idProject));
@@ -270,7 +270,7 @@ class TodoyuProjectPreferences {
 	/**
 	 * Remove a project from open list
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 */
 	public static function removeOpenProject($idProject) {
 		$idProject	= intval($idProject);
@@ -291,7 +291,7 @@ class TodoyuProjectPreferences {
 	/**
 	 * Get active project ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getActiveProject() {
 		$openProjects	= self::getOpenProjectIDs();
@@ -312,8 +312,8 @@ class TodoyuProjectPreferences {
 	/**
 	 * Get the key of the currently active tab inside the details of the given project (default if none is selected)
 	 *
-	 * @param	Integer		$idProject
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @return	string
 	 */
 	public static function getActiveProjectDetailTab($idProject) {
 		return TodoyuContentItemTabPreferences::getActiveTab('project', 'projectdetail', $idProject);
@@ -324,8 +324,8 @@ class TodoyuProjectPreferences {
 	/**
 	 * Get the key of the currently active tab (default if none is selected)
 	 *
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function getActiveItemTab($idTask, $itemKey) {
 		return TodoyuContentItemTabPreferences::getActiveTab('project', $itemKey, $idTask);
@@ -336,8 +336,8 @@ class TodoyuProjectPreferences {
 	/**
 	 * Save active tab in project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	String		$tab
+	 * @param	integer		$idProject
+	 * @param	string		$tab
 	 */
 	public static function saveActiveProjectDetailTab($idProject, $tab) {
 		TodoyuContentItemTabPreferences::saveActiveTab('project', 'projectdetail', $idProject, $tab);
@@ -348,8 +348,8 @@ class TodoyuProjectPreferences {
 	/**
 	 * Save active tab in task
 	 *
-	 * @param	Integer		$idTask
-	 * @param	String		$tab
+	 * @param	integer		$idTask
+	 * @param	string		$tab
 	 */
 	public static function saveActiveItemTab($idItem, $tab, $itemKey) {
 		TodoyuContentItemTabPreferences::saveActiveTab('project', $itemKey, $idItem, $tab);
@@ -360,7 +360,7 @@ class TodoyuProjectPreferences {
 	/**
 	 * Set forced project detail tab for current rendering
 	 *
-	 * @param	String		$tab
+	 * @param	string		$tab
 	 */
 	public static function setForcedProjectTab($tab) {
 		TodoyuContentItemTabPreferences::setForcedTab('project', 'projectdetail', $tab);
@@ -371,7 +371,7 @@ class TodoyuProjectPreferences {
 	/**
 	 * Set forced task tab for current rendering
 	 *
-	 * @param	String		$tab
+	 * @param	string		$tab
 	 */
 	public static function setForcedTaskTab($tab) {
 		TodoyuContentItemTabPreferences::setForcedTab('project', 'task', $tab);
@@ -382,7 +382,7 @@ class TodoyuProjectPreferences {
 	/**
 	 * Get currently forced project detail tab (or false)
 	 *
-	 * @return	String		Or FALSE
+	 * @return	string		Or FALSE
 	 */
 	public static function getForcedProjectDetailTab() {
 		return TodoyuContentItemTabPreferences::getForcedTab('project', 'projectdetail');
@@ -393,7 +393,7 @@ class TodoyuProjectPreferences {
 	/**
 	 * Get currently forced task tab (or false)
 	 *
-	 * @return	String		Or FALSE
+	 * @return	string		Or FALSE
 	 */
 	public static function getForcedTaskTab() {
 		return TodoyuContentItemTabPreferences::getForcedTab('project', 'task');

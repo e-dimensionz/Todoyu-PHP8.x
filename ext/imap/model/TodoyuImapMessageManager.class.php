@@ -36,7 +36,7 @@ class TodoyuImapMessageManager {
 	/**
 	 * Get message
 	 *
-	 * @param	Integer		$idMessage
+	 * @param	integer		$idMessage
 	 * @return	TodoyuImapMessage
 	 */
 	public static function getMessage($idMessage) {
@@ -48,8 +48,8 @@ class TodoyuImapMessageManager {
 	/**
 	 * Add a new email record
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function addMessage(array $data = array()) {
 		$idMessage = TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -64,7 +64,7 @@ class TodoyuImapMessageManager {
 	/**
 	 * Delete a message in the database (set deleted flag to 1)
 	 *
-	 * @param	Integer		$idMessage
+	 * @param	integer		$idMessage
 	 */
 	public static function deleteMessage($idMessage) {
 		$idMessage	= intval($idMessage);
@@ -83,8 +83,8 @@ class TodoyuImapMessageManager {
 	/**
 	 * Update data of message with given ID
 	 *
-	 * @param	Integer		$idMessage
-	 * @param	Array		$data
+	 * @param	integer		$idMessage
+	 * @param	array		$data
 	 */
 	public static function updateMessage($idMessage, array $data) {
 		TodoyuRecordManager::removeRecordCache('TodoyuImapMessage', $idMessage);
@@ -99,8 +99,8 @@ class TodoyuImapMessageManager {
 	/**
 	 *
 	 *
-	 * @param	Array		$addressData
-	 * @return	Integer
+	 * @param	array		$addressData
+	 * @return	integer
 	 */
 	public static function saveAddress(array $addressData) {
 		$name	= trim($addressData['name']);
@@ -120,9 +120,9 @@ class TodoyuImapMessageManager {
 	/**
 	 * Save an address to the address book and link it to the message
 	 *
-	 * @param	Integer		$idMessage
-	 * @param	Array[]		$typeAddresses
-	 * @param	Integer		$type
+	 * @param	integer		$idMessage
+	 * @param	array[]		$typeAddresses
+	 * @param	integer		$type
 	 */
 	public static function saveAddressesToAddressBook($idMessage, array $typeAddresses, $type) {
 		if( is_array($typeAddresses) ) {
@@ -140,8 +140,8 @@ class TodoyuImapMessageManager {
 	/**
 	 * Save an address to the address book
 	 *
-	 * @param	Array	$addressData
-	 * @return	Integer
+	 * @param	array	$addressData
+	 * @return	integer
 	 */
 	public static function saveAddressToAddressBook(array $addressData) {
 		$name		= trim($addressData['name']);
@@ -160,10 +160,10 @@ class TodoyuImapMessageManager {
 	/**
 	 * Link an address to a message with a type
 	 *
-	 * @param	Integer		$type
-	 * @param	Integer		$idAddress
-	 * @param	Integer		$idMessage
-	 * @return	Integer
+	 * @param	integer		$type
+	 * @param	integer		$idAddress
+	 * @param	integer		$idMessage
+	 * @return	integer
 	 */
 	public static function addLinkAddressMessage($type, $idAddress, $idMessage) {
 		$extraData	= array(
@@ -178,10 +178,10 @@ class TodoyuImapMessageManager {
 	/**
 	 * Get ID of address with given credentials (create newly if unknown) and store as address relation of given type of given message record.
 	 *
-	 * @param	Integer		$idMessage
-	 * @param	String		$address
-	 * @param	String		$name
-	 * @param	String		$column
+	 * @param	integer		$idMessage
+	 * @param	string		$address
+	 * @param	string		$name
+	 * @param	string		$column
 	 * @todo	Used anywhere?
 	 */
 	public static function updateMessageAddress($idMessage, $address, $name, $column = 'id_email_from') {
@@ -199,8 +199,8 @@ class TodoyuImapMessageManager {
 	/**
 	 * Filter given message_id's: reduce to ones of not yet imported messages
 	 *
-	 * @param	Integer		$idAccount
-	 * @param	Array		$messageNumberIdMap
+	 * @param	integer		$idAccount
+	 * @param	array		$messageNumberIdMap
 	 * @return	Array
 	 */
 	public static function reduceMessageIDsToNotYetImported($idAccount, array $messageNumberIdMap) {
@@ -220,9 +220,9 @@ class TodoyuImapMessageManager {
 	/**
 	 * Get message ids of imported messages which are the same as in the map list
 	 *
-	 * @param	Integer		$idAccount
-	 * @param	Array		$messageNumberIdMap
-	 * @return	Integer[]
+	 * @param	integer		$idAccount
+	 * @param	array		$messageNumberIdMap
+	 * @return	integer[]
 	 */
 	public static function getImportedMessageIds($idAccount, array $messageNumberIdMap) {
 		$idAccount	= intval($idAccount);
@@ -242,8 +242,8 @@ class TodoyuImapMessageManager {
 	/**
 	 * Get all "to" addresses of given message
 	 *
-	 * @param	Integer		$idMessage
-	 * @param	Boolean		$addressUnique
+	 * @param	integer		$idMessage
+	 * @param	boolean		$addressUnique
 	 * @return	Array[]
 	 */
 	public static function getMessageAddressesTo($idMessage, $addressUnique = false) {
@@ -255,8 +255,8 @@ class TodoyuImapMessageManager {
 	/**
 	 * Get all "cc" addresses of given message
 	 *
-	 * @param	Integer		$idMessage
-	 * @param	Boolean		$addressUnique
+	 * @param	integer		$idMessage
+	 * @param	boolean		$addressUnique
 	 * @return	Array[]
 	 */
 	public static function getMessageAddressesCc($idMessage, $addressUnique = false) {
@@ -268,8 +268,8 @@ class TodoyuImapMessageManager {
 	/**
 	 * Get all "replyto" addresses of given message
 	 *
-	 * @param	Integer		$idMessage
-	 * @param	Boolean		$addressUnique
+	 * @param	integer		$idMessage
+	 * @param	boolean		$addressUnique
 	 * @return	Array[]
 	 */
 	public static function getMessageAddressesReplyTo($idMessage, $addressUnique = false) {
@@ -279,9 +279,9 @@ class TodoyuImapMessageManager {
 
 
 	/**
-	 * @param	Integer		$idMessage
-	 * @param	Boolean		$addressUnique
-	 * @param	Integer		$type
+	 * @param	integer		$idMessage
+	 * @param	boolean		$addressUnique
+	 * @param	integer		$type
 	 * @return	Array[]
 	 */
 	public static function getMessageAddresses($idMessage, $addressUnique = false, $type = IMAP_ADDRESS_TYPE_TO) {
@@ -314,8 +314,8 @@ class TodoyuImapMessageManager {
 	/**
 	 * Replace src path of inline images with server url
 	 *
-	 * @param	String		$html
-	 * @return	String
+	 * @param	string		$html
+	 * @return	string
 	 */
 	public static function replaceInlineImagePaths($html) {
 		$pattern	= '/(cid:([^"]+))/';
@@ -329,8 +329,8 @@ class TodoyuImapMessageManager {
 	/**
 	 * Clean message id. Remove angle brackets
 	 *
-	 * @param	String		$messageId
-	 * @return	String
+	 * @param	string		$messageId
+	 * @return	string
 	 */
 	public static function cleanID($messageId) {
 		return trim(str_replace(array('<', '>'), '', $messageId));
@@ -341,8 +341,8 @@ class TodoyuImapMessageManager {
 	/**
 	 * Get ID of message by message-id
 	 *
-	 * @param	String		$messageId
-	 * @return	Integer
+	 * @param	string		$messageId
+	 * @return	integer
 	 */
 	public static function getRecordIdByMessageId($messageId) {
 		$field	= 'id';

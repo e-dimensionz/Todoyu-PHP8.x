@@ -29,9 +29,9 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Call setup function of extension if available
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$action
-	 * @param	Array		$params
+	 * @param	string		$extKey
+	 * @param	string		$action
+	 * @param	array		$params
 	 */
 	private static function callSetup($extKey, $action = 'install', array $params = array()) {
 		$className	= 'Todoyu' . ucfirst(strtolower(trim($extKey))) . 'Setup';
@@ -51,8 +51,8 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Call and action on all other extension setup classes
 	 *
-	 * @param	String		$ignoreExt		This extension will be ignored
-	 * @param	String		$action
+	 * @param	string		$ignoreExt		This extension will be ignored
+	 * @param	string		$action
 	 */
 	private static function callOtherSetups($ignoreExt, $action) {
 		$extKeys	= TodoyuExtensions::getInstalledExtKeys();
@@ -69,7 +69,7 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Call 'afterOtherExtensionInstall' for all other extensions
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 */
 	public static function callAfterOtherExtensionInstall($extKey) {
 		self::callOtherSetups($extKey, 'afterOtherExtensionInstall');
@@ -80,7 +80,7 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Call 'afterOtherExtensionUninstall' for all other extensions
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 */
 	public static function callAfterOtherExtensionUninstall($extKey) {
 		self::callOtherSetups($extKey, 'afterOtherExtensionUninstall');
@@ -91,7 +91,7 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Call 'beforeUpdate' for the extension
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 */
 	public static function callBeforeUpdate($extKey) {
 		self::callSetup($extKey, 'beforeUpdate');
@@ -102,8 +102,8 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Call 'afterUpdate' for the extension
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$previousVersion
+	 * @param	string		$extKey
+	 * @param	string		$previousVersion
 	 */
 	public static function callAfterUpdate($extKey, $previousVersion) {
 		$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
@@ -116,9 +116,9 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Call 'beforeUpdate' for the extension
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$previousVersion
-	 * @param	String		$currentVersion
+	 * @param	string		$extKey
+	 * @param	string		$previousVersion
+	 * @param	string		$currentVersion
 	 */
 	public static function callBeforeDbUpdate($extKey, $previousVersion, $currentVersion) {
 		self::callSetup($extKey, 'beforeDbUpdate', array($previousVersion, $currentVersion));
@@ -129,7 +129,7 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Call 'afterInstall' for the extension
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 */
 	public static function callAfterInstall($extKey) {
 		self::callSetup($extKey, 'afterInstall');
@@ -141,7 +141,7 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Call 'beforeUninstall' for extension
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 */
 	public static function callBeforeUninstall($extKey) {
 		$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
@@ -154,8 +154,8 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Call 'beforeMajorUpdate' for an extension
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$nextVersion
+	 * @param	string		$extKey
+	 * @param	string		$nextVersion
 	 */
 	public static function callBeforeMajorUpdate($extKey, $nextVersion) {
 		$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
@@ -168,8 +168,8 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Call 'afterMajorUpdate' for an extension
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$previousVersion
+	 * @param	string		$extKey
+	 * @param	string		$previousVersion
 	 */
 	public static function callAfterMajorUpdate($extKey, $previousVersion) {
 		$currentVersion	= TodoyuExtensions::getExtVersion($extKey);
@@ -182,7 +182,7 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Save extensions as installed in extensions.php config file
 	 *
-	 * @param	Array		$extensions
+	 * @param	array		$extensions
 	 */
 	public static function saveInstalledExtensions(array $extensions) {
 			// Update global config array
@@ -202,8 +202,8 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Install an extension (update extension config file)
 	 *
-	 * @param	String		$extKey
-	 * @param	Boolean		$noDbUpdate		Don't update database
+	 * @param	string		$extKey
+	 * @param	boolean		$noDbUpdate		Don't update database
 	 */
 	public static function installExtension($extKey, $noDbUpdate = false) {
 			// Add given ext key to  list of installed extensions
@@ -245,7 +245,7 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Uninstall an extension (update extension config file)
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 */
 	public static function uninstallExtension($extKey) {
 		self::callBeforeUninstall($extKey);
@@ -269,8 +269,8 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Check whether an extension can be installed
 	 *
-	 * @param	String		$extKey
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @return	boolean
 	 */
 	public static function canInstall($extKey) {
 		return self::getInstallProblems($extKey) === false;
@@ -281,7 +281,7 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Collect all reasons which prevent the installation of an extension
 	 *
-	 * @param	String			$extKey
+	 * @param	string			$extKey
 	 * @return	Array|Boolean	False or a list of problems
 	 */
 	public static function getInstallProblems($extKey) {
@@ -335,8 +335,8 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Check whether extension core requirement is fulfilled
 	 *
-	 * @param	String		$extKey
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @return	boolean
 	 */
 	public static function matchesCoreVersion($extKey) {
 		$extInfo	= TodoyuExtensions::getExtInfo($extKey);
@@ -353,7 +353,7 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Get all status array (required vs. installed version) of all missing extensions which are dependencies of given extension
 	 *
-	 * @param	String	$extKey
+	 * @param	string	$extKey
 	 * @return	Array
 	 */
 	public static function getFailedDependencies($extKey) {
@@ -390,8 +390,8 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Get textual list of failed dependencies of given extension
 	 *
-	 * @param	String	$extKey
-	 * @return	String
+	 * @param	string	$extKey
+	 * @return	string
 	 */
 	public static function getFailedDependenciesList($extKey) {
 		$list				= array();
@@ -410,8 +410,8 @@ class TodoyuSysmanagerExtInstaller {
 	 * Check whether an extension can be uninstalled
 	 * Check for: dependents, system
 	 *
-	 * @param	String		$extKey
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @return	boolean
 	 */
 	public static function canUninstall($extKey) {
 		$noDependents	= !TodoyuExtensions::hasDependents($extKey);
@@ -427,9 +427,9 @@ class TodoyuSysmanagerExtInstaller {
 	 * Core version, dependent extensions, conflicts
 	 *
 	 * @throws	TodoyuSysmanagerInstallerException
-	 * @param	String		$ext
-	 * @param	Array		$constraints
-	 * @return	Boolean
+	 * @param	string		$ext
+	 * @param	array		$constraints
+	 * @return	boolean
 	 */
 	public static function checkConstraints($ext, array $constraints = null) {
 		$depends	= TodoyuArray::assure($constraints['depends']);
@@ -482,8 +482,8 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Get error message for failed uninstall
 	 *
-	 * @param	String		$extKey
-	 * @return	String
+	 * @param	string		$extKey
+	 * @return	string
 	 */
 	public static function getUninstallFailReason($extKey) {
 		$message	= 'Unknown problem';
@@ -506,7 +506,7 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Download an extension: Pack all extension files into an archive and send it to the browser
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 */
 	public static function downloadExtension($extKey) {
 		$archivePath= TodoyuSysmanagerArchiver::createExtensionArchive($extKey);
@@ -528,8 +528,8 @@ class TodoyuSysmanagerExtInstaller {
 	 * Get archive name for an extension
 	 * Pattern: TodoyuExt_{EXTKEY}_{VERSION}.zip
 	 *
-	 * @param	String		$extKey
-	 * @return	String
+	 * @param	string		$extKey
+	 * @return	string
 	 */
 	public static function getExtensionArchiveName($extKey) {
 		$extInfo	= TodoyuExtensions::getExtInfo($extKey);
@@ -543,11 +543,11 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Assemble filename for an archive file of an extension with the given credentials
 	 *
-	 * @param	String	$extKey
-	 * @param	String	$versionMajor
-	 * @param	String	$versionMinor
-	 * @param	String	$versionRevision
-	 * @return	String
+	 * @param	string	$extKey
+	 * @param	string	$versionMajor
+	 * @param	string	$versionMinor
+	 * @param	string	$versionRevision
+	 * @return	string
 	 */
 	public static function buildExtensionArchiveName($extKey, $versionMajor, $versionMinor, $versionRevision) {
 		return 'TodoyuExt_' . $extKey . '_' . $versionMajor . '.' . $versionMinor . '.' . $versionRevision . '.zip';
@@ -558,7 +558,7 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Parse given (archive's) filename: extract attributes: ext, version, data
 	 *
-	 * @param	String		$archiveName
+	 * @param	string		$archiveName
 	 * @return	Array|Boolean
 	 */
 	public static function parseExtensionArchiveName($archiveName) {
@@ -587,8 +587,8 @@ class TodoyuSysmanagerExtInstaller {
 	/**
 	 * Remove extension folder from server
 	 *
-	 * @param	String		$ext
-	 * @return	Boolean
+	 * @param	string		$ext
+	 * @return	boolean
 	 */
 	public static function removeExtensionFromServer($ext) {
 		$extPath	= TodoyuExtensions::getExtPath($ext);

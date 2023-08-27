@@ -6,10 +6,10 @@
 <ul id="panelwidget-{$id}-list" class="searchList">
 {/if}
 
-{foreach $items item}
+{foreach $items as $item}
 	<li id="panelwidget-{$id}-item-{$item.id}" class="{$item.class}">
 		<a href="javascript:void(0)" {if $item.title}title="{$item.title}"{/if}>
-			{htmlencode $item.label}
+			{$item.label|escape}
 		</a>
 	</li>
 {/foreach}

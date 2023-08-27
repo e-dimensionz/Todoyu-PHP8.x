@@ -1,7 +1,7 @@
 {extends "core/view/form/FormElement.tmpl"}
 
 {block name="field"}
-<input type="text" name="{$htmlName}" id="{$htmlId}" value="{htmlencode $valueTemplate}" {if $disabled}disabled="disabled"{/if} class="{$inputClass} {$class}" {$extraAttributes} />
-<div {if $disabled}style="display:none"{/if} class="icon link calendaricon" id="{$htmlId}-calicon" title="{Label core.form.dateselector.open}" alt="{Label core.form.dateselector.open}"></div>
+<input type="text" name="{$htmlName}" id="{$htmlId}" value="{$valueTemplate|escape}" {if $disabled}disabled="disabled"{/if} class="{if isset($inputClass)}{$inputClass}{/if} {if isset($class)}{$class}{/if}" {if isset($extraAttributes)}{$extraAttributes}{/if} />
+<div {if $disabled}style="display:none"{/if} class="icon link calendaricon" id="{$htmlId}-calicon" title="{Label text='core.form.dateselector.open'}" alt="{Label text='core.form.dateselector.open'}"></div>
 {$jsSetup}
 {/block}

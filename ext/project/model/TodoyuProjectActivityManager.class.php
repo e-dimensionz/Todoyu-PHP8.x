@@ -38,7 +38,7 @@ class TodoyuProjectActivityManager {
 	/**
 	 * Gets a activity object
 	 *
-	 * @param	Integer		$idActivity
+	 * @param	integer		$idActivity
 	 * @return	TodoyuProjectActivity
 	 */
 	public static function getActivity($idActivity) {
@@ -52,8 +52,8 @@ class TodoyuProjectActivityManager {
 	/**
 	 * Get activity label
 	 *
-	 * @param	Integer		$idActivity
-	 * @return	String
+	 * @param	integer		$idActivity
+	 * @return	string
 	 */
 	public static function getLabel($idActivity) {
 		return self::getActivity($idActivity)->getTitle();
@@ -75,8 +75,8 @@ class TodoyuProjectActivityManager {
 	/**
 	 * Save activity record to database
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function saveActivity(array $data) {
 		$idActivity	= intval($data['id']);
@@ -99,8 +99,8 @@ class TodoyuProjectActivityManager {
 	/**
 	 * Add activity record
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function addActivity(array $data = array()) {
 		return TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -111,9 +111,9 @@ class TodoyuProjectActivityManager {
 	/**
 	 * Update activity record
 	 *
-	 * @param	Integer		$idActivity
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idActivity
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function updateActivity($idActivity, array $data) {
 		return TodoyuRecordManager::updateRecord(self::TABLE, $idActivity, $data);
@@ -141,8 +141,8 @@ class TodoyuProjectActivityManager {
 	/**
 	 * Sets deleted flag for activity
 	 *
-	 * @param	Integer		$idActivity
-	 * @return	Boolean
+	 * @param	integer		$idActivity
+	 * @return	boolean
 	 */
 	public static function deleteActivity($idActivity) {
 		$idActivity	= intval($idActivity);
@@ -155,8 +155,8 @@ class TodoyuProjectActivityManager {
 	/**
 	 * Check whether the activity is in use and therefor not deletable
 	 *
-	 * @param	Integer		$idActivity
-	 * @return	Boolean
+	 * @param	integer		$idActivity
+	 * @return	boolean
 	 */
 	public static function isDeletable($idActivity) {
 		$idActivity	= intval($idActivity);

@@ -45,14 +45,14 @@ class TodoyuAutoloader {
 	/**
 	 * Load a class
 	 *
-	 * @param	String		$className
+	 * @param	string		$className
 	 */
 	public static function load($className) {
 		self::buildCache();
 
 		$classNameLower	= strtolower($className);
 
-		if( Todoyu::$CONFIG['AUTOLOAD']['CLASS'][$classNameLower] ) {
+		if( !empty(Todoyu::$CONFIG['AUTOLOAD']['CLASS'][$classNameLower] )) {
 			include(Todoyu::$CONFIG['AUTOLOAD']['CLASS'][$classNameLower]);
 		} else {
 			// Let PHP throw a class not found error
@@ -75,7 +75,7 @@ class TodoyuAutoloader {
 	/**
 	 * Add a custom static path for autoloading
 	 *
-	 * @param	String		$path
+	 * @param	string		$path
 	 */
 	public static function addPath($path) {
 		Todoyu::$CONFIG['AUTOLOAD']['static'][] = $path;
@@ -178,7 +178,7 @@ class TodoyuAutoloader {
 	/**
 	 * Get a list of all classes in the folder (mapping to paths)
 	 *
-	 * @param	String		$pathFolder
+	 * @param	string		$pathFolder
 	 * @return	Array
 	 */
 	private static function getClassListFromFolder($pathFolder) {
@@ -200,7 +200,7 @@ class TodoyuAutoloader {
 	/**
 	 * Save class list into the cache
 	 *
-	 * @param	Array	$classList
+	 * @param	array	$classList
 	 */
 	private static function saveClassList(array $classList) {
 		$pairStrings	= array();

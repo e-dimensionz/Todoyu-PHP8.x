@@ -31,9 +31,9 @@ class TodoyuFormElement_Checkbox extends TodoyuFormElement {
 	/**
 	 * Constructs an new checkbox form element
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array		$config
+	 * @param	array		$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		parent::__construct('checkbox', $name, $fieldset, $config);
@@ -63,7 +63,7 @@ class TodoyuFormElement_Checkbox extends TodoyuFormElement {
 	/**
 	 * Set checked status
 	 *
-	 * @param	Boolean		$checked
+	 * @param	boolean		$checked
 	 */
 	public function setChecked($checked = true) {
 		$value	= $checked ? 1 : 0;
@@ -87,7 +87,7 @@ class TodoyuFormElement_Checkbox extends TodoyuFormElement {
 	/**
 	 * Check if checkbox is checked
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isChecked() {
 		return $this->getValue() == 1;
@@ -98,7 +98,7 @@ class TodoyuFormElement_Checkbox extends TodoyuFormElement {
 	/**
 	 * Empty for checkbox means no values available (new record)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isEmpty() {
 		return !$this->hasAttribute('value');
@@ -110,7 +110,7 @@ class TodoyuFormElement_Checkbox extends TodoyuFormElement {
 	 * Get storage data:
 	 * 1: checked; 0: not checked
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	protected function getStorageDataInternal() {
 		return $this->isChecked() ? 1 : 0;

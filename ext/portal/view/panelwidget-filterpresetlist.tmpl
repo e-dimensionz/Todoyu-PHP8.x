@@ -1,20 +1,20 @@
 <div class="panelwidgetContent">
-{foreach $types type typeFiltersets}
+{foreach $types as $type=>$typeFiltersets}
 	<h2>{$typeFiltersets.title}</h2>
 	<span class="scrollbarHide overflowHidden displayBlock">
 		{$typeLower = strtolower($type)}
 		{if is_array($typeFiltersets.options)}
-			{select options=$typeFiltersets.options value=$selected id="panelwidget-$id-list-$typeLower" multiple=true}
+        	{select options=$typeFiltersets.options selected=$selected id="panelwidget-{$id}-list-{$typeLower}" multiple=true}
 		{/if}
 	</span>
-{else}
+{foreachelse}
 	<div class="notification">
-		{Label portal.panelwidget-filterpresetlist.error.noFilters}
+		{Label text="portal.panelwidget-filterpresetlist.error.noFilters"}
 	</div>
 {/foreach}
 
 {* ---------- Manage filter presets button ---------- *}
-{restrict 'search' 'general:area'}
+{restrict ext='search' right='general:area'}
 	<br />
 	{$numFiltersets = count(TodoyuArray::mergeSubArrays(TodoyuArray::getColumn($types, 'options')))}
 	{if $numFiltersets > 0}

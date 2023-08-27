@@ -36,7 +36,7 @@ class TodoyuSearchHeadletQuickSearch extends TodoyuHeadletTypeOverlay {
 	/**
 	 * Render headlet: search word input and list of search engines
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function renderOverlayContent() {
 		$tmpl	= 'ext/search/view/headlet-quicksearch.tmpl';
@@ -54,7 +54,7 @@ class TodoyuSearchHeadletQuickSearch extends TodoyuHeadletTypeOverlay {
 	/**
 	 * Get headlet label
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLabel() {
 		return Todoyu::Label('search.ext.headlet.label');

@@ -43,7 +43,7 @@ class TodoyuProjectManager {
 	/**
 	 * Get fallback preset ID from extconf
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getFallbackTaskPresetID() {
 		$idPreset	= TodoyuSysmanagerExtConfManager::getExtConfValue('project', 'fallbacktaskpreset');
@@ -66,7 +66,7 @@ class TodoyuProjectManager {
 	 * Get panel widget project selector
 	 * Try to get a custom implementation for the current area
 	 *
-	 * @param	String		$areaExtKey		Extension key of current area
+	 * @param	string		$areaExtKey		Extension key of current area
 	 * @return	TodoyuProjectPanelWidgetProjectSelector	Or an extension of this class
 	 */
 	public static function getPanelWidgetProjectSelector($areaExtKey) {

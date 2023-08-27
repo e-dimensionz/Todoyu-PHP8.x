@@ -29,7 +29,7 @@ class TodoyuRole extends TodoyuBaseObject {
 	/**
 	 * Initialize
 	 *
-	 * @param	Integer		$idRole
+	 * @param	integer		$idRole
 	 */
 	public function __construct($idRole) {
 		parent::__construct($idRole, 'system_role');
@@ -40,7 +40,7 @@ class TodoyuRole extends TodoyuBaseObject {
 	/**
 	 * Get title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle() {
 		return $this->get('title');
@@ -51,7 +51,7 @@ class TodoyuRole extends TodoyuBaseObject {
 	/**
 	 * Check whether role is active
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isActive() {
 		return ((int) $this->get('is_active')) === 1;
@@ -62,7 +62,7 @@ class TodoyuRole extends TodoyuBaseObject {
 	/**
 	 * Get role description
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDescription() {
 		return $this->get('description');
@@ -95,7 +95,7 @@ class TodoyuRole extends TodoyuBaseObject {
 	/**
 	 * Get number of group users
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getNumPersons() {
 		return TodoyuRoleManager::getNumPersons($this->getID());
@@ -106,7 +106,7 @@ class TodoyuRole extends TodoyuBaseObject {
 	/**
 	 * Check if group has any users
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasPersons() {
 		return sizeof($this->getNumPersons()) > 0;
@@ -126,7 +126,7 @@ class TodoyuRole extends TodoyuBaseObject {
 	/**
 	 * Get templating data
 	 *
-	 * @param	Boolean		$loadForeignData
+	 * @param	boolean		$loadForeignData
 	 * @return	Array
 	 */
 	public function getTemplateData($loadForeignData = false) {

@@ -249,7 +249,7 @@ Todoyu.Popup = Class.create(Window, {
 	 *
 	 * @method	closeCallback
 	 * @param	{Todoyu.Popup}		popup
-	 * @return	Boolean				True destroys the window
+	 * @return	boolean				True destroys the window
 	 */
 	closeCallback: function(popup) {
 		if( ! this.forcedClose ) {

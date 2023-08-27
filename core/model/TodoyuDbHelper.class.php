@@ -31,11 +31,11 @@ class TodoyuDbHelper {
 	 * Save MM relations from 1 record to n others
 	 * @deprecated
 	 *
-	 * @param	String		$mmTable			Link table
-	 * @param	String		$fieldLocal			Locale field name (for the one record linked to the others)
-	 * @param	String		$fieldForeign		Foreign field name for the other records
-	 * @param	Integer		$idLocalRecord		The linking record
-	 * @param	Array		$foreignRecordIDs	The other linked records
+	 * @param	string		$mmTable			Link table
+	 * @param	string		$fieldLocal			Locale field name (for the one record linked to the others)
+	 * @param	string		$fieldForeign		Foreign field name for the other records
+	 * @param	integer		$idLocalRecord		The linking record
+	 * @param	array		$foreignRecordIDs	The other linked records
 	 */
 	public static function addMMLinks($mmTable, $fieldLocal, $fieldForeign, $idLocalRecord, array $foreignRecordIDs) {
 		$idLocalRecord		= (int) $idLocalRecord;
@@ -57,11 +57,11 @@ class TodoyuDbHelper {
 	/**
 	 * Save MM relations from 1 record to n others, with an enumerated sorting index.
 	 *
-	 * @param	String		$mmTable			Link table
-	 * @param	String		$fieldLocal			Locale field name (for the one record linked to the others)
-	 * @param	String		$fieldForeign		Foreign field name for the other records
-	 * @param	Integer		$idLocalRecord		The linking record
-	 * @param	Array		$foreignRecordIDs	The other linked records
+	 * @param	string		$mmTable			Link table
+	 * @param	string		$fieldLocal			Locale field name (for the one record linked to the others)
+	 * @param	string		$fieldForeign		Foreign field name for the other records
+	 * @param	integer		$idLocalRecord		The linking record
+	 * @param	array		$foreignRecordIDs	The other linked records
 	 */
 	public static function saveMMLinksSorted($mmTable, $fieldLocal, $fieldForeign, $idLocalRecord, array $foreignRecordIDs) {
 		$idLocalRecord		= (int) $idLocalRecord;
@@ -84,10 +84,10 @@ class TodoyuDbHelper {
 	/**
 	 * Get foreign record IDs of a mm table
 	 *
-	 * @param	String		$mmTable
-	 * @param	String		$fieldLocal
-	 * @param	String		$fieldForeign
-	 * @param	Integer		$idLocalRecord
+	 * @param	string		$mmTable
+	 * @param	string		$fieldLocal
+	 * @param	string		$fieldForeign
+	 * @param	integer		$idLocalRecord
 	 * @return	Array
 	 */
 	public static function getForeignIDs($mmTable, $fieldLocal, $fieldForeign, $idLocalRecord) {
@@ -101,11 +101,11 @@ class TodoyuDbHelper {
 	/**
 	 * Get foreign record IDs of an mm table, sorted by given column
 	 *
-	 * @param	String		$mmTable
-	 * @param	String		$fieldLocal
-	 * @param	String		$fieldForeign
-	 * @param	Integer		$idLocalRecord
-	 * @param	String		$fieldSorting
+	 * @param	string		$mmTable
+	 * @param	string		$fieldLocal
+	 * @param	string		$fieldForeign
+	 * @param	integer		$idLocalRecord
+	 * @param	string		$fieldSorting
 	 * @return	Array
 	 */
 	public static function getForeignIDsSorted($mmTable, $fieldLocal, $fieldForeign, $idLocalRecord, $fieldSorting = 'sorting') {
@@ -119,12 +119,12 @@ class TodoyuDbHelper {
 	/**
 	 * Save MM relation with extended (more than the commonly two) data columns
 	 *
-	 * @param	String		$mmTable
-	 * @param	String		$fieldLocal
-	 * @param	String		$fieldForeign
-	 * @param	Integer		$idLocalRecord
-	 * @param	Array		$linksData
-	 * @return	Integer		New ID of the record
+	 * @param	string		$mmTable
+	 * @param	string		$fieldLocal
+	 * @param	string		$fieldForeign
+	 * @param	integer		$idLocalRecord
+	 * @param	array		$linksData
+	 * @return	integer		New ID of the record
 	 */
 	public static function saveExtendedMMLinks($mmTable, $fieldLocal, $fieldForeign, $idLocalRecord, array $linksData) {
 		$idLocalRecord		= (int) $idLocalRecord;
@@ -145,13 +145,13 @@ class TodoyuDbHelper {
 	/**
 	 * Update a mm link with extra data
 	 *
-	 * @param	String		$mmTable
-	 * @param	String		$fieldLocal
-	 * @param	String		$fieldForeign
-	 * @param	Integer		$idLocalRecord
-	 * @param	Integer		$idForeignRecord
-	 * @param	Array		$data
-	 * @return	Integer							Num affected rows
+	 * @param	string		$mmTable
+	 * @param	string		$fieldLocal
+	 * @param	string		$fieldForeign
+	 * @param	integer		$idLocalRecord
+	 * @param	integer		$idForeignRecord
+	 * @param	array		$data
+	 * @return	integer							Num affected rows
 	 */
 	public static function updateMMLink($mmTable, $fieldLocal, $fieldForeign, $idLocalRecord, $idForeignRecord, array $data) {
 		$where	=	$fieldLocal . ' = ' . $idLocalRecord . ' AND ' .
@@ -169,13 +169,13 @@ class TodoyuDbHelper {
 	/**
 	 * Add a single MM relation
 	 *
-	 * @param	String		$mmTable			Link table
-	 * @param	String		$fieldLocal			Locale field name (for the one record linked to the others)
-	 * @param	String		$fieldForeign		Foreign field name for the other records
-	 * @param	Integer		$idLocalRecord
-	 * @param	Integer		$idForeignRecord
-	 * @param	Array		$extraData
-	 * @return	Integer		ID of new record
+	 * @param	string		$mmTable			Link table
+	 * @param	string		$fieldLocal			Locale field name (for the one record linked to the others)
+	 * @param	string		$fieldForeign		Foreign field name for the other records
+	 * @param	integer		$idLocalRecord
+	 * @param	integer		$idForeignRecord
+	 * @param	array		$extraData
+	 * @return	integer		ID of new record
 	 */
 	public static function addMMLink($mmTable, $fieldLocal, $fieldForeign, $idLocalRecord, $idForeignRecord, array $extraData = array()) {
 		$data	= array(
@@ -197,12 +197,12 @@ class TodoyuDbHelper {
 	/**
 	 * Delete given MM relation
 	 *
-	 * @param	String	$mmTable
-	 * @param	String	$localField
-	 * @param	String	$foreignField
-	 * @param	Integer	$idLocalRecord
-	 * @param	Integer	$idForeignRecord
-	 * @return	Integer		Num affected (deleted) rows
+	 * @param	string	$mmTable
+	 * @param	string	$localField
+	 * @param	string	$foreignField
+	 * @param	integer	$idLocalRecord
+	 * @param	integer	$idForeignRecord
+	 * @return	integer		Num affected (deleted) rows
 	 */
 	public static function removeMMrelation($mmTable, $localField, $foreignField, $idLocalRecord, $idForeignRecord) {
 		$idLocalRecord	= (int) $idLocalRecord;
@@ -220,10 +220,10 @@ class TodoyuDbHelper {
 	/**
 	 * Remove given MM relation records
 	 *
-	 * @param	String		$mmTable
-	 * @param	String		$field
-	 * @param	Integer		$idRecord
-	 * @return	Integer		Num affected (deleted) rows
+	 * @param	string		$mmTable
+	 * @param	string		$field
+	 * @param	integer		$idRecord
+	 * @return	integer		Num affected (deleted) rows
 	 */
 	public static function removeMMrelations($mmTable, $field, $idRecord) {
 		$idRecord	= (int) $idRecord;
@@ -238,13 +238,13 @@ class TodoyuDbHelper {
 	 * Delete all records which are linked with another record and not in the ignore list
 	 * Inactive records will be marked as deleted, but stay in the link table for restore
 	 *
-	 * @param	String		$mmTable			Link table
-	 * @param	String		$recordTable		Record table
-	 * @param	Integer		$idLinkRecord		ID of the base record which is linked with the other records
-	 * @param	Array		$ignoreRecordIDs	IDs of records which shoudn't get deleted
-	 * @param	String		$fieldRecord		Field with the base record ID
-	 * @param	String		$fieldLink			Field with the linked record IDs
-	 * @return	Integer		Number of delete records
+	 * @param	string		$mmTable			Link table
+	 * @param	string		$recordTable		Record table
+	 * @param	integer		$idLinkRecord		ID of the base record which is linked with the other records
+	 * @param	array		$ignoreRecordIDs	IDs of records which shoudn't get deleted
+	 * @param	string		$fieldRecord		Field with the base record ID
+	 * @param	string		$fieldLink			Field with the linked record IDs
+	 * @return	integer		Number of delete records
 	 */
 	public static function deleteOtherMmRecords($mmTable, $recordTable, $idLinkRecord, array $ignoreRecordIDs, $fieldRecord, $fieldLink) {
 		$idLinkRecord	= (int) $idLinkRecord;
@@ -279,11 +279,11 @@ class TodoyuDbHelper {
 	 * Delete all links whichs foreign field ID is not in the ignore list
 	 * Deletes all inactive links. The row is deleted from the mm table
 	 *
-	 * @param	String		$mmTable
-	 * @param	String		$fieldLocal
-	 * @param	String		$fieldForeign
-	 * @param	Integer		$idLocalRecord
-	 * @param	Array		$ignoreForeignIDs
+	 * @param	string		$mmTable
+	 * @param	string		$fieldLocal
+	 * @param	string		$fieldForeign
+	 * @param	integer		$idLocalRecord
+	 * @param	array		$ignoreForeignIDs
 	 */
 	public static function deleteOtherMmLinks($mmTable, $fieldLocal, $fieldForeign, $idLocalRecord, array $ignoreForeignIDs = array()) {
 		$ignoreForeignIDs	= TodoyuArray::intval($ignoreForeignIDs, true, true);
@@ -304,10 +304,10 @@ class TodoyuDbHelper {
 	/**
 	 * Save items with new sorting value in their sorting fields
 	 *
-	 * @param	String		$table
-	 * @param	Array		$itemIDs
-	 * @param	String		$sortingField
-	 * @param	String		$where
+	 * @param	string		$table
+	 * @param	array		$itemIDs
+	 * @param	string		$sortingField
+	 * @param	string		$where
 	 */
 	public static function saveItemSorting($table, array $itemIDs, $sortingField = 'sorting',  $where = '') {
 		$itemIDs= TodoyuArray::intval($itemIDs);

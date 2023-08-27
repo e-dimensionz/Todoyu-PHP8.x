@@ -30,7 +30,7 @@ class TodoyuImapServerMessagePartManager {
 	 * Factory method for server message parts
 	 *
 	 * @param	TodoyuImapServerMessage		$serverMessage
-	 * @param	String						$section
+	 * @param	string						$section
 	 * @param	stdClass					$part
 	 * @return	TodoyuImapServerMessagePart|TodoyuImapServerMessagePartAttachment|TodoyuImapServerMessagePartInlineImage
 	 */
@@ -64,8 +64,8 @@ class TodoyuImapServerMessagePartManager {
 	/**
 	 *
 	 * @param	stdClass		$part
-	 * @param	String			$parameterName
-	 * @return	String|Boolean
+	 * @param	string			$parameterName
+	 * @return	string|Boolean
 	 */
 	public static function getPartParameter(stdClass $part, $parameterName) {
 		if( is_array($part->parameters) ) {

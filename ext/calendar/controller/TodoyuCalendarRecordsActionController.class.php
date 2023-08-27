@@ -29,7 +29,7 @@ class TodoyuCalendarRecordsActionController extends TodoyuActionController {
 	/**
 	 * Init controller: check permission
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('sysmanager', 'general:records');
@@ -40,8 +40,8 @@ class TodoyuCalendarRecordsActionController extends TodoyuActionController {
 	/**
 	 * Render sub part to calendar admin form for record types added/ used by calendar (holiday, holidayset)
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function addSubformAction(array $params) {
 		$xmlBase	= 'ext/calendar/config/form/admin';

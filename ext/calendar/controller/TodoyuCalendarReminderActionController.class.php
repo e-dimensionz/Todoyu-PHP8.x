@@ -39,8 +39,8 @@ class TodoyuCalendarReminderActionController extends TodoyuActionController {
 	/**
 	 * Get rendered reminders of given event
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function detailsAction(array $params) {
 		$idEvent	= intval($params['event']);
@@ -53,7 +53,7 @@ class TodoyuCalendarReminderActionController extends TodoyuActionController {
 	/**
 	 * Set reminder of given type and event of current person deactivated
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function deactivateAction(array $params) {
 		$idEvent		= intval($params['event']);
@@ -67,7 +67,7 @@ class TodoyuCalendarReminderActionController extends TodoyuActionController {
 	/**
 	 * Update scheduled reminding time of given event and reminder type of current person
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function updateremindertimeAction(array $params) {
 		$idEvent		= intval($params['event']);
@@ -85,8 +85,8 @@ class TodoyuCalendarReminderActionController extends TodoyuActionController {
 	/**
 	 * Get list of events for reminder timeouts
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function updateEventsListAction(array $params) {
 		TodoyuHeader::sendTypeJSON();
@@ -103,8 +103,8 @@ class TodoyuCalendarReminderActionController extends TodoyuActionController {
 	/**
 	 * Render event reminder for display in popUp
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function popupAction(array $params) {
 		$idEvent	= intval($params['event']);
@@ -125,7 +125,7 @@ class TodoyuCalendarReminderActionController extends TodoyuActionController {
 	/**
 	 * Dismiss given event reminder
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function dismissAction(array $params) {
 		$idEvent	= intval($params['event']);
@@ -138,7 +138,7 @@ class TodoyuCalendarReminderActionController extends TodoyuActionController {
 	/**
 	 * Reschedule given event reminder for later popping up again
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function rescheduleAction(array $params) {
 		$idEvent		= intval($params['event']);

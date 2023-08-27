@@ -51,7 +51,7 @@ class TodoyuCalendarDataSourceHoliday extends TodoyuCalendarDataSource {
 	/**
 	 * Get amount of holidays
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getEventCount() {
 		$holidaySetIDs	= $this->getSelectedHolidaySetIDs();
@@ -64,7 +64,7 @@ class TodoyuCalendarDataSourceHoliday extends TodoyuCalendarDataSource {
 	/**
 	 *
 	 *
-	 * @param	String		$searchWord
+	 * @param	string		$searchWord
 	 * @return	TodoyuCalendarEventHoliday[]
 	 */
 	public function searchEvents($searchWord) {
@@ -76,7 +76,7 @@ class TodoyuCalendarDataSourceHoliday extends TodoyuCalendarDataSource {
 	/**
 	 * Check whether day events are disabled by filter
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	private function areDayEventsDisabled() {
 		return $this->getDayEventsFlag() === false;
@@ -85,7 +85,7 @@ class TodoyuCalendarDataSourceHoliday extends TodoyuCalendarDataSource {
 
 
 	/**
-	 * @return	Boolean|Null
+	 * @return	boolean|Null
 	 */
 	private function getDayEventsFlag() {
 		return $this->getFilter('dayevents');
@@ -109,7 +109,7 @@ class TodoyuCalendarDataSourceHoliday extends TodoyuCalendarDataSource {
 	/**
 	 * Get holiday event
 	 *
-	 * @param	Integer		$idHoliday
+	 * @param	integer		$idHoliday
 	 * @return	TodoyuCalendarEventHoliday
 	 */
 	public static function getEvent($idHoliday) {

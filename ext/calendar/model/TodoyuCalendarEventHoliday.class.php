@@ -29,7 +29,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * Initialize
 	 *
-	 * @param	Integer		$idHoliday
+	 * @param	integer		$idHoliday
 	 */
 	public function __construct($idHoliday) {
 		parent::__construct($idHoliday, 'ext_calendar_holiday');
@@ -40,7 +40,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * Get title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle() {
 		return $this->get('title');
@@ -51,7 +51,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * Get description
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDescription() {
 		return $this->get('description');
@@ -73,7 +73,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * Get start date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateStart() {
 		return $this->getInt('date');
@@ -84,7 +84,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * Get end date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateEnd() {
 		return TodoyuTime::getDayEnd($this->get('date'));
@@ -95,7 +95,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * Get duration
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDuration() {
 		return TodoyuTime::SECONDS_HOUR * 8 - $this->getWorkingTime();
@@ -106,7 +106,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * A holiday is always a day event
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isDayEvent() {
 		return true;
@@ -117,7 +117,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * Holidays are never private
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isPrivate() {
 		return false;
@@ -139,8 +139,8 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * No one assigned
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public function isPersonAssigned($idPerson = 0) {
 		return false;
@@ -152,7 +152,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * Get working time (in minutes)
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getWorkingTime() {
 		return $this->getInt('workingtime');
@@ -164,7 +164,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	 * Not overlapping
 	 *
 	 * @param	TodoyuCalendarEvent		$event
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isOverlapping(TodoyuCalendarEvent $event) {
 		return false;
@@ -175,7 +175,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * No one can edit holidays
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function canEdit() {
 		return false;
@@ -186,7 +186,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * No one has access
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasAccess() {
 		return false;
@@ -197,7 +197,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * Get source name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getSource() {
 		return 'holiday';
@@ -208,7 +208,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * Get type name (as in static events)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getType() {
 		return 'holiday';
@@ -219,7 +219,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * Get template data
 	 *
-	 * @param	Boolean		$loadForeignData
+	 * @param	boolean		$loadForeignData
 	 * @return	Array
 	 */
 	public function getTemplateData($loadForeignData = false) {
@@ -246,7 +246,7 @@ class TodoyuCalendarEventHoliday extends TodoyuBaseObject implements TodoyuCalen
 	/**
 	 * Get class names
 	 *
-	 * @return	String[]
+	 * @return	string[]
 	 */
 	public function getClassNames() {
 		return array();

@@ -36,7 +36,7 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Get reminder object to given event/person
 	 *
-	 * @param	Integer		$idReminder
+	 * @param	integer		$idReminder
 	 * @return	TodoyuCalendarReminder
 	 */
 	public static function getReminder($idReminder) {
@@ -50,8 +50,8 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Get reminder object to given event/person
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
 	 * @return	TodoyuCalendarReminder
 	 */
 	public static function getReminderByAssignment($idEvent, $idPerson) {
@@ -65,9 +65,9 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Get record ID of event-person MM relation of given event/person
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	public static function getReminderIDByAssignment($idEvent, $idPerson = 0) {
 		return TodoyuCalendarEventAssignmentManager::getAssignmentIdByAssignment($idEvent, $idPerson);
@@ -78,8 +78,8 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Get prefix ('email' / 'popup') of given reminder type
 	 *
-	 * @param	Integer		$reminderType
-	 * @return	String
+	 * @param	integer		$reminderType
+	 * @return	string
 	 */
 	public static function getReminderTypePrefix($reminderType) {
 		$reminderType	= intval($reminderType);
@@ -92,9 +92,9 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Get reminder object of given type, event and person
 	 *
-	 * @param	Integer		$reminderType
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
+	 * @param	integer		$reminderType
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
 	 * @return TodoyuCalendarReminderEmail|TodoyuCalendarReminderPopup
 	 */
 	public static function getReminderTypeByAssignment($reminderType, $idEvent, $idPerson = 0) {
@@ -113,8 +113,8 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Update event-person MM record of given ID
 	 *
-	 * @param	Integer		$idReminder
-	 * @param	Array		$data
+	 * @param	integer		$idReminder
+	 * @param	array		$data
 	 */
 	public static function updateReminder($idReminder, array $data) {
 		TodoyuCalendarEventAssignmentManager::updateAssignment($idReminder, $data);
@@ -125,10 +125,10 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Update a reminder by assignment
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function updateReminderByAssignment($idEvent, $idPerson, array $data) {
 		return TodoyuCalendarEventAssignmentManager::updateAssignmentByAssignment($idEvent, $idPerson, $data);
@@ -139,9 +139,9 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Check whether given/current person can schedule a reminder for the event of the given type / ID
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function isPersonAssigned($idEvent, $idPerson = 0) {
 		$idEvent		= intval($idEvent);
@@ -155,9 +155,9 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Deactivate (set time to 0) given reminder of given type, person and event
 	 *
-	 * @param	Integer		$reminderType
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$idPerson
+	 * @param	integer		$reminderType
+	 * @param	integer		$idEvent
+	 * @param	integer		$idPerson
 	 */
 	public static function deactivateReminder($reminderType, $idEvent, $idPerson = 0) {
 		$idEvent	= intval($idEvent);
@@ -171,10 +171,10 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Update reminder activation (popup / mailing) time of given reminder
 	 *
-	 * @param	Integer		$reminderType
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$dateRemind
-	 * @param	Integer		$idPerson
+	 * @param	integer		$reminderType
+	 * @param	integer		$idEvent
+	 * @param	integer		$dateRemind
+	 * @param	integer		$idPerson
 	 */
 	public static function updateReminderTime($reminderType, $idEvent, $dateRemind, $idPerson = 0) {
 		$idEvent	= intval($idEvent);
@@ -203,9 +203,9 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Set reminder dismissed/active
 	 *
-	 * @param	Integer		$reminderType
-	 * @param	Integer		$idRecord
-	 * @param	Boolean		$isDismissed
+	 * @param	integer		$reminderType
+	 * @param	integer		$idRecord
+	 * @param	boolean		$isDismissed
 	 */
 	public static function updateReminderDismission($reminderType, $idRecord, $isDismissed = false) {
 		$idRecord		= intval($idRecord);
@@ -224,8 +224,8 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Update scheduled reminders (of all assigned persons of event) relative to shifted time of event
 	 *
-	 * @param	Integer		$idEvent
-	 * @param	Integer		$offset
+	 * @param	integer		$idEvent
+	 * @param	integer		$offset
 	 */
 	public static function shiftReminderDates($idEvent, $offset) {
 		$idEvent	= intval($idEvent);
@@ -271,8 +271,8 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Set options disabled which are in the past already
 	 *
-	 * @param	Array	$subOptions
-	 * @param	Integer	$idEvent
+	 * @param	array	$subOptions
+	 * @param	integer	$idEvent
 	 * @return	Array
 	 */
 	public static function disablePastTimeKeyOptions(array $subOptions, $idEvent) {
@@ -297,7 +297,7 @@ class TodoyuCalendarReminderManager {
 	 * Hook adds reminder fields to event form if they are allowed
 	 *
 	 * @param	TodoyuForm	$form
-	 * @param	Integer		$idEvent
+	 * @param	integer		$idEvent
 	 */
 	public static function hookAddReminderFieldsToEvent(TodoyuForm $form, $idEvent) {
 		$idEvent		= intval($idEvent);
@@ -342,9 +342,9 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Get advance time of reminder
 	 *
-	 * @param	Integer		$type
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$type
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	private static function getAdvanceTime($type, $idPerson) {
 		$typeKey= self::getReminderTypePrefix($type);
@@ -364,8 +364,8 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Get advance time of email reminder (user or default)
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	public static function getAdvanceTimeEmail($idPerson = 0) {
 		return self::getAdvanceTime(CALENDAR_TYPE_EVENTREMINDER_EMAIL, $idPerson);
@@ -376,8 +376,8 @@ class TodoyuCalendarReminderManager {
 	/**
 	 * Get advance time of popup reminder (user or default)
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	public static function getAdvanceTimePopup($idPerson = 0) {
 		return self::getAdvanceTime(CALENDAR_TYPE_EVENTREMINDER_POPUP, $idPerson);

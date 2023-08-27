@@ -2,31 +2,31 @@
 	<h1>Core Update: {$update.title}</h1>
 
 	<div class="col versionInformation">
-		<span class="subtitle">{Label sysmanager.repository.update.versionInformation}</span>
+		<span class="subtitle">{Label text='sysmanager.repository.update.versionInformation'}</span>
 		{if $update.description}
 			{$update.description}
 		{else}
-			{Label sysmanger.repository.error.noVersionInformation}
+			{Label text='sysmanger.repository.error.noVersionInformation'}
 		{/if}
 	</div>
 
 	<div class="col versionDetails">
 		<table>
 			<tr>
-				<th>{Label sysmanager.repository.extension.installed}</th>
-				<td>{constant(TODOYU_VERSION)}</td>
+				<th>{Label text='sysmanager.repository.extension.installed'}</th>
+				<td>{$smarty.const.TODOYU_VERSION}</td>
 			</tr>
 			<tr>
-				<th>{Label sysmanager.repository.update.newversion}</th>
+				<th>{Label text='sysmanager.repository.update.newversion'}</th>
 				<td>{$update.version}</td>
 			</tr>
 			<tr>
-				<th>{Label core.global.status}</th>
-				<td>{ExtensionStatusIcon $update.state}</td>
+				<th>{Label text='core.global.status'}</th>
+				<td>{ExtensionStatusIcon state=$update.state}</td>
 			</tr>
 			<tr>
-				<th>{Label sysmanager.repository.update.releasedate}</th>
-				<td>{dateFormat $update.date_update date}</td>
+				<th>{Label text='sysmanager.repository.update.releasedate'}</th>
+				<td>{$update.date_update|date_format:$DF.date}</td>
 			</tr>
 		</table>
 	</div>

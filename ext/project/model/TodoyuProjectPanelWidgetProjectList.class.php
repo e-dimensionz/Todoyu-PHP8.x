@@ -29,8 +29,8 @@ class TodoyuProjectPanelWidgetProjectList extends TodoyuPanelWidgetSearchList {
 	/**
 	 * Initialize project list PanelWidget
 	 *
-	 * @param	Array		$config
-	 * @param	Array		$params
+	 * @param	array		$config
+	 * @param	array		$params
 	 */
 	public function __construct(array $config, array $params = array()) {
 		parent::__construct(
@@ -144,7 +144,7 @@ class TodoyuProjectPanelWidgetProjectList extends TodoyuPanelWidgetSearchList {
 	/**
 	 * Check panelWidget access permission
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		return Todoyu::allowed('project', 'general:use');

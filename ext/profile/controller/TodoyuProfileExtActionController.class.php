@@ -29,7 +29,7 @@ class TodoyuProfileExtActionController extends TodoyuActionController {
 	/**
 	 * Initialize ext action: restrict for authorized users
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('profile', 'general:use');
@@ -40,8 +40,8 @@ class TodoyuProfileExtActionController extends TodoyuActionController {
 	/**
 	 * Default action for profile
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function defaultAction(array $params) {
 			// Set project tab
@@ -75,8 +75,8 @@ class TodoyuProfileExtActionController extends TodoyuActionController {
 	/**
 	 * Show module content
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function moduleAction(array $params) {
 		$module	= $params['module'];

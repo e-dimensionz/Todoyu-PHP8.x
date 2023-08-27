@@ -29,8 +29,8 @@ class TodoyuSysmanagerExtConfRenderer {
 	/**
 	 * Render extension config form
 	 *
-	 * @param	String		$extKey
-	 * @return	String
+	 * @param	string		$extKey
+	 * @return	string
 	 */
 	public static function renderConfig($extKey) {
 		$tmpl	= 'ext/sysmanager/view/extension/dialog-extconf.tmpl';

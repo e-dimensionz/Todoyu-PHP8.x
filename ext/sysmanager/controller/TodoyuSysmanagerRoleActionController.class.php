@@ -29,7 +29,7 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrictAdmin();
@@ -40,8 +40,8 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 	/**
 	 * List roles
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function listingAction(array $params) {
 		return TodoyuListingRenderer::render('sysmanager', 'roles');
@@ -52,8 +52,8 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 	/**
 	 * Edit role
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function editAction(array $params) {
 		$idRole	= intval($params['role']);
@@ -66,7 +66,7 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 	/**
 	 * Delete role
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function deleteAction(array $params) {
 		$idRole	= intval($params['role']);
@@ -79,7 +79,7 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 	/**
 	 * Save role (new or edit)
 	 *
-	 * @param	Array			$params
+	 * @param	array			$params
 	 * @return	Void|String		Failure returns re-rendered form with error messages
 	 */
 	public function saveAction(array $params) {
@@ -113,8 +113,8 @@ class TodoyuSysmanagerRoleActionController extends TodoyuActionController {
 	/**
 	 * Add a sub form to the person form
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function addSubformAction(array $params) {
 		$xmlPath	= 'ext/sysmanager/config/form/role.xml';

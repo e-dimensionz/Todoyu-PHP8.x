@@ -29,7 +29,7 @@ class TodoyuProjectProjectActionController extends TodoyuActionController {
 	/**
 	 * Initialize controller: restrict access (project extension must be allowed)
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('project', 'general:use');
@@ -40,8 +40,8 @@ class TodoyuProjectProjectActionController extends TodoyuActionController {
 	/**
 	 * Edit project
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function editAction(array $params) {
 		$idProject	= intval($params['project']);
@@ -56,8 +56,8 @@ class TodoyuProjectProjectActionController extends TodoyuActionController {
 	/**
 	 * Save project (new or edit)
 	 *
-	 * @param	Array		$params
-	 * @return	String		Form content if form is invalid
+	 * @param	array		$params
+	 * @return	string		Form content if form is invalid
 	 */
 	public function saveAction(array $params) {
 		$data		= $params['project'];
@@ -101,8 +101,8 @@ class TodoyuProjectProjectActionController extends TodoyuActionController {
 	/**
 	 * Render project details
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function detailsAction(array $params) {
 		$idProject	= intval($params['project']);
@@ -119,7 +119,7 @@ class TodoyuProjectProjectActionController extends TodoyuActionController {
 	/**
 	 * Update project status
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function setstatusAction(array $params) {
 		TodoyuProjectProjectRights::restrictEdit();
@@ -135,7 +135,7 @@ class TodoyuProjectProjectActionController extends TodoyuActionController {
 	/**
 	 * Delete given project from DB and area view preferences
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function removeAction(array $params) {
 		TodoyuProjectProjectRights::restrictEdit();
@@ -151,8 +151,8 @@ class TodoyuProjectProjectActionController extends TodoyuActionController {
 	/**
 	 * Render view when no project selected
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function noProjectViewAction(array $params) {
 		return TodoyuProjectProjectRenderer::renderNoProjectSelectedView();
@@ -163,8 +163,8 @@ class TodoyuProjectProjectActionController extends TodoyuActionController {
 	/**
 	 * Add a sub form to the project form
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function addSubformAction(array $params) {
 		TodoyuProjectProjectRights::restrictEdit();
@@ -185,8 +185,8 @@ class TodoyuProjectProjectActionController extends TodoyuActionController {
 	/**
 	 * Paste task from clipboard into project
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function pasteInProjectAction(array $params) {
 		$idProject	= intval($params['project']);
@@ -205,8 +205,8 @@ class TodoyuProjectProjectActionController extends TodoyuActionController {
 	/**
 	 * Load project tab
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function tabloadAction(array $params) {
 		$idProject	= intval($params['project']);
@@ -225,7 +225,7 @@ class TodoyuProjectProjectActionController extends TodoyuActionController {
 	/**
 	 * 'tabselected' action method
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function tabselectedAction(array $params) {
 		$idProject	= intval($params['idProject']);

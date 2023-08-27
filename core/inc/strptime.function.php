@@ -29,8 +29,8 @@
  * Implementation of strptime() for PHP on Windows.
  * Modified from http://au.php.net/manual/en/function.strptime.php#82004
  *
- * @param	String		$date
- * @param	String		$format
+ * @param	string		$date
+ * @param	string		$format
  * @return	Array		Parsed date
  */
 function strptime($date, $format) {
@@ -93,8 +93,8 @@ function strptime($date, $format) {
  * Called by strptime().
  * Modified from http://au.php.net/manual/en/function.strptime.php#81611
  *
- * @param	String		$date
- * @param	String		$format
+ * @param	string		$date
+ * @param	string		$format
  * @return	Array
  */
 function strptime_strToDate($date, $format) {

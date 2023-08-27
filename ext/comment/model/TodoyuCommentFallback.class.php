@@ -29,7 +29,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Initialize
 	 *
-	 * @param	Integer		$idFallback
+	 * @param	integer		$idFallback
 	 */
 	public function __construct($idFallback) {
 		parent::__construct($idFallback, 'ext_comment_fallback');
@@ -39,7 +39,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Get fallback title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle() {
 		return $this->get('title');
@@ -50,7 +50,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Get 'is public' flag
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getIsPublic() {
 		return $this->getInt('is_public');
@@ -61,7 +61,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Check whether is public flag is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasIsPublic() {
 		return $this->getIsPublic() !== 0;
@@ -72,7 +72,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Get feedback person ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getPersonFeedbackID() {
 		return $this->getInt('id_person_feedback');
@@ -83,7 +83,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Check whether feedback person is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasPersonFeedback() {
 		return $this->getPersonFeedbackID() !== 0;
@@ -95,7 +95,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Get feedback task person key
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTaskPersonFeedbackKey() {
 		return $this->get('taskperson_feedback');
@@ -106,7 +106,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Check whether a feedback task person is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasTaskPersonFeedback() {
 		return $this->getTaskPersonFeedbackKey() !== '0';
@@ -117,7 +117,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Get feedback role ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getRoleFeedbackID() {
 		return $this->getInt('id_role_feedback');
@@ -128,7 +128,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Check whether a feedback role is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasRoleFeedback() {
 		return $this->getRoleFeedbackID() !== 0;
@@ -139,7 +139,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Get email person ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getPersonEmailID() {
 		return $this->getInt('id_person_email');
@@ -150,7 +150,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Check whether an email person is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasPersonEmail() {
 		return $this->getPersonEmailID() !== 0;
@@ -161,7 +161,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Get email task person key
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTaskPersonEmailKey() {
 		return $this->get('taskperson_email');
@@ -172,7 +172,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Check whether an email task person is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasTaskPersonEmail() {
 		return $this->getTaskPersonEmailKey() !== '0';
@@ -183,7 +183,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Get email role ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getRoleEmailID() {
 		return $this->getInt('id_role_email');
@@ -194,7 +194,7 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Check whether an email role is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasRoleEmail() {
 		return $this->getRoleEmailID() !== 0;
@@ -205,8 +205,8 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Apply fallback data to comment
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Array		$commentData
+	 * @param	integer		$idTask
+	 * @param	array		$commentData
 	 * @return	Array		Comment data with fallback values
 	 * @deprecated
 	 */
@@ -219,8 +219,8 @@ class TodoyuCommentFallback extends TodoyuBaseObject {
 	/**
 	 * Apply fallback data to comment
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Array		$commentData
+	 * @param	integer		$idTask
+	 * @param	array		$commentData
 	 * @return	Array		Comment data with fallback values
 	 */
 	public function applyFallbackData($idTask, array $commentData) {

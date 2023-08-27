@@ -45,9 +45,9 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Constructor (init widget)
 	 *
-	 * @param	Array		$config
-	 * @param	Array		$params
-	 * @param	Integer		$idArea
+	 * @param	array		$config
+	 * @param	array		$params
+	 * @param	integer		$idArea
 	 */
 	public function __construct(array $config, array $params = array(), $idArea = 0) {
 		parent::__construct(
@@ -70,8 +70,8 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Render content
 	 *
-	 * @param	Boolean		$listOnly		Render list items only
-	 * @return	String
+	 * @param	boolean		$listOnly		Render list items only
+	 * @return	string
 	 */
 	public function renderContent($listOnly = false) {
 		$searchList	= parent::renderContent($listOnly);
@@ -86,7 +86,7 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	 * Render selection box
 	 * Selected projects and groups
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function renderSelection() {
 		$tmpl	= 'ext/project/view/panelwidget/projectselector.tmpl';
@@ -158,7 +158,7 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Search groups which match to search words
 	 *
-	 * @param	Array		$searchWords
+	 * @param	array		$searchWords
 	 * @return	Array
 	 */
 	protected function searchGroups(array $searchWords) {
@@ -199,8 +199,8 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Search project matching the search words
 	 *
-	 * @param	Array	$searchWords
-	 * @param	Array	$status
+	 * @param	array	$searchWords
+	 * @param	array	$status
 	 * @return	Array
 	 */
 	protected function searchProjects(array $searchWords, array $status = array()) {
@@ -214,8 +214,8 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Get project IDs of given company
 	 *
-	 * @param	Integer		$idCompany
-	 * @return	Integer[]
+	 * @param	integer		$idCompany
+	 * @return	integer[]
 	 */
 	protected function getCompanyProjects($idCompany) {
 		return TodoyuProjectProjectManager::getProjectIDsOfCompany($idCompany);
@@ -226,7 +226,7 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Get project IDs of given "virtual" group (pref)
 	 *
-	 * @param	Integer	$idItem
+	 * @param	integer	$idItem
 	 * @return  Integer[]
 	 */
 	protected function getVirtualGroupProjects($idItem) {
@@ -250,8 +250,8 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	 * @todo? -projects of selected customer??
 	 * -selected projects
 	 *
-	 * @param	Array		$selection
-	 * @return	Integer[]
+	 * @param	array		$selection
+	 * @return	integer[]
 	 */
 	public function getProjectIDsOfSelection($selection = array()) {
 		if( empty($selection) ) {
@@ -368,7 +368,7 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Get IDs of selected groups (companies)
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	protected function getSelectedGroupIDs() {
 		return $this->getSelectedTypeIDs('g');
@@ -379,7 +379,7 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Get IDs of selected projects
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	protected function getSelectedProjectIDs() {
 		return $this->getSelectedTypeIDs('p');
@@ -391,8 +391,8 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	 * Get IDs of selected items of a specific type
 	 * Type is marked with the first letter in the key
 	 *
-	 * @param	String		$type
-	 * @return	Integer[]
+	 * @param	string		$type
+	 * @return	integer[]
 	 */
 	protected function getSelectedTypeIDs($type) {
 		$items		= $this->getSelection();
@@ -413,7 +413,7 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Save selected items in preference
 	 *
-	 * @param	Array	$selection
+	 * @param	array	$selection
 	 */
 	public function saveSelection(array $selection) {
 		$selection	= TodoyuArray::trim($selection, true);
@@ -427,7 +427,7 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Check whether group search is active in config
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	protected function isGroupSearchActive() {
 		return $this->config['group'] === true;
@@ -438,8 +438,8 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Validate group title (ensure uniqueness)
 	 *
-	 * @param	String		$title
-	 * @return	String
+	 * @param	string		$title
+	 * @return	string
 	 */
 	public static function validateGroupTitle($title) {
 		$groupTitles	= self::getVirtualGroupTitles();
@@ -456,7 +456,7 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Save project selector preferences
 	 *
-	 * @param	Array	$prefs
+	 * @param	array	$prefs
 	 */
 	public static function savePrefs(array $prefs) {
 		$prefs	= json_encode($prefs);
@@ -469,9 +469,9 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Save project selector selection as "virtual" group (preference for current person)
 	 *
-	 * @param	String	$title
-	 * @param	String	$groupItems		JSON encoded array of type-prefixed IDs of persons and groups
-	 * @return	Integer					Autogenerated ID
+	 * @param	string	$title
+	 * @param	string	$groupItems		JSON encoded array of type-prefixed IDs of persons and groups
+	 * @return	integer					Autogenerated ID
 	 */
 	public function saveVirtualGroup($title, $groupItems) {
 		$pref	= json_encode(array(
@@ -488,8 +488,8 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Get virtual group preference of given ID of given/current person
 	 *
-	 * @param	Integer		$idPref
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPref
+	 * @param	integer		$idPerson
 	 * @return  stdClass|Boolean
 	 */
 	public static function getVirtualGroup($idPref, $idPerson = 0) {
@@ -513,7 +513,7 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Get all virtual group prefs of given person
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getVirtualGroups($idPerson = 0) {
@@ -527,8 +527,8 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Get titles of all virtual groups of given/current person
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	String[]
+	 * @param	integer		$idPerson
+	 * @return	string[]
 	 */
 	public static function getVirtualGroupTitles($idPerson = 0) {
 		$titles	= array();
@@ -548,7 +548,7 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Get all virtual group prefs of given person
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getVirtualGroupsIndexed($idPerson = 0) {
@@ -570,9 +570,9 @@ class TodoyuProjectPanelWidgetProjectSelector extends TodoyuPanelWidgetSearchLis
 	/**
 	 * Filter virtual groups preferences of given person by matching titles
 	 *
-	 * @param	Array		$searchWords
-	 * @param	Integer		$idPerson
-	 * @param	Boolean		$excludeSelection
+	 * @param	array		$searchWords
+	 * @param	integer		$idPerson
+	 * @param	boolean		$excludeSelection
 	 * @return  Array
 	 */
 	protected function searchVirtualGroups($searchWords, $idPerson = 0, $excludeSelection = false) {

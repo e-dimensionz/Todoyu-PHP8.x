@@ -30,7 +30,7 @@ class TodoyuAssetsRights {
 	 * Deny access
 	 * Shortcut for asset
 	 *
-	 * @param	String		$right		Denied right
+	 * @param	string		$right		Denied right
 	 */
 	private static function deny($right) {
 		TodoyuRightsManager::deny('asset', $right);
@@ -41,8 +41,8 @@ class TodoyuAssetsRights {
 	/**
 	 * Check whether a person is allowed to see the asset
 	 *
-	 * @param	Integer		$idAsset
-	 * @return	Boolean
+	 * @param	integer		$idAsset
+	 * @return	boolean
 	 */
 	public static function isSeeAllowed($idAsset) {
 		$idAsset	= intval($idAsset);
@@ -82,8 +82,8 @@ class TodoyuAssetsRights {
 	/**
 	 * Check whether a person is allowed to delete the asset
 	 *
-	 * @param	Integer		$idAsset
-	 * @return	Boolean
+	 * @param	integer		$idAsset
+	 * @return	boolean
 	 */
 	public static function isDeleteAllowed($idAsset) {
 		$idAsset	= intval($idAsset);
@@ -130,7 +130,7 @@ class TodoyuAssetsRights {
 	 * Restrict access to person which are allowed to see the asset
 	 *
 	 * @todo	state deny message more precisely
-	 * @param	Integer		$idAsset
+	 * @param	integer		$idAsset
 	 */
 	public static function restrictSee($idAsset) {
 		$idAsset	= intval($idAsset);
@@ -145,7 +145,7 @@ class TodoyuAssetsRights {
 	/**
 	 * Restrict access to persons which are allowed to delete assets from this task
 	 *
-	 * @param	Integer		$idAsset
+	 * @param	integer		$idAsset
 	 * @todo	state deny message more precisely
 	 */
 	public static function restrictDelete($idAsset) {

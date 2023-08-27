@@ -1,20 +1,20 @@
 <h3 id="task-{$task.id}-header" class="contextmenutask bcStatus{$task.status}">
 	<span class="statusColor bcStatus{$task.status}"></span>
-	<span class="headLabel" title="{htmlencode $task.fulltitle}" onclick="Todoyu.Ext.project.Task.toggleDetails({$task.id})">
+	<span class="headLabel" title="{$task.fulltitle|escape}" onclick="Todoyu.Ext.project.Task.toggleDetails({$task.id})">
 
-		<span class="taskDate date" title="{dateFormat $task.date_start D2M2Y2} - {if $task.type === constant('TASK_TYPE_TASK') && $task.date_end > 0}{dateFormat $task.date_end D2M2Y2}{else}{dateFormat $task.date_deadline D2M2Y2}{/if}">
+		<span class="taskDate date" title="{$task.date_start|date_format:$DF.D2M2Y2} - {if $task.type === $smarty.const.TASK_TYPE_TASK && $task.date_end > 0}{$task.date_end|date_format:$DF.D2M2Y2}{else}{$task.date_deadline|date_format:$DF.D2M2Y2}{/if}">
 			{if !$task.is_container && $task.date_end > 0}
-				{dateFormat $task.date_end D2M2Y2}
+				{$task.date_end|date_format:$DF.D2M2Y2}
 			{else}
-				{dateFormat $task.date_deadline D2M2Y2}
+				{$task.date_deadline|date_format:$DF.D2M2Y2}
 			{/if}
 			&nbsp;
 		</span>
 		<span class="customer">
-			{if $task.company.shortname}{htmlencode $task.company.shortname}{else}{htmlencode $task.company.title}{/if}&nbsp;
+			{if $task.company.shortname}{$task.company.shortname|escape}{else}{$task.company.title|escape}{/if}&nbsp;
 		</span>
-		<span class="projectName" title="{Label project.ext.project}: {htmlencode $task.project.title} (ID: {$task.project.id}) / {Label project.task.task}: {htmlencode $task.title}">
-			{$titlePrefix}{htmlencode($task.project.title)} - {htmlencode($task.title)}{$titlePostfix}
+		<span class="projectName" title="{Label text='project.ext.project'}: {$task.project.title|escape} (ID: {$task.project.id}) / {Label text='project.task.task'}: {$task.title|escape}">
+			{if isset($titlePrefix)}{$titlePrefix}{/if}{$task.project.title|escape} - {$task.title|escape}{if isset($titlePostfix)}{$titlePostfix}{/if}
 		</span>
 	</span>
 
@@ -22,8 +22,8 @@
 		<span class="taskNumberProject">{$task.id_project}.</span><span class="taskNumberTask">{$task.tasknumber}</span>
 	</span>
 	<span class="taskIcons{if !empty($taskIcons) && sizeof($taskIcons) > 4} taskIconsOverflow{/if}">
-		{foreach $taskIcons taskIcon}
-			<span id="{$taskIcon.id}" class="{$taskIcon.class}" title="{Label $taskIcon.label}" {if $taskIcon.onclick}onclick="{$taskIcon.onclick}"{/if}></span>
+		{foreach $taskIcons as $taskIcon}
+			<span id="{$taskIcon.id}" class="{$taskIcon.class}" title="{Label text=$taskIcon.label}" {if isset($taskIcon.onclick)}onclick="{$taskIcon.onclick}"{/if}></span>
 		{/foreach}
 	</span>
 </h3>

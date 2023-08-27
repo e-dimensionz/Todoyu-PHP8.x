@@ -29,7 +29,7 @@ class TodoyuCalendarProfileActionController extends TodoyuActionController {
 	/**
 	 * Init controller: check permission
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('calendar', 'general:use');
@@ -41,8 +41,8 @@ class TodoyuCalendarProfileActionController extends TodoyuActionController {
 	/**
 	 * Load tab content
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function tabAction(array $params) {
 		return TodoyuCalendarProfileRenderer::renderContent($params);
@@ -53,8 +53,8 @@ class TodoyuCalendarProfileActionController extends TodoyuActionController {
 	/**
 	 * Save calendar general preference from main tab of profile
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function saveMainAction(array $params) {
 		Todoyu::restrict('calendar', 'mailing:sendAsEmail');
@@ -83,7 +83,7 @@ class TodoyuCalendarProfileActionController extends TodoyuActionController {
 	/**
 	 * Save calendar preference from reminders tab of profile
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function saveRemindersAction(array $params) {
 			// Email reminder prefs

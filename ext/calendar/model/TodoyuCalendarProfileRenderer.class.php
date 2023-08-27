@@ -29,8 +29,8 @@ class TodoyuCalendarProfileRenderer {
 	/**
 	 * Render tabs in general area
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderTabs(array $params) {
 		$name		= 'calendar';
@@ -53,8 +53,8 @@ class TodoyuCalendarProfileRenderer {
 	/**
 	 * Render tab content
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderContent(array $params) {
 		$tab	= $params['tab'];
@@ -76,7 +76,7 @@ class TodoyuCalendarProfileRenderer {
 	/**
 	 * Render content for profile's "main" tab of calendar section
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderContentMain() {
 		$xmlPath= 'ext/calendar/config/form/profile-main.xml';
@@ -103,7 +103,7 @@ class TodoyuCalendarProfileRenderer {
 	/**
 	 * Render content for profile's "reminders" tab of calendar section
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderContentReminders() {
 		$xmlPath	= 'ext/calendar/config/form/profile-reminders.xml';

@@ -30,8 +30,8 @@ class TodoyuSysmanagerPanelWidgetModules extends TodoyuPanelWidget {
 	/**
 	 * Sysmanager modules panel widget constructor
 	 *
-	 * @param	Array		$config
-	 * @param	Array		$params
+	 * @param	array		$config
+	 * @param	array		$params
 	 */
 	public function __construct(array $config, array $params = array()) {
 		parent::__construct(
@@ -50,7 +50,7 @@ class TodoyuSysmanagerPanelWidgetModules extends TodoyuPanelWidget {
 	/**
 	 * Render content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderContent() {
 		$modules	= TodoyuSysmanagerManager::getModules();
@@ -79,7 +79,7 @@ class TodoyuSysmanagerPanelWidgetModules extends TodoyuPanelWidget {
 	/**
 	 * Check whether usage of sysmanager modules selector widget is allowed
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		return Todoyu::allowed('sysmanager', 'general:use');

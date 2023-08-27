@@ -43,7 +43,7 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get form object for person quick creation
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	TodoyuForm
 	 */
 	public static function getQuickCreateForm($idPerson = 0) {
@@ -71,7 +71,7 @@ class TodoyuContactPersonManager {
 	 * Get a person object. This functions uses the cache to
 	 * prevent double object initialisation
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	TodoyuContactPerson
 	 */
 	public static function getPerson($idPerson = null) {
@@ -84,8 +84,8 @@ class TodoyuContactPersonManager {
 	 * Form hook to load persons foreign record data
 	 * Load: company, contactinfo, address
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idPerson
+	 * @param	array		$data
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function hookPersonLoadFormData(array $data, $idPerson) {
@@ -108,8 +108,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get all active persons
 	 *
-	 * @param	Array		$fields			By default, all fields are selected. You can provide a field list instead
-	 * @param	Boolean		$showInactive	Also show inactive persons
+	 * @param	array		$fields			By default, all fields are selected. You can provide a field list instead
+	 * @param	boolean		$showInactive	Also show inactive persons
 	 * @return	Array
 	 */
 	public static function getAllActivePersons(array $fields = array(), $showInactive = false) {
@@ -149,9 +149,9 @@ class TodoyuContactPersonManager {
 	/**
 	 * Check whether $username and $password are a valid login
 	 *
-	 * @param	String		$username		Username
-	 * @param	String		$password		Password as sha1
-	 * @return	Boolean
+	 * @param	string		$username		Username
+	 * @param	string		$password		Password as sha1
+	 * @return	boolean
 	 */
 	public static function isValidLogin($username, $password) {
 		$username	= trim($username);
@@ -177,8 +177,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Check whether $idPerson is a valid person ID
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function isPerson($idPerson) {
 		return TodoyuRecordManager::isRecord(self::TABLE, $idPerson);
@@ -189,8 +189,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Check whether a person with the username $username exists
 	 *
-	 * @param	String		$username
-	 * @return	Boolean
+	 * @param	string		$username
+	 * @return	boolean
 	 */
 	public static function personExists($username) {
 		return self::getPersonIDByUsername($username) !== 0;
@@ -201,8 +201,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get person ID by username
 	 *
-	 * @param	String		$username
-	 * @return	Integer
+	 * @param	string		$username
+	 * @return	integer
 	 */
 	public static function getPersonIDByUsername($username) {
 		$fields	= 'id';
@@ -222,7 +222,7 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get person by username
 	 *
-	 * @param	String		$username
+	 * @param	string		$username
 	 * @return	TodoyuContactPerson
 	 */
 	public static function getPersonByUsername($username) {
@@ -236,7 +236,7 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get person by email address
 	 *
-	 * @param	String		$email
+	 * @param	string		$email
 	 * @return	TodoyuContactPerson|Boolean
 	 */
 	public static function getPersonByEmail($email) {
@@ -258,8 +258,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Add a new person
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function addPerson(array $data = array()) {
 		$idPerson = TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -274,7 +274,7 @@ class TodoyuContactPersonManager {
 	/**
 	 * Delete a person in the database (set deleted flag to 1)
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 */
 	public static function deletePerson($idPerson) {
 		$idPerson	= intval($idPerson);
@@ -293,8 +293,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Update a person
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Array		$data
+	 * @param	integer		$idPerson
+	 * @param	array		$data
 	 */
 	public static function updatePerson($idPerson, array $data) {
 		TodoyuRecordManager::removeRecordCache('TodoyuContactPerson', $idPerson);
@@ -309,8 +309,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Save person
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function savePerson(array $data) {
 		$idPerson	= intval($data['id']);
@@ -349,9 +349,9 @@ class TodoyuContactPersonManager {
 	/**
 	 * Update current persons password
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	String		$password
-	 * @param	Boolean		$alreadyHashed		Is password already a md5 hash?
+	 * @param	integer		$idPerson
+	 * @param	string		$password
+	 * @param	boolean		$alreadyHashed		Is password already a md5 hash?
 	 */
 	public static function updatePassword($idPerson, $password, $alreadyHashed = true) {
 		$idPerson	=	intval($idPerson);
@@ -372,9 +372,9 @@ class TodoyuContactPersonManager {
 	/**
 	 * Sort given person IDs alphabetical or by given sorting flags
 	 *
-	 * @param	Integer[]	$personIDs
-	 * @param	String		$sorting
-	 * @return	Integer[]
+	 * @param	integer[]	$personIDs
+	 * @param	string		$sorting
+	 * @return	integer[]
 	 */
 	public static function sortPersonIDs(array $personIDs, $sorting = 'lastname,firstname') {
 		$field		= 'id';
@@ -390,8 +390,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get role IDs of a person
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Integer[]
+	 * @param	integer		$idPerson
+	 * @return	integer[]
 	 */
 	public static function getRoleIDs($idPerson) {
 		$idPerson	= Todoyu::personid($idPerson);
@@ -411,7 +411,7 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get roles of a person
 	 *
-	 * @param	Integer	$idPerson
+	 * @param	integer	$idPerson
 	 * @return	Array
 	 */
 	public static function getRoles($idPerson) {
@@ -452,9 +452,9 @@ class TodoyuContactPersonManager {
 	/**
 	 * Check whether the given person belongs to any of the given roles
 	 *
-	 * @param	Array		$roles
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	array		$roles
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function hasAnyRole(array $roles, $idPerson = 0) {
 		$personRoles	= TodoyuContactPersonManager::getRoleIDs($idPerson);
@@ -467,8 +467,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Check whether person of given ID has any image in profile
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function hasImage($idPerson) {
 		return TodoyuContactImageManager::hasImage($idPerson, self::contactTypeKey, 'contactimage');
@@ -480,7 +480,7 @@ class TodoyuContactPersonManager {
 	 * Check whether person of given ID has any image in profile
 	 *
 	 * @param		$idPerson
-	 * @return		Boolean
+	 * @return		boolean
 	 */
 	public static function hasAvatar($idPerson) {
 		return TodoyuContactImageManager::hasImage($idPerson, self::contactTypeKey, 'avatar');
@@ -491,10 +491,10 @@ class TodoyuContactPersonManager {
 	/**
 	 * Check whether given person has given right
 	 *
-	 * @param	String	$extKey
-	 * @param	String	$right
-	 * @param	Integer	$idPerson
-	 * @return	Boolean
+	 * @param	string	$extKey
+	 * @param	string	$right
+	 * @param	integer	$idPerson
+	 * @return	boolean
 	 */
 	public static function isAllowed($extKey, $right, $idPerson = 0) {
 		$idPerson	= Todoyu::personid($idPerson);
@@ -517,7 +517,7 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get IDs of internal persons (staff)
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public static function getInternalPersonIDs() {
 		$persons	= self::getInternalPersons();
@@ -530,9 +530,9 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get internal persons (staff)
 	 *
-	 * @param	Boolean		$getJobType
-	 * @param	Boolean		$getWorkAddress
-	 * @param	Boolean		$onlyWithEmail		Filter out records w/o account email address?
+	 * @param	boolean		$getJobType
+	 * @param	boolean		$getWorkAddress
+	 * @param	boolean		$onlyWithEmail		Filter out records w/o account email address?
 	 * @return	Array
 	 */
 	public static function getInternalPersons($getJobType = false, $getWorkAddress = false, $onlyWithEmail = false) {
@@ -575,11 +575,11 @@ class TodoyuContactPersonManager {
 	/**
 	 * Search for person
 	 *
-	 * @param	String[]	$searchWords
-	 * @param	Integer		$size
-	 * @param	Integer		$offset
-	 * @param	Integer[]	$ignoreIDs			Ignore records with this IDs
-	 * @param	Boolean		$onlyActiveUsers
+	 * @param	string[]	$searchWords
+	 * @param	integer		$size
+	 * @param	integer		$offset
+	 * @param	integer[]	$ignoreIDs			Ignore records with this IDs
+	 * @param	boolean		$onlyActiveUsers
 	 * @return	Array
 	 */
 	public static function searchPersons(array $searchWords = array(), $size = 100, $offset = 0, array $ignoreIDs = array(), $onlyActiveUsers = false) {
@@ -618,9 +618,9 @@ class TodoyuContactPersonManager {
 	/**
 	 * Search persons which match the search words
 	 *
-	 * @param	Array		$searchWords
-	 * @param	Integer[]	$ignoreUserIDs
-	 * @param	Integer		$limit
+	 * @param	array		$searchWords
+	 * @param	integer[]	$ignoreUserIDs
+	 * @param	integer		$limit
 	 * @return	Array
 	 */
 	public static function searchStaff(array $searchWords, array $ignoreUserIDs = array(), $limit = 10) {
@@ -684,8 +684,8 @@ class TodoyuContactPersonManager {
 	 * Get label of database relation
 	 *
 	 * @param	TodoyuFormElement		$field
-	 * @param	Array					$record
-	 * @return	String
+	 * @param	array					$record
+	 * @return	string
 	 */
 	public static function getDatabaseRelationLabel(TodoyuFormElement $field, array $record) {
 		$idPerson	= intval($record['id']);
@@ -704,11 +704,11 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get person label
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Boolean		$showEmail
-	 * @param	Boolean		$lastnameFirst
-	 * @param	Boolean		$showCompanyAbbr
-	 * @return	String
+	 * @param	integer		$idPerson
+	 * @param	boolean		$showEmail
+	 * @param	boolean		$lastnameFirst
+	 * @param	boolean		$showCompanyAbbr
+	 * @return	string
 	 */
 	public static function getLabel($idPerson, $showEmail = false, $lastnameFirst = true, $showCompanyAbbr = false) {
 		$idPerson	= intval($idPerson);
@@ -726,8 +726,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * When person form is saved, extract roles from data and save them
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idPerson
+	 * @param	array		$data
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function savePersonForeignRecords(array $data, $idPerson) {
@@ -823,7 +823,7 @@ class TodoyuContactPersonManager {
 	/**
 	 * Remove person object from cache
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 */
 	public static function removeFromCache($idPerson) {
 		$idPerson		= intval($idPerson);
@@ -837,8 +837,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get IDs of working addresses of given person(s)
 	 *
-	 * @param	Array		$personIDs
-	 * @return	Integer[]
+	 * @param	array		$personIDs
+	 * @return	integer[]
 	 */
 	public static function getWorkaddressIDsOfPersons(array $personIDs) {
 		$addressIDs	= array();
@@ -934,9 +934,9 @@ class TodoyuContactPersonManager {
 	/**
 	 * Enrich data array of persons and birthdays with resp. age and date
 	 *
-	 * @param	Array		$birthdayPersons
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd
+	 * @param	array		$birthdayPersons
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd
 	 * @return	Array
 	 */
 	private static function addBirthdayPersonsDateAndAge(array $birthdayPersons, $dateStart, $dateEnd) {
@@ -965,7 +965,7 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get color IDs to given person id's (persons are given enumerated colors by their position in the list)
 	 *
-	 * @param	Array	$personIDs
+	 * @param	array	$personIDs
 	 * @return	Array
 	 */
 	public static function getSelectedPersonColor(array $personIDs) {
@@ -991,7 +991,7 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get company records for a person
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getPersonCompanyRecords($idPerson) {
@@ -1014,8 +1014,8 @@ class TodoyuContactPersonManager {
 	 * Remove company links which are no longer active
 	 * Companies stays untouched, only the link with the extra data will be removed
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Array		$companyIDs
+	 * @param	integer		$idPerson
+	 * @param	array		$companyIDs
 	 */
 	public static function removeRemovedCompanies($idPerson, array $companyIDs) {
 		TodoyuDbHelper::deleteOtherMmLinks('ext_contact_mm_company_person', 'id_person', 'id_company', $idPerson, $companyIDs);
@@ -1026,8 +1026,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Save linked person and linking data
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Array		$linkData
+	 * @param	integer		$idPerson
+	 * @param	array		$linkData
 	 */
 	public static function saveCompanyLinks($idPerson, array $linkData) {
 		TodoyuDbHelper::saveExtendedMMLinks('ext_contact_mm_company_person', 'id_person', 'id_company', $idPerson, $linkData);
@@ -1038,8 +1038,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Remove role links which are no longer active
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Array		$roleIDs
+	 * @param	integer		$idPerson
+	 * @param	array		$roleIDs
 	 */
 	public static function removeRemovedRoles($idPerson, array $roleIDs) {
 		TodoyuDbHelper::deleteOtherMmLinks('ext_contact_mm_person_role', 'id_person', 'id_role', $idPerson, $roleIDs);
@@ -1050,9 +1050,9 @@ class TodoyuContactPersonManager {
 	/**
 	 * Delete all contactinfos except the given ones
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Array		$currentContactInfoIDs
-	 * @return	Integer		Deleted records
+	 * @param	integer		$idPerson
+	 * @param	array		$currentContactInfoIDs
+	 * @return	integer		Deleted records
 	 */
 	public static function deleteRemovedContactInfos($idPerson, array $currentContactInfoIDs) {
 		return TodoyuContactContactInfoManager::deleteLinkedContactInfos('person', $idPerson, $currentContactInfoIDs, 'id_person');
@@ -1063,8 +1063,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Link a person with contactinfos
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Array		$contactinfoIDs
+	 * @param	integer		$idPerson
+	 * @param	array		$contactinfoIDs
 	 */
 	public static function linkContactinfos($idPerson, array $contactinfoIDs) {
 		TodoyuDbHelper::addMMLinks('ext_contact_mm_person_contactinfo', 'id_person', 'id_contactinfo', $idPerson, $contactinfoIDs);
@@ -1075,9 +1075,9 @@ class TodoyuContactPersonManager {
 	/**
 	 * Delete all company addresses which are no longer active
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Array		$currentAddressIDs	Active addresses which will not be deleted
-	 * @return	Integer
+	 * @param	integer		$idPerson
+	 * @param	array		$currentAddressIDs	Active addresses which will not be deleted
+	 * @return	integer
 	 */
 	public static function deleteRemovedAddresses($idPerson, array $currentAddressIDs) {
 		return TodoyuContactAddressManager::deleteLinkedAddresses('ext_contact_mm_person_address', $idPerson, $currentAddressIDs, 'id_person');
@@ -1088,8 +1088,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Link a person with addresses
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Array		$addressIDs
+	 * @param	integer		$idPerson
+	 * @param	array		$addressIDs
 	 */
 	public static function linkAddresses($idPerson, array $addressIDs) {
 		TodoyuDbHelper::addMMLinks('ext_contact_mm_person_address', 'id_person', 'id_address', $idPerson, $addressIDs);
@@ -1100,7 +1100,7 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get address records for a person
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getAddressRecords($idPerson) {
@@ -1121,7 +1121,7 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get contact records for a person
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getContactinfoRecords($idPerson) {
@@ -1145,7 +1145,7 @@ class TodoyuContactPersonManager {
 	 * Gets the preview image for the form
 	 *
 	 * @param	TodoyuFormElement_Comment	$formElement
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getPreviewImageForm(TodoyuFormElement_Comment $formElement) {
 		return TodoyuContactImageManager::renderImageForm($formElement, self::contactTypeKey);
@@ -1157,8 +1157,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get link to detail view of a person
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	String
+	 * @param	integer		$idPerson
+	 * @return	string
 	 */
 	public static function getDetailLink($idPerson) {
 		$idPerson	= intval($idPerson);
@@ -1180,9 +1180,9 @@ class TodoyuContactPersonManager {
 	 * Get matching staff persons
 	 *
 	 * @param 	String[]	$searchWords
-	 * @param	Integer[]	$ignoreIDs
-	 * @param	Array		$params
-	 * @param	String		$type
+	 * @param	integer[]	$ignoreIDs
+	 * @param	array		$params
+	 * @param	string		$type
 	 * @return	Array[]
 	 */
 	public static function getMatchingStaffPersons(array $searchWords, array $ignoreIDs = array(), array $params = array(), $type = null) {
@@ -1206,8 +1206,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get matching persons as list with id and label key
 	 *
-	 * @param	String[]	$searchWords
-	 * @param	Integer[]	$ignoreIDs
+	 * @param	string[]	$searchWords
+	 * @param	integer[]	$ignoreIDs
 	 * @return	Array[]
 	 */
 	public static function getMatchingPersons(array $searchWords, array $ignoreIDs = array()) {
@@ -1232,8 +1232,8 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get matching persons with email
 	 *
-	 * @param	Array	$searchWords
-	 * @param	Array	$ignoreIDs
+	 * @param	array	$searchWords
+	 * @param	array	$ignoreIDs
 	 * @return	Array
 	 */
 	public static function getMatchingEmailPersons(array $searchWords, array $ignoreIDs = array()) {
@@ -1258,10 +1258,10 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get matching email receiver tuples for active persons
 	 *
-	 * @param	String[]		$searchWords
-	 * @param	String[]		$ignoreTuples
-	 * @param	Array			$params
-	 * @return	String[]
+	 * @param	string[]		$searchWords
+	 * @param	string[]		$ignoreTuples
+	 * @param	array			$params
+	 * @return	string[]
 	 */
 	public static function getMatchingEmailReceiversActivePersons(array $searchWords, array $ignoreTuples = array(), array $params = array()) {
 		$ignoreIDs	= array();
@@ -1289,10 +1289,10 @@ class TodoyuContactPersonManager {
 	/**
 	 * Get matching email receiver tuples for contact infos
 	 *
-	 * @param	String[]		$searchWords
-	 * @param	String[]		$ignoreTuples
-	 * @param	Array			$params
-	 * @return	String[]
+	 * @param	string[]		$searchWords
+	 * @param	string[]		$ignoreTuples
+	 * @param	array			$params
+	 * @return	string[]
 	 */
 	public static function getMatchingEmailReceiversContactInfo(array $searchWords, array $ignoreTuples = array(), array $params = array()) {
 		$ignoreIDs	= array();
@@ -1320,11 +1320,11 @@ class TodoyuContactPersonManager {
 	/**
 	 * Link a person to a company
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Integer		$idCompany
-	 * @param	Integer		$idWorkAddress
-	 * @param	Integer		$idJobType
-	 * @param	Array		$extraData
+	 * @param	integer		$idPerson
+	 * @param	integer		$idCompany
+	 * @param	integer		$idWorkAddress
+	 * @param	integer		$idJobType
+	 * @param	array		$extraData
 	 */
 	public static function addCompanyLink($idPerson, $idCompany, $idWorkAddress = 0, $idJobType = 0, array $extraData = array()) {
 		$extraData['id_workaddress']= intval($idWorkAddress);
@@ -1338,7 +1338,7 @@ class TodoyuContactPersonManager {
 	/**
 	 * Project records which the given person is assigned to
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getProjectOfPerson($idPerson) {

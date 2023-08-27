@@ -29,7 +29,7 @@ class TodoyuAssetsPreviewManager {
 	/**
 	 * Create scaled version of given (image) asset for preview, return it's path
 	 *
-	 * @param	Integer		$idAsset
+	 * @param	integer		$idAsset
 	 * @return	Array		Attributes of the preview image: path, width, height
 	 */
 	public static function getPreviewImage($idAsset) {
@@ -81,7 +81,7 @@ class TodoyuAssetsPreviewManager {
 	/**
 	 * Get base path (absolute) of preview storage
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getStorageBasePath() {
 		return TodoyuFileManager::pathAbsolute(Todoyu::$CONFIG['EXT']['assets']['previewPath']);

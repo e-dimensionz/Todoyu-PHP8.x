@@ -62,7 +62,7 @@ class TodoyuDaytracksExportManager {
 	/**
 	 * Exports timetracks as CSV file
 	 *
-	 * @param	Array	$exportData
+	 * @param	array	$exportData
 	 */
 	public static function exportCSV(array $exportData) {
 		$export	= self::getExportCsvFromExportData($exportData);
@@ -73,8 +73,8 @@ class TodoyuDaytracksExportManager {
 
 
 	/**
-	 * @param	Array	$exportData
-	 * @return	String
+	 * @param	array	$exportData
+	 * @return	string
 	 */
 	public static function renderView(array $exportData) {
 		TodoyuCache::disable();
@@ -111,19 +111,19 @@ class TodoyuDaytracksExportManager {
 
 
 	/**
-	 * @param	Array				$exportData
+	 * @param	array				$exportData
 	 * @return	TodoyuExportCsv
 	 */
 	public static function getExportCsvFromExportData(array $exportData) {
 		if( Todoyu::allowed('daytracks', 'daytracks:timeExportAllPerson') ) {
-			$employeeIDs	= TodoyuArray::intExplode(',', $exportData['employee'], true, true);
+			$employeeIDs	= TodoyuArray::intExplode(',', $exportData['employee'] ?? '', true, true);
 		} else {
 			$employeeIDs	= array(Todoyu::personid());
 		}
 
-		$employer	= TodoyuArray::intExplode(',', $exportData['employer']);
-		$project	= TodoyuArray::intExplode(',', $exportData['project']);
-		$company	= TodoyuArray::intExplode(',', $exportData['company']);
+		$employer	= TodoyuArray::intExplode(',', $exportData['employer'] ?? '');
+		$project	= TodoyuArray::intExplode(',', $exportData['project'] ?? '');
+		$company	= TodoyuArray::intExplode(',', $exportData['company'] ?? '');
 		$dateStart	= intval($exportData['date_start']);
 		$dateEnd	= intval($exportData['date_end']);
 
@@ -138,12 +138,12 @@ class TodoyuDaytracksExportManager {
 	/**
 	 * Gets and prepares the data for the daytracks export
 	 *
-	 * @param	Array		$personIDs			Persons
-	 * @param	Array		$employerIDs		Employeer companies
-	 * @param	Array		$projectIDs			Projects
-	 * @param	Array		$customerIDs		Customers
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd
+	 * @param	array		$personIDs			Persons
+	 * @param	array		$employerIDs		Employeer companies
+	 * @param	array		$projectIDs			Projects
+	 * @param	array		$customerIDs		Customers
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd
 	 * @return	Array
 	 */
 	public static function getTrackingReport(array $personIDs = array(), array $employerIDs = array(), array $projectIDs = array(), array $customerIDs = array(), $dateStart = 0, $dateEnd = 0) {
@@ -236,7 +236,7 @@ class TodoyuDaytracksExportManager {
 	/**
 	 * Prepare data for export - substitute locale labels by their parsed values
 	 *
-	 * @param	Array	$dataArray
+	 * @param	array	$dataArray
 	 * @return	Array
 	 */
 	protected static function prepareDataForExport(array $dataArray) {

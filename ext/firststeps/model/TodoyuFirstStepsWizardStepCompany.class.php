@@ -39,8 +39,8 @@ class TodoyuFirstStepsWizardStepCompany extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Save company
 	 *
-	 * @param	Array	$data
-	 * @return	Boolean
+	 * @param	array	$data
+	 * @return	boolean
 	 */
 	public function save(array $data) {
 		$form	= $this->getForm($data);
@@ -63,7 +63,7 @@ class TodoyuFirstStepsWizardStepCompany extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Render content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getContent() {
 		if( $this->data === null ) {
@@ -113,7 +113,7 @@ class TodoyuFirstStepsWizardStepCompany extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Save/update company
 	 *
-	 * @param	Array	$submittedData
+	 * @param	array	$submittedData
 	 */
 	private function saveCompany(array $submittedData) {
 		$data	= array(

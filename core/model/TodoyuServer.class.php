@@ -29,7 +29,7 @@ class TodoyuServer {
 	/**
 	 * Check whether server OS is Linux
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isLinux() {
 		return stripos(PHP_OS, 'Linux') !== false;
@@ -40,7 +40,7 @@ class TodoyuServer {
 	/**
 	 * Check whether server OS is Windows
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isWindows() {
 		return stripos(PHP_OS, 'Win') !== false;
@@ -51,7 +51,7 @@ class TodoyuServer {
 	/**
 	 * Get IP address of the server
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getIP() {
 		return $_SERVER['SERVER_ADDR'];
@@ -62,7 +62,7 @@ class TodoyuServer {
 	/**
 	 * Get the (domain) name of the server
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getDomain() {
 		return $_SERVER['SERVER_NAME'];
@@ -129,7 +129,7 @@ class TodoyuServer {
 	/**
 	 * Check whether the server runs PHP 5.3.0 at least
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isPhp53() {
 		return version_compare(PHP_VERSION, '5.3.0') > -1;

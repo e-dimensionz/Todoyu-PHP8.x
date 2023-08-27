@@ -29,7 +29,7 @@ class TodoyuAssetsAsset extends TodoyuBaseObject {
 	/**
 	 * Initialize the asset object
 	 *
-	 * @param	Integer		$idAsset
+	 * @param	integer		$idAsset
 	 */
 	public function __construct($idAsset) {
 		parent::__construct($idAsset, 'ext_assets_asset');
@@ -40,7 +40,7 @@ class TodoyuAssetsAsset extends TodoyuBaseObject {
 	/**
 	 * Get parent type of the asset (ex: task)
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getParentType() {
 		return $this->get('parenttype');
@@ -51,7 +51,7 @@ class TodoyuAssetsAsset extends TodoyuBaseObject {
 	/**
 	 * Get ID of parent element
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getParentID() {
 		return $this->getInt('id_parent');
@@ -62,7 +62,7 @@ class TodoyuAssetsAsset extends TodoyuBaseObject {
 	/**
 	 * Get absolute path to file in storage directory on the server
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getFileStoragePath() {
 		$basePath	= TodoyuAssetsAssetManager::getStorageBasePath();
@@ -76,7 +76,7 @@ class TodoyuAssetsAsset extends TodoyuBaseObject {
 	/**
 	 * Get file size
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getFilesize() {
 		return $this->getInt('file_size');
@@ -87,9 +87,9 @@ class TodoyuAssetsAsset extends TodoyuBaseObject {
 	/**
 	 * Get formatted file size
 	 *
-	 * @param	Array|null		$alternativeLabels
-	 * @param	Boolean			$noLabel
-	 * @return	String
+	 * @param	array|null		$alternativeLabels
+	 * @param	boolean			$noLabel
+	 * @return	string
 	 */
 	public function getFilesizeFormatted(array $alternativeLabels = null, $noLabel = false) {
 		return TodoyuString::formatSize($this->getFilesize(), $alternativeLabels, $noLabel);
@@ -100,7 +100,7 @@ class TodoyuAssetsAsset extends TodoyuBaseObject {
 	/**
 	 * Get mime type
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getMimeType() {
 		return $this->get('file_mime') . '/' . $this->get('file_ext');
@@ -111,7 +111,7 @@ class TodoyuAssetsAsset extends TodoyuBaseObject {
 	/**
 	 * Get filename
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getFilename() {
 		return $this->get('file_name');
@@ -122,7 +122,7 @@ class TodoyuAssetsAsset extends TodoyuBaseObject {
 	/**
 	 * Check whether asset is public
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isPublic() {
 		return $this->isFlagSet('is_public');
@@ -133,7 +133,7 @@ class TodoyuAssetsAsset extends TodoyuBaseObject {
 	/**
 	 * Check whether file exists in storage
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isFileAvailable() {
 		$pathFileStorage	= $this->getFileStoragePath();
@@ -146,7 +146,7 @@ class TodoyuAssetsAsset extends TodoyuBaseObject {
 	/**
 	 * Send asset as download
 	 *
-	 * @return	Boolean		Success
+	 * @return	boolean		Success
 	 */
 	public function sendAsDownload() {
 		$filePath	= $this->getFileStoragePath();
@@ -171,7 +171,7 @@ class TodoyuAssetsAsset extends TodoyuBaseObject {
 	 * Check whether the asset can be downloaded
 	 * Only checks for problems with the file. No access checking
 	 *
-	 * @return	Boolean|String		True or the error message
+	 * @return	boolean|String		True or the error message
 	 */
 	public function canDownload() {
 		return TodoyuFileManager::canSendFile($this->getFileStoragePath());
@@ -182,7 +182,7 @@ class TodoyuAssetsAsset extends TodoyuBaseObject {
 	/**
 	 * Get label for asset
 	 *
-	 * @return String
+	 * @return string
 	 */
 	public function getLabel() {
 		$data = array(

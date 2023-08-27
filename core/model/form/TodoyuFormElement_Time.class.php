@@ -31,9 +31,9 @@ class TodoyuFormElement_Time extends TodoyuFormElement_Text {
 	/**
 	 * Initialize time-input field
 	 *
-	 * @param	String				$name
+	 * @param	string				$name
 	 * @param	TodoyuFormFieldset		$fieldset
-	 * @param	Array				$config
+	 * @param	array				$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		TodoyuFormElement::__construct('time', $name, $fieldset, $config);
@@ -65,7 +65,7 @@ class TodoyuFormElement_Time extends TodoyuFormElement_Text {
 	/**
 	 * Set js config for time picker
 	 *
-	 * @param	Array	$jsConfig
+	 * @param	array	$jsConfig
 	 */
 	protected function setJsConfig(array $jsConfig) {
 		$this->config['jsConfig'] = $jsConfig;
@@ -118,7 +118,7 @@ class TodoyuFormElement_Time extends TodoyuFormElement_Text {
 
 	/**
 	 * Get value of the timeinput field (as numeric seconds value)
-	 * @return	Integer		Seconds
+	 * @return	integer		Seconds
 	 */
 	public function getValue() {
 		return (int) parent::getValue();
@@ -129,7 +129,7 @@ class TodoyuFormElement_Time extends TodoyuFormElement_Text {
 	/**
 	 * Get formatted value for template
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getValueForTemplate() {
 		$value = $this->getValue();

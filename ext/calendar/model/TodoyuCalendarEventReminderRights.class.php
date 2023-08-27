@@ -30,7 +30,7 @@ class TodoyuCalendarEventReminderRights {
 	 * Deny access
 	 * Shortcut for calendar
 	 *
-	 * @param	String		$right		Denied right
+	 * @param	string		$right		Denied right
 	 */
 	private static function deny($right) {
 		TodoyuRightsManager::deny('calendar', $right);
@@ -41,8 +41,8 @@ class TodoyuCalendarEventReminderRights {
 	/**
 	 * Check whether current person is allowed to use popup reminders of given event
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @return	boolean
 	 */
 	public static function isPopupSchedulingAllowed($idEvent) {
 		return TodoyuCalendarReminderPopupManager::isReminderAllowed($idEvent);
@@ -53,8 +53,8 @@ class TodoyuCalendarEventReminderRights {
 	/**
 	 * Check whether current person is allowed to use emailed reminders of given event
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	Boolean
+	 * @param	integer		$idEvent
+	 * @return	boolean
 	 */
 	public static function isEmailSchedulingAllowed($idEvent) {
 		return TodoyuCalendarReminderEmailManager::isReminderAllowed($idEvent);

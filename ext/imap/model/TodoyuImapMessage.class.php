@@ -30,7 +30,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Initialize
 	 *
-	 * @param	Integer		$idMessage
+	 * @param	integer		$idMessage
 	 */
 	public function __construct($idMessage) {
 		parent::__construct($idMessage, 'ext_imap_message');
@@ -41,7 +41,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get date sent
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateSent() {
 		return $this->getInt('date_sent');
@@ -52,7 +52,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get subject
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getSubject() {
 		return $this->get('subject');
@@ -64,7 +64,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	 * Get message id
 	 * Not the record ID, it's the global message id
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getMessageID() {
 		return $this->get('message_id');
@@ -75,7 +75,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get message size
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getSize() {
 		return $this->getInt('size');
@@ -86,7 +86,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get amount of attachments
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getAmountAttachments() {
 		return $this->getInt('amount_attachments');
@@ -97,7 +97,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Check whether message has attachments
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasAttachments() {
 		return $this->getAmountAttachments() > 0;
@@ -108,7 +108,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get attachment IDs
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public function getAttachmentIDs() {
 		$field	= 'id';
@@ -137,8 +137,8 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get message html part
 	 *
-	 * @param	Boolean		$fixInlineImages		Replace inline image paths with todoyu URIs
-	 * @return	String
+	 * @param	boolean		$fixInlineImages		Replace inline image paths with todoyu URIs
+	 * @return	string
 	 */
 	public function getMessageHtml($fixInlineImages = false) {
 		$messageHtml	=  $this->get('message_html');
@@ -155,7 +155,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get message plain text part
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getMessagePlain() {
 		return $this->get('message_plain');
@@ -166,8 +166,8 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get safe html message content
 	 *
-	 * @param	Boolean		$fixInlineImages		Fix the paths to the extracted inline images
-	 * @return	String
+	 * @param	boolean		$fixInlineImages		Fix the paths to the extracted inline images
+	 * @return	string
 	 */
 	public function getMessageHtmlSafe($fixInlineImages = false) {
 		return TodoyuImapHtml::getSafeHtml($this->getMessageHtml($fixInlineImages));
@@ -178,7 +178,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get message content safe and simplified
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getMessageSafeAndSimple() {
 		if( $this->hasHtml() ) {
@@ -194,7 +194,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	 * Get message cleaned and with simplified html
 	 * Ready to insert as comment text
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getMessageHtmlSafeAndSimple() {
 		return TodoyuImapHtml::getSaveAndSimpleHtml($this->getMessageHtml());
@@ -206,7 +206,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get cleaned html version of text content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	private function getTextCleanedAsSimpleHtml() {
 		return nl2br($this->getMessagePlain());
@@ -215,7 +215,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	
 
 	/**
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isHtmlAndPlainText() {
 		return $this->hasHtml() && $this->hasText();
@@ -226,7 +226,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Check whether message has HTML content
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasHtml() {
 		return trim($this->getMessageHtml()) !== '';
@@ -237,7 +237,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Check whether message has plain text content
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasText() {
 		return trim($this->getMessagePlain()) !== '';
@@ -248,7 +248,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Check whether message is text only
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isTextOnly() {
 		return $this->hasText() && !$this->hasHtml();
@@ -259,7 +259,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Check whether message is HTML only
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isHtmlOnly() {
 		return !$this->hasText() && $this->hasHtml();
@@ -270,8 +270,8 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get available format, depending on the requested format
 	 *
-	 * @param	String		$requestedFormat
-	 * @return	String
+	 * @param	string		$requestedFormat
+	 * @return	string
 	 */
 	public function getAvailableFormat($requestedFormat) {
 		$requestedFormat	= trim(strtolower($requestedFormat));
@@ -290,8 +290,8 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Assert a format is set or a fallback is used
 	 *
-	 * @param	String		$format
-	 * @return	String
+	 * @param	string		$format
+	 * @return	string
 	 */
 	public function assertFormat($format) {
 		$format	= strtolower(trim($format));
@@ -309,7 +309,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get from email address ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getAddressFromID() {
 		return $this->getInt('id_address_from');
@@ -342,7 +342,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get addresses IDs for TO addresses
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public function getAddressesToIDs() {
 		return $this->getAddressesTypeIDs(IMAP_ADDRESS_TYPE_TO);
@@ -430,8 +430,8 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get addresses IDs for type
 	 *
-	 * @param	Integer		$type
-	 * @return	Integer[]
+	 * @param	integer		$type
+	 * @return	integer[]
 	 */
 	protected function getAddressesTypeIDs($type) {
 		return TodoyuImapAddressManager::getAddressIDsByType($this->getID(), $type);
@@ -442,7 +442,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get addresses data for type
 	 *
-	 * @param	Integer		$type
+	 * @param	integer		$type
 	 * @return	Array[]
 	 */
 	protected function getAddressesTypeData($type) {
@@ -461,7 +461,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get addresses objects for type
 	 *
-	 * @param	Integer		$type
+	 * @param	integer		$type
 	 * @return	TodoyuImapAddress[]
 	 */
 	protected function getAddressesType($type) {
@@ -473,7 +473,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get account ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getAccountID() {
 		return $this->getInt('id_account');
@@ -494,7 +494,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get mailbox
 	 *
-	 * @param	Array		$options
+	 * @param	array		$options
 	 * @return	TodoyuImapMailbox|Boolean
 	 */
 	public function getMailbox(array $options = array()) {
@@ -507,7 +507,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	 * Get clean message body in HTML.
 	 * Taken from message text HTML, fallback: message plain text.
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getCleanMessageHtml() {
 		$message = $this->getMessageHtml();
@@ -524,7 +524,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	 * Get content for task description from message
 	 * HTML or plain text
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getMailContent() {
 		$messageHtml	= $this->getMessageHtml();
@@ -541,7 +541,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get raw message key
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getRawMessageKey() {
 		return $this->get('raw_message_key');
@@ -575,7 +575,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get link for eml file download
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getEmlDownloadLink() {
 		return TodoyuString::buildUrl(array(
@@ -591,7 +591,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get message index on the server
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getIndexOnServer() {
 		return $this->getAccount()->getMailbox()->getMessageIndex($this->getID());
@@ -603,7 +603,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	 * Check whether the html content contains external references
 	 * Simple check: external references are included with a source attribute with a absolute url
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasExternalsInHtmlContent() {
 		$htmlContent	= $this->getMessageHtmlSafe();
@@ -616,7 +616,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Move message to trash on the server
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function trashOnServer() {
 		return $this->getAccount()->getMailbox()->trashMessage($this->getID(), true);
@@ -627,7 +627,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Move message back to inbox on the server
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function restoreToInboxOnServer() {
 		return $this->getAccount()->getMailbox()->restoreMessage($this->getID());
@@ -638,7 +638,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Flag message as seen on the server
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function flagAsSeenOnServer() {
 		return $this->getAccount()->getMailbox()->flagMessageAsSeen($this->getID());
@@ -649,7 +649,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Flag message as unseen on the server
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function flagAsUnseenOnServer() {
 		return $this->getAccount()->getMailbox()->flagMessageAsUnseen($this->getID());
@@ -674,7 +674,7 @@ class TodoyuImapMessage extends TodoyuBaseObject {
 	/**
 	 * Get template data
 	 *
-	 * @param	Boolean		$loadForeignData
+	 * @param	boolean		$loadForeignData
 	 * @return	Array
 	 */
 	public function getTemplateData($loadForeignData = false) {

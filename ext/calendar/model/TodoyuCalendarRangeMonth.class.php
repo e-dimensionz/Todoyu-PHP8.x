@@ -29,7 +29,7 @@ class TodoyuCalendarRangeMonth extends TodoyuDayRange {
 	/**
 	 * Initialize with a date of the month
 	 *
-	 * @param	Integer		$date
+	 * @param	integer		$date
 	 */
 	public function __construct($date) {
 		$monthRange	= TodoyuTime::getMonthRange($date);

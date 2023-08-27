@@ -30,8 +30,8 @@ class TodoyuCoreContextmenuActionController extends TodoyuActionController {
 	/**
 	 * Render about window
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function getAction(array $params) {
 		$name	= trim($params['contextmenu']);

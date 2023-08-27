@@ -29,9 +29,9 @@ class TodoyuAssetsFormElement_RecordsAsset extends TodoyuFormElement_Records {
 	/**
 	 * Initialize
 	 *
-	 * @param	String				$name
+	 * @param	string				$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array				$config
+	 * @param	array				$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		parent::__construct('asset', $name, $fieldset, $config);
@@ -43,7 +43,7 @@ class TodoyuAssetsFormElement_RecordsAsset extends TodoyuFormElement_Records {
 	 * Get task ID based on form record ID
 	 * The form record has this format: taskID-CommentID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	protected function getTaskID() {
 		list($idTask, $idComment) = explode('-', $this->getForm()->getRecordID());
@@ -56,7 +56,7 @@ class TodoyuAssetsFormElement_RecordsAsset extends TodoyuFormElement_Records {
 	/**
 	 * Get project ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	protected function getProjectID() {
 		$idTask	= $this->getTaskID();
@@ -67,7 +67,7 @@ class TodoyuAssetsFormElement_RecordsAsset extends TodoyuFormElement_Records {
 
 
 	/**
-	 * @return	Integer
+	 * @return	integer
 	 */
 	protected function getCommentID() {
 		$string = $this->getForm()->getRecordID();

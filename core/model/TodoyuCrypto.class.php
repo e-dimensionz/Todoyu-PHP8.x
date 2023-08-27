@@ -65,7 +65,7 @@ class TodoyuCrypto {
 	 * Encrypt element
 	 *
 	 * @param	Mixed		$input		String,Array,Object,... (will be serialized)
-	 * @return	String
+	 * @return	string
 	 */
 	public static function encrypt($input) {
 		$key = self::cryptKey();
@@ -81,7 +81,7 @@ class TodoyuCrypto {
 	/**
 	 * Decrypt string to element
 	 *
-	 * @param	String		$encryptedString
+	 * @param	string		$encryptedString
 	 * @return	Mixed		With unserialize
 	 */
 	public static function decrypt($encryptedString) {
@@ -98,7 +98,7 @@ class TodoyuCrypto {
 	/**
 	 * Generate encryption key
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function makeEncryptionKey() {
 		return str_replace('=', '', base64_encode(md5(NOW . serialize($_SERVER) . session_id() . rand(1000, 30000))));

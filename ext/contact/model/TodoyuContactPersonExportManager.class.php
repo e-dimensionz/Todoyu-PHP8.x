@@ -29,7 +29,7 @@ class TodoyuContactPersonExportManager {
 	/**
 	 * Exports persons as CSV file
 	 *
-	 * @param	Array	$searchWords
+	 * @param	array	$searchWords
 	 */
 	public static function exportCSV(array $searchWords) {
 		$persons	= TodoyuContactPersonManager::searchPersons($searchWords, '');
@@ -43,7 +43,7 @@ class TodoyuContactPersonExportManager {
 	/**
 	 * Exports data of companies of given IDs as CSV file
 	 *
-	 * @param	Integer[]	$personIDs
+	 * @param	integer[]	$personIDs
 	 */
 	public static function exportCSVfromIDs(array $personIDs) {
 		$personIDs	= TodoyuArray::intval($personIDs);
@@ -57,7 +57,7 @@ class TodoyuContactPersonExportManager {
 	/**
 	 * Send CSV for download
 	 *
-	 * @param	Array	$exportData
+	 * @param	array	$exportData
 	 */
 	public static function sendCSVfromData(array $exportData) {
 		$export = new TodoyuExportCSV($exportData);
@@ -69,7 +69,7 @@ class TodoyuContactPersonExportManager {
 	/**
 	 * Prepares the given persons to be exported
 	 *
-	 * @param	Array	$personsData
+	 * @param	array	$personsData
 	 * @return	Array
 	 */
 	protected static function getExportDataByPersonsData(array $personsData) {
@@ -89,7 +89,7 @@ class TodoyuContactPersonExportManager {
 	/**
 	 * Prepares data of given persons of given IDs for export
 	 *
-	 * @param	Array	$personIDs
+	 * @param	array	$personIDs
 	 * @return	Array
 	 */
 	public static function getExportDataByPersonIDs(array $personIDs) {
@@ -108,7 +108,7 @@ class TodoyuContactPersonExportManager {
 	/**
 	 * Parses person-data for export
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	protected static function getPersonExportData($idPerson) {

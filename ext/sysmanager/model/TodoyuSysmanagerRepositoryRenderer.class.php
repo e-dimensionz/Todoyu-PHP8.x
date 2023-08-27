@@ -29,8 +29,8 @@ class TodoyuSysmanagerRepositoryRenderer {
 	/**
 	 * Fetch available updates from tER server and render listing
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function renderSearch(array $params = array()) {
 		if( isset($params['query']) ) {
@@ -60,8 +60,8 @@ class TodoyuSysmanagerRepositoryRenderer {
 	/**
 	 * Search available extensions updates
 	 *
-	 * @param	String	$query
-	 * @return	String
+	 * @param	string	$query
+	 * @return	string
 	 */
 	public static function renderSearchResults($query) {
 		$repository	= new TodoyuSysmanagerRepository();
@@ -84,7 +84,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 	/**
 	 * Find available updates for current client and render updates list
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderUpdate() {
 		$repository	= new TodoyuSysmanagerRepository();
@@ -110,8 +110,8 @@ class TodoyuSysmanagerRepositoryRenderer {
 	/**
 	 * Render repository connection problem
 	 *
-	 * @param	String		$message
-	 * @return	String
+	 * @param	string		$message
+	 * @return	string
 	 */
 	private static function renderConnectionError($message) {
 		$tmpl	= 'ext/sysmanager/view/repository/connection-error.tmpl';
@@ -127,8 +127,8 @@ class TodoyuSysmanagerRepositoryRenderer {
 	/**
 	 * Render repository general error
 	 *
-	 * @param	String		$message
-	 * @return	String
+	 * @param	string		$message
+	 * @return	string
 	 */
 	private static function renderRepositoryGeneralError($message) {
 		$tmpl	= 'ext/sysmanager/view/repository/general-error.tmpl';
@@ -145,7 +145,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 	 * Render dialog for extension update
 	 *
 	 * @param  String	$extKey
-	 * @return String
+	 * @return string
 	 */
 	public static function renderExtensionUpdateDialog($extKey) {
 		$info	= TodoyuSysmanagerRepositoryManager::getRepoInfo($extKey);
@@ -166,9 +166,9 @@ class TodoyuSysmanagerRepositoryRenderer {
 	/**
 	 * Render install dialog for extension
 	 *
-	 * @param	String		$extKey
-	 * @param	Boolean		$isLocal		Is extension already imported locally?
-	 * @return	String
+	 * @param	string		$extKey
+	 * @param	boolean		$isLocal		Is extension already imported locally?
+	 * @return	string
 	 */
 	public static function renderExtensionInstallDialog($extKey, $isLocal = false) {
 		$info	= TodoyuSysmanagerRepositoryManager::getRepoInfo($extKey);
@@ -229,9 +229,9 @@ class TodoyuSysmanagerRepositoryRenderer {
 	/**
 	 * Render dialog window for extension installation/update
 	 *
-	 * @param	Array		$data
-	 * @param	Boolean		$isUpdate
-	 * @return	String
+	 * @param	array		$data
+	 * @param	boolean		$isUpdate
+	 * @return	string
 	 */
 	private static function renderExtensionDialog(array $data, $isUpdate = false) {
 		$tmpl	= 'ext/sysmanager/view/repository/dialog-ext.tmpl';
@@ -248,7 +248,7 @@ class TodoyuSysmanagerRepositoryRenderer {
 	/**
 	 * Render dialog for core update
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderCoreUpdateDialog() {
 		$tmpl		= 'ext/sysmanager/view/repository/dialog-core.tmpl';

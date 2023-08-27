@@ -38,9 +38,9 @@ class TodoyuContactCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * Init filter object
 	 *
-	 * @param	Array		$activeFilters		Active filters
-	 * @param	String		$conjunction
-	 * @param	Array		$sorting
+	 * @param	array		$activeFilters		Active filters
+	 * @param	string		$conjunction
+	 * @param	array		$sorting
 	 */
 	public function __construct(array $activeFilters = array(), $conjunction = 'AND', array $sorting = array()) {
 		parent::__construct('COMPANY', self::TABLE, $activeFilters, $conjunction, $sorting);
@@ -51,8 +51,8 @@ class TodoyuContactCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * Get company IDs which match to all filters
 	 *
-	 * @param	String		$sortingFallback		Force sorting column
-	 * @param	String		$limit			Limit result items
+	 * @param	string		$sortingFallback		Force sorting column
+	 * @param	string		$limit			Limit result items
 	 * @return	Array
 	 */
 	public function getCompanyIDs($sortingFallback = 'sorting', $limit = '') {
@@ -64,8 +64,8 @@ class TodoyuContactCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * General access to the result items
 	 *
-	 * @param	String		$sortingFallback
-	 * @param	String		$limit
+	 * @param	string		$sortingFallback
+	 * @param	string		$limit
 	 * @return	Array
 	 */
 	public function getItemIDs($sortingFallback = 'sorting', $limit = '', $showDeleted = false) {
@@ -78,7 +78,7 @@ class TodoyuContactCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	 * Fulltext search over company attributes
 	 *
 	 * @param	Mixed		$value
-	 * @param	Boolean		$negate
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_fulltext($value, $negate = false) {
@@ -112,7 +112,7 @@ class TodoyuContactCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	 * Fulltext search over company name
 	 *
 	 * @param	Mixed		$value
-	 * @param	Boolean		$negate
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_name($value, $negate = false) {
@@ -141,7 +141,7 @@ class TodoyuContactCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	 * Filter contact information fulltext
 	 *
 	 * @param	Mixed		$value
-	 * @param	Boolean		$negate
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_contactinformation($value, $negate = false) {
@@ -167,8 +167,8 @@ class TodoyuContactCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * Filter for internal company
 	 *
-	 * @param	Integer		$value
-	 * @param	Boolean		$negate
+	 * @param	integer		$value
+	 * @param	boolean		$negate
 	 * @return	Array					Query parts
 	 */
 	public function Filter_isInternal($value, $negate = false) {
@@ -190,8 +190,8 @@ class TodoyuContactCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * Filter condition: dateEnter
 	 *
-	 * @param	String		$date		Formatted (according to current locale) date string
-	 * @param	Boolean		$negate
+	 * @param	string		$date		Formatted (according to current locale) date string
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_dateEnter($date, $negate = false) {
@@ -203,9 +203,9 @@ class TodoyuContactCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * Setup query parts for task date_... fields (create, update, start, end, deadline) filter
 	 *
-	 * @param	String			$field
-	 * @param	Integer			$date		Formatted (according to current locale) date string
-	 * @param	Boolean			$negate
+	 * @param	string			$field
+	 * @param	integer			$date		Formatted (according to current locale) date string
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts array / false if no date timestamp given (or 1.1.1970 00:00)
 	 */
 	public static function makeFilter_date($field, $date, $negate = false) {
@@ -217,8 +217,8 @@ class TodoyuContactCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * Filter by country of address
 	 *
-	 * @param	Array		$idCountry
-	 * @param	Boolean		$negate
+	 * @param	array		$idCountry
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_country($idCountry, $negate = false) {
@@ -250,8 +250,8 @@ class TodoyuContactCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * Filter by employed person
 	 *
-	 * @param	Array		$idPerson
-	 * @param	Boolean		$negate
+	 * @param	array		$idPerson
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_person($idPerson, $negate = false) {
@@ -280,8 +280,8 @@ class TodoyuContactCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * Get filter for street of address
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_street($value, $negate = false) {
@@ -312,8 +312,8 @@ class TodoyuContactCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * Get filter for zip of address
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_zip($value, $negate = false) {
@@ -344,8 +344,8 @@ class TodoyuContactCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * Filter by city of address
 	 *
-	 * @param	Array		$city
-	 * @param	Boolean		$negate
+	 * @param	array		$city
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_city($city, $negate = false) {
@@ -377,8 +377,8 @@ class TodoyuContactCompanyFilter extends TodoyuSearchFilterBase implements Todoy
 	/**
 	 * Filter for no more active companies
 	 *
-	 * @param	Integer		$value
-	 * @param	Boolean		$negate
+	 * @param	integer		$value
+	 * @param	boolean		$negate
 	 * @return	Array				Query parts
 	 */
 	public function Filter_isNotActive($value, $negate = false) {

@@ -55,8 +55,8 @@ class TodoyuDebug {
 	/**
 	 * Check if the current user is listed in the username list
 	 *
-	 * @param	String		$usernames		Comma separated usernames
-	 * @return	Boolean
+	 * @param	string		$usernames		Comma separated usernames
+	 * @return	boolean
 	 */
 	private static function isCurrentUser($usernames) {
 		$currentUsername	= Todoyu::person()->getUsername();
@@ -70,7 +70,7 @@ class TodoyuDebug {
 	/**
 	 * Check whether debugging is active
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isActive() {
 		return self::$active;
@@ -81,7 +81,7 @@ class TodoyuDebug {
 	/**
 	 * Enable / disable debugging
 	 *
-	 * @param	Boolean		$active
+	 * @param	boolean		$active
 	 */
 	public static function setActive($active = true) {
 		self::$active = $active ? true : false;
@@ -95,9 +95,9 @@ class TodoyuDebug {
 	 * @todo	check and improve for different var types
 	 *
 	 * @param	Mixed		$var
-	 * @param	String		$indent
-	 * @param	Integer		$niv
-	 * @return	String
+	 * @param	string		$indent
+	 * @param	integer		$niv
+	 * @return	string
 	 */
 	public static function phpFormat($var, $indent = '&nbsp;&nbsp;', $niv = 0) {
 		$str = '';
@@ -137,8 +137,8 @@ class TodoyuDebug {
 	 * Print debug message in plain text
 	 *
 	 * @param	Mixed		$item		Item to debug
-	 * @param	String		$title		Title for debug output
-	 * @param	Boolean		$return		Return or print result
+	 * @param	string		$title		Title for debug output
+	 * @param	boolean		$return		Return or print result
 	 * @return	Void|String
 	 */
 	public static function printPHP($item, $title = '', $return = false) {
@@ -167,7 +167,7 @@ class TodoyuDebug {
 	 * Print debug message in plain text
 	 *
 	 * @param	Mixed		$item		Item to debug
-	 * @param	String		$title		Title for debug output
+	 * @param	string		$title		Title for debug output
 	 */
 	public static function printPlain($item, $title = '') {
 		TodoyuHeader::sendTypeText();
@@ -194,8 +194,8 @@ class TodoyuDebug {
 	 * Print debug message as HTML
 	 *
 	 * @param	Mixed		$item		Item to debug
-	 * @param	String		$title		Title for debug output
-	 * @param	Boolean		$backtrace
+	 * @param	string		$title		Title for debug output
+	 * @param	boolean		$backtrace
 	 */
 	public static function printHtml($item, $title = '', $backtrace = false) {
 		if( self::isActive() ) {
@@ -225,7 +225,7 @@ class TodoyuDebug {
 	 * Print debug message in firebug
 	 *
 	 * @param	Mixed		$item
-	 * @param	String		$title
+	 * @param	string		$title
 	 */
 	public static function printInFirebug($item, $title = '') {
 		if( self::isActive() ) {
@@ -238,7 +238,7 @@ class TodoyuDebug {
 	/**
 	 * Print the last executed query in firebug
 	 *
-	 * @param	String		$ident			Special identifier
+	 * @param	string		$ident			Special identifier
 	 */
 	public static function printLastQueryInFirebug($ident = null) {
 		$title	= 'Last Query';
@@ -266,7 +266,7 @@ class TodoyuDebug {
 	/**
 	 * Print function backtrace debug
 	 *
-	 * @param	Integer		$limit
+	 * @param	integer		$limit
 	 */
 	public static function printBacktrace($limit = 0) {
 		$backtrace	= self::getBacktrace($limit, 1);
@@ -279,8 +279,8 @@ class TodoyuDebug {
 	/**
 	 * Get backtrace info
 	 *
-	 * @param	Integer		$limit
-	 * @param	Integer		$cut
+	 * @param	integer		$limit
+	 * @param	integer		$cut
 	 * @return	Array[]
 	 */
 	public static function getBacktrace($limit = 0, $cut = 0) {

@@ -39,8 +39,8 @@ class TodoyuSysmanagerRightsEditorManager {
 	 * Check whether an extension has a rights config XML file
 	 * File: ext/EXTKEY/config/rights.xml
 	 *
-	 * @param	String		$extKey		Extension key
-	 * @return	Boolean
+	 * @param	string		$extKey		Extension key
+	 * @return	boolean
 	 */
 	public static function hasRightsConfig($extKey) {
 		return is_file( PATH_EXT . '/' . $extKey . '/config/rights.xml');
@@ -51,7 +51,7 @@ class TodoyuSysmanagerRightsEditorManager {
 	/**
 	 *  Read the rights.xml of an extension
 	 *
-	 * @param	String		$extKey		Extension key
+	 * @param	string		$extKey		Extension key
 	 * @return	Array
 	 */
 	public static function getExtRights($extKey) {
@@ -69,9 +69,9 @@ class TodoyuSysmanagerRightsEditorManager {
 	 * Check whether extension defines a specific right
 	 * This doesn't mean the user has grant for this right
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$right
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @param	string		$right
+	 * @return	boolean
 	 */
 	public static function hasRight($extKey, $right) {
 		$extRights					= self::getExtRights($extKey);
@@ -85,8 +85,8 @@ class TodoyuSysmanagerRightsEditorManager {
 	/**
 	 * Read an XML file into a rights array
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$xmlFile		Path to XML file
+	 * @param	string		$extKey
+	 * @param	string		$xmlFile		Path to XML file
 	 * @return	Array
 	 */
 	public static function readXML($extKey, $xmlFile) {
@@ -136,8 +136,8 @@ class TodoyuSysmanagerRightsEditorManager {
 	/**
 	 * Get dependent rights of a right
 	 *
-	 * @param	Array		$rightsConfig
-	 * @param	String		$rightToCheck
+	 * @param	array		$rightsConfig
+	 * @param	string		$rightToCheck
 	 * @return	Array
 	 */
 	public static function getDependents(array $rightsConfig, $rightToCheck) {
@@ -159,7 +159,7 @@ class TodoyuSysmanagerRightsEditorManager {
 	/**
 	 * Extract the required info from rights
 	 *
-	 * @param	Array		$rightsConfig		Rights with sections
+	 * @param	array		$rightsConfig		Rights with sections
 	 * @return	Array
 	 */
 	public static function extractRequiredInfos(array $rightsConfig) {
@@ -179,7 +179,7 @@ class TodoyuSysmanagerRightsEditorManager {
 	/**
 	 * Get all dependencies between the rights
 	 *
-	 * @param	Array		$rightsConfig
+	 * @param	array		$rightsConfig
 	 * @return	Array
 	 */
 	public static function getAllDependencies(array $rightsConfig) {
@@ -199,9 +199,9 @@ class TodoyuSysmanagerRightsEditorManager {
 	/**
 	 * Save role rights
 	 *
-	 * @param	String		$extKey		Extension key
-	 * @param	Array		$rights		Submitted rights
-	 * @param	Array		$roleIDs
+	 * @param	string		$extKey		Extension key
+	 * @param	array		$rights		Submitted rights
+	 * @param	array		$roleIDs
 	 */
 	public static function saveRoleRights($extKey, array $rights, array $roleIDs) {
 		$extID	= TodoyuExtensions::getExtID($extKey);
@@ -228,7 +228,7 @@ class TodoyuSysmanagerRightsEditorManager {
 	 * Get the current active extension to edit
 	 * If non is selected yet, use sysmanager
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getCurrentExtension() {
 		$ext	= TodoyuPreferenceManager::getPreference(EXTID_SYSMANAGER, 'ext');
@@ -245,7 +245,7 @@ class TodoyuSysmanagerRightsEditorManager {
 	/**
 	 * Save the currently edited extension
 	 *
-	 * @param	String		$ext
+	 * @param	string		$ext
 	 */
 	public static function saveCurrentExtension($ext) {
 		TodoyuPreferenceManager::savePreference(EXTID_SYSMANAGER, 'ext', $ext, 0, true);
@@ -256,7 +256,7 @@ class TodoyuSysmanagerRightsEditorManager {
 	/**
 	 * Get preference: active tab of rights editor
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getActiveTab() {
 		$tab	= TodoyuSysmanagerPreferences::getActiveTab('rights');
@@ -273,7 +273,7 @@ class TodoyuSysmanagerRightsEditorManager {
 	/**
 	 * Save preference: active tab of rights editor
 	 *
-	 * @param	String	$tab
+	 * @param	string	$tab
 	 */
 	public static function saveActiveTab($tab) {
 		TodoyuSysmanagerPreferences::saveActiveTab('rights', $tab);
@@ -284,8 +284,8 @@ class TodoyuSysmanagerRightsEditorManager {
 	/**
 	 * Get custom set
 	 *
-	 * @param	Array	$rights
-	 * @param	String	$ext
+	 * @param	array	$rights
+	 * @param	string	$ext
 	 * @return	Array
 	 */
 	public static function getCurrentActiveRights(array $rights, $ext) {

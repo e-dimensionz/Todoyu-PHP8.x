@@ -45,7 +45,7 @@ class TodoyuSpeed {
 	/**
 	 * Get first tick
 	 *
-	 * @param	String		$key
+	 * @param	string		$key
 	 * @return	Float
 	 */
 	private static function first($key) {
@@ -57,7 +57,7 @@ class TodoyuSpeed {
 	/**
 	 * Get last tick
 	 *
-	 * @param	String		$key
+	 * @param	string		$key
 	 * @return	Float
 	 */
 	private static function last($key) {
@@ -69,7 +69,7 @@ class TodoyuSpeed {
 	/**
 	 * Start tracking
 	 *
-	 * @param	String		$key
+	 * @param	string		$key
 	 */
 	public static function start($key = 'default') {
 		self::$active[$key] = true;
@@ -82,7 +82,7 @@ class TodoyuSpeed {
 	/**
 	 * Stop tracking
 	 *
-	 * @param	String		$key
+	 * @param	string		$key
 	 */
 	public static function stop($key = 'default') {
 		self::$active[$key] = false;
@@ -94,7 +94,7 @@ class TodoyuSpeed {
 	/**
 	 * Add a tick between start and stop
 	 *
-	 * @param	String		$key
+	 * @param	string		$key
 	 */
 	public static function tick($key = 'default') {
 		self::$track[$key][] = microtime(true);
@@ -105,9 +105,9 @@ class TodoyuSpeed {
 	/**
 	 * Get total tracking time. Difference between start and stop
 	 *
-	 * @param	String		$key
-	 * @param	Boolean		$format		Format as milliseconds instead of microseconds
-	 * @return	String
+	 * @param	string		$key
+	 * @param	boolean		$format		Format as milliseconds instead of microseconds
+	 * @return	string
 	 */
 	public static function total($key = 'default', $format = false) {
 		if( self::isActive($key) ) {
@@ -128,7 +128,7 @@ class TodoyuSpeed {
 	/**
 	 * Print total time in firebug
 	 *
-	 * @param	String		$key
+	 * @param	string		$key
 	 */
 	public static function totalInFirebug($key = 'default') {
 		$total	= self::total($key, true);
@@ -141,7 +141,7 @@ class TodoyuSpeed {
 	/**
 	 * Stop measuring and print all point in firebug
 	 *
-	 * @param	String		$key
+	 * @param	string		$key
 	 */
 	public static function allInFirebug($key = 'default') {
 		if( self::isActive($key) ) {
@@ -156,7 +156,7 @@ class TodoyuSpeed {
 	/**
 	 * Get all ticks
 	 *
-	 * @param	String		$key
+	 * @param	string		$key
 	 * @return	Array
 	 */
 	public static function all($key = 'default') {
@@ -168,8 +168,8 @@ class TodoyuSpeed {
 	/**
 	 * Check whether test is active for a key
 	 *
-	 * @param	String	$key
-	 * @return	Boolean
+	 * @param	string	$key
+	 * @return	boolean
 	 */
 	public static function isActive($key) {
 		return self::$active[$key] === true;

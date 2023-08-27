@@ -2,14 +2,14 @@
 {* ------------------------ Type *}
 	<tr class="odd">
 		<td class="type label">
-			{Label calendar.event.attr.eventtype}
+			{Label text='calendar.event.attr.eventtype'}
 		</td>
-		<td class="">{EventTypeLabel $event.eventtype}</td>
+		<td class="">{EventTypeLabel idEventIndex=$event.eventtype}</td>
 	</tr>
 {* ------------------------ Title *}
 	<tr class="even">
 		<td class="title label">
-			{Label core.global.title}
+			{Label text='core.global.title'}
 		</td>
 		<td class="">{$event.title}</td>
 	</tr>
@@ -17,7 +17,7 @@
 {if ! empty($event.place)}
 	<tr class="odd">
 		<td class="place label">
-			{Label calendar.event.attr.place}
+			{Label text='calendar.event.attr.place'}
 		</td>
 		<td class="place">{$event.place}</td>
 	</tr>
@@ -25,7 +25,7 @@
 {* ------------------------ Range *}
 	<tr class="even">
 		<td class="label">
-			{Label calendar.event.attr.timespan}
+			{Label text='calendar.event.attr.timespan'}
 		</td>
 		<td class="">
 			{$event.rangeLabel}
@@ -35,30 +35,30 @@
 {if ! empty($event.description)}
 	<tr class="odd">
 		<td class="label">
-			{Label core.global.description}
+			{Label text='core.global.description'}
 		</td>
 		<td class="description">
-			{substituteLinkableElements(cleanHtml($event.description))}
+			{substituteLinkableElements text=$event.description|strip_tags)}
 		</td>
 	</tr>
 {/if}
 {* ------------------------ Creator person *}
 	<tr class="even">
 		<td class="label">
-			{Label calendar.event.attr.creator}
+			{Label text='calendar.event.attr.creator'}
 		</td>
 		<td class="">
-			{personLabel idPrefix="event-personcreate" idRecord=$event.person_create.id idPerson=$event.person_create.id}
+			{personLabel prefix="event-personcreate" idRecord=$event.person_create.id idPerson=$event.person_create.id}
 		</td>
 	</tr>
 
 {* ------------------------ Attendees *}
 	<tr class="odd">
 		<td class="label">
-			{Label calendar.event.attr.attendees}
+			{Label text='calendar.event.attr.attendees'}
 		</td>
 		<td class="">
-			{foreach $event.persons person personData}
+			{foreach $event.persons as $person=>$personData}
 				{if $personData.is_acknowledged}
 					{$class='eventperson-acknowledged'}
 				{else}
@@ -67,7 +67,7 @@
 				{if in_array($personData.id, array_keys($event.persons_email))}
 					{$class.='-email'}
 				{/if}
-				{personLabel idPrefix="event-personattend" idRecord=$personData.id idPerson=$personData.id class=$class}
+				{personLabel prefix="event-personattend" idRecord=$personData.id id=$personData.id class=$class}
 				<br />
 			{/foreach}
 			<br />
@@ -86,12 +86,12 @@
 
 {* ------------------------ Scheduled Reminders *}
 {if $event.date_start > NOW || true}
-	{if isAllowedEventReminderPopup($event.id) || isAllowedEventReminderEmail($event.id)}
-		{$personID = personid()}
+	{if fn_isAllowedEventReminderPopup($event.id) || fn_isAllowedEventReminderEmail($event.id)}
+		{$personID = personid}
 		<tr class="even">
-			<td class="label">{Label calendar.reminder.myreminders}</td>
+			<td class="label">{Label text='calendar.reminder.myreminders'}</td>
 			<td id="event-{$event.id}-reminders">
-				{include file="event-view-details-reminders.tmpl"}
+				{include file="ext/calendar/view/event-view-details-reminders.tmpl"}
 			</td>
 		</tr>
 	{/if}

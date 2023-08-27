@@ -38,9 +38,9 @@ class TodoyuProjectPersonFilter extends TodoyuSearchFilterBase implements Todoyu
 	/**
 	 * Init filter object
 	 *
-	 * @param	Array		$activeFilters
-	 * @param	String		$conjunction
-	 * @param	Array		$sorting
+	 * @param	array		$activeFilters
+	 * @param	string		$conjunction
+	 * @param	array		$sorting
 	 */
 	public function __construct(array $activeFilters = array(), $conjunction = 'AND', array $sorting = array()) {
 		parent::__construct('PERSON', self::TABLE, $activeFilters, $conjunction, $sorting);
@@ -51,8 +51,8 @@ class TodoyuProjectPersonFilter extends TodoyuSearchFilterBase implements Todoyu
 	/**
 	 * Person filter: assigned (has projectrole) in given project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Boolean		$negate
+	 * @param	integer		$idProject
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_assignedinproject($idProject, $negate = false) {

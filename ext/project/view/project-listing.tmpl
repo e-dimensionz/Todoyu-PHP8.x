@@ -2,16 +2,16 @@
 
 {* ---------- Header with column titles ---------- *}
 	<h1 class="headerLine">
-		<span class="first fulltitle">{Label portal.ext.tasktree.header.customer} - {Label project.ext.project}</span>
-		<span class="projectNumber">{Label portal.ext.tasktree.header.tasknumber}</span>
+		<span class="first fulltitle">{Label text='portal.ext.tasktree.header.customer'} - {Label text='project.ext.project'}</span>
+		<span class="projectNumber">{Label text='portal.ext.tasktree.header.tasknumber'}</span>
 	</h1>
 
 {* ---------- The actual list of tasks ---------- *}
 	<div class="projects">
-		{foreach $projects projectHTML}
+		{foreach $projects as $projectHTML}
 			{$projectHTML}
-		{else}
-			{contentMessage 'portal.ext.selection.noProjectsFound'}
+		{foreachelse}
+			{contentMessage label='portal.ext.selection.noProjectsFound'}
 		{/foreach}
 	</div>
 </div>

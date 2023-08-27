@@ -29,7 +29,7 @@ class TodoyuCalendarEventAssignment extends TodoyuBaseObject {
 	/**
 	 * Initialize
 	 *
-	 * @param	Integer		$idAssignment
+	 * @param	integer		$idAssignment
 	 */
 	public function __construct($idAssignment) {
 		parent::__construct($idAssignment, 'ext_calendar_mm_event_person');
@@ -40,7 +40,7 @@ class TodoyuCalendarEventAssignment extends TodoyuBaseObject {
 	/**
 	 * Get event ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getEventID() {
 		return $this->getInt('id_event');
@@ -61,7 +61,7 @@ class TodoyuCalendarEventAssignment extends TodoyuBaseObject {
 	/**
 	 * Get person ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getPersonID($type) {
 		return $this->getInt('id_person');
@@ -83,7 +83,7 @@ class TodoyuCalendarEventAssignment extends TodoyuBaseObject {
 	/**
 	 * Was event updated since person saw assignment last time
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isUpdated() {
 		return $this->isFlagSet('is_updated');
@@ -94,7 +94,7 @@ class TodoyuCalendarEventAssignment extends TodoyuBaseObject {
 	/**
 	 * Was assignment acknowledged
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isAcknowledged() {
 		return $this->isFlagSet('is_acknowledged');

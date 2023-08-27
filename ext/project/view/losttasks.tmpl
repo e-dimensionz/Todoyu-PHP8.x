@@ -1,6 +1,6 @@
 {if $losttasks}
 <div id="project-{$idProject}-losttasks" class="lostTasks">
-	<h2>{Label project.ext.tasktree.losttasks} ({$numTasks} {if $numTasks==1}{Label project.task.task}{else}{Label project.task.tasks}{/if})</h2>
+	<h2>{Label text='project.ext.tasktree.losttasks'} ({$numTasks} {if $numTasks==1}{Label text='project.task.task'}{else}{Label text='project.task.tasks'}{/if})</h2>
 	<div class="list">
 		{$losttasks}
 	</div>

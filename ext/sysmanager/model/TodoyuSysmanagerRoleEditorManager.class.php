@@ -29,7 +29,7 @@ class TodoyuSysmanagerRoleEditorManager {
 	/**
 	 * Get quick create role form object
 	 *
-	 * @param	Integer		$idRole
+	 * @param	integer		$idRole
 	 * @return	TodoyuForm
 	 */
 	public static function getQuickCreateForm($idRole = 0) {
@@ -53,9 +53,9 @@ class TodoyuSysmanagerRoleEditorManager {
 	/**
 	 * Get data for roles list
 	 *
-	 * @param	Integer		$size
-	 * @param	Integer		$offset
-	 * @param	String		$searchWord
+	 * @param	integer		$size
+	 * @param	integer		$offset
+	 * @param	string		$searchWord
 	 * @return	Array
 	 */
 	public static function getRoleListingData($size, $offset = 0, $searchWord = '') {

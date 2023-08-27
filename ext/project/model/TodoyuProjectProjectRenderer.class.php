@@ -66,7 +66,7 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render sub tabs of (recently viewed) projects in projects area
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderProjectsTabs() {
 		$openProjectIDs	= TodoyuProjectPreferences::getOpenProjectIDs();
@@ -83,10 +83,10 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render task tree view for project tab
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idTask			Make sure this task is visible (tree open)
-	 * @param	String		$tab
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @param	integer		$idTask			Make sure this task is visible (tree open)
+	 * @param	string		$tab
+	 * @return	string
 	 */
 	public static function renderProjectsContent($idProject, $idTask, $tab = null) {
 		$idProject	= intval($idProject);
@@ -107,7 +107,7 @@ class TodoyuProjectProjectRenderer {
 	 * Render project view where no project is selected yet.
 	 * Instead of the tree, there will be an info box with options
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected static function renderNoProjectSelectContent() {
 		$tmpl	= 'ext/project/view/project-noselected.tmpl';
@@ -121,10 +121,10 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render project view with a currently selected project (and task)
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idTask
-	 * @param	String		$tab
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @param	integer		$idTask
+	 * @param	string		$tab
+	 * @return	string
 	 */
 	protected static function renderSelectedProjectContent($idProject, $idTask = 0, $tab = null) {
 		$idProject	= intval($idProject);
@@ -144,10 +144,10 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render tabbed project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idTask
-	 * @param	String		$tab
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @param	integer		$idTask
+	 * @param	string		$tab
+	 * @return	string
 	 */
 	public static function renderTabbedProject($idProject, $idTask, $tab = null) {
 		$idProject	= intval($idProject);
@@ -171,7 +171,7 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render view when no project is selected
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderNoProjectSelectedView() {
 		$tabs	= self::renderNoProjectSelectedTab();
@@ -185,9 +185,9 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render project panel widgets
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function renderPanelWidgets($idProject, $idTask) {
 		$idProject	= intval($idProject);
@@ -206,9 +206,9 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render project header
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Boolean		$withDetails
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @param	boolean		$withDetails
+	 * @return	string
 	 */
 	public static function renderProjectHeader($idProject, $withDetails = null) {
 		$idProject	= intval($idProject);
@@ -235,9 +235,9 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render project details in project view
 	 *
-	 * @param	Integer		$idProject
-	 * @param	String		$activeTab
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @param	string		$activeTab
+	 * @return	string
 	 */
 	public static function renderProjectDetail($idProject, $activeTab = '') {
 		$idProject	= intval($idProject);
@@ -260,8 +260,8 @@ class TodoyuProjectProjectRenderer {
 
 	/**
 	 * @static
-	 * @param	Integer		$idProject
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @return	string
 	 */
 	public static function renderProjectDetailGeneral($idProject) {
 		$idProject	= intval($idProject);
@@ -284,8 +284,8 @@ class TodoyuProjectProjectRenderer {
 
 
 	/**
-	 * @param	Integer		$idProject
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @return	string
 	 */
 	public static function renderProjectDetailPreferences($idProject) {
 		$idProject			= intval($idProject);
@@ -303,8 +303,8 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render project persons for project info
 	 *
-	 * @param	Integer		$idProject
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @return	string
 	 */
 	public static function renderProjectPersons($idProject) {
 		$idProject	= intval($idProject);
@@ -321,8 +321,8 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render project quick creation form
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderQuickCreateForm(array $params) {
 		$form	= TodoyuProjectProjectManager::getQuickCreateForm();
@@ -340,8 +340,8 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render project edit form
 	 *
-	 * @param	Integer		$idProject
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @return	string
 	 */
 	public static function renderProjectEditForm($idProject) {
 		$idProject	= intval($idProject);
@@ -372,10 +372,10 @@ class TodoyuProjectProjectRenderer {
 	 * Render project task tree
 	 * The tree includes all tasks which match the current filter, and the lost tasks section
 	 *
-	 * @param	Integer		$idProject			Render the task tree of this project
-	 * @param	Integer		$idTaskShow			Make sure this task is visible
-	 * @param	String		$taskShowTab		Opened tab of the selected task
-	 * @return	String
+	 * @param	integer		$idProject			Render the task tree of this project
+	 * @param	integer		$idTaskShow			Make sure this task is visible
+	 * @param	string		$taskShowTab		Opened tab of the selected task
+	 * @return	string
 	 */
 	public static function renderProjectTaskTree($idProject, $idTaskShow = 0, $taskShowTab = null) {
 		$idProject	= intval($idProject);
@@ -411,10 +411,10 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render sub tasks
 	 *
-	 * @param	Integer		$idTask			Parent task ID
-	 * @param	Integer		$idTaskShow		Task to be shown (all parent sub trees will be rendered to show this task)
-	 * @param	String		$taskShowTab	Open tab of showed task
-	 * @return	String
+	 * @param	integer		$idTask			Parent task ID
+	 * @param	integer		$idTaskShow		Task to be shown (all parent sub trees will be rendered to show this task)
+	 * @param	string		$taskShowTab	Open tab of showed task
+	 * @return	string
 	 */
 	public static function renderSubTasks($idTask, $idTaskShow = 0, $taskShowTab = null) {
 		$idTask		= intval($idTask);
@@ -448,10 +448,10 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render (list of) lost tasks
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idTaskShow
-	 * @param	String		$taskShowTab
-	 * @return	String		HTML
+	 * @param	integer		$idProject
+	 * @param	integer		$idTaskShow
+	 * @param	string		$taskShowTab
+	 * @return	string		HTML
 	 */
 	public static function renderLostTasks($idProject, $idTaskShow, $taskShowTab = null) {
 		$idProject	= intval($idProject);
@@ -494,8 +494,8 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Check whether task is expanded
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	private static function isTaskExpanded($idTask) {
 		$idTask	= intval($idTask);
@@ -512,8 +512,8 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Check whether project is expanded
 	 *
-	 * @param	Integer		$idProject
-	 * @return	Boolean
+	 * @param	integer		$idProject
+	 * @return	boolean
 	 */
 	private static function isProjectExpanded($idProject) {
 		$idProject	= intval($idProject);
@@ -526,8 +526,8 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Check whether sub tasks are visible
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function areSubTasksVisible($idTask) {
 		$idTask	= intval($idTask);
@@ -548,12 +548,12 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render task for project task tree view
 	 *
-	 * @param	Integer		$idTask					ID of the task to be rendered
-	 * @param	Integer		$idTaskShow				ID of the task which is forced to be shown (if its a sub task of the rendered task)
-	 * @param	Boolean		$withoutSubTasks		Don't render sub tasks
-	 * @param	Boolean		$isLostTask
-	 * @param	String		$taskShowTab
-	 * @return	String		Rendered task HTML for project task tree view
+	 * @param	integer		$idTask					ID of the task to be rendered
+	 * @param	integer		$idTaskShow				ID of the task which is forced to be shown (if its a sub task of the rendered task)
+	 * @param	boolean		$withoutSubTasks		Don't render sub tasks
+	 * @param	boolean		$isLostTask
+	 * @param	string		$taskShowTab
+	 * @return	string		Rendered task HTML for project task tree view
 	 */
 	public static function renderTask($idTask, $idTaskShow = 0, $withoutSubTasks = false, $isLostTask = false, $taskShowTab = null) {
 		$idTask		= intval($idTask);
@@ -615,10 +615,10 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render lost task for project task tree view: these are tasks whose parents are not matching the current filter, so their matching children are to be shown w/o hierarchic connection
 	 *
-	 * @param	Integer		$idTask			ID of the task to be rendered
-	 * @param	Integer		$idTaskShow		ID of the task which is forced to be shown (if its a sub task of the rendered task)
-	 * @param	String		$taskShowTab
-	 * @return	String
+	 * @param	integer		$idTask			ID of the task to be rendered
+	 * @param	integer		$idTaskShow		ID of the task which is forced to be shown (if its a sub task of the rendered task)
+	 * @param	string		$taskShowTab
+	 * @return	string
 	 */
 	public static function renderLostTask($idTask, $idTaskShow, $taskShowTab = null) {
 		return self::renderTask($idTask, $idTaskShow, true, true, $taskShowTab);
@@ -629,10 +629,10 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render a new task in edit mode
 	 *
-	 * @param	Integer		$idParentTask
-	 * @param	Integer		$idProject
-	 * @param	Integer		$type
-	 * @return	String
+	 * @param	integer		$idParentTask
+	 * @param	integer		$idProject
+	 * @param	integer		$type
+	 * @return	string
 	 */
 	public static function renderNewTaskEdit($idParentTask = 0, $idProject = 0, $type = TASK_TYPE_TASK) {
 		$idParentTask	= intval($idParentTask);
@@ -675,7 +675,7 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render editing view for a new project (form)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderNewProjectEdit() {
 			// Default project data
@@ -710,7 +710,7 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render form for new project (wrapped by data DIV)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderNewProjectEditForm() {
 		$idProject	= 0;
@@ -733,7 +733,7 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render tabs over the project taskTree. TabHeads for the 4 latest used projects are rendered.
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderProjectTabs() {
 		$name		= 'project';
@@ -749,7 +749,7 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render dummy tab (if no project is selected)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderNoProjectSelectedTab() {
 		$name		= 'project';
@@ -770,8 +770,8 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render project listing
 	 *
-	 * @param	Array	$projectIDs
-	 * @return	String
+	 * @param	array	$projectIDs
+	 * @return	string
 	 */
 	public static function renderProjectListing(array $projectIDs) {
 		$projectIDs		= TodoyuArray::intval($projectIDs, true, true);
@@ -800,8 +800,8 @@ class TodoyuProjectProjectRenderer {
 	/**
 	 * Render given project as listing item
 	 *
-	 * @param	Integer		$idProject
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @return	string
 	 */
 	public static function renderListingProject($idProject) {
 		$idProject	= intval($idProject);

@@ -1,13 +1,13 @@
-<h5>{Label project.panelwidget-projectselector.selection}</h5>
+<h5>{Label text='project.panelwidget-projectselector.selection'}</h5>
 <ul class="selection" id="panelwidget-projectselector-selection">
-	{foreach $items item}
+	{foreach $items as $item}
 		<li id="panelwidget-{$id}-item-{$item.id}" class="{$item.class}">
 			<a href="javascript:void(0)" {if $item.title}title="{$item.title}"{/if}>
-				{htmlencode $item.label}
+				{$item.label|escape}
 			</a>
 		</li>
-	{else}
-		<p>{Label project.panelwidget-projectselector.selection.empty}</p>
+	{foreachelse}
+		<p>{Label text='project.panelwidget-projectselector.selection.empty'}</p>
 	{/foreach}
 </ul>
 

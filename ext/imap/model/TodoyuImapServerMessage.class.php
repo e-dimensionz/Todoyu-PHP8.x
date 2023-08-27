@@ -88,7 +88,7 @@ class TodoyuImapServerMessage {
 	 * Initialize
 	 *
 	 * @param	TodoyuImapMailbox		$mailbox
-	 * @param	Integer					$messageNo
+	 * @param	integer					$messageNo
 	 */
 	public function __construct(TodoyuImapMailbox $mailbox, $messageNo) {
 		$this->mailbox	= $mailbox;
@@ -119,7 +119,7 @@ class TodoyuImapServerMessage {
 	/**
 	 * Get message number
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getMessageNumber() {
 		return $this->messageNo;
@@ -130,7 +130,7 @@ class TodoyuImapServerMessage {
 	/**
 	 * Get message send date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDate() {
 		return intval($this->header['date']);
@@ -141,7 +141,7 @@ class TodoyuImapServerMessage {
 	/**
 	 * Get message subject
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getSubject() {
 		return $this->header['subject'];
@@ -152,7 +152,7 @@ class TodoyuImapServerMessage {
 	/**
 	 * Get size
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getSize() {
 		return $this->header['size'];
@@ -163,7 +163,7 @@ class TodoyuImapServerMessage {
 	/**
 	 * Check whether sender address is available
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasSenderAddress() {
 		return isset($this->header['sender']['addresss']);
@@ -229,7 +229,7 @@ class TodoyuImapServerMessage {
 	/**
 	 * Parse message data
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	protected function parseStructure() {
 			// Read header data
@@ -265,7 +265,7 @@ class TodoyuImapServerMessage {
 	 * Create message part objects in a flat parts list
 	 *
 	 * @param	stdClass	$part
-	 * @param	String		$section
+	 * @param	string		$section
 	 */
 	protected function parsePartsRecursive($part, $section) {
 		if( $part->type == 2 ) { // Check to see if the part is an attached email message, as in the RFC-822 type
@@ -340,7 +340,7 @@ class TodoyuImapServerMessage {
 	/**
 	 * Get message structure
 	 *
-	 * @param	Integer		$options
+	 * @param	integer		$options
 	 * @return	stdClass
 	 */
 	public function getStructure($options = 0) {
@@ -397,8 +397,8 @@ class TodoyuImapServerMessage {
 	/**
 	 * Get raw header string
 	 *
-	 * @param	Integer		$options
-	 * @return	String
+	 * @param	integer		$options
+	 * @return	string
 	 */
 	public function getRawHeader($options = 0) {
 		return imap_fetchheader($this->stream, $this->messageNo, $options);
@@ -409,8 +409,8 @@ class TodoyuImapServerMessage {
 	/**
 	 * Get raw body string
 	 *
-	 * @param	Integer		$options
-	 * @return	String
+	 * @param	integer		$options
+	 * @return	string
 	 */
 	public function getRawBody($options = 0) {
 		$options	|= FT_PEEK;
@@ -423,7 +423,7 @@ class TodoyuImapServerMessage {
 	/**
 	 * Get plain text
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getContentPlain() {
 		return implode('', $this->contentPlain);
@@ -445,7 +445,7 @@ class TodoyuImapServerMessage {
 	/**
 	 * Get message body HTML text
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getContentHtml() {
 		return implode('', $this->contentHtml);
@@ -465,7 +465,7 @@ class TodoyuImapServerMessage {
 	/**
 	 * Get message ID
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getMessageID() {
 		return TodoyuImapMessageManager::cleanID($this->header['message_id']);

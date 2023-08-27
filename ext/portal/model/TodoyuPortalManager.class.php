@@ -29,10 +29,10 @@ class TodoyuPortalManager {
 	/**
 	 * Add a tab to portal view
 	 *
-	 * @param	String		$key			Key of the tab
-	 * @param	String		$labelFunc		Function which renders the label
-	 * @param	String		$contentFunc	Function which renders the content
-	 * @param	Integer		$position		Tab position (left to right)
+	 * @param	string		$key			Key of the tab
+	 * @param	string		$labelFunc		Function which renders the label
+	 * @param	string		$contentFunc	Function which renders the content
+	 * @param	integer		$position		Tab position (left to right)
 	 */
 	public static function addTab($key, $labelFunc, $contentFunc, $position = 100) {
 		Todoyu::$CONFIG['EXT']['portal']['tabs'][$key] = array(
@@ -53,7 +53,7 @@ class TodoyuPortalManager {
 	public static function getTabsConfig() {
 		TodoyuExtensions::loadAllPage();
 
-		$tabs	= TodoyuArray::assure(Todoyu::$CONFIG['EXT']['portal']['tabs']);
+		$tabs	= TodoyuArray::assure(Todoyu::$CONFIG['EXT']['portal']['tabs'] ?? []);
 
 		return TodoyuArray::sortByLabel($tabs, 'position');
 	}
@@ -63,7 +63,7 @@ class TodoyuPortalManager {
 	/**
 	 * Get config of a tab
 	 *
-	 * @param	String		$tabKey
+	 * @param	string		$tabKey
 	 * @return	Array
 	 */
 	public static function getTabConfig($tabKey) {
@@ -96,8 +96,8 @@ class TodoyuPortalManager {
 	/**
 	 * Add items to task context menu
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Array		$items
+	 * @param	integer		$idTask
+	 * @param	array		$items
 	 * @return	Array
 	 */
 	public static function getTaskContextMenuItems($idTask, array $items) {
@@ -125,7 +125,7 @@ class TodoyuPortalManager {
 	/**
 	 * Get number of result items for selection tab with currently selected filtersets
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getSelectionCount() {
 		$filtersetIDs	= TodoyuPortalPreferences::getSelectionTabFiltersetIDs();

@@ -29,8 +29,8 @@ class TodoyuSearchFilterWidgetManager	{
 	/**
 	 * Get configuration array for a widget
 	 *
-	 * @param	String		$type
-	 * @param	String		$widgetName
+	 * @param	string		$type
+	 * @param	string		$widgetName
 	 * @return	Array
 	 */
 	public static function getWidgetConfig($type, $widgetName) {
@@ -66,7 +66,7 @@ class TodoyuSearchFilterWidgetManager	{
 	/**
 	 * Get type configuration for a field type of a widget
 	 *
-	 * @param	String		$type
+	 * @param	string		$type
 	 * @return	Array
 	 */
 	public static function getWidgetTypeConfig($type) {
@@ -79,11 +79,11 @@ class TodoyuSearchFilterWidgetManager	{
 	 * Get extended widget configuration
 	 * Extends the normal widget config with: widgetID, widgetDefinitions,	widgetFilterName, value, negate
 	 *
-	 * @param	String		$type
-	 * @param	String		$widgetKey
-	 * @param	String		$widgetName
+	 * @param	string		$type
+	 * @param	string		$widgetKey
+	 * @param	string		$widgetName
 	 * @param	Mixed		$value
-	 * @param	Boolean		$negate
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public static function getExtendedWidgetConfig($type, $widgetKey, $widgetName = 'new1', $value = '', $negate = false) {
@@ -111,11 +111,11 @@ class TodoyuSearchFilterWidgetManager	{
 	/**
 	 * Prepare definition of given filter widget
 	 *
-	 * @param	String	$filterType
-	 * @param	String	$widgetName
-	 * @param	String	$numOfWidget
+	 * @param	string	$filterType
+	 * @param	string	$widgetName
+	 * @param	string	$numOfWidget
 	 * @param	Mixed	$value
-	 * @param	Boolean	$negate
+	 * @param	boolean	$negate
 	 * @return	Array
 	 */
 	public static function getFilterWidgetDefinitions($filterType, $widgetName, $numOfWidget, $value = '', $negate = false) {
@@ -147,7 +147,7 @@ class TodoyuSearchFilterWidgetManager	{
 	/**
 	 * Check whether template of given widget definition exists
 	 *
-	 * @param	Array	$widgetDefinitions
+	 * @param	array	$widgetDefinitions
 	 * @return	Mixed	String / Boolean
 	 */
 	public static function checkOnWidgetTemplate($widgetDefinitions) {
@@ -161,9 +161,9 @@ class TodoyuSearchFilterWidgetManager	{
 	/**
 	 * Get autoCompletion suggestions to given input of given record type
 	 *
-	 * @param	String		$type
-	 * @param	String		$sword
-	 * @param	String		$widgetKey
+	 * @param	string		$type
+	 * @param	string		$sword
+	 * @param	string		$widgetKey
 	 * @return	Array
 	 */
 	public static function getAutocompletionResults($type, $sword, $widgetKey) {
@@ -193,10 +193,10 @@ class TodoyuSearchFilterWidgetManager	{
 	 * Handles the option func of every select-filter-widget.
 	 * Function given from config array.
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
-	public function prepareSelectionOptions($definitions) {
+	public static function prepareSelectionOptions($definitions) {
 		$optionMethod = $definitions['wConf']['FuncRef'];
 
 		if( TodoyuFunction::isFunctionReference($optionMethod) ) {
@@ -213,7 +213,7 @@ class TodoyuSearchFilterWidgetManager	{
 	 *
 	 * defined in filters config (LabelFuncRef)
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public function manipulateAutocompleteDefinitions($definitions) {
@@ -234,9 +234,9 @@ class TodoyuSearchFilterWidgetManager	{
 	/**
 	 * Gets Negation labels
 	 *
-	 * @param	String	$widgetName
-	 * @param	String	$label
-	 * @return	String
+	 * @param	string	$widgetName
+	 * @param	string	$label
+	 * @return	string
 	 */
 	public static function getFilterWidgetNegationLabel($widgetName, $label) {
 		$filterType = TodoyuSearchPreferences::getActiveTab();
@@ -249,7 +249,7 @@ class TodoyuSearchFilterWidgetManager	{
 	/**
 	 * Proceeds the label function
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	protected static function proceedLabelFunc($definitions) {
@@ -267,8 +267,8 @@ class TodoyuSearchFilterWidgetManager	{
 	/**
 	 * Gets the filter definitions
 	 *
-	 * @param	String	$filterType
-	 * @param	String	$widgetName
+	 * @param	string	$filterType
+	 * @param	string	$widgetName
 	 * @return	Array
 	 */
 	protected static function getFilterDefinitionsArray($filterType, $widgetName) {

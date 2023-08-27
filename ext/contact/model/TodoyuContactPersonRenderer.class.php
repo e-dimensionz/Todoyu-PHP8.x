@@ -29,7 +29,7 @@ class TodoyuContactPersonRenderer {
 	/**
 	 * Render person quick creation form
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderPersonQuickCreateForm() {
 		$form	= TodoyuContactPersonManager::getQuickCreateForm();
@@ -47,9 +47,9 @@ class TodoyuContactPersonRenderer {
 	/**
 	 * Render person list
 	 *
-	 * @param	String		$searchWord
-	 * @param	Integer		$offset
-	 * @return	String
+	 * @param	string		$searchWord
+	 * @param	integer		$offset
+	 * @return	string
 	 */
 	public static function renderPersonList($searchWord = '', $offset = 0) {
 		Todoyu::restrict('contact', 'general:area');
@@ -62,8 +62,8 @@ class TodoyuContactPersonRenderer {
 	/**
 	 * Render search result listing of persons
 	 *
-	 * @param	Array		$personIDs
-	 * @return	String
+	 * @param	array		$personIDs
+	 * @return	string
 	 */
 	public static function renderPersonListingSearch(array $personIDs) {
 		return TodoyuListingRenderer::render('contact', 'personSearch', 0, true, array('personIDs' => $personIDs));
@@ -74,8 +74,8 @@ class TodoyuContactPersonRenderer {
 	/**
 	 * Render person edit form
 	 *
-	 * @param	Integer	$idPerson
-	 * @return	String
+	 * @param	integer	$idPerson
+	 * @return	string
 	 */
 	public static function renderPersonEditForm($idPerson) {
 		$idPerson	= intval($idPerson);
@@ -105,9 +105,9 @@ class TodoyuContactPersonRenderer {
 	/**
 	 * Render person edit form for popup (different save and cancel handling than conventional)
 	 *
-	 * @param	Integer	$idPerson
-	 * @param	String	$fieldName		HTML Id of the input field
-	 * @return	String
+	 * @param	integer	$idPerson
+	 * @param	string	$fieldName		HTML Id of the input field
+	 * @return	string
 	 */
 	public static function renderPersonCreateWizard($idPerson, $fieldName) {
 		$idPerson	= intval($idPerson);
@@ -143,8 +143,8 @@ class TodoyuContactPersonRenderer {
 	/**
 	 * Render general person header
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	String
+	 * @param	integer		$idPerson
+	 * @return	string
 	 */
 	public static function renderPersonHeader($idPerson) {
 		$idPerson	= intval($idPerson);
@@ -163,8 +163,8 @@ class TodoyuContactPersonRenderer {
 	/**
 	 * Render person details
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	String
+	 * @param	integer		$idPerson
+	 * @return	string
 	 */
 	public static function renderPersonDetails($idPerson) {
 		$idPerson	= intval($idPerson);
@@ -192,8 +192,8 @@ class TodoyuContactPersonRenderer {
 	/**
 	 * Render action buttons for person records
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	String
+	 * @param	integer		$idPerson
+	 * @return	string
 	 */
 	public static function renderPersonActions($idPerson) {
 		$tmpl	= 'ext/contact/view/person-actions.tmpl';

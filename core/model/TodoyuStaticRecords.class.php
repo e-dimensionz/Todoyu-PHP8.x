@@ -54,8 +54,8 @@ class TodoyuStaticRecords {
 	/**
 	 * Get table name for type
 	 *
-	 * @param	String		$type
-	 * @return	String
+	 * @param	string		$type
+	 * @return	string
 	 */
 	private static function getTable($type) {
 		return 'static_' . strtolower(trim($type));
@@ -66,8 +66,8 @@ class TodoyuStaticRecords {
 	/**
 	 * Get static record by ID
 	 *
-	 * @param	String		$type
-	 * @param	Integer		$idRecord
+	 * @param	string		$type
+	 * @param	integer		$idRecord
 	 * @return	Array
 	 */
 	public static function getRecord($type, $idRecord) {
@@ -82,9 +82,9 @@ class TodoyuStaticRecords {
 	/**
 	 * Get static record by field value
 	 *
-	 * @param	String		$type
-	 * @param	String		$field
-	 * @param	String		$value
+	 * @param	string		$type
+	 * @param	string		$field
+	 * @param	string		$value
 	 * @return	Array
 	 */
 	public static function getRecordByField($type, $field, $value) {
@@ -99,10 +99,10 @@ class TodoyuStaticRecords {
 	/**
 	 * Get records which match the conditions
 	 *
-	 * @param	String		$type
-	 * @param	Array		$conditions
-	 * @param	String		$order
-	 * @param	String		$limit
+	 * @param	string		$type
+	 * @param	array		$conditions
+	 * @param	string		$order
+	 * @param	string		$limit
 	 * @return	Array
 	 */
 	public static function getRecords($type, array $conditions = array(), $order = '', $limit = '') {
@@ -125,9 +125,9 @@ class TodoyuStaticRecords {
 	 * Get all records of a type
 	 * Can be limited by the where clause
 	 *
-	 * @param	String		$type
-	 * @param	String		$where
-	 * @param	String		$order
+	 * @param	string		$type
+	 * @param	string		$where
+	 * @param	string		$order
 	 * @return	Array
 	 */
 	public static function getAllRecords($type, $where = '', $order = '') {
@@ -141,9 +141,9 @@ class TodoyuStaticRecords {
 	/**
 	 * Get a label for a static record
 	 *
-	 * @param	String		$type
-	 * @param	String		$key
-	 * @return	String
+	 * @param	string		$type
+	 * @param	string		$key
+	 * @return	string
 	 */
 	public static function getLabel($type, $key) {
 		$labelKey	= self::$localeConfig[$type]['locale'] . '.' . $key;
@@ -156,10 +156,10 @@ class TodoyuStaticRecords {
 	/**
 	 * Get options based on the static records
 	 *
-	 * @param	String		$type
-	 * @param	Array		$conditions
-	 * @param	Boolean		$sort
-	 * @param	Boolean		$localize
+	 * @param	string		$type
+	 * @param	array		$conditions
+	 * @param	boolean		$sort
+	 * @param	boolean		$localize
 	 * @return	Array
 	 */
 	public static function getRecordOptions($type, array $conditions = array(), $sort = true, $localize = true) {
@@ -193,7 +193,7 @@ class TodoyuStaticRecords {
 	/**
 	 * Get a timezone record
 	 *
-	 * @param	Integer		$idTimezone
+	 * @param	integer		$idTimezone
 	 * @return	Array
 	 */
 	public static function getTimezone($idTimezone) {
@@ -207,8 +207,8 @@ class TodoyuStaticRecords {
 	/**
 	 * Get ID of a timezone
 	 *
-	 * @param	String		$timezone
-	 * @return	Integer
+	 * @param	string		$timezone
+	 * @return	integer
 	 */
 	public static function getTimezoneID($timezone) {
 		$field	= 'id';
@@ -234,7 +234,7 @@ class TodoyuStaticRecords {
 	/**
 	 * Get country record
 	 *
-	 * @param	Integer		$idCountry
+	 * @param	integer		$idCountry
 	 * @return	Array
 	 */
 	public static function getCountry($idCountry) {
@@ -248,7 +248,7 @@ class TodoyuStaticRecords {
 	/**
 	 * Get a country record by ISO number
 	 *
-	 * @param	Integer		$countryIsoNumber
+	 * @param	integer		$countryIsoNumber
 	 * @return	Array
 	 */
 	public static function getCountryByISO($countryIsoNumber) {
@@ -266,8 +266,8 @@ class TodoyuStaticRecords {
 	/**
 	 * Get label (name) of given country
 	 *
-	 * @param	Integer		$idCountry
-	 * @return	String
+	 * @param	integer		$idCountry
+	 * @return	string
 	 */
 	public static function getCountryLabel($idCountry) {
 		$idCountry	= (int) $idCountry;
@@ -283,7 +283,7 @@ class TodoyuStaticRecords {
 	/**
 	 * Get country zone records for a country
 	 *
-	 * @param	Integer		$idCountry
+	 * @param	integer		$idCountry
 	 * @return	Array
 	 */
 	public static function getCountryZones($idCountry) {
@@ -323,7 +323,7 @@ class TodoyuStaticRecords {
 	/**
 	 * Get country zone options of a country based on the country zones
 	 *
-	 * @param	Integer		$idCountry
+	 * @param	integer		$idCountry
 	 * @return	Array
 	 */
 	public static function getCountryZoneOptions($idCountry) {

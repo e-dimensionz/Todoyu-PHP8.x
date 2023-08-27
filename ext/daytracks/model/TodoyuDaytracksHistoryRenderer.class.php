@@ -29,10 +29,10 @@ class TodoyuDaytracksHistoryRenderer {
 	/**
 	 * Render the history in the popUp
 	 *
-	 * @param	Integer		$year
-	 * @param	Integer		$month
-	 * @param	Boolean		$details
-	 * @return	String
+	 * @param	integer		$year
+	 * @param	integer		$month
+	 * @param	boolean		$details
+	 * @return	string
 	 */
 	public static function renderHistory($year = 0, $month = 0, $details = false, $idPerson = 0) {
 		$year		= intval($year);

@@ -44,8 +44,8 @@ abstract class TodoyuExportBase {
 	/**
 	 * Constructor
 	 *
-	 * @param	Array	$exportData
-	 * @param	Array	$customConfig
+	 * @param	array	$exportData
+	 * @param	array	$customConfig
 	 */
 	public function __construct(array $exportData, array $customConfig = array()) {
 		$this->exportData	= $exportData;
@@ -57,7 +57,7 @@ abstract class TodoyuExportBase {
 
 	/**
 	 * @abstract
-	 * @param	Array	$customConfig
+	 * @param	array	$customConfig
 	 */
 	protected abstract function init(array $customConfig);
 
@@ -66,7 +66,7 @@ abstract class TodoyuExportBase {
 	/**
 	 * Setter method for filename
 	 *
-	 * @param	String		$filename
+	 * @param	string		$filename
 	 */
 	public function setFilename($filename) {
 		$this->filename = $filename;
@@ -78,7 +78,7 @@ abstract class TodoyuExportBase {
 	 * Getter for content data
 	 *
 	 * @abstract
-	 * @return	String
+	 * @return	string
 	 */
 	public abstract function getContent();
 
@@ -87,8 +87,8 @@ abstract class TodoyuExportBase {
 	/**
 	 * Get headers for download
 	 *
-	 * @param	String		$type
-	 * @param	String		$filename
+	 * @param	string		$type
+	 * @param	string		$filename
 	 * @return	Array
 	 */
 	protected function getHeaders($type, $filename) {
@@ -107,8 +107,8 @@ abstract class TodoyuExportBase {
 	/**
 	 * Send headers for download
 	 *
-	 * @param	String		$type
-	 * @param	String		$filename
+	 * @param	string		$type
+	 * @param	string		$filename
 	 */
 	protected function sendHeaders($type, $filename) {
 		$headers	= $this->getHeaders($type, $filename);
@@ -123,8 +123,8 @@ abstract class TodoyuExportBase {
 	/**
 	 * Sends the file to download
 	 *
-	 * @param	String	$type
-	 * @param	String	$filename
+	 * @param	string	$type
+	 * @param	string	$filename
 	 */
 	public function download($type, $filename = '') {
 		$this->sendHeaders($type, $filename);

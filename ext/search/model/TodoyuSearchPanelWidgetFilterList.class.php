@@ -31,8 +31,8 @@ class TodoyuSearchPanelWidgetFilterList extends TodoyuPanelWidget {
 	 * - initializes the filters
 	 * - modifies the filters
 	 *
-	 * @param	Array	$config
-	 * @param	Array	$params
+	 * @param	array	$config
+	 * @param	array	$params
 	 */
 	public function __construct(array $config, array $params = array()) {
 		TodoyuExtensions::loadAllFilters();
@@ -55,7 +55,7 @@ class TodoyuSearchPanelWidgetFilterList extends TodoyuPanelWidget {
 	/**
 	 * Render panel widget content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderContent() {
 		$filtersetTypes		= TodoyuSearchFiltersetManager::getFiltersetTypes();
@@ -86,7 +86,7 @@ class TodoyuSearchPanelWidgetFilterList extends TodoyuPanelWidget {
 	/**
 	 * Group filtersets by their type attribute
 	 *
-	 * @param	Array		$filtersets
+	 * @param	array		$filtersets
 	 * @return	Array
 	 */
 	private static function groupFiltersets(array $filtersets) {
@@ -105,7 +105,7 @@ class TodoyuSearchPanelWidgetFilterList extends TodoyuPanelWidget {
 	/**
 	 * Shortcut for check whether search 'general:use' right is allowed
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		return Todoyu::allowed('search', 'general:use');

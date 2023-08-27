@@ -42,7 +42,7 @@ try {
 
 		// Load all init.php files of the installed extensions
 	TodoyuExtensions::initExtensions();
-
+    
 		// Process sharing token if any
 	if( TodoyuTokenManager::hasRequestToken() ) {
 		$hash	= TodoyuTokenManager::geTokenHashValueFromRequest();

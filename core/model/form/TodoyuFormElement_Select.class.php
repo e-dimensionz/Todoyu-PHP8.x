@@ -29,9 +29,9 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	/**
 	 * Initialize
 	 *
-	 * @param	String			$name
+	 * @param	string			$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array			$config
+	 * @param	array			$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		parent::__construct('select', $name, $fieldset, $config);
@@ -62,7 +62,7 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	/**
 	 * Detect if lazy init is defined (grab data when form is rendered)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	protected function isLazyInit() {
 		return isset($this->config['source']['lazyInit']);
@@ -73,7 +73,7 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	/**
 	 * Check whether multiple attribute is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isMultiple() {
 		return $this->hasAttribute('multiple');
@@ -122,7 +122,7 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	/**
 	 * Load select options from database
 	 *
-	 * @param	Array		$source
+	 * @param	array		$source
 	 * @deprecated
 	 * @todo	Remove
 	 */
@@ -171,7 +171,7 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	/**
 	 * Init options from an XML list
 	 *
-	 * @param	Array		$source
+	 * @param	array		$source
 	 */
 	protected function initSourceList(array $source) {
 		if( is_array($source['option']) ) {
@@ -186,7 +186,7 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	/**
 	 * Init source function (evoke options gathering per user_func)
 	 *
-	 * @param	Array	$source
+	 * @param	array	$source
 	 */
 	protected function initSourceFunction( array $source ) {
 		$funcRef	= explode('::', $source['function']);
@@ -219,8 +219,8 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	/**
 	 * Get the index of the option by its value
 	 *
-	 * @param	String		$value
-	 * @return	Integer		Or false if not found
+	 * @param	string		$value
+	 * @return	integer		Or false if not found
 	 */
 	protected function getOptionIndexByValue($value) {
 		$optionIndex = false;
@@ -251,11 +251,11 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	/**
 	 * Add a new option at the end of the list
 	 *
-	 * @param	String		$value
-	 * @param	String		$label
-	 * @param	String		$label
-	 * @param	Boolean		$disabled
-	 * @param	String		$className
+	 * @param	string		$value
+	 * @param	string		$label
+	 * @param	string		$label
+	 * @param	boolean		$disabled
+	 * @param	string		$className
 	 */
 	public function addOption($value, $label, $disabled = false, $className = '', $selected = false, $group = null) {
 		$this->config['options'][] = array(
@@ -272,11 +272,11 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	 * Set an option. The (first) option with the same value will be replaced.
 	 * If no option with this value exists, a new options will be added
 	 *
-	 * @param	String		$value
-	 * @param	String		$label
-	 * @param	Boolean		$selected
-	 * @param	Boolean		$disabled
-	 * @param	String		$className
+	 * @param	string		$value
+	 * @param	string		$label
+	 * @param	boolean		$selected
+	 * @param	boolean		$disabled
+	 * @param	string		$className
 	 */
 	public function setOption($value, $label, $selected = false, $disabled = false, $className = '') {
 		$index = $this->getOptionIndexByValue($value);
@@ -336,8 +336,8 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	/**
 	 * Get selected value of select is not multiple
 	 *
-	 * @param	Boolean		$asInt		Convert value to integer
-	 * @return	String|Integer
+	 * @param	boolean		$asInt		Convert value to integer
+	 * @return	string|Integer
 	 */
 	public function getSelectedValue($asInt = false) {
 		$values	= $this->getValue();
@@ -355,7 +355,7 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	/**
 	 * Add value to selected-values list
 	 *
-	 * @param	String		$value
+	 * @param	string		$value
 	 */
 	public function addSelectedValue($value) {
 		$selected	= $this->getValue();
@@ -397,7 +397,7 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	/**
 	 * Get storage data as comma separated list (if multiple values are selected)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getStorageDataInternal() {
 		return implode(',', $this->getValue());
@@ -409,7 +409,7 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	 * Validate required status
 	 * The first value shall not be 0 (means please select)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function validateRequired() {
 		$firstValue	= array_pop($this->getValue());
@@ -422,7 +422,7 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	/**
 	 * Set please select label which replaces the default text 'please select'
 	 *
-	 * @param	String		$label
+	 * @param	string		$label
 	 */
 	public function setPleaseSelectLabel($label) {
 		$this->setAttribute('pleaseSelectLabel', $label);
@@ -433,7 +433,7 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	/**
 	 * Set/unset noPleaseSelect attribute
 	 *
-	 * @param	Boolean		$active
+	 * @param	boolean		$active
 	 */
 	public function setNoPleaseSelect($active = true) {
 		if( $active ) {
@@ -448,7 +448,7 @@ class TodoyuFormElement_Select extends TodoyuFormElement {
 	/**
 	 * Set an alternative source function
 	 *
-	 * @param	String		$sourceFunction
+	 * @param	string		$sourceFunction
 	 */
 	public function setSourceFunction($sourceFunction) {
 		$this->config['source']['@attributes']['type'] = 'function';

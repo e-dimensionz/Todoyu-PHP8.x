@@ -29,10 +29,10 @@ class TodoyuFirstStepsRenderer {
 	/**
 	 * Render items with the item list template
 	 *
-	 * @param	Array	$items
-	 * @param	String	$fieldName
-	 * @param	String	$listClass
-	 * @return	String
+	 * @param	array	$items
+	 * @param	string	$fieldName
+	 * @param	string	$listClass
+	 * @return	string
 	 */
 	public static function renderItemList(array $items, $fieldName, $listClass = '') {
 		$tmpl	= 'ext/firststeps/view/itemlist.tmpl';

@@ -29,7 +29,7 @@ class TodoyuAssetsListActionController extends TodoyuActionController {
 	/**
 	 * Initialize controller: restrict access
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('assets', 'general:use');
@@ -40,8 +40,8 @@ class TodoyuAssetsListActionController extends TodoyuActionController {
 	/**
 	 * Default action: render list
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function defaultAction(array $params) {
 		$idTask		= intval($params['task']);
@@ -52,8 +52,8 @@ class TodoyuAssetsListActionController extends TodoyuActionController {
 
 
 	/**
-	 * @param	Array $params
-	 * @return	String
+	 * @param	array $params
+	 * @return	string
 	 */
 	public function listAction(array $params) {
 		$idRecord	= intval($params['record']);

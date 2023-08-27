@@ -38,7 +38,7 @@ class TodoyuProjectTaskPresetManager {
 	/**
 	 * Gets a taskpreset object
 	 *
-	 * @param	Integer		$idTaskPreset
+	 * @param	integer		$idTaskPreset
 	 * @return	TodoyuProjectTaskPreset
 	 */
 	public static function getTaskPreset($idTaskPreset) {
@@ -51,7 +51,7 @@ class TodoyuProjectTaskPresetManager {
 	/**
 	 * Gets data of taskpreset
 	 *
-	 * @param	Integer				$idTaskpreset		Taskpreset ID
+	 * @param	integer				$idTaskpreset		Taskpreset ID
 	 * @return	TodoyuProjectTaskpreset
 	 */
 	public static function getTaskpresetData($idTaskpreset) {
@@ -78,8 +78,8 @@ class TodoyuProjectTaskPresetManager {
 	/**
 	 * Save task preset record to database
 	 *
-	 * @param	Array	$data
-	 * @return	Integer
+	 * @param	array	$data
+	 * @return	integer
 	 */
 	public static function saveTaskPreset(array $data) {
 		$idTaskPreset	= intval($data['id']);
@@ -102,8 +102,8 @@ class TodoyuProjectTaskPresetManager {
 	/**
 	 * Add task preset record
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function addTaskpreset(array $data = array()) {
 		return TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -114,9 +114,9 @@ class TodoyuProjectTaskPresetManager {
 	/**
 	 * Update task preset record
 	 *
-	 * @param	Integer		$idTaskPreset
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idTaskPreset
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function updateTaskPreset($idTaskPreset, array $data) {
 		return TodoyuRecordManager::updateRecord(self::TABLE, $idTaskPreset, $data);
@@ -144,8 +144,8 @@ class TodoyuProjectTaskPresetManager {
 	/**
 	 * Sets deleted flag for given task preset record
 	 *
-	 * @param	Integer		$idTaskPreset
-	 * @return	Boolean
+	 * @param	integer		$idTaskPreset
+	 * @return	boolean
 	 */
 	public static function deleteTaskPreset($idTaskPreset) {
 		$idTaskPreset	= intval($idTaskPreset);
@@ -159,7 +159,7 @@ class TodoyuProjectTaskPresetManager {
 	 * Get the assigned task preset or the fallback task preset
 	 * Return false if no preset assigned AND no fallback set
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 * @return	TodoyuProjectTaskPreset|Boolean
 	 */
 	public static function getTaskPresetOrFallback($idProject) {
@@ -182,7 +182,7 @@ class TodoyuProjectTaskPresetManager {
 	/**
 	 * Check whether a fallback task preset has been selected
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function hasFallbackTaskPreset() {
 		return TodoyuProjectManager::getFallbackTaskPresetID() !== 0;
@@ -206,7 +206,7 @@ class TodoyuProjectTaskPresetManager {
 	/**
 	 * Apply a task preset to given data. All missing values which are configured in the preset are filled in
 	 *
-	 * @param	Array	$data
+	 * @param	array	$data
 	 * @return	Array
 	 */
 	public static function applyTaskPreset(array $data) {
@@ -226,9 +226,9 @@ class TodoyuProjectTaskPresetManager {
 	/**
 	 * Get a date based on the extConf value set for this type
 	 *
-	 * @param	Integer		$duration		Identifier for number of days of the date in the future from now
-	 * @param	Integer		$dateStart
-	 * @return	Integer
+	 * @param	integer		$duration		Identifier for number of days of the date in the future from now
+	 * @param	integer		$dateStart
+	 * @return	integer
 	 */
 	public static function getDateFromDayDuration($duration, $dateStart = 0) {
 		$dateStart		= TodoyuTime::getDayStart($dateStart);

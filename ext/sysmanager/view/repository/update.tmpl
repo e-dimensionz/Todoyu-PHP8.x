@@ -5,19 +5,19 @@
 	{if $updates.core}
 		{$coreUpdate = $updates.core}
 		<div class="coreUpdate">
-			{Title "sysmanager.repository.core.newUpdateAvailable"}
+			{Title text="sysmanager.repository.core.newUpdateAvailable"}
 			<table class="coreUpdateInfos">
 				<tr>
-					<th>{Label sysmanager.repository.update.newversion}</th>
+					<th>{Label text='sysmanager.repository.update.newversion'}</th>
 					<td>{$coreUpdate.version}</td>
 				</tr>
 				<tr>
-					<th>{Label sysmanager.repository.update.yourversion}</th>
-					<td>{constant(TODOYU_VERSION)}</td>
+					<th>{Label text='sysmanager.repository.update.yourversion'}</th>
+					<td>{$smarty.const.TODOYU_VERSION}</td>
 				</tr>
 				<tr>
-					<th>{Label sysmanager.repository.update.releasedate}</th>
-					<td>{dateFormat $coreUpdate.date_update date}</td>
+					<th>{Label text='sysmanager.repository.update.releasedate'}</th>
+					<td>{$coreUpdate.date_update|date_format:$DF.date}</td>
 				</tr>
 			</table>
 			<div class="installButtons">
@@ -32,24 +32,24 @@
 	{***************** Extension Updates *********************}
 
 	<div class="extensionUpdates extListing">
-		{Title "sysmanager.repository.extension.extensionUpdates"}
+		{Title text="sysmanager.repository.extension.extensionUpdates"}
 
-		{foreach $updates.extensions extUpdate}
+		{foreach $updates.extensions as $extUpdate}
 			<div class="extension" id="repository-update-ext-{$extUpdate.ext_key}">
 
 				<div class="main">
 					<h5>
 						<img src="{$extUpdate.icon}" border="0" />
 						<div class="title">{$extUpdate.title} {$extUpdate.version.version}</div>
-						<div class="author">{Label sysmanager.repository.by} {$extUpdate.author.name}</div>
+						<div class="author">{Label text='sysmanager.repository.by'} {$extUpdate.author.name}</div>
 					</h5>
 					<div class="description">{$extUpdate.version.version_information}</div>
 
 					{if $extUpdate.version.dependencies}
 						<div class="warning dependency">
-							<p>{Label sysmanager.error.unresolvedDependencies}</p>
+							<p>{Label text='sysmanager.error.unresolvedDependencies'}</p>
 							<ul>
-								{foreach $extUpdate.version.dependencies dependency}
+								{foreach $extUpdate.version.dependencies as $dependency}
 									<li id="{$extUpdate.ext_key}-dependency-{$dependency.ext_key}">{$dependency.title_short} {$dependency.version} ({$dependency.ext_key})</li>
 								{/foreach}
 							</ul>
@@ -57,9 +57,9 @@
 					{/if}
 					{if $extUpdate.version.conflicts}
 						<div class="warning conflicts">
-							<p>{Label sysmanager.error.unresolvedConflicts}</p>
+							<p>{Label text='sysmanager.error.unresolvedConflicts'}</p>
 							<ul>
-								{foreach $extUpdate.version.conflicts conflict}
+								{foreach $extUpdate.version.conflicts as $conflict}
 									<li id="{$extUpdate.ext_key}-conflict-{$conflict.ext_key}">{$conflict.title_short} ({$conflict.ext_key})</li>
 								{/foreach}
 							</ul>
@@ -69,10 +69,10 @@
 				</div>
 
 				<div class="right">
-					<div class="installed">{Label sysmanager.repository.extension.installed}: {$extUpdate.installed}</div>
-					<div class="version">{Label sysmanager.repository.update.newversion} {$extUpdate.version.version}</div>
-					<div class="state">{Label sysmanager.extension.state}: {ExtensionStatusIcon $extension.version.state}</div>
-					<div class="date">{Label sysmanager.repository.update.releasedate}: {dateFormat $extUpdate.version.date_update date}</div>
+					<div class="installed">{Label text='sysmanager.repository.extension.installed'}: {$extUpdate.installed}</div>
+					<div class="version">{Label text='sysmanager.repository.update.newversion'} {$extUpdate.version.version}</div>
+					<div class="state">{Label text='sysmanager.extension.state'}: {ExtensionStatusIcon state=$extension.version.state}</div>
+					<div class="date">{Label text='sysmanager.repository.update.releasedate'}: {$extUpdate.version.date_update|date_format:$DF.date}</div>
 				</div>
 
 				<div class="bottom">
@@ -86,7 +86,7 @@
 				<div class="clear"></div>
 			</div>
 		{else}
-			<p>{Label sysmanager.repository.update.noupdatesavailable}</p>
+			<p>{Label text='sysmanager.repository.update.noupdatesavailable'}</p>
 		{/foreach}
 
 		<div class="clear"></div>

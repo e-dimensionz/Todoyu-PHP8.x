@@ -1,5 +1,5 @@
 {extends "core/view/form/FormElement.tmpl"}
 
 {block name="field"}
-	<span class="commenttext {$class}">{$valueTemplate}</span>
+	<span class="commenttext {if isset($class)}{$class}{/if}">{$valueTemplate}</span>
 {/block}

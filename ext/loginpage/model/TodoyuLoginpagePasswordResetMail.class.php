@@ -44,9 +44,9 @@ class TodoyuLoginpagePasswordResetMail extends TodoyuLoginpagePasswordMail {
 	/**
 	 * Initialize mail
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	String		$password
-	 * @param	Array		$config
+	 * @param	integer		$idPerson
+	 * @param	string		$password
+	 * @param	array		$config
 	 */
 	public function __construct($idPerson, $password, array $config = array()) {
 		$idPerson	= intval($idPerson);
@@ -90,8 +90,8 @@ class TodoyuLoginpagePasswordResetMail extends TodoyuLoginpagePasswordMail {
 	/**
 	 * Get mail template
 	 *
-	 * @param	Boolean		$asHtml
-	 * @return	String
+	 * @param	boolean		$asHtml
+	 * @return	string
 	 */
 	protected function getTemplate($asHtml = true) {
 		return $this->getTemplatePath('reset', $asHtml);

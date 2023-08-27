@@ -30,7 +30,7 @@ class TodoyuContactPersonRights {
 	 * Deny access
 	 * Shortcut for contact
 	 *
-	 * @param	String		$right		Denied right
+	 * @param	string		$right		Denied right
 	 */
 	private static function deny($right) {
 		TodoyuRightsManager::deny('contact', $right);
@@ -41,8 +41,8 @@ class TodoyuContactPersonRights {
 	/**
 	 * Check whether a person can see the given person
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function isSeeAllowed($idPerson) {
 		$idPerson	= intval($idPerson);
@@ -65,8 +65,8 @@ class TodoyuContactPersonRights {
 	/**
 	 * Checks if edit of given person is allowed to current user
 	 *
-	 * @param	Integer	$idPerson
-	 * @return	Boolean
+	 * @param	integer	$idPerson
+	 * @return	boolean
 	 */
 	public static function isEditAllowed($idPerson) {
 		$idPerson	= intval($idPerson);
@@ -89,8 +89,8 @@ class TodoyuContactPersonRights {
 	/**
 	 * Checks if deleting given person is allowed to user
 	 *
-	 * @param	Integer	$idPerson
-	 * @return	Boolean
+	 * @param	integer	$idPerson
+	 * @return	boolean
 	 */
 	public static function isDeleteAllowed($idPerson) {
 		return Todoyu::allowed('contact', 'person:editAndDeleteAll');
@@ -101,8 +101,8 @@ class TodoyuContactPersonRights {
 	/**
 	 * Get IDs of all persons the current (non-admin) user is allowed to see
 	 *
-	 * @param	Boolean		$withAccount
-	 * @return	Integer[]
+	 * @param	boolean		$withAccount
+	 * @return	integer[]
 	 */
 	public static function getPersonIDsAllowedToBeSeen($withAccount = false) {
 		$table	= TodoyuContactPersonManager::TABLE;
@@ -116,8 +116,8 @@ class TodoyuContactPersonRights {
 	/**
 	 * Get WHERE clause for all persons the current user is allowed to see
 	 *
-	 * @param	Boolean		$withAccount	only persons with a todoyu account
-	 * @return	String
+	 * @param	boolean		$withAccount	only persons with a todoyu account
+	 * @return	string
 	 */
 	public static function getAllowedToBeSeenPersonsWhereClause($withAccount = false) {
 		$personIDs	= array();
@@ -164,7 +164,7 @@ class TodoyuContactPersonRights {
 	/**
 	 * Restrict access to persons who are allowed to see the given person
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 */
 	public static function restrictSee($idPerson) {
 		if( ! self::isSeeAllowed($idPerson) ) {
@@ -188,7 +188,7 @@ class TodoyuContactPersonRights {
 	/**
 	 * Restrict access to persons who are allowed to edit given person
 	 *
-	 * @param	Integer	$idPerson
+	 * @param	integer	$idPerson
 	 */
 	public static function restrictEdit($idPerson) {
 		if( ! self::isEditAllowed($idPerson) ) {
@@ -201,7 +201,7 @@ class TodoyuContactPersonRights {
 	/**
 	 * Restrict access to persons who are allowed to delete given person
 	 *
-	 * @param	Integer	$idPerson
+	 * @param	integer	$idPerson
 	 */
 	public static function restrictDelete($idPerson) {
 		if( ! self::isDeleteAllowed($idPerson) ) {

@@ -29,8 +29,8 @@ class TodoyuArray {
 	/**
 	 * Extract a single field from a array
 	 *
-	 * @param	Array		$array
-	 * @param	String		$columnName
+	 * @param	array		$array
+	 * @param	string		$columnName
 	 * @return	Array
 	 */
 	public static function getColumn(array $array, $columnName) {
@@ -48,8 +48,8 @@ class TodoyuArray {
 	/**
 	 * Get unique values of a column
 	 *
-	 * @param	Array		$array
-	 * @param	String		$columnName
+	 * @param	array		$array
+	 * @param	string		$columnName
 	 * @return	Array
 	 */
 	public static function getColumnUnique(array $array, $columnName) {
@@ -61,8 +61,8 @@ class TodoyuArray {
 	/**
 	 * Get first key of associative array
 	 *
-	 * @param	Array	$array
-	 * @return	String
+	 * @param	array	$array
+	 * @return	string
 	 */
 	public static function getFirstKey($array) {
 		reset($array);
@@ -75,8 +75,8 @@ class TodoyuArray {
 	/**
 	 * Get key of last element in associative array
 	 *
-	 * @param	Array	$array
-	 * @return	String
+	 * @param	array	$array
+	 * @return	string
 	 */
 	public static function getLastKey($array) {
 		end($array);
@@ -91,10 +91,10 @@ class TodoyuArray {
 	 * If $onlyPositive is true, all negative integers will be zero too
 	 * If $onlyPositive and $removeZeros are true, new array will contain only positive integers
 	 *
-	 * @param	Array		$array			Dirty array
-	 * @param	Boolean		$onlyPositive	Set negative values zero
-	 * @param	Boolean		$removeZeros	Remove all zero values
-	 * @return	Integer[]	Integer array
+	 * @param	array		$array			Dirty array
+	 * @param	boolean		$onlyPositive	Set negative values zero
+	 * @param	boolean		$removeZeros	Remove all zero values
+	 * @return	integer[]	Integer array
 	 */
 	public static function intval($array, $onlyPositive = false, $removeZeros = true) {
 		if( ! is_array($array) ) {
@@ -134,7 +134,7 @@ class TodoyuArray {
 	/**
 	 * Apply floatval to all array elements
 	 *
-	 * @param	Array		$array
+	 * @param	array		$array
 	 * @return	Array
 	 */
 	public static function floatval(array $array) {
@@ -146,7 +146,7 @@ class TodoyuArray {
 	/**
 	 * Apply strtolower to all array elements
 	 *
-	 * @param	Array		$array
+	 * @param	array		$array
 	 * @return	Array
 	 */
 	public static function strtolower(array $array) {
@@ -158,9 +158,9 @@ class TodoyuArray {
 	/**
 	 * Implode array with given delimiter, force items to be integers
 	 *
-	 * @param	Array	$array
-	 * @param	String	$delimiter
-	 * @return	String
+	 * @param	array	$array
+	 * @param	string	$delimiter
+	 * @return	string
 	 */
 	public static function intImplode($array = array(), $delimiter = ',') {
 		foreach($array as $id => $value) {
@@ -175,9 +175,9 @@ class TodoyuArray {
 	/**
 	 * Rename key of an array, defined by mapping array. Only mapped keys will be in the reformed array
 	 *
-	 * @param	Array	$array
-	 * @param	Array	$reformConfig		[old=>new,old=>new]
-	 * @param	Boolean	$copyAllData
+	 * @param	array	$array
+	 * @param	array	$reformConfig		[old=>new,old=>new]
+	 * @param	boolean	$copyAllData
 	 * @return	Array
 	 */
 	public static function reform(array $array, array $reformConfig, $copyAllData = false) {
@@ -199,10 +199,10 @@ class TodoyuArray {
 	/**
 	 * Rename key of array by given mapping array (see TodoyuArray::reform()), use given field as new index for sub arrays
 	 *
-	 * @param	Array	$array
-	 * @param	Array	$reformConfig
-	 * @param	Boolean	$copyAllData
-	 * @param	String	$indexFieldName
+	 * @param	array	$array
+	 * @param	array	$reformConfig
+	 * @param	boolean	$copyAllData
+	 * @param	string	$indexFieldName
 	 * @return	Array
 	 */
 	public static function reformWithFieldAsIndex(array $array, array $reformConfig, $copyAllData = false, $indexFieldName) {
@@ -216,7 +216,7 @@ class TodoyuArray {
 	/**
 	 * Stripslashes on all array values and sub arrays
 	 *
-	 * @param	Array	$array
+	 * @param	array	$array
 	 * @return	Array
 	 */
 	public static function stripslashes(array $array) {
@@ -236,13 +236,13 @@ class TodoyuArray {
 	/**
 	 * Sort an array by a specified label. Allows advanced sorting configuration
 	 *
-	 * @param	Array		$unsortedArray			Original array
-	 * @param	String		$sortByLabel			Label key to sort by
-	 * @param	Boolean		$reversed				Reverse order
-	 * @param	Boolean		$caseSensitive			Sort case sensitive. Lower case string are sorted as extra group at the end
-	 * @param	Boolean		$useNaturalSorting		Sort as a human would do. Ex: Image1, Image2, Image 10, Image20
-	 * @param	Integer		$sortingFlag			Flag for normal (not natural) sorting. Use constants: SORT_NUMERIC, SORT_STRING, SORT_LOCALE_STRING
-	 * @param	String		$avoidDuplicateFieldKey
+	 * @param	array		$unsortedArray			Original array
+	 * @param	string		$sortByLabel			Label key to sort by
+	 * @param	boolean		$reversed				Reverse order
+	 * @param	boolean		$caseSensitive			Sort case sensitive. Lower case string are sorted as extra group at the end
+	 * @param	boolean		$useNaturalSorting		Sort as a human would do. Ex: Image1, Image2, Image 10, Image20
+	 * @param	integer		$sortingFlag			Flag for normal (not natural) sorting. Use constants: SORT_NUMERIC, SORT_STRING, SORT_LOCALE_STRING
+	 * @param	string		$avoidDuplicateFieldKey
 	 * @return	Array		Sorted array
 	 */
 	public static function sortByLabel(array $unsortedArray, $sortByLabel = 'position', $reversed = false, $caseSensitive = false, $useNaturalSorting = true, $sortingFlag = SORT_REGULAR, $avoidDuplicateFieldKey = '') {
@@ -318,10 +318,10 @@ class TodoyuArray {
 	 * $filteredProducts = TodoyuArray::filter($prodcuts, $filter);
 	 *
 	 *
-	 * @param	Array		$dataArray			Array with the element which are checked against the filter
-	 * @param	Array		$filterArray		The filter. It's elements are the field names with the allowed values
-	 * @param	Boolean		$matching			Normally you'll get the matching elements. FALSE gives you the elements which don't match
-	 * @param	Boolean		$preserveKeys		Keep the array keys. Else they will be replaced by numeric keys
+	 * @param	array		$dataArray			Array with the element which are checked against the filter
+	 * @param	array		$filterArray		The filter. It's elements are the field names with the allowed values
+	 * @param	boolean		$matching			Normally you'll get the matching elements. FALSE gives you the elements which don't match
+	 * @param	boolean		$preserveKeys		Keep the array keys. Else they will be replaced by numeric keys
 	 * @return	Array		The filtered array
 	 */
 	public static function filter(array $dataArray, array $filterArray, $matching = true, $preserveKeys = false ) {
@@ -353,9 +353,9 @@ class TodoyuArray {
 	/**
 	 * Prefix values
 	 *
-	 * @param	Array	$array
-	 * @param	String	$prefix
-	 * @param	String	$postfix
+	 * @param	array	$array
+	 * @param	string	$prefix
+	 * @param	string	$postfix
 	 * @return	Array
 	 * @deprecated
 	 */
@@ -368,9 +368,9 @@ class TodoyuArray {
 	/**
 	 * Prefix array value with a string. PostFix is also available
 	 *
-	 * @param	Array		$array
-	 * @param	String		$prefix
-	 * @param	String		$postfix
+	 * @param	array		$array
+	 * @param	string		$prefix
+	 * @param	string		$postfix
 	 * @return	Array
 	 */
 	public static function prefixValues(array $array, $prefix, $postfix = '') {
@@ -388,9 +388,9 @@ class TodoyuArray {
 	 * Example:
 	 * a: 1, b:2, c:3 => prefixKeys(..,'test_'); => test_a:1, test_b:2, test_c:3
 	 *
-	 * @param	Array		$array
-	 * @param	String		$prefix
-	 * @param	String		$postfix
+	 * @param	array		$array
+	 * @param	string		$prefix
+	 * @param	string		$postfix
 	 * @return	Array
 	 */
 	public static function prefixKeys(array $array, $prefix, $postfix = '') {
@@ -410,12 +410,12 @@ class TodoyuArray {
 	 * The base array should have named keys. Insert position can be defined by $beforeItem.
 	 * If an element with the specified key already exists, it will be replace, except if $replace is false.
 	 *
-	 * @param	Array		$array			Base array to insert new item into
-	 * @param	String		$newKeyName		Key name of the new array item
+	 * @param	array		$array			Base array to insert new item into
+	 * @param	string		$newKeyName		Key name of the new array item
 	 * @param	Mixed		$newItem
-	 * @param	String		$mode			'after' / 'before'
-	 * @param	String		$refKeyName		Key name of field the mode refers to
-	 * @param	Boolean		$replace		Replace an existing element
+	 * @param	string		$mode			'after' / 'before'
+	 * @param	string		$refKeyName		Key name of field the mode refers to
+	 * @param	boolean		$replace		Replace an existing element
 	 * @return	Array		Array with new item inside
 	 */
 	public static function insertElement(array $array, $newKeyName, $newItem, $mode = 'after', $refKeyName = null, $replace = true) {
@@ -495,7 +495,7 @@ class TodoyuArray {
 	 * Basic types are ignored
 	 *
 	 * @param	Mixed		$element
-	 * @param	Boolean		$recursive
+	 * @param	boolean		$recursive
 	 * @return	Array
 	 */
 	public static function toArray($element, $recursive = true) {
@@ -524,8 +524,8 @@ class TodoyuArray {
 	/**
 	 * Remove data if key matches with one in $keysToRemove
 	 *
-	 * @param	Array		$array					The array with the data
-	 * @param	Array		$keysToRemove			Array which contains the key to remove. Ex: [userFunc,config,useless]
+	 * @param	array		$array					The array with the data
+	 * @param	array		$keysToRemove			Array which contains the key to remove. Ex: [userFunc,config,useless]
 	 * @return	Array		Array which doesn't contain the specified keys
 	 */
 	public static function removeKeys($array, array $keysToRemove) {
@@ -541,9 +541,9 @@ class TodoyuArray {
 	/**
 	 * Implode array and wrap all entries into single/double quotes
 	 *
-	 * @param	Array		$array				Items
-	 * @param	String		$delimiter			Implode delimiter
-	 * @param	Boolean		$useDoubleQuotes	Use double quotes (") instead of single quotes (')
+	 * @param	array		$array				Items
+	 * @param	string		$delimiter			Implode delimiter
+	 * @param	boolean		$useDoubleQuotes	Use double quotes (") instead of single quotes (')
 	 * @return	Array
 	 */
 	public static function implodeQuoted(array $array, $delimiter = ',', $useDoubleQuotes = false) {
@@ -564,10 +564,10 @@ class TodoyuArray {
 	 * implodeAssoc($data, ':', ';')
 	 * => top:200;left:300
 	 *
-	 * @param	Array	$array
-	 * @param	String	$keyValueSeparator
-	 * @param	String	$itemSeparator
-	 * @return	String
+	 * @param	array	$array
+	 * @param	string	$keyValueSeparator
+	 * @param	string	$itemSeparator
+	 * @return	string
 	 */
 	public static function implodeAssoc(array $array, $keyValueSeparator, $itemSeparator) {
 		$inner	= array();
@@ -586,10 +586,10 @@ class TodoyuArray {
 	 * Only strings and numbers are wrapped, everything else will not be touched.
 	 * If $wrapAfter is false, $wrapBefore is used
 	 *
-	 * @param	Array				$array
-	 * @param	String				$wrapBefore
-	 * @param	String|Boolean		$wrapAfter
-	 * @param	String|Boolean		$callback		Optional callback function which is applied to all processed items before wrapped. Ex: addslashes
+	 * @param	array				$array
+	 * @param	string				$wrapBefore
+	 * @param	string|Boolean		$wrapAfter
+	 * @param	string|Boolean		$callback		Optional callback function which is applied to all processed items before wrapped. Ex: addslashes
 	 * @return	Array
 	 */
 	public static function wrapItems(array $array, $wrapBefore, $wrapAfter = false, $callback = false) {
@@ -619,7 +619,7 @@ class TodoyuArray {
 	 * Make sure the variable is an array if it's not, there are two options: get an empty array or make the input the first element of the array
 	 *
 	 * @param	Mixed		$input
-	 * @param	Boolean		$convert		Convert to array element or get an empty array
+	 * @param	boolean		$convert		Convert to array element or get an empty array
 	 * @return	Array
 	 */
 	public static function assure($input, $convert = false) {
@@ -631,7 +631,7 @@ class TodoyuArray {
 	/**
 	 * Get array from JSON string
 	 *
-	 * @param	String		$jsonInput
+	 * @param	string		$jsonInput
 	 * @return	Array
 	 */
 	public static function assureFromJSON($jsonInput) {
@@ -643,7 +643,7 @@ class TodoyuArray {
 	/**
 	 * Get array from serialized string
 	 *
-	 * @param	String		$serializedInput
+	 * @param	string		$serializedInput
 	 * @return	Array
 	 */
 	public static function assureFromSerialized($serializedInput) {
@@ -655,7 +655,7 @@ class TodoyuArray {
 	/**
 	 * Merge all sub arrays of the array to a single array
 	 *
-	 * @param	Array		$array
+	 * @param	array		$array
 	 * @return	Array
 	 */
 	public static function mergeSubArrays(array $array) {
@@ -688,8 +688,8 @@ class TodoyuArray {
 	/**
 	 * Merge data from $fallbackData into $baseData if not set or empty
 	 *
-	 * @param	Array		$baseData
-	 * @param	Array		$fallbackData
+	 * @param	array		$baseData
+	 * @param	array		$fallbackData
 	 * @return	Array
 	 */
 	public static function mergeEmptyFields(array $baseData, array $fallbackData) {
@@ -713,8 +713,8 @@ class TodoyuArray {
 	 * unique
 	 *
 	 * @see		http://www.php.net/manual/en/function.array-merge-recursive.php
-	 * @param	Array	$a1
-	 * @param	Array	$a2
+	 * @param	array	$a1
+	 * @param	array	$a2
 	 * @return	Array
 	 */
 	public static function mergeRecursive(array $a1, array $a2 /* $a3, $a4, ...*/) {
@@ -765,7 +765,7 @@ class TodoyuArray {
 	/**
 	 * Flatten array: flattens multi-dim arrays (destroys keys)
 	 *
-	 * @param	Array	$array
+	 * @param	array	$array
 	 * @return	Array
 	 */
 	public static function flatten(array $array){
@@ -787,9 +787,9 @@ class TodoyuArray {
 	/**
 	 * Remove array entries by their value
 	 *
-	 * @param	Array		$array
-	 * @param	Array		$valuesToRemove
-	 * @param	Boolean		$reIndex
+	 * @param	array		$array
+	 * @param	array		$valuesToRemove
+	 * @param	boolean		$reIndex
 	 * @return	Array
 	 */
 	public static function removeByValue(array $array, array $valuesToRemove, $reIndex = true) {
@@ -807,8 +807,8 @@ class TodoyuArray {
 	/**
 	 * Remove duplicate entries in given field of array
 	 *
-	 * @param	Array	$array
-	 * @param	String	$fieldName
+	 * @param	array	$array
+	 * @param	string	$fieldName
 	 * @return	Array
 	 */
 	public static function removeDuplicates(array $array, $fieldName) {
@@ -835,9 +835,9 @@ class TodoyuArray {
 	 * Explode string
 	 * Wrapper for explode to get an empty array for empty strings
 	 *
-	 * @param	String				$delimiter
-	 * @param	String				$string
-	 * @param	Integer|Boolean		$limit
+	 * @param	string				$delimiter
+	 * @param	string				$string
+	 * @param	integer|Boolean		$limit
 	 * @return	Array
 	 */
 	public static function explode($delimiter, $string, $limit = false) {
@@ -859,12 +859,12 @@ class TodoyuArray {
 	/**
 	 * Explode a list of integers
 	 *
-	 * @param	String				$delimiter			Character to split the list
-	 * @param	String				$string				The list
-	 * @param	Boolean				$onlyPositive		Set negative values zero
-	 * @param	Boolean				$removeZeros		Remove all zero values
-	 * @param	Integer|Boolean		$limit				Explode to maximum $limit parts (as in explode())
-	 * @return	Integer[]
+	 * @param	string				$delimiter			Character to split the list
+	 * @param	string				$string				The list
+	 * @param	boolean				$onlyPositive		Set negative values zero
+	 * @param	boolean				$removeZeros		Remove all zero values
+	 * @param	integer|Boolean		$limit				Explode to maximum $limit parts (as in explode())
+	 * @return	integer[]
 	 */
 	public static function intExplode($delimiter, $string, $onlyPositive = false, $removeZeros = false, $limit = false) {
 		return self::intval(self::explode($delimiter, $string, $limit), $onlyPositive, $removeZeros);
@@ -875,10 +875,10 @@ class TodoyuArray {
 	/**
 	 * Explode a list and remove whitespace around the values
 	 *
-	 * @param	String				$delimiter				Character to split the list
-	 * @param	String				$string					The list
-	 * @param	Boolean				$removeEmptyValues		Remove values which are empty after trim()
-	 * @param	Integer|Boolean		$limit					Explode to maximum $limit parts (as in explode())
+	 * @param	string				$delimiter				Character to split the list
+	 * @param	string				$string					The list
+	 * @param	boolean				$removeEmptyValues		Remove values which are empty after trim()
+	 * @param	integer|Boolean		$limit					Explode to maximum $limit parts (as in explode())
 	 * @return	Array
 	 */
 	public static function trimExplode($delimiter, $string, $removeEmptyValues = false, $limit = false) {
@@ -904,9 +904,9 @@ class TodoyuArray {
 	 * Implode array
 	 * Save fallback if not an array
 	 *
-	 * @param	String		$glue
+	 * @param	string		$glue
 	 * @param	Mixed		$array
-	 * @return	String
+	 * @return	string
 	 */
 	public static function implode($glue, $array) {
 		return is_array($array) ? implode($glue, $array) : trim($array);
@@ -918,9 +918,9 @@ class TodoyuArray {
 	 * Implode trimmed values
 	 * Combination of foreach, trim and implode
 	 *
-	 * @param	String		$glue
-	 * @param	Array		$array
-	 * @return	String
+	 * @param	string		$glue
+	 * @param	array		$array
+	 * @return	string
 	 */
 	public static function trimImplode($glue, array $array) {
 		$array = self::trim($array);
@@ -933,8 +933,8 @@ class TodoyuArray {
 	/**
 	 * Trim all elements of an array. The elements have to be strings
 	 *
-	 * @param	Array		$array
-	 * @param	Boolean		$removeEmpty		Remove empty elements
+	 * @param	array		$array
+	 * @param	boolean		$removeEmpty		Remove empty elements
 	 * @return	Array
 	 */
 	public static function trim(array $array, $removeEmpty = false) {
@@ -954,8 +954,8 @@ class TodoyuArray {
 	/**
 	 * Use a field value in an array as index of the array
 	 *
-	 * @param	Array		$array
-	 * @param	String		$fieldName
+	 * @param	array		$array
+	 * @param	string		$fieldName
 	 * @return	Array
 	 */
 	public static function useFieldAsIndex(array $array, $fieldName) {
@@ -974,7 +974,7 @@ class TodoyuArray {
 	/**
 	 * Apply htmlspecialchars() to all elements recursively
 	 *
-	 * @param	Array		$array
+	 * @param	array		$array
 	 * @return	Array
 	 */
 	public static function htmlspecialchars(array $array) {
@@ -998,8 +998,8 @@ class TodoyuArray {
 	 * Get items of the left array which are not in the right one
 	 * Difference to array_diff. Unique elements from the right array are ignored
 	 *
-	 * @param	Array	$left
-	 * @param	Array	$right
+	 * @param	array	$left
+	 * @param	array	$right
 	 * @return	Array
 	 */
 	public static function diffLeft(array $left, array $right) {
@@ -1023,7 +1023,7 @@ class TodoyuArray {
 	 * Create an array with the keys from the given array
 	 * Set value to value parameter
 	 *
-	 * @param	Array	$keys
+	 * @param	array	$keys
 	 * @param	Mixed	$value
 	 * @return	Array
 	 */
@@ -1042,9 +1042,9 @@ class TodoyuArray {
 	/**
 	 * Group an array by a field
 	 *
-	 * @param	Array	$elements
-	 * @param	String	$field
-	 * @param	String	$fallbackGroup
+	 * @param	array	$elements
+	 * @param	string	$field
+	 * @param	string	$fallbackGroup
 	 * @return	Array
 	 */
 	public static function groupByField(array $elements, $field, $fallbackGroup = 'noGroup') {
@@ -1065,10 +1065,10 @@ class TodoyuArray {
 	 * Use this, if you don't want to use the default "Please select" of the select element
 	 * The default has to be disabled with <noPleaseSelect />
 	 *
-	 * @param	Array			$options
-	 * @param	String			$pleaseSelectLabel
-	 * @param	String|Integer	$pleaseSelectValue
-	 * @param	Boolean			$addSeparator
+	 * @param	array			$options
+	 * @param	string			$pleaseSelectLabel
+	 * @param	string|Integer	$pleaseSelectValue
+	 * @param	boolean			$addSeparator
 	 * @return	Array
 	 */
 	public static function prependSelectOption(array $options, $pleaseSelectLabel = 'core.form.select.pleaseSelect', $pleaseSelectValue = 0, $addSeparator = true) {
@@ -1098,8 +1098,8 @@ class TodoyuArray {
 	 * Check if item has a field which contains a right to check.
 	 * No right = allow without check
 	 *
-	 * @param	Array		$items
-	 * @param	String		$rightsField		Custom right field
+	 * @param	array		$items
+	 * @param	string		$rightsField		Custom right field
 	 * @return	Array
 	 */
 	public static function getAllowedItems(array $items, $rightsField = 'require') {
@@ -1124,9 +1124,9 @@ class TodoyuArray {
 	/**
 	 * Calculate average (optional of a sub element)
 	 *
-	 * @param	Array				$data
-	 * @param	String|Null			$subKey
-	 * @param	Boolean|Integer		$round
+	 * @param	array				$data
+	 * @param	string|Null			$subKey
+	 * @param	boolean|Integer		$round
 	 * @return	Float|Integer
 	 */
 	public static function average(array $data, $subKey = null, $round = false) {

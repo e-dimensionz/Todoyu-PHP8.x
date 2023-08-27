@@ -30,7 +30,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Initialize event
 	 *
-	 * @param	Integer		$idEvent
+	 * @param	integer		$idEvent
 	 */
 	public function __construct($idEvent) {
 		parent::__construct($idEvent, 'ext_calendar_event');
@@ -41,7 +41,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get start date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateStart() {
 		return $this->getInt('date_start');
@@ -52,7 +52,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get start time (at start day)
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getStartTime() {
 		return TodoyuTime::getTimeOfDay($this->get('date_start'));
@@ -63,7 +63,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get end date of event
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateEnd() {
 		return $this->getInt('date_end');
@@ -74,7 +74,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get duration of event in seconds
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDuration() {
 		return $this->getDateEnd() - $this->getDateStart();
@@ -85,8 +85,8 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get amount of hours of event duration
 	 *
-	 * @param	Integer		$precision
-	 * @return	Integer
+	 * @param	integer		$precision
+	 * @return	integer
 	 */
 	public function getDurationHours($precision = 1) {
 		return round($this->getDuration() / TodoyuTime::SECONDS_HOUR, $precision);
@@ -97,8 +97,8 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get amount of minutes of event duration
 	 *
-	 * @param	Integer		$precision
-	 * @return	Integer
+	 * @param	integer		$precision
+	 * @return	integer
 	 */
 	public function getDurationMinutes($precision = 0) {
 		return round(($this->getDateEnd() - $this->getDateStart()) / TodoyuTime::SECONDS_MIN, $precision);
@@ -109,8 +109,8 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get duration as string
 	 *
-	 * @param	Boolean	$withDuration
-	 * @return	String
+	 * @param	boolean	$withDuration
+	 * @return	string
 	 */
 	public function getRangeLabel($withDuration = false) {
 		$rangeLabel	= TodoyuTime::formatRange($this->getDateStart(), $this->getDateEnd());
@@ -127,7 +127,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get event range
 	 *
-	 * @param	Integer		$minLength
+	 * @param	integer		$minLength
 	 * @return	TodoyuDateRange
 	 */
 	public function getRange($minLength = 0) {
@@ -139,7 +139,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get place of event
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getPlace() {
 		return $this->get('place');
@@ -150,7 +150,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle() {
 		return $this->get('title');
@@ -161,7 +161,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get description
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDescription() {
 		return $this->get('description');
@@ -172,8 +172,8 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get full label of event
 	 *
-	 * @param	Boolean		$withType
-	 * @return	String
+	 * @param	boolean		$withType
+	 * @return	string
 	 */
 	public function getFullLabelHTML($withType = true) {
 		$tmpl = 'ext/calendar/view/event-header.tmpl';
@@ -192,7 +192,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get event type (ID)
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getTypeIndex() {
 		return $this->getInt('eventtype');
@@ -203,7 +203,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get type key
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTypeKey() {
 		return TodoyuCalendarEventTypeManager::getTypeKey($this->getTypeIndex());
@@ -215,7 +215,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	 * Get string to identify type
 	 *
 	 * @see		getTypeKey
-	 * @return	String
+	 * @return	string
 	 */
 	public function getType() {
 		return $this->getTypeKey();
@@ -226,7 +226,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get type label
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTypeLabel() {
 		return TodoyuCalendarEventTypeManager::getEventTypeLabel($this->getTypeIndex(), true);
@@ -237,7 +237,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get the IDs if assigned persons of event
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public function getAssignedPersonIDs() {
 		$assignedPersons	= TodoyuCalendarEventStaticManager::getAssignedPersonsOfEvent($this->getID(), false);
@@ -263,7 +263,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get data of the assigned persons
 	 *
-	 * @param	Boolean		$getRemindersData
+	 * @param	boolean		$getRemindersData
 	 * @return	Array
 	 */
 	public function getAssignedPersonsData($getRemindersData = false) {
@@ -275,7 +275,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get assignment for person
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	TodoyuCalendarEventAssignment
 	 */
 	public function getAssignment($idPerson) {
@@ -307,7 +307,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get reminder for person
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	TodoyuCalendarReminder
 	 */
 	public function getReminder($idPerson = 0) {
@@ -321,7 +321,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get popup reminder
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	TodoyuCalendarReminderPopup
 	 */
 	public function getReminderPopup($idPerson = 0) {
@@ -333,7 +333,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 
 
 	/**
-	 * @param	Integer							$idPerson
+	 * @param	integer							$idPerson
 	 * @return	TodoyuCalendarReminderEmail
 	 */
 	public function getReminderEmail($idPerson = 0) {
@@ -347,8 +347,8 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get reminder time for email
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	public function getReminderTimeEmail($idPerson = 0) {
 		return $this->getReminderTime('email', $idPerson);
@@ -359,8 +359,8 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get reminder time for popup
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	public function getReminderTimePopup($idPerson = 0) {
 		return $this->getReminderTime('popup', $idPerson);
@@ -371,9 +371,9 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get reminder time for type
 	 *
-	 * @param	String		$type
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	string		$type
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	private function getReminderTime($type, $idPerson = 0) {
 		$idPerson		= Todoyu::personid($idPerson);
@@ -392,8 +392,8 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get reminder advance time for email (in seconds)
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	public function getReminderAdvanceTimeEmail($idPerson = 0) {
 		return $this->getReminderAdvanceTime('email', $idPerson);
@@ -404,8 +404,8 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get reminder advance time for popup (in seconds)
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	public function getReminderAdvanceTimePopup($idPerson = 0) {
 		return $this->getReminderAdvanceTime('popup', $idPerson);
@@ -416,9 +416,9 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get reminder advance time for type
 	 *
-	 * @param	String		$type
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	string		$type
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	private function getReminderAdvanceTime($type, $idPerson = 0) {
 		$idPerson	= Todoyu::personid($idPerson);
@@ -436,8 +436,8 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Check whether a person is assigned
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public function isPersonAssigned($idPerson = 0) {
 		$idPerson	= Todoyu::personid($idPerson);
@@ -451,7 +451,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Check whether event start and end is on different days
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isMultiDay() {
 		return !$this->isSingleDay();
@@ -462,7 +462,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Check whether event start and end is on the same day
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isSingleDay() {
 		return date('Ymd', $this->getDateStart()) === date('Ymd', $this->getDateEnd());
@@ -473,7 +473,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Check whether event is a full-day event
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isDayevent() {
 		return intval($this->data['is_dayevent']) === 1;
@@ -484,7 +484,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Check whether current person is assigned
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isCurrentPersonAssigned() {
 		return $this->isPersonAssigned(Todoyu::personid());
@@ -495,7 +495,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Check whether event is private
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isPrivate() {
 		return intval($this->data['is_private']) === 1;
@@ -517,7 +517,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Load event foreign data
 	 *
-	 * @param	Boolean	$getRemindersData
+	 * @param	boolean	$getRemindersData
 	 */
 	protected function loadForeignData($getRemindersData = false) {
 			// Add assigned persons of event
@@ -535,9 +535,9 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get template data
 	 *
-	 * @param	Boolean		$loadForeignData
-	 * @param	Boolean		$loadCreatorPersonData
-	 * @param	Boolean		$loadRemindersData
+	 * @param	boolean		$loadForeignData
+	 * @param	boolean		$loadCreatorPersonData
+	 * @param	boolean		$loadRemindersData
 	 * @return	Array
 	 */
 	public function getTemplateData($loadForeignData = false, $loadCreatorPersonData = false, $loadRemindersData = false) {
@@ -613,9 +613,9 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Build reminder label
 	 *
-	 * @param	Integer		$duration		Advanced time before event
-	 * @param	Integer		$dateRemind		Date of the reminder
-	 * @return	String
+	 * @param	integer		$duration		Advanced time before event
+	 * @param	integer		$dateRemind		Date of the reminder
+	 * @return	string
 	 */
 	protected function getReminderLabel($duration, $dateRemind) {
 		return TodoyuTime::formatDuration($duration) . ' ' . Todoyu::Label('calendar.reminder.beforeDateStart') . ' - ' . TodoyuTime::format($dateRemind, 'datetime');
@@ -626,7 +626,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Check whether other persons than the current are assigned to the event
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function areOtherPersonsAssigned() {
 		$assignedPersonIDs	= $this->getAssignedPersonIDs();
@@ -640,7 +640,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Check whether any of the assigned person has an email address
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasAnyAssignedPersonAnEmailAddress() {
 		$personsData	= $this->getAssignedPersonsData(false);
@@ -660,7 +660,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	 * Check whether event is overlapping with another
 	 *
 	 * @param	TodoyuCalendarEvent		$event
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isOverlapping(TodoyuCalendarEvent $event) {
 		return $this->getRange()->isOverlapping($event->getRange());
@@ -671,7 +671,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Check whether current user can edit the event
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function canEdit() {
 		return TodoyuCalendarEventRights::isEditAllowed($this->getID());
@@ -682,7 +682,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Check whether current user has access to the event
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasAccess() {
 		return !$this->isPrivate() || $this->isCurrentPersonAssigned();
@@ -693,7 +693,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get source
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getSource() {
 		return 'static';
@@ -704,8 +704,8 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Check whether event is acknowledged for person
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public function isAcknowledged($idPerson = 0) {
 		$idPerson	= Todoyu::personid($idPerson);
@@ -718,8 +718,8 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Check whether event is update for person
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public function isUpdated($idPerson = 0) {
 		$idPerson	= Todoyu::personid($idPerson);
@@ -787,7 +787,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	 * Get formatted duration
 	 * Handle case when event overlaps multiple days, but does not use the full range (00:00-23:59)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDurationFormatted() {
 		if( $this->isSingleDay() || $this->getDuration() < TodoyuTime::SECONDS_HOUR*12 ) {
@@ -804,7 +804,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Build pre-formatted person(s) info for event quickinfo tooltip
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getQuickinfoPersonInfo() {
 		$persons	= $this->getAssignedPersonsData();
@@ -836,7 +836,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Build pre formatted type info for event quickinfo tooltip
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getQuickinfoTypeInfo() {
 		$typeInfo	= $this->getTypeLabel();
@@ -853,7 +853,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Check whether event is based on a series
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasSeries() {
 		return $this->getSeriesID() !== 0;
@@ -864,7 +864,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get ID of the series
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getSeriesID() {
 		return $this->getInt('id_series');
@@ -886,7 +886,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Get class names
 	 *
-	 * @return	String[]
+	 * @return	string[]
 	 */
 	public function getClassNames() {
 		$classNames	= array();
@@ -903,7 +903,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Is the event in the future
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isInFuture() {
 		return $this->getDateStart() > NOW;
@@ -914,7 +914,7 @@ class TodoyuCalendarEventStatic extends TodoyuBaseObject implements TodoyuCalend
 	/**
 	 * Is the event in the past
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isInPast() {
 		return $this->getDateEnd() < NOW;

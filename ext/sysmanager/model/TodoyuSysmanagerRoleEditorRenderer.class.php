@@ -29,8 +29,8 @@ class TodoyuSysmanagerRoleEditorRenderer {
 	/**
 	 * Render action buttons for role listing
 	 *
-	 * @param	Integer		$idRole
-	 * @return	String
+	 * @param	integer		$idRole
+	 * @return	string
 	 */
 	public static function renderRoleActions($idRole) {
 		$tmpl	= 'ext/sysmanager/view/role-actions.tmpl';
@@ -46,8 +46,8 @@ class TodoyuSysmanagerRoleEditorRenderer {
 	/**
 	 * Render role quick creation form
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderRoleQuickCreateForm(array $params) {
 		$form	= TodoyuSysmanagerRoleEditorManager::getQuickCreateForm();
@@ -66,8 +66,8 @@ class TodoyuSysmanagerRoleEditorRenderer {
 	/**
 	 * Render edit form for role
 	 *
-	 * @param	Integer		$idRole
-	 * @return	String
+	 * @param	integer		$idRole
+	 * @return	string
 	 */
 	public static function renderEdit($idRole) {
 		$idRole		= intval($idRole);

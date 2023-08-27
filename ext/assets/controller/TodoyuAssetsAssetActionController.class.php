@@ -29,7 +29,7 @@ class TodoyuAssetsAssetActionController extends TodoyuActionController {
 	/**
 	 * Initialize controller: restrict access
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('assets', 'general:use');
@@ -42,7 +42,7 @@ class TodoyuAssetsAssetActionController extends TodoyuActionController {
 	 * Send file headers and binary data to the browser
 	 * This action can't be called via AJAX
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function downloadAction(array $params) {
 		$idAsset	= intval($params['asset']);
@@ -69,8 +69,8 @@ class TodoyuAssetsAssetActionController extends TodoyuActionController {
 	/**
 	 * Check download status - can the file be downloaded?
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function downloadStatusAction(array $params) {
 		$idAsset	= intval($params['asset']);
@@ -104,7 +104,7 @@ class TodoyuAssetsAssetActionController extends TodoyuActionController {
 	/**
 	 * Delete an asset
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function deleteAction(array $params) {
 		$idAsset	= intval($params['asset']);
@@ -134,7 +134,7 @@ class TodoyuAssetsAssetActionController extends TodoyuActionController {
 	/**
 	 * Toggle asset public visibilty
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function togglevisibilityAction(array $params) {
 		Todoyu::restrictInternal();

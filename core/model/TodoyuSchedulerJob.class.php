@@ -45,8 +45,8 @@ abstract class TodoyuSchedulerJob {
 	/**
 	 * Initialize
 	 *
-	 * @param	Array	$options
-	 * @param	Integer	$frequency
+	 * @param	array	$options
+	 * @param	integer	$frequency
 	 */
 	public function __construct(array $options = array(), $frequency) {
 		$this->options	= $options;
@@ -58,7 +58,7 @@ abstract class TodoyuSchedulerJob {
 	/**
 	 * Get next date of planned execution
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	protected function getNextExecutionTime() {
 		return NOW + $this->frequency * 60;
@@ -71,7 +71,7 @@ abstract class TodoyuSchedulerJob {
 	 *
 	 * @abstract
 	 * @throws	Exception
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	abstract public function execute();
 

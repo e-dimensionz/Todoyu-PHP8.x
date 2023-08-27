@@ -299,7 +299,7 @@ Todoyu.Ext.loginpage = {
 	 * Get MD5 hash of entered password
 	 *
 	 * @method	getHashedPassword
-	 * @return	String
+	 * @return	string
 	 */
 	getHashedPassword: function() {
 		return hex_md5($F(this.fieldPassword));

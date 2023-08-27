@@ -29,9 +29,9 @@ class TodoyuContactPersonFilterDataSource {
 	/**
 	 * Get auto-complete suggestions list for person
 	 *
-	 * @param	String		$searchWord
-	 * @param	Array		$formData
-	 * @param	String		$name
+	 * @param	string		$searchWord
+	 * @param	array		$formData
+	 * @param	string		$name
 	 * @return	Array
 	 */
 	public static function autocompletePersons($searchWord, array $formData = array(), $name = '') {
@@ -51,7 +51,7 @@ class TodoyuContactPersonFilterDataSource {
 	/**
 	 * Get person filter definition label
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getLabel($definitions) {
@@ -65,7 +65,7 @@ class TodoyuContactPersonFilterDataSource {
 	/**
 	 * Prepare options of salutations for rendering in widget.
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getSystemRoleOptions(array $definitions) {
@@ -91,7 +91,7 @@ class TodoyuContactPersonFilterDataSource {
 	/**
 	 * Prepare options of salutations for rendering in widget.
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getJobTypeOptions(array $definitions) {
@@ -116,7 +116,7 @@ class TodoyuContactPersonFilterDataSource {
 	/**
 	 * Prepare options of salutations for rendering in widget.
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getSalutationOptions(array $definitions) {
@@ -145,7 +145,7 @@ class TodoyuContactPersonFilterDataSource {
 	/**
 	 * Get person label
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getPersonLabel($definitions) {
@@ -162,7 +162,7 @@ class TodoyuContactPersonFilterDataSource {
 	/**
 	 * Get options config of countries related to any person address
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getCountryOptions(array $definitions) {

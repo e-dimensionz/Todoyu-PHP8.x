@@ -29,7 +29,7 @@ class TodoyuContactRights {
 	/**
 	 * Deny access because if given right is not given
 	 *
-	 * @param	String	$right
+	 * @param	string	$right
 	 */
 	private static function deny($right) {
 		Todoyu::deny('contact', $right);
@@ -40,7 +40,7 @@ class TodoyuContactRights {
 	/**
 	 * Restricts adding of contact record
 	 *
-	 * @param	String		$record
+	 * @param	string		$record
 	 */
 	public static function restrictRecordAdd($record) {
 		$record	= trim($record);
@@ -58,8 +58,8 @@ class TodoyuContactRights {
 	/**
 	 * Restricts editing of contact record
 	 *
-	 * @param	String		$record
-	 * @param	Integer		$idRecord
+	 * @param	string		$record
+	 * @param	integer		$idRecord
 	 */
 	public static function restrictRecordEdit($record, $idRecord) {
 		$idRecord	= intval($idRecord);
@@ -81,9 +81,9 @@ class TodoyuContactRights {
 	/**
 	 * Check whether seeing of contact info type of given person is allowed for current person
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Integer		$idContactinfoType
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @param	integer		$idContactinfoType
+	 * @return	boolean
 	 */
 	public static function isContactinfotypeOfPersonSeeAllowed($idPerson, $idContactinfoType) {
 		$idPerson			= intval($idPerson);
@@ -101,9 +101,9 @@ class TodoyuContactRights {
 	/**
 	 * Check whether seeing of contact info type of given company is allowed for current person
 	 *
-	 * @param	Integer		$idCompany
-	 * @param	Integer		$idContactinfoType
-	 * @return	Boolean
+	 * @param	integer		$idCompany
+	 * @param	integer		$idContactinfoType
+	 * @return	boolean
 	 */
 	public static function isContactinfotypeOfCompanySeeAllowed($idCompany, $idContactinfoType) {
 		$idCompany			= intval($idCompany);
@@ -123,8 +123,8 @@ class TodoyuContactRights {
 	/**
 	 * Check whether seeing of given contact info type is allowed for current person
 	 *
-	 * @param	Integer		$idContactInfoType
-	 * @return	Boolean
+	 * @param	integer		$idContactInfoType
+	 * @return	boolean
 	 */
 	public static function isContactinfotypeSeeAllowed($idContactInfoType) {
 		$idContactInfoType	= intval($idContactInfoType);
@@ -141,9 +141,9 @@ class TodoyuContactRights {
 	/**
 	 * Checks whether seeing of address type of given person is allowed for current person
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Integer		$idAddressType
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @param	integer		$idAddressType
+	 * @return	boolean
 	 */
 	public static function isAddresstypeOfPersonSeeAllowed($idPerson, $idAddressType) {
 		$idPerson			= intval($idPerson);
@@ -161,9 +161,9 @@ class TodoyuContactRights {
 	/**
 	 * Checks whether seeing of address type of given company is allowed for current person
 	 *
-	 * @param	Integer		$idCompany
-	 * @param	Integer		$idAddressType
-	 * @return	Boolean
+	 * @param	integer		$idCompany
+	 * @param	integer		$idAddressType
+	 * @return	boolean
 	 */
 	public static function isAddresstypeOfCompanySeeAllowed($idCompany, $idAddressType) {
 		$idCompany		= intval($idCompany);
@@ -184,8 +184,8 @@ class TodoyuContactRights {
 	/**
 	 * Check whether seeing of address type is allowed for current person
 	 *
-	 * @param	Integer		$idAddressType
-	 * @return	Boolean
+	 * @param	integer		$idAddressType
+	 * @return	boolean
 	 */
 	public static function isAddresstypeSeeAllowed($idAddressType) {
 		$idAddressType	= intval($idAddressType);

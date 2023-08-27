@@ -36,7 +36,7 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Get bookmark
 	 *
-	 * @param	Integer				$idBookmark
+	 * @param	integer				$idBookmark
 	 * @return	TodoyuBookmarkBookmark
 	 */
 	public static function getBookmark($idBookmark) {
@@ -50,9 +50,9 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Get bookmark of given item ID, type, creator person
 	 *
-	 * @param	Integer				$idItem
-	 * @param	String|Integer		$typeKey
-	 * @param	Integer				$idPersonCreate
+	 * @param	integer				$idItem
+	 * @param	string|Integer		$typeKey
+	 * @param	integer				$idPersonCreate
 	 * @return	TodoyuBookmarkBookmark
 	 */
 	public static function getBookmarkByItemId($idItem, $typeKey, $idPersonCreate = 0) {
@@ -66,10 +66,10 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Get bookmark ID by type and item iD
 	 *
-	 * @param	Integer			$idItem
-	 * @param	String|Integer	$type
-	 * @param	Integer			$idPerson
-	 * @return	Integer
+	 * @param	integer			$idItem
+	 * @param	string|Integer	$type
+	 * @param	integer			$idPerson
+	 * @return	integer
 	 */
 	public static function getBookmarkIdByItem($idItem, $type, $idPerson = 0) {
 		$idItem		= intval($idItem);
@@ -93,8 +93,8 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Get type index of a type string
 	 *
-	 * @param	String		$typeKey
-	 * @return	Integer
+	 * @param	string		$typeKey
+	 * @return	integer
 	 */
 	public static function getTypeIndex($typeKey) {
 		$constant	= 'BOOKMARK_TYPE_' . strtoupper(trim($typeKey));
@@ -111,8 +111,8 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Get bookmark ID to given bookmark of given type and given person
 	 *
-	 * @param	Integer		$idBookmark
-	 * @return	Integer
+	 * @param	integer		$idBookmark
+	 * @return	integer
 	 */
 	public static function getItemID($idBookmark) {
 		$idBookmark	= intval($idBookmark);
@@ -126,9 +126,9 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Add an item to the bookmarks
 	 *
-	 * @param	Integer		$type
-	 * @param	Integer		$idItem
-	 * @return	Integer		Bookmark ID
+	 * @param	integer		$type
+	 * @param	integer		$idItem
+	 * @return	integer		Bookmark ID
 	 */
 	public static function addItemToBookmarks($type, $idItem) {
 		$type	= intval($type);
@@ -154,8 +154,8 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Set sorting index for new bookmark
 	 *
-	 * @param	Integer		$idBookmark
-	 * @param	Integer		$type
+	 * @param	integer		$idBookmark
+	 * @param	integer		$type
 	 */
 	private static function setBookmarkSorting($idBookmark, $type) {
 		$idBookmark	= intval($idBookmark);
@@ -183,9 +183,9 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Remove an item from the bookmarks
 	 *
-	 * @param	Integer		$type
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idPerson
+	 * @param	integer		$type
+	 * @param	integer		$idItem
+	 * @param	integer		$idPerson
 	 */
 	public static function removeItemFromBookmarks($type, $idItem, $idPerson = 0) {
 		$type		= intval($type);
@@ -202,7 +202,7 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Remove bookmarked item (of any type, by ID)
 	 *
-	 * @param	Integer		$idBookmark
+	 * @param	integer		$idBookmark
 	 */
 	public static function removeBookmark($idBookmark) {
 		$update	= array(
@@ -219,8 +219,8 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Add task to bookmarks
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Integer
+	 * @param	integer		$idTask
+	 * @return	integer
 	 */
 	public static function addTaskToBookmarks($idTask) {
 		$idTask	= intval($idTask);
@@ -233,7 +233,7 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Remove task from bookmarks
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 */
 	public static function removeTaskFromBookmarks($idTask) {
 		$idTask	= intval($idTask);
@@ -246,9 +246,9 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Check whether an item of a type is bookmarked
 	 *
-	 * @param	String		$typeKey
-	 * @param	Integer		$idItem
-	 * @return	Boolean
+	 * @param	string		$typeKey
+	 * @param	integer		$idItem
+	 * @return	boolean
 	 */
 	public static function isItemBookmarked($typeKey, $idItem) {
 		$type		= self::getTypeIndex($typeKey);
@@ -269,8 +269,8 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Check whether task is bookmarked
 	 *
-	 * @param	Integer	$idTask
-	 * @return	Boolean
+	 * @param	integer	$idTask
+	 * @return	boolean
 	 */
 	public static function isTaskBookmarked($idTask) {
 		$idTask	= intval($idTask);
@@ -283,8 +283,8 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Get the contextmenu part of the bookmarks, depending on the task already exists as a bookmark
 	 *
-	 * @param	Integer	$idTask
-	 * @param	Array	$items
+	 * @param	integer	$idTask
+	 * @param	array	$items
 	 * @return	Array
 	 */
 	public static function getTaskContextMenuItems($idTask, array $items) {
@@ -318,7 +318,7 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Gets Bookmarks of current person
 	 *
-	 * @param	Integer		$type
+	 * @param	integer		$type
 	 * @return	Array
 	 */
 	public static function getPersonBookmarks($type) {
@@ -360,7 +360,7 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Updates bookmarks order (in panelwidget) of current person in database
 	 *
-	 * @param	Array	$items
+	 * @param	array	$items
 	 */
 	public static function saveOrder(array $items) {
 		foreach($items as $sorting => $idItem) {
@@ -376,8 +376,8 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Save bookmark data as record
 	 *
-	 * @param	Array		$data
-	 * @return	Integer		Bookmark ID
+	 * @param	array		$data
+	 * @return	integer		Bookmark ID
 	 */
 	public static function saveBookmark(array $data) {
 		$idBookmark	= intval($data['id']);
@@ -396,8 +396,8 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Update a bookmark record
 	 *
-	 * @param	Integer		$idBookmark
-	 * @param	Array		$data
+	 * @param	integer		$idBookmark
+	 * @param	array		$data
 	 */
 	public static function updateBookmark($idBookmark, array $data) {
 		$idBookmark	= intval($idBookmark);
@@ -412,8 +412,8 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Update bookmark label
 	 *
-	 * @param	Integer		$idBookmark
-	 * @param	String		$label
+	 * @param	integer		$idBookmark
+	 * @param	string		$label
 	 */
 	public static function updateBookmarkTitle($idBookmark, $label) {
 		self::updateBookmark($idBookmark, array(
@@ -428,8 +428,8 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Update task bookmark label
 	 *
-	 * @param	Integer		$idTask
-	 * @param	String		$label
+	 * @param	integer		$idTask
+	 * @param	string		$label
 	 */
 	public static function updateTaskBookmarkTitle($idTask, $label) {
 		self::updateItemBookmarkTitle('task', $idTask, $label);
@@ -440,9 +440,9 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Update title of bookmark item
 	 *
-	 * @param	String		$type
-	 * @param	Integer		$idItem
-	 * @param	String		$label
+	 * @param	string		$type
+	 * @param	integer		$idItem
+	 * @param	string		$label
 	 */
 	public static function updateItemBookmarkTitle($type, $idItem, $label) {
 		$typeIndex	= self::getTypeIndex($type);
@@ -456,7 +456,7 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Remove bookmark object from cache
 	 *
-	 * @param	Integer		$idBookmark
+	 * @param	integer		$idBookmark
 	 */
 	public static function removeFromCache($idBookmark) {
 		$idBookmark	= intval($idBookmark);
@@ -470,9 +470,9 @@ class TodoyuBookmarkBookmarkManager {
 	/**
 	 * Callback to render the content for the bookmark panelwidget
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$info		Don't care
-	 * @return	String		Content of the panelwidget
+	 * @param	integer		$idTask
+	 * @param	boolean		$info		Don't care
+	 * @return	string		Content of the panelwidget
 	 */
 	public static function callbackTrackingToggle($idTask, $info) {
 		/** @var	TodoyuBookmarkPanelWidgetTaskBookmarks $panelWidget */

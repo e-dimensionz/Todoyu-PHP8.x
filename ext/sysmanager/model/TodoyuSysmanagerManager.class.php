@@ -29,10 +29,10 @@ class TodoyuSysmanagerManager {
 	/**
 	 * Add a module to the sysmanager panel
 	 *
-	 * @param	String		$module				Module key
-	 * @param	String		$label				Module label
-	 * @param	String		$renderFunction		Function ref to the content render function
-	 * @param	Integer		$position			Position in menu
+	 * @param	string		$module				Module key
+	 * @param	string		$label				Module label
+	 * @param	string		$renderFunction		Function ref to the content render function
+	 * @param	integer		$position			Position in menu
 	 */
 	public static function addModule($module, $label, $renderFunction, $position = 100) {
 		$position	= intval($position);
@@ -52,7 +52,7 @@ class TodoyuSysmanagerManager {
 	/**
 	 * Get name of currently active sysmanager module
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getActiveModule() {
 		$module	= TodoyuSysmanagerPreferences::getActiveModule();
@@ -91,8 +91,8 @@ class TodoyuSysmanagerManager {
 	/**
 	 * Get the render function of a module
 	 *
-	 * @param	String		$module		Module key
-	 * @return	String					'class::method'
+	 * @param	string		$module		Module key
+	 * @return	string					'class::method'
 	 */
 	public static function getModuleRenderFunction($module) {
 		TodoyuExtensions::loadAllSysmanager();
@@ -105,8 +105,8 @@ class TodoyuSysmanagerManager {
 	/**
 	 * Check whether the key belongs to a registered module
 	 *
-	 * @param	String		$module
-	 * @return	Boolean
+	 * @param	string		$module
+	 * @return	boolean
 	 */
 	public static function isModule($module) {
 		TodoyuExtensions::loadAllSysmanager();

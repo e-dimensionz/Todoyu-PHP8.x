@@ -39,8 +39,8 @@ class TodoyuCalendarEventActionController extends TodoyuActionController {
 	/**
 	 * Edit an event. If event ID is 0, a empty form is rendered to create a new event
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function editAction(array $params) {
 		$idEvent	= intval($params['event']);
@@ -65,7 +65,7 @@ class TodoyuCalendarEventActionController extends TodoyuActionController {
 	/**
 	 * Save event action: validate data and save or return failure feedback
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 * @return	Void|String			Failure returns re-rendered form with error messages
 	 */
 	public function saveAction(array $params) {
@@ -124,7 +124,7 @@ class TodoyuCalendarEventActionController extends TodoyuActionController {
 	/**
 	 * Save changed starting date when event has been dragged to a new position
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 * @return	Void|String
 	 */
 	public function dragDropAction(array $params) {
@@ -155,7 +155,7 @@ class TodoyuCalendarEventActionController extends TodoyuActionController {
 	/**
 	 * Delete event
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function deleteAction(array $params) {
 		$idEvent= intval($params['event']);
@@ -173,8 +173,8 @@ class TodoyuCalendarEventActionController extends TodoyuActionController {
 	/**
 	 * Get given event's rendered detail view for list mode
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function detailAction(array $params) {
 		$idEvent= intval($params['event']);
@@ -189,7 +189,7 @@ class TodoyuCalendarEventActionController extends TodoyuActionController {
 	/**
 	 * Acknowledge an (not seen) event
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function acknowledgeAction(array $params) {
 		$idEvent	= intval($params['event']);
@@ -204,8 +204,8 @@ class TodoyuCalendarEventActionController extends TodoyuActionController {
 	/**
 	 * Show event details
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function showAction(array $params) {
 		$idEvent	= intval($params['event']);
@@ -225,8 +225,8 @@ class TodoyuCalendarEventActionController extends TodoyuActionController {
 	/**
 	 * Render event form for use as sub form of another form
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function addSubformAction(array $params) {
 		Todoyu::restrictIfNone('calendar', 'event:editAll,event:editAssigned');
@@ -249,8 +249,8 @@ class TodoyuCalendarEventActionController extends TodoyuActionController {
 	/**
 	 * Update event types options
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function updateeventtpyesAction(array $params) {
 		$isDayEvent = intval($params['isDayEvent']);
@@ -267,7 +267,7 @@ class TodoyuCalendarEventActionController extends TodoyuActionController {
 
 
 	/**
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function validateUserHolidayAction(array $params){
 		$personIDs = TodoyuArray::intval(json_decode($params['personIDs']));

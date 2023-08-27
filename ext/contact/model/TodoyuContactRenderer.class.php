@@ -38,11 +38,11 @@ class TodoyuContactRenderer {
 	/**
 	 * Renders the contact page. The content is given from controller
 	 *
-	 * @param	String	$type
-	 * @param	Integer	$idRecord
-	 * @param	String	$searchWord
-	 * @param	String	$content
-	 * @return	String
+	 * @param	string	$type
+	 * @param	integer	$idRecord
+	 * @param	string	$searchWord
+	 * @param	string	$content
+	 * @return	string
 	 */
 	public static function renderContactPage($type, $idRecord, $searchWord, $content = '') {
 			// Set active tab
@@ -67,9 +67,9 @@ class TodoyuContactRenderer {
 	/**
 	 * Render the tab menu
 	 *
-	 * @param	String		$activeTab			e.g 'person' / 'company'
-	 * @param	Boolean		$onlyActive
-	 * @return	String
+	 * @param	string		$activeTab			e.g 'person' / 'company'
+	 * @param	boolean		$onlyActive
+	 * @return	string
 	 */
 	public static function renderTabs($activeTab, $onlyActive = false) {
 		$tabs	= TodoyuTabManager::getAllowedTabs(Todoyu::$CONFIG['EXT']['contact']['tabs']);
@@ -95,9 +95,9 @@ class TodoyuContactRenderer {
 	/**
 	 * Render contacts list
 	 *
-	 * @param	String		$type
-	 * @param	String		$searchWord
-	 * @return	String
+	 * @param	string		$type
+	 * @param	string		$searchWord
+	 * @return	string
 	 */
 	public static function renderContactList($type, $searchWord = '') {
 		$content	= '';
@@ -120,9 +120,9 @@ class TodoyuContactRenderer {
 	/**
 	 * Render edit form for given contact record of given type
 	 *
-	 * @param	String	$type
-	 * @param	Integer	$idRecord
-	 * @return	String
+	 * @param	string	$type
+	 * @param	integer	$idRecord
+	 * @return	string
 	 */
 	public static function renderContactEdit($type, $idRecord = 0) {
 		$idRecord	= intval($idRecord);
@@ -146,7 +146,7 @@ class TodoyuContactRenderer {
 	/**
 	 * Render panel widgets
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderPanelWidgets() {
 		return TodoyuPanelWidgetRenderer::renderPanelWidgets(self::EXTKEY);
@@ -157,9 +157,9 @@ class TodoyuContactRenderer {
 	/**
 	 * Render content of record info popup (e.g. person visiting card or company summary)
 	 *
-	 * @param	String		$type
-	 * @param	Integer		$idRecord
-	 * @return	String
+	 * @param	string		$type
+	 * @param	integer		$idRecord
+	 * @return	string
 	 */
 	public static function renderDetails($type, $idRecord) {
 		$content = '';
@@ -180,9 +180,9 @@ class TodoyuContactRenderer {
 
 
 	/**
-	* @param	Integer		$idRecord
-	* @param	String		$recordType
-	* @return	String
+	* @param	integer		$idRecord
+	* @param	string		$recordType
+	* @return	string
 	*/
 	public static function renderContactImageUploadForm($idRecord, $recordType) {
 		$idRecord	= intval($idRecord);
@@ -209,7 +209,7 @@ class TodoyuContactRenderer {
 			'formhtml'	=> $form->render()
 		);
 
-			// Render form wrapped via dwoo template
+			// Render form wrapped via Smarty template
 		return Todoyu::render('ext/contact/view/contactimageuploadform.tmpl', $data);
 	}
 
@@ -218,10 +218,10 @@ class TodoyuContactRenderer {
 	/**
 	 * Render upload iframe form after uploading finished
 	 *
-	 * @param	String		$recordType
-	 * @param	Integer		$idContact
-	 * @param	Integer		$idReplace
-	 * @return	String
+	 * @param	string		$recordType
+	 * @param	integer		$idContact
+	 * @param	integer		$idReplace
+	 * @return	string
 	 */
 	public static function renderUploadFormFinished($recordType, $idContact, $idReplace) {
 		$tmpl	= 'core/view/htmldoc.tmpl';
@@ -238,9 +238,9 @@ class TodoyuContactRenderer {
 	/**
 	 * Render content of upload frame after failed upload
 	 *
-	 * @param	Integer		$error
-	 * @param	String		$filename
-	 * @return	String
+	 * @param	integer		$error
+	 * @param	string		$filename
+	 * @return	string
 	 */
 	public static function renderUploadframeContentFailed($error, $filename) {
 		$error		= intval($error);
@@ -260,8 +260,8 @@ class TodoyuContactRenderer {
 	/**
 	 * Render list of found duplicated records (person/company)
 	 *
-	 * @param	Array		$records
-	 * @return	String
+	 * @param	array		$records
+	 * @return	string
 	 */
 	public static function renderDuplicatesList($records){
 		$tmpl = 'ext/contact/view/form-warning-duplicates.tmpl';

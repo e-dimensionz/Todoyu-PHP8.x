@@ -27,7 +27,7 @@
 class TodoyuContactQuickCreatePersonActionController extends TodoyuActionController {
 
 	/**
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		TodoyuContactPersonRights::restrictAdd();
@@ -38,8 +38,8 @@ class TodoyuContactQuickCreatePersonActionController extends TodoyuActionControl
 	/**
 	 * Get quick person creation form rendered
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function popupAction(array $params) {
 		return TodoyuContactPersonRenderer::renderPersonQuickCreateForm();
@@ -50,8 +50,8 @@ class TodoyuContactQuickCreatePersonActionController extends TodoyuActionControl
 	/**
 	 * Save person record
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function saveAction(array $params) {
 		$data		= $params['person'];

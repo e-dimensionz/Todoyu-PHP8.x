@@ -29,7 +29,7 @@ class TodoyuProjectQuickCreateProjectActionController extends TodoyuActionContro
 	/**
 	 * Initialize controller: restrict access (project extension must be allowed)
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('project', 'general:use');
@@ -41,8 +41,8 @@ class TodoyuProjectQuickCreateProjectActionController extends TodoyuActionContro
 	/**
 	 * Render project form
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function popupAction(array $params) {
 		return TodoyuProjectProjectRenderer::renderQuickCreateForm($params);
@@ -53,8 +53,8 @@ class TodoyuProjectQuickCreateProjectActionController extends TodoyuActionContro
 	/**
 	 * Save project (new or edit)
 	 *
-	 * @param	Array		$params
-	 * @return	String		Form content if form is invalid
+	 * @param	array		$params
+	 * @return	string		Form content if form is invalid
 	 */
 	public function saveAction(array $params) {
 		$data		= $params['project'];

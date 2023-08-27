@@ -33,6 +33,7 @@ class Todoyu {
 	 */
 	private static $locale;
 
+    private static $dates = null;
 
 	/**
 	 * Todoyu configuration
@@ -52,9 +53,9 @@ class Todoyu {
 
 
 	/**
-	 * Templating engine. Currently Dwoo
+	 * Templating engine. Currently Smarty
 	 *
-	 * @var	Dwoo
+	 * @var	Smarty
 	 */
 	private static $template;
 
@@ -102,7 +103,7 @@ class Todoyu {
 	/**
 	 * Set system timezone
 	 *
-	 * @param	String|Boolean	$forceTimezone		Set new timezone
+	 * @param	string|Boolean	$forceTimezone		Set new timezone
 	 */
 	public static function setTimezone($forceTimezone = false) {
 		if( !$forceTimezone ) {
@@ -126,7 +127,7 @@ class Todoyu {
 	/**
 	 * Initialization Stack for setting the timezone
 	 *
-	 * @param	String		$timezone
+	 * @param	string		$timezone
 	 */
 	protected static function initTimezone($timezone) {
 		// Set default timezone
@@ -134,7 +135,7 @@ class Todoyu {
 
 			// Set DB timezone offset
 		$timeZone = new DateTimeZone($timezone);
-		$dateTime	= new DateTime(null, $timeZone);
+		$dateTime	= new DateTime('now', $timeZone);
 		$timeZoneOffsetHours = $dateTime->format('P');
 		self::db()->setTimezone($timeZoneOffsetHours);
 	}
@@ -144,7 +145,7 @@ class Todoyu {
 	/**
 	 * Get active timezone
 	 *
-	 * @return	String		Timezone string
+	 * @return	string		Timezone string
 	 */
 	public static function getTimezone() {
 		if( is_null(self::$timezone) ) {
@@ -184,7 +185,7 @@ class Todoyu {
 	/**
 	 * Return template engine
 	 *
-	 * @return	Dwoo
+	 * @return	Smarty
 	 */
 	public static function tmpl() {
 		if( is_null(self::$template) ) {
@@ -193,16 +194,23 @@ class Todoyu {
 				// Create needed directories
 			TodoyuFileManager::makeDirDeep($config['compile']);
 			TodoyuFileManager::makeDirDeep($config['cache']);
-
-				// Initialize Dwoo
+            
+				// Initialize Smarty
 			try {
-				self::$template = new Dwoo($config['compile'], $config['cache']);
-			} catch(Dwoo_Exception $e) {
+				self::$template = new Smarty();
+                // self::$template->setCaching(1);
+                self::addSmartyPluginDir('core/model/smarty');
+                self::$template->setCacheDir($config['cache'])
+                            ->setCompileDir($config['compile']);
+			} catch(Exception $e) {
 				$msg	= 'Can\'t initialize tempalate engine: ' . $e->getMessage();
 				TodoyuLogger::logFatal($msg);
 				die($msg);
 			}
+
+            TodoyuExtensions::loadAllSmartyPlugins();
 		}
+        
 
 		return self::$template;
 	}
@@ -210,14 +218,17 @@ class Todoyu {
 
 
 	/**
-	 * Add directory for plugins to dwoo
+	 * Add directory for plugins to Smarty
 	 *
-	 * @param	String		$directory
+	 * @param	string		$directory
 	 */
-	public static function addDwooPluginDir($directory) {
+	public static function addSmartyPluginDir($directory) {
 		$directory	= TodoyuFileManager::pathAbsolute($directory);
-
-		self::$template->getLoader()->addDirectory($directory);
+        
+		self::$template->addPluginsDir($directory);
+        if(TodoyuFileManager::isFile($directory.'/functions.php')){
+            require_once $directory.'/functions.php';
+        }
 	}
 
 
@@ -250,7 +261,7 @@ class Todoyu {
 	/**
 	 * Get locale: if set get from person profile pref, otherwise from system config
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getLocale() {
 		if( is_null(self::$locale) ) {
@@ -281,7 +292,7 @@ class Todoyu {
 	 * This is the last fallback locale if not other config is found
 	 *
 	 * @see		getLocale		For user defined locale
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getSystemLocale() {
 		return self::$CONFIG['SYSTEM']['locale'];
@@ -292,7 +303,7 @@ class Todoyu {
 	/**
 	 * Set system locale with setlocale() based on the currently selected locale
 	 *
-	 * @param	String|Boolean		$locale			Force locale. If not set try to find the correct locale
+	 * @param	string|Boolean		$locale			Force locale. If not set try to find the correct locale
 	 */
 	public static function setLocale($locale = false) {
 		if( !$locale ) {
@@ -319,8 +330,8 @@ class Todoyu {
 	/**
 	 * Get (EXTID value of) current ext area
 	 *
-	 * @param	String	$area
-	 * @return	Integer
+	 * @param	string	$area
+	 * @return	integer
 	 */
 	public static function getArea($area = null) {
 		if( is_null($area) ) {
@@ -335,7 +346,7 @@ class Todoyu {
 	/**
 	 * Get area key (string version)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getAreaKey() {
 		return TodoyuRequest::getArea();
@@ -346,7 +357,7 @@ class Todoyu {
 	/**
 	 * Add a path to the global include path for autoloading classes
 	 *
-	 * @param	String		$includePath
+	 * @param	string		$includePath
 	 * @deprecated
 	 * @todo	Remove in later version
 	 */
@@ -361,9 +372,9 @@ class Todoyu {
 	 * Shortcut for TodoyuLabelManager::getLabel()
 	 * Get the label in the current language
 	 *
-	 * @param	String		$labelKey	e.g 'project.status.planning'
-	 * @param	String		$locale
-	 * @return	String
+	 * @param	string		$labelKey	e.g 'project.status.planning'
+	 * @param	string		$locale
+	 * @return	string
 	 */
 	public static function Label($labelKey, $locale = null) {
 		return TodoyuLabelManager::getLabel($labelKey, $locale);
@@ -374,8 +385,8 @@ class Todoyu {
 	/**
 	 * Get person ID. If parameter is not set or 0, get the current person ID
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Integer
+	 * @param	integer		$idPerson
+	 * @return	integer
 	 */
 	public static function personid($idPerson = 0) {
 		$idPerson = (int) $idPerson;
@@ -384,24 +395,51 @@ class Todoyu {
 	}
 
 
+    private static function loadGlobals($smarty){
+        /* load date formats */
+        if(self::$dates == null) self::$dates = TodoyuTime::loadFormats();
+        $smarty->assign('DF', self::$dates);
+
+    }
+
 
 	/**
 	 * Render data with a template
 	 * Shortcut for Todoyu Todoyu::tmpl()->get(...);
 	 *
-	 * @param	String			$template		Path to template file (or a template object)
-	 * @param	Array			$data			Data for template rendering
-	 * @param	Dwoo_Compiler	$compiler		Custom compiler
-	 * @param	Boolean			$output			Output directly with echo
-	 * @return	String			Rendered template
+	 * @param	string			$template		Path to template file (or a template object)
+	 * @param	array			$data			Data for template rendering
+	 * @param	boolean	        $is_string		Custom compiler
+	 * @param	boolean			$output			Output directly with echo
+	 * @return	string			Rendered template
 	 */
-	public static function render($template, $data = array(), $compiler = null, $output = false) {
+	public static function render($template, $data = array(), $is_string = false, $output = false) {
 		try {
-			$content = self::tmpl()->get($template, $data, $compiler, $output);
-		} catch(Dwoo_Exception $e) {
+
+            if($is_string) $template = 'string:'.$template;
+            $smarty = self::tmpl();
+
+            $payload = $smarty->createData();
+            self::loadGlobals($payload);
+            $tpl = $smarty->createTemplate($template);
+            foreach($data as $key => $val){
+                // if(is_object($val)){
+                //     $smarty->registerObject($key, $val);
+                // } else {
+                    $payload->assign($key, $val);
+                // }
+            }
+            if($output){
+                
+                $tpl->display($template, $payload);
+                return "";
+            } else {
+                $content = $tpl->fetch($template, $payload);
+            }
+		} catch(Exception $e) {
 			TodoyuHeader::sendTypeText();
 
-			echo "Dwoo Template Error: ({$e->getCode()})\n";
+			echo "Smarty Template Error: ({$e->getCode()})\n";
 			echo "=================================================\n\n";
 			echo "Error:	{$e->getMessage()}\n";
 			echo "File:		{$e->getFile()} : {$e->getLine()}\n";
@@ -419,9 +457,9 @@ class Todoyu {
 	/**
 	 * Check whether a right is set (=allowed)
 	 *
-	 * @param	String		$extKey		Extension key
-	 * @param	String		$right		Right name
-	 * @return	Boolean
+	 * @param	string		$extKey		Extension key
+	 * @param	string		$right		Right name
+	 * @return	boolean
 	 */
 	public static function allowed($extKey, $right) {
 		return TodoyuRightsManager::isAllowed($extKey, $right);
@@ -432,9 +470,9 @@ class Todoyu {
 	/**
 	 * Check if ALL given rights of an extension are allowed
 	 *
-	 * @param	String		$extKey			Extension key
-	 * @param	String		$rightsList		Comma separated names of rights
-	 * @return	Boolean
+	 * @param	string		$extKey			Extension key
+	 * @param	string		$rightsList		Comma separated names of rights
+	 * @return	boolean
 	 */
 	public static function allowedAll($extKey, $rightsList) {
 		$rights	= explode(',', $rightsList);
@@ -453,9 +491,9 @@ class Todoyu {
 	/**
 	 * Check if ANY of the given rights of an extension is allowed
 	 *
-	 * @param	String		$extKey			Extension key
-	 * @param	String		$rightsList		Comma separated names of rights
-	 * @return	Boolean
+	 * @param	string		$extKey			Extension key
+	 * @param	string		$rightsList		Comma separated names of rights
+	 * @return	boolean
 	 */
 	public static function allowedAny($extKey, $rightsList) {
 		$rights	= explode(',', $rightsList);
@@ -475,8 +513,8 @@ class Todoyu {
 	 * Restrict current request to persons who have the right
 	 * Stop script if right is not set
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$right
+	 * @param	string		$extKey
+	 * @param	string		$right
 	 */
 	public static function restrict($extKey, $right) {
 		TodoyuRightsManager::restrict($extKey, $right);
@@ -506,8 +544,8 @@ class Todoyu {
 	 * Restrict (deny) access if none if the rights is allowed
 	 * If one right is allowed, do nothing
 	 *
-	 * @param	String		$extKey			Extension key
-	 * @param	String		$rightsList		Comma separated names of rights
+	 * @param	string		$extKey			Extension key
+	 * @param	string		$rightsList		Comma separated names of rights
 	 */
 	public static function restrictIfNone($extKey, $rightsList) {
 		$rights		= explode(',', $rightsList);
@@ -529,8 +567,8 @@ class Todoyu {
 	/**
 	 * Deny access because of a missing right
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$right
+	 * @param	string		$extKey
+	 * @param	string		$right
 	 */
 	public static function deny($extKey, $right) {
 		TodoyuRightsManager::deny($extKey, $right);
@@ -543,7 +581,7 @@ class Todoyu {
 	 * - Timezone
 	 * - Locale
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 */
 	public static function setEnvironmentForPerson($idPerson) {
 		self::$environmentBackup = array(

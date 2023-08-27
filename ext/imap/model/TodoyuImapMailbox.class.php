@@ -73,7 +73,7 @@ class TodoyuImapMailbox {
 	 * Initialize with account and options
 	 *
 	 * @param	TodoyuImapImapAccount	$account
-	 * @param	Array				$options
+	 * @param	array				$options
 	 */
 	public function __construct(TodoyuImapImapAccount $account, array $options = array()) {
 			// Set account
@@ -105,7 +105,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Init config from account data
 	 *
-	 * @param	Array		$options
+	 * @param	array		$options
 	 */
 	protected function initConfig(array $options) {
 		$mailboxConfig	= $this->getAccount()->getMailboxConfig();
@@ -127,7 +127,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Check whether auto-connect is disabled
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	protected function isAutoConnectDisabled() {
 		return $this->options['autoconnect'] === false;
@@ -139,7 +139,7 @@ class TodoyuImapMailbox {
 	 * Connect to the server
 	 *
 	 * @throws	TodoyuImapConnectionException
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	protected function connect() {
 		$mailboxString	= $this->getMailboxString();
@@ -163,7 +163,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Check whether connection was successful and created a stream resource
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isConnected() {
 		return is_resource($this->stream);
@@ -196,7 +196,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get account ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getAccountID() {
 		return $this->getAccount()->getID();
@@ -207,7 +207,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get new mailbox for a sub folder
 	 *
-	 * @param	String		$subFolder			Folder name relative to current folder
+	 * @param	string		$subFolder			Folder name relative to current folder
 	 * @return	TodoyuImapMailbox
 	 */
 	public function getSubFolderMailbox($subFolder) {
@@ -224,8 +224,8 @@ class TodoyuImapMailbox {
 	 * Get mailbox name by config.
 	 * Contains server and postbox path configuration and server parameters: IP address and port
 	 *
-	 * @param	String		$subFolder			Name of the mailbox/sub folder
-	 * @return	String
+	 * @param	string		$subFolder			Name of the mailbox/sub folder
+	 * @return	string
 	 */
 	protected function getMailboxString($subFolder = '') {
 		$mailboxName	= $this->getHost();
@@ -253,7 +253,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get config string of active connection
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getConnectionString() {
 		return $this->connectionString;
@@ -282,7 +282,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get name of current mailbox
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getMailboxName() {
 		$mailboxInfos	= $this->getMailboxInfos();
@@ -338,8 +338,8 @@ class TodoyuImapMailbox {
 	 * Get current index/number of the message on the server
 	 * 0 if message is not found in the inbox
 	 *
-	 * @param	Integer		$idMessage
-	 * @return	Integer
+	 * @param	integer		$idMessage
+	 * @return	integer
 	 */
 	public function getMessageIndex($idMessage) {
 		$idMessage	= intval($idMessage);
@@ -357,8 +357,8 @@ class TodoyuImapMailbox {
 	/**
 	 * Get list of folders inside mailbox
 	 *
-	 * @param	String	$pattern		Optionally specifies where in the mailbox hierarchy to start searching
-	 * @param	String	$subFolder		Optional sub folder to base folder (base may be INBOX)
+	 * @param	string	$pattern		Optionally specifies where in the mailbox hierarchy to start searching
+	 * @param	string	$subFolder		Optional sub folder to base folder (base may be INBOX)
 	 * @return	Array
 	 */
 	public function getFolders($pattern = IMAP_FOLDER_SEARCHPATTERN_ALL, $subFolder = '') {
@@ -372,7 +372,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get email address string from imap's stdClass address object
 	 *
-	 * @param	String|stdClass	$address				Properties: personal (fullname), mailbox, host
+	 * @param	string|stdClass	$address				Properties: personal (fullname), mailbox, host
 	 * @return	Array
 	 */
 	public static function getMailAddressData($address) {
@@ -404,8 +404,8 @@ class TodoyuImapMailbox {
 
 	/**
 	 * @param	Object		$subStructure
-	 * @param	Integer		$partNumber
-	 * @param	Integer		$messageNumber
+	 * @param	integer		$partNumber
+	 * @param	integer		$messageNumber
 	 * @return	Array
 	 */
 	public static function buildAttachmentDataMessagePart($subStructure, $partNumber = 2, $messageNumber = null) {
@@ -435,7 +435,7 @@ class TodoyuImapMailbox {
 
 
 	/**
-	 * @return	String
+	 * @return	string
 	 */
 	public function getHost(){
 		return $this->config['host'];
@@ -444,7 +444,7 @@ class TodoyuImapMailbox {
 
 
 	/**
-	 * @return	String
+	 * @return	string
 	 */
 	public function getUsername(){
 		return $this->config['username'];
@@ -455,7 +455,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get password
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getPassword(){
 		return $this->config['password'];
@@ -466,7 +466,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get base folder
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getFolder() {
 		return trim($this->config['folder']);
@@ -477,7 +477,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get folder path delimiter
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDelimiter() {
 		return $this->config['delimiter'];
@@ -489,7 +489,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get port
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getPort(){
 		return intval($this->config['port']);
@@ -510,7 +510,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Check whether TLS encryption is enabled
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isUsedStartTLS(){
 		return !!$this->config['starttls'];
@@ -521,7 +521,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Check whether SSL encryption is enabled
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isUsedSSL() {
 		return !!$this->config['ssl'];
@@ -532,7 +532,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Check whether cert validateion is disabled or not
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isUsedNoValidateCert(){
 		return !!$this->config['novalidate'];
@@ -543,7 +543,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get headers for all messages in this mailbox, sorted by msgno
 	 *
-	 * @return	String[]		Array of strings formatted with info. One element per mail message
+	 * @return	string[]		Array of strings formatted with info. One element per mail message
 	 * @see		http://www.php.net/manual/en/function.imap-headers.php
 	 */
 	private function getMessagesHeaders() {
@@ -555,10 +555,10 @@ class TodoyuImapMailbox {
 	/**
 	 * Get given section of message body of message with given number
 	 *
-	 * @param	Integer		$messageNumber
-	 * @param	Integer		$section
-	 * @param	Integer		$options		Optional bitmask (FT_UID / FT_PEEK / FT_INTERNAL)
-	 * @return	String
+	 * @param	integer		$messageNumber
+	 * @param	integer		$section
+	 * @param	integer		$options		Optional bitmask (FT_UID / FT_PEEK / FT_INTERNAL)
+	 * @return	string
 	 * @see		http://www.php.net/manual/en/function.imap-fetchbody.php
 	 */
 	private function getMessageBodySection($messageNumber, $section, $options = 0) {
@@ -572,9 +572,9 @@ class TodoyuImapMailbox {
 	/**
 	 * Get message body plain text
 	 *
-	 * @param	Integer		$messageNumber
-	 * @param	Integer		$part
-	 * @return	String
+	 * @param	integer		$messageNumber
+	 * @param	integer		$part
+	 * @return	string
 	 */
 	public function getMessageBodyPlain($messageNumber, $part = null) {
 		$section	= !is_null($part) ? $part . '.1' : '1';
@@ -587,9 +587,9 @@ class TodoyuImapMailbox {
 	/**
 	 * Get message body HTML text
 	 *
-	 * @param	Integer		$messageNumber
-	 * @param	Integer		$part
-	 * @return	String
+	 * @param	integer		$messageNumber
+	 * @param	integer		$part
+	 * @return	string
 	 */
 	public function getMessageBodyHtml($messageNumber, $part = null) {
 		$section	= !is_null($part) ? $part . '.2' : '2';
@@ -602,8 +602,8 @@ class TodoyuImapMailbox {
 	/**
 	 * Get total amount of messages in mailbox. Returns false if mailbox infos can't be read.
 	 *
-	 * @param	String				$state
-	 * @return	Integer
+	 * @param	string				$state
+	 * @return	integer
 	 */
 	public function getAmountMessages($state = IMAP_MESSAGE_STATE_ALL) {
 		$mailboxInfos	= $this->getMailboxInfos();
@@ -616,8 +616,8 @@ class TodoyuImapMailbox {
 	/**
 	 * Check whether mailbox has messages in the state
 	 *
-	 * @param	String		$state
-	 * @return	Boolean
+	 * @param	string		$state
+	 * @return	boolean
 	 */
 	public function hasMessages($state = IMAP_MESSAGE_STATE_ALL) {
 		return $this->getAmountMessages($state) > 0;
@@ -628,7 +628,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Check whether the mailbox contains any recent messages
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasRecentMessages() {
 		return $this->hasMessages(IMAP_MESSAGE_STATE_RECENT);
@@ -639,7 +639,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Check whether the mailbox contains any deleted messages
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasDeletedMessages() {
 		return $this->hasMessages(IMAP_MESSAGE_STATE_DELETED);
@@ -650,7 +650,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Check whether the mailbox contains any unread messages
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasUnreadMessages() {
 		return $this->hasMessages(IMAP_MESSAGE_STATE_UNREAD);
@@ -660,7 +660,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get total amount of messages
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getAmountMessagesTotal() {
 		return $this->getAmountMessages(IMAP_MESSAGE_STATE_ALL);
@@ -671,7 +671,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get amount of unread messages
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getAmountMessagesUnread() {
 		return $this->getAmountMessages(IMAP_MESSAGE_STATE_UNREAD);
@@ -682,7 +682,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get amount of recent messages
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getAmountMessagesRecent() {
 		return $this->getAmountMessages(IMAP_MESSAGE_STATE_RECENT);
@@ -693,7 +693,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get amount of deleted messages
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getAmountMessagesDeleted() {
 		return $this->getAmountMessages(IMAP_MESSAGE_STATE_DELETED);
@@ -704,7 +704,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get mailbox size
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getSize() {
 		$mailboxInfos	= $this->getMailboxInfos();
@@ -717,7 +717,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Get a server message by index/no
 	 *
-	 * @param	Integer		$messageNo
+	 * @param	integer		$messageNo
 	 * @return	TodoyuImapServerMessage
 	 */
 	public function getServerMessage($messageNo) {
@@ -812,7 +812,7 @@ class TodoyuImapMailbox {
 	/**
 	 * Delete a message on the server
 	 *
-	 * @param	Integer		$idMessage
+	 * @param	integer		$idMessage
 	 */
 	public function deleteMessageOnServer($idMessage) {
 		$idMessage	= intval($idMessage);
@@ -826,11 +826,11 @@ class TodoyuImapMailbox {
 	/**
 	 * Move a message to another account
 	 *
-	 * @param	Integer					$idMessage
+	 * @param	integer					$idMessage
 	 * @param	TodoyuImapMailbox		$targetMailbox		Mailbox to add the message to
-	 * @param	String					$targetFolder		Folder path: A.B.C from INBOX
-	 * @param	Boolean					$move				Move message (false makes just a copy)
-	 * @return	Boolean
+	 * @param	string					$targetFolder		Folder path: A.B.C from INBOX
+	 * @param	boolean					$move				Move message (false makes just a copy)
+	 * @return	boolean
 	 */
 	public function moveMessageToMailbox($idMessage, TodoyuImapMailbox $targetMailbox, $targetFolder, $move = true) {
 		$idMessage			= intval($idMessage);
@@ -857,10 +857,10 @@ class TodoyuImapMailbox {
 	/**
 	 * Copy message to another mailbox
 	 *
-	 * @param	Integer					$idMessage
+	 * @param	integer					$idMessage
 	 * @param	TodoyuImapMailbox		$targetMailbox		Mailbox to add the message to
-	 * @param	String					$targetFolder		Folder path: A.B.C from INBOX
-	 * @return	Boolean
+	 * @param	string					$targetFolder		Folder path: A.B.C from INBOX
+	 * @return	boolean
 	 */
 	public function copyMessageToMailbox($idMessage, TodoyuImapMailbox $targetMailbox, $targetFolder) {
 		return $this->moveMessageToMailbox($idMessage, $targetMailbox, $targetFolder, false);
@@ -871,8 +871,8 @@ class TodoyuImapMailbox {
 	/**
 	 * Create a new folder (incl. sub folders)
 	 *
-	 * @param	String		$folder			EX: CustomerName.ProjectName
-	 * @return	Boolean
+	 * @param	string		$folder			EX: CustomerName.ProjectName
+	 * @return	boolean
 	 */
 	public function createFolder($folder) {
 		$absFolderPath	= $this->getAbsoluteFolderPath($folder);
@@ -892,8 +892,8 @@ class TodoyuImapMailbox {
 	/**
 	 * Check whether folder exists
 	 *
-	 * @param	String		$folder		Folder path with dotted sub folders A.B.C
-	 * @return	Boolean
+	 * @param	string		$folder		Folder path with dotted sub folders A.B.C
+	 * @return	boolean
 	 */
 	public function hasFolder($folder) {
 		return $this->getFolderStatus($folder) !== false;
@@ -904,8 +904,8 @@ class TodoyuImapMailbox {
 	/**
 	 * Get folder status
 	 *
-	 * @param	String		$folder
-	 * @param	Integer		$options
+	 * @param	string		$folder
+	 * @param	integer		$options
 	 * @return	stdClass
 	 */
 	public function getFolderStatus($folder, $options = 0) {
@@ -919,8 +919,8 @@ class TodoyuImapMailbox {
 	/**
 	 * Append sub folder to base folder
 	 *
-	 * @param	String		$subFolder
-	 * @return	String
+	 * @param	string		$subFolder
+	 * @return	string
 	 */
 	protected function buildFolderPath($subFolder = '') {
 		$folder	= $this->getFolder();
@@ -938,8 +938,8 @@ class TodoyuImapMailbox {
 	/**
 	 * Get absolute folder path
 	 *
-	 * @param	String		$subFolder
-	 * @return	String
+	 * @param	string		$subFolder
+	 * @return	string
 	 */
 	protected function getAbsoluteFolderPath($subFolder) {
 		return $this->getMailboxString($subFolder);
@@ -950,10 +950,10 @@ class TodoyuImapMailbox {
 	/**
 	 * Add/append a message to the mailbox
 	 *
-	 * @param	Integer		$idMessage
-	 * @param	String		$folder
-	 * @param	Integer		$options
-	 * @return	Boolean
+	 * @param	integer		$idMessage
+	 * @param	string		$folder
+	 * @param	integer		$options
+	 * @return	boolean
 	 */
 	public function addMessage($idMessage, $folder, $options = 0) {
 		$idMessage		= intval($idMessage);
@@ -972,9 +972,9 @@ class TodoyuImapMailbox {
 	/**
 	 * Move a message to the trash
 	 *
-	 * @param	Integer		$idMessage
-	 * @param	Boolean		$expunge
-	 * @return	Boolean
+	 * @param	integer		$idMessage
+	 * @param	boolean		$expunge
+	 * @return	boolean
 	 */
 	public function trashMessage($idMessage, $expunge = false) {
 		$targetFolder	= $this->buildFolderPath('Trash');
@@ -987,8 +987,8 @@ class TodoyuImapMailbox {
 	/**
 	 * Restore message to inbox
 	 *
-	 * @param	Integer		$idMessage
-	 * @return	Boolean
+	 * @param	integer		$idMessage
+	 * @return	boolean
 	 */
 	public function restoreMessage($idMessage) {
 		$trashMailbox	= $this->getSubFolderMailbox('Trash');
@@ -1002,11 +1002,11 @@ class TodoyuImapMailbox {
 	/**
 	 * Move a message to an other folder (mailbox)
 	 *
-	 * @param	Integer		$idMessage
-	 * @param	String		$targetFolder
-	 * @param	Boolean		$expunge
-	 * @param	Boolean		$copy
-	 * @return	Boolean
+	 * @param	integer		$idMessage
+	 * @param	string		$targetFolder
+	 * @param	boolean		$expunge
+	 * @param	boolean		$copy
+	 * @return	boolean
 	 */
 	public function moveMessage($idMessage, $targetFolder, $expunge = true, $copy = false) {
 		$messageIndex	= $this->getMessageIndex($idMessage);
@@ -1041,9 +1041,9 @@ class TodoyuImapMailbox {
 	/**
 	 * Copy message to an other folder
 	 *
-	 * @param	Integer		$idMessage
-	 * @param	String		$targetFolder
-	 * @return	Boolean
+	 * @param	integer		$idMessage
+	 * @param	string		$targetFolder
+	 * @return	boolean
 	 */
 	public function copyMessage($idMessage, $targetFolder) {
 		return $this->moveMessage($idMessage, $targetFolder, false, true);
@@ -1067,9 +1067,9 @@ class TodoyuImapMailbox {
 	 * Flags have to be without backslash
 	 *
 	 * @see		http://www.php.net/manual/en/function.imap-setflag-full.php
-	 * @param	Integer		$idMessage
-	 * @param	String[]	$flags
-	 * @return	Boolean
+	 * @param	integer		$idMessage
+	 * @param	string[]	$flags
+	 * @return	boolean
 	 */
 	public function flagMessage($idMessage, array $flags) {
 		$flags		= TodoyuArray::prefixValues($flags, '\\');
@@ -1094,9 +1094,9 @@ class TodoyuImapMailbox {
 	/**
 	 * Clear flags for message
 	 *
-	 * @param	Integer		$idMessage
-	 * @param	String[]	$flags
-	 * @return	Boolean
+	 * @param	integer		$idMessage
+	 * @param	string[]	$flags
+	 * @return	boolean
 	 */
 	public function clearMessageFlags($idMessage, array $flags) {
 		$flags		= TodoyuArray::prefixValues($flags, '\\');
@@ -1121,8 +1121,8 @@ class TodoyuImapMailbox {
 	/**
 	 * Flag message as seen
 	 *
-	 * @param	Integer		$idMessage
-	 * @return	Boolean
+	 * @param	integer		$idMessage
+	 * @return	boolean
 	 */
 	public function flagMessageAsSeen($idMessage) {
 		return $this->flagMessage($idMessage, array('Seen'));
@@ -1133,8 +1133,8 @@ class TodoyuImapMailbox {
 	/**
 	 * Set message unseen on server
 	 *
-	 * @param	Integer		$idMessage
-	 * @return	Boolean
+	 * @param	integer		$idMessage
+	 * @return	boolean
 	 */
 	public function flagMessageAsUnseen($idMessage) {
 		return $this->clearMessageFlags($idMessage, array('Seen'));

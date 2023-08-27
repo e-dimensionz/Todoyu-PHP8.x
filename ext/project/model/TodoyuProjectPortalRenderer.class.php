@@ -29,8 +29,8 @@ class TodoyuProjectPortalRenderer {
 	/**
 	 * Get label of todo tab in portal
 	 *
-	 * @param	Boolean		$count
-	 * @return	String
+	 * @param	boolean		$count
+	 * @return	string
 	 */
 	public static function getTodoTabLabel($count = true) {
 		$label		= Todoyu::Label('project.ext.portal.tab.todos');
@@ -48,8 +48,8 @@ class TodoyuProjectPortalRenderer {
 	/**
 	 * Get content of todo tab in portal
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function renderTodoTabContent(array $params = array()) {
 		$taskIDs= TodoyuProjectPortalManager::getTodoTaskIDs();

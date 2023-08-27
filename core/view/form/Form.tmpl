@@ -1,5 +1,7 @@
 {if ! $noFormTag }
-	<form name="{$name}" id="{$htmlId}" class="fForm form{ucfirst($name)} {$class}" method="{$method|default:'post'}" action="{$action}" onsubmit="{$onsubmit|default:'return false'}" {if $enctype}enctype="{$enctype}"{/if} {if $target}target="{$target}"{/if} {$extraAttributes}>
+	<form name="{$name}" id="{$htmlId}" class="fForm form{$name|ucfirst}{if isset($class)} {$class}{/if}" method="{$method|default:'post'}" 
+    action="{$action}" onsubmit="{$onsubmit|default:'return false'}" {if $enctype}enctype="{$enctype}"{/if} 
+    {if $target}target="{$target}"{/if} {if isset($extraAttributes)}{$extraAttributes}{/if}>
 {/if}
 
 {$hiddenFields}

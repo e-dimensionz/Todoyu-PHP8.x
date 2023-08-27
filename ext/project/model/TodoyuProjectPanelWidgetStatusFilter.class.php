@@ -46,11 +46,11 @@ abstract class TodoyuProjectPanelWidgetStatusFilter extends TodoyuPanelWidget {
 	 * Constructor of status filter base
 	 * Pass all arguments to the widget constructor
 	 *
-	 * @param	String		$ext		Extension key where the widget is located
-	 * @param	String		$id			Panel widget ID (class name without TodoyuPanelWidget)
-	 * @param	String		$title		Title of the panel widget
-	 * @param	Array		$config		Configuration array for the widget
-	 * @param	Array		$params		Custom parameters for current page request
+	 * @param	string		$ext		Extension key where the widget is located
+	 * @param	string		$id			Panel widget ID (class name without TodoyuPanelWidget)
+	 * @param	string		$title		Title of the panel widget
+	 * @param	array		$config		Configuration array for the widget
+	 * @param	array		$params		Custom parameters for current page request
 	 */
 	public function __construct($ext, $id, $title, array $config, array $params = array()) {
 		parent::__construct(
@@ -79,7 +79,7 @@ abstract class TodoyuProjectPanelWidgetStatusFilter extends TodoyuPanelWidget {
 	/**
 	 * Render content of the panel widget (status list)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderContent() {
 		$data	= array(
@@ -105,7 +105,7 @@ abstract class TodoyuProjectPanelWidgetStatusFilter extends TodoyuPanelWidget {
 	/**
 	 * Store prefs of the status filter panel widget
 	 *
-	 * @param	Array	$statusIDs
+	 * @param	array	$statusIDs
 	 */
 	public function saveSelectedStatuses(array $statusIDs) {
 		$statuses	= implode(',', $statusIDs);

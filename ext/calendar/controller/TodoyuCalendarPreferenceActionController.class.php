@@ -45,7 +45,7 @@ class TodoyuCalendarPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Init
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('calendar', 'general:use');
@@ -60,7 +60,7 @@ class TodoyuCalendarPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save current active tab
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function tabAction(array $params) {
 		$tabKey	= trim($params['tab']);
@@ -73,7 +73,7 @@ class TodoyuCalendarPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save current date
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function dateAction(array $params) {
 		$date	= intval($this->value);
@@ -86,7 +86,7 @@ class TodoyuCalendarPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Saves eventTypeSelector widget preferences (selected event types)
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function panelwidgeteventtypeselectorAction(array $params) {
 		$eventTypes	= TodoyuArray::intExplode(',', $this->value, true, true);
@@ -99,7 +99,7 @@ class TodoyuCalendarPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Saves HolidaySetSelector widget preferences (selected holidaySets)
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function panelwidgetholidaysetselectorAction(array $params) {
 		$holidaySets	= TodoyuArray::intExplode(',', $this->value, true, false);
@@ -112,7 +112,7 @@ class TodoyuCalendarPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Saves viewing mode: full-day / working hours
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function fulldayviewAction(array $params) {
 		$fullDay	= intval($this->value) === 1;
@@ -125,7 +125,7 @@ class TodoyuCalendarPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Toggles weekend display mode: on / off
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function toggleDisplayWeekendAction(array $params) {
 		$isWeekendDisplayed	= TodoyuCalendarPreferences::isWeekendDisplayed();
@@ -138,7 +138,7 @@ class TodoyuCalendarPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save portal preference: event entry expanded?
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function portalEventExpandedAction(array $params) {
 		$idEvent	= $this->item;
@@ -152,7 +152,7 @@ class TodoyuCalendarPreferenceActionController extends TodoyuActionController {
 	/**
 	 * General panelWidget action, saves collapse status
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function pwidgetAction(array $params) {
 		$idWidget	= $params['item'];

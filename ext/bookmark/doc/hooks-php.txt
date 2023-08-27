@@ -6,23 +6,23 @@ Event Hooks
 
 #bookmark.bookmark.add
 	Added new bookmark
-	@param	Integer		$idBookmark
-	@param	Integer		$type
-	@param	Integer		$idItem
+	@param	integer		$idBookmark
+	@param	integer		$type
+	@param	integer		$idItem
 
 
 #bookmark.bookmark.delete
 	Deleted a bookmark
-	@param	Integer		$idBookmark
+	@param	integer		$idBookmark
 
 
 #bookmark.bookmark.update
 	Update a bookmark
-	@param	Integer		$idBookmark
-	@param	Array		$data
+	@param	integer		$idBookmark
+	@param	array		$data
 
 
 #bookmark.bookmark.rename
 	Bookmark was renamed (new label)
-	@param	Integer		$idBookmark
-	@param	String		$newLabel
+	@param	integer		$idBookmark
+	@param	string		$newLabel

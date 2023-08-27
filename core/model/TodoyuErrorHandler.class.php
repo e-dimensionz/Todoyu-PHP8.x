@@ -81,12 +81,12 @@ class TodoyuErrorHandler {
 	 * Handle normal PHP errors. Disabled at the moment!
 	 *
 	 * @todo	Decide which errors are reported to the log
-	 * @param	Integer		$errorno
-	 * @param	String		$errorstr
-	 * @param	String		$file
-	 * @param	Integer		$line
-	 * @param	Array		$context
-	 * @return	Boolean
+	 * @param	int		$errorno
+	 * @param	string		$errorstr
+	 * @param	string		$file
+	 * @param	int		$line
+	 * @param	array		$context
+	 * @return	boolean
 	 */
 	public static function handleError($errorno, $errorstr, $file, $line, $context=null) {
 		if( self::$active !== true ) {
@@ -117,7 +117,7 @@ class TodoyuErrorHandler {
 	/**
 	 * Clean up and die
 	 *
-	 * @param	String	$message
+	 * @param	string	$message
 	 */
 	public static function endScriptClean($message) {
 		ob_clean();
@@ -134,9 +134,9 @@ class TodoyuErrorHandler {
 	/**
 	 * Render simple error message
 	 *
-	 * @param	String		$title			Error title
-	 * @param	String		$message		Error message
-	 * @return	String
+	 * @param	string		$title			Error title
+	 * @param	string		$message		Error message
+	 * @return	string
 	 */
 	public static function renderError($title, $message) {
 		$tmpl	= 'core/view/error.tmpl';
@@ -153,7 +153,7 @@ class TodoyuErrorHandler {
 	/**
 	 * Send a PHP error header
 	 *
-	 * @param	String		$errorMessage
+	 * @param	string		$errorMessage
 	 */
 	public static function sendPhpErrorHeader($errorMessage) {
 		TodoyuHeader::sendTodoyuHeader('Php-Error', $errorMessage);
@@ -164,7 +164,7 @@ class TodoyuErrorHandler {
 	/**
 	 * Enable/disable error handling. If disabled, all errors are ignored
 	 *
-	 * @param	Boolean		$active
+	 * @param	boolean		$active
 	 */
 	public static function setActive($active = true) {
 		self::$active = (boolean)$active;

@@ -3,17 +3,17 @@
 {block name="field"}
 
 	{** Search field **}
-	<input type="text" id="{$htmlId}-search" value="" class="search textAC {$inputClass} {$class}"  {$extraAttributes} />
+	<input type="text" id="{$htmlId}-search" value="" class="search textAC {$inputClass} {$class}"  {if isset($extraAttributes)}{$extraAttributes}{/if} />
 
 	{** Result list **}
 	<ul id="{$htmlId}-results" class="results"></ul>
 
 	{** Selection list **}
 	<ul id="{$htmlId}-selection" class="selection">
-		{foreach $records record}
-			<li id="{$htmlId}-selection-{$record.id}" class="type{ucfirst $record.className}">
+		{foreach $records as $record}
+			<li id="{$htmlId}-selection-{$record.id}" class="type{$record.className|ucfirst}">
 				<span class="icon recordIcon"></span>
-				<span class="label">{htmlencode $record.label}</span>
+				<span class="label">{$record.label|escape}</span>
 				<span class="icon remove"></span>
 			</li>
 		{/foreach}
@@ -21,7 +21,7 @@
 
 	{** Hidden selection storage **}
 	<select name="{$htmlName}" id="{$htmlId}-storage" multiple="multiple" style="display:none">
-		{foreach $value item}
+		{foreach $value as $item}
 			<option value="{$item}" selected="selected"></option>
 		{/foreach}
 	</select>

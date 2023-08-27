@@ -48,8 +48,8 @@ abstract class TodoyuMailReceiver implements TodoyuMailReceiverInterface {
 	/**
 	 * Initialize
 	 *
-	 * @param	String		$type
-	 * @param	Integer		$idRecord
+	 * @param	string		$type
+	 * @param	integer		$idRecord
 	 */
 	protected function __construct($type, $idRecord) {
 		$this->type		= trim($type);
@@ -61,7 +61,7 @@ abstract class TodoyuMailReceiver implements TodoyuMailReceiverInterface {
 	/**
 	 * Get person ID if available
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getPersonID() {
 		return 0;
@@ -87,7 +87,7 @@ abstract class TodoyuMailReceiver implements TodoyuMailReceiverInterface {
 	 * Check whether person is available
 	 * Not available by default
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasPerson() {
 		return false;
@@ -98,7 +98,7 @@ abstract class TodoyuMailReceiver implements TodoyuMailReceiverInterface {
 	/**
 	 * Get key of registered receiver type, e.g. 'contactperson'
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getType() {
 		return $this->type;
@@ -109,7 +109,7 @@ abstract class TodoyuMailReceiver implements TodoyuMailReceiverInterface {
 	/**
 	 * Get record ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getRecordID() {
 		return $this->idRecord;
@@ -120,7 +120,7 @@ abstract class TodoyuMailReceiver implements TodoyuMailReceiverInterface {
 	/**
 	 * Get receiver tuple ('type:ID')
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTuple() {
 		return $this->getType() . ':' . $this->getRecordID();
@@ -131,8 +131,8 @@ abstract class TodoyuMailReceiver implements TodoyuMailReceiverInterface {
 	/**
 	 * Get label
 	 *
-	 * @param	Boolean		$withAddress
-	 * @return	String
+	 * @param	boolean		$withAddress
+	 * @return	string
 	 */
 	public function getLabel($withAddress = true) {
 		$name	= $this->getName();
@@ -152,7 +152,7 @@ abstract class TodoyuMailReceiver implements TodoyuMailReceiverInterface {
 	/**
 	 * Get address as mail format
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getMailFormat() {
 		$name	= $this->getName();
@@ -172,7 +172,7 @@ abstract class TodoyuMailReceiver implements TodoyuMailReceiverInterface {
 	/**
 	 * Check whether receiver is enabled
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isEnabled() {
 		return $this->enabled;
@@ -183,7 +183,7 @@ abstract class TodoyuMailReceiver implements TodoyuMailReceiverInterface {
 	/**
 	 * Check whether receiver is disabled
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isDisabled() {
 		return !$this->enabled;

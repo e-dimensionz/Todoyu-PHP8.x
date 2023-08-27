@@ -23,9 +23,9 @@ interface TodoyuSearchEngineIf {
 	/**
 	 * Get search (autocompletion) suggestions
 	 *
-	 * @param	Array	$find
-	 * @param	Array	$ignore
-	 * @param	Integer	$limit
+	 * @param	array	$find
+	 * @param	array	$ignore
+	 * @param	integer	$limit
 	 */
 	public static function getSuggestions(array $find, array $ignore = array(), $limit = 20);
 

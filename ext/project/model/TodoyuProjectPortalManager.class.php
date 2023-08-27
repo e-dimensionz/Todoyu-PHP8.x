@@ -62,7 +62,7 @@ class TodoyuProjectPortalManager {
 	 * Sort a list of task by date_end and date_deadline
 	 * Only use date_end if type is task and date_end is not empty
 	 *
-	 * @param	Array	$taskIDs
+	 * @param	array	$taskIDs
 	 * @return	Array
 	 */
 	private static function getTaskIDsSorted(array $taskIDs) {
@@ -93,9 +93,9 @@ class TodoyuProjectPortalManager {
 	 * Compare tasks by date
 	 * Sort by date_end if it's set and if type is task, else sort by date_deadline
 	 *
-	 * @param	Array		$taskA
-	 * @param	Array		$taskB
-	 * @return	Integer
+	 * @param	array		$taskA
+	 * @param	array		$taskB
+	 * @return	integer
 	 */
 	private static function taskListingSortCompare($taskA, $taskB){
 		$dateA	= $taskA['istask'] && $taskA['date_end'] ? $taskA['date_end'] : $taskA['date_deadline'];
@@ -109,8 +109,8 @@ class TodoyuProjectPortalManager {
 	/**
 	 * Get number of tasks for todo tabs
 	 *
-	 * @param	Array		$filtersetIDs		Not needed, but standard
-	 * @return	Integer
+	 * @param	array		$filtersetIDs		Not needed, but standard
+	 * @return	integer
 	 */
 	public static function getTodoCount(array $filtersetIDs = array()) {
 		$taskIDs	= self::getTodoTaskIDs();

@@ -29,7 +29,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Initialize person
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 */
 	public function __construct($idPerson) {
 		parent::__construct($idPerson, 'ext_contact_person');
@@ -40,12 +40,12 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get the name label of the person
 	 *
-	 * @param	Boolean		$showEmail
-	 * @param	Boolean		$lastnameFirst
-	 * @param	Boolean		$showTitle
-	 * @param	Integer		$idRole
-	 * @param	Boolean		$showCompanyAbbr
-	 * @return	String
+	 * @param	boolean		$showEmail
+	 * @param	boolean		$lastnameFirst
+	 * @param	boolean		$showTitle
+	 * @param	integer		$idRole
+	 * @param	boolean		$showCompanyAbbr
+	 * @return	string
 	 */
 	public function getLabel($showEmail = false, $lastnameFirst = true, $showTitle = false, $idRole = 0, $showCompanyAbbr = false) {
 		 $label	= $this->getFullName($lastnameFirst);
@@ -77,7 +77,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get last name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLastName() {
 		return $this->get('lastname');
@@ -88,7 +88,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get first name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getFirstName() {
 		return $this->get('firstname');
@@ -99,10 +99,10 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Check whether person is an admin
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isAdmin() {
-		return intval($this->data['is_admin']) === 1;
+		return intval($this->data['is_admin'] ?? 0) === 1;
 	}
 
 
@@ -110,7 +110,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Check whether person is a dummy user (e.g. room or other placeholder)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isDummy() {
 		return intval($this->data['is_dummy']) === 1;
@@ -121,7 +121,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get username
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getUsername() {
 		return $this->get('username');
@@ -132,7 +132,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get password
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getPassword() {
 		return $this->get('password');
@@ -143,7 +143,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Check whether a person works in a internal company
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isInternal() {
 		if( !isset($this->cache['isInternal']) ) {
@@ -168,7 +168,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Check whether person is external (not in an internal company)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isExternal() {
 		return !$this->isInternal();
@@ -179,7 +179,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get IDs of the roles the person is a member of
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public function getRoleIDs() {
 		if( !$this->isInCache('roleids') ) {
@@ -196,8 +196,8 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Check whether user is assigned to role
 	 *
-	 * @param	Integer		$idRole
-	 * @return	Boolean
+	 * @param	integer		$idRole
+	 * @return	boolean
 	 */
 	public function hasRole($idRole) {
 		$idRole	= intval($idRole);
@@ -209,8 +209,8 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Check whether the user is assigned to any of the roles
 	 *
-	 * @param	Array	$roleIDs
-	 * @return	Boolean
+	 * @param	array	$roleIDs
+	 * @return	boolean
 	 */
 	public function hasAnyRole(array $roleIDs) {
 		return sizeof(array_intersect($roleIDs, $this->getRoleIDs())) > 0;
@@ -221,9 +221,9 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Check whether the person has the given extension's right
 	 *
-	 * @param	String		$ext
-	 * @param	String		$right
-	 * @return	Boolean
+	 * @param	string		$ext
+	 * @param	string		$right
+	 * @return	boolean
 	 */
 	public function hasRight($ext, $right) {
 		$roleIDs		= $this->getRoleIDs();
@@ -237,8 +237,8 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get fullname of the person
 	 *
-	 * @param	Boolean		$lastnameFirst
-	 * @return	String
+	 * @param	boolean		$lastnameFirst
+	 * @return	string
 	 */
 	public function getFullName($lastnameFirst = false) {
 		if( $this->getID() > 0 ) {
@@ -257,8 +257,8 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get contact email address
 	 *
-	 * @param	Boolean		$checkContactInfo
-	 * @return	String|Boolean
+	 * @param	boolean		$checkContactInfo
+	 * @return	string|Boolean
 	 */
 	public function getEmail($checkContactInfo = true) {
 		$email	= $this->getAccountEmail();
@@ -279,8 +279,8 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get all contact info email addresses
 	 *
-	 * @param	String|null		$type
-	 * @param	Boolean			$onlyPreferred
+	 * @param	string|null		$type
+	 * @param	boolean			$onlyPreferred
 	 * @return	Array
 	 */
 	public function getEmailContactInfos($type = null, $onlyPreferred = false) {
@@ -292,7 +292,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get email of user account
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getAccountEmail() {
 		return trim($this->get('email'));
@@ -303,8 +303,8 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Check whether the user has an email address for his account
 	 *
-	 * @param	Boolean		$checkContactInfo
-	 * @return	Boolean
+	 * @param	boolean		$checkContactInfo
+	 * @return	boolean
 	 */
 	public function hasEmail($checkContactInfo = false) {
 		return trim($this->getEmail($checkContactInfo)) !== '';
@@ -315,7 +315,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Check whether person has an account email address
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasAccountEmail() {
 		return trim($this->getAccountEmail()) !== '';
@@ -326,7 +326,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Check whether persons account is active
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isActive() {
 		return $this->isFlagSet('is_active');
@@ -339,7 +339,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get current person's shortname
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getShortname() {
 		return $this->get('shortname');
@@ -350,7 +350,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get birthday timestamp
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getBirthday() {
 		if( $this->hasBirthday() ) {
@@ -365,7 +365,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Check whether a birthday is set for person
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasBirthday() {
 		return $this->get('birthday') !== '0000-00-00';
@@ -376,7 +376,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get person comment
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getComment() {
 		return $this->get('comment');
@@ -388,8 +388,8 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	 * Get person locale preference
 	 * Use system as fallback if not disabled by parameter
 	 *
-	 * @param	Boolean		$system			Use system locale when user locale not set yet
-	 * @return	String
+	 * @param	boolean		$system			Use system locale when user locale not set yet
+	 * @return	string
 	 */
 	public function getLocale($system = true) {
 		$locale	= TodoyuContactPreferences::getLocale();
@@ -406,7 +406,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get all company IDs of a person (a person can work for multiple companies)
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public function getCompanyIDs() {
 		$field	= '	mm.id_company';
@@ -460,7 +460,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	 * Get timezone of the person
 	 * The timezone is defined in the assigned working address of the person's company
 	 *
-	 * @return	String		Or FALSE if non defined
+	 * @return	string		Or FALSE if non defined
 	 */
 	public function getTimezone() {
 		if( $this->getID() !== 0 ) {
@@ -569,7 +569,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get salutation key
 	 *
-	 * @return	String		'm' or 'w'
+	 * @return	string		'm' or 'w'
 	 */
 	public function getSalutationKey() {
 		return $this->get('salutation');
@@ -580,7 +580,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Parses the salutation to label
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getSalutationLabel() {
 		$salutationKey  = $this->getSalutationKey();
@@ -608,7 +608,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get first phone number of person
 	 *
-	 * @return	String|Boolean
+	 * @return	string|Boolean
 	 */
 	public function getPhone() {
 		$phones	= $this->getPhones();
@@ -661,7 +661,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get SMTP account ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getSmtpAccountID() {
 		return $this->getInt('id_smtpaccount');
@@ -672,7 +672,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Check whether person has configured an SMTP account
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasSmtpAccount() {
 		return $this->getSmtpAccountID() !== 0;
@@ -694,7 +694,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get mail signature
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getMailSignature() {
 		return rtrim($this->get('mail_signature'));
@@ -706,7 +706,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	 * Get signature as html
 	 * Just wrap with <pre> tags to preserve the formatting
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getMailSignatureAsHtml() {
 		return '<pre>' . $this->getMailSignature() . '</pre>';
@@ -717,7 +717,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Check whether person has a mail signature
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasMailSignature() {
 		return trim($this->getMailSignature()) !== '';
@@ -728,7 +728,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get correspondence locale
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLocaleCorrespondence() {
 		$localeCorrespondence	= $this->get('locale_correspondence');
@@ -745,7 +745,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Check whether the person has set a correspondence locale
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasLocaleCorrespondence() {
 		return trim($this->get('locale_correspondence')) !== '';
@@ -759,7 +759,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	 * - Contact info addresses
 	 * - Smtp address
 	 *
-	 * @return	String[]
+	 * @return	string[]
 	 */
 	public function getAllMailAddresses() {
 		$addresses	= array();
@@ -812,7 +812,7 @@ class TodoyuContactPerson extends TodoyuBaseObject {
 	/**
 	 * Get person template data
 	 *
-	 * @param	Boolean		$loadForeignData
+	 * @param	boolean		$loadForeignData
 	 * @return	Array
 	 */
 	public function getTemplateData($loadForeignData = false) {

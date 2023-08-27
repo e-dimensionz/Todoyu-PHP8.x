@@ -30,8 +30,8 @@ class TodoyuSysmanagerArchiver {
 	/**
 	 * Create a extension archive (ZIP file) in cache and return the path to it
 	 *
-	 * @param	String		$extKey
-	 * @return	String		Path to archive in cache
+	 * @param	string		$extKey
+	 * @return	string		Path to archive in cache
 	 */
 	public static function createExtensionArchive($extKey) {
 		$extPath	= TodoyuExtensions::getExtPath($extKey);
@@ -44,7 +44,7 @@ class TodoyuSysmanagerArchiver {
 	/**
 	 * Create archive which contains the core
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function createCoreArchive() {
 		$exclude	= array(

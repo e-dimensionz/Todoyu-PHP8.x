@@ -61,7 +61,7 @@ class TodoyuTimezoneManager {
 	/**
 	 * Get timezones grouped by region
 	 *
-	 * @param	Boolean		$withOffset
+	 * @param	boolean		$withOffset
 	 * @return	Array[]
 	 */
 	public static function getTimezonesGrouped($withOffset = false) {
@@ -82,8 +82,8 @@ class TodoyuTimezoneManager {
 	/**
 	 * Get grouped timezone options
 	 *
-	 * @param	Boolean		$withOffset
-	 * @param	Boolean		$useIdAsValue		Should be the ID of the name used as value
+	 * @param	boolean		$withOffset
+	 * @param	boolean		$useIdAsValue		Should be the ID of the name used as value
 	 * @return	Array[]
 	 */
 	public static function getTimezonesGroupedOptions($withOffset = false, $useIdAsValue = false) {

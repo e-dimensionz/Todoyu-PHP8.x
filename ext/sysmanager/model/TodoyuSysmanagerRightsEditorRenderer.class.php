@@ -29,8 +29,8 @@ class TodoyuSysmanagerRightsEditorRenderer {
 	/**
 	 * Render rights editor module of active tab
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public static function renderModule(array $params) {
 		$tab	= trim($params['tab']);
@@ -52,8 +52,8 @@ class TodoyuSysmanagerRightsEditorRenderer {
 	/**
 	 * Render rights module tabs
 	 *
-	 * @param	String	$tab
-	 * @return	String
+	 * @param	string	$tab
+	 * @return	string
 	 */
 	private static function renderTabs($tab) {
 		$name		= 'rights';
@@ -69,9 +69,9 @@ class TodoyuSysmanagerRightsEditorRenderer {
 	/**
 	 * Render rights editor body
 	 *
-	 * @param	String	$tab
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	string	$tab
+	 * @param	array	$params
+	 * @return	string
 	 */
 	private static function renderBody($tab, array $params) {
 		if( $tab === 'roles' ) {
@@ -86,8 +86,8 @@ class TodoyuSysmanagerRightsEditorRenderer {
 	/**
 	 * Render module view for rights editor
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderBodyRights(array $params) {
 		$ext	= trim($params['extkey']);
@@ -114,8 +114,8 @@ class TodoyuSysmanagerRightsEditorRenderer {
 	/**
 	 * Render module view for role editor
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderBodyRoles(array $params) {
 		$idRole	= intval($params['role']);
@@ -132,9 +132,9 @@ class TodoyuSysmanagerRightsEditorRenderer {
 	/**
 	 * Render form for rights editor. Includes the role and extension selector
 	 *
-	 * @param	Array		$roles
-	 * @param	String		$ext
-	 * @return	String
+	 * @param	array		$roles
+	 * @param	string		$ext
+	 * @return	string
 	 */
 	public static function renderRightsEditorForm(array $roles = array(), $ext = '') {
 		$xmlPath= 'ext/sysmanager/config/form/rightseditor.xml';
@@ -156,9 +156,9 @@ class TodoyuSysmanagerRightsEditorRenderer {
 	/**
 	 * Render rights matrix for all all extension rights for the selected roles
 	 *
-	 * @param	Array		$roleIDs		Roles to display
-	 * @param	String		$ext			Extension key
-	 * @return	String
+	 * @param	array		$roleIDs		Roles to display
+	 * @param	string		$ext			Extension key
+	 * @return	string
 	 */
 	public static function renderRightsMatrix(array $roleIDs, $ext) {
 		if( sizeof($roleIDs) === 0 ) {

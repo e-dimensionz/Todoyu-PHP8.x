@@ -30,8 +30,8 @@ class TodoyuCoreWizardActionController extends TodoyuActionController {
 	/**
 	 * Render about window
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function loadAction(array $params) {
 		$wizardName	= trim($params['wizard'] ?? '');
@@ -50,15 +50,15 @@ class TodoyuCoreWizardActionController extends TodoyuActionController {
 	/**
 	 * Save wizard step and render next step if data was valid
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function saveAction(array $params) {
 		$wizardName	= trim($params['wizard']);
 		$step		= trim($params['step']);
 		$direction	= trim($params['direction']);
 		$noSave		= (boolean)$params['nosave'];
-		$data		= TodoyuArray::assure($params['data'] ?? '');
+		$data		= TodoyuArray::assure($params['data'] ?? []);
 
 		$wizard		= TodoyuWizardManager::getWizard($wizardName);
 

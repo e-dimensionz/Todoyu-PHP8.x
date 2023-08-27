@@ -31,7 +31,7 @@ class TodoyuFunction {
 	 * string function reference like 'MyClass::myMethod'
 	 * First argument is the function reference, all others are normal parameters passed to the function
 	 *
-	 * @param	String		$funcRefString		Function reference
+	 * @param	string		$funcRefString		Function reference
 	 * @return	Mixed
 	 */
 	public static function callUserFunction($funcRefString) {
@@ -58,8 +58,8 @@ class TodoyuFunction {
 	 * @see		callUserFunction()
 	 * @see		call_user_func_array()
 	 *
-	 * @param	String		$funcRefString
-	 * @param	Array		$funcArgs
+	 * @param	string		$funcRefString
+	 * @param	array		$funcArgs
 	 * @return	Mixed
 	 */
 	public static function callUserFunctionArray($funcRefString, array $funcArgs) {
@@ -80,8 +80,8 @@ class TodoyuFunction {
 	/**
 	 * Check if a function/method reference is valid
 	 *
-	 * @param	String		$funcRefString		Format: function or class::method
-	 * @return	Boolean
+	 * @param	string		$funcRefString		Format: function or class::method
+	 * @return	boolean
 	 */
 	public static function isFunctionReference($funcRefString) {
 		if( !is_string($funcRefString) ) {

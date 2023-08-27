@@ -29,8 +29,8 @@ class TodoyuBookmarkPanelWidgetTaskBookmarks extends TodoyuPanelWidget {
 	/**
 	 * Initialize widget with open tasks and projects
 	 *
-	 * @param	Array		$config
-	 * @param	Array		$params
+	 * @param	array		$config
+	 * @param	array		$params
 	 */
 	public function __construct(array $config, array $params = array()) {
 		parent::__construct(
@@ -49,7 +49,7 @@ class TodoyuBookmarkPanelWidgetTaskBookmarks extends TodoyuPanelWidget {
 	/**
 	 * Get task bookmarks data array
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	private function getTaskBookmarks($idPerson = 0) {
@@ -106,7 +106,7 @@ class TodoyuBookmarkPanelWidgetTaskBookmarks extends TodoyuPanelWidget {
 	/**
 	 * Render panel widget content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderContent() {
 		$tmpl	= 'ext/bookmark/view/panelwidget-taskbookmarks.tmpl';
@@ -127,7 +127,7 @@ class TodoyuBookmarkPanelWidgetTaskBookmarks extends TodoyuPanelWidget {
 	/**
 	 * Render widget (get evoked)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function render() {
 		TodoyuPage::addJsInit('Todoyu.Ext.bookmark.PanelWidget.TaskBookmarks.init()', 100);
@@ -140,8 +140,8 @@ class TodoyuBookmarkPanelWidgetTaskBookmarks extends TodoyuPanelWidget {
 	/**
 	 * Get context menu items for bookmark panel widget
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Array		$items
+	 * @param	integer		$idTask
+	 * @param	array		$items
 	 * @return	Array
 	 */
 	public static function getContextMenuItems($idTask, array $items) {
@@ -181,7 +181,7 @@ class TodoyuBookmarkPanelWidgetTaskBookmarks extends TodoyuPanelWidget {
 	/**
 	 * Check panelWidget access permission
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		return Todoyu::allowed('bookmark', 'general:use');

@@ -29,7 +29,7 @@ class TodoyuAssetsUploadActionController extends TodoyuActionController {
 	/**
 	 * Restrict access
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('assets', 'general:use');
@@ -40,8 +40,8 @@ class TodoyuAssetsUploadActionController extends TodoyuActionController {
 	/**
 	 * Upload an asset
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function defaultAction(array $params) {
 		$idRecord		= intval($params['asset']['id_record']);

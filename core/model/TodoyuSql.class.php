@@ -29,13 +29,13 @@ class TodoyuSql {
 	/**
 	 * Build a select query
 	 *
-	 * @param	String		$fields
-	 * @param	String		$table
-	 * @param	String		$where
-	 * @param	String		$groupBy
-	 * @param	String		$orderBy
-	 * @param	String		$limit
-	 * @return	String
+	 * @param	string		$fields
+	 * @param	string		$table
+	 * @param	string		$where
+	 * @param	string		$groupBy
+	 * @param	string		$orderBy
+	 * @param	string		$limit
+	 * @return	string
 	 */
 	public static function buildSELECTquery($fields, $table, $where = '', $groupBy = '', $orderBy = '', $limit = '') {
 		$query = 'SELECT ' . $fields . ' FROM ' . $table;
@@ -64,10 +64,10 @@ class TodoyuSql {
 	/**
 	 * Build insert query
 	 *
-	 * @param	String		$table
-	 * @param	Array		$fieldNameValues
-	 * @param	Array		$noQuoteFields
-	 * @return	String
+	 * @param	string		$table
+	 * @param	array		$fieldNameValues
+	 * @param	array		$noQuoteFields
+	 * @return	string
 	 */
 	public static function buildINSERTquery($table, array $fieldNameValues, array $noQuoteFields = array()) {
 		$fieldNames		= implode(',', self::backtickArray(array_keys($fieldNameValues)));
@@ -86,10 +86,10 @@ class TodoyuSql {
 	/**
 	 * Build delete query
 	 *
-	 * @param	String		$table
-	 * @param	String		$where
-	 * @param	String		$limit
-	 * @return	String
+	 * @param	string		$table
+	 * @param	string		$where
+	 * @param	string		$limit
+	 * @return	string
 	 */
 	public static function buildDELETEquery($table, $where, $limit = '') {
 		$table	= self::quoteTablename($table);
@@ -107,11 +107,11 @@ class TodoyuSql {
 	/**
 	 * Build an update query
 	 *
-	 * @param	String		$table
-	 * @param	String		$where
-	 * @param	Array		$fieldNameValues
-	 * @param	Array		$noQuoteFields
-	 * @return	String
+	 * @param	string		$table
+	 * @param	string		$where
+	 * @param	array		$fieldNameValues
+	 * @param	array		$noQuoteFields
+	 * @return	string
 	 */
 	public static function buildUPDATEquery($table, $where, array $fieldNameValues, array $noQuoteFields = array()) {
 		$fieldNameValues= self::escapeArray($fieldNameValues, true, $noQuoteFields);
@@ -137,12 +137,12 @@ class TodoyuSql {
 	/**
 	 * Build "WHERE IN()" query part
 	 *
-	 * @param	Array		$values
-	 * @param	String		$fieldName
-	 * @param	Boolean		$isInt				Values are integers?
-	 * @param	Boolean		$negate				Negate using NOT?
-	 * @param	Boolean		$quoteStrings		Quote non-integer values?
-	 * @return	String
+	 * @param	array		$values
+	 * @param	string		$fieldName
+	 * @param	boolean		$isInt				Values are integers?
+	 * @param	boolean		$negate				Negate using NOT?
+	 * @param	boolean		$quoteStrings		Quote non-integer values?
+	 * @return	string
 	 */
 	public static function buildInListQueryPart(array $values, $fieldName, $isInt = true, $negate = false, $quoteStrings = true) {
 		if( sizeof($values) === 0 ) {
@@ -168,8 +168,8 @@ class TodoyuSql {
 	/**
 	 * Wrap value in backticks
 	 *
-	 * @param	String		$value
-	 * @return	String
+	 * @param	string		$value
+	 * @return	string
 	 */
 	public static function backtick($value) {
 		if( stristr($value, '.') !== false ) {
@@ -186,8 +186,8 @@ class TodoyuSql {
 	 * tablename => `tablename`
 	 * Don't quote if the table name contains a whitespace => this means there may be multiple tables or an alias
 	 *
-	 * @param	String		$tableName
-	 * @return	String
+	 * @param	string		$tableName
+	 * @return	string
 	 */
 	public static function quoteTablename($tableName) {
 		return strpos($tableName, ' ') === false && strpos($tableName, ',') === false ? self::backtick($tableName) : $tableName;
@@ -198,9 +198,9 @@ class TodoyuSql {
 	/**
 	 * Build a boolean invert SQL command
 	 *
-	 * @param	String		$fieldName
-	 * @param	String		$table
-	 * @return	String
+	 * @param	string		$fieldName
+	 * @param	string		$table
+	 * @return	string
 	 */
 	public static function buildBooleanInvertQueryPart($fieldName, $table = '') {
 		return self::quoteFieldname($fieldName, $table) . ' XOR 1';
@@ -211,9 +211,9 @@ class TodoyuSql {
 	/**
 	 * Build a FIND_IN_SET SQL statement so search in a comma separated field
 	 *
-	 * @param	String		$value
-	 * @param	String		$fieldName
-	 * @return	String
+	 * @param	string		$value
+	 * @param	string		$fieldName
+	 * @return	string
 	 */
 	public static function buildFindInSetQueryPart($value, $fieldName) {
 		$value		= self::quote($value, true);
@@ -227,11 +227,11 @@ class TodoyuSql {
 	/**
 	 * Build a like query to search multiple strings in multiple fields with LIKE %word%
 	 *
-	 * @param	Array		$searchWords			Words to search for
-	 * @param	Array		$searchInFields			Fields which have to match the $searchWords
-	 * @param	Boolean		$negate
-	 * @param	Boolean		$allOr
-	 * @return	String		Where part condition
+	 * @param	array		$searchWords			Words to search for
+	 * @param	array		$searchInFields			Fields which have to match the $searchWords
+	 * @param	boolean		$negate
+	 * @param	boolean		$allOr
+	 * @return	string		Where part condition
 	 */
 	public static function buildLikeQueryPart(array $searchWords, array $searchInFields, $negate = false, $allOr = false) {
 		$searchWords		= self::escapeArray($searchWords);
@@ -264,8 +264,8 @@ class TodoyuSql {
 	 * Info: The string should already be escaped for mysql,
 	 * which prevents problems with double escaping and dangerous combinations of backslashes
 	 *
-	 * @param	String		$string
-	 * @return	String
+	 * @param	string		$string
+	 * @return	string
 	 */
 	public static function escapeLikeWildCards($string) {
 		return str_replace(array('%', '?'), array('\\%', '\\?'), $string);
@@ -276,9 +276,9 @@ class TodoyuSql {
 	/**
 	 * Quote a field name. Optionally, the table name is prefixed
 	 *
-	 * @param	String		$fieldName
-	 * @param	String		$tableName
-	 * @return	String		Field name in backticks
+	 * @param	string		$fieldName
+	 * @param	string		$tableName
+	 * @return	string		Field name in backticks
 	 */
 	public static function quoteFieldname($fieldName, $tableName = '') {
 		$fieldName	= self::backtick($fieldName);
@@ -295,8 +295,8 @@ class TodoyuSql {
 	/**
 	 * Escape string for queries
 	 *
-	 * @param	String		$string
-	 * @return	String
+	 * @param	string		$string
+	 * @return	string
 	 */
 	public static function escape($string) {
 		return is_float($string) ? str_replace(',', '.', (string) $string) : mysqli_real_escape_string(Todoyu::db()->link, $string);
@@ -307,9 +307,9 @@ class TodoyuSql {
 	/**
 	 * Quote a string value.
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$escape
-	 * @return	String
+	 * @param	string		$value
+	 * @param	boolean		$escape
+	 * @return	string
 	 */
 	public static function quote($value, $escape = false) {
 		$value = $escape ? self::escape($value) : $value;
@@ -322,9 +322,9 @@ class TodoyuSql {
 	/**
 	 * Quote all fields in an array
 	 *
-	 * @param	Array		$array
-	 * @param	Array		$noQuoteFields
-	 * @param	Boolean		$escape
+	 * @param	array		$array
+	 * @param	array		$noQuoteFields
+	 * @param	boolean		$escape
 	 * @return	Array
 	 */
 	public static function quoteArray(array $array, array $noQuoteFields = array(), $escape = true) {
@@ -342,7 +342,7 @@ class TodoyuSql {
 	/**
 	 * Wrap all elements of an array in backticks
 	 *
-	 * @param	Array		$array
+	 * @param	array		$array
 	 * @return	Array
 	 */
 	public static function backtickArray(array $array) {
@@ -355,9 +355,9 @@ class TodoyuSql {
 	 * Escape all values in the array
 	 * Optional it's available to quote all fields. $noQuoteFields can disable this function for specific fields
 	 *
-	 * @param	Array		$array				Array to escape (name => value pairs)
-	 * @param	Boolean		$quoteFields		Quote the fields (field will be surrounded by single quotes:')
-	 * @param	Array		$noQuoteFields		If $quoteFields is enabled, this fields will be ignored for quoting
+	 * @param	array		$array				Array to escape (name => value pairs)
+	 * @param	boolean		$quoteFields		Quote the fields (field will be surrounded by single quotes:')
+	 * @param	array		$noQuoteFields		If $quoteFields is enabled, this fields will be ignored for quoting
 	 * @return	Array
 	 */
 	public static function escapeArray(array $array, $quoteFields = false, array $noQuoteFields = array()) {

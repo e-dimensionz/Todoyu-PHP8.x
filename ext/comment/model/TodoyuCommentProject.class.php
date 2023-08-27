@@ -29,7 +29,7 @@ class TodoyuCommentProject extends TodoyuProjectProject {
 	/**
 	 * Get comment fallback ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getCommentFallbackID() {
 		return $this->getInt('ext_comment_fallback');
@@ -51,7 +51,7 @@ class TodoyuCommentProject extends TodoyuProjectProject {
 	/**
 	 * Check whether the project has a comment fallback
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasCommentFallback() {
 		return $this->getCommentFallbackID() !== 0;
@@ -60,8 +60,8 @@ class TodoyuCommentProject extends TodoyuProjectProject {
 
 
 	/**
-	 * @param	Integer	$idTask
-	 * @param	Array	$data
+	 * @param	integer	$idTask
+	 * @param	array	$data
 	 * @return	Array
 	 */
 	public function applyCommentFallback($idTask, array $data) {

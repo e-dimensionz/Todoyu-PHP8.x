@@ -1,0 +1,5 @@
+tcache/
+.vscode/
+install/_ENABLE
+install/config/LAST_VERSION
+log/

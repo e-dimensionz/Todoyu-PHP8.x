@@ -30,9 +30,9 @@ class TodoyuFormElement_RecordsMailReceivers extends TodoyuFormElement_Records {
 	/**
 	 * Initialize
 	 *
-	 * @param	String				$name
+	 * @param	string				$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array				$config
+	 * @param	array				$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		parent::__construct('mailReceivers', $name, $fieldset, $config);

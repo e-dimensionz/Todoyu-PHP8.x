@@ -42,7 +42,7 @@ class TodoyuHeadletAjaxLoader extends TodoyuHeadletTypeButton {
 	/**
 	 * Get headlet label
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLabel() {
 		return Todoyu::Label('core.global.headlet.ajaxloader.label');

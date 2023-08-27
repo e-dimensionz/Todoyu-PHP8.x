@@ -38,7 +38,7 @@ class TodoyuContactPanelwidgetcontactexportActionController extends TodoyuAction
 	/**
 	 * Export action for contact
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function exportAction(array $params) {
 		$searchWords= TodoyuArray::trimExplode(' ', $params['searchword'], true);

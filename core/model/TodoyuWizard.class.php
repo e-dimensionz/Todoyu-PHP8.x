@@ -44,7 +44,7 @@ abstract class TodoyuWizard {
 
 
 	/**
-	 * @param	String		$name
+	 * @param	string		$name
 	 */
 	public function __construct($name) {
 		$this->name	= $name;
@@ -55,8 +55,8 @@ abstract class TodoyuWizard {
 	/**
 	 * Save given step data
 	 *
-	 * @param	String	$stepName
-	 * @param	Array	$data
+	 * @param	string	$stepName
+	 * @param	array	$data
 	 * @return	TodoyuWizardStep
 	 */
 	public function save($stepName, array $data) {
@@ -68,8 +68,8 @@ abstract class TodoyuWizard {
 	/**
 	 * Render step of the wizard
 	 *
-	 * @param	Boolean|String		$stepName
-	 * @return	String
+	 * @param	boolean|String		$stepName
+	 * @return	string
 	 */
 	public function render($stepName = false) {
 		if( ! empty($stepName) ) {
@@ -100,7 +100,7 @@ abstract class TodoyuWizard {
 	/**
 	 * Check whether current step is first step
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	protected function isFirstStep() {
 		return $this->getLastStepName() === false;
@@ -111,7 +111,7 @@ abstract class TodoyuWizard {
 	/**
 	 * Check whether current step is last step
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	protected function isLastStep() {
 		return $this->getNextStepName() === false;
@@ -169,7 +169,7 @@ abstract class TodoyuWizard {
 	/**
 	 * Get step object
 	 *
-	 * @param	String				$stepName
+	 * @param	string				$stepName
 	 * @return	TodoyuWizardStep
 	 * @throws	TodoyuException
 	 */
@@ -196,7 +196,7 @@ abstract class TodoyuWizard {
 	/**
 	 * Get name of active step. Use parameter if step name was given
 	 *
-	 * @param	String	$stepName
+	 * @param	string	$stepName
 	 * @return	Mixed|null|void
 	 */
 	protected function getActiveStepName($stepName = null) {
@@ -224,7 +224,7 @@ abstract class TodoyuWizard {
 	/**
 	 * Get label of active step
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getActiveStepLabel() {
 		return $this->getActiveStep()->getTitle();
@@ -235,8 +235,8 @@ abstract class TodoyuWizard {
 	/**
 	 * Change step into given direction (next/back)
 	 *
-	 * @param	String		$direction
-	 * @return	String		Next step key
+	 * @param	string		$direction
+	 * @return	string		Next step key
 	 */
 	public function goToStepInDirection($direction) {
 		if( $direction === 'next' ) {
@@ -255,7 +255,7 @@ abstract class TodoyuWizard {
 	/**
 	 * Change active step to the next one
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function goToNextStep() {
 		$nextStep	= $this->getNextStepName();
@@ -270,7 +270,7 @@ abstract class TodoyuWizard {
 	/**
 	 * Go to step before current
 	 *
-	 * @return	String|Boolean
+	 * @return	string|Boolean
 	 */
 	public function goToLastStep() {
 		$lastStep	= $this->getLastStepName();
@@ -287,8 +287,8 @@ abstract class TodoyuWizard {
 	/**
 	 * Check whether the name is a valid step name
 	 *
-	 * @param	String		$stepName
-	 * @return	Boolean
+	 * @param	string		$stepName
+	 * @return	boolean
 	 */
 	protected function isStepName($stepName) {
 		$stepNames	= TodoyuArray::getColumn($this->getSteps(), 'step');
@@ -323,7 +323,7 @@ abstract class TodoyuWizard {
 	/**
 	 * Set active step
 	 *
-	 * @param	String		$stepName
+	 * @param	string		$stepName
 	 */
 	protected function setActiveStep($stepName) {
 		TodoyuWizardManager::setCurrentStep($this->name, $stepName);
@@ -335,7 +335,7 @@ abstract class TodoyuWizard {
 	 * Get name of next step
 	 * False if no next step was found
 	 *
-	 * @return	String|Boolean
+	 * @return	string|Boolean
 	 */
 	protected function getNextStepName() {
 		$activeStep	= $this->getActiveStepName();
@@ -360,7 +360,7 @@ abstract class TodoyuWizard {
 	/**
 	 * Get name of last step
 	 *
-	 * @return	String|Boolean
+	 * @return	string|Boolean
 	 */
 	protected function getLastStepName() {
 		$activeStep	= $this->getActiveStepName();
@@ -389,7 +389,7 @@ abstract class TodoyuWizard {
 	 * Get name of first step in the wizard
 	 * This step is displayed, if no step is set
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	abstract protected function getFirstStep();
 

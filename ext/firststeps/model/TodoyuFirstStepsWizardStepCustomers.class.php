@@ -39,8 +39,8 @@ class TodoyuFirstStepsWizardStepCustomers extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Save customer
 	 *
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public function save(array $data) {
 		$form	= $this->getForm($data);
@@ -63,7 +63,7 @@ class TodoyuFirstStepsWizardStepCustomers extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Render content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getContent() {
 		$tmpl	= 'ext/firststeps/view/form-with-list.tmpl';
@@ -107,8 +107,8 @@ class TodoyuFirstStepsWizardStepCustomers extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Add a customer
 	 *
-	 * @param	Array		$submittedData
-	 * @return	Integer
+	 * @param	array		$submittedData
+	 * @return	integer
 	 */
 	private function addCustomer(array $submittedData) {
 		$data	= array(

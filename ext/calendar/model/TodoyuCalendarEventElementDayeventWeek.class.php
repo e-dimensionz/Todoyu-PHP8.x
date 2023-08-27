@@ -80,7 +80,7 @@ class TodoyuCalendarEventElementDayeventWeek extends TodoyuCalendarEventElementW
 	/**
 	 * Get template path
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getTemplate() {
 		return 'ext/calendar/view/event/dayevent.tmpl';
@@ -107,7 +107,7 @@ class TodoyuCalendarEventElementDayeventWeek extends TodoyuCalendarEventElementW
 	 * Render dayevent for a range
 	 *
 	 * @param	TodoyuDayRange		$range
-	 * @return	String
+	 * @return	string
 	 */
 	public function render(TodoyuDayRange $range = null) {
 		$data	= $this->getTemplateData($range);

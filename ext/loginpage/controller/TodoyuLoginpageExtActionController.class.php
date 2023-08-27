@@ -29,8 +29,8 @@ class TodoyuLoginpageExtActionController extends TodoyuActionController {
 	/**
 	 * Default action when loading without parameters (normal call of login page)
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function defaultAction(array $params) {
 			// Redirect to default view if already logged in
@@ -46,7 +46,7 @@ class TodoyuLoginpageExtActionController extends TodoyuActionController {
 		TodoyuPage::init('ext/loginpage/view/ext.tmpl');
 		TodoyuPage::setTitle('loginpage.ext.page.title');
 
-		$loginStatus	= $params['status'];
+		$loginStatus	= $params['status'] ?? null;
 
 			// Render elements
 		$panelWidgets		= TodoyuLoginpageRenderer::renderPanelWidgets();
@@ -68,7 +68,7 @@ class TodoyuLoginpageExtActionController extends TodoyuActionController {
 	/**
 	 * Logout request
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function logoutAction($params) {
 		TodoyuAuth::logout();
@@ -79,8 +79,8 @@ class TodoyuLoginpageExtActionController extends TodoyuActionController {
 	/**
 	 * Login request
 	 *
-	 * @param	Array			$params
-	 * @return	String|Void
+	 * @param	array			$params
+	 * @return	string|Void
 	 */
 	public function loginAction($params) {
 			// If login form not submitted by AJAX, form vars are wrapped in login namespace
@@ -165,8 +165,8 @@ class TodoyuLoginpageExtActionController extends TodoyuActionController {
 	/**
 	 * Render forgot-password form
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function loadForgotPasswordFormAction($params) {
 		$username	= $params['username'];
@@ -179,8 +179,8 @@ class TodoyuLoginpageExtActionController extends TodoyuActionController {
 	/**
 	 * Render login form
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function loadLoginFormAction($params) {
 		return TodoyuLoginpageRenderer::renderLoginForm();
@@ -191,8 +191,8 @@ class TodoyuLoginpageExtActionController extends TodoyuActionController {
 	/**
 	 * Get password-forgotten form
 	 *
-	 * @param	Array	$params
-	 * @return	String	JSON encoded password-forgotten form
+	 * @param	array	$params
+	 * @return	string	JSON encoded password-forgotten form
 	 * @todo	Remove the json_encode part, refactor method!
 	 */
 	public function forgotPasswordAction($params) {
@@ -240,8 +240,8 @@ class TodoyuLoginpageExtActionController extends TodoyuActionController {
 	/**
 	 * Render confirmation email screen
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function confirmationmailAction($params) {
 		$userName	= $params['userName'];
@@ -290,8 +290,8 @@ class TodoyuLoginpageExtActionController extends TodoyuActionController {
 	/**
 	 * Render re-login popup message with form
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function reloginPopupAction(array $params) {
 		$tmpl	= 'ext/loginpage/view/reloginpopup.tmpl';
@@ -314,8 +314,8 @@ class TodoyuLoginpageExtActionController extends TodoyuActionController {
 	 * If the cookie check is empty, cookies are not enabled in the browser and todoyu has to show an warning message.
 	 * if the cookie exists delete it
 	 *
-	 * @param	Array	$params
-	 * @return String
+	 * @param	array	$params
+	 * @return string
 	 */
 	public function nocookieAction(array $params) {
 		TodoyuHeader::sendTodoyuErrorHeader();

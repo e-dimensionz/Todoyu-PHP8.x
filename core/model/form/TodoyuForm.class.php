@@ -139,9 +139,9 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Initialize form by parsing the XML file to load elements
 	 *
-	 * @param	String			$xmlFile		Path to XML form definition
-	 * @param	Integer|String	$idRecord
-	 * @param	Array			$params			Form parameters
+	 * @param	string			$xmlFile		Path to XML form definition
+	 * @param	integer|String	$idRecord
+	 * @param	array			$params			Form parameters
 	 */
 	public function __construct($xmlFile, $idRecord = 0, array $params = array()) {
 		$this->xmlFile	= TodoyuFileManager::pathAbsolute($xmlFile);
@@ -160,7 +160,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Get a fieldset by name
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @return	TodoyuFormFieldset
 	 */
 	public function __get($name) {
@@ -173,7 +173,7 @@ class TodoyuForm implements ArrayAccess {
 	 * Set a new fieldset. You should use addFieldset()
 	 *
 	 * @see		addFieldset
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @param	TodoyuFormFieldset	$fieldset
 	 */
 	public function __set($name, TodoyuFormFieldset $fieldset) {
@@ -185,8 +185,8 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Check if a fieldset is set
 	 *
-	 * @param	String		$name
-	 * @return	Boolean
+	 * @param	string		$name
+	 * @return	boolean
 	 */
 	public function __isset($name) {
 		return $this->hasFieldset($name);
@@ -197,7 +197,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Remove a fieldset
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 */
 	public function __unset($name) {
 		$this->removeFieldset($name);
@@ -208,7 +208,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Set form data with default values for form fields
 	 *
-	 * @param	Array		$formData
+	 * @param	array		$formData
 	 * @return	TodoyuForm
 	 */
 	public function setFormData(array $formData = array()) {
@@ -235,8 +235,8 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Get param
 	 *
-	 * @param	String		$name
-	 * @param	Boolean		$asInt
+	 * @param	string		$name
+	 * @param	boolean		$asInt
 	 * @return	Mixed
 	 */
 	public function getParam($name, $asInt = false) {
@@ -266,7 +266,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Add extra form data without replacing the current one (overrides existing keys)
 	 *
-	 * @param	Array		$data
+	 * @param	array		$data
 	 */
 	public function addFormData(array $data) {
 		$this->formdata	= array_merge($this->formdata, $data);
@@ -290,7 +290,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Get form data of a field
 	 *
-	 * @param	String		$fieldName
+	 * @param	string		$fieldName
 	 * @return	Mixed
 	 */
 	public function getFieldData($fieldName) {
@@ -302,7 +302,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Update form data for a field
 	 *
-	 * @param	String		$fieldName
+	 * @param	string		$fieldName
 	 * @param	Mixed		$value
 	 */
 	public function setFieldFormData($fieldName, $value) {
@@ -314,7 +314,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Set ID of current record (0 for new elements)
 	 *
-	 * @param	String		$idRecord
+	 * @param	string		$idRecord
 	 */
 	public function setRecordID($idRecord) {
 		$this->idRecord = $idRecord;
@@ -327,7 +327,7 @@ class TodoyuForm implements ArrayAccess {
 	 * it in the data array under the id-key. Else return 0
 	 * In special cases, the ID can also be a string (ex: 23-4)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getRecordID() {
 		if( ! is_null($this->idRecord) ) {
@@ -344,7 +344,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Get custom form vars which can be used for rendering
 	 *
-	 * @param	Array		$vars
+	 * @param	array		$vars
 	 */
 	public function setVars(array $vars) {
 		$this->vars = $vars;
@@ -355,7 +355,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Get custom set form var
 	 *
-	 * @param	String		$varName
+	 * @param	string		$varName
 	 * @return	Mixed
 	 */
 	public function getVar($varName) {
@@ -367,7 +367,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Check whether a parent form exists
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasParentForm() {
 		return $this->getVar('parentForm') instanceof TodoyuForm;
@@ -389,7 +389,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Get field from parent form
 	 * 
-	 * @param	String		$fieldName
+	 * @param	string		$fieldName
 	 * @return	TodoyuFormElement|Boolean
 	 */
 	public function getFieldFromParentForm($fieldName) {
@@ -428,7 +428,7 @@ class TodoyuForm implements ArrayAccess {
 	 */
 	protected function updateHiddenFieldValues() {
 		foreach( $this->hiddenFields as $name => $value ) {
-			if( !is_null($this->formdata[$name]) ) {
+			if( !empty($this->formdata[$name]) && !is_null($this->formdata[$name]) ) {
 				$this->hiddenFields[$name]['value'] = $this->formdata[$name];
 			}
 		}
@@ -481,7 +481,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Get a fieldset (reference) in the form by name
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @return	TodoyuFormFieldset
 	 */
 	public function getFieldset($name) {
@@ -493,9 +493,9 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Add a new fieldset and return a reference to it
 	 *
-	 * @param	String				$name
+	 * @param	string				$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Integer				$position
+	 * @param	integer				$position
 	 * @return	TodoyuFormFieldset
 	 */
 	public function addFieldset($name, TodoyuFormFieldset $fieldset = null, $position = null) {
@@ -530,7 +530,7 @@ class TodoyuForm implements ArrayAccess {
 	 * Inject an existing fieldset into the form
 	 *
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Integer			$position
+	 * @param	integer			$position
 	 * @return	TodoyuFormFieldset
 	 */
 	public function injectFieldset(TodoyuFormFieldset $fieldset, $position = null) {
@@ -546,8 +546,8 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Add all elements of a form to this form
 	 *
-	 * @param	String		$xmlPath		Path to sub form XML file
-	 * @param	Integer		$position		Insert position
+	 * @param	string		$xmlPath		Path to sub form XML file
+	 * @param	integer		$position		Insert position
 	 */
 	public function addElementsFromXML($xmlPath, $position = null) {
 		$xmlPath	= TodoyuFileManager::pathAbsolute($xmlPath);
@@ -570,8 +570,8 @@ class TodoyuForm implements ArrayAccess {
 	 * Add elements from another XML into the form after the element named $name
 	 *
 	 * @see		$this->addElementsFromXML()
-	 * @param	String		$xmlPath		Path to the xml file
-	 * @param	String		$fieldName		Name of the field to insert the elements after
+	 * @param	string		$xmlPath		Path to the xml file
+	 * @param	string		$fieldName		Name of the field to insert the elements after
 	 */
 	public function addElementsFromXMLAfter($xmlPath, $fieldName) {
 		$this->addElementsFromXML($xmlPath, 'after:' . $fieldName);
@@ -583,8 +583,8 @@ class TodoyuForm implements ArrayAccess {
 	 * Add elements from another XML into the form before the element named $name
 	 *
 	 * @see		$this->addElementsFromXML()
-	 * @param	String		$xmlPath		Path to the xml file
-	 * @param	String		$fieldName		Name of the field to insert the elements before
+	 * @param	string		$xmlPath		Path to the xml file
+	 * @param	string		$fieldName		Name of the field to insert the elements before
 	 */
 	public function addElementsFromXMLBefore($xmlPath, $fieldName) {
 		$this->addElementsFromXML($xmlPath, 'before:' . $fieldName);
@@ -595,7 +595,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Register fieldset
 	 *
-	 * @param	String			$name
+	 * @param	string			$name
 	 * @param	TodoyuFormFieldset	$fieldset
 	 */
 	public function registerFieldset($name, $fieldset) {
@@ -607,8 +607,8 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Check whether a fieldset exists
 	 *
-	 * @param	String		$name
-	 * @return	Boolean
+	 * @param	string		$name
+	 * @return	boolean
 	 */
 	public function hasFieldset($name) {
 		return isset($this->fieldsets[$name]);
@@ -642,7 +642,7 @@ class TodoyuForm implements ArrayAccess {
 	 * Get validateForm property
 	 *
 	 * @todo	REMOVE
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isSubformValidationActive() {
 		return $this->validateSubforms;
@@ -653,7 +653,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Remove a fieldset
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 */
 	public function removeFieldset($name) {
 		unset($this->fieldsets[$name]);
@@ -664,8 +664,8 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Check if an attribute is set
 	 *
-	 * @param	String		$name
-	 * @return	Boolean
+	 * @param	string		$name
+	 * @return	boolean
 	 */
 	public function offsetExists($name) {
 		return $this->hasAttribute($name);
@@ -676,7 +676,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Remove an attribute
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 */
 	public function offsetUnset($name) {
 		$this->removeAttribute($name);
@@ -687,8 +687,8 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Set an attribute
 	 *
-	 * @param	String		$name
-	 * @param	String		$value
+	 * @param	string		$name
+	 * @param	string		$value
 	 */
 	public function offsetSet($name, $value) {
 		$this->setAttribute($name, $value);
@@ -699,8 +699,8 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Get an attribute
 	 *
-	 * @param	String		$name
-	 * @return	String
+	 * @param	string		$name
+	 * @return	string
 	 */
 	public function offsetGet($name) {
 		return $this->getAttribute($name);
@@ -711,10 +711,10 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Set a hidden field
 	 *
-	 * @param	String		$name			Name of the field
-	 * @param	String		$value			Value of the field
-	 * @param	Boolean		$noStorage		Don't save file in database
-	 * @param	Boolean		$noWrap			Don't wrap field name with form name
+	 * @param	string		$name			Name of the field
+	 * @param	string		$value			Value of the field
+	 * @param	boolean		$noStorage		Don't save file in database
+	 * @param	boolean		$noWrap			Don't wrap field name with form name
 	 */
 	public function addHiddenField($name, $value = '', $noStorage = false, $noWrap = false) {
 		$this->hiddenFields[$name] = array(
@@ -729,8 +729,8 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Get a hidden field value
 	 *
-	 * @param	String		$name
-	 * @return	String
+	 * @param	string		$name
+	 * @return	string
 	 */
 	public function getHiddenField($name) {
 		return $this->hiddenFields[$name]['value'];
@@ -741,7 +741,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Get the array of hidden fields
 	 *
-	 * @param	Boolean	$onlyStorage		Only get storage fields
+	 * @param	boolean	$onlyStorage		Only get storage fields
 	 * @return	Array
 	 */
 	public function getHiddenFields($onlyStorage = false) {
@@ -761,8 +761,8 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Check if a hidden field exists
 	 *
-	 * @param	String		$name
-	 * @return	Boolean
+	 * @param	string		$name
+	 * @return	boolean
 	 */
 	public function hasHiddenField($name) {
 		return isset($this->hiddenFields[$name]);
@@ -773,7 +773,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Remove a hidden field
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 */
 	public function removeHiddenField($name) {
 		unset($this->hiddenFields[$name]);
@@ -784,8 +784,8 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Set an attribute
 	 *
-	 * @param	String		$name
-	 * @param	String		$value
+	 * @param	string		$name
+	 * @param	string		$value
 	 */
 	public function setAttribute($name, $value) {
 		$this->attributes[$name] = $value;
@@ -796,7 +796,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Set attribute only of not already set
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @param	Mixed		$value
 	 */
 	public function setAttributeIfNotSet($name, $value) {
@@ -810,11 +810,11 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Get an attribute
 	 *
-	 * @param	String		$name
-	 * @return	String
+	 * @param	string		$name
+	 * @return	string
 	 */
 	public function getAttribute($name) {
-		return $this->attributes[$name];
+		return $this->attributes[$name] ?? null;
 	}
 
 
@@ -822,8 +822,8 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Check if an attribute exists
 	 *
-	 * @param	String		$name
-	 * @return	Boolean
+	 * @param	string		$name
+	 * @return	boolean
 	 */
 	public function hasAttribute($name) {
 		return isset($this->attributes[$name]);
@@ -834,7 +834,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Remove an attribute
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 */
 	public function removeAttribute($name) {
 		unset($this->attributes[$name]);
@@ -845,7 +845,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Set action attribute
 	 *
-	 * @param	String		$action
+	 * @param	string		$action
 	 */
 	public function setAction($action) {
 		$this->setAttribute('action', $action);
@@ -856,9 +856,9 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Set action url
 	 *
-	 * @param	String		$ext
-	 * @param	String		$controller
-	 * @param	String		$action
+	 * @param	string		$ext
+	 * @param	string		$controller
+	 * @param	string		$action
 	 */
 	public function setActionUrl($ext, $controller, $action = '') {
 		$url = TodoyuString::buildUrl(array(
@@ -875,7 +875,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Set method attribute
 	 *
-	 * @param	String		$method
+	 * @param	string		$method
 	 */
 	public function setMethod($method) {
 		$this->setAttribute('method', $method);
@@ -886,7 +886,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Set target attribute
 	 *
-	 * @param	String		$target
+	 * @param	string		$target
 	 */
 	public function setTarget($target) {
 		$this->setAttribute('target', $target);
@@ -897,7 +897,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Set content encoding type
 	 *
-	 * @param	String		$encType
+	 * @param	string		$encType
 	 */
 	public function setEnctype($encType) {
 		$this->setAttribute('enctype', $encType);
@@ -910,7 +910,7 @@ class TodoyuForm implements ArrayAccess {
 	 * Used by the XML-parser to set the form name
 	 * You can change the form name here
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 */
 	public function setName($name) {
 		$this->setAttribute('name', $name);
@@ -932,7 +932,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Set the flag if a record ID is used for IDs or not
 	 *
-	 * @param	Boolean		$use
+	 * @param	boolean		$use
 	 */
 	public function setUseRecordID($use = true) {
 		$this->useRecordID = $use;
@@ -954,8 +954,8 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Check whether field with given name exist in the form
 	 *
-	 * @param	String	$fieldName
-	 * @return	Boolean
+	 * @param	string	$fieldName
+	 * @return	boolean
 	 */
 	public function hasField($fieldName) {
 		$fieldNames	= $this->getFieldnames();
@@ -969,7 +969,7 @@ class TodoyuForm implements ArrayAccess {
 	 * Get a field object by name. It doesn't matter where
 	 * the field is located in the form
 	 *
-	 * @param	String			$name
+	 * @param	string			$name
 	 * @return	TodoyuFormElement|Boolean
 	 */
 	public function getField($name) {
@@ -986,8 +986,8 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Remove a field from the form
 	 *
-	 * @param	String		$name			Field name
-	 * @param	Boolean		$cleanup
+	 * @param	string		$name			Field name
+	 * @param	boolean		$cleanup
 	 */
 	public function removeField($name, $cleanup = false) {
 		if( $cleanup ) {
@@ -1006,7 +1006,7 @@ class TodoyuForm implements ArrayAccess {
 	 * Get the value of a field. This only works if the data has
 	 * been set with setFormData() before!
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @return	Mixed
 	 */
 	public function getFieldValue($name) {
@@ -1044,9 +1044,9 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Make a HTML valid ID (without spaces and underscores)
 	 *
-	 * @param	String		$name		Fieldname to create an ID from
-	 * @param	String		$type		Element type if not for a field
-	 * @return	String
+	 * @param	string		$name		Fieldname to create an ID from
+	 * @param	string		$type		Element type if not for a field
+	 * @return	string
 	 */
 	public function makeID($name = '', $type = 'field') {
 		$notAllowed	= array(' ', '_', '[', ']', '--');
@@ -1079,9 +1079,9 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Make a HTML valid name. Prefixed by formname
 	 *
-	 * @param	String		$name
-	 * @param	Boolean		$multiple
-	 * @return	String
+	 * @param	string		$name
+	 * @param	boolean		$multiple
+	 * @return	string
 	 */
 	public function makeName($name, $multiple = false) {
 		return $this->getName() . '[' . $name . ']' . ($multiple?'[]':'');
@@ -1092,7 +1092,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Add js callback for form display
 	 *
-	 * @param	String		$jsCallback
+	 * @param	string		$jsCallback
 	 */
 	public function addOnDisplayJsCallback($jsCallback) {
 		$this->setAttribute('onDisplayJsCallback', $jsCallback);
@@ -1103,7 +1103,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Check forms field values being valid
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isValid() {
 		$isValid	= true;
@@ -1128,8 +1128,8 @@ class TodoyuForm implements ArrayAccess {
 	 * Parse a string. Replace all element with match to the following pattern:
 	 * #FIELDNAME# with the data from $this->formdata
 	 *
-	 * @param	String		$string
-	 * @return	String
+	 * @param	string		$string
+	 * @return	string
 	 */
 	public function parseWithFormData($string) {
 		foreach($this->formdata as $key => $value) {
@@ -1148,7 +1148,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Get data of all fields to store in the database
 	 *
-	 * @param	Array	$formData
+	 * @param	array	$formData
 	 * @return	Array
 	 */
 	public function getStorageData(array $formData = null) {
@@ -1177,7 +1177,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Render hidden fields to HTML code
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderHiddenFields() {
 		$content	= '';
@@ -1201,7 +1201,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Render all fieldsets and their children to HTML code
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function renderFieldsets() {
 		$content = '';
@@ -1231,6 +1231,18 @@ class TodoyuForm implements ArrayAccess {
 		$data['htmlId']			= $this->makeID('', 'form');
 		$data['isAjax']			= TodoyuRequest::isAjaxRequest();
 		$data['id']				= $this->getRecordID();
+
+        $verify_fields = [
+            'enctype', 'target', 'onDisplayJsCallback', 'extraOnDisplay'
+        ];
+
+        if( !isset($data['noFormTag']) ) $data['noFormTag'] = false;
+
+        foreach($verify_fields as $field) {
+            if( !isset($data[$field]) ) {
+                $data[$field] = '';
+            }
+        }
 
 		return $data;
 	}
@@ -1296,8 +1308,8 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Render only a fieldset without other fieldsets and form stuff
 	 *
-	 * @param	String		$fieldsetName
-	 * @return	String
+	 * @param	string		$fieldsetName
+	 * @return	string
 	 */
 	public function renderFieldset($fieldsetName) {
 		return $this->getFieldset($fieldsetName)->render();
@@ -1308,7 +1320,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Render the form to HTML code
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function render() {
 		$this->removeEmptyFieldsetsBeforeRendering();
@@ -1328,7 +1340,7 @@ class TodoyuForm implements ArrayAccess {
 	/**
 	 * Render form without form tag
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderContent() {
 		$this->setAttribute('noFormTag', true);

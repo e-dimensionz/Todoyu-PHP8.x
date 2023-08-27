@@ -30,7 +30,7 @@ class TodoyuCalendarQuickinfoManager {
 	 * Setup event quick info
 	 *
 	 * @param	TodoyuQuickinfo		$quickInfo
-	 * @param	Integer				$element
+	 * @param	integer				$element
 	 */
 	public static function addQuickinfoEvent(TodoyuQuickinfo $quickInfo, $element) {
 		list($sourceName, $idElement)	= explode('-', $element);

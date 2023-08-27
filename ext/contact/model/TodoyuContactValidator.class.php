@@ -29,11 +29,11 @@ class TodoyuContactValidator {
 	/**
 	 * Validate (value being) current person password
 	 *
-	 * @param	String				$value
-	 * @param	Array				$validatorConfig
+	 * @param	string				$value
+	 * @param	array				$validatorConfig
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function isCurrentPassword($value, array $validatorConfig, TodoyuFormElement $formElement, array $formData) {
 		return Todoyu::person()->get('password') === md5(trim($value));

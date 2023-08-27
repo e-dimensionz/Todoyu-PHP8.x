@@ -31,9 +31,9 @@ class TodoyuFormElement_DateTime extends TodoyuFormElement_Date {
 	/**
 	 * Constructs a date time input form field
 	 *
-	 * @param	String			$name
+	 * @param	string			$name
 	 * @param	TodoyuFormFieldset	$fieldset
-	 * @param	Array			$config
+	 * @param	array			$config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 			// Initialize directly with the base class, not the parent
@@ -48,7 +48,7 @@ class TodoyuFormElement_DateTime extends TodoyuFormElement_Date {
 	/**
 	 * Get date format key for date
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getFormatKey() {
 		return 'datetime';
@@ -60,8 +60,8 @@ class TodoyuFormElement_DateTime extends TodoyuFormElement_Date {
 	 * Parse date-time string to timestamp
 	 * Format should be datetime, but if this fails, date and strtotime is tried too
 	 *
-	 * @param	String		$dateString
-	 * @return	Integer
+	 * @param	string		$dateString
+	 * @return	integer
 	 */
 	protected function parseDate($dateString) {
 		$time	= TodoyuTime::parseDateTime($dateString);

@@ -29,8 +29,8 @@ class TodoyuException extends Exception {
 	/**
 	 * Log all exceptions
 	 *
-	 * @param	String			$message
-	 * @param	Integer			$code
+	 * @param	string			$message
+	 * @param	integer			$code
 	 * @param	Exception|null	$previous
 	 */
 	public function __construct($message, $code = 0, $previous = null) {

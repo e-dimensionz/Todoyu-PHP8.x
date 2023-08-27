@@ -29,8 +29,8 @@ class TodoyuProjectTaskRenderer {
 	/**
 	 * Render task for listing
 	 *
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function renderListingTask($idTask) {
 		$idTask		= intval($idTask);
@@ -66,9 +66,9 @@ class TodoyuProjectTaskRenderer {
 	/**
 	 * Render task header
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Boolean		$isListing		Render header for listing item (not for project tree view)
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @param	boolean		$isListing		Render header for listing item (not for project tree view)
+	 * @return	string
 	 */
 	public static function renderHeader($idTask, $isListing = false) {
 		$idTask		= intval($idTask);
@@ -94,8 +94,8 @@ class TodoyuProjectTaskRenderer {
 	/**
 	 * Render task list
 	 *
-	 * @param	Array	$taskIDs
-	 * @return	String
+	 * @param	array	$taskIDs
+	 * @return	string
 	 */
 	public static function renderTaskListing(array $taskIDs) {
 		$taskIDs	= TodoyuArray::intval($taskIDs, true, true);
@@ -123,9 +123,9 @@ class TodoyuProjectTaskRenderer {
 	/**
 	 * Render details of given task
 	 *
-	 * @param	Integer		$idTask
-	 * @param	String		$activeTab
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @param	string		$activeTab
+	 * @return	string
 	 */
 	public static function renderTaskDetail($idTask, $activeTab = '') {
 		$idTask	= intval($idTask);
@@ -151,8 +151,8 @@ class TodoyuProjectTaskRenderer {
 	/**
 	 * Render the task data
 	 *
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function renderTaskData($idTask) {
 		$idTask		= intval($idTask);
@@ -175,11 +175,11 @@ class TodoyuProjectTaskRenderer {
 	/**
 	 * Render the task edit form
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$type		Task type (container/task)
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idParentTask
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @param	integer		$type		Task type (container/task)
+	 * @param	integer		$idProject
+	 * @param	integer		$idParentTask
+	 * @return	string
 	 */
 	public static function renderTaskEditForm($idTask, $type = TASK_TYPE_TASK, $idProject = 0, $idParentTask = 0) {
 		$idTask			= intval($idTask);
@@ -203,8 +203,8 @@ class TodoyuProjectTaskRenderer {
 	/**
 	 * Get edit form for task
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$type
+	 * @param	integer		$idTask
+	 * @param	integer		$type
 	 * @return	TodoyuForm
 	 */
 	public static function getEditTaskForm($idTask, $type) {
@@ -217,11 +217,11 @@ class TodoyuProjectTaskRenderer {
 	 * Render edit form to edit a new task or container. This form is wrapped by
 	 * the "detail" and "data" div as used in detail view
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idParentTask
-	 * @param	Integer		$type
-	 * @param	Integer		$status
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @param	integer		$idParentTask
+	 * @param	integer		$type
+	 * @param	integer		$status
+	 * @return	string
 	 */
 	public static function renderNewTaskEditForm($idProject, $idParentTask = 0, $type = TASK_TYPE_TASK, $status = STATUS_OPEN) {
 		$idTask		= 0;

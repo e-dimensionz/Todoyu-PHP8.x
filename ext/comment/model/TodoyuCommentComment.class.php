@@ -29,7 +29,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Initialize comment
 	 *
-	 * @param	Integer		$idComment		Comment ID
+	 * @param	integer		$idComment		Comment ID
 	 */
 	public function __construct($idComment) {
 		$idComment	= intval($idComment);
@@ -42,7 +42,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Get comment text
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getComment() {
 		return $this->get('comment');
@@ -54,7 +54,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	 * Get comment text for quoting
 	 * Text is prefixed with >
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getCommentQuotedText() {
 		return '<p></p>' . TodoyuCommentCommentManager::getPrefixedResponseLines($this->getComment());
@@ -65,7 +65,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Get ID of the task the comment is added to
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getTaskID() {
 		return intval($this->data['id_task']);
@@ -87,7 +87,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Get ID of the project of the task the comment is added to
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getProjectID() {
 		return $this->getTask()->getProjectID();
@@ -109,9 +109,9 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Get comment label
 	 *
-	 * @param	Boolean		$withTaskTitle
-	 * @param	Boolean		$fullTaskTitle
-	 * @return	String
+	 * @param	boolean		$withTaskTitle
+	 * @param	boolean		$fullTaskTitle
+	 * @return	string
 	 */
 	public function getLabel($withTaskTitle = true, $fullTaskTitle = false) {
 		$label	= 'C' . $this->getID();
@@ -145,7 +145,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	 * Get IDs of feedback persons
 	 *
 	 * @param	Mixed		[$isSeen]
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public function getFeedbackPersonsIDs($isSeen = null) {
 		$feedbackPersonsData	= $this->getFeedbackPersonsData($isSeen);
@@ -235,7 +235,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 //	/**
 //	 * Get IDs of email persons
 //	 *
-//	 * @return	Integer
+//	 * @return	integer
 //	 */
 //	public function getEmailReceiversIDs() {
 //		$emailPersonsData	= $this->getEmailReceiversData();
@@ -247,7 +247,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Check whether comment has open feedbacks from persons not employed by an internal company
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasOpenFeedbacksFromExternals() {
 		$personIDsFeedback	= $this->getFeedbackPersonsIDs(false);
@@ -274,7 +274,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Get update person ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getPersonUpdateID() {
 		return $this->getInt('id_person_update');
@@ -296,7 +296,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Check whether comment has an update person
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasPersonUpdate() {
 		return $this->getPersonUpdateID() !== 0;
@@ -307,7 +307,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Check if comment is locked because of its task
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isLocked() {
 		return TodoyuProjectTaskManager::isLocked($this->getTaskID());
@@ -316,7 +316,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 
 
 	/**
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isPublic() {
 		return intval($this->data['is_public']) === 1;
@@ -327,7 +327,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Check whether current person can delete this comment
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function canCurrentPersonDelete() {
 		$deleteAll	= Todoyu::allowed('comment', 'comment:deleteAll');
@@ -341,7 +341,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Check whether the current user can edit the comment
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function canCurrentPersonEdit() {
 		$editAll	= Todoyu::allowed('comment', 'comment:editAll');
@@ -355,7 +355,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Check whether the current user can make the comment public
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function canCurrentPersonMakePublic() {
 		return $this->canCurrentPersonEdit();
@@ -366,7 +366,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Get label for update info
 	 *
-	 * @return	String|Boolean
+	 * @return	string|Boolean
 	 */
 	public function getUpdateInfoLabel() {
 		$label	= false;
@@ -392,7 +392,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	 * - Task is not public
 	 * - Comment is not public
 	 *
-	 * @return	String|Boolean
+	 * @return	string|Boolean
 	 */
 	public function getPublicFeedbackWarning() {
 		$label	= false;
@@ -505,7 +505,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Get IDs of attached assets
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	public function getAssetsIDs() {
 		return TodoyuCommentAssetManager::getAssetIDs($this->getID());
@@ -516,7 +516,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Check whether assets are attached
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasAssets() {
 		return sizeof($this->getAssetsIDs()) > 0;
@@ -545,7 +545,7 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Load comment foreign data: creator, feedback persons, approval state
 	 *
-	 * @param	Boolean		$loadRenderData
+	 * @param	boolean		$loadRenderData
 	 */
 	protected function loadForeignData($loadRenderData = false) {
 		$idComment	= $this->getID();
@@ -581,8 +581,8 @@ class TodoyuCommentComment extends TodoyuBaseObject {
 	/**
 	 * Prepare comments rendering template data (creation person, having been seen status, feedback persons)
 	 *
-	 * @param	Boolean		$loadForeignData
-	 * @param	Boolean		$loadRenderData
+	 * @param	boolean		$loadForeignData
+	 * @param	boolean		$loadRenderData
 	 * @return	Array
 	 */
 	public function getTemplateData($loadForeignData = false, $loadRenderData = false) {

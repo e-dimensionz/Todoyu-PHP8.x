@@ -6,7 +6,7 @@
 			<tbody>
 				<tr>
 					{* Day columns: Mo-So *}
-					{foreach $dayColumns dayColumn}
+					{foreach $dayColumns as $dayColumn}
 						<th class="mv-dayname {cycle values="odd,even"}" title="{$dayColumn.title}">
 							{$dayColumn.label}
 						</th>
@@ -17,17 +17,17 @@
 
 		<div id="mvEventContainer" class="mv-event-container contextmenucalendarbody">
 
-		{foreach $eventsPerWeek weekDays}
+		{foreach $eventsPerWeek as $weekDays}
 			<div class="month-row">
 				<table class="standardGrid">
 
 					{* Day titles *}
 					<tr>
-						{foreach $weekDays dateKey dayConfig 'weekDayTitles'}
-							<td id="createEventAt-{date 'Y-m-d' $dayConfig.date}" title="{$dayConfig.title} {if $dayConfig.today}({Label calendar.ext.today}){/if}" class="title{if $dayConfig.inCurrentMonth} inSelMonthTitle{/if}{if $dayConfig.today} ttoday{/if}">
+						{foreach $weekDays as $dateKey=>$dayConfig}
+							<td id="createEventAt-{$dayConfig.date|date_format:'%Y-%m-%d'}" title="{$dayConfig.title} {if $dayConfig.today}({Label text='calendar.ext.today'}){/if}" class="title{if $dayConfig.inCurrentMonth} inSelMonthTitle{/if}{if $dayConfig.today} ttoday{/if}">
 								{* ------ Week number (only for mondays) ----- *}
-								{if $.foreach.weekDayTitles.first}
-									<span class="weekNumber" title="{$dayConfig.week}" onclick="Todoyu.Ext.calendar.showWeek('{date 'Y-m-d' $timestamps[$dayCounter]}')">
+								{if $dayConfig@first && isset($timestamps)}
+									<span class="weekNumber" title="{$dayConfig.week}" onclick="Todoyu.Ext.calendar.showWeek('{$timestamps[$dayCounter]|date_format:'%Y-%m-%d'}')">
 										{$dayConfig.week}
 									</span>
 								{/if}
@@ -38,7 +38,7 @@
 								{/if}
 								*}
 								{* ------- date ------- *}
-								<span class="month-date" onclick="Todoyu.Ext.calendar.showDay('{date 'Y-m-d' $dayConfig.date}')">
+								<span class="month-date" onclick="Todoyu.Ext.calendar.showDay('{$dayConfig.date|date_format:'%Y-%m-%d'}')">
 									{$dayConfig.label}
 								</span>
 							</td>
@@ -47,9 +47,9 @@
 
 					{* Day content *}
 					<tr>
-						{foreach $weekDays dateKey dayConfig 'weekDayContents'}
-							<td id="createEventAt-{date 'Y-m-d' $dayConfig.date}" class="content{if $dayConfig.today} ctoday{/if} {if $.foreach.weekDayContents.first} first{/if}{if $dayConfig.inCurrentMonth} inSelMonthTitle{/if}">
-								{foreach $dayConfig.events eventHtml}
+						{foreach $weekDays as $dateKey=>$dayConfig}
+							<td id="createEventAt-{$dayConfig.date|date_format:'%Y-%m-%d'}" class="content{if $dayConfig.today} ctoday{/if} {if $dayConfig@first} first{/if}{if $dayConfig.inCurrentMonth} inSelMonthTitle{/if}">
+								{foreach $dayConfig.events as $eventHtml}
 									{$eventHtml}
 								{/foreach}
 							</td>

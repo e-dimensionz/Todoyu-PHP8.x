@@ -29,7 +29,7 @@ class TodoyuContactCompanyExportManager {
 	/**
 	 * Exports companies as CSV file
 	 *
-	 * @param	Array	$searchWords
+	 * @param	array	$searchWords
 	 */
 	public static function exportCSV(array $searchWords) {
 		$companies	= TodoyuContactCompanyManager::searchCompany($searchWords, '');
@@ -43,7 +43,7 @@ class TodoyuContactCompanyExportManager {
 	/**
 	 * Exports data of companies of given IDs as CSV file
 	 *
-	 * @param	Integer[]	$companyIDs
+	 * @param	integer[]	$companyIDs
 	 */
 	public static function exportCSVfromIDs(array $companyIDs) {
 		$companyIDs = TodoyuArray::intval($companyIDs);
@@ -57,7 +57,7 @@ class TodoyuContactCompanyExportManager {
 	/**
 	 * Send CSV for download
 	 *
-	 * @param	Array	$exportData
+	 * @param	array	$exportData
 	 */
 	public static function sendCSVfromData(array $exportData) {
 		$export = new TodoyuExportCSV($exportData);
@@ -69,7 +69,7 @@ class TodoyuContactCompanyExportManager {
 	/**
 	 * Prepares data of given companies for export
 	 *
-	 * @param	Array	$companiesData
+	 * @param	array	$companiesData
 	 * @return	Array
 	 */
 	public static function getExportDataByCompaniesData(array $companiesData) {
@@ -91,7 +91,7 @@ class TodoyuContactCompanyExportManager {
 	/**
 	 * Prepares data of given companies for export
 	 *
-	 * @param	Array	$companyIDs
+	 * @param	array	$companyIDs
 	 * @return	Array
 	 */
 	public static function getExportDataByCompanyIDs(array $companyIDs) {
@@ -113,7 +113,7 @@ class TodoyuContactCompanyExportManager {
 	/**
 	 * Parses company data for export
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 * @return	Array
 	 */
 	public static function getCompanyExportData($idCompany) {

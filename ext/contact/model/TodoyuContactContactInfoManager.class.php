@@ -55,7 +55,7 @@ class TodoyuContactContactInfoManager {
 	/**
 	 * Get contactinfo object
 	 *
-	 * @param	Integer		$idContactInfo
+	 * @param	integer		$idContactInfo
 	 * @return	TodoyuContactContactInfo
 	 */
 	public static function getContactinfo($idContactInfo) {
@@ -69,8 +69,8 @@ class TodoyuContactContactInfoManager {
 	/**
 	 * Get name of given contact info type
 	 *
-	 * @param	Integer	$idContactInfoType
-	 * @return	String
+	 * @param	integer	$idContactInfoType
+	 * @return	string
 	 */
 	public static function getContactInfoTypeName($idContactInfoType) {
 		$idContactInfoType = intval($idContactInfoType);
@@ -85,8 +85,8 @@ class TodoyuContactContactInfoManager {
 	/**
 	 * Saves contact infos
 	 *
-	 * @param	Array	$data
-	 * @return	Integer
+	 * @param	array	$data
+	 * @return	integer
 	 */
 	public static function saveContactInfos(array $data) {
 		$idContactinfo	= intval($data['id']);
@@ -109,8 +109,8 @@ class TodoyuContactContactInfoManager {
 	/**
 	 * Add contactinfo record
 	 *
-	 * @param	Array		$data
-	 * @return	Integer
+	 * @param	array		$data
+	 * @return	integer
 	 */
 	public static function add(array $data = array()) {
 		return TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -121,9 +121,9 @@ class TodoyuContactContactInfoManager {
 	/**
 	 * Update contactinfo record
 	 *
-	 * @param	Integer		$idContactinfo
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	integer		$idContactinfo
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public static function update($idContactinfo, array $data) {
 		return TodoyuRecordManager::updateRecord(self::TABLE, $idContactinfo, $data);
@@ -137,7 +137,7 @@ class TodoyuContactContactInfoManager {
 	/**
 	 * Removes record from cache
 	 *
-	 * @param	Integer		$idContactInfo
+	 * @param	integer		$idContactInfo
 	 */
 	public static function removeFromCache($idContactInfo) {
 		$idContactInfo	= intval($idContactInfo);
@@ -152,12 +152,12 @@ class TodoyuContactContactInfoManager {
 	 * Delete contact informations which are linked over an mm-table.
 	 * Deletes all except the given IDs
 	 *
-	 * @param	String		$key						Type key
-	 * @param	Integer		$idRecord					Record ID which is linked to a contact info
-	 * @param	Array		$currentContactInfoIDs		Contact info IDs which should stay linked with the record
-	 * @param	String		$fieldRecord				Field name for the record ID
-	 * @param	String		$fieldInfo					Field name for the contact info ID
-	 * @return	Integer		Number of deleted records
+	 * @param	string		$key						Type key
+	 * @param	integer		$idRecord					Record ID which is linked to a contact info
+	 * @param	array		$currentContactInfoIDs		Contact info IDs which should stay linked with the record
+	 * @param	string		$fieldRecord				Field name for the record ID
+	 * @param	string		$fieldInfo					Field name for the contact info ID
+	 * @return	integer		Number of deleted records
 	 */
 	public static function deleteLinkedContactInfos($key, $idRecord, array $currentContactInfoIDs,  $fieldRecord, $fieldInfo = 'id_contactinfo') {
 		return TodoyuDbHelper::deleteOtherMmRecords(self::$mmConfig[$key]['table'], 'ext_contact_contactinfo', $idRecord, $currentContactInfoIDs, $fieldRecord, $fieldInfo);
@@ -168,11 +168,11 @@ class TodoyuContactContactInfoManager {
 	/**
 	 * Get contact infos of given element (person or company)
 	 *
-	 * @param	String			$key
-	 * @param	Integer			$idElement
-	 * @param	Integer|Boolean	$category
-	 * @param	String|Boolean	$type
-	 * @param	Boolean			$onlyPreferred
+	 * @param	string			$key
+	 * @param	integer			$idElement
+	 * @param	integer|Boolean	$category
+	 * @param	string|Boolean	$type
+	 * @param	boolean			$onlyPreferred
 	 * @return	Array[]
 	 */
 	protected static function getContactInfos($key, $idElement, $category = 0, $type = false, $onlyPreferred = false) {
@@ -215,7 +215,7 @@ class TodoyuContactContactInfoManager {
 
 
 	/**
-	 * @param	String		$contactInfo
+	 * @param	string		$contactInfo
 	 * @return	Array
 	 */
 	public static function getContactInfoDuplicates($contactInfo) {
@@ -254,7 +254,7 @@ class TodoyuContactContactInfoManager {
 	/**
 	 * Search for a contact info
 	 *
-	 * @param	String		$contactInfo
+	 * @param	string		$contactInfo
 	 */
 	protected static function searchForDuplicatedContactInfo($contactInfo) {
 		$results = array();
@@ -284,14 +284,15 @@ class TodoyuContactContactInfoManager {
 	/**
 	 * Renders contact informations
 	 *
-	 * @param	Array	$data
-	 * @return	String
+	 * @param	array	$data
+	 * @return	string
 	 */
 	public static function renderContactInformation($contactInfoData) {
-		$contactInfoData['html'] = TodoyuString::htmlentities($contactInfoData['info']);
+        if(empty($contactInfoData)) $contactInfoData = [];
+		$contactInfoData['html'] = TodoyuString::htmlentities($contactInfoData['info'] ?? '');
 
-		if( intval($contactInfoData['infotype_category']) === CONTACT_INFOTYPE_CATEGORY_EMAIL) {
-			$contactInfoData['html'] = TodoyuString::buildMailtoATag($contactInfoData['info'], $contactInfoData['info']);
+		if( intval($contactInfoData['infotype_category'] ?? 0) === CONTACT_INFOTYPE_CATEGORY_EMAIL) {
+			$contactInfoData['html'] = TodoyuString::buildMailtoATag($contactInfoData['info'] ?? '', $contactInfoData['info'] ?? '');
 		}
 
 		return $contactInfoData;

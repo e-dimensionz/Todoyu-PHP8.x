@@ -29,10 +29,10 @@ class TodoyuTemplateDocumentFactory {
 	/**
 	 * Get document object for given type
 	 *
-	 * @param	String		$type
-	 * @param	Array		$data
-	 * @param	String		$template		template path
-	 * @param	Array		$config
+	 * @param	string		$type
+	 * @param	array		$data
+	 * @param	string		$template		template path
+	 * @param	array		$config
 	 * @return	TodoyuTemplateDocumentIf|Boolean
 	 */
 	public static function getTemplateDocument($type, array $data, $template, array $config = array()) {
@@ -63,8 +63,8 @@ class TodoyuTemplateDocumentFactory {
 	/**
 	 * Get class name for document type. (Pattern "TodoyuDocumentTYPE")
 	 *
-	 * @param	String		$type
-	 * @return	String|Boolean
+	 * @param	string		$type
+	 * @return	string|Boolean
 	 */
 	private static function getTypeClass($type) {
 		$className	= 'TodoyuTemplateDocument' . ucfirst($type);

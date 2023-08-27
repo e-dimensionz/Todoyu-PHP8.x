@@ -29,8 +29,8 @@ class TodoyuTimetrackingTaskFilter {
 	/**
 	 * Filter condition: Task which have tracks of the person
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Boolean		$negate
+	 * @param	integer		$idPerson
+	 * @param	boolean		$negate
 	 * @return	Array		Or FALSE
 	 */
 	public static function Filter_timetrackedPerson($idPerson, $negate = false) {
@@ -63,8 +63,8 @@ class TodoyuTimetrackingTaskFilter {
 	/**
 	 * Filter condition: Task which have track of person of a group
 	 *
-	 * @param	Array			$groupIDs
-	 * @param	Boolean			$negate
+	 * @param	array			$groupIDs
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean
 	 */
 	public static function Filter_timetrackedRoles($groupIDs, $negate = false) {
@@ -96,8 +96,8 @@ class TodoyuTimetrackingTaskFilter {
 
 
 	/**
-	 * @param	Integer			$min
-	 * @param	Boolean			$negate
+	 * @param	integer			$min
+	 * @param	boolean			$negate
 	 * @return	Array | Boolean
 	 */
 	public static function Filter_overbookedAbsolute($min, $negate = false) {
@@ -131,8 +131,8 @@ class TodoyuTimetrackingTaskFilter {
 
 
 	/**
-	 * @param	Integer			$percent
-	 * @param	Boolean			$negate
+	 * @param	integer			$percent
+	 * @param	boolean			$negate
 	 * @return	Array | Boolean
 	 */
 	public static function Filter_overbookedPercent($percent, $negate = false) {
@@ -167,8 +167,8 @@ class TodoyuTimetrackingTaskFilter {
 	/**
 	 * Filter for tasks being currently tracked
 	 *
-	 * @param	Integer		$value
-	 * @param	Boolean		$negate
+	 * @param	integer		$value
+	 * @param	boolean		$negate
 	 * @return	Array					Query parts
 	 */
 	public static function Filter_isBeingTracked($value, $negate = false) {

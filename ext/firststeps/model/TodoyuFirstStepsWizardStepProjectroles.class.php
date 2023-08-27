@@ -38,8 +38,8 @@ class TodoyuFirstStepsWizardStepProjectroles extends TodoyuFirstStepsWizardStep 
 	/**
 	 * Save project roles
 	 *
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public function save(array $data) {
 		$projectRoles	= TodoyuArray::assure($data['projectrole']);
@@ -57,7 +57,7 @@ class TodoyuFirstStepsWizardStepProjectroles extends TodoyuFirstStepsWizardStep 
 	/**
 	 * Render content (project role items list)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getContent() {
 		if( $this->data === null ) {
@@ -85,7 +85,7 @@ class TodoyuFirstStepsWizardStepProjectroles extends TodoyuFirstStepsWizardStep 
 	/**
 	 * Save project roles
 	 *
-	 * @param	Array		$submittedProjectRoles
+	 * @param	array		$submittedProjectRoles
 	 */
 	private function saveProjectRoles(array $submittedProjectRoles) {
 		$dbProjectRoles	= $this->getProjectRoles();

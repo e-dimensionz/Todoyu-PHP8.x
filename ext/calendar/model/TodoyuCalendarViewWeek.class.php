@@ -29,8 +29,8 @@ class TodoyuCalendarViewWeek extends TodoyuCalendarView {
 	/**
 	 * Initialize week view
 	 *
-	 * @param	Integer		$date
-	 * @param	Array		$filters
+	 * @param	integer		$date
+	 * @param	array		$filters
 	 */
 	public function __construct($date, array $filters = array()) {
 		$showWeekend= TodoyuCalendarPreferences::isWeekendDisplayed();
@@ -44,7 +44,7 @@ class TodoyuCalendarViewWeek extends TodoyuCalendarView {
 	/**
 	 * Render week view
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function render() {
 		$tmpl	= 'ext/calendar/view/views/week.tmpl';
@@ -67,7 +67,7 @@ class TodoyuCalendarViewWeek extends TodoyuCalendarView {
 	/**
 	 * Check whether weekend is displayed
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isWeekendDisplayed() {
 		return TodoyuCalendarPreferences::isWeekendDisplayed();
@@ -106,7 +106,7 @@ class TodoyuCalendarViewWeek extends TodoyuCalendarView {
 	 * Render events per day
 	 * Rendered events html is grouped by date key
 	 *
-	 * @return	String[][]
+	 * @return	string[][]
 	 */
 	private function renderEventsPerDay() {
 		$eventElements	= $this->getEventElementsWithOverlapping();
@@ -146,9 +146,9 @@ class TodoyuCalendarViewWeek extends TodoyuCalendarView {
 	 * Group the events in sub array. The key for each sub array is a date-key (YYYYMMDD)
 	 * An event appears in each sub array, the event is running on
 	 *
-	 * @param	Array		$events			Array of event records
-	 * @param	Integer		$dateStart		Date of first day group
-	 * @param	Integer		$dateEnd		Date of last day group
+	 * @param	array		$events			Array of event records
+	 * @param	integer		$dateStart		Date of first day group
+	 * @param	integer		$dateEnd		Date of last day group
 	 * @return	Array		Events grouped by date-key
 	 */
 	public static function groupEventsByDay(array $events, $dateStart, $dateEnd) {
@@ -274,8 +274,8 @@ class TodoyuCalendarViewWeek extends TodoyuCalendarView {
 	/**
 	 * Get week event elements
 	 *
-	 * @param	Array	$extraFilters
-	 * @param	Boolean	$dayEvents
+	 * @param	array	$extraFilters
+	 * @param	boolean	$dayEvents
 	 * @return	TodoyuCalendarEventElementWeek[]
 	 */
 	private function getEventElements(array $extraFilters = array(), $dayEvents = null) {
@@ -294,7 +294,7 @@ class TodoyuCalendarViewWeek extends TodoyuCalendarView {
 	/**
 	 * Check whether full day view is enabled
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	private function isFullDayView() {
 		return TodoyuCalendarPreferences::getFullDayView();
@@ -305,7 +305,7 @@ class TodoyuCalendarViewWeek extends TodoyuCalendarView {
 	/**
 	 * Get title for week view
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	protected function getTitle() {
 		$dateStart	= $this->getRange()->getStart();

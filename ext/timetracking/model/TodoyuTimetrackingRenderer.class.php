@@ -29,8 +29,8 @@ class TodoyuTimetrackingRenderer {
 	/**
 	 * Render timetracking tab in task when tab is active
 	 *
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function renderTaskTab($idTask) {
 		$idTask		= intval($idTask);
@@ -52,8 +52,8 @@ class TodoyuTimetrackingRenderer {
 	/**
 	 * Render controll box in the task tab
 	 *
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function renderTaskTabControl($idTask) {
 		$idTask	= intval($idTask);
@@ -95,8 +95,8 @@ class TodoyuTimetrackingRenderer {
 	/**
 	 * Render track list in task tab
 	 *
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function renderTaskTabList($idTask) {
 		$idTask	= intval($idTask);
@@ -122,8 +122,8 @@ class TodoyuTimetrackingRenderer {
 	/**
 	 * Render form to edit a track in task tab
 	 *
-	 * @param	Integer		$idTrack
-	 * @return	String
+	 * @param	integer		$idTrack
+	 * @return	string
 	 */
 	public static function renderTaskTabForm($idTrack) {
 		$idTrack	= intval($idTrack);
@@ -150,8 +150,8 @@ class TodoyuTimetrackingRenderer {
 	/**
 	 * Render a single track (as list item)
 	 *
-	 * @param	Integer		$idTrack
-	 * @return	String
+	 * @param	integer		$idTrack
+	 * @return	string
 	 */
 	public static function renderTrack($idTrack) {
 		$idTrack	= intval($idTrack);

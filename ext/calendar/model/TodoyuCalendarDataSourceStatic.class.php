@@ -42,7 +42,7 @@ class TodoyuCalendarDataSourceStatic extends TodoyuCalendarDataSource {
 	/**
 	 * Get amount of events
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getEventCount() {
 		$eventIDs	= $this->getEventIDs();
@@ -55,7 +55,7 @@ class TodoyuCalendarDataSourceStatic extends TodoyuCalendarDataSource {
 	/**
 	 * Search events
 	 *
-	 * @param	String		$searchWord
+	 * @param	string		$searchWord
 	 * @return	TodoyuCalendarEventStatic[]
 	 */
 	public function searchEvents($searchWord) {
@@ -67,7 +67,7 @@ class TodoyuCalendarDataSourceStatic extends TodoyuCalendarDataSource {
 	/**
 	 * Get event IDs which match to the given selection
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	protected function getEventIDs() {
 		$dateStart		= $this->getRange()->getStart();
@@ -146,7 +146,7 @@ class TodoyuCalendarDataSourceStatic extends TodoyuCalendarDataSource {
 	/**
 	 * Get day events filter
 	 *
-	 * @return	Boolean|Null
+	 * @return	boolean|Null
 	 */
 	protected function getDayEventsFlag() {
 		return $this->getFilter('dayevents');
@@ -157,7 +157,7 @@ class TodoyuCalendarDataSourceStatic extends TodoyuCalendarDataSource {
 	/**
 	 * Get static event
 	 *
-	 * @param	Integer		$idEvent
+	 * @param	integer		$idEvent
 	 * @return	TodoyuCalendarEventStatic
 	 */
 	public static function getEvent($idEvent) {

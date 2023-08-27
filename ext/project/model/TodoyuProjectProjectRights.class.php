@@ -30,7 +30,7 @@ class TodoyuProjectProjectRights {
 	 * Deny access
 	 * Shortcut for project
 	 *
-	 * @param	String		$right		Denied right
+	 * @param	string		$right		Denied right
 	 */
 	private static function deny($right) {
 		TodoyuRightsManager::deny('project', $right);
@@ -41,8 +41,8 @@ class TodoyuProjectProjectRights {
 	/**
 	 * Check whether person can see the project
 	 *
-	 * @param	Integer		$idProject
-	 * @return	Boolean
+	 * @param	integer		$idProject
+	 * @return	boolean
 	 */
 	public static function isSeeAllowed($idProject) {
 		$idProject	= intval($idProject);
@@ -77,7 +77,7 @@ class TodoyuProjectProjectRights {
 	/**
 	 * Check whether person can edit the project
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isEditAllowed() {
 		return Todoyu::allowed('project', 'project:editAndDelete');
@@ -88,7 +88,7 @@ class TodoyuProjectProjectRights {
 	/**
 	 * Check whether person can add new projects
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAddAllowed() {
 		return Todoyu::allowed('project', 'project:add');
@@ -99,8 +99,8 @@ class TodoyuProjectProjectRights {
 	/**
 	 * Check whether a project status is allowed
 	 *
-	 * @param	Integer		$status
-	 * @return	Boolean
+	 * @param	integer		$status
+	 * @return	boolean
 	 */
 	public static function isStatusAllowed($status) {
 		$allowedStatuses	= array_keys(TodoyuProjectProjectStatusManager::getStatuses());
@@ -114,7 +114,7 @@ class TodoyuProjectProjectRights {
 	/**
 	 * Restrict access to persons who are allowed to see the project
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 */
 	public static function restrictSee($idProject) {
 		if( ! self::isSeeAllowed($idProject) ) {

@@ -103,8 +103,8 @@ class TodoyuProjectExtConfViewHelper {
 	/**
 	 * Get label of calculated date option with given value
 	 *
-	 * @param	Integer		$value
-	 * @return	String
+	 * @param	integer		$value
+	 * @return	string
 	 */
 	public static function getDateOffsetLabel($value) {
 		return Todoyu::Label('project.task.default.date.date_' . $value);
@@ -113,7 +113,7 @@ class TodoyuProjectExtConfViewHelper {
 
 
 	/**
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getMaxNumberOfOpenProjects(){
 		$conf	= self::getExtConf();
@@ -124,23 +124,23 @@ class TodoyuProjectExtConfViewHelper {
 
 
 	/**
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getToleranceDateDeadline() {
 		$conf = self::getExtConf();
 
-		return intval($conf['toleranceDeadline']) * 60;
+		return intval($conf['toleranceDeadline'] ?? 0) * 60;
 	}
 
 
 
 	/**
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getToleranceDateEnd() {
 		$conf = self::getExtConf();
 
-		return intval($conf['toleranceEnddate']) * 60;
+		return intval($conf['toleranceEnddate'] ?? 0) * 60;
 	}
 
 

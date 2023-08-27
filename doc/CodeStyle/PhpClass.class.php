@@ -38,10 +38,10 @@ class MyCamelCaseClassName {
 	/**
 	 * Add a good method description. Don't tell the obvious stuff!
 	 *
-	 * @param	Integer			$idRecord
-	 * @param	Array			$data
+	 * @param	integer			$idRecord
+	 * @param	array			$data
 	 * @param	AnotherClass 	$otherClass			Use typehints where possible
-	 * @return	Integer			A function always has one type of "return value"
+	 * @return	integer			A function always has one type of "return value"
 	 */
 	public function doSomething($idRecord, array $data, AnotherClass $otherClass) {
 			// Always validate parameters (in public functions)
@@ -62,12 +62,12 @@ class MyCamelCaseClassName {
 	 * A render function only should compose the data for the template.
 	 * To calculate data or get data from the database, use a manager function
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderSomething() {
 			// Define the path to the template file
 		$tmpl	= 'ext/project/view/something.tmpl';
-			// Define the data array for Dwoo
+			// Define the data array for Smarty
 		$data	= array(
 			'key1'	=> 'somedata',
 			'subkey'=> array(

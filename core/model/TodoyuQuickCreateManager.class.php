@@ -29,12 +29,12 @@ class TodoyuQuickCreateManager {
 	/**
 	 * Add a new create engine and register needed functions
 	 *
-	 * @param	String		$ext
-	 * @param	String		$type
-	 * @param	String		$label
-	 * @param	Integer		$position
-	 * @param	Array		$primaryAreas	Areas where to list this type as primary
-	 * @param	Boolean		$areaOnly		show type within resp. area only?
+	 * @param	string		$ext
+	 * @param	string		$type
+	 * @param	string		$label
+	 * @param	integer		$position
+	 * @param	array		$primaryAreas	Areas where to list this type as primary
+	 * @param	boolean		$areaOnly		show type within resp. area only?
 	 */
 	public static function addEngine($ext, $type, $label = '', $position = 100, array $primaryAreas = array(), $areaOnly = false) {
 		Todoyu::$CONFIG['CREATE']['engines'][] = array(

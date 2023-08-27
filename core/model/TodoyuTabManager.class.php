@@ -29,7 +29,7 @@ class TodoyuTabManager {
 	/**
 	 * Get tabs from array. Check if they have a required flag, and check it
 	 *
-	 * @param	Array		$tabs
+	 * @param	array		$tabs
 	 * @return	Array
 	 */
 	public static function getAllowedTabs(array $tabs) {

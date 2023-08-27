@@ -29,9 +29,9 @@ class TodoyuProjectTaskFilterDataSource {
 	/**
 	 * Get autocomplete values for task
 	 *
-	 * @param	String		$input
-	 * @param	Array		$formData
-	 * @param	String		$name
+	 * @param	string		$input
+	 * @param	array		$formData
+	 * @param	string		$name
 	 * @return	Array
 	 */
 	public static function autocompleteTasks($input, array $formData = array(), $name = '') {
@@ -50,7 +50,7 @@ class TodoyuProjectTaskFilterDataSource {
 	/**
 	 * Gets the label for the current autocompletion value.
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public function getLabel(array $definitions) {
@@ -73,8 +73,8 @@ class TodoyuProjectTaskFilterDataSource {
 	/**
 	 * AutoCompleter function to search for tasks
 	 *
-	 * @param	String	$search
-	 * @param	Array	$config
+	 * @param	string	$search
+	 * @param	array	$config
 	 * @return	Array
 	 */
 	public static function getTaskAutocompleteListBySearchword($search, $config = array()) {
@@ -96,8 +96,8 @@ class TodoyuProjectTaskFilterDataSource {
 	/**
 	 * Get autoComplete suggestions list by task filters
 	 *
-	 * @param	Array		$filters
-	 * @param	Integer		$limit
+	 * @param	array		$filters
+	 * @param	integer		$limit
 	 * @return	Array
 	 */
 	public static function getTaskAutocompleteListByFilter(array $filters = array(), $limit = 50) {
@@ -133,7 +133,7 @@ class TodoyuProjectTaskFilterDataSource {
 	/**
 	 * Prepare options of task-status for rendering in widget.
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getStatusOptions(array $definitions) {
@@ -157,7 +157,7 @@ class TodoyuProjectTaskFilterDataSource {
 	/**
 	 * Get projectRole as options for widget
 	 *
-	 * @param	Array		$definitions
+	 * @param	array		$definitions
 	 * @return	Array
 	 */
 	public static function getProjectroleOptionDefinitions(array $definitions) {
@@ -176,7 +176,7 @@ class TodoyuProjectTaskFilterDataSource {
 	/**
 	 * Get options config array of activity
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getActivityOptions(array $definitions) {
@@ -203,7 +203,7 @@ class TodoyuProjectTaskFilterDataSource {
 	/**
 	 * Get task type options for filter widget
 	 *
-	 * @param	Array		$definitions
+	 * @param	array		$definitions
 	 * @return	Array
 	 */
 	public static function getTypeOptions(array $definitions) {
@@ -226,7 +226,7 @@ class TodoyuProjectTaskFilterDataSource {
 	/**
 	 * Dynamic date options
 	 *
-	 * @param	Array	$definitions
+	 * @param	array	$definitions
 	 * @return	Array
 	 */
 	public static function getDynamicDateOptions($definitions) {
@@ -241,9 +241,9 @@ class TodoyuProjectTaskFilterDataSource {
 	 * Calculates timestamps by dynamic type
 	 *
 	 * @deprecated
-	 * @param	String		$dateRangeKey
-	 * @param	Boolean		$negate
-	 * @return	Integer
+	 * @param	string		$dateRangeKey
+	 * @param	boolean		$negate
+	 * @return	integer
 	 */
 	public static function getDynamicDateTimestamp($dateRangeKey, $negate = false) {
 		return TodoyuSearchFilterHelper::getDynamicDateTimestamp($dateRangeKey, $negate);

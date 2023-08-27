@@ -45,7 +45,7 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get asset record
 	 *
-	 * @param	Integer		$idAsset
+	 * @param	integer		$idAsset
 	 * @return	TodoyuAssetsAsset
 	 */
 	public static function getAsset($idAsset) {
@@ -59,7 +59,7 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get asset record array
 	 *
-	 * @param	Integer		$idAsset
+	 * @param	integer		$idAsset
 	 * @return	Array
 	 */
 	public static function getAssetArray($idAsset) {
@@ -73,7 +73,7 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get a task asset
 	 *
-	 * @param	Integer				$idAsset
+	 * @param	integer				$idAsset
 	 * @return	TodoyuAssetsTaskAsset
 	 */
 	public static function getTaskAsset($idAsset) {
@@ -87,8 +87,8 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get the number of assets in a task
 	 *
-	 * @param	Integer		$idTask
-	 * @return	Integer
+	 * @param	integer		$idTask
+	 * @return	integer
 	 */
 	public static function getNumTaskAssets($idTask) {
 		$idTask	= intval($idTask);
@@ -108,8 +108,8 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get IDs of assets of given parent element
 	 *
-	 * @param	Integer		$idParent		ID of parent element
-	 * @param	Integer		$type			type of parent element, e.g. task
+	 * @param	integer		$idParent		ID of parent element
+	 * @param	integer		$type			type of parent element, e.g. task
 	 * @return	Array
 	 */
 	public static function getElementAssetIDs($idParent, $type = ASSET_PARENTTYPE_TASK) {
@@ -126,8 +126,8 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get assets of given parent element
 	 *
-	 * @param	Integer		$idParent		ID of parent element
-	 * @param	Integer		$type			type of parent element, e.g. task
+	 * @param	integer		$idParent		ID of parent element
+	 * @param	integer		$type			type of parent element, e.g. task
 	 * @return	Array
 	 */
 	public static function getElementAssets($idParent, $type = ASSET_PARENTTYPE_TASK) {
@@ -155,7 +155,7 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get the IDs of all assets of given task
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function getTaskAssetIDs($idTask) {
@@ -167,7 +167,7 @@ class TodoyuAssetsAssetManager {
 
 
 	/**
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 * @return	Array
 	 */
 	public static function getProjectAssets($idProject) {
@@ -189,7 +189,7 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get the assets of a task
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function getTaskAssets($idTask) {
@@ -212,8 +212,8 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get task ID of an asset
 	 *
-	 * @param	Integer		$idAsset
-	 * @return	Integer
+	 * @param	integer		$idAsset
+	 * @return	integer
 	 */
 	public static function getTaskID($idAsset) {
 		$idAsset	= intval($idAsset);
@@ -228,11 +228,11 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Add an uploaded file as task asset
 	 *
-	 * @param	Integer		$idTask			Task ID
-	 * @param	String		$tempFile		Path to temporary file on server
-	 * @param	String		$fileName		Filename on browser system
-	 * @param	String		$mimeType		Submitted file type by browser
-	 * @return	Integer		Asset ID
+	 * @param	integer		$idTask			Task ID
+	 * @param	string		$tempFile		Path to temporary file on server
+	 * @param	string		$fileName		Filename on browser system
+	 * @param	string		$mimeType		Submitted file type by browser
+	 * @return	integer		Asset ID
 	 */
 	public static function addTaskAsset($idTask, $tempFile, $fileName, $mimeType) {
 		$idTask	= intval($idTask);
@@ -245,11 +245,11 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Add an uploaded file as project asset
 	 *
-	 * @param	Integer		$idProject		Project ID
-	 * @param	String		$tempFile		Path to temporary file on server
-	 * @param	String		$fileName		Filename on browser system
-	 * @param	String		$mimeType		Submitted file type by browser
-	 * @return	Integer		Asset ID
+	 * @param	integer		$idProject		Project ID
+	 * @param	string		$tempFile		Path to temporary file on server
+	 * @param	string		$fileName		Filename on browser system
+	 * @param	string		$mimeType		Submitted file type by browser
+	 * @return	integer		Asset ID
 	 */
 	public static function addProjectAsset($idProject, $tempFile, $fileName, $mimeType) {
 		$idProject	= intval($idProject);
@@ -262,11 +262,11 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Add an uploaded file as comment asset
 	 *
-	 * @param	Integer			$idComment		Comment ID
-	 * @param	String			$tempFile		Path to temporary file on server
-	 * @param	String			$fileName		Filename on browser system
-	 * @param	String			$mimeType		Submitted file type by browser
-	 * @return	Integer|Boolean		Asset ID
+	 * @param	integer			$idComment		Comment ID
+	 * @param	string			$tempFile		Path to temporary file on server
+	 * @param	string			$fileName		Filename on browser system
+	 * @param	string			$mimeType		Submitted file type by browser
+	 * @return	integer|Boolean		Asset ID
 	 */
 	public static function addCommentAsset($idComment, $tempFile, $fileName, $mimeType) {
 		$idComment	= intval($idComment);
@@ -281,12 +281,12 @@ class TodoyuAssetsAssetManager {
 	 *  - Copy the file to the file structure
 	 *  - Add an asset record to the database
 	 *
-	 * @param	Integer			$type
-	 * @param	Integer			$idParent
-	 * @param	String			$tempFile		Absolute path to the temporary file
-	 * @param	String			$fileName		Original file name
-	 * @param	String			$mimeType		File mime type
-	 * @return	Integer|Boolean		Asset ID or FALSE
+	 * @param	integer			$type
+	 * @param	integer			$idParent
+	 * @param	string			$tempFile		Absolute path to the temporary file
+	 * @param	string			$fileName		Original file name
+	 * @param	string			$mimeType		File mime type
+	 * @return	integer|Boolean		Asset ID or FALSE
 	 */
 	public static function addAsset($type, $idParent, $tempFile, $fileName, $mimeType) {
 		$type		= intval($type);
@@ -339,8 +339,8 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Download an asset. Send headers and data to the browser
 	 *
-	 * @param	Integer		$idAsset
-	 * @return	Boolean
+	 * @param	integer		$idAsset
+	 * @return	boolean
 	 */
 	public static function downloadAsset($idAsset) {
 		$idAsset	= intval($idAsset);
@@ -354,7 +354,7 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Delete an asset (file stays in file system)
 	 *
-	 * @param	Integer		$idAsset
+	 * @param	integer		$idAsset
 	 */
 	public static function deleteAsset($idAsset) {
 		$idAsset	= intval($idAsset);
@@ -380,7 +380,7 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Toggle asset public flag
 	 *
-	 * @param	Integer		$idAsset
+	 * @param	integer		$idAsset
 	 */
 	public static function togglePublic($idAsset) {
 		$idAsset	= intval($idAsset);
@@ -393,9 +393,9 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Download assets zipped
 	 *
-	 * @param	Integer 	$idRecord
-	 * @param	String 		$recordType
-	 * @param	Array		$assetIDs
+	 * @param	integer 	$idRecord
+	 * @param	string 		$recordType
+	 * @param	array		$assetIDs
 	 */
 	public static function downloadAssetsZipped($idRecord, $recordType, array $assetIDs) {
 		$idRecord		= intval($idRecord);
@@ -424,9 +424,9 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Create ZIP file from assets
 	 *
-	 * @param	Integer		$idRecord
-	 * @param	Array		$assetIDs
-	 * @return	String		path to ZIP file
+	 * @param	integer		$idRecord
+	 * @param	array		$assetIDs
+	 * @return	string		path to ZIP file
 	 */
 	private static function createAssetZip($idRecord, array $assetIDs) {
 		$idRecord		= intval($idRecord);
@@ -500,8 +500,8 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get path to file in storage
 	 *
-	 * @param	String		$storageFileName		Relative path from asset storage
-	 * @return	String		Absolute path to file in asset storage
+	 * @param	string		$storageFileName		Relative path from asset storage
+	 * @return	string		Absolute path to file in asset storage
 	 */
 	public static function getStoragePath($storageFileName) {
 		return Todoyu::$CONFIG['EXT']['assets']['basePath'] . DIR_SEP . $storageFileName;
@@ -512,9 +512,9 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Generate filename for ZIP file
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Array		$assetIDs
-	 * @return	String		filename of ZIP
+	 * @param	integer		$idTask
+	 * @param	array		$assetIDs
+	 * @return	string		filename of ZIP
 	 */
 	private static function makeZipFileName($idTask, array $assetIDs) {
 		$idTask		= intval($idTask);
@@ -539,7 +539,7 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get storage base path (absolute path)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getStorageBasePath() {
 		return TodoyuFileManager::pathAbsolute(Todoyu::$CONFIG['EXT']['assets']['basePath']);
@@ -550,8 +550,8 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get storage path of assets of given task
 	 *
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function getTaskAssetStoragePath($idTask) {
 		$idTask		= intval($idTask);
@@ -564,9 +564,9 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get (root) storage path of assets
 	 *
-	 * @param	Integer		$type			type of parent element, e.g. task
-	 * @param	Integer		$idParent		ID of parent element
-	 * @return	String		Path to storage folder
+	 * @param	integer		$type			type of parent element, e.g. task
+	 * @param	integer		$idParent		ID of parent element
+	 * @return	string		Path to storage folder
 	 */
 	public static function getAssetStoragePath($type, $idParent) {
 		$type		= intval($type);
@@ -585,9 +585,9 @@ class TodoyuAssetsAssetManager {
 
 
 	/**
-	 * @param	Integer		$type
-	 * @param	Integer		$idParent
-	 * @return	Integer|String
+	 * @param	integer		$type
+	 * @param	integer		$idParent
+	 * @return	integer|String
 	 */
 	public static function getFolderNameByParentType($type, $idParent) {
 		switch($type) {
@@ -617,8 +617,8 @@ class TodoyuAssetsAssetManager {
 
 	/**
 	 * Check whether a task has assets
-	 * @param	Integer		$idTask
-	 * @return	Boolean
+	 * @param	integer		$idTask
+	 * @return	boolean
 	 */
 	public static function taskHasAssets($idTask) {
 		$idTask		= intval($idTask);
@@ -632,8 +632,8 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Add asset icon to task if it has assets
 	 *
-	 * @param	Array		$icons
-	 * @param	Integer		$idTask
+	 * @param	array		$icons
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function hookAddTaskIcons(array $icons, $idTask) {
@@ -657,8 +657,8 @@ class TodoyuAssetsAssetManager {
 	 * Modify form for task creation - add assets fieldset
 	 *
 	 * @param	TodoyuForm		$form
-	 * @param	Integer			$idTask
-	 * @param	Array			$params
+	 * @param	integer			$idTask
+	 * @param	array			$params
 	 * @return	TodoyuForm
 	 */
 	public static function hookAddAssetUploadToTaskCreateForm(TodoyuForm $form, $idTask, array $params) {
@@ -683,8 +683,8 @@ class TodoyuAssetsAssetManager {
 	 * Modify form for project creation - add assets fieldset
 	 *
 	 * @param	TodoyuForm		$form
-	 * @param	Integer			$idProject
-	 * @param	Array			$params
+	 * @param	integer			$idProject
+	 * @param	array			$params
 	 * @return	TodoyuForm
 	 */
 	public static function hookAddAssetUploadToProjectCreateForm(TodoyuForm $form, $idProject, array $params) {
@@ -703,9 +703,9 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Save assets (uploaded inline from within task creation form) of new task
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idTask
-	 * @param	Array		$params
+	 * @param	array		$data
+	 * @param	integer		$idTask
+	 * @param	array		$params
 	 * @return	Array
 	 */
 	public static function hookStoreUplodedTaskAssets(array $data, $idTask, array $params) {
@@ -730,9 +730,9 @@ class TodoyuAssetsAssetManager {
 
 
 	/**
-	 * @param	Array		$data
-	 * @param	Integer		$idProject
-	 * @param	Array		$params
+	 * @param	array		$data
+	 * @param	integer		$idProject
+	 * @param	array		$params
 	 * @return	Array
 	 */
 	public static function hookStoreUplodedProjectAssets(array $data, $idProject, array $params) {
@@ -759,7 +759,7 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get asset file select options (temporary uploaded assets to be attached to to-be created task)
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function getTaskAssetFileOptions($idTask = 0) {
@@ -783,7 +783,7 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Save temp path in session
 	 *
-	 * @param	String		$path
+	 * @param	string		$path
 	 */
 	public static function saveSessionTempPath($path) {
 		TodoyuSession::set(self::$sessionTempPath, $path);
@@ -794,7 +794,7 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get temp path from session
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getSessionTempPath() {
 		return TodoyuSession::get(self::$sessionTempPath);
@@ -805,7 +805,7 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Check whether session has a temp path
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function hasSessionTempPath() {
 		return TodoyuSession::isIn(self::$sessionTempPath);
@@ -816,8 +816,8 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get items for the task context menu
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Array		$items
+	 * @param	integer		$idTask
+	 * @param	array		$items
 	 * @return	Array
 	 */
 	public static function getTaskContextMenuItems($idTask, array $items) {
@@ -845,8 +845,8 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get asset label
 	 *
-	 * @param	Integer		$idAsset
-	 * @return	String
+	 * @param	integer		$idAsset
+	 * @return	string
 	 */
 	public static function getLabel($idAsset) {
 		return self::getAsset($idAsset)->getLabel();
@@ -857,10 +857,10 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Get matching assets
 	 *
-	 * @param	Array		$searchWords
-	 * @param	Array		$ignoreIDs
-	 * @param	Array		$params
-	 * @param	String		$type
+	 * @param	array		$searchWords
+	 * @param	array		$ignoreIDs
+	 * @param	array		$params
+	 * @param	string		$type
 	 * @return	Array
 	 */
 	public static function getMatchingAssets(array $searchWords, array $ignoreIDs = array(), array $params = array(), $type = null) {
@@ -886,13 +886,13 @@ class TodoyuAssetsAssetManager {
 	/**
 	 * Search assets and get matching IDS
 	 *
-	 * @param	String[]		$searchWords			Search keywords
-	 * @param	Integer			$size					Maximum amount of results
-	 * @param	Integer			$offset					Search offset
-	 * @param	Integer[]		$ignoreIDs				Ignore assets with these IDs
-	 * @param	Integer			$idTask					Limit search to assets of this task
-	 * @param	Integer			$idProject				Limit search task assets of tasks in this project
-	 * @return	Integer[]		Asset IDs
+	 * @param	string[]		$searchWords			Search keywords
+	 * @param	integer			$size					Maximum amount of results
+	 * @param	integer			$offset					Search offset
+	 * @param	integer[]		$ignoreIDs				Ignore assets with these IDs
+	 * @param	integer			$idTask					Limit search to assets of this task
+	 * @param	integer			$idProject				Limit search task assets of tasks in this project
+	 * @return	integer[]		Asset IDs
 	 */
 	public static function searchAssets(array $searchWords, $size = 100, $offset = 0, array $ignoreIDs = array(), $idTask = 0, $idProject = 0) {
 		$ignoreIDs	= TodoyuArray::intval($ignoreIDs, true, true);

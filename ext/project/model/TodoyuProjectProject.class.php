@@ -29,7 +29,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Initialize project
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 */
 	public function __construct($idProject) {
 		parent::__construct($idProject, 'ext_project_project');
@@ -40,8 +40,8 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get full project title with company short name
 	 *
-	 * @param	Boolean	$companyShort
-	 * @return	String
+	 * @param	boolean	$companyShort
+	 * @return	string
 	 */
 	public function getFullTitle($companyShort = false) {
 		$company	= $companyShort ? $this->getCompany()->getShortLabel() : $this->getCompany()->getTitle();
@@ -54,8 +54,8 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get short label for tabs (includes company)
 	 *
-	 * @param	Boolean		$withCompany		Prepend company
-	 * @return	String
+	 * @param	boolean		$withCompany		Prepend company
+	 * @return	string
 	 */
 	public function getShortLabel($withCompany = true) {
 		$projectLabel	= $this->getTitle();
@@ -73,7 +73,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get project title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle() {
 		return $this->get('title');
@@ -84,8 +84,8 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get project label
 	 *
-	 * @param	Boolean		$companyShort
-	 * @return	String
+	 * @param	boolean		$companyShort
+	 * @return	string
 	 */
 	public function getLabel($companyShort = true) {
 		return $this->getFullTitle($companyShort);
@@ -96,7 +96,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get project description
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDescription() {
 		return $this->get('description');
@@ -107,7 +107,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get company ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getCompanyID() {
 		return $this->getInt('id_company');
@@ -129,7 +129,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get project status ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getStatus() {
 		return $this->getInt('status');
@@ -140,7 +140,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get status key of the project
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getStatusKey() {
 		return TodoyuProjectProjectStatusManager::getStatusKey($this->getStatus());
@@ -151,7 +151,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get status label of the project
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getStatusLabel() {
 		return TodoyuProjectProjectStatusManager::getStatusLabel($this->getStatus());
@@ -164,7 +164,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	 *
 	 * @deprecated
 	 * @see		getDateStart
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getStartDate() {
 		return $this->getDateStart();
@@ -175,7 +175,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get project start date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateStart() {
 		return $this->getInt('date_start');
@@ -188,7 +188,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	 *
 	 * @deprecated
 	 * @see		getDateEnd
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getEndDate() {
 		return $this->getDateEnd();
@@ -199,7 +199,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get project end date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateEnd() {
 		return $this->getInt('date_end');
@@ -212,7 +212,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	 *
 	 * @deprecated
 	 * @see		getDateDeadline
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDeadlineDate() {
 		return $this->getDateDeadline();
@@ -223,7 +223,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get project deadline date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateDeadline() {
 		return $this->getInt('date_deadline');
@@ -248,7 +248,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Check whether current person is assigned to this project
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isCurrentPersonAssigned() {
 		return $this->isPersonAssigned();
@@ -259,8 +259,8 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Check whether person is assigned to the project
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public function isPersonAssigned($idPerson = 0) {
 		$idPerson	= Todoyu::personid($idPerson);
@@ -273,7 +273,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Check whether there are tabs configured
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasTabs() {
 		$hasTabs	= TodoyuContentItemTabManager::hasTabs('project', 'project');
@@ -324,7 +324,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get all IDs of persons with the ID of their todoyu role
 	 *
-	 * @param	Boolean		$indexWithPersonIDs
+	 * @param	boolean		$indexWithPersonIDs
 	 * @return	Array
 	 */
 	public function getPersonsRolesIDs($indexWithPersonIDs = false) {
@@ -349,7 +349,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get all IDs of persons with the label of their assigned projectrole
 	 *
-	 * @param	Boolean		$indexWithPersonIDs
+	 * @param	boolean		$indexWithPersonIDs
 	 * @return	Array
 	 */
 	public function getPersonsProjectrolesLabels($indexWithPersonIDs = false) {
@@ -373,8 +373,8 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get ID of role of given (or currently logged-in) person in project
 	 *
-	 * @param	Integer				$idPerson
-	 * @return	Integer				0 if no role defined for person
+	 * @param	integer				$idPerson
+	 * @return	integer				0 if no role defined for person
 	 */
 	public function getPersonRoleID($idPerson = 0) {
 		$idPerson	= Todoyu::personid($idPerson);
@@ -396,7 +396,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get role of given (or currently logged-in) person in project
 	 *
-	 * @param	Integer				$idPerson
+	 * @param	integer				$idPerson
 	 * @return	TodoyuProjectProjectrole
 	 */
 	public function getPersonRole($idPerson = 0) {
@@ -410,7 +410,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get person IDs with role in project
 	 *
-	 * @param	Integer		$idRole
+	 * @param	integer		$idRole
 	 * @return	Array
 	 */
 	public function getRolePersonIDs($idRole) {
@@ -431,7 +431,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get ID of assigned taskpreset of project
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getTaskPresetID() {
 		return $this->getInt('id_taskpreset');
@@ -442,7 +442,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Check whether project has a task preset
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasTaskPreset() {
 		return $this->getTaskPresetID() !== 0;
@@ -464,7 +464,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Check whether project is locked
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isLocked() {
 		return TodoyuLockManager::isLocked('ext_project_project', $this->getID());
@@ -475,7 +475,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Check whether a project has locked tasks
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasLockedTasks() {
 		$field	= '	t.id';
@@ -493,8 +493,8 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Check whether currency person can add tasks to this project
 	 *
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public function canPersonAddTasks($idPerson = 0) {
 		return TodoyuProjectProjectManager::canPersonAddTasks($this->getID(), $idPerson);
@@ -505,7 +505,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Check whether this project is editable
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isEditable() {
 		return TodoyuProjectProjectRights::isEditAllowed() && !$this->isLocked();
@@ -516,7 +516,7 @@ class TodoyuProjectProject extends TodoyuBaseObject {
 	/**
 	 * Get template data
 	 *
-	 * @param	Boolean		$loadForeignData
+	 * @param	boolean		$loadForeignData
 	 * @return	Array
 	 */
 	public function getTemplateData($loadForeignData = false) {

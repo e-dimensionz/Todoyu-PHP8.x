@@ -29,9 +29,9 @@ class TodoyuContextMenuManager {
 	/**
 	 * Register a source function which adds items to a special context menu type
 	 *
-	 * @param	String		$type			Identifier for a context menu type
-	 * @param	String		$function		Function reference
-	 * @param	Integer		$position		Position when the function is called to fill the item queue
+	 * @param	string		$type			Identifier for a context menu type
+	 * @param	string		$function		Function reference
+	 * @param	integer		$position		Position when the function is called to fill the item queue
 	 */
 	public static function addFunction($type, $function, $position = 100) {
 		$type		= strtoupper(trim($type));
@@ -48,7 +48,7 @@ class TodoyuContextMenuManager {
 	/**
 	 * Get all registered functions for a type
 	 *
-	 * @param	String		$type
+	 * @param	string		$type
 	 * @return	Array
 	 */
 	public static function getTypeFunctions($type) {
@@ -62,8 +62,8 @@ class TodoyuContextMenuManager {
 
 
 	/**
-	 * @param	String		$type
-	 * @param	Integer		$idElement
+	 * @param	string		$type
+	 * @param	integer		$idElement
 	 * @return	Array
 	 */
 	public static function getTypeContextMenuItems($type, $idElement) {

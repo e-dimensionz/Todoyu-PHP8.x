@@ -53,7 +53,7 @@ class TodoyuFormXmlParser {
 	 * Parse form definition into a form object
 	 *
 	 * @param	TodoyuForm		$form
-	 * @param	String			$xmlPath
+	 * @param	string			$xmlPath
 	 * @return	TodoyuForm
 	 */
 	public static function parse(TodoyuForm $form, $xmlPath) {
@@ -69,7 +69,7 @@ class TodoyuFormXmlParser {
 	/**
 	 * Initialize
 	 *
-	 * @param	String		$xmlPath
+	 * @param	string		$xmlPath
 	 */
 	private function __construct($xmlPath) {
 		$this->xmlFile	= TodoyuFileManager::pathAbsolute($xmlPath);
@@ -153,7 +153,7 @@ class TodoyuFormXmlParser {
 	 *
 	 * @param	TodoyuFormFieldset			$parentElement
 	 * @param	SimpleXmlElement	$fieldsetXmlObj
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	private function addFieldset(&$parentElement, SimpleXmlElement $fieldsetXmlObj) {
 			// If restricted to internal persons
@@ -215,7 +215,7 @@ class TodoyuFormXmlParser {
 	 *
 	 * @param	TodoyuFormFieldset		$parentFieldset
 	 * @param	SimpleXmlElement		$fieldXmlObj
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	private function addField(TodoyuFormFieldset $parentFieldset, SimpleXmlElement $fieldXmlObj) {
 		$type	= trim($fieldXmlObj['type']);
@@ -245,15 +245,18 @@ class TodoyuFormXmlParser {
 	/**
 	 * Check if a field has requirements
 	 *
-	 * @param	Array		$config			Field config
-	 * @return	Boolean
+	 * @param	array		$config			Field config
+	 * @return	boolean
 	 */
 	private function isAllowed(array $config) {
 		if( isset($config['restrictAdmin']) ) {
 			return TodoyuAuth::isAdmin();
 		} elseif( isset($config['restrict']) ) {
 			$restrict	= $config['restrict'];
-			$and		= strtoupper(trim($restrict['@attributes']['conjunction'])) === 'AND';
+            
+            $and = false;
+			if(isset($restrict['@attributes'])) $and		= strtoupper(trim($restrict['@attributes']['conjunction'])) === 'AND';
+
 			$rights		= TodoyuArray::assure($restrict['allow']);
 
 				// SimpleXML handles the elements different if there is only one.

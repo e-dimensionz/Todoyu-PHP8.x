@@ -29,8 +29,8 @@ class TodoyuPortalPanelWidgetFilterPresetList extends TodoyuPanelWidget {
 	/**
 	 * Initialize filter presetlist widget
 	 *
-	 * @param	Array		$config
-	 * @param	Array		$params
+	 * @param	array		$config
+	 * @param	array		$params
 	 */
 	public function __construct(array $config, array $params = array()) {
 		parent::__construct(
@@ -100,7 +100,7 @@ class TodoyuPortalPanelWidgetFilterPresetList extends TodoyuPanelWidget {
 	/**
 	 * Render widget content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function renderContent() {
 		$tmpl	= 'ext/portal/view/panelwidget-filterpresetlist.tmpl';
@@ -123,7 +123,7 @@ class TodoyuPortalPanelWidgetFilterPresetList extends TodoyuPanelWidget {
 	/**
 	 * Render filter presets panel widget
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function render() {
 		TodoyuPage::addJsInit('Todoyu.Ext.portal.PanelWidget.FilterPresetList.init()', 100);
@@ -136,7 +136,7 @@ class TodoyuPortalPanelWidgetFilterPresetList extends TodoyuPanelWidget {
 	/**
 	 * Check whether panel widget is allowed
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		return Todoyu::allowed('portal', 'general:use');

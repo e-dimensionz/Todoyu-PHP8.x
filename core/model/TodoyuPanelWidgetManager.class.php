@@ -37,11 +37,11 @@ class TodoyuPanelWidgetManager {
 	/**
 	 * Add a panel widget for an area
 	 *
-	 * @param	String		$area		Area where to display the widget
-	 * @param	String		$ext		Extension which implements the widget
-	 * @param	String		$name		Name of the widget
-	 * @param	Integer		$position
-	 * @param	Array		$config
+	 * @param	string		$area		Area where to display the widget
+	 * @param	string		$ext		Extension which implements the widget
+	 * @param	string		$name		Name of the widget
+	 * @param	integer		$position
+	 * @param	array		$config
 	 */
 	public static function addPanelWidget($area, $ext, $name, $position, array $config = array()) {
 		$className	= self::buildClassName($ext, $name);
@@ -62,8 +62,8 @@ class TodoyuPanelWidgetManager {
 	/**
 	 * Get panel widget config
 	 *
-	 * @param	String		$ext
-	 * @param	String		$name
+	 * @param	string		$ext
+	 * @param	string		$name
 	 * @return	Array
 	 */
 	public static function getConfig($ext, $name) {
@@ -71,7 +71,7 @@ class TodoyuPanelWidgetManager {
 
 		$className	= self::buildClassName($ext, $name);
 
-		return TodoyuArray::assure(self::$panelWidgets[AREA][$className]);
+		return TodoyuArray::assure(self::$panelWidgets[AREA][$className] ?? []);
 	}
 
 
@@ -79,10 +79,10 @@ class TodoyuPanelWidgetManager {
 	/**
 	 * Check whether a panel widgets exists in the current area
 	 *
-	 * @param	String		$area
-	 * @param	String		$ext
-	 * @param	String		$name
-	 * @return	Boolean
+	 * @param	string		$area
+	 * @param	string		$ext
+	 * @param	string		$name
+	 * @return	boolean
 	 */
 	public static function exists($area, $ext, $name) {
 		TodoyuExtensions::loadAllPanelWidget();
@@ -97,14 +97,14 @@ class TodoyuPanelWidgetManager {
 	/**
 	 * Get config parameter from widget config
 	 *
-	 * @param	String		$ext
-	 * @param	String		$name
+	 * @param	string		$ext
+	 * @param	string		$name
 	 * @return	Array
 	 */
 	public static function getCustomConfig($ext, $name) {
 		$config	= self::getConfig($ext, $name);
 
-		return TodoyuArray::assure($config['config']);
+		return TodoyuArray::assure($config['config'] ?? []);
 	}
 
 
@@ -112,7 +112,7 @@ class TodoyuPanelWidgetManager {
 	/**
 	 * Get panel widget configs for area
 	 *
-	 * @param	String		$area
+	 * @param	string		$area
 	 * @return	Array
 	 */
 	public static function getAreaPanelWidgets($area) {
@@ -131,18 +131,18 @@ class TodoyuPanelWidgetManager {
 	/**
 	 * Create a new panel widget with given params
 	 *
-	 * @param	String		$widgetClassName
-	 * @param	Integer		$area
-	 * @param	Array		$params
+	 * @param	string		$widgetClassName
+	 * @param	integer		$area
+	 * @param	array		$params
 	 * @return	TodoyuPanelWidget
 	 */
 
 	/**
 	 * Get panel widget instance
 	 *
-	 * @param	String	$ext
-	 * @param	String	$name
-	 * @param	Array	$params
+	 * @param	string	$ext
+	 * @param	string	$name
+	 * @param	array	$params
 	 * @return	TodoyuPanelWidget
 	 */
 	public static function getPanelWidget($ext, $name, array $params = array()) {
@@ -163,9 +163,9 @@ class TodoyuPanelWidgetManager {
 	/**
 	 * Get class name for panel widget
 	 *
-	 * @param	String		$ext
-	 * @param	String		$name
-	 * @return	String
+	 * @param	string		$ext
+	 * @param	string		$name
+	 * @return	string
 	 */
 	public static function buildClassName($ext, $name) {
 		return 'Todoyu' . ucfirst(strtolower($ext)) . 'PanelWidget' . ucfirst($name);
@@ -176,8 +176,8 @@ class TodoyuPanelWidgetManager {
 	/**
 	 * Save collapsed status
 	 *
-	 * @param	String		$widget
-	 * @param	Boolean		$expanded
+	 * @param	string		$widget
+	 * @param	boolean		$expanded
 	 */
 	public static function saveCollapsedStatus($widget, $expanded = true) {
 		$preference	= 'pwidget-collapsed-' . strtolower($widget);
@@ -194,8 +194,8 @@ class TodoyuPanelWidgetManager {
 	/**
 	 * Check if a panelwidget is collapsed
 	 *
-	 * @param	String		$widget
-	 * @return	Boolean
+	 * @param	string		$widget
+	 * @return	boolean
 	 */
 	public static function isCollapsed($widget) {
 		$pref	= TodoyuPreferenceManager::getPreference(0, 'pwidget-collapsed-' . $widget, 0, AREA);

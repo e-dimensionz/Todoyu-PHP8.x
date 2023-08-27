@@ -29,12 +29,12 @@ class TodoyuProfilePreferences {
 	/**
 	 * Save a preference for profile
 	 *
-	 * @param	String		$preference
-	 * @param	String		$value
-	 * @param	Integer		$idItem
-	 * @param	Boolean		$unique
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	string		$preference
+	 * @param	string		$value
+	 * @param	integer		$idItem
+	 * @param	boolean		$unique
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 */
 	public static function savePref($preference, $value, $idItem = 0, $unique = false, $idArea = 0, $idPerson = 0) {
 		TodoyuPreferenceManager::savePreference(EXTID_PROFILE, $preference, $value, $idItem, $unique, $idArea, $idPerson);
@@ -45,12 +45,12 @@ class TodoyuProfilePreferences {
 	/**
 	 * Get a profile preference
 	 *
-	 * @param	String		$preference
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Boolean		$unserialize
-	 * @param	Integer		$idPerson
-	 * @return	String
+	 * @param	string		$preference
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	boolean		$unserialize
+	 * @param	integer		$idPerson
+	 * @return	string
 	 */
 	public static function getPref($preference, $idItem = 0, $idArea = 0, $unserialize = false, $idPerson = 0) {
 		return TodoyuPreferenceManager::getPreference(EXTID_PROFILE, $preference, $idItem, $idArea, $unserialize, $idPerson);
@@ -61,10 +61,10 @@ class TodoyuProfilePreferences {
 	/**
 	 * Get profile preference
 	 *
-	 * @param	String		$preference
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	string		$preference
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getPrefs($preference, $idItem = 0, $idArea = 0, $idPerson = 0) {
@@ -76,11 +76,11 @@ class TodoyuProfilePreferences {
 	/**
 	 * Delete profile preference
 	 *
-	 * @param	String		$preference
-	 * @param	String		$value
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	string		$preference
+	 * @param	string		$value
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 */
 	public static function deletePref($preference, $value = null, $idItem = 0, $idArea = 0, $idPerson = 0) {
 		TodoyuPreferenceManager::deletePreference(EXTID_PROFILE, $preference, $value, $idItem, $idArea, $idPerson);
@@ -91,7 +91,7 @@ class TodoyuProfilePreferences {
 	/**
 	 * Get key of currently active profile module
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getActiveModule() {
 		$module	= self::getPref('module');
@@ -108,7 +108,7 @@ class TodoyuProfilePreferences {
 	/**
 	 * Save preference: profile's currently active module
 	 *
-	 * @param	String	$module
+	 * @param	string	$module
 	 */
 	public static function saveActiveModule($module) {
 		self::savePref('module', $module, 0, true);
@@ -119,7 +119,7 @@ class TodoyuProfilePreferences {
 	/**
 	 * Get profile general tab preference
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getGeneralTab() {
 		$tab	= self::getPref('tab-general');
@@ -136,7 +136,7 @@ class TodoyuProfilePreferences {
 	/**
 	 * Save profile preference: general tab
 	 *
-	 * @param	String	$tab
+	 * @param	string	$tab
 	 */
 	public static function saveGeneralTab($tab) {
 		self::savePref('tab-general', $tab, 0, true);

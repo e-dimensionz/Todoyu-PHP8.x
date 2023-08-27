@@ -29,7 +29,7 @@ class TodoyuCountry extends TodoyuBaseObject {
 	/**
 	 * Constructor
 	 *
-	 * @param	Integer		$idCountry
+	 * @param	integer		$idCountry
 	 */
 	public function __construct($idCountry) {
 		parent::__construct($idCountry, 'static_country');
@@ -40,7 +40,7 @@ class TodoyuCountry extends TodoyuBaseObject {
 	/**
 	 * Get phone code of country
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getPhoneCode() {
 		return $this->get('phone');
@@ -51,7 +51,7 @@ class TodoyuCountry extends TodoyuBaseObject {
 	/**
 	 * Get ISO alpha2 code of country
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getCode2() {
 		return $this->get('iso_alpha2');
@@ -62,7 +62,7 @@ class TodoyuCountry extends TodoyuBaseObject {
 	/**
 	 * Get ISO alpha2 code of country
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getCode3() {
 		return $this->get('iso_alpha3');
@@ -73,7 +73,7 @@ class TodoyuCountry extends TodoyuBaseObject {
 	/**
 	 * Get ISO number of country
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getIsoNum() {
 		return (int) $this->get('iso_num');
@@ -84,7 +84,7 @@ class TodoyuCountry extends TodoyuBaseObject {
 	/**
 	 * Get currency iso number
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getIsoNumCurrency() {
 		return (int) $this->get('iso_num_currency');
@@ -95,7 +95,7 @@ class TodoyuCountry extends TodoyuBaseObject {
 	/**
 	 * Get country label
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getLabel() {
 		$label = '';
@@ -127,7 +127,7 @@ class TodoyuCountry extends TodoyuBaseObject {
 	 * Get country template data
 	 * Foreign data: currency
 	 *
-	 * @param	Boolean		$loadForeignData
+	 * @param	boolean		$loadForeignData
 	 * @return	Array
 	 */
 	public function getTemplateData($loadForeignData = false) {

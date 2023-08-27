@@ -29,7 +29,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Initialize task
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 */
 	public function __construct($idTask) {
 		parent::__construct($idTask, 'ext_project_task');
@@ -40,7 +40,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get task title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle() {
 		return $this->get('title');
@@ -51,7 +51,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get description
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDescription() {
 		return $this->get('description');
@@ -62,7 +62,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get full task title (company - project - task)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getFullTitle() {
 		return $this->getProject()->getFullTitle() . ' - ' . $this->getTitle();
@@ -73,7 +73,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get title with task number
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitleWithTaskNumber() {
 		return $this->getTaskNumber(true) . ': ' . $this->getTitle();
@@ -84,8 +84,8 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get task label
 	 *
-	 * @param	Boolean		$full		Full/long label
-	 * @return	String
+	 * @param	boolean		$full		Full/long label
+	 * @return	string
 	 */
 	public function getLabel($full = false ) {
 		return $full ? $this->getFullTitle() : $this->getTitleWithTaskNumber();
@@ -97,8 +97,8 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	 * Get task number of the task.
 	 * The task number is a combination of the project ID and an incrementing task number per project
 	 *
-	 * @param	Boolean		$full		True: project ID + task number (concatinated with a dot), FALSE: Only task number
-	 * @return	String
+	 * @param	boolean		$full		True: project ID + task number (concatinated with a dot), FALSE: Only task number
+	 * @return	string
 	 */
 	public function getTaskNumber($full = true) {
 		if( $full ) {
@@ -113,8 +113,8 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether task is in given status
 	 *
-	 * @param	Integer		$idStatus
-	 * @return	Boolean
+	 * @param	integer		$idStatus
+	 * @return	boolean
 	 */
 	public function hasStatus($idStatus) {
 		return $this->getStatus() === intval($idStatus);
@@ -125,7 +125,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get task status
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getStatus() {
 		return intval($this->data['status']);
@@ -136,7 +136,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get task status text (not label, just text value of the status)
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getStatusKey() {
 		return TodoyuProjectTaskStatusManager::getStatusKey($this->getStatus());
@@ -147,7 +147,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get label for status
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getStatusLabel() {
 		return TodoyuProjectTaskStatusManager::getStatusLabel($this->getStatus());
@@ -158,7 +158,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether task status is relevant to time exceeding
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isStatusTimeExceedingRelevant() {
 		$relevantStatus	= Todoyu::$CONFIG['EXT']['project']['taskStatusTimeExceedingRelevant'];
@@ -171,7 +171,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether task has a parent task (or is in project root)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasParentTask() {
 		return $this->getParentTaskID() !== 0;
@@ -182,7 +182,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether the task has sub tasks
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasSubtasks() {
 		return TodoyuProjectTaskManager::hasSubTasks($this->getID());
@@ -208,7 +208,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get parent task ID. May be 0 when task is in project root
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getParentTaskID() {
 		return $this->getInt('id_parenttask');
@@ -219,7 +219,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get project ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getProjectID() {
 		return $this->getInt('id_project');
@@ -263,7 +263,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get activity label
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getActivityLabel() {
 		$activity	= $this->getActivity();
@@ -276,7 +276,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get activity ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getActivityID() {
 		return intval($this->data['id_activity']);
@@ -287,7 +287,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get task type (TASK_TYPE_TASK = 1, TASK_TYPE_CONTAINER = 2)
 	 *
-	 * @return	Integer		Type constant
+	 * @return	integer		Type constant
 	 */
 	public function getType() {
 		return $this->getInt('type');
@@ -298,7 +298,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get task type key
 	 *
-	 * @return	String		'task' / 'container'
+	 * @return	string		'task' / 'container'
 	 */
 	public function getTypeKey() {
 		return $this->isTask() ? 'task' : 'container';
@@ -309,7 +309,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get start date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 * @deprecated
 	 */
 	public function getStartDate() {
@@ -321,7 +321,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get start date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateStart() {
 		return $this->getInt('date_start');
@@ -332,7 +332,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get end date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 * @deprecated
 	 */
 	public function getEndDate() {
@@ -344,8 +344,8 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get end date (or fallback to deadline if enabled
 	 *
-	 * @param	Boolean		$fallbackDeadline
-	 * @return	Integer
+	 * @param	boolean		$fallbackDeadline
+	 * @return	integer
 	 */
 	public function getDateEnd($fallbackDeadline = false) {
 		$dateEnd	= $this->getInt('date_end');
@@ -358,7 +358,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether date end is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasDateEnd() {
 		return $this->getInt('date_end') > 0;
@@ -371,7 +371,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	 *
 	 * @deprecated
 	 * @see		getDateDeadline
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDeadlineDate() {
 		return $this->getDateDeadline();
@@ -382,7 +382,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get deadline date
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateDeadline() {
 		return $this->getInt('date_deadline');
@@ -393,7 +393,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether date deadline is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasDateDeadline() {
 		return $this->getInt('date_deadline') !== 0;
@@ -404,7 +404,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether the deadline is exceeded
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 * @deprecated
 	 */
 	public function isDeadlineExceeded() {
@@ -416,7 +416,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether the deadline is exceeded
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isDateDeadlineExceeded() {
 		return $this->isDateExceeded($this->getDateDeadline(), TodoyuProjectExtConfViewHelper::getToleranceDateDeadline());
@@ -427,7 +427,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check tasks in date-relevant status for end date being exceeded
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 * @deprecated
 	 */
 	public function isEndDateExceeded() {
@@ -439,7 +439,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether date end is in the past
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isDateEndExceeded() {
 		return $this->getDateEnd() === 0 ? false : $this->isDateExceeded($this->getDateEnd(), TodoyuProjectExtConfViewHelper::getToleranceDateEnd());
@@ -450,9 +450,9 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check if given Date is Exceeded. Depends on task-type, status & if tolerance is set.
 	 *
-	 * @param	Integer		$date
-	 * @param	Integer		$tolerance
-	 * @return	Boolean
+	 * @param	integer		$date
+	 * @param	integer		$tolerance
+	 * @return	boolean
 	 */
 	protected function isDateExceeded($date, $tolerance) {
 		$exceeded = false;
@@ -469,7 +469,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get estimated workload
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getEstimatedWorkload() {
 		return $this->getInt('estimated_workload');
@@ -480,7 +480,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether the task has an estimated workload
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasEstimatedWorkload() {
 		return $this->getEstimatedWorkload() > 0;
@@ -491,7 +491,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether the task is a container
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isContainer() {
 		return $this->getType() === TASK_TYPE_CONTAINER;
@@ -502,7 +502,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether the task is a normal task (no container or something else)
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isTask() {
 		return $this->getType() === TASK_TYPE_TASK;
@@ -513,7 +513,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether the task is marked as internal
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isPublic() {
 		return $this->isFlagSet('is_public');
@@ -524,7 +524,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether the task has already been acknowledged by the assigned person
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isAcknowledged() {
 		return $this->isFlagSet('is_acknowledged');
@@ -557,7 +557,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get assigned person ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getPersonAssignedID() {
 		return $this->getPersonID('assigned');
@@ -568,7 +568,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get owner person ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getPersonOwnerID() {
 		return $this->getPersonID('owner');
@@ -579,7 +579,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get sorting position for project tree
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getTreePosition() {
 		return $this->getInt('sorting');
@@ -590,7 +590,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check if current person is assigned to this task
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isCurrentPersonAssigned() {
 		return TodoyuAuth::getPersonID() === $this->getPersonAssignedID();
@@ -601,7 +601,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether task owner and creator is the same person
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isOwnerAndCreatorSame() {
 		return $this->getPersonOwnerID() === $this->getPersonCreateID();
@@ -612,7 +612,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether a person is assigned
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasPersonAssigned() {
 		return $this->getPersonAssignedID() !== 0;
@@ -623,7 +623,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether an owner is defined
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasOwnerPerson() {
 		return $this->getPersonOwnerID() !== 0;
@@ -635,7 +635,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	 * Check whether the task/container can be edited
 	 * Check if task/container is not locked any user has edit rights
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isEditable($checkSubTasks = false) {
 		if( $this->isLocked($checkSubTasks) ) {
@@ -650,7 +650,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether the task can be deleted
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isDeletable() {
 		$allowed	= TodoyuProjectTaskRights::isDeleteAllowed($this->getID());
@@ -663,8 +663,8 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether a task is locked
 	 *
-	 * @param	Boolean		$checkSubTasks		Check also whether a subtask is locked (one subtask locked = task locked too)
-	 * @return	Boolean
+	 * @param	boolean		$checkSubTasks		Check also whether a subtask is locked (one subtask locked = task locked too)
+	 * @return	boolean
 	 */
 	public function isLocked($checkSubTasks = false) {
 		$isLocked	= TodoyuProjectTaskManager::isLocked($this->getID());
@@ -682,7 +682,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether drag and drop of the task is allowed
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isDraggable() {
 		$addTasksInOwnProjects	= Todoyu::allowed('project', 'addtask:addTaskInOwnProjects');
@@ -696,7 +696,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Check whether there are tabs configured for this type of task
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasTabs() {
 			// Check for configured tabs
@@ -714,7 +714,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get all IDs of the sub tasks
 	 *
-	 * @param	String|Boolean	$extraWhere
+	 * @param	string|Boolean	$extraWhere
 	 * @return	Array
 	 */
 	public function getAllSubTaskIDs($extraWhere = false) {
@@ -749,7 +749,7 @@ class TodoyuProjectTask extends TodoyuBaseObject {
 	/**
 	 * Get data for template rendering
 	 *
-	 * @param	Integer		$infoLevel		Level of information (the higher the number, the more information is collected)
+	 * @param	integer		$infoLevel		Level of information (the higher the number, the more information is collected)
 	 * @return	Array
 	 */
 	public function getTemplateData($infoLevel = 0) {

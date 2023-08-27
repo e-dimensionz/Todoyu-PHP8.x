@@ -81,7 +81,7 @@ class TodoyuSysmanagerRepository {
 	 *
 	 * @throws	TodoyuSysmanagerRepositoryConnectionException
 	 * @throws	TodoyuSysmanagerRepositoryException
-	 * @param	String		$query
+	 * @param	string		$query
 	 * @return	Array		Search results
 	 */
 	public function searchExtensions($query) {
@@ -129,8 +129,8 @@ class TodoyuSysmanagerRepository {
 	/**
 	 * Get install info about an extension
 	 *
-	 * @param	String		$extKey
-	 * @param	Integer		$major
+	 * @param	string		$extKey
+	 * @param	integer		$major
 	 * @return	Array
 	 * @throws	TodoyuSysmanagerRepositoryConnectionException
 	 * @throws	TodoyuSysmanagerRepositoryException
@@ -155,9 +155,9 @@ class TodoyuSysmanagerRepository {
 	 * Download file from repository
 	 *
 	 * @throws	TodoyuSysmanagerRepositoryException
-	 * @param	String		$type
-	 * @param	Integer		$idVersion
-	 * @return	String		Path to local saved file
+	 * @param	string		$type
+	 * @param	integer		$idVersion
+	 * @return	string		Path to local saved file
 	 */
 	public function download($type, $idVersion) {
 		$data = array(
@@ -184,9 +184,9 @@ class TodoyuSysmanagerRepository {
 	/**
 	 * Register an extension for current domain
 	 *
-	 * @param	String		$extKey
-	 * @param	Integer		$majorVersion
-	 * @return	Boolean
+	 * @param	string		$extKey
+	 * @param	integer		$majorVersion
+	 * @return	boolean
 	 */
 	public function registerForDomain($extKey, $majorVersion = 1) {
 		$data	= array(
@@ -210,8 +210,8 @@ class TodoyuSysmanagerRepository {
 	/**
 	 * Send request to update server
 	 *
-	 * @param	String		$action
-	 * @param	Array		$data
+	 * @param	string		$action
+	 * @param	array		$data
 	 * @return	Array
 	 * @throws	TodoyuSysmanagerRepositoryConnectionException
 	 * @throws	TodoyuSysmanagerRepositoryException

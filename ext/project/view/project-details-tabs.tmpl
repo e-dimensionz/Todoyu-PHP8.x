@@ -1,6 +1,6 @@
 <div class="menu contextmenuProjectInline" id="menu-{$idProject}">
 	<span class="icon"></span>
-	<span class="label">{Label LLL:project.ext.project.tabs.menu}</span>
+	<span class="label">{Label text='LLL:project.ext.project.tabs.menu'}</span>
 </div>
 
 <script type="text/javascript">
@@ -12,12 +12,12 @@
 </div>
 
 <div class="tabs" id="{$idProject}-tabs">
-	{foreach $tabs tab}
+	{foreach $tabs as $tab}
 		<div class="projectDetailsTab {$tab.id}ProjectTab tabkey-{$tab.id}{if $activeTab == $tab.id} active{/if}" id="tab-{$tab.id}" onclick="Todoyu.Ext.project.Project.Tab.onSelect({$idProject}, '{$tab.id}');">
 			<span class="icon"></span>
-			<span class="label">{Label $tab.label}</span>
+			<span class="label">{Label text=$tab.label}</span>
 		</div>
-	{else}
+	{foreachelse}
 		no tabs registered
 	{/foreach}
 </div>

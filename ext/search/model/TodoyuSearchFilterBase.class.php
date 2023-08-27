@@ -101,11 +101,11 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * Initialize filter object
 	 *
-	 * @param	String		$type				Type of the filter (funcRefs are stored in the config unter this type)
-	 * @param	String		$defaultTable		Table to get the IDs from
-	 * @param	Array		$activeFilters		Active filters of the current request
-	 * @param	String		$conjunction		AND or OR
-	 * @param	Array		$sorting			Sorting flags
+	 * @param	string		$type				Type of the filter (funcRefs are stored in the config unter this type)
+	 * @param	string		$defaultTable		Table to get the IDs from
+	 * @param	array		$activeFilters		Active filters of the current request
+	 * @param	string		$conjunction		AND or OR
+	 * @param	array		$sorting			Sorting flags
 	 */
 	protected function __construct($type, $defaultTable, array $activeFilters = array(), $conjunction = 'AND', array $sorting = array()) {
 		$this->type					= strtoupper($type);
@@ -122,7 +122,7 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * Get conjunction of the filterset
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getConjunction() {
 		return $this->conjunction;
@@ -133,7 +133,7 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * Add an extra table for the request query
 	 *
-	 * @param	String		$table
+	 * @param	string		$table
 	 */
 	public function addExtraTable($table) {
 		$this->extraTables[] = $table;
@@ -144,7 +144,7 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * Add an extra WHERE clause for the request query
 	 *
-	 * @param	String		$where		WHERE clause
+	 * @param	string		$where		WHERE clause
 	 */
 	public function addExtraWhere($where) {
 		$this->extraWhere[] = $where;
@@ -155,9 +155,9 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * Add an extra filter
 	 *
-	 * @param	String		$name		Filter name
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$name		Filter name
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 */
 	public function addFilter($name, $value, $negate = false) {
 		$this->activeFilters[] = array(
@@ -172,7 +172,7 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * Add a rights filter where is always added with AND
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @param	Mixed		$value
 	 */
 	public function addRightsFilter($name, $value) {
@@ -188,8 +188,8 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * Check whether filter exists in config
 	 *
-	 * @param	String		$filter
-	 * @return	Boolean
+	 * @param	string		$filter
+	 * @return	boolean
 	 */
 	protected function isFilter($filter) {
 		$filterMethod = $this->getFilterMethod($filter);
@@ -202,8 +202,8 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * Check whether name is a valid sorting flag
 	 *
-	 * @param	String		$name
-	 * @return	Boolean
+	 * @param	string		$name
+	 * @return	boolean
 	 */
 	protected function isSorting($name) {
 		$sortingMethod	= $this->getSortingMethod($name);
@@ -218,7 +218,7 @@ abstract class TodoyuSearchFilterBase {
 	 *
 	 * else build it from current type and filter
 	 *
-	 * @param	String		$filter
+	 * @param	string		$filter
 	 * @return	Array		[0]=> classname [1]=> methodname
 	 */
 	protected function getFilterMethod($filter) {
@@ -250,7 +250,7 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * Get sorting flag method reference
 	 *
-	 * @param	String		$name
+	 * @param	string		$name
 	 * @return array|bool
 	 */
 	protected function getSortingMethod($name) {
@@ -282,8 +282,8 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * returns the function to render the searchresults
 	 *
-	 * @param	String	$type
-	 * @return	String
+	 * @param	string	$type
+	 * @return	string
 	 */
 	public static function getFilterRenderFunction($type = 'task') {
 		return TodoyuSearchFilterManager::getFilterTypeResultsRenderer($type);
@@ -322,7 +322,7 @@ abstract class TodoyuSearchFilterBase {
 
 					// Filter function parameters
 				$params		= array(
-					$filter['value'],
+					$filter['value'] ?? '',
 					$filter['is_negated'] ?? 0 == 1
 				);
 
@@ -473,10 +473,10 @@ abstract class TodoyuSearchFilterBase {
 	 * fields, tables, where, group, order, limit
 	 * Extra fields for internal use: whereNoJoin, join
 	 *
-	 * @param	String		$sortingFallback					Optional ORDER BY for query
-	 * @param	String		$limit						Optional LIMIT for query
-	 * @param	Boolean		$showDeleted				Show deleted records?
-	 * @param	Boolean		$noResultOnEmptyConditions	Return false if no condition is active
+	 * @param	string		$sortingFallback					Optional ORDER BY for query
+	 * @param	string		$limit						Optional LIMIT for query
+	 * @param	boolean		$showDeleted				Show deleted records?
+	 * @param	boolean		$noResultOnEmptyConditions	Return false if no condition is active
 	 * @return	Array|Boolean
 	 */
 	public function getQueryArray($sortingFallback = '', $limit = '', $showDeleted = false, $noResultOnEmptyConditions = false) {
@@ -556,10 +556,10 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * Get the full query array. This is just for debugging
 	 *
-	 * @param	String		$orderBy	Optional order by for query
-	 * @param	String		$limit		Optional limit for query
-	 * @param	Boolean		$showDeleted
-	 * @return	String
+	 * @param	string		$orderBy	Optional order by for query
+	 * @param	string		$limit		Optional limit for query
+	 * @param	boolean		$showDeleted
+	 * @return	string
 	 */
 	public function getQuery($orderBy = '', $limit = '', $showDeleted = false) {
 		$queryArray = $this->getQueryArray($orderBy, $limit, $showDeleted);
@@ -581,7 +581,7 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * Check if filter has conditions
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasActiveFilters() {
 		return $this->getQueryArray('', '', false, true) !== false;
@@ -592,9 +592,9 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * Get item IDs from default table which match to all active filters
 	 *
-	 * @param	String		$sortingFallback			Optional order by for query
-	 * @param	String		$limit						Optional limit for query
-	 * @param	Boolean		$showDeleted				Show deleted records
+	 * @param	string		$sortingFallback			Optional order by for query
+	 * @param	string		$limit						Optional limit for query
+	 * @param	boolean		$showDeleted				Show deleted records
 	 * @return	Array		List of IDs of matching records
 	 */
 	public function getItemIDs($sortingFallback = '', $limit = '', $showDeleted = false) {
@@ -627,7 +627,7 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * Get total found rows. Same as when the filter would have been called without a limit
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public final function getTotalItems() {
 		return $this->totalFoundRows;
@@ -638,8 +638,8 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * Filter after filter sets
 	 *
-	 * @param	Integer		$value
-	 * @param	Boolean		$negate
+	 * @param	integer		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 * @todo	Implement negation?
 	 */
@@ -671,8 +671,8 @@ abstract class TodoyuSearchFilterBase {
 	/**
 	 * Get sorting direction string
 	 *
-	 * @param	Boolean		$desc
-	 * @return	String		DESC or ASC
+	 * @param	boolean		$desc
+	 * @return	string		DESC or ASC
 	 */
 	protected static function getSortDir($desc = false) {
 		return $desc ? ' DESC' : ' ASC';

@@ -30,8 +30,8 @@ class TodoyuCalendarRangeWeek extends TodoyuDayRange {
 	/**
 	 * Initialize
 	 *
-	 * @param	Integer		$date		Date of a day in this week
-	 * @param	Boolean		$displayWeekend	Include weekend in the range
+	 * @param	integer		$date		Date of a day in this week
+	 * @param	boolean		$displayWeekend	Include weekend in the range
 	 */
 	public function __construct($date, $displayWeekend = true) {
 		$date	= TodoyuTime::time($date);
@@ -46,8 +46,8 @@ class TodoyuCalendarRangeWeek extends TodoyuDayRange {
 	 * Set start date
 	 * Will get adjusted to the week start
 	 *
-	 * @param	Integer		$date
-	 * @param	Boolean		$includeWeekend
+	 * @param	integer		$date
+	 * @param	boolean		$includeWeekend
 	 */
 	public function setStart($date, $includeWeekend = true) {
 		if( $includeWeekend ) {
@@ -67,8 +67,8 @@ class TodoyuCalendarRangeWeek extends TodoyuDayRange {
 	 * Set end date
 	 * Will get adjusted to the week end or the end of the working week (without weekend)
 	 *
-	 * @param	Integer		$date
-	 * @param	Boolean		$includeWeekend
+	 * @param	integer		$date
+	 * @param	boolean		$includeWeekend
 	 */
 	public function setEnd($date, $includeWeekend = true) {
 		if( $includeWeekend ) {

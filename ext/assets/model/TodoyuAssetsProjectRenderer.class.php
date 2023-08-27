@@ -25,8 +25,8 @@
 class TodoyuAssetsProjectRenderer {
 
 	/**
-	 * @param	Integer		$idProject
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @return	string
 	 */
 	public static function renderProjectDetailsTab($idProject){
 		$idProject	= intval($idProject);
@@ -44,9 +44,9 @@ class TodoyuAssetsProjectRenderer {
 	/**
 	 * Render asset upload iFrame content
 	 *
-	 * @param	String		$fileName
-	 * @param	Integer		$idProject
-	 * @return	String
+	 * @param	string		$fileName
+	 * @param	integer		$idProject
+	 * @return	string
 	 */
 	public static function renderUploadframeContent($fileName, $idProject) {
 		$idProject	= intval($idProject);
@@ -65,10 +65,10 @@ class TodoyuAssetsProjectRenderer {
 	/**
 	 * Render content of asset uploader iFrame when upload failed
 	 *
-	 * @param	String		$error
-	 * @param	String		$fileName
-	 * @param	Integer		$idProject
-	 * @return	String
+	 * @param	string		$error
+	 * @param	string		$fileName
+	 * @param	integer		$idProject
+	 * @return	string
 	 */
 	public static function renderUploadframeContentFailed($error, $fileName, $idProject) {
 		$idProject	= intval($idProject);
@@ -89,8 +89,8 @@ class TodoyuAssetsProjectRenderer {
 	/**
 	 * Render options for files uploaded during project creation
 	 *
-	 * @param	Integer		$idProject
-	 * @return	String		Rendered <option> elements
+	 * @param	integer		$idProject
+	 * @return	string		Rendered <option> elements
 	 */
 	public static function renderSessionFileOptions($idProject) {
 		$uploader	= new TodoyuAssetsTempUploaderProject($idProject);

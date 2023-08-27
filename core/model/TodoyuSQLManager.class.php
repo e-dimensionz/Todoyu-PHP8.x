@@ -29,7 +29,7 @@ class TodoyuSQLManager {
 	/**
 	 * Extract queries from a file. Get a list of the single queries
 	 *
-	 * @param	String		$file
+	 * @param	string		$file
 	 * @return	Array		List of queries in file
 	 */
 	public static function getQueriesFromFile($file) {
@@ -124,8 +124,8 @@ class TodoyuSQLManager {
 	 * Only missing columns are added. An existing structure is no updated
 	 * The Primary Key is only added once. Keys with the same name are ignored
 	 *
-	 * @param	Array		$structureOne
-	 * @param	Array		$structureTwo
+	 * @param	array		$structureOne
+	 * @param	array		$structureTwo
 	 * @return	Array
 	 */
 	private static function mergeTableStructure(array $structureOne, array $structureTwo) {
@@ -166,8 +166,8 @@ class TodoyuSQLManager {
 	 * Merge core and extension table structure.
 	 * This results in a full table structure for the system
 	 *
-	 * @param	Array		$coreTables
-	 * @param	Array		$extTables
+	 * @param	array		$coreTables
+	 * @param	array		$extTables
 	 * @return	Arra
 	 */
 	public static function mergeCoreAndExtTables(array $coreTables, array $extTables) {
@@ -210,7 +210,7 @@ class TodoyuSQLManager {
 	/**
 	 * Get SQL queries for DB tables of extension
 	 *
-	 * @param	String	$extKey
+	 * @param	string	$extKey
 	 * @return	Array
 	 */
 	public static function getExtensionTableQueries($extKey) {
@@ -229,7 +229,7 @@ class TodoyuSQLManager {
 	/**
 	 * Get queries which are needed to update the database on the base of the structure differences
 	 *
-	 * @param	Array		$structureDifferences
+	 * @param	array		$structureDifferences
 	 * @return	Array
 	 */
 	private static function getStructureUpdateQueriesFromDifferences(array $structureDifferences) {
@@ -307,8 +307,8 @@ class TodoyuSQLManager {
 	/**
 	 * Build a query to add a new table with column definitions
 	 *
-	 * @param	Array		$tableStructure
-	 * @return	String
+	 * @param	array		$tableStructure
+	 * @return	string
 	 */
 	private static function buildCreateTableQueriesFromStructure(array $tableStructure) {
 		$columnsSQL	= array();
@@ -344,9 +344,9 @@ class TodoyuSQLManager {
 	/**
 	 * Build a query to add a column to a table
 	 *
-	 * @param	String		$table
-	 * @param	Array		$columnStructure
-	 * @return	String
+	 * @param	string		$table
+	 * @param	array		$columnStructure
+	 * @return	string
 	 */
 	private static function buildAddColumnQueriesFromStructure($table, array $columnStructure) {
 		$columnSQL		= self::buildColumnSQL($columnStructure);
@@ -361,9 +361,9 @@ class TodoyuSQLManager {
 	/**
 	 * Build a query to change a column definition
 	 *
-	 * @param	String		$table
-	 * @param	Array		$columnStructure
-	 * @return	String
+	 * @param	string		$table
+	 * @param	array		$columnStructure
+	 * @return	string
 	 */
 	private static function buildChangeColumnQueriesFromStructure($table, array $columnStructure) {
 		$columnSQL		= self::buildColumnSQL($columnStructure);
@@ -378,9 +378,9 @@ class TodoyuSQLManager {
 	/**
 	 * Build a query to add a new key to the table
 	 *
-	 * @param	String		$table
-	 * @param	Array		$keyStructure
-	 * @return	String
+	 * @param	string		$table
+	 * @param	array		$keyStructure
+	 * @return	string
 	 */
 	private static function buildAddKeyQueriesFromStructure($table, array $keyStructure) {
 		$type	= $keyStructure['type'] === 'PRIMARY' ? 'PRIMARY KEY' : $keyStructure['type'];
@@ -396,8 +396,8 @@ class TodoyuSQLManager {
 	/**
 	 * Build a column definition from stucture
 	 *
-	 * @param	Array		$columnStructure
-	 * @return	String
+	 * @param	array		$columnStructure
+	 * @return	string
 	 */
 	private static function buildColumnSQL(array $columnStructure) {
 		return trim('`' . $columnStructure['field'] . '` ' . $columnStructure['type'] . ' ' . $columnStructure['null'] . ' ' . $columnStructure['default'] . ' ' . $columnStructure['extra']);
@@ -408,8 +408,8 @@ class TodoyuSQLManager {
 	/**
 	 * Build a key definiton from structure
 	 *
-	 * @param	Array		$keyStructure
-	 * @return	String
+	 * @param	array		$keyStructure
+	 * @return	string
 	 */
 	private static function buildKeySQL(array $keyStructure) {
 		$sql	= '';
@@ -463,8 +463,8 @@ class TodoyuSQLManager {
 	/**
 	 * Get differences between file and database structure
 	 *
-	 * @param	Array		$file
-	 * @param	Array		$db
+	 * @param	array		$file
+	 * @param	array		$db
 	 * @return	Array
 	 */
 	public static function getDifferencesFromStructures(array $file, array $db) {
@@ -521,8 +521,8 @@ class TodoyuSQLManager {
 	/**
 	 * Execute the queries in the version update file
 	 *
-	 * @param	String		$updateFile			Path to update file
-	 * @return	Integer
+	 * @param	string		$updateFile			Path to update file
+	 * @return	integer
 	 */
 	public static function executeQueriesFromFile($updateFile) {
 		$queries	= self::getQueriesFromFile($updateFile);
@@ -539,8 +539,8 @@ class TodoyuSQLManager {
 	/**
 	 * Cleans given SQL from whitespace, comments, etc.
 	 *
-	 * @param	String	$sql
-	 * @return	String
+	 * @param	string	$sql
+	 * @return	string
 	 */
 	public static function cleanSQL($sql) {
 		$sql	= self::removeSQLComments($sql);
@@ -553,8 +553,8 @@ class TodoyuSQLManager {
 	/**
 	 * Remove comments from within SQL
 	 *
-	 * @param	String	$sql
-	 * @return	String
+	 * @param	string	$sql
+	 * @return	string
 	 */
 	private static function removeSQLComments($sql) {
 		$cleanSQL	= array();
@@ -576,7 +576,7 @@ class TodoyuSQLManager {
 	/**
 	 * Check DB for existence of given tables, return missing ones
 	 *
-	 * @param	Array	$tableNames
+	 * @param	array	$tableNames
 	 * @return	Array
 	 */
 	public static function getMissingTables(array $tableNames) {

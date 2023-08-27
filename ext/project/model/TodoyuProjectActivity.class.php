@@ -29,7 +29,7 @@ class TodoyuProjectActivity extends TodoyuBaseObject {
 	/**
 	 * Constructor
 	 *
-	 * @param	Integer	$idActivity
+	 * @param	integer	$idActivity
 	 */
 	public function __construct($idActivity) {
 		$idActivity	= intval($idActivity);
@@ -44,8 +44,8 @@ class TodoyuProjectActivity extends TodoyuBaseObject {
 	/**
 	 * Get title of activity
 	 *
-	 * @param	Boolean		$parse
-	 * @return	String
+	 * @param	boolean		$parse
+	 * @return	string
 	 */
 	public function getTitle($parse = true) {
 		return $parse ? Todoyu::Label($this->get('title')) : $this->get('title');

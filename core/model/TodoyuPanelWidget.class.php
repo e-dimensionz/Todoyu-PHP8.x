@@ -67,11 +67,11 @@ abstract class TodoyuPanelWidget {
 	/**
 	 * Initialize basic panel widget configuration
 	 *
-	 * @param	String		$ext		Extension key where the widget is located
-	 * @param	String		$id			Panel widget ID (class name without TodoyuPanelWidget)
-	 * @param	String		$title		Title of the panel widget
-	 * @param	Array		$config		Configuration array for the widget
-	 * @param	Array		$params		Custom parameters for current page request
+	 * @param	string		$ext		Extension key where the widget is located
+	 * @param	string		$id			Panel widget ID (class name without TodoyuPanelWidget)
+	 * @param	string		$title		Title of the panel widget
+	 * @param	array		$config		Configuration array for the widget
+	 * @param	array		$params		Custom parameters for current page request
 	 */
 	public function __construct($ext, $id, $title, array $config = array(), array $params = array()) {
 		$this->set('ext', $ext);
@@ -91,8 +91,8 @@ abstract class TodoyuPanelWidget {
 	/**
 	 * Set data
 	 *
-	 * @param	String						$key
-	 * @param	Array|Boolean|Int|String	$value
+	 * @param	string						$key
+	 * @param	array|Boolean|Int|String	$value
 	 */
 	public function set($key, $value) {
 		$this->data[$key] = $value;
@@ -103,7 +103,7 @@ abstract class TodoyuPanelWidget {
 	/**
 	 * Set widget title
 	 *
-	 * @param	String		$title
+	 * @param	string		$title
 	 */
 	public function setTitle($title) {
 		$this->set('title', Todoyu::Label($title));
@@ -114,7 +114,7 @@ abstract class TodoyuPanelWidget {
 	/**
 	 * Set widget class
 	 *
-	 * @param	String		$class
+	 * @param	string		$class
 	 */
 	public function setClass($class) {
 		$this->set('class', $class);
@@ -125,7 +125,7 @@ abstract class TodoyuPanelWidget {
 	/**
 	 * Add a CSS class
 	 *
-	 * @param	String		$class
+	 * @param	string		$class
 	 */
 	public function addClass($class) {
 		$classes	= explode(' ', $this->getClass());
@@ -158,7 +158,7 @@ abstract class TodoyuPanelWidget {
 	/**
 	 * Get data
 	 *
-	 * @param	String						$key
+	 * @param	string						$key
 	 * @return	Array|Boolean|Int|String
 	 */
 	public function get($key) {
@@ -170,7 +170,7 @@ abstract class TodoyuPanelWidget {
 	/**
 	 * Get ID
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getID() {
 		return $this->get('id');
@@ -181,7 +181,7 @@ abstract class TodoyuPanelWidget {
 	/**
 	 * Get box classes
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getClass() {
 		return $this->get('class');
@@ -192,7 +192,7 @@ abstract class TodoyuPanelWidget {
 	/**
 	 * Get title
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getTitle() {
 		return $this->get('title');
@@ -203,7 +203,7 @@ abstract class TodoyuPanelWidget {
 	/**
 	 * Get area ID
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getArea() {
 		return $this->idArea;
@@ -214,7 +214,7 @@ abstract class TodoyuPanelWidget {
 	/**
 	 * Check if widget is configured as collapsed
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isCollapsed() {
 		return $this->collapsed;
@@ -225,7 +225,7 @@ abstract class TodoyuPanelWidget {
 	/**
 	 * Set box content
 	 *
-	 * @param	String		$content
+	 * @param	string		$content
 	 */
 	protected function setContent($content) {
 		$this->set('content', $content);
@@ -236,7 +236,7 @@ abstract class TodoyuPanelWidget {
 	/**
 	 * Get content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getContent() {
 		return $this->get('content');
@@ -247,7 +247,7 @@ abstract class TodoyuPanelWidget {
 	/**
 	 * Render panel widget
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function render() {
 		$tmpl	= 'core/view/panelwidget.tmpl';
@@ -262,7 +262,7 @@ abstract class TodoyuPanelWidget {
 	/**
 	 * Checks if the panel widget is allowed
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		return true;
@@ -272,7 +272,7 @@ abstract class TodoyuPanelWidget {
 
 	/**
 	 * @abstract
-	 * @return	String
+	 * @return	string
 	 */
 	public abstract function renderContent();
 

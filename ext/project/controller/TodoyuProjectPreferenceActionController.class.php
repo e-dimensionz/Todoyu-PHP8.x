@@ -29,7 +29,7 @@ class TodoyuProjectPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Initialize controller: restrict access (project extension must be allowed)
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('project', 'general:use');
@@ -40,7 +40,7 @@ class TodoyuProjectPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save preference: project details expanded?
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function detailsexpandedAction(array $params) {
 		$idProject	= intval($params['item']);
@@ -54,7 +54,7 @@ class TodoyuProjectPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save task open/closed status
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function taskopenAction(array $params) {
 		$idTask		= intval($params['item']);
@@ -68,7 +68,7 @@ class TodoyuProjectPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save opened sub tasks pref
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function subtasksAction(array $params) {
 		$idTask	= intval($params['item']);
@@ -82,7 +82,7 @@ class TodoyuProjectPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Save preference of selected task status filter widget: selected status
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function panelwidgettaskstatusfilterAction(array $params) {
 		$selectedStatuses	= TodoyuArray::intExplode(',', $params['value'], true, true);
@@ -97,7 +97,7 @@ class TodoyuProjectPreferenceActionController extends TodoyuActionController {
 	/**
 	 * Project status filter panelwidget action: save selected status preference
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function panelwidgetprojectstatusfilterAction(array $params) {
 		$selectedStatuses	= TodoyuArray::intExplode(',', $params['value'], true, true);
@@ -112,7 +112,7 @@ class TodoyuProjectPreferenceActionController extends TodoyuActionController {
 	/**
 	 * General panelWidget action, saves collapse status
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function pwidgetAction(array $params) {
 		$idWidget	= $params['item'];

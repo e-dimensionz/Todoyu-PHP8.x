@@ -38,8 +38,8 @@ class TodoyuFirstStepsWizardStepJobtypes extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Save job types
 	 *
-	 * @param	Array		$data
-	 * @return	Boolean
+	 * @param	array		$data
+	 * @return	boolean
 	 */
 	public function save(array $data) {
 		$jobTypes	= TodoyuArray::assure($data['jobtype']);
@@ -57,7 +57,7 @@ class TodoyuFirstStepsWizardStepJobtypes extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Render step content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getContent() {
 		if( $this->data === null ) {
@@ -86,7 +86,7 @@ class TodoyuFirstStepsWizardStepJobtypes extends TodoyuFirstStepsWizardStep {
 	/**
 	 * Save job types
 	 *
-	 * @param	Array		$submittedJobTypes
+	 * @param	array		$submittedJobTypes
 	 */
 	private function saveJobTypes(array $submittedJobTypes) {
 		$dbJobTypes	= $this->getJobtypes();

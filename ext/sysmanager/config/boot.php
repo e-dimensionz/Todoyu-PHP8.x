@@ -23,6 +23,3 @@ define('EXTID_SYSMANAGER', 118);
 define('PATH_EXT_SYSMANAGER', PATH_EXT . '/sysmanager');
 
 require_once( PATH_EXT_SYSMANAGER . '/config/hooks.php' );
-require_once( PATH_EXT_SYSMANAGER . '/dwoo/plugins.php' );
-
-?>

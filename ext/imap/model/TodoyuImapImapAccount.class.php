@@ -29,7 +29,7 @@ class TodoyuImapImapAccount extends TodoyuBaseObject {
 	/**
 	 * Constructor of the class
 	 * 
-	 * @param	Integer	$idAccount
+	 * @param	integer	$idAccount
 	 */
 	public function __construct($idAccount) {
 		parent::__construct($idAccount, 'ext_imap_account');
@@ -40,7 +40,7 @@ class TodoyuImapImapAccount extends TodoyuBaseObject {
 	/**
 	 * Check whether account is active
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isActive() {
 		return $this->isFlagSet('is_active');
@@ -51,7 +51,7 @@ class TodoyuImapImapAccount extends TodoyuBaseObject {
 	/**
 	 * Get account host name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getHost() {
 		return $this->data['host'];
@@ -62,7 +62,7 @@ class TodoyuImapImapAccount extends TodoyuBaseObject {
 	/**
 	 * Get account username
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getUsername() {
 		return $this->data['username'];
@@ -73,7 +73,7 @@ class TodoyuImapImapAccount extends TodoyuBaseObject {
 	/**
 	 * Get account password
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getPassword() {
 		return TodoyuCrypto::decrypt($this->data['password']);
@@ -93,7 +93,7 @@ class TodoyuImapImapAccount extends TodoyuBaseObject {
 	/**
 	 * Get account folder name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getFolder() {
 		return $this->data['folder'];
@@ -104,7 +104,7 @@ class TodoyuImapImapAccount extends TodoyuBaseObject {
 	/**
 	 * Get folder delimiter
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getDelimiter() {
 		return $this->data['delimiter'];
@@ -115,7 +115,7 @@ class TodoyuImapImapAccount extends TodoyuBaseObject {
 	/**
 	 * Get account port
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getPort() {
 		return $this->getInt('port');
@@ -126,7 +126,7 @@ class TodoyuImapImapAccount extends TodoyuBaseObject {
 	/**
 	 * Check whether TLS should be used
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isUsedTLS() {
 		return $this->isFlagSet('use_tls');
@@ -137,7 +137,7 @@ class TodoyuImapImapAccount extends TodoyuBaseObject {
 	/**
 	 * Check whether SSL should be used
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isUsedSSL() {
 		return $this->isFlagSet('use_ssl');
@@ -148,7 +148,7 @@ class TodoyuImapImapAccount extends TodoyuBaseObject {
 	/**
 	 * Check if certificate is required or not
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isUsedCertNoValidate() {
 		return $this->isFlagSet('cert_novalidate');
@@ -159,8 +159,8 @@ class TodoyuImapImapAccount extends TodoyuBaseObject {
 	/**
 	 * Get account label (host:username)
 	 *
-	 * @param	Boolean		$withFlags
-	 * @return	String
+	 * @param	boolean		$withFlags
+	 * @return	string
 	 */
 	public function getLabel($withFlags = true) {
 		$label	= $this->getUsername() . ', ' . $this->getHost();
@@ -208,7 +208,7 @@ class TodoyuImapImapAccount extends TodoyuBaseObject {
 	/**
 	 * Get account mailbox
 	 *
-	 * @param	Array		$options
+	 * @param	array		$options
 	 * @return	TodoyuImapMailbox|Boolean
 	 */
 	public function getMailbox(array $options = array()) {
@@ -231,7 +231,7 @@ class TodoyuImapImapAccount extends TodoyuBaseObject {
 	 * Get template data.
 	 * Decrypt password
 	 *
-	 * @param	Boolean		$loadForeignData
+	 * @param	boolean		$loadForeignData
 	 * @return	Array
 	 */
 	public function getTemplateData($loadForeignData = false) {

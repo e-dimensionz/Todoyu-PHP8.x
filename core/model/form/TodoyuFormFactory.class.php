@@ -30,8 +30,8 @@ class TodoyuFormFactory {
 	 * Get class which represents an object of the requested type
 	 * A new instance will be created with the NEW operator
 	 *
-	 * @param	String		$type
-	 * @return	String
+	 * @param	string		$type
+	 * @return	string
 	 */
 	public static function getClass($type) {
 		return TodoyuFormManager::getTypeClass($type);
@@ -42,8 +42,8 @@ class TodoyuFormFactory {
 	/**
 	 * Get the template for the input type
 	 *
-	 * @param	String		$type
-	 * @return	String
+	 * @param	string		$type
+	 * @return	string
 	 */
 	public static function getTemplate($type) {
 		return TodoyuFormManager::getTypeTemplate($type);
@@ -54,10 +54,10 @@ class TodoyuFormFactory {
 	/**
 	 * Create a field of a type within its parent fieldset
 	 *
-	 * @param	String		$type		Type of the field
-	 * @param	String		$name		Name of the field
+	 * @param	string		$type		Type of the field
+	 * @param	string		$name		Name of the field
 	 * @param	TodoyuFormFieldset	$fieldset	Parent fieldset
-	 * @param	Array		$config		Configuration array (XML child nodes)
+	 * @param	array		$config		Configuration array (XML child nodes)
 	 * @return	TodoyuFormElement
 	 */
 	public static function createField($type, $name, TodoyuFormFieldset $fieldset, array $config = array()) {

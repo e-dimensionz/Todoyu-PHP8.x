@@ -29,9 +29,9 @@ class TodoyuAssetsTaskEditRenderer {
 	/**
 	 * Render asset upload iFrame content
 	 *
-	 * @param	String		$fileName
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	string		$fileName
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function renderUploadframeContent($fileName, $idTask) {
 		$idTask	= intval($idTask);
@@ -50,10 +50,10 @@ class TodoyuAssetsTaskEditRenderer {
 	/**
 	 * Render content of asset uploader iFrame when upload failed
 	 *
-	 * @param	String		$error
-	 * @param	String		$fileName
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	string		$error
+	 * @param	string		$fileName
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function renderUploadframeContentFailed($error, $fileName, $idTask) {
 		$idTask	= intval($idTask);
@@ -74,8 +74,8 @@ class TodoyuAssetsTaskEditRenderer {
 	/**
 	 * Render options for files uploaded during task creation
 	 *
-	 * @param	Integer		$idTask
-	 * @return	String		Rendered <option> elements
+	 * @param	integer		$idTask
+	 * @return	string		Rendered <option> elements
 	 */
 	public static function renderSessionFileOptions($idTask) {
 		$uploader	= new TodoyuAssetsTempUploaderTask($idTask);

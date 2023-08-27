@@ -30,8 +30,8 @@ class TodoyuCoreQuickinfoActionController extends TodoyuActionController {
 	/**
 	 * Render quickinfo JSON
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function getAction(array $params) {
 			// Get name of quickinfo element, e.g. 'person'

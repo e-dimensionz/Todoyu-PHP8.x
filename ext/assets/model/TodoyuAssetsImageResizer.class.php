@@ -81,7 +81,7 @@ class TodoyuAssetsImageResizer {
 	/**
 	 * Constructor: set original image properties
 	 *
-	 * @param	String	$filename		Path to image file to be scaled
+	 * @param	string	$filename		Path to image file to be scaled
 	 */
 	function __construct($filename) {
 		$this->image	= $this->openImage($filename);
@@ -91,7 +91,7 @@ class TodoyuAssetsImageResizer {
 
 
 	/**
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isValidImage() {
 		return gettype($this->image) == 'resource';
@@ -102,8 +102,8 @@ class TodoyuAssetsImageResizer {
 	/**
 	 * Create image resource from given image file
 	 *
-	 * @param	String	$filename
-	 * @return	Boolean|Resource
+	 * @param	string	$filename
+	 * @return	boolean|Resource
 	 */
 	private function openImage($filename) {
 		$extension	= strtolower(TodoyuFileManager::getFileExtension($filename));
@@ -137,10 +137,10 @@ class TodoyuAssetsImageResizer {
 
 
 	/**
-	 * @param	Integer		$width
-	 * @param	Integer		$height
-	 * @param	Boolean		[$crop]
-	 * @return	Boolean
+	 * @param	integer		$width
+	 * @param	integer		$height
+	 * @param	boolean		[$crop]
+	 * @return	boolean
 	 */
 	public function resizeImage($width, $height, $crop= false) {
 		if( !$this->isValidImage() ) {
@@ -176,7 +176,7 @@ class TodoyuAssetsImageResizer {
 
 
 	/**
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getWidth() {
 		return $this->width;
@@ -185,7 +185,7 @@ class TodoyuAssetsImageResizer {
 
 
 	/**
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getHeight() {
 		return $this->height;
@@ -194,7 +194,7 @@ class TodoyuAssetsImageResizer {
 
 
 	/**
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getScaledWidth() {
 		return $this->newWidth;
@@ -203,7 +203,7 @@ class TodoyuAssetsImageResizer {
 
 
 	/**
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getScaledHeight() {
 		return $this->newHeight;
@@ -212,9 +212,9 @@ class TodoyuAssetsImageResizer {
 
 
 	/**
-	 * @param	Integer		$newWidth
-	 * @param	Integer		$newHeight
-	 * @param	String		$option
+	 * @param	integer		$newWidth
+	 * @param	integer		$newHeight
+	 * @param	string		$option
 	 * @return	Array
 	 */
 	private function getDimensions($newWidth, $newHeight, $option) {
@@ -265,7 +265,7 @@ class TodoyuAssetsImageResizer {
 
 
 	/**
-	 * @param	Integer	$newHeight
+	 * @param	integer	$newHeight
 	 * @return	Mixed
 	 */
 	private function getSizeByFixedHeight($newHeight) {
@@ -278,7 +278,7 @@ class TodoyuAssetsImageResizer {
 
 
 	/**
-	 * @param	Integer		$newWidth
+	 * @param	integer		$newWidth
 	 * @return	Mixed
 	 */
 	private function getSizeByFixedWidth($newWidth) {
@@ -290,8 +290,8 @@ class TodoyuAssetsImageResizer {
 
 
 	/**
-	 * @param	Integer		$newWidth
-	 * @param	Integer		$newHeight
+	 * @param	integer		$newWidth
+	 * @param	integer		$newHeight
 	 * @return	Array
 	 */
 	private function getSizeByAuto($newWidth, $newHeight) {
@@ -338,9 +338,9 @@ class TodoyuAssetsImageResizer {
 	 * Detect dimension type: square, landscape or portrait.
 	 * Tests given values or original image
 	 *
-	 * @param	Integer		$width
-	 * @param	Integer		$height
-	 * @return	Integer
+	 * @param	integer		$width
+	 * @param	integer		$height
+	 * @return	integer
 	 */
 	private function getImageDimensionType($width, $height) {
 		$width	= intval($width);
@@ -358,8 +358,8 @@ class TodoyuAssetsImageResizer {
 
 
 	/**
-	 * @param	Integer		$newWidth
-	 * @param	Integer		$newHeight
+	 * @param	integer		$newWidth
+	 * @param	integer		$newHeight
 	 * @return	Array
 	 */
 	private function getOptimalCrop($newWidth, $newHeight) {
@@ -381,10 +381,10 @@ class TodoyuAssetsImageResizer {
 
 
 	/**
-	 * @param	Integer		$optimalWidth
-	 * @param	Integer		$optimalHeight
-	 * @param	Integer		$newWidth
-	 * @param	Integer		$newHeight
+	 * @param	integer		$optimalWidth
+	 * @param	integer		$optimalHeight
+	 * @param	integer		$newWidth
+	 * @param	integer		$newHeight
 	 */
 	private function crop($optimalWidth, $optimalHeight, $newWidth, $newHeight) {
 			// Find center - this will be used for the crop
@@ -404,9 +404,9 @@ class TodoyuAssetsImageResizer {
 	/**
 	 * Save scaled image in given image format (jpg / gif / png)
 	 *
-	 * @param	String	$savePath			Store path including filename of image to be saved
-	 * @param	String	[$imageQuality]
-	 * @return	Boolean
+	 * @param	string	$savePath			Store path including filename of image to be saved
+	 * @param	string	[$imageQuality]
+	 * @return	boolean
 	 */
 	public function saveImage($savePath, $imageQuality = '100') {
 		if( gettype($this->imageScaled) !== 'resource' ) {
@@ -453,7 +453,7 @@ class TodoyuAssetsImageResizer {
 	 * Convert percentage value (100% to 0%) to PNG quality format (0 compression to 9)
 	 *
 	 * @param	$qualityInPercent
-	 * @return	Integer
+	 * @return	integer
 	 */
 	private static function getImageQualityForPng($qualityInPercent) {
 			// Scale quality from 0-100 to 0-9,
@@ -468,8 +468,8 @@ class TodoyuAssetsImageResizer {
 	/**
 	 * Check whether the given asset is an image than GD lib can handle
 	 *
-	 * @param	Integer		$idAsset
-	 * @return	Boolean
+	 * @param	integer		$idAsset
+	 * @return	boolean
 	 */
 	public static function isGDcompatibleImage($idAsset) {
 		$idAsset		= intval($idAsset);

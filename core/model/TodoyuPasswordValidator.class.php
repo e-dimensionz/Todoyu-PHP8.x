@@ -55,7 +55,7 @@ class TodoyuPasswordValidator {
 	 * Validate $value with registered checks
 	 *
 	 * @param	Mixed	$value
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function validate($value) {
 		$this->resetErrors();
@@ -93,7 +93,7 @@ class TodoyuPasswordValidator {
 	/**
 	 * Add a new error
 	 *
-	 * @param	String		$errorMessage
+	 * @param	string		$errorMessage
 	 */
 	private function addError($errorMessage) {
 		$this->errors[] = $errorMessage;
@@ -104,7 +104,7 @@ class TodoyuPasswordValidator {
 	/**
 	 * Check if errors are registered
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasErrors() {
 		return sizeof($this->errors) > 0;
@@ -126,9 +126,9 @@ class TodoyuPasswordValidator {
 	/**
 	 * Checks if password has a minimum length
 	 *
-	 * @param	String	$value
-	 * @param	Array	$config
-	 * @return	Boolean
+	 * @param	string	$value
+	 * @param	array	$config
+	 * @return	boolean
 	 */
 	private function minLength($value, $config) {
 		$value	= trim($value);
@@ -145,8 +145,8 @@ class TodoyuPasswordValidator {
 	/**
 	 * Checks password for numbers
 	 *
-	 * @param	String	$value
-	 * @param	Array	$config
+	 * @param	string	$value
+	 * @param	array	$config
 	 */
 	private function hasNumbers($value, $config) {
 		$pattern= '/[0-9]+/';
@@ -162,8 +162,8 @@ class TodoyuPasswordValidator {
 	/**
 	 * Checks password for lower case
 	 *
-	 * @param	String	$value
-	 * @param	Array	$config
+	 * @param	string	$value
+	 * @param	array	$config
 	 */
 	private function hasLowerCase($value, $config) {
 		$pattern= '/[a-z]+/';
@@ -179,8 +179,8 @@ class TodoyuPasswordValidator {
 	/**
 	 * Checks password for upper case
 	 *
-	 * @param	String	$value
-	 * @param	Array	$config
+	 * @param	string	$value
+	 * @param	array	$config
 	 */
 	private function hasUpperCase($value, $config) {
 		$pattern= '/[A-Z]+/';
@@ -196,8 +196,8 @@ class TodoyuPasswordValidator {
 	/**
 	 * Checks if password has special chars
 	 *
-	 * @param	String	$value
-	 * @param	Array	$config
+	 * @param	string	$value
+	 * @param	array	$config
 	 */
 	private function hasSpecialChars($value, $config) {
 		$pattern= '/[^a-zA-Z0-9]+/';

@@ -4,21 +4,21 @@
 {if $noUpdates !== true}
 	<div class="sqlQuery">
 
-		<p>{Label install.installer.updatetocurrentversion.updates}</p>
+		<p>{Label text='install.installer.updatetocurrentversion.updates'}</p>
 
 		{if !empty($diff.missingTables) && sizeof($diff.missingTables) > 0}
-			<p class="section">{Label install.installer.updatetocurrentversion.newTables}</p>
+			<p class="section">{Label text='install.installer.updatetocurrentversion.newTables'}</p>
 			<table class="dbstruct">
 				<tr>
 					<th class="table">Table</th>
 					<th class="column">Column</th>
 					<th class="type">type</th>
 				</tr>
-				{foreach $diff.missingTables table}
-					{foreach $table.columns index column tables}
+				{foreach $diff.missingTables as $table}
+					{foreach $table.columns as $index=>$column}
 					<tr>
 						<td class="table">
-							{if $dwoo.foreach.tables.first}
+							{if $column@first}
 								{$table.table}
 							{else}
 								&nbsp;
@@ -33,15 +33,15 @@
 		{/if}
 
 		{if !empty($diff.missingColumns) && sizeof($diff.missingColumns) > 0}
-			<p class="section">{Label install.installer.updatetocurrentversion.newColumns}</p>
+			<p class="section">{Label text='install.installer.updatetocurrentversion.newColumns'}</p>
 			<table class="dbstruct">
 				<tr>
 					<th class="table">Table</th>
 					<th class="column">Column</th>
 					<th class="type">type</th>
 				</tr>
-				{foreach $diff.missingColumns tableName columns}
-					{foreach $columns columnName column tables}
+				{foreach $diff.missingColumns as $tableName=>$columns}
+					{foreach $columns columnName as $column=>$tables}
 					<tr>
 						<td class="table">
 							{$tableName}
@@ -55,15 +55,15 @@
 		{/if}
 
 		{if !empty($diff.changedColumns) && sizeof($diff.changedColumns) > 0}
-			<p class="section">{Label install.installer.updatetocurrentversion.changedColumns}</p>
+			<p class="section">{Label text='install.installer.updatetocurrentversion.changedColumns'}</p>
 			<table class="dbstruct">
 				<tr>
 					<th class="table">Table</th>
 					<th class="column">Column</th>
 					<th class="type">type</th>
 				</tr>
-				{foreach $diff.changedColumns tableName columns}
-					{foreach $columns columnName column}
+				{foreach $diff.changedColumns as $tableName=>$columns}
+					{foreach $columns as $columnName=>$column}
 					<tr>
 						<td class="table">
 							{$tableName}
@@ -77,7 +77,7 @@
 		{/if}
 
 		{if !empty($diff.missingKeys) && sizeof($diff.missingKeys) > 0}
-			<p class="section">{Label install.installer.updatetocurrentversion.missingKeys}</p>
+			<p class="section">{Label text='install.installer.updatetocurrentversion.missingKeys'}</p>
 			<table class="dbstruct">
 				<tr>
 					<th class="table">Table</th>
@@ -85,8 +85,8 @@
 					<th class="type">type</th>
 					<th class="fields">fields</th>
 				</tr>
-				{foreach $diff.missingKeys tableName keys}
-					{foreach $keys key}
+				{foreach $diff.missingKeys as $tableName=>$keys}
+					{foreach $keys as $key}
 					<tr>
 						<td class="table">
 							{$tableName}

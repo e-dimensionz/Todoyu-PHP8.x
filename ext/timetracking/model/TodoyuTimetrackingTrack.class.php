@@ -27,7 +27,7 @@
 class TodoyuTimetrackingTrack extends TodoyuBaseObject {
 
 	/**
-	 * @param	Integer		$idTrack
+	 * @param	integer		$idTrack
 	 */
 	public function __construct($idTrack) {
 		parent::__construct($idTrack, 'ext_timetracking_track');
@@ -49,7 +49,7 @@ class TodoyuTimetrackingTrack extends TodoyuBaseObject {
 	/**
 	 * Get date of tracking
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateTrack() {
 		return $this->getInt('date_track');
@@ -60,7 +60,7 @@ class TodoyuTimetrackingTrack extends TodoyuBaseObject {
 	/**
 	 * Get task ID on which was tracked
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getTaskID() {
 		return $this->getInt('id_task');
@@ -82,7 +82,7 @@ class TodoyuTimetrackingTrack extends TodoyuBaseObject {
 	/**
 	 * Get amount of tracked workload of track
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getWorkloadTracked() {
 		return $this->getInt('workload_tracked');
@@ -93,7 +93,7 @@ class TodoyuTimetrackingTrack extends TodoyuBaseObject {
 	/**
 	 * Get amount of chargeable workload of track
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getWorkloadChargeable() {
 		return $this->getInt('workload_chargeable');

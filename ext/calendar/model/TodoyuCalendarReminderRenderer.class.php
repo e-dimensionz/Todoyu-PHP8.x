@@ -30,8 +30,8 @@ class TodoyuCalendarReminderRenderer {
 	/**
 	 * Render reminders of given event for it's details view
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	String
+	 * @param	integer		$idEvent
+	 * @return	string
 	 */
 	public static function renderEventDetailsReminders($idEvent) {
 		$idEvent	= intval($idEvent);
@@ -58,8 +58,8 @@ class TodoyuCalendarReminderRenderer {
 	/**
 	 * Render content of event reminder popup
 	 *
-	 * @param	Integer		$idEvent
-	 * @return	String
+	 * @param	integer		$idEvent
+	 * @return	string
 	 */
 	public static function renderEventReminderPopup($idEvent) {
 		$idEvent= intval($idEvent);

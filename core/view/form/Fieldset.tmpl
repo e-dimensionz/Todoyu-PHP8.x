@@ -1,7 +1,7 @@
-<fieldset id="{$htmlId}" class="{$name} {$class}">
-{if $legend}
-	<legend id="{$htmlId}-legend">{Label $legend}</legend>
+<fieldset id="{$htmlId}" class="{$name}{if isset($class)} {$class}{/if}">
+{if isset($legend)}
+	<legend id="{$htmlId}-legend">{Label text=$legend}</legend>
 {/if}
-	{$content}
+	{if isset($content)}{$content}{/if}
 </fieldset>
 <div class="fieldset-clear" id="fieldset-clear-{$name}"> </div>

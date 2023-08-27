@@ -1,15 +1,18 @@
 
 <div class="infoBox properties">
-	<h4>{Label project.ext.properties}</h4>
+	<h4>{Label text='project.ext.properties'}</h4>
 	<div class="content overflow">
 		<table class="list propertiesListing">
-			{foreach $properties info}
+			{foreach $properties as $info}
 			<tr class="{cycle values="odd,even"}">
-				<th class="label">{Label $info.label}</th>
+				<th class="label">{Label text=$info.label}</th>
 				<td>
-					{if allowed('contact', 'general:area') && $info.__key == 'company' && isCompanySeeAllowed($id_company)}<a href="index.php?ext=contact&amp;tab=company&amp;id={$id_company}">{/if}
+                {restrict ext="daytracks" right="'daytracks:switchuser"}
+
+					{if fn_allowed('contact', 'general:area') && $info.__key == 'company' && fn_isCompanySeeAllowed($id_company)}<a href="index.php?ext=contact&amp;tab=company&amp;id={$id_company}">{/if}
 					{$info.value}
-					{if allowed('contact', 'general:area') && $info.__key == 'company' && isCompanySeeAllowed($id_company)}</a>{/if}
+					{if fn_allowed('contact', 'general:area') && $info.__key == 'company' && fn_isCompanySeeAllowed($id_company)}</a>{/if}
+                {/restrict}
 				</td>
 			</tr>
 			{/foreach}
@@ -18,13 +21,13 @@
 </div>
 
 <div class="infoBox">
-	<h4>{Label project.ext.attr.persons}</h4>
+	<h4>{Label text='project.ext.attr.persons'}</h4>
 	<div class="content overflow">{$assignedPersons}</div>
 </div>
 
 <div class="infoBox description">
-	<h4>{Label core.global.description}</h4>
-	<div class="content overflow">{substituteLinkableElements(cleanHtml($description))}</div>
+	<h4>{Label text='core.global.description'}</h4>
+	<div class="content overflow">{substituteLinkableElements text=$description|strip_tags}</div>
 </div>
 
 

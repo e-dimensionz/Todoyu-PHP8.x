@@ -96,7 +96,7 @@ Todoyu.Ext.calendar.Tabs	= {
 	 * Get active tab ID
 	 *
 	 * @method	getActive
-	 * @return	String		e.g 'month' / 'week' / ...
+	 * @return	string		e.g 'month' / 'week' / ...
 	 */
 	getActive: function() {
 		if( this.active === null ) {

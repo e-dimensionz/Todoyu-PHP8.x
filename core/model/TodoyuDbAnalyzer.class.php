@@ -29,7 +29,7 @@ class TodoyuDbAnalyzer {
 	/**
 	 * Get available databases on server
 	 *
-	 * @param	Array		$dbConfig		Connection configuration [server,username,password]
+	 * @param	array		$dbConfig		Connection configuration [server,username,password]
 	 * @return	Array
 	 */
 	public static function getDatabasesOnServer(array $dbConfig) {
@@ -64,7 +64,7 @@ class TodoyuDbAnalyzer {
 	 * Get tables in a database
 	 * Create a new connection to get the tables
 	 *
-	 * @param	Array		$dbConfig		server,username,password,database
+	 * @param	array		$dbConfig		server,username,password,database
 	 * @return	Array
 	 */
 	public static function getDatabaseTables(array $dbConfig) {
@@ -83,10 +83,10 @@ class TodoyuDbAnalyzer {
 	/**
 	 * Check if database connection data is valid
 	 *
-	 * @param	String		$server
-	 * @param	String		$username
-	 * @param	String		$password
-	 * @return	Boolean
+	 * @param	string		$server
+	 * @param	string		$username
+	 * @param	string		$password
+	 * @return	boolean
 	 * @throws	Exception
 	 */
 	public static function checkDbConnection($server, $username, $password) {

@@ -1,4 +1,4 @@
-<button type="{$type|default:button}" {if $id}id="{$id}"{/if} class="button {$class}" onclick="{$onclick}{if $disable};this.disabled='disabled'{/if};this.blur()" title="{if $title}{Label $title}{else}{Label $label}{/if}" {if $disabled}disabled="disabled"{/if}{if $style} style="{$style}"{/if}>
+<button type="{$type|default:button}" {if isset($id)}id="{$id}"{/if} class="button {$class}" onclick="{$onclick}{if isset($disable) && $disable};this.disabled='disabled'{/if};this.blur()" title="{if isset($title) && $title}{Label text=$title}{else}{Label text=$label}{/if}" {if isset($disabled) && $disabled}disabled="disabled"{/if}{if isset($style) && $style} style="{$style}"{/if}>
 	<span class="icon"></span>
-	{if $label}<span class="label">{Label $label}</span>{/if}
+	{if isset($label) && $label}<span class="label">{Label text=$label}</span>{/if}
 </button>

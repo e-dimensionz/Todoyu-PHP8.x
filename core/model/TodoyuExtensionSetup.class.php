@@ -30,9 +30,9 @@ abstract class TodoyuExtensionSetup {
 	/**
 	 * Execute database updates from update files in extension
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$previousVersion
-	 * @param	String		$currentVersion
+	 * @param	string		$extKey
+	 * @param	string		$previousVersion
+	 * @param	string		$currentVersion
 	 */
 	protected static function runDbUpdateFiles($extKey, $previousVersion, $currentVersion) {
 		$path	= TodoyuExtensions::getExtPath($extKey, 'config/db/update');
@@ -48,8 +48,8 @@ abstract class TodoyuExtensionSetup {
 	/**
 	 * Callback: Other extension has been uninstalled
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$otherExtKey
+	 * @param	string		$extKey
+	 * @param	string		$otherExtKey
 	 */
 	public static function afterOtherExtensionUninstall($extKey, $otherExtKey) {
 
@@ -61,8 +61,8 @@ abstract class TodoyuExtensionSetup {
 	/**
 	 * Callback: Other extension has been installed
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$otherExtKey
+	 * @param	string		$extKey
+	 * @param	string		$otherExtKey
 	 */
 	public static function afterOtherExtensionInstall($extKey, $otherExtKey) {
 
@@ -74,9 +74,9 @@ abstract class TodoyuExtensionSetup {
 	/**
 	 * Callback: Before database is updated with changes from table.sql
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$previousVersion
-	 * @param	String		$currentVersion
+	 * @param	string		$extKey
+	 * @param	string		$previousVersion
+	 * @param	string		$currentVersion
 	 */
 	public static function beforeDbUpdate($extKey, $previousVersion, $currentVersion) {
 		self::runDbUpdateFiles($extKey, $previousVersion, $currentVersion);
@@ -87,7 +87,7 @@ abstract class TodoyuExtensionSetup {
 	/**
 	 * Callback: Before extension update
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 */
 	public static function beforeUpdate($extKey) {
 
@@ -98,7 +98,7 @@ abstract class TodoyuExtensionSetup {
 	/**
 	 * Callback: After extension installation
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 */
 	public static function afterInstall($extKey) {
 
@@ -109,7 +109,7 @@ abstract class TodoyuExtensionSetup {
 	/**
 	 * Callback: Before extension un-installation
 	 *
-	 * @param	String		$extKey
+	 * @param	string		$extKey
 	 */
 	public static function beforeUninstall($extKey) {
 
@@ -120,9 +120,9 @@ abstract class TodoyuExtensionSetup {
 	/**
 	 * Callback: After extension update
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$previousVersion
-	 * @param	String		$currentVersion
+	 * @param	string		$extKey
+	 * @param	string		$previousVersion
+	 * @param	string		$currentVersion
 	 */
 	public static function afterUpdate($extKey, $previousVersion, $currentVersion) {
 
@@ -133,9 +133,9 @@ abstract class TodoyuExtensionSetup {
 	/**
 	 * Callback: Before a major version update
 	 *
-	 * @param	String		$extKey
-	 * @param	String		$previousVersion
-	 * @param	String		$currentVersion
+	 * @param	string		$extKey
+	 * @param	string		$previousVersion
+	 * @param	string		$currentVersion
 	 */
 	public static function beforeMajorUpdate($extKey, $previousVersion, $currentVersion) {
 
@@ -145,9 +145,9 @@ abstract class TodoyuExtensionSetup {
 
 	/**
 	 * Callback: After a major version update
-	 * @param	String		$extKey
-	 * @param	String		$previousVersion
-	 * @param	String		$currentVersion
+	 * @param	string		$extKey
+	 * @param	string		$previousVersion
+	 * @param	string		$currentVersion
 	 */
 	public static function afterMajorUpdate($extKey, $previousVersion, $currentVersion) {
 

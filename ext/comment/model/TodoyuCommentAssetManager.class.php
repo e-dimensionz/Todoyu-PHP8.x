@@ -35,8 +35,8 @@ class TodoyuCommentAssetManager {
 	/**
 	 * Get IDs of assets which are attached to a comment
 	 *
-	 * @param	Integer		$idComment
-	 * @return	Integer[]
+	 * @param	integer		$idComment
+	 * @return	integer[]
 	 */
 	public static function getAssetIDs($idComment) {
 		$idComment	= intval($idComment);
@@ -114,8 +114,8 @@ class TodoyuCommentAssetManager {
 	/**
 	 * Get label for temporary uploaded file
 	 *
-	 * @param	Array		$fileData
-	 * @return	String
+	 * @param	array		$fileData
+	 * @return	string
 	 */
 	public static function getTempFileLabel(array $fileData) {
 		return $fileData['name'] . ' (' . TodoyuTime::format($fileData['time'], 'timesec') . ', ' . TodoyuString::formatSize($fileData['size']) . ')';
@@ -165,10 +165,10 @@ class TodoyuCommentAssetManager {
 	/**
 	 * Save comment assets
 	 *
-	 * @param	Integer		$idCommentOld
-	 * @param	Integer		$idCommentNew
-	 * @param	Integer		$idTask
-	 * @param	Array		$assets
+	 * @param	integer		$idCommentOld
+	 * @param	integer		$idCommentNew
+	 * @param	integer		$idTask
+	 * @param	array		$assets
 	 * @todo	Only remove assets which are no longer attached
 	 */
 	public static function saveAssets($idCommentOld, $idCommentNew, $idTask, array $assets) {
@@ -191,9 +191,9 @@ class TodoyuCommentAssetManager {
 	/**
 	 * Link asset with comment
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Integer		$idAsset
-	 * @return	Integer
+	 * @param	integer		$idComment
+	 * @param	integer		$idAsset
+	 * @return	integer
 	 */
 	public static function addAssetToComment($idComment, $idAsset) {
 		$idComment	= intval($idComment);
@@ -212,9 +212,9 @@ class TodoyuCommentAssetManager {
 	/**
 	 * Add a new asset for comment from a temporary uploaded file
 	 *
-	 * @param	Integer		$idComment
-	 * @param	Array		$fileInfo
-	 * @return	Integer
+	 * @param	integer		$idComment
+	 * @param	array		$fileInfo
+	 * @return	integer
 	 */
 	protected static function addNewAssetFromTempFile($idComment, array $fileInfo) {
 		return self::addAsset($idComment, $fileInfo['path'], $fileInfo['name'], $fileInfo['type']);
@@ -225,11 +225,11 @@ class TodoyuCommentAssetManager {
 	/**
 	 * Add a new comment asset
 	 *
-	 * @param	Integer		$idComment
-	 * @param	String		$tempFile
-	 * @param	String		$fileName
-	 * @param	String		$mimeType
-	 * @return	Integer
+	 * @param	integer		$idComment
+	 * @param	string		$tempFile
+	 * @param	string		$fileName
+	 * @param	string		$mimeType
+	 * @return	integer
 	 */
 	public static function addAsset($idComment, $tempFile, $fileName, $mimeType) {
 		return TodoyuAssetsAssetManager::addAsset(ASSET_PARENTTYPE_COMMENT, $idComment, $tempFile, $fileName, $mimeType);
@@ -241,7 +241,7 @@ class TodoyuCommentAssetManager {
 	 * Remove all assets from comment
 	 * Only the link is removed, they stay attached to to task
 	 *
-	 * @param	Integer		$idComment
+	 * @param	integer		$idComment
 	 */
 	protected static function removeAllAssets($idComment) {
 		$idComment	= intval($idComment);
@@ -255,8 +255,8 @@ class TodoyuCommentAssetManager {
 	/**
 	 * Add asset icon to task if any comment of it has assets
 	 *
-	 * @param	Array		$icons
-	 * @param	Integer		$idTask
+	 * @param	array		$icons
+	 * @param	integer		$idTask
 	 * @return	Array
 	 */
 	public static function hookAddTaskIcons(array $icons, $idTask) {
@@ -279,7 +279,7 @@ class TodoyuCommentAssetManager {
 	/**
 	 * Check if any comment of given task has an asset attached
 	 *
-	 * @param	Integer		$idTask
+	 * @param	integer		$idTask
 	 */
 	protected static function commentOfTaskHasAssets($idTask) {
 		$idTask	= intval($idTask);

@@ -29,9 +29,9 @@ class TodoyuProjectPanelWidgetStatusFilterTask extends TodoyuProjectPanelWidgetS
 	/**
 	 * Initialize panel widget status filter
 	 *
-	 * @param	Array		$config
-	 * @param	Array		$params
-	 * @param	Integer		$idArea
+	 * @param	array		$config
+	 * @param	array		$params
+	 * @param	integer		$idArea
 	 */
 	public function __construct(array $config, array $params = array(), $idArea = 0) {
 		parent::__construct(
@@ -85,7 +85,7 @@ class TodoyuProjectPanelWidgetStatusFilterTask extends TodoyuProjectPanelWidgetS
 	/**
 	 * Check general allowance of widget: access to project extension and seeing at least one task status allowed
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAllowed() {
 		$statuses	= TodoyuProjectTaskStatusManager::getStatuses();

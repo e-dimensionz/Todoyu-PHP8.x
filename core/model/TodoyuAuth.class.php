@@ -39,7 +39,7 @@ class TodoyuAuth {
 	/**
 	 * Check if current person is logged in
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isLoggedIn() {
 		return self::getPersonID() !== 0;
@@ -50,7 +50,7 @@ class TodoyuAuth {
 	/**
 	 * Get person object of current person
 	 *
-	 * @param	Boolean		$reload		Force to reinit person from current session value
+	 * @param	boolean		$reload		Force to reinit person from current session value
 	 * @return	TodoyuContactPerson
 	 */
 	public static function getPerson($reload = false) {
@@ -82,7 +82,7 @@ class TodoyuAuth {
 	 * Get ID of the currently logged in person
 	 * 0 means there is no person logged in
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getPersonID() {
 		return (int) TodoyuSession::get('person');
@@ -93,7 +93,7 @@ class TodoyuAuth {
 	/**
 	 * Set ID of currently logged in person
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 */
 	public static function setPersonID($idPerson) {
 		TodoyuSession::set('person', (int) $idPerson);
@@ -104,7 +104,7 @@ class TodoyuAuth {
 	/**
 	 * Register person as logged in
 	 *
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 */
 	public static function login($idPerson) {
 			// Log successful login
@@ -142,9 +142,9 @@ class TodoyuAuth {
 	/**
 	 * Check whether $username and $password are a valid login
 	 *
-	 * @param	String		$username		Username
-	 * @param	String		$passwordHash	Password as md5
-	 * @return	Boolean
+	 * @param	string		$username		Username
+	 * @param	string		$passwordHash	Password as md5
+	 * @return	boolean
 	 */
 	public static function isValidLogin($username, $passwordHash) {
 		return TodoyuContactPersonManager::isValidLogin($username, $passwordHash);
@@ -155,9 +155,9 @@ class TodoyuAuth {
 	/**
 	 * Check whether an action is allowed
 	 *
-	 * @param	Integer		$extKey
-	 * @param	Integer		$right
-	 * @return	Boolean
+	 * @param	integer		$extKey
+	 * @param	integer		$right
+	 * @return	boolean
 	 */
 	public static function isAllowed($extKey, $right) {
 		return TodoyuRightsManager::isAllowed($extKey, $right);
@@ -168,7 +168,7 @@ class TodoyuAuth {
 	/**
 	 * Check whether current person is admin
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isAdmin() {
 		return self::getPerson()->isAdmin();
@@ -179,7 +179,7 @@ class TodoyuAuth {
 	/**
 	 * Check whether the current person is working for the internal company
 	 *
-	 * @return  Boolean
+	 * @return  boolean
 	 */
 	public static function isInternal() {
 		return self::getPerson()->isInternal();
@@ -190,7 +190,7 @@ class TodoyuAuth {
 	/**
 	 * Check whether the current person is NOT working for the internal company
 	 *
-	 * @return  Boolean
+	 * @return  boolean
 	 */
 	public static function isExternal() {
 		return self::getPerson()->isExternal();
@@ -205,16 +205,16 @@ class TodoyuAuth {
 	 *
 	 * Extensions can add their own actions to the config array Todoyu::$CONFIG['AUTH']['noLoginRequired'][EXTNAME][] = ACTION
 	 *
-	 * @param	String		$extension
-	 * @param	String		$controller
-	 * @return	Boolean
+	 * @param	string		$extension
+	 * @param	string		$controller
+	 * @return	boolean
 	 */
 	public static function isNoLoginRequired($extension, $controller) {
 		$extension	= strtolower($extension);
 		$controller	= strtolower($controller);
 
 			// Check if for this extension an array is defined
-		if( is_array(Todoyu::$CONFIG['AUTH']['noLoginRequired'][$extension]) ) {
+		if( !empty(Todoyu::$CONFIG['AUTH']['noLoginRequired'][$extension]) && is_array(Todoyu::$CONFIG['AUTH']['noLoginRequired'][$extension]) ) {
 			if( in_array($controller, Todoyu::$CONFIG['AUTH']['noLoginRequired'][$extension]) ) {
 				return true;
 			}
@@ -228,8 +228,8 @@ class TodoyuAuth {
 	/**
 	 * Send not logged in message for AJAX requests
 	 *
-	 * @param	Array		$requestVars
-	 * @param	Array		$originalRequestVars
+	 * @param	array		$requestVars
+	 * @param	array		$originalRequestVars
 	 * @return	Array
 	 */
 	public static function hookSendNotLoggedInForAjaxRequest(array $requestVars, array $originalRequestVars) {
@@ -249,8 +249,8 @@ class TodoyuAuth {
 	/**
 	 * Override request vars, if person is not logged in
 	 *
-	 * @param	Array		$requestVars
-	 * @param	Array		$originalRequestVars
+	 * @param	array		$requestVars
+	 * @param	array		$originalRequestVars
 	 * @return	Array
 	 */
 	public static function hookRedirectToLoginIfNotLoggedIn(array $requestVars, array $originalRequestVars) {

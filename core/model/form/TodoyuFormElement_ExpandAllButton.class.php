@@ -31,9 +31,9 @@ class TodoyuFormElement_ExpandAllButton extends TodoyuFormElement_Button {
 	/**
 	 * Create button element
 	 *
-	 * @param	String		$name		Button name
+	 * @param	string		$name		Button name
 	 * @param	TodoyuFormFieldset	$fieldset	Parent fieldset
-	 * @param	Array		$config		Button config
+	 * @param	array		$config		Button config
 	 */
 	public function __construct($name, TodoyuFormFieldset $fieldset, array $config = array()) {
 		TodoyuFormElement::__construct('expandAllButton', $name, $fieldset, $config);

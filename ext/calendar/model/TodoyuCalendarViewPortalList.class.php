@@ -59,7 +59,7 @@ class TodoyuCalendarViewPortalList extends TodoyuCalendarView {
 	/**
 	 * Render view
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function render() {
 		$tmpl	= 'ext/calendar/view/views/portal-list-events.tmpl';
@@ -77,7 +77,7 @@ class TodoyuCalendarViewPortalList extends TodoyuCalendarView {
 	/**
 	 * Get amount of static events for view
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getStaticEventsCount() {
 		$filters= array(
@@ -96,7 +96,7 @@ class TodoyuCalendarViewPortalList extends TodoyuCalendarView {
 	/**
 	 * Get config (or value)
 	 *
-	 * @param	Boolean		$key
+	 * @param	boolean		$key
 	 * @return	Mixed|Array
 	 */
 	protected function getConfig($key = false) {
@@ -112,8 +112,8 @@ class TodoyuCalendarViewPortalList extends TodoyuCalendarView {
 	/**
 	 * Get weeks to search in
 	 *
-	 * @param	String		$type
-	 * @return	Integer
+	 * @param	string		$type
+	 * @return	integer
 	 */
 	protected function getWeeks($type) {
 		$key	= 'weeks' . ucfirst($type);
@@ -144,9 +144,9 @@ class TodoyuCalendarViewPortalList extends TodoyuCalendarView {
 	/**
 	 * Get events template data for a data source
 	 *
-	 * @param	String		$sourceName
-	 * @param	Integer		$weeks
-	 * @param	Array		$filters
+	 * @param	string		$sourceName
+	 * @param	integer		$weeks
+	 * @param	array		$filters
 	 * @return	Array[]
 	 */
 	protected function getEventsTemplateData($sourceName, $weeks, array $filters) {
@@ -182,7 +182,7 @@ class TodoyuCalendarViewPortalList extends TodoyuCalendarView {
 	/**
 	 * Get holiday set IDs for current users working addresses
 	 *
-	 * @return	Integer[]
+	 * @return	integer[]
 	 */
 	protected function getHolidaySetIDsOfUsersWorkAddresses() {
 		$personIDs	= array(Todoyu::personid());
@@ -213,9 +213,9 @@ class TodoyuCalendarViewPortalList extends TodoyuCalendarView {
 	/**
 	 * Get events of a data source for the next n weeks
 	 *
-	 * @param	String		$dataSourceName
-	 * @param	Integer		$weeks
-	 * @param	Array		$filters
+	 * @param	string		$dataSourceName
+	 * @param	integer		$weeks
+	 * @param	array		$filters
 	 * @return	TodoyuCalendarEvent[]
 	 */
 	protected function getSourceEvents($dataSourceName, $weeks, array $filters = array()) {
@@ -229,7 +229,7 @@ class TodoyuCalendarViewPortalList extends TodoyuCalendarView {
 	/**
 	 * Get range from now to n weeks in the future
 	 *
-	 * @param	Integer		$weeks
+	 * @param	integer		$weeks
 	 * @return	TodoyuDayRange
 	 */
 	protected function getFutureRange($weeks) {

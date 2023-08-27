@@ -39,8 +39,8 @@ class TodoyuCalendarPortalActionController extends TodoyuActionController {
 	/**
 	 * 'detail' action method
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function detailAction(array $params) {
 		$idEvent	= intval($params['event']);
@@ -58,7 +58,7 @@ class TodoyuCalendarPortalActionController extends TodoyuActionController {
 	/**
 	 * Acknowledge an (not seen) event
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function acknowledgeAction(array $params) {
 		$idEvent	= intval($params['event']);

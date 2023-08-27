@@ -30,8 +30,8 @@ class TodoyuRecordManager {
 	/**
 	 * Get a record object
 	 *
-	 * @param	String		$className
-	 * @param	Integer		$idRecord
+	 * @param	string		$className
+	 * @param	integer		$idRecord
 	 * @return	TodoyuBaseObject
 	 */
 	public static function getRecord($className, $idRecord) {
@@ -59,8 +59,8 @@ class TodoyuRecordManager {
 	/**
 	 * Get a list of records of a specific class
 	 *
-	 * @param	String		$className
-	 * @param	Array		$recordIDs
+	 * @param	string		$className
+	 * @param	array		$recordIDs
 	 * @return	TodoyuBaseObject[]		List of objects
 	 */
 	public static function getRecordList($className, array $recordIDs) {
@@ -78,8 +78,8 @@ class TodoyuRecordManager {
 	/**
 	 * Remove a record from cache
 	 *
-	 * @param	String		$className
-	 * @param	Integer		$idRecord
+	 * @param	string		$className
+	 * @param	integer		$idRecord
 	 */
 	public static function removeRecordCache($className, $idRecord) {
 		$idRecord	= (int) $idRecord;
@@ -98,8 +98,8 @@ class TodoyuRecordManager {
 	 * Remove a record query from the cache. This is necessary to force
 	 * a new created object to load the data again from the database
 	 *
-	 * @param	String		$table
-	 * @param	Integer		$idRecord
+	 * @param	string		$table
+	 * @param	integer		$idRecord
 	 */
 	public static function removeRecordQueryCache($table, $idRecord) {
 		$idRecord	= (int) $idRecord;
@@ -116,9 +116,9 @@ class TodoyuRecordManager {
 	/**
 	 * Make a cache key for a record query based on the table and the record ID
 	 *
-	 * @param	String		$table
-	 * @param	Integer		$idRecord
-	 * @return	String
+	 * @param	string		$table
+	 * @param	integer		$idRecord
+	 * @return	string
 	 */
 	public static function makeRecordQueryKey($table, $idRecord) {
 		return $table . ':' . (int) $idRecord;
@@ -129,9 +129,9 @@ class TodoyuRecordManager {
 	/**
 	 * Make a cache key for a record class based on the classname and the record ID
 	 *
-	 * @param	String		$className
-	 * @param	Integer		$idRecord
-	 * @return	String		Cache key
+	 * @param	string		$className
+	 * @param	integer		$idRecord
+	 * @return	string		Cache key
 	 */
 	public static function makeClassKey($className, $idRecord) {
 		return $className . ':' . (int) $idRecord;
@@ -142,9 +142,9 @@ class TodoyuRecordManager {
 	/**
 	 * Get all records of given type
 	 *
-	 * @param	String	$table
-	 * @param	String	$where
-	 * @param	String	$order
+	 * @param	string	$table
+	 * @param	string	$where
+	 * @param	string	$order
 	 * @return	Array
 	 */
 	public static function getAllRecords($table, $where = 'deleted = 0', $order = 'title') {
@@ -156,8 +156,8 @@ class TodoyuRecordManager {
 	/**
 	 * Get record data as array
 	 *
-	 * @param	String		$table
-	 * @param	Integer		$idRecord
+	 * @param	string		$table
+	 * @param	integer		$idRecord
 	 * @return	Array
 	 * @deprecated
 	 * @todo	Switch to objects, instead using flat arrays
@@ -173,10 +173,10 @@ class TodoyuRecordManager {
 	/**
 	 * Save a record
 	 *
-	 * @param	String		$table
-	 * @param	Array		$data
-	 * @param	Array		$noQuoteFields
-	 * @return	Integer
+	 * @param	string		$table
+	 * @param	array		$data
+	 * @param	array		$noQuoteFields
+	 * @return	integer
 	 */
 	public static function saveRecord($table, array $data, array $noQuoteFields = array()) {
 		$idRecord	= intval($data['id']);
@@ -196,10 +196,10 @@ class TodoyuRecordManager {
 	 * Add a record to database
 	 * Set date_create and id_person_create
 	 *
-	 * @param	String		$table
-	 * @param	Array		$data
-	 * @param	Array		$noQuoteFields
-	 * @return	Integer		record ID
+	 * @param	string		$table
+	 * @param	array		$data
+	 * @param	array		$noQuoteFields
+	 * @return	integer		record ID
 	 */
 	public static function addRecord($table, array $data, array $noQuoteFields = array()) {
 		unset($data['id']);
@@ -220,11 +220,11 @@ class TodoyuRecordManager {
 	/**
 	 * Update a record in the database
 	 *
-	 * @param	String		$table
-	 * @param	Integer		$idRecord
-	 * @param	Array		$data
-	 * @param	Array		$noQuoteFields
-	 * @return	Boolean
+	 * @param	string		$table
+	 * @param	integer		$idRecord
+	 * @param	array		$data
+	 * @param	array		$noQuoteFields
+	 * @return	boolean
 	 */
 	public static function updateRecord($table, $idRecord, array $data, array $noQuoteFields = array()) {
 		$idRecord	= (int) $idRecord;
@@ -245,11 +245,11 @@ class TodoyuRecordManager {
 	 *
 	 * @internal
 	 * @note	Use updateRecord() method, except you have very special requirements!
-	 * @param	String		$table
-	 * @param	Integer		$idRecord
-	 * @param	Array		$data
-	 * @param	Array		$noQuoteFields
-	 * @return	Boolean
+	 * @param	string		$table
+	 * @param	integer		$idRecord
+	 * @param	array		$data
+	 * @param	array		$noQuoteFields
+	 * @return	boolean
 	 */
 	public static function updateRecordRaw($table, $idRecord, array $data, array $noQuoteFields = array()) {
 		$idRecord	= (int) $idRecord;
@@ -269,11 +269,11 @@ class TodoyuRecordManager {
 	/**
 	 * Update multiple records in the database
 	 *
-	 * @param	String		$table
-	 * @param	String		$where
-	 * @param	Array		$data
-	 * @param	Array		$noQuoteFields
-	 * @return	Integer		Number of updated records
+	 * @param	string		$table
+	 * @param	string		$where
+	 * @param	array		$data
+	 * @param	array		$noQuoteFields
+	 * @return	integer		Number of updated records
 	 */
 	public static function updateRecords($table, $where, array $data, array $noQuoteFields = array()) {
 		unset($data['id']);
@@ -290,9 +290,9 @@ class TodoyuRecordManager {
 	/**
 	 * Delete a record (set deleted flag)
 	 *
-	 * @param	String		$table
-	 * @param	Integer		$idRecord
-	 * @return	Boolean
+	 * @param	string		$table
+	 * @param	integer		$idRecord
+	 * @return	boolean
 	 */
 	public static function deleteRecord($table, $idRecord) {
 		$idRecord	= (int) $idRecord;
@@ -312,9 +312,9 @@ class TodoyuRecordManager {
 	/**
 	 * Delete multiple records at once
 	 *
-	 * @param	String		$table
-	 * @param	Array		$recordIDs
-	 * @return	Integer		Number of deleted records
+	 * @param	string		$table
+	 * @param	array		$recordIDs
+	 * @return	integer		Number of deleted records
 	 */
 	public static function deleteRecordsByID($table, array $recordIDs) {
 		$recordIDs	= TodoyuArray::intval($recordIDs);
@@ -336,9 +336,9 @@ class TodoyuRecordManager {
 	/**
 	 * Delete records by where statement (records are just set deleted)
 	 *
-	 * @param	String		$table
-	 * @param	String		$where
-	 * @return	Integer
+	 * @param	string		$table
+	 * @param	string		$where
+	 * @return	integer
 	 */
 	public static function deleteRecords($table, $where) {
 		$data	= array(
@@ -353,9 +353,9 @@ class TodoyuRecordManager {
 	/**
 	 * Check if a record exists
 	 *
-	 * @param	String		$table
-	 * @param	Integer		$idRecord
-	 * @return	Boolean
+	 * @param	string		$table
+	 * @param	integer		$idRecord
+	 * @return	boolean
 	 */
 	public static function isRecord($table, $idRecord) {
 		$idRecord	= (int) $idRecord;

@@ -45,9 +45,9 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Init filter object
 	 *
-	 * @param	Array	$activeFilters		Active filters for request
-	 * @param	String	$conjunction
-	 * @param	Array	$sorting
+	 * @param	array	$activeFilters		Active filters for request
+	 * @param	string	$conjunction
+	 * @param	array	$sorting
 	 */
 	public function __construct(array $activeFilters = array(), $conjunction = 'AND', array $sorting = array()) {
 		parent::__construct('TASK', self::TABLE, $activeFilters, $conjunction, $sorting);
@@ -91,8 +91,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Get task IDs which match to all filters
 	 *
-	 * @param	String		$sortingFallback		Force sorting column
-	 * @param	String		$limit				Limit result items
+	 * @param	string		$sortingFallback		Force sorting column
+	 * @param	string		$limit				Limit result items
 	 * @return	Array
 	 */
 	public function getTaskIDs($sortingFallback = 'sorting', $limit = '') {
@@ -106,8 +106,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * General access to the result items
 	 *
-	 * @param	String		$sortingFallback
-	 * @param	String		$limit
+	 * @param	string		$sortingFallback
+	 * @param	string		$limit
 	 * @return	Array
 	 */
 	public function getItemIDs($sortingFallback = 'sorting', $limit = '', $showDeleted = false) {
@@ -129,8 +129,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: tasks of given project
 	 *
-	 * @param	Integer			$value		Project ID
-	 * @param	Boolean			$negate
+	 * @param	integer			$value		Project ID
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts / false if no project ID given
 	 */
 	public function Filter_project($value, $negate = false) {
@@ -157,8 +157,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: project title matches?
 	 *
-	 * @param	String			$value		Space-separated search-words
-	 * @param	Boolean			$negate
+	 * @param	string			$value		Space-separated search-words
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts / false if no search-words given
 	 */
 	public function Filter_projecttitle($value, $negate = false) {
@@ -186,8 +186,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Get query parts for available projects filter
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 * @return	Array					Query parts
 	 */
 	public function Filter_availableprojects($value, $negate = false) {
@@ -211,8 +211,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Shortcut to company filter
 	 *
-	 * @param	Integer		$value			Company ID
-	 * @param	Boolean		$negate
+	 * @param	integer		$value			Company ID
+	 * @param	boolean		$negate
 	 * @return	Array|Boolean				Query parts / false if no company ID given
 	 */
 	public function Filter_customer($value, $negate = false) {
@@ -224,8 +224,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: tasks of projects of given customer
 	 *
-	 * @param	Integer			$value		Company ID
-	 * @param	Boolean			$negate
+	 * @param	integer			$value		Company ID
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts / false if no company ID given
 	 */
 	public function Filter_company($value, $negate = false) {
@@ -255,8 +255,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: tasks where person is owner
 	 *
-	 * @param	Integer			$value		Owner person ID
-	 * @param	Boolean			$negate
+	 * @param	integer			$value		Owner person ID
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts array / false if no person ID given
 	 */
 	public function Filter_ownerPerson($value, $negate = false) {
@@ -283,7 +283,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: tasks where current person is owner
 	 *
-	 * @param	Boolean			$negate
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts array / false if no person ID given
 	 */
 	public function Filter_currentPersonOwner($negate = false) {
@@ -297,8 +297,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: tasks of given owner
 	 *
-	 * @param	Array			$value		Comma-separated IDs of selected roles
-	 * @param	Boolean			$negate
+	 * @param	array			$value		Comma-separated IDs of selected roles
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts array / false if no role IDs given
 	 */
 	public function Filter_ownerRoles($value, $negate = false) {
@@ -330,8 +330,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter for task number
 	 *
-	 * @param	String			$value		Task number
-	 * @param	Boolean			$negate
+	 * @param	string			$value		Task number
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts array / false if no task number given
 	 */
 	public function Filter_tasknumber($value, $negate = false) {
@@ -356,8 +356,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: task title like given string?
 	 *
-	 * @param	String			$value		(String part out of) Task title
-	 * @param	Boolean			$negate
+	 * @param	string			$value		(String part out of) Task title
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts array / false if no title given
 	 */
 	public function Filter_title($value, $negate = false) {
@@ -383,8 +383,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Task full-text filter. Searches in task number, title, description
 	 *
-	 * @param	String			$value		Text
-	 * @param	Boolean			$negate
+	 * @param	string			$value		Text
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts array / false if no text given
 	 */
 	public function Filter_fulltext($value, $negate = false) {
@@ -424,8 +424,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Search tasks which match the value in the title or the task number
 	 *
-	 * @param	String			$value		Task number and/or task title
-	 * @param	Boolean			$negate
+	 * @param	string			$value		Task number and/or task title
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts array / false if value is not empty title or task number
 	 */
 	public function Filter_tasknumberortitle($value, $negate = false) {
@@ -462,8 +462,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: tasks created by person
 	 *
-	 * @param	Integer			$value		Person ID
-	 * @param	Boolean			$negate
+	 * @param	integer			$value		Person ID
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts array / false if no person ID given
 	 */
 	public function Filter_creatorPerson($value, $negate = false) {
@@ -490,8 +490,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: Task created by a person which is member of one of the selected roles
 	 *
-	 * @param	Array		$value		Comma-separated role IDs
-	 * @param	Boolean		$negate
+	 * @param	array		$value		Comma-separated role IDs
+	 * @param	boolean		$negate
 	 * @return	Array|Boolean			Query parts array / false if no role IDs given
 	 */
 	public function Filter_creatorRoles($value, $negate = false) {
@@ -524,8 +524,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: tasks assigned to person
 	 *
-	 * @param	Integer			$value		Person ID
-	 * @param	Boolean			$negate
+	 * @param	integer			$value		Person ID
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts / false if no person ID given
 	 */
 	public function Filter_assignedPerson($value, $negate = false) {
@@ -554,8 +554,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: task assigned to person of a role?
 	 *
-	 * @param	Array			$value		Role IDs, comma-separated
-	 * @param	Boolean			$negate
+	 * @param	array			$value		Role IDs, comma-separated
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts / false if no role IDs given
 	 */
 	public function Filter_assignedRoles($value, $negate = false) {
@@ -588,8 +588,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: tasks assigned to current person
 	 *
-	 * @param	String			$value		Not used
-	 * @param	Boolean			$negate
+	 * @param	string			$value		Not used
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts / false if no person ID given
 	 */
 	public function Filter_currentPersonAssigned($value = '', $negate = false) {
@@ -605,8 +605,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: Project description like given filter value?
 	 *
-	 * @param	String			$value		Project description substring
-	 * @param	Boolean			$negate
+	 * @param	string			$value		Project description substring
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts / false if given string is empty
 	 */
 	public function Filter_projectDescription($value = '', $negate = false) {
@@ -635,8 +635,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: tasks of projects with given status
 	 *
-	 * @param	String			$value			Comma-separated statuses
-	 * @param	Boolean			$negate
+	 * @param	string			$value			Comma-separated statuses
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean					Query parts / false if no statuses given
 	 */
 	public function Filter_projectstatus($value, $negate = false) {
@@ -660,8 +660,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filters for tasks being publicly visible
 	 *
-	 * @param	Integer		$value
-	 * @param	Boolean		$negate
+	 * @param	integer		$value
+	 * @param	boolean		$negate
 	 * @return	Array					Query parts
 	 */
 	public function Filter_isPublic($value, $negate = false) {
@@ -683,8 +683,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: Task status in given status list?
 	 *
-	 * @param	String			$value		Comma-separated statuses
-	 * @param	Boolean			$negate
+	 * @param	string			$value		Comma-separated statuses
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts array / false if no statuses given
 	 */
 	public function Filter_status($value, $negate = false) {
@@ -715,8 +715,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: Task acknowledged by given person?
 	 *
-	 * @param	Integer			$value		Person ID
-	 * @param	Boolean			$negate
+	 * @param	integer			$value		Person ID
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts / false if no person ID given
 	 */
 	public function Filter_acknowledged($value, $negate = false) {
@@ -741,8 +741,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: task acknowledged by current person
 	 *
-	 * @param	String		$value		Person ID
-	 * @param	Boolean		$negate
+	 * @param	string		$value		Person ID
+	 * @param	boolean		$negate
 	 * @return	Array					Query parts
 	 */
 	public function Filter_currentPersonHasAcknowledged($value, $negate) {
@@ -757,8 +757,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Get sub-tasks of the given task ID
 	 *
-	 * @param	Integer		$value		Task ID
-	 * @param	Boolean		$negate
+	 * @param	integer		$value		Task ID
+	 * @param	boolean		$negate
 	 * @return	Array					Query parts
 	 */
 	public function Filter_parentTask($value, $negate = false) {
@@ -782,8 +782,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: date_deadline
 	 *
-	 * @param	String		$date		Formatted (according to current locale) date string
-	 * @param	Boolean		$negate
+	 * @param	string		$date		Formatted (according to current locale) date string
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_deadlinedate($date, $negate = false) {
@@ -795,8 +795,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Get the dynamic deadline
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_deadlinedateDyn($value, $negate) {
@@ -810,8 +810,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: date_start
 	 *
-	 * @param	String		$date		Formatted (according to current locale) date string
-	 * @param	Boolean		$negate
+	 * @param	string		$date		Formatted (according to current locale) date string
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_startdate($date, $negate = false) {
@@ -823,8 +823,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Get the dynamic startdate
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_startdateDyn($value, $negate) {
@@ -839,8 +839,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	 * Filter condition: date_end
 	 * Contains fallback to date deadline
 	 *
-	 * @param	String		$date
-	 * @param	Boolean		$negate
+	 * @param	string		$date
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_enddate($date, $negate = false) {
@@ -864,8 +864,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * get the dynamic enddate
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_enddateDyn($value, $negate = false) {
@@ -880,8 +880,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: date_update
 	 *
-	 * @param	String		$date		Formatted (according to current locale) date string
-	 * @param	Boolean		$negate
+	 * @param	string		$date		Formatted (according to current locale) date string
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_editdate($date, $negate = false) {
@@ -893,8 +893,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * get the dynamic edit date
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_editdateDyn($value, $negate) {
@@ -908,8 +908,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: date_create
 	 *
-	 * @param	String		$date		Formatted (according to current locale) date string
-	 * @param	Boolean		$negate
+	 * @param	string		$date		Formatted (according to current locale) date string
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_createdate($date, $negate = false) {
@@ -921,8 +921,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Get the dynamic creation date (date_create)
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_createdateDyn($value, $negate) {
@@ -936,9 +936,9 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Get the dynamic date
 	 *
-	 * @param	Integer		$date
-	 * @param	String		$field
-	 * @param	Boolean		$negation
+	 * @param	integer		$date
+	 * @param	string		$field
+	 * @param	boolean		$negation
 	 * @return	Array
 	 */
 	protected static function Filter_dateDyn($date, $field, $negation = false) {
@@ -959,8 +959,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter task by not being given ID (get all but given)
 	 *
-	 * @param	String		$value
-	 * @param	Boolean		$negate
+	 * @param	string		$value
+	 * @param	boolean		$negate
 	 * @return	Array
 	 */
 	public function Filter_nottask($value, $negate = false) {
@@ -978,8 +978,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter by type (task / container)
 	 *
-	 * @param	Integer			$value		Task type - 0: both, 1: TASK_TYPE_TASK / 2: TASK_TYPE_CONTAINER
-	 * @param	Boolean			$negate
+	 * @param	integer			$value		Task type - 0: both, 1: TASK_TYPE_TASK / 2: TASK_TYPE_CONTAINER
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts array / false if both types wanted (no limitation needed than)
 	 */
 	public function Filter_type($value, $negate = false) {
@@ -1001,8 +1001,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition: Task has activity
 	 *
-	 * @param	Array		$value		Comma-separated activity IDs
-	 * @param	Boolean		$negate
+	 * @param	array		$value		Comma-separated activity IDs
+	 * @param	boolean		$negate
 	 * @return	Array|Boolean			Query parts array / false if no activity IDs given
 	 */
 	public function Filter_activity($value, $negate = false) {
@@ -1024,8 +1024,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	 * Filter condition for project role
 	 * The value is a combination between the project role and the person
 	 *
-	 * @param	String			$value		Format: PERSON:ROLE,ROLE,ROLE
-	 * @param	Boolean			$negate
+	 * @param	string			$value		Format: PERSON:ROLE,ROLE,ROLE
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts array / false if not both person AND role(s) given
 	 */
 	public function Filter_projectrole($value, $negate = false) {
@@ -1058,8 +1058,8 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Filter condition for all subTasks (recursive)
 	 *
-	 * @param	Integer		$value		Task ID
-	 * @param	Boolean		$negate
+	 * @param	integer		$value		Task ID
+	 * @param	boolean		$negate
 	 * @return	Array|Boolean			Query parts / false if no task ID given
 	 */
 	public function Filter_subtask($value, $negate = false) {
@@ -1087,9 +1087,9 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Setup query parts for task date_... fields (create, update, start, end, deadline) filter
 	 *
-	 * @param	String			$field
-	 * @param	Integer			$date		Formatted (according to current locale) date string
-	 * @param	Boolean			$negate
+	 * @param	string			$field
+	 * @param	integer			$date		Formatted (according to current locale) date string
+	 * @param	boolean			$negate
 	 * @return	Array|Boolean				Query parts array / false if no date timestamp given (or 1.1.1970 00:00)
 	 */
 	public static function makeFilter_date($field, $date, $negate = false) {
@@ -1101,9 +1101,9 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Alias Method for TodoyuSearchFiltersetManager::Filter_filterObject for TaskFilter
 	 *
-	 * @param	Array		$value
-	 * @param	Boolean		$negate
-	 * @return	Boolean
+	 * @param	array		$value
+	 * @param	boolean		$negate
+	 * @return	boolean
 	 */
 	public static function Filter_filterObject(array $value, $negate = false) {
 		return TodoyuSearchFiltersetManager::Filter_filterObject($value, $negate);
@@ -1114,7 +1114,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Order by date create
 	 *
-	 * @param	Boolean		$desc
+	 * @param	boolean		$desc
 	 * @return	Array
 	 */
 	private function Sorting_Attribute($attribute, $desc = false) {
@@ -1130,7 +1130,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 	/**
 	 * Order by date create
 	 *
-	 * @param	Boolean		$desc
+	 * @param	boolean		$desc
 	 * @return	Array
 	 */
 	public function Sorting_DateCreate($desc = false) {
@@ -1140,7 +1140,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 
 
 	/**
-	 * @param	Boolean $desc
+	 * @param	boolean $desc
 	 * @return	Array
 	 */
 	public function Sorting_DateUpdate($desc = false) {
@@ -1150,7 +1150,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 
 
 	/**
-	 * @param	Boolean $desc
+	 * @param	boolean $desc
 	 * @return	Array
 	 */
 	public function Sorting_dateStart($desc = false) {
@@ -1160,7 +1160,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 
 
 	/**
-	 * @param	Boolean	$desc
+	 * @param	boolean	$desc
 	 * @return	Array
 	 */
 	public function Sorting_dateEnd($desc = false) {
@@ -1174,7 +1174,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 
 
 	/**
-	 * @param	Boolean	$desc
+	 * @param	boolean	$desc
 	 * @return	Array
 	 */
 	public function Sorting_dateDeadline($desc = false) {
@@ -1184,7 +1184,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 
 
 	/**
-	 * @param	Boolean	$desc
+	 * @param	boolean	$desc
 	 * @return	Array
 	 */
 	public function Sorting_projectID($desc = false) {
@@ -1194,7 +1194,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 
 
 	/**
-	 * @param	Boolean	$desc
+	 * @param	boolean	$desc
 	 * @return	Array
 	 */
 	public function Sorting_title($desc = false) {
@@ -1204,7 +1204,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 
 
 	/**
-	 * @param	Boolean	$desc
+	 * @param	boolean	$desc
 	 * @return	Array
 	 */
 	public function Sorting_personAssigned($desc = false) {
@@ -1214,7 +1214,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 
 
 	/**
-	 * @param	Boolean	$desc
+	 * @param	boolean	$desc
 	 * @return	Array
 	 */
 	public function Sorting_personOwner($desc = false) {
@@ -1224,7 +1224,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 
 
 	/**
-	 * @param	Boolean	$desc
+	 * @param	boolean	$desc
 	 * @return	Array
 	 */
 	public function Sorting_taskNumber($desc = false) {
@@ -1234,7 +1234,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 
 
 	/**
-	 * @param	Boolean	$desc
+	 * @param	boolean	$desc
 	 * @return	Array
 	 */
 	public function Sorting_status($desc = false) {
@@ -1244,7 +1244,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 
 
 	/**
-	 * @param	Boolean	$desc
+	 * @param	boolean	$desc
 	 * @return	Array
 	 */
 	public function Sorting_activity($desc = false) {
@@ -1254,7 +1254,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 
 
 	/**
-	 * @param	Boolean	$desc
+	 * @param	boolean	$desc
 	 * @return	Array
 	 */
 	public function Sorting_estimatedWorkload($desc = false) {
@@ -1264,7 +1264,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 
 
 	/**
-	 * @param	Boolean	$desc
+	 * @param	boolean	$desc
 	 * @return	Array
 	 */
 	public function Sorting_acknowledged($desc = false) {
@@ -1274,7 +1274,7 @@ class TodoyuProjectTaskFilter extends TodoyuSearchFilterBase implements TodoyuFi
 
 
 	/**
-	 * @param	Boolean	$desc
+	 * @param	boolean	$desc
 	 * @return	Array
 	 */
 	public function Sorting_public($desc = false) {

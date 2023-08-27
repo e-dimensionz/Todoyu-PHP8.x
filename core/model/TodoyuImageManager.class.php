@@ -29,13 +29,13 @@ class TodoyuImageManager {
 	/**
 	 * Save an image resized on the server
 	 *
-	 * @param	String		$pathSource
-	 * @param	String		$pathDestination
-	 * @param	Integer		$newMaxWidth
-	 * @param	Integer		$newMaxHeight
-	 * @param	String		$typeSource
-	 * @param	Boolean		$upscale
-	 * @return	Boolean
+	 * @param	string		$pathSource
+	 * @param	string		$pathDestination
+	 * @param	integer		$newMaxWidth
+	 * @param	integer		$newMaxHeight
+	 * @param	string		$typeSource
+	 * @param	boolean		$upscale
+	 * @return	boolean
 	 */
 	public static function saveResizedImage($pathSource, $pathDestination, $newMaxWidth, $newMaxHeight, $typeSource = null, $upscale = false) {
 		$pathSource		= TodoyuFileManager::pathAbsolute($pathSource);
@@ -69,9 +69,9 @@ class TodoyuImageManager {
 	/**
 	 * Create an image resource from a file. PNG, JPEG and GIF are supported
 	 *
-	 * @param	String		$pathFile
-	 * @param	String		$type
-	 * @return	Boolean|Resource
+	 * @param	string		$pathFile
+	 * @param	string		$type
+	 * @return	boolean|Resource
 	 */
 	public static function loadImage($pathFile, $type) {
 		$ext		= self::getExt($type);
@@ -105,10 +105,10 @@ class TodoyuImageManager {
 	 * Save an image resource to a file
 	 *
 	 * @param	Resource	$image				Image resource
-	 * @param	String		$type				Image type (mime or extension)
-	 * @param	String		$pathFile			Path to destination file
-	 * @param	Boolean		$destroy			Destroy image resource
-	 * @return	Boolean		Saving status
+	 * @param	string		$type				Image type (mime or extension)
+	 * @param	string		$pathFile			Path to destination file
+	 * @param	boolean		$destroy			Destroy image resource
+	 * @return	boolean		Saving status
 	 */
 	public static function saveImage($image, $type, $pathFile, $destroy = true) {
 		$ext		= self::getExt($type);
@@ -148,8 +148,8 @@ class TodoyuImageManager {
 	/**
 	 * Get image extension type from mime type or extension
 	 *
-	 * @param	String		$type		image/gif or gif
-	 * @return	String
+	 * @param	string		$type		image/gif or gif
+	 * @return	string
 	 */
 	public static function getExt($type) {
 		if( strstr($type, '/') !== false ) {
@@ -166,11 +166,11 @@ class TodoyuImageManager {
 	/**
 	 * Get resize factor for image resizing
 	 *
-	 * @param	Integer		$sourceWidth
-	 * @param	Integer		$sourceHeight
-	 * @param	Integer		$newWidth
-	 * @param	Integer		$newHeight
-	 * @param	Boolean		$upscale			Upscale image if source is smaller than destination
+	 * @param	integer		$sourceWidth
+	 * @param	integer		$sourceHeight
+	 * @param	integer		$newWidth
+	 * @param	integer		$newHeight
+	 * @param	boolean		$upscale			Upscale image if source is smaller than destination
 	 * @return	Array		[width,height]
 	 */
 	public static function getDimensions($sourceWidth, $sourceHeight, $newWidth, $newHeight, $upscale = false) {

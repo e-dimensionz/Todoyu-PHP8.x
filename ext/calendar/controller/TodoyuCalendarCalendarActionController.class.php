@@ -29,7 +29,7 @@ class TodoyuCalendarCalendarActionController extends TodoyuActionController {
 	/**
 	 * Init controller: check permission
 	 *
-	 * @param	Array	$params
+	 * @param	array	$params
 	 */
 	public function init(array $params = array()) {
 		Todoyu::restrict('calendar', 'general:use');
@@ -41,8 +41,8 @@ class TodoyuCalendarCalendarActionController extends TodoyuActionController {
 	/**
 	 * Calendar update action method: Saves date and active tab and re-renders the calendar
 	 *
-	 * @param	Array	$params
-	 * @return	String
+	 * @param	array	$params
+	 * @return	string
 	 */
 	public function updateAction(array $params) {
 		$tab	= trim($params['tab']);

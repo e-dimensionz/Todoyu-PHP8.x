@@ -30,9 +30,9 @@ class TodoyuSysmanagerRenderer {
 	/**
 	 * Render fullContent of a module
 	 *
-	 * @param	String		$module
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	string		$module
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public static function renderModule($module, array $params = array()) {
 		$renderFunc = TodoyuSysmanagerManager::getModuleRenderFunction($module);
@@ -49,7 +49,7 @@ class TodoyuSysmanagerRenderer {
 	/**
 	 * Fallback if no module allowed: message to contact admin
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderModuleFallback() {
 		$tabConfig	= array(array(
@@ -67,7 +67,7 @@ class TodoyuSysmanagerRenderer {
 	/**
 	 * Render panel widgets
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderPanelWidgets() {
 		return TodoyuPanelWidgetRenderer::renderPanelWidgets('sysmanager');

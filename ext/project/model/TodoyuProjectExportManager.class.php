@@ -29,7 +29,7 @@ class TodoyuProjectExportManager {
 	/**
 	 * Exports Project as CSV
 	 *
-	 * @param	Array	$projectIDs
+	 * @param	array	$projectIDs
 	 */
 	public static function exportCSV(array $projectIDs) {
 		$projectIDs	= TodoyuArray::intval($projectIDs);
@@ -48,7 +48,7 @@ class TodoyuProjectExportManager {
 	/**
 	 * Prepares projects data for export
 	 *
-	 * @param	Array	$projectIDs
+	 * @param	array	$projectIDs
 	 * @return	Array
 	 */
 	protected static function prepareDataForExport(array $projectIDs) {

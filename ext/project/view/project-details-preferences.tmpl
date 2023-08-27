@@ -1,10 +1,10 @@
 <div id="project-infobox-presetlist" class="infoBox presets">
-	<h4 id="project-infobox-presetlist-header">{Label project.ext.infobox.presets.title}</h4>
+	<h4 id="project-infobox-presetlist-header">{Label text='project.ext.infobox.presets.title'}</h4>
 	<div id="project-infobox-presetlist-content" class="content overflow">
 		<table class="list presetsListing">
-		{foreach $presets preset}
+		{foreach $presets as $preset}
 			<tr class="{cycle values="odd,even"}">
-				<th>{Label $preset.label}</th>
+				<th>{Label text=$preset.label}</th>
 				<td>{$preset.value}</td>
 			</tr>
 		{/foreach}

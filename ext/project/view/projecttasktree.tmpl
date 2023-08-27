@@ -1,8 +1,8 @@
-<div id="project-{$idProject}" class="project status{ucfirst $statusKey} projecttasktree">
+<div id="project-{$idProject}" class="project status{$statusKey|ucfirst} projecttasktree">
 	{$header}
 	<div id="project-{$idProject}-tasks" class="tasks taskTree">
 		{$tasktree}
 
-		{$losttasks}
+		{if isset($losttasks)}{$losttasks}{/if}
 	</div>
 </div>

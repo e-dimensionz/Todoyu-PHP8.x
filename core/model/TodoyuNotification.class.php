@@ -54,8 +54,8 @@ class TodoyuNotification {
 	/**
 	 * Get key of given notification type
 	 *
-	 * @param	Integer		$type
-	 * @return	String
+	 * @param	integer		$type
+	 * @return	string
 	 */
 	public static function getNotificationTypeKey($type) {
 		$typeKeys	= array(
@@ -72,10 +72,10 @@ class TodoyuNotification {
 	/**
 	 * Send notification over HTTP header
 	 *
-	 * @param	Integer		$type
-	 * @param	String		$message
-	 * @param	Integer		$countdown
-	 * @param	String		$identifier			Notification hash to identify and possibly remove error message of same event
+	 * @param	integer		$type
+	 * @param	string		$message
+	 * @param	integer		$countdown
+	 * @param	string		$identifier			Notification hash to identify and possibly remove error message of same event
 	 */
 	private static function notify($type, $message, $countdown = 3, $identifier = '') {
 		$info	= array(
@@ -93,8 +93,8 @@ class TodoyuNotification {
 	/**
 	 * Send success notification
 	 *
-	 * @param	String		$message
-	 * @param	String		$identifier
+	 * @param	string		$message
+	 * @param	string		$identifier
 	 */
 	public static function notifySuccess($message, $identifier = '') {
 		self::notify(self::TYPE_SUCCESS, $message, 3, $identifier);
@@ -105,8 +105,8 @@ class TodoyuNotification {
 	/**
 	 * Send error notification
 	 *
-	 * @param	String		$message
-	 * @param	String		$identifier
+	 * @param	string		$message
+	 * @param	string		$identifier
 	 */
 	public static function notifyError($message, $identifier = '') {
 		self::notify(self::TYPE_ERROR, $message, 3, $identifier);
@@ -117,7 +117,7 @@ class TodoyuNotification {
 	/**
 	 * Send info notification
 	 *
-	 * @param	String		$message
+	 * @param	string		$message
 	 */
 	public static function notifyInfo($message) {
 		self::notify(self::TYPE_INFO, $message);

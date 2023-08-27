@@ -29,8 +29,8 @@ class TodoyuAssetsAssetRenderer {
 	/**
 	 * Render content for the task tab
 	 *
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function renderTabContent($idTask) {
 		Todoyu::restrict('assets', 'general:use');
@@ -62,7 +62,7 @@ class TodoyuAssetsAssetRenderer {
 	/**
 	 * Render locked message
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function renderLockedMessage() {
 		$tmpl	= 'ext/comment/view/locked.tmpl';
@@ -75,8 +75,8 @@ class TodoyuAssetsAssetRenderer {
 	/**
 	 * Render asset list view
 	 *
-	 * @param	Integer		$idTask
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @return	string
 	 */
 	public static function renderTaskList($idTask) {
 		$idTask	= intval($idTask);
@@ -87,7 +87,7 @@ class TodoyuAssetsAssetRenderer {
 
 	/**
 	 * @param $idProject
-	 * @return String
+	 * @return string
 	 */
 	public static function renderProjectList($idProject) {
 		$idProject	= intval($idProject);
@@ -97,10 +97,10 @@ class TodoyuAssetsAssetRenderer {
 
 
 	/**
-	 * @param	Integer		$idRecord
-	 * @param	Array		$assets
-	 * @param	String		$recordType
-	 * @return	String
+	 * @param	integer		$idRecord
+	 * @param	array		$assets
+	 * @param	string		$recordType
+	 * @return	string
 	 */
 	protected static function renderList($idRecord, $assets, $recordType) {
 		$tmpl	= 'ext/assets/view/list.tmpl';
@@ -119,9 +119,9 @@ class TodoyuAssetsAssetRenderer {
 	/**
 	 * Render list control elements
 	 *
-	 * @param	Integer		$idRecord
-	 * @param	String		$recordType
-	 * @return	String
+	 * @param	integer		$idRecord
+	 * @param	string		$recordType
+	 * @return	string
 	 */
 	public static function renderListControl($idRecord, $recordType) {
 		$idRecord	= intval($idRecord);
@@ -140,10 +140,10 @@ class TodoyuAssetsAssetRenderer {
 	/**
 	 * Render upload-frame content
 	 *
-	 * @param	Integer		$idRecord
-	 * @param	String		$recordType
-	 * @param	String		$fileName
-	 * @return	String
+	 * @param	integer		$idRecord
+	 * @param	string		$recordType
+	 * @param	string		$fileName
+	 * @return	string
 	 */
 	public static function renderUploadframeContent($idRecord, $recordType, $fileName) {
 		$idRecord	= intval($idRecord);
@@ -163,10 +163,10 @@ class TodoyuAssetsAssetRenderer {
 	/**
 	 * Render upload-frame content if upload has failed
 	 *
-	 * @param	Integer		$idTask
-	 * @param	Integer		$error
-	 * @param	String		$fileName
-	 * @return	String
+	 * @param	integer		$idTask
+	 * @param	integer		$error
+	 * @param	string		$fileName
+	 * @return	string
 	 */
 	public static function renderUploadframeContentFailed($idTask, $error, $fileName) {
 		$error		= intval($error);
@@ -180,8 +180,8 @@ class TodoyuAssetsAssetRenderer {
 
 
 	/**
-	 * @param	Integer	$idAsset
-	 * @return	String
+	 * @param	integer	$idAsset
+	 * @return	string
 	 */
 	public static function renderPreview($idAsset) {
 		$idAsset			= intval($idAsset);

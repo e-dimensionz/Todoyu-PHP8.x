@@ -54,7 +54,7 @@ class TodoyuHeader {
 	/**
 	 * Check if headers already have been sent
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isSent() {
 		return self::$sent;
@@ -65,7 +65,7 @@ class TodoyuHeader {
 	/**
 	 * Set type as currently sent content type
 	 *
-	 * @param	String	$type
+	 * @param	string	$type
 	 */
 	public static function setType($type) {
 		self::$type = $type;
@@ -76,7 +76,7 @@ class TodoyuHeader {
 	/**
 	 * Get currently set content type
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getType() {
 		return self::$type;
@@ -87,11 +87,11 @@ class TodoyuHeader {
 	/**
 	 * Send headers for download
 	 *
-	 * @param	String		$mimeType
-	 * @param	String		$filename
-	 * @param	Integer		$fileSize
-	 * @param	Integer		$fileModTime
-	 * @param	Boolean		$asAttachment
+	 * @param	string		$mimeType
+	 * @param	string		$filename
+	 * @param	integer		$fileSize
+	 * @param	integer		$fileModTime
+	 * @param	boolean		$asAttachment
 	 */
 	public static function sendDownloadHeaders($mimeType, $filename, $fileSize, $fileModTime = null, $asAttachment = true) {
 		$fileSize	= (int) $fileSize;
@@ -163,8 +163,8 @@ class TodoyuHeader {
 	/**
 	 * Send content type header
 	 *
-	 * @param	String		$type
-	 * @param	String		$charset
+	 * @param	string		$type
+	 * @param	string		$charset
 	 */
 	public static function sendContentType($type, $charset = 'utf-8') {
 		self::sendHeader('Content-type', "$type;charset=$charset");
@@ -186,7 +186,7 @@ class TodoyuHeader {
 	/**
 	 * Send a hash header
 	 *
-	 * @param	String		$hash
+	 * @param	string		$hash
 	 */
 	public static function sendHashHeader($hash) {
 		self::sendTodoyuHeader('Hash', $hash);
@@ -198,8 +198,8 @@ class TodoyuHeader {
 	 * Send a header prefixed with 'Todoyu-'
 	 * The value is automatically JSON encoded to make sure it's an ASCII string
 	 *
-	 * @param	String		$name
-	 * @param	String		$value
+	 * @param	string		$name
+	 * @param	string		$value
 	 */
 	public static function sendTodoyuHeader($name, $value) {
 		self::sendHeader('Todoyu-' . $name, json_encode($value));
@@ -210,7 +210,7 @@ class TodoyuHeader {
 	/**
 	 * Send HTTP header
 	 *
-	 * @param	Integer		$code
+	 * @param	integer		$code
 	 */
 	public static function sendHTTPHeader($code) {
 		header('HTTP/1.0 ' . $code);
@@ -243,7 +243,7 @@ class TodoyuHeader {
 
 	/**
 	 * Send todoyu error header and error message
-	 * @param	String		$message
+	 * @param	string		$message
 	 */
 	public static function sendTodoyuError($message) {
 		self::sendTodoyuErrorHeader();
@@ -264,8 +264,8 @@ class TodoyuHeader {
 	/**
 	 * Send custom header
 	 *
-	 * @param	String		$name
-	 * @param	String		$value
+	 * @param	string		$name
+	 * @param	string		$value
 	 */
 	public static function sendHeader($name, $value) {
 		header($name . ': ' . $value);
@@ -276,9 +276,9 @@ class TodoyuHeader {
 	/**
 	 * Redirect to a todoyu page
 	 *
-	 * @param	String		$ext
-	 * @param	String		$controller
-	 * @param	Array		$addParams
+	 * @param	string		$ext
+	 * @param	string		$controller
+	 * @param	array		$addParams
 	 */
 	public static function redirect($ext, $controller = 'ext', array $addParams = array()) {
 		$params		= array(
@@ -297,8 +297,8 @@ class TodoyuHeader {
 	/**
 	 * Send new location header to browser
 	 *
-	 * @param	String		$url
-	 * @param	Boolean		$exit
+	 * @param	string		$url
+	 * @param	boolean		$exit
 	 */
 	public static function location($url, $exit = true) {
 		self::sendHeader('Location', $url);

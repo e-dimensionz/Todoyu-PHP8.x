@@ -30,7 +30,7 @@ class TodoyuSysmanagerRightQuickInfoManager {
 	 * Add items to right quickinfo
 	 *
 	 * @param	TodoyuQuickinfo		$quickinfo
-	 * @param	Integer				$idElement
+	 * @param	integer				$idElement
 	 */
 	public static function addRightInfos(TodoyuQuickinfo $quickinfo, $idElement) {
 		list($prefix, $extKey, $sectionName, $right) = explode('-', $idElement);

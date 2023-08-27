@@ -4,11 +4,11 @@
 
 <div class="recordTypeInfo">
 	<div class="add">{Button label=$buttonLabel class="add" onclick="Todoyu.Ext.sysmanager.Records.add('$extKey', '$type')"}</div>
-	{Label $config.description}<br />
-	{count($records)} {Label core.global.records}
+	{Label text=$config.description}<br />
+	{count($records)} {Label text='core.global.records'}
 </div>
 
-<table cellspacing="0" cellpadding="0" class="list recordsList typeRecords recordList{ucfirst($type)}">
+<table cellspacing="0" cellpadding="0" class="list recordsList typeRecords recordList{$type|ucfirst}">
 	<colgroup>
 		<col class="icon" />
 		<col class="label" />
@@ -17,16 +17,16 @@
 
 	<tr class="header">
 		<th scope="col" class="icon">&nbsp;</th>
-		<th scope="col" class="label">{Label $config.label}</th>
+		<th scope="col" class="label">{Label text=$config.label}</th>
 		<th scope="col" class="actions last">&nbsp;</th>
 	</tr>
 
-{foreach $records record}
-	<tr class="{cycle values="odd,even"} {getRecordBooleanColumnsClassnames $record}">
+{foreach $records as $record}
+	<tr class="{cycle values="odd,even"} {getRecordBooleanColumnsClassnames record=$record}">
 		<td class="icon"></td>
 		<td class="recordtype">
 			<a href="javascript:void(0)" onclick="Todoyu.Ext.sysmanager.Records.edit('{$extKey}', '{$type}', {$record.id})" title="ID: {$record.id}">
-				{Label $record.label true}
+				{Label text=$record.label true}
 			</a>
 		</td>
 		<td class="actions">

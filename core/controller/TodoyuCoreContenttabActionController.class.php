@@ -30,8 +30,8 @@ class TodoyuCoreContenttabActionController extends TodoyuActionController {
 	/**
 	 * Load tab
 	 *
-	 * @param	Array		$params
-	 * @return	String
+	 * @param	array		$params
+	 * @return	string
 	 */
 	public function tabloadAction(array $params) {
 		$idItem		= intval($params['idItem']);
@@ -49,7 +49,7 @@ class TodoyuCoreContenttabActionController extends TodoyuActionController {
 	/**
 	 * Select tab
 	 *
-	 * @param	Array		$params
+	 * @param	array		$params
 	 */
 	public function tabselectedAction(array $params) {
 		$idItem		= intval($params['idItem']);

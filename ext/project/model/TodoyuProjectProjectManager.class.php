@@ -38,7 +38,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get project
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 * @return	TodoyuProjectProject
 	 */
 	public static function getProject($idProject) {
@@ -52,7 +52,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get project record
 	 *
-	 * @param	Integer	$idProject
+	 * @param	integer	$idProject
 	 * @return	Array
 	 */
 	public static function getProjectArray($idProject) {
@@ -67,8 +67,8 @@ class TodoyuProjectProjectManager {
 	 * Get project label
 	 * With short company name prefixed
 	 *
-	 * @param	Integer		$idProject
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @return	string
 	 */
 	public static function getLabel($idProject) {
 		return $idProject > 0 ? self::getProject($idProject)->getLabel() : '';
@@ -79,8 +79,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Add a project to the database
 	 *
-	 * @param	Array		$data		Data to fill all database fields
-	 * @return	Integer		New project ID
+	 * @param	array		$data		Data to fill all database fields
+	 * @return	integer		New project ID
 	 */
 	public static function addProject(array $data) {
 		$idProject = TodoyuRecordManager::addRecord(self::TABLE, $data);
@@ -95,9 +95,9 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Update a project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Array		$data
-	 * @return	Boolean					Success?
+	 * @param	integer		$idProject
+	 * @param	array		$data
+	 * @return	boolean					Success?
 	 */
 	public static function updateProject($idProject, array $data) {
 		$idProject	= intval($idProject);
@@ -116,9 +116,9 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Update status of project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$status
-	 * @return	Boolean
+	 * @param	integer		$idProject
+	 * @param	integer		$status
+	 * @return	boolean
 	 */
 	public static function updateProjectStatus($idProject, $status) {
 		$idProject	= intval($idProject);
@@ -139,8 +139,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Save a project (add or update)
 	 *
-	 * @param	Array		$data
-	 * @return	Integer		Project ID
+	 * @param	array		$data
+	 * @return	integer		Project ID
 	 */
 	public static function saveProject(array $data) {
 		$xmlPath	= 'ext/project/config/form/project.xml';
@@ -171,8 +171,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Delete a project (set deleted flag)
 	 *
-	 * @param	Integer		$idProject
-	 * @return	Boolean
+	 * @param	integer		$idProject
+	 * @return	boolean
 	 */
 	public static function deleteProject($idProject) {
 		$idProject	= intval($idProject);
@@ -196,8 +196,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get all tasks of a project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	String		$orderBy
+	 * @param	integer		$idProject
+	 * @param	string		$orderBy
 	 * @return	Array
 	 */
 	public static function getTasks($idProject, $orderBy = 'date_create') {
@@ -212,8 +212,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get all allowed task IDs of a project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	String		$sorting
+	 * @param	integer		$idProject
+	 * @param	string		$sorting
 	 * @return	Array
 	 */
 	public static function getTaskIDs($idProject, $sorting = '') {
@@ -231,8 +231,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get ALL task IDs in a project. Ignoring status and access rights
 	 *
-	 * @param	Integer		$idProject
-	 * @param	String		$sorting
+	 * @param	integer		$idProject
+	 * @param	string		$sorting
 	 * @return	Array
 	 */
 	public static function getAllTaskIDs($idProject, $sorting = '') {
@@ -265,7 +265,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get a project which is available for the person
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public static function getAvailableProjectForPerson() {
 		$filter		= new TodoyuProjectProjectFilter();
@@ -280,7 +280,7 @@ class TodoyuProjectProjectManager {
 	 * Check whether the project is locked
 	 *
 	 * @param	Number		$idProject
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isLocked($idProject) {
 		return TodoyuLockManager::isLocked('ext_project_project', $idProject);
@@ -291,8 +291,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Check whether a project is visible (available and not deleted)
 	 *
-	 * @param	Integer		$idProject
-	 * @return	Boolean
+	 * @param	integer		$idProject
+	 * @return	boolean
 	 */
 	public static function isProjectVisible($idProject) {
 		$idProject	= intval($idProject);
@@ -306,9 +306,9 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Check whether a person is assigned to a project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idProject
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function isPersonAssigned($idProject, $idPerson = 0) {
 		$idProject	= intval($idProject);
@@ -327,7 +327,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get root task IDs
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 * @return	Array
 	 */
 	public static function getRootTaskIDs($idProject) {
@@ -358,8 +358,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get context menu items
 	 *
-	 * @param	Integer	$idProject
-	 * @param	Array	$items
+	 * @param	integer	$idProject
+	 * @param	array	$items
 	 * @return	Array
 	 */
 	public static function getContextMenuItems($idProject, array $items) {
@@ -413,8 +413,8 @@ class TodoyuProjectProjectManager {
 
 
 	/**
-	 * @param	Integer		$idProject
-	 * @param	Array		$items
+	 * @param	integer		$idProject
+	 * @param	array		$items
 	 */
 	public static function getInlineContextMenuItems($idProject, array $items){
 		return array_merge($items, TodoyuContextMenuManager::getTypeContextMenuItems('project', $idProject));
@@ -425,8 +425,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get next available task number
 	 *
-	 * @param	Integer		$idProject
-	 * @return	Integer
+	 * @param	integer		$idProject
+	 * @return	integer
 	 */
 	public static function getNextTaskNumber($idProject) {
 		$idProject	= intval($idProject);
@@ -449,7 +449,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get render data for open project tabs
 	 *
-	 * @param	Array	$projectIDs
+	 * @param	array	$projectIDs
 	 * @return	Array
 	 */
 	public static function getOpenProjectTabs($projectIDs = array()) {
@@ -495,7 +495,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get all data attributes for the project (merged from all extensions)
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 * @return	Array
 	 */
 	public static function getAllProjectProperties($idProject) {
@@ -510,7 +510,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get all data attributes for the project (merged from all extensions)
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 * @return	Array
 	 */
 	public static function getProjectPresetDataArray($idProject) {
@@ -533,8 +533,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get attributes array for a project data list
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idProject
+	 * @param	array		$data
+	 * @param	integer		$idProject
 	 * @return	Array
 	 */
 	public static function getBasicProjectProperties(array $data, $idProject) {
@@ -581,7 +581,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get attributes array for a project preset data list
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 * @return	Array
 	 */
 	public static function getProjectPresetDataAttributes($idProject) {
@@ -774,7 +774,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Update task tree filters (add a new filter)
 	 *
-	 * @param	String	$filterName
+	 * @param	string	$filterName
 	 * @param	Mixed	$filterValue
 	 */
 	public static function updateProjectTreeFilters($filterName, $filterValue) {
@@ -798,8 +798,8 @@ class TodoyuProjectProjectManager {
 	 * Get the tasks which should be displayed the current filter settings, but aren't because
 	 * parent task doesn't match to the filter and is not displayed with all its sub tasks
 	 *
-	 * @param	Integer		$idProject			Project ID
-	 * @param	Array		$displayedTasks		Tasks which have been rendered
+	 * @param	integer		$idProject			Project ID
+	 * @param	array		$displayedTasks		Tasks which have been rendered
 	 * @return	Array		List of "lost" tasks. They should be displayed, but aren't
 	 */
 	public static function getLostTaskInTaskTree($idProject, array $displayedTasks) {
@@ -861,9 +861,9 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get persons which are connected with the project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Boolean		$personUnique
-	 * @param	Boolean		$withAccount
+	 * @param	integer		$idProject
+	 * @param	boolean		$personUnique
+	 * @param	boolean		$withAccount
 	 * @return	Array
 	 */
 	public static function getProjectPersons($idProject, $personUnique = false, $withAccount = false) {
@@ -918,8 +918,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get IDs of persons which are assigned to the project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Boolean		$withAccount
+	 * @param	integer		$idProject
+	 * @param	boolean		$withAccount
 	 * @return	Array
 	 */
 	public static function getProjectPersonIDs($idProject, $withAccount = false) {
@@ -933,8 +933,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get (public) persons which are connected with any of the given projects
 	 *
-	 * @param	Array		$projectIDs
-	 * @param	Boolean		$withAccount
+	 * @param	array		$projectIDs
+	 * @param	boolean		$withAccount
 	 * @return	Array
 	 */
 	public static function getProjectsPersonsIDs(array $projectIDs = array(), $withAccount = false) {
@@ -979,10 +979,10 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get project person label (name + project role)
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idProjectRole
-	 * @return	String
+	 * @param	integer		$idPerson
+	 * @param	integer		$idProject
+	 * @param	integer		$idProjectRole
+	 * @return	string
 	 */
 	public static function getProjectPersonLabel($idPerson, $idProject, $idProjectRole = 0) {
 		$idPerson		= intval($idPerson);
@@ -1005,9 +1005,9 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get role of person in project
 	 *
-	 * @param	Integer		$idPerson
-	 * @param	Integer		$idProject
-	 * @return	Integer
+	 * @param	integer		$idPerson
+	 * @param	integer		$idProject
+	 * @return	integer
 	 */
 	public static function getProjectroleLabel($idPerson, $idProject) {
 		return self::getProjectrole($idProject, $idPerson)->getTitle();
@@ -1018,8 +1018,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get project role of a person in a project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idProject
+	 * @param	integer		$idPerson
 	 * @return	TodoyuProjectProjectrole
 	 */
 	public static function getProjectrole($idProject, $idPerson) {
@@ -1043,7 +1043,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get all roles which are used in a project
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 * @return	Array
 	 */
 	public static function getProjectroles($idProject) {
@@ -1064,7 +1064,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get all IDs of roles which are used in a project
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 * @return	Array
 	 */
 	public static function getProjectRolesIDs($idProject) {
@@ -1079,8 +1079,8 @@ class TodoyuProjectProjectManager {
 	 * Get first person with a specific role in project
 	 * If no person has this role, FALSE is returned
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idRole
+	 * @param	integer		$idProject
+	 * @param	integer		$idRole
 	 * @return	TodoyuContactPerson				Or FALSE if not found
 	 */
 	public static function getRolePerson($idProject, $idRole) {
@@ -1099,7 +1099,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get all roles with their assigned persons to given project
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 * @return	Array
 	 */
 	public static function getPersonsIDsOfAllRoles($idProject) {
@@ -1126,8 +1126,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get IDs of all persons with the given roles in the given project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Array		$roleIDs
+	 * @param	integer		$idProject
+	 * @param	array		$roleIDs
 	 * @return	Array
 	 */
 	public static function getRolesPersonIDs($idProject, array $roleIDs = array()) {
@@ -1154,8 +1154,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get IDs of all persons with the given role in the given project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idRole
+	 * @param	integer		$idProject
+	 * @param	integer		$idRole
 	 * @return	Array
 	 */
 	public static function getRolePersonIDs($idProject, $idRole) {
@@ -1176,8 +1176,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Remove all persons from a project
 	 *
-	 * @param	Integer		$idProject
-	 * @return	Integer		Number of removed persons
+	 * @param	integer		$idProject
+	 * @return	integer		Number of removed persons
 	 */
 	public static function removeAllProjectPersons($idProject) {
 		$idProject	= intval($idProject);
@@ -1193,9 +1193,9 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Remove a person from a project (as project member)
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idPerson
-	 * @return	Boolean		Success
+	 * @param	integer		$idProject
+	 * @param	integer		$idPerson
+	 * @return	boolean		Success
 	 */
 	public static function removeProjectPerson($idProject, $idPerson) {
 		$idProject	= intval($idProject);
@@ -1213,11 +1213,11 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Add a person to project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idPerson
-	 * @param	Integer		$idProjectRole
-	 * @param	Array		$extraData
-	 * @return	Integer		Link ID
+	 * @param	integer		$idProject
+	 * @param	integer		$idPerson
+	 * @param	integer		$idProjectRole
+	 * @param	array		$extraData
+	 * @return	integer		Link ID
 	 */
 	public static function addPerson($idProject, $idPerson, $idProjectRole, array $extraData = array()) {
 		$idProject		= intval($idProject);
@@ -1245,8 +1245,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Save project person data and link the persons with the project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Array		$persons
+	 * @param	integer		$idProject
+	 * @param	array		$persons
 	 */
 	public static function saveProjectPersons($idProject, array $persons) {
 		$idProject	= intval($idProject);
@@ -1362,7 +1362,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get quick create project form object
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 * @return	TodoyuForm
 	 */
 	public static function getQuickCreateForm($idProject = 0) {
@@ -1386,8 +1386,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Lock project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$ext
+	 * @param	integer		$idProject
+	 * @param	integer		$ext
 	 */
 	public static function lockProject($idProject, $ext = EXTID_PROJECT) {
 		TodoyuLockManager::lock($ext, 'ext_project_project', $idProject);
@@ -1398,8 +1398,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Unlock a project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$ext
+	 * @param	integer		$idProject
+	 * @param	integer		$ext
 	 */
 	public static function unlockProject($idProject, $ext = EXTID_PROJECT) {
 		TodoyuLockManager::unlock($ext, 'ext_project_project', $idProject);
@@ -1410,8 +1410,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Lock all tasks of given project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$ext
+	 * @param	integer		$idProject
+	 * @param	integer		$ext
 	 */
 	public static function lockAllTasks($idProject, $ext = EXTID_PROJECT) {
 		$idProject	= intval($idProject);
@@ -1447,7 +1447,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get project IDs of a company
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 * @return	Array
 	 */
 	public static function getCompanyProjectIDs($idCompany) {
@@ -1465,7 +1465,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get project detail tabs config array (labels parsed)
 	 *
-	 * @param	Integer		$idProject
+	 * @param	integer		$idProject
 	 * @return	Array
 	 */
 	public static function getTabs($idProject) {
@@ -1477,7 +1477,7 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get a project detail tab configuration
 	 *
-	 * @param	String		$tabKey
+	 * @param	string		$tabKey
 	 * @return	Array
 	 */
 	public static function getTabConfig($tabKey) {
@@ -1489,8 +1489,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get the project detail tab which is active by default (if no preference is stored)
 	 *
-	 * @param	Integer		$idProject
-	 * @return	String
+	 * @param	integer		$idProject
+	 * @return	string
 	 */
 	public static function getDefaultTab($idProject) {
 		return TodoyuContentItemTabManager::getDefaultTab('project', 'project', $idProject);
@@ -1501,9 +1501,9 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Add fallback task preset as default preset for new projects
 	 *
-	 * @param	Array		$data
-	 * @param	Integer		$idProject
-	 * @param	Array		$params
+	 * @param	array		$data
+	 * @param	integer		$idProject
+	 * @param	array		$params
 	 * @return	Array
 	 */
 	public static function hookSetProjectDefaultData(array $data, $idProject, array $params) {
@@ -1526,8 +1526,8 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Get matching projects for form records
 	 *
-	 * @param	Array		$searchWords
-	 * @param	Array		$ignoreIDs
+	 * @param	array		$searchWords
+	 * @param	array		$ignoreIDs
 	 * @return	Array
 	 */
 	public static function getMatchingProjects(array $searchWords, array $ignoreIDs = array(), array $params = array(), $type = null) {
@@ -1551,12 +1551,12 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Search projects
 	 *
-	 * @param	String[]		$searchWords
-	 * @param	Integer[]		$ignoreIDs
-	 * @param	String[]		$ignoreWords
-	 * @param	Integer			$limit
-	 * @param	Integer[]		$status
-	 * @return	Integer[]
+	 * @param	string[]		$searchWords
+	 * @param	integer[]		$ignoreIDs
+	 * @param	string[]		$ignoreWords
+	 * @param	integer			$limit
+	 * @param	integer[]		$status
+	 * @return	integer[]
 	 */
 	public static function searchProjects(array $searchWords, $ignoreIDs = array(), array $ignoreWords = array(), $limit = 100, array $status = array()) {
 		$searchWords	= TodoyuArray::trim($searchWords, true);
@@ -1609,9 +1609,9 @@ class TodoyuProjectProjectManager {
 	/**
 	 * Check whether currency person can add tasks to this project
 	 *
-	 * @param	Integer		$idProject
-	 * @param	Integer		$idPerson
-	 * @return	Boolean
+	 * @param	integer		$idProject
+	 * @param	integer		$idPerson
+	 * @return	boolean
 	 */
 	public static function canPersonAddTasks($idProject, $idPerson = 0) {
 		$idProject	= intval($idProject);

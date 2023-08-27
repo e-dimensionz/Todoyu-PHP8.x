@@ -31,7 +31,7 @@ class TodoyuContactContactInfoManagerCompany extends TodoyuContactContactInfoMan
 	 *
 	 * @todo	see comment in above function 'removeContactinfoLinks'
 	 *
-	 * @param	Integer		$idCompany
+	 * @param	integer		$idCompany
 	 */
 	public static function deleteContactInfos($idCompany) {
 		self::deleteLinkedContactInfos('company', $idCompany, array(), 'id_company');
@@ -42,9 +42,9 @@ class TodoyuContactContactInfoManagerCompany extends TodoyuContactContactInfoMan
 	/**
 	 * Get email addresses of given types of given person
 	 *
-	 * @param	Integer			$idPerson
-	 * @param	String|Boolean	$type
-	 * @param	Boolean			$onlyPreferred
+	 * @param	integer			$idPerson
+	 * @param	string|Boolean	$type
+	 * @param	boolean			$onlyPreferred
 	 * @return	Array
 	 */
 	public static function getEmails($idPerson, $type = false, $onlyPreferred = false) {
@@ -56,9 +56,9 @@ class TodoyuContactContactInfoManagerCompany extends TodoyuContactContactInfoMan
 	/**
 	 * Get phone numbers of given types of given person
 	 *
-	 * @param	Integer			$idCompany
-	 * @param	String|Boolean	$type
-	 * @param	Boolean			$onlyPreferred
+	 * @param	integer			$idCompany
+	 * @param	string|Boolean	$type
+	 * @param	boolean			$onlyPreferred
 	 * @return	Array
 	 */
 	public static function getPhones($idCompany, $type = false, $onlyPreferred = false) {
@@ -71,8 +71,8 @@ class TodoyuContactContactInfoManagerCompany extends TodoyuContactContactInfoMan
 	 * Get preferred email of a company
 	 * First check system email, than check "contactinfo" records. Look for preferred emails
 	 *
-	 * @param	Integer		$idCompany
-	 * @return	String
+	 * @param	integer		$idCompany
+	 * @return	string
 	 */
 	public static function getPreferredEmail($idCompany) {
 		$idCompany		= intval($idCompany);

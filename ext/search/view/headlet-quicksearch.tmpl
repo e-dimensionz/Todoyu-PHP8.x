@@ -11,10 +11,10 @@
 	{if $searchModes}
 		<div id="{$name}-modes" style="display:none">
 			<ul>
-				{foreach $searchModes searchMode}
-					<li class="searchmode{ucfirst($searchMode.type)}">
+				{foreach $searchModes as $searchMode}
+					<li class="searchmode{$searchMode.type|ucfirst}">
 						<a href="javascript:void(0)">
-							{Label $searchMode.labelMode}
+							{Label text=$searchMode.labelMode}
 						</a>
 					</li>
 				{/foreach}

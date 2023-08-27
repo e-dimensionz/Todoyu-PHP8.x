@@ -26,8 +26,8 @@
 class TodoyuCommentTempUploader extends TodoyuAssetsTempUploader {
 
 	/**
-	 * @param	Integer		 $idComment
-	 * @param	Integer		$idTask
+	 * @param	integer		 $idComment
+	 * @param	integer		$idTask
 	 */
 	public function __construct($idComment, $idTask) {
 		$key	= intval($idComment) . '-' . intval($idTask);
@@ -37,7 +37,7 @@ class TodoyuCommentTempUploader extends TodoyuAssetsTempUploader {
 
 
 	/**
-	 * @param	String		$fileKey
+	 * @param	string		$fileKey
 	 * @return	Array
 	 */
 	public function getFileInfo($fileKey) {

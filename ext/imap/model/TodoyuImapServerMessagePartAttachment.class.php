@@ -29,8 +29,8 @@ class TodoyuImapServerMessagePartAttachment extends TodoyuImapServerMessagePart 
 	/**
 	 * Save part content as attachment file
 	 *
-	 * @param	Integer		$idMessage
-	 * @return	Integer		Attachment ID
+	 * @param	integer		$idMessage
+	 * @return	integer		Attachment ID
 	 */
 	public function saveAsAttachment($idMessage) {
 		return TodoyuImapAttachmentManager::addAttachment($idMessage, $this->getAttachmentName(), $this->getContent());
@@ -41,7 +41,7 @@ class TodoyuImapServerMessagePartAttachment extends TodoyuImapServerMessagePart 
 	/**
 	 * Get attachment name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getAttachmentName() {
 		if( isset( $this->part->dparameters ) ) {

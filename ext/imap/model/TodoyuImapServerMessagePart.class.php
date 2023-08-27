@@ -47,7 +47,7 @@ class TodoyuImapServerMessagePart {
 	 * Initialize
 	 *
 	 * @param	TodoyuImapServerMessage		$message
-	 * @param	String						$section
+	 * @param	string						$section
 	 * @param	stdClass					$part
 	 */
 	public function __construct(TodoyuImapServerMessage $message, $section, stdClass $part) {
@@ -72,7 +72,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Get section
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getSection() {
 		return $this->section;
@@ -94,7 +94,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Get part encoding key
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getEncoding() {
 		return $this->part->encoding;
@@ -114,7 +114,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part is an attachment part
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isAttachment() {
 		return $this->part->disposition === 'attachment';
@@ -126,7 +126,7 @@ class TodoyuImapServerMessagePart {
 	 * Get part type
 	 *
 	 * @see		constants.php
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getType() {
 		return intval($this->part->type);
@@ -137,7 +137,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part is of type text
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isTypeText() {
 		return $this->getType() === IMAP_MESSAGE_TYPE_TEXT;
@@ -147,7 +147,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part is of type multipart
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isTypeMultiPart() {
 		return $this->getType() === IMAP_MESSAGE_TYPE_MULTIPART;
@@ -158,7 +158,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part is of type message
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isTypeMessage() {
 		return $this->getType() === IMAP_MESSAGE_TYPE_MESSAGE;
@@ -169,7 +169,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part is of type application
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isTypeApplication() {
 		return $this->getType() === IMAP_MESSAGE_TYPE_APPLICATION;
@@ -180,7 +180,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part is of type audio
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isTypeAudio() {
 		return $this->getType() === IMAP_MESSAGE_TYPE_AUDIO;
@@ -191,7 +191,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part is of type image
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isTypeImage() {
 		return $this->getType() === IMAP_MESSAGE_TYPE_IMAGE;
@@ -202,7 +202,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part is of type video
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isTypeVideo() {
 		return $this->getType() === IMAP_MESSAGE_TYPE_VIDEO;
@@ -213,7 +213,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part is of type other
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isTypeOther() {
 		return $this->getType() === IMAP_MESSAGE_TYPE_OTHER;
@@ -224,7 +224,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Get part subtype
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getSubType() {
 		return strtoupper($this->part->subtype);
@@ -235,7 +235,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part has subtype plain
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isSubTypePlain() {
 		return $this->getSubType() === 'PLAIN';
@@ -246,7 +246,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part has subtype html
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isSubTypeHtml() {
 		return $this->getSubType() === 'HTML';
@@ -257,7 +257,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part has subtype png
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isSubTypePng() {
 		return $this->getSubType() === 'PNG';
@@ -268,7 +268,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part has subtype jpeg
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isSubTypeJpeg() {
 		return $this->getSubType() === 'JPEG';
@@ -279,7 +279,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part has subtype gif
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isSubTypeGif() {
 		return $this->getSubType() === 'GIF';
@@ -290,7 +290,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part has subtype alternative
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isSubTypeAlternative() {
 		return $this->getSubType() === 'ALTERNATIVE';
@@ -306,7 +306,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Check whether part has a subtype of any of the image types
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function isSubTypeAnInlineImage() {
 		return $this->isSubTypeJpeg() || $this->isSubTypePng() || $this->isSubTypeGif();
@@ -317,7 +317,7 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Get part ID
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getID() {
 		return TodoyuImapMessageManager::cleanID($this->part->id);
@@ -328,8 +328,8 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Get content part
 	 *
-	 * @param	Integer		$options
-	 * @return	String
+	 * @param	integer		$options
+	 * @return	string
 	 */
 	public function getContent($options = 0) {
 		$options |= FT_PEEK; // Don't set as seen
@@ -349,7 +349,7 @@ class TodoyuImapServerMessagePart {
 	 * Check whether decoding is required
 	 * Decoding is not required for binary and "other"
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	protected function isDecodingRequired() {
 		return !in_array($this->getEncoding(), array(IMAP_ENCODING_BINARY, IMAP_ENCODING_OTHER));
@@ -360,8 +360,8 @@ class TodoyuImapServerMessagePart {
 	/**
 	 * Get parameter
 	 *
-	 * @param	String		$parameterName
-	 * @return	String|Boolean
+	 * @param	string		$parameterName
+	 * @return	string|Boolean
 	 */
 	public function getPartParameter($parameterName) {
 		return TodoyuImapServerMessagePartManager::getPartParameter($this->part, $parameterName);

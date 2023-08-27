@@ -26,7 +26,7 @@
  */
 class TodoyuTime {
 
-	/**
+    /**
 	 * Seconds per minute
 	 *
 	 * @var	Integer
@@ -59,13 +59,14 @@ class TodoyuTime {
 	 */
 	const MAX = 2000000000;
 
+    static $formats = [];
 
 
 	/**
 	 * Get current time if time is not a number
 	 *
-	 * @param	Integer		$time
-	 * @return	Integer
+	 * @param	integer		$time
+	 * @return	integer
 	 */
 	public static function time($time = 0) {
 		$time	= (int) $time;
@@ -78,8 +79,8 @@ class TodoyuTime {
 	/**
 	 *Get timestamp of start of day (00:00:00)
 	 *
-	 * @param	Integer		$time
-	 * @return	Integer
+	 * @param	integer		$time
+	 * @return	integer
 	 * @deprecated
 	 * @see		getDayStart
 	 */
@@ -92,8 +93,8 @@ class TodoyuTime {
 	/**
 	 * Get timestamp of start of day (00:00:00)
 	 *
-	 * @param	Integer		$time
-	 * @return	Integer
+	 * @param	integer		$time
+	 * @return	integer
 	 */
 	public static function getDayStart($time = 0) {
 		$time	= self::time($time);
@@ -110,8 +111,8 @@ class TodoyuTime {
 	/**
 	 * Make timestamp for end (23:59:59) of day
 	 *
-	 * @param	Integer		$time
-	 * @return	Integer
+	 * @param	integer		$time
+	 * @return	integer
 	 * @deprecated
 	 * @see		getDayEnd
 	 */
@@ -124,8 +125,8 @@ class TodoyuTime {
 	/**
 	 * Make timestamp for end (23:59:59) of day
 	 *
-	 * @param	Integer		$time
-	 * @return	Integer
+	 * @param	integer		$time
+	 * @return	integer
 	 */
 	public static function getDayEnd($time = 0) {
 		$time = self::time($time);
@@ -142,8 +143,8 @@ class TodoyuTime {
 	/**
 	 * Make timestamp for given date's time (at 1.1.1970)
 	 *
-	 * @param	Integer|Boolean		$time
-	 * @return	Integer
+	 * @param	integer|Boolean		$time
+	 * @return	integer
 	 */
 	public static function getTimeOfDay($time = false) {
 		$time	= self::time($time);
@@ -160,7 +161,7 @@ class TodoyuTime {
 	/**
 	 * Get timestamps for the first and the last second of a day
 	 *
-	 * @param	Integer|Boolean		$timestamp
+	 * @param	integer|Boolean		$timestamp
 	 * @return	Array				[start,end]
 	 */
 	public static function getDayRange($timestamp = false) {
@@ -175,7 +176,7 @@ class TodoyuTime {
 	/**
 	 * Get timestamps of start and of week that contains the given timestamp
 	 *
-	 * @param	Integer	$timestamp
+	 * @param	integer	$timestamp
 	 * @return	Array
 	 */
 	public static function getWeekRange($timestamp) {
@@ -193,7 +194,7 @@ class TodoyuTime {
 	/**
 	 * Get range (start and end timestamp) of month
 	 *
-	 * @param	Integer		$timestamp
+	 * @param	integer		$timestamp
 	 * @return	Array
 	 */
 	public static function getMonthRange($timestamp) {
@@ -209,7 +210,7 @@ class TodoyuTime {
 	 * Get start and end timestamp of every day in the week of the timestamp
 	 * 00:00:00
 	 *
-	 * @param		Integer		$timestamp					Timestamp
+	 * @param		integer		$timestamp					Timestamp
 	 * @param		Boolean		$forceStartWithMonday
 	 * @return		Integer		Timestamp of beginning of week (sunday or monday by system config) the given timestamp belongs to
 	 */
@@ -235,9 +236,9 @@ class TodoyuTime {
 	/**
 	 * Get timestamp for the end of the week (last second in the week) 23:59:59
 	 *
-	 * @param	Integer		$timestamp
-	 * @param	Boolean		$forceStartWeekWithMonday
-	 * @return	Integer
+	 * @param	integer		$timestamp
+	 * @param	boolean		$forceStartWeekWithMonday
+	 * @return	integer
 	 */
 	public static function getWeekEnd($timestamp = 0, $forceStartWeekWithMonday = false) {
 		$weekStart	= self::getWeekStart($timestamp, $forceStartWeekWithMonday);
@@ -250,8 +251,8 @@ class TodoyuTime {
 	/**
 	 * Get timestamp of first day (at 00:00:00) of month
 	 *
-	 * @param	Integer	$timestamp
-	 * @return	Integer
+	 * @param	integer	$timestamp
+	 * @return	integer
 	 */
 	public static function getMonthStart($timestamp = 0) {
 		$timestamp	= self::time($timestamp);
@@ -264,8 +265,8 @@ class TodoyuTime {
 	/**
 	 * Get timestamp for end of month (last second in the month, 23:59:59)
 	 *
-	 * @param	Integer		$timestamp
-	 * @return	Integer
+	 * @param	integer		$timestamp
+	 * @return	integer
 	 */
 	public static function getMonthEnd($timestamp = 0) {
 		$timestamp	= self::time($timestamp);
@@ -278,8 +279,8 @@ class TodoyuTime {
 	/**
 	 * Get timestamp for start of year
 	 *
-	 * @param	Integer		$timestamp
-	 * @return	Integer
+	 * @param	integer		$timestamp
+	 * @return	integer
 	 */
 	public static function getYearStart($timestamp = 0) {
 		$timestamp	= self::time($timestamp);
@@ -292,8 +293,8 @@ class TodoyuTime {
 	/**
 	 * Get timestamp for end of year
 	 *
-	 * @param	Integer		$timestamp
-	 * @return	Integer
+	 * @param	integer		$timestamp
+	 * @return	integer
 	 */
 	public static function getYearEnd($timestamp = 0) {
 		$timestamp	= self::time($timestamp);
@@ -306,8 +307,8 @@ class TodoyuTime {
 	/**
 	 * Get day-number of last day of month of given timestamp
 	 *
-	 * @param	Integer		$timestamp
-	 * @return	Integer
+	 * @param	integer		$timestamp
+	 * @return	integer
 	 */
 	public static function getLastDayNumberInMonth($timestamp = 0) {
 		$timestamp	= self::time($timestamp);
@@ -323,9 +324,9 @@ class TodoyuTime {
 	 * Get weekday of a timestamp. Like date('w'), but starts with monday
 	 * With $mondayFirst monday will be 0 and sunday 6
 	 *
-	 * @param	Integer		$timestamp
-	 * @param	Boolean		$mondayFirst
-	 * @return	Integer		0 = monday, 6 = sunday
+	 * @param	integer		$timestamp
+	 * @param	boolean		$mondayFirst
+	 * @return	integer		0 = monday, 6 = sunday
 	 * @deprecated
 	 * @todo	Should be removed, this is dangerous. Sunday should always be 0
 	 */
@@ -342,7 +343,7 @@ class TodoyuTime {
 	/**
 	 * Get time parts (hours, minutes, seconds) from an integer which represents seconds
 	 *
-	 * @param	Integer		$seconds		Number of seconds
+	 * @param	integer		$seconds		Number of seconds
 	 * @return	Array		[hours,minutes,seconds]
 	 */
 	public static function getTimeParts($seconds) {
@@ -365,7 +366,7 @@ class TodoyuTime {
 	/**
 	 * Get time parts (days, hours, minutes, seconds) from an integer which represents seconds
 	 *
-	 * @param	Integer		$seconds		Number of seconds
+	 * @param	integer		$seconds		Number of seconds
 	 * @return	Array		[days,hours,minutes,seconds]
 	 */
 	public static function getTimePartsDHMS($seconds) {
@@ -382,9 +383,9 @@ class TodoyuTime {
 	/**
 	 * Convert seconds (integer) to a readable format with hours and minutes (03:10 = 3 hours and 10 minutes)
 	 *
-	 * @param	Integer		$seconds		Seconds
-	 * @param	Boolean		$leadingZero	Assure leading zero: 2:30 = 02:30
-	 * @return	String		Formatted
+	 * @param	integer		$seconds		Seconds
+	 * @param	boolean		$leadingZero	Assure leading zero: 2:30 = 02:30
+	 * @return	string		Formatted
 	 * @deprecated
 	 * @see		formatHours
 	 */
@@ -397,9 +398,9 @@ class TodoyuTime {
 	/**
 	 * Convert seconds (integer) to a readable format with hours and minutes (03:10 = 3 hours and 10 minutes)
 	 *
-	 * @param	Integer		$seconds		Seconds
-	 * @param	Boolean		$leadingZero	Assure leading zero: 2:30 = 02:30
-	 * @return	String		Formatted
+	 * @param	integer		$seconds		Seconds
+	 * @param	boolean		$leadingZero	Assure leading zero: 2:30 = 02:30
+	 * @return	string		Formatted
 	 */
 	public static function formatHours($seconds, $leadingZero = true) {
 		$timeParts	= self::getTimeParts($seconds);
@@ -420,14 +421,29 @@ class TodoyuTime {
 	}
 
 
+    public static function loadFormats()
+    {
+        if(!empty(static::$formats)){
+            return static::$formats;
+        }
+        $locale = Todoyu::getLocale();
+        if(TodoyuFileManager::isDir('core/locale/'.$locale) && TodoyuFileManager::isFile('core/locale/'.$locale.'/dateformat.xml')){
+            $path = TodoyuFileManager::pathAbsolute('core/locale/'.$locale.'/dateformat.xml');
+            $objXmlDocument = simplexml_load_file($path);
+            foreach($objXmlDocument->label as $format){
+                static::$formats[(string)$format->attributes()->index] = (string)$format;
+            }
+        }
+        return static::$formats;
+    }
 
 	/**
 	 * Format time values 23:59 or 23:59:59
 	 *
-	 * @param	Integer		$seconds
-	 * @param	Boolean		$withSeconds
-	 * @param	Boolean		$round			Round or cut seconds
-	 * @return	String
+	 * @param	integer		$seconds
+	 * @param	boolean		$withSeconds
+	 * @param	boolean		$round			Round or cut seconds
+	 * @return	string
 	 */
 	public static function formatTime($seconds, $withSeconds = false, $round = true) {
 		$seconds	= (int) $seconds;
@@ -456,10 +472,10 @@ class TodoyuTime {
 	 * Format a timestamp with one of todoyu's default date formats
 	 *
 	 * @see		core/config/dateformat.xml
-	 * @param	Integer			$timestamp
-	 * @param	String|Null		$formatName
-	 * @param	String|Boolean	$format				Ignore formatName and use directly this format
-	 * @return	String		Formatted date
+	 * @param	integer			$timestamp
+	 * @param	string|Null		$formatName
+	 * @param	string|Boolean	$format				Ignore formatName and use directly this format
+	 * @return	string		Formatted date
 	 */
 	public static function format($timestamp, $formatName = 'datetime', $format = false) {
 		$timestamp	= (int) $timestamp;
@@ -485,8 +501,8 @@ class TodoyuTime {
 	/**
 	 * Get given duration formatted in most suiting format
 	 *
-	 * @param	Integer		$duration
-	 * @return	String
+	 * @param	integer		$duration
+	 * @return	string
 	 */
 	public static function formatDuration($duration) {
 		$duration	= intval($duration);
@@ -530,10 +546,10 @@ class TodoyuTime {
 	/**
 	 * Have given timespan formatted in most suiting format
 	 *
-	 * @param	Integer		$dateStart
-	 * @param	Integer		$dateEnd
-	 * @param	Boolean		$withMultidayTime
-	 * @return	String
+	 * @param	integer		$dateStart
+	 * @param	integer		$dateEnd
+	 * @param	boolean		$withMultidayTime
+	 * @return	string
 	 */
 	public static function formatRange($dateStart, $dateEnd, $withMultidayTime = false) {
 		$dateStart	= intval($dateStart);
@@ -557,9 +573,9 @@ class TodoyuTime {
 	/**
 	 * Format an SQL datetime string with one of todoyu's default date formats
 	 *
-	 * @param	String	$sqlDate
-	 * @param	String	$format
-	 * @return	String
+	 * @param	string	$sqlDate
+	 * @param	string	$format
+	 * @return	string
 	 */
 	public static function formatSqlDate($sqlDate, $format = 'date') {
 		$timestamp	= self::parseSqlDate($sqlDate);
@@ -572,8 +588,8 @@ class TodoyuTime {
 	/**
 	 * Parse SQL date to timestamp
 	 *
-	 * @param	String		$sqlDate
-	 * @return	Integer
+	 * @param	string		$sqlDate
+	 * @return	integer
 	 */
 	public static function parseSqlDate($sqlDate) {
 		$pattern	= '%Y-%m-%d';
@@ -587,8 +603,8 @@ class TodoyuTime {
 	 * Get format config string
 	 *
 	 * @see		core/config/dateformat.xml
-	 * @param	String		$formatName
-	 * @return	String
+	 * @param	string		$formatName
+	 * @return	string
 	 */
 	public static function getFormat($formatName) {
 		$localeKey	= 'core.dateformat.' . $formatName;
@@ -604,8 +620,8 @@ class TodoyuTime {
 	 * Clean date format for windows
 	 * Replace %e with %d
 	 *
-	 * @param	String		$format
-	 * @return	String
+	 * @param	string		$format
+	 * @return	string
 	 */
 	public static function cleanFormatForWindows($format) {
 		if( strpos($format, '%e') !== false ) {
@@ -623,8 +639,8 @@ class TodoyuTime {
 	/**
 	 * Parse date string with check if its a dateString or a dateTimeString
 	 *
-	 * @param	String	$dateString
-	 * @return	Integer
+	 * @param	string	$dateString
+	 * @return	integer
 	 */
 	public static function parseDateString($dateString) {
 		$time = self::parseDateTime($dateString);
@@ -646,8 +662,8 @@ class TodoyuTime {
 	/**
 	 * Parse date string (formatted according to current locale) to UNIX timestamp
 	 *
-	 * @param	String		$dateString
-	 * @return	Integer		UNIX timestamp
+	 * @param	string		$dateString
+	 * @return	integer		UNIX timestamp
 	 */
 	public static function parseDate($dateString) {
 		$dateString	= trim($dateString);
@@ -680,9 +696,9 @@ class TodoyuTime {
 	/**
 	 * Parse date time string (get UNIX timestamp)
 	 *
-	 * @param	String		$dateTimeString
-	 * @param	String		$format
-	 * @return	Integer
+	 * @param	string		$dateTimeString
+	 * @param	string		$format
+	 * @return	integer
 	 */
 	public static function parseDateTime($dateTimeString, $format = '') {
 		$format		= $format == '' ? self::getFormat('datetime') : $format;
@@ -714,8 +730,8 @@ class TodoyuTime {
 	/**
 	 * Parse time string to UNIX timestamp (time format is based on the format time or timesec)
 	 *
-	 * @param	String		$timeString		Time string: 23:59 or 23:59:59 (function auto-detects seconds part)
-	 * @return	Integer		Seconds
+	 * @param	string		$timeString		Time string: 23:59 or 23:59:59 (function auto-detects seconds part)
+	 * @return	integer		Seconds
 	 */
 	public static function parseTime($timeString) {
 		$colons		= substr_count($timeString, ':');
@@ -734,8 +750,8 @@ class TodoyuTime {
 	/**
 	 * Parse duration to seconds (format: 32:50)
 	 *
-	 * @param	String		$timeString
-	 * @return	Integer
+	 * @param	string		$timeString
+	 * @return	integer
 	 */
 	public static function parseDuration($timeString) {
 		$parts	= explode(':', $timeString);
@@ -748,8 +764,8 @@ class TodoyuTime {
 	/**
 	 * Check whether date string has standard date format 2011-08-05 (year-month-day)
 	 *
-	 * @param	String		$dateString
-	 * @return	Boolean
+	 * @param	string		$dateString
+	 * @return	boolean
 	 */
 	public static function isStandardDate($dateString) {
 		return preg_match('/^\d{4}-\d{2}-\d{2}$/', trim($dateString)) === 1;
@@ -760,9 +776,9 @@ class TodoyuTime {
 	/**
 	 * Round minutes by given steps
 	 *
-	 * @param	Integer		$timestamp
-	 * @param	Integer		$steps
-	 * @return	Integer		Rounded time
+	 * @param	integer		$timestamp
+	 * @param	integer		$steps
+	 * @return	integer		Rounded time
 	 */
 	public static function getRoundedTime($timestamp = 0, $steps = 5) {
 		$timestamp	= (int) $timestamp;
@@ -789,12 +805,12 @@ class TodoyuTime {
 	 * A (14:00-15:00), B (15:00-16:00)
 	 * Only when border touching is true, this ranges are recognized as overlapping
 	 *
-	 * @param	Integer		$dateStart1
-	 * @param	Integer		$dateEnd1
-	 * @param	Integer		$dateStart2
-	 * @param	Integer		$dateEnd2
-	 * @param	Boolean		$allowBorderTouching		False: ranges have to overlap, True: Count border touching as overlapping
-	 * @return	Boolean
+	 * @param	integer		$dateStart1
+	 * @param	integer		$dateEnd1
+	 * @param	integer		$dateStart2
+	 * @param	integer		$dateEnd2
+	 * @param	boolean		$allowBorderTouching		False: ranges have to overlap, True: Count border touching as overlapping
+	 * @return	boolean
 	 */
 	public static function rangeOverlaps($dateStart1, $dateEnd1, $dateStart2, $dateEnd2, $allowBorderTouching = false) {
 		$dateStart1	= (int) $dateStart1;
@@ -821,9 +837,9 @@ class TodoyuTime {
 	/**
 	 * Round-UP given time in seconds to given rounding minute
 	 *
-	 * @param	Integer		$timestamp
-	 * @param	Integer		$roundingMinute		Round to number of minutes (10min, 15min, etc)
-	 * @return	Integer		Rounded duration in seconds
+	 * @param	integer		$timestamp
+	 * @param	integer		$roundingMinute		Round to number of minutes (10min, 15min, etc)
+	 * @return	integer		Rounded duration in seconds
 	 */
 	public static function roundUpTime($timestamp, $roundingMinute = 1) {
 		$timestamp			= intval($timestamp);
@@ -838,9 +854,9 @@ class TodoyuTime {
 	/**
 	 * Add given amount of days to given date
 	 *
-	 * @param	Integer		$timestamp
-	 * @param	Integer		$amountDays
-	 * @return	Integer
+	 * @param	integer		$timestamp
+	 * @param	integer		$amountDays
+	 * @return	integer
 	 */
 	public static function addDays($timestamp, $amountDays) {
 		$timestamp	= (int) $timestamp;
@@ -856,7 +872,7 @@ class TodoyuTime {
 	/**
 	 * Check whether monday is the first day of the week
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isMondayFirstDayOfWeek() {
 		return TodoyuSysmanagerSystemConfigManager::getFirstDayOfWeek() === 1;
@@ -879,8 +895,8 @@ class TodoyuTime {
 	/**
 	 * Check whether a date is during the weekend
 	 *
-	 * @param	Integer		$date
-	 * @return	Boolean
+	 * @param	integer		$date
+	 * @return	boolean
 	 */
 	public static function isWeekendDate($date) {
 		$weekDay		= date('w', $date);

@@ -128,7 +128,7 @@ class TodoyuInstaller {
 	/**
 	 * Check whether the installation has a LAST_VERSION file
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	private static function hasVersionFile() {
 		return is_file(self::$versionFile);
@@ -156,7 +156,7 @@ class TodoyuInstaller {
 	/**
 	 * Set installation step (session)
 	 *
-	 * @param	String		$step
+	 * @param	string		$step
 	 */
 	public static function setStep($step) {
 		TodoyuSession::set('installer/step', $step);
@@ -167,7 +167,7 @@ class TodoyuInstaller {
 	/**
 	 * Get current installation step
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getStep() {
 		return TodoyuSession::get('installer/step');
@@ -178,7 +178,7 @@ class TodoyuInstaller {
 	/**
 	 * Check if a step is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	private static function hasStep() {
 		return TodoyuSession::isIn('installer/step');
@@ -189,7 +189,7 @@ class TodoyuInstaller {
 	/**
 	 * Check if restart flag is set
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	private static function isRestart() {
 		return ((int) $_GET['restart']) === 1;
@@ -200,7 +200,7 @@ class TodoyuInstaller {
 	/**
 	 * Check if data is submitted
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	private static function hasData() {
 		return $_SERVER['REQUEST_METHOD'] === 'POST';
@@ -211,7 +211,7 @@ class TodoyuInstaller {
 	/**
 	 * Check if ENABLE file is available
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isEnabled() {
 		$file	= TodoyuFileManager::pathAbsolute('install/ENABLE');
@@ -245,7 +245,7 @@ class TodoyuInstaller {
 	/**
 	 * Set run mode (install or update)
 	 *
-	 * @param	String		$mode
+	 * @param	string		$mode
 	 */
 	private static function setMode($mode) {
 		TodoyuSession::set('installer/mode', $mode);
@@ -256,7 +256,7 @@ class TodoyuInstaller {
 	/**
 	 * Get run mode
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getMode() {
 		return TodoyuSession::get('installer/mode');
@@ -267,7 +267,7 @@ class TodoyuInstaller {
 	/**
 	 * Get configuration array for a step
 	 *
-	 * @param	String		$step
+	 * @param	string		$step
 	 * @return	Array
 	 */
 	public static function getStepConfig($step) {
@@ -279,8 +279,8 @@ class TodoyuInstaller {
 	/**
 	 * Process submitted data for a step. Call processing function
 	 *
-	 * @param	String		$step
-	 * @param	Array		$data
+	 * @param	string		$step
+	 * @param	array		$data
 	 * @return	Array
 	 */
 	private static function process($step, array $data = array()) {
@@ -298,10 +298,10 @@ class TodoyuInstaller {
 	/**
 	 * Display step
 	 *
-	 * @param	String		$step
-	 * @param	Array		$result
-	 * @param	Array		$postData
-	 * @return	String
+	 * @param	string		$step
+	 * @param	array		$result
+	 * @param	array		$postData
+	 * @return	string
 	 */
 	private static function display($step, array $result = array(), array $postData = array()) {
 		$stepConfig	= self::getStepConfig($step);
@@ -325,8 +325,8 @@ class TodoyuInstaller {
 	/**
 	 * Check if step if part of the update run
 	 *
-	 * @param	String		$step
-	 * @return	Boolean
+	 * @param	string		$step
+	 * @return	boolean
 	 */
 	public static function isUpdateStep($step) {
 		return in_array($step, Todoyu::$CONFIG['INSTALLER']['update']);
@@ -389,7 +389,7 @@ class TodoyuInstaller {
 	/**
 	 * Check if two enable files are existing
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function hasDoubleEnableFile() {
 		$file1	= TodoyuFileManager::pathAbsolute(PATH . '/install/ENABLE');
@@ -403,7 +403,7 @@ class TodoyuInstaller {
 	/**
 	 * Check if system is already set up, and this is an update call
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public static function isUpdate() {
 		return	( self::getMode() !== 'install' && TodoyuInstallerManager::isDatabaseConfigured() )

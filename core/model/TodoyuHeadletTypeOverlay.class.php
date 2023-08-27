@@ -55,7 +55,7 @@ abstract class TodoyuHeadletTypeOverlay extends TodoyuHeadlet {
 	/**
 	 * Render headlet content
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function render() {
 		$this->data['content'] = $this->renderOverlayContent();

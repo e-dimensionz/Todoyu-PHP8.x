@@ -65,8 +65,8 @@ class TodoyuSearchSortingManager {
 
 	/**
 	 *
-	 * @param	String		$type
-	 * @param	String		$name
+	 * @param	string		$type
+	 * @param	string		$name
 	 * @return	Array
 	 */
 	public static function getSortingConfig($type, $name) {
@@ -80,9 +80,9 @@ class TodoyuSearchSortingManager {
 	/**
 	 * Get label of sorting
 	 *
-	 * @param	String		$type		Filter type (TASK, PROJECT, INVOICE, HOSTING, etc)
-	 * @param	String		$name		Name of the sorting
-	 * @return	String
+	 * @param	string		$type		Filter type (TASK, PROJECT, INVOICE, HOSTING, etc)
+	 * @param	string		$name		Name of the sorting
+	 * @return	string
 	 */
 	public static function getLabel($type, $name) {
 		$type	= strtoupper($type);

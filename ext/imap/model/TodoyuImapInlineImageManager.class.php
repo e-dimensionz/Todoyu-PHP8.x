@@ -29,9 +29,9 @@ class TodoyuImapInlineImageManager {
 	/**
 	 * Save the image as file
 	 *
-	 * @param	String		$imageKey
-	 * @param	String		$content
-	 * @return	String		Storage path
+	 * @param	string		$imageKey
+	 * @param	string		$content
+	 * @return	string		Storage path
 	 */
 	public static function saveImage($imageKey, $content) {
 		$path	= self::getImagePath($imageKey);
@@ -46,7 +46,7 @@ class TodoyuImapInlineImageManager {
 	/**
 	 * Get storage base path
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getStorageBasePath() {
 		return TodoyuFileManager::pathAbsolute(IMAP_PATH_INLINEIMAGE);
@@ -57,8 +57,8 @@ class TodoyuImapInlineImageManager {
 	/**
 	 * Get file path for image
 	 *
-	 * @param	String		$imageKey
-	 * @return	String
+	 * @param	string		$imageKey
+	 * @return	string
 	 */
 	protected static function getImagePath($imageKey) {
 		$basePath	= self::getStorageBasePath();
@@ -74,8 +74,8 @@ class TodoyuImapInlineImageManager {
 	 * Extract extension from image key
 	 * The image key contains the filename
 	 *
-	 * @param	String		$imageKey
-	 * @return	String
+	 * @param	string		$imageKey
+	 * @return	string
 	 */
 	protected static function getExtensionFromKey($imageKey) {
 		list($filename) = explode('@', $imageKey, 2);
@@ -89,8 +89,8 @@ class TodoyuImapInlineImageManager {
 	/**
 	 * Get the content data of the image
 	 *
-	 * @param	String		$imageKey
-	 * @return	String
+	 * @param	string		$imageKey
+	 * @return	string
 	 */
 	public static function getImageContent($imageKey) {
 		return TodoyuFileManager::getFileContent(self::getImagePath($imageKey));
@@ -101,8 +101,8 @@ class TodoyuImapInlineImageManager {
 	/**
 	 * Get the mime type of the image
 	 *
-	 * @param	String		$imageKey
-	 * @return	String
+	 * @param	string		$imageKey
+	 * @return	string
 	 */
 	public static function getMimeType($imageKey) {
 		$path	= self::getImagePath($imageKey);
@@ -115,7 +115,7 @@ class TodoyuImapInlineImageManager {
 	/**
 	 * Send the image with headers to the browser
 	 *
-	 * @param	String		$imageKey
+	 * @param	string		$imageKey
 	 */
 	public static function sendToBrowser($imageKey) {
 		$path	= self::getImagePath($imageKey);

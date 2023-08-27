@@ -38,10 +38,10 @@ class TodoyuContactPersonSearch implements TodoyuSearchEngineIf {
 	/**
 	 * Search for persons in full-text mode. Return the ID of the matching persons
 	 *
-	 * @param	Array		$find		Keywords which have to be in the person
-	 * @param	Array		$ignore		Keywords which must not be in the person
-	 * @param	Integer		$limit
-	 * @return	Integer[]				Project IDs
+	 * @param	array		$find		Keywords which have to be in the person
+	 * @param	array		$ignore		Keywords which must not be in the person
+	 * @param	integer		$limit
+	 * @return	integer[]				Project IDs
 	 */
 	public static function searchPersons(array $find, array $ignore = array(), $limit = 100) {
 		$table	= self::TABLE;
@@ -60,9 +60,9 @@ class TodoyuContactPersonSearch implements TodoyuSearchEngineIf {
 	/**
 	 * Get search results for persons
 	 *
-	 * @param	Array		$find
-	 * @param	Array		$ignore
-	 * @param	Integer		$limit
+	 * @param	array		$find
+	 * @param	array		$ignore
+	 * @param	integer		$limit
 	 * @return	Array
 	 */
 	public static function getResults(array $find, array $ignore = array(), $limit = 100) {
@@ -74,9 +74,9 @@ class TodoyuContactPersonSearch implements TodoyuSearchEngineIf {
 	/**
 	 * Get suggestions data array for person search
 	 *
-	 * @param	Array		$find
-	 * @param	Array		$ignore
-	 * @param	Integer		$limit
+	 * @param	array		$find
+	 * @param	array		$ignore
+	 * @param	integer		$limit
 	 * @return	Array
 	 */
 	public static function getSuggestions(array $find, array $ignore = array(), $limit = 5) {
@@ -106,8 +106,8 @@ class TodoyuContactPersonSearch implements TodoyuSearchEngineIf {
 	 * Get title for person suggestion item label
 	 *
 	 * @param	TodoyuContactPerson		$person
-	 * @param	Boolean					$addCompanyAbbr
-	 * @return	String
+	 * @param	boolean					$addCompanyAbbr
+	 * @return	string
 	 */
 	private static function getSuggestionTitle(TodoyuContactPerson $person, $addCompanyAbbr = false) {
 		$label	= $person->getFullName();
@@ -134,9 +134,9 @@ class TodoyuContactPersonSearch implements TodoyuSearchEngineIf {
 	/**
 	 * Get persons listing data. Keys: [total,rows]
 	 *
-	 * @param	Integer		$size
-	 * @param	Integer		$offset
-	 * @param	Array		$params
+	 * @param	integer		$size
+	 * @param	integer		$offset
+	 * @param	array		$params
 	 * @return	Array
 	 */
 	public static function getPersonListingData($size, $offset = 0, array $params) {
@@ -163,9 +163,9 @@ class TodoyuContactPersonSearch implements TodoyuSearchEngineIf {
 	/**
 	 * Get persons search results listing data
 	 *
-	 * @param	Integer		$size
-	 * @param	Integer		$offset
-	 * @param	Array		$params
+	 * @param	integer		$size
+	 * @param	integer		$offset
+	 * @param	array		$params
 	 * @return	Array
 	 */
 	public static function getPersonListingDataSearch($size, $offset = 0, array $params) {
@@ -188,7 +188,7 @@ class TodoyuContactPersonSearch implements TodoyuSearchEngineIf {
 
 
 	/**
-	 * @param	Integer		$idPerson
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	private static function getPersonListingDataRow($idPerson) {

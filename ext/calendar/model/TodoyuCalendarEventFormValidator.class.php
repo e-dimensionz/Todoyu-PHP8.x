@@ -30,11 +30,11 @@ class TodoyuCalendarEventFormValidator {
 	 * Check whether the event is only assigned to the current person if the event is private
 	 * defined in the $config array
 	 *
-	 * @param	String		$value			Assigned persons
-	 * @param	Array		$config			Field config array
-	 * @param	String		$formElement
-	 * @param	Array		$formData
-	 * @return	Boolean
+	 * @param	string		$value			Assigned persons
+	 * @param	array		$config			Field config array
+	 * @param	string		$formElement
+	 * @param	array		$formData
+	 * @return	boolean
 	 */
 	public static function eventIsAssignableToCurrentPersonOnly($value, array $config = array (), $formElement, $formData) {
 			// If the flag is_private is set, the event is only allowed to be assigned to the current person
@@ -59,9 +59,9 @@ class TodoyuCalendarEventFormValidator {
 	/**
 	 * Check that the event's starting time lays before it's ending time
 	 *
-	 * @param	String		$value			Assigned persons
-	 * @param	Array		$config			Field config array
-	 * @return	Boolean
+	 * @param	string		$value			Assigned persons
+	 * @param	array		$config			Field config array
+	 * @return	boolean
 	 */
 	public static function starttimeAfterEndtime($value, array $config = array ()) {
 			// Only check this if it is not a full-day event
@@ -90,9 +90,9 @@ class TodoyuCalendarEventFormValidator {
 	 /**
 	 * Check whether the time format is correct
 	 *
-	 * @param	String		$value			Assigned persons
-	 * @param	Array		$config			Field config array
-	 * @return	Boolean
+	 * @param	string		$value			Assigned persons
+	 * @param	array		$config			Field config array
+	 * @return	boolean
 	 */
 	 public static function checkTimeFormat($value, array $config = array ()) {
 			// Build regular expression
@@ -113,11 +113,11 @@ class TodoyuCalendarEventFormValidator {
 	/**
 	 * Check given persons of event being assignable, call hooked validators
 	 *
-	 * @param	String				$value
-	 * @param	Array				$config
+	 * @param	string				$value
+	 * @param	array				$config
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function personsAreBookable($value, array $config = array (), $formElement, $formData) {
 			// Check if calendar is configured to prevent overbooking
@@ -151,7 +151,7 @@ class TodoyuCalendarEventFormValidator {
 	 * Render overbooking error message and set in event form
 	 *
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$overbookedInfos
+	 * @param	array				$overbookedInfos
 	 */
 	private static function setOverbookingError(TodoyuFormElement $formElement, array $overbookedInfos) {
 		$tmpl	= 'ext/calendar/view/overbooking-info.tmpl';
@@ -169,11 +169,11 @@ class TodoyuCalendarEventFormValidator {
 	 * Form validator.
 	 * Check whether at least one internal person is assigned to an event
 	 *
-	 * @param	Array				$value
-	 * @param	Array				$config
+	 * @param	array				$value
+	 * @param	array				$config
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function hasInternalPerson($value, array $config = array(), $formElement, $formData) {
 		$personIDs	= TodoyuArray::intval($value);
@@ -201,11 +201,11 @@ class TodoyuCalendarEventFormValidator {
 	 * Assert that event has a single-date-type (only birthday and reminder) which does not require an end date
 	 * or make sure date end is set and after date start
 	 *
-	 * @param	Integer				$value
-	 * @param	Array				$config
+	 * @param	integer				$value
+	 * @param	array				$config
 	 * @param	TodoyuFormElement	$formElement
-	 * @param	Array				$formData
-	 * @return	Boolean
+	 * @param	array				$formData
+	 * @return	boolean
 	 */
 	public static function isSingleDateTypeOrAfterStartDate($value, array $config, TodoyuFormElement $formElement, array $formData) {
 		$dateStart	= intval($formData['date_start']);

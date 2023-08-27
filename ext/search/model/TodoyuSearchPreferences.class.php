@@ -29,12 +29,12 @@ class TodoyuSearchPreferences {
 	/**
 	 * Save search extension preference
 	 *
-	 * @param	Integer		$preference
-	 * @param	String		$value
-	 * @param	Integer		$idItem
-	 * @param	Boolean		$unique
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	integer		$preference
+	 * @param	string		$value
+	 * @param	integer		$idItem
+	 * @param	boolean		$unique
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 */
 	public static function savePref($preference, $value, $idItem = 0, $unique = false, $idArea = 0, $idPerson = 0) {
 		TodoyuPreferenceManager::savePreference(EXTID_SEARCH, $preference, $value, $idItem, $unique, $idArea, $idPerson);
@@ -45,12 +45,12 @@ class TodoyuSearchPreferences {
 	/**
 	 * Get search extension preference
 	 *
-	 * @param	String		$preference
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Boolean		$unserialize
-	 * @param	Integer		$idPerson
-	 * @return	String
+	 * @param	string		$preference
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	boolean		$unserialize
+	 * @param	integer		$idPerson
+	 * @return	string
 	 */
 	public static function getPref($preference, $idItem = 0, $idArea = 0, $unserialize = false, $idPerson = 0) {
 		return TodoyuPreferenceManager::getPreference(EXTID_SEARCH, $preference, $idItem, $idArea, $unserialize, $idPerson);
@@ -61,10 +61,10 @@ class TodoyuSearchPreferences {
 	/**
 	 * Get search extension preferences
 	 *
-	 * @param	String		$preference
-	 * @param	Integer		$idItem
-	 * @param	Integer		$idArea
-	 * @param	Integer		$idPerson
+	 * @param	string		$preference
+	 * @param	integer		$idItem
+	 * @param	integer		$idArea
+	 * @param	integer		$idPerson
 	 * @return	Array
 	 */
 	public static function getPrefs($preference, $idItem = 0, $idArea = 0, $idPerson = 0) {
@@ -76,7 +76,7 @@ class TodoyuSearchPreferences {
 	/**
 	 * Save current tab
 	 *
-	 * @param	String	$currentTab
+	 * @param	string	$currentTab
 	 */
 	public static function saveActiveTab($currentTab) {
 		self::savePref('tab', $currentTab, 0, true);
@@ -87,7 +87,7 @@ class TodoyuSearchPreferences {
 	/**
 	 * Get active tab. If non stored in preferences, use default
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public static function getActiveTab() {
 		$tab = self::getPref('tab');
@@ -104,8 +104,8 @@ class TodoyuSearchPreferences {
 	/**
 	 * Get active filterset ID
 	 *
-	 * @param	String		$tab
-	 * @return	Integer
+	 * @param	string		$tab
+	 * @return	integer
 	 */
 	public static function getActiveFilterset($tab) {
 		$pref			= 'filterset-' . $tab;
@@ -119,8 +119,8 @@ class TodoyuSearchPreferences {
 	/**
 	 * Save active filterset
 	 *
-	 * @param	String		$tab		Tab name
-	 * @param	Integer		$idFilterset
+	 * @param	string		$tab		Tab name
+	 * @param	integer		$idFilterset
 	 */
 	public static function saveActiveFilterset($tab, $idFilterset) {
 		$idFilterset= intval($idFilterset);
@@ -134,8 +134,8 @@ class TodoyuSearchPreferences {
 	/**
 	 * Save filterset list toggling status
 	 *
-	 * @param	String		$type
-	 * @param	Boolean		$expanded
+	 * @param	string		$type
+	 * @param	boolean		$expanded
 	 */
 	public static function saveFiltersetListToggle($type, $expanded = true) {
 		$preference	= self::getFiltersetListToggle();
@@ -169,7 +169,7 @@ class TodoyuSearchPreferences {
 	/**
 	 * Save currently active filter
 	 *
-	 * @param	String	$currentFilter
+	 * @param	string	$currentFilter
 	 */
 	public static function saveCurrentFilter($currentFilter) {
 		$extID		= EXTID_SEARCH;

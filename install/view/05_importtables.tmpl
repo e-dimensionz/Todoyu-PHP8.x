@@ -3,13 +3,13 @@
 {block name="box"}
 	<div class="">
 		<div class="sqlQuery">
-			<strong>{Label install.installer.importtables.coretables}:</strong><br />
+			<strong>{Label text='install.installer.importtables.coretables'}:</strong><br />
 			<ul>
-			{foreach $coreStructure tableName tableStructure}
+			{foreach $coreStructure as $tableName=>$tableStructure}
 				<li>
 					<strong>{$tableName}:</strong>
 					<ul>
-					{foreach $tableStructure.columns columnName columnStructure}
+					{foreach $tableStructure.columns as $columnName=>$columnStructure}
 						<li>{$columnStructure.field}, {$columnStructure.type}</li>
 					{/foreach}
 					</ul>
@@ -17,13 +17,13 @@
 			{/foreach}
 			</ul>
 			<br />
-			<strong>{Label install.installer.importtables.exttables}:</strong><br />
+			<strong>{Label text='install.installer.importtables.exttables'}:</strong><br />
 			<ul>
-			{foreach $extStructure tableName tableStructure}
+			{foreach $extStructure as $tableName=>$tableStructure}
 				<li>
 					<strong>{$tableName}:</strong>
 					<ul>
-					{foreach $tableStructure.columns columnName columnStructure}
+					{foreach $tableStructure.columns as $columnName=>$columnStructure}
 						<li>{$columnStructure.field}, {$columnStructure.type}</li>
 					{/foreach}
 					</ul>

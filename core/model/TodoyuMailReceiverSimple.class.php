@@ -41,9 +41,9 @@ class TodoyuMailReceiverSimple extends TodoyuMailReceiver implements TodoyuMailR
 	/**
 	 * Initialize with all data
 	 *
-	 * @param	String		$address
-	 * @param	String		$name
-	 * @param	Integer		$idRecord
+	 * @param	string		$address
+	 * @param	string		$name
+	 * @param	integer		$idRecord
 	 */
 	public function __construct($address, $name = '', $idRecord = 0) {
 		parent::__construct('simple', $idRecord);
@@ -57,7 +57,7 @@ class TodoyuMailReceiverSimple extends TodoyuMailReceiver implements TodoyuMailR
 	/**
 	 * Get name
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getName() {
 		return $this->name;
@@ -68,7 +68,7 @@ class TodoyuMailReceiverSimple extends TodoyuMailReceiver implements TodoyuMailR
 	/**
 	 * Get address
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getAddress() {
 		return $this->address;

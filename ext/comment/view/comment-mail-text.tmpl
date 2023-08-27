@@ -1,12 +1,12 @@
-{html2text $comment.comment true}
+{html2text html=$comment.comment decodeEntity=true}
 
-{Label comment.ext.mail.showcommentinprojectview}:
-{html2text $commentlink true}
+{Label text='comment.ext.mail.showcommentinprojectview'}:
+{html2text html=$commentlink decodeEntity=true}
 
 ========================================================================
 
 {$task.title}
 ------------------------------------------------------------------------
-{html2text $task.description true}
+{html2text html=$task.description decodeEntity=true}
 
 ========================================================================

@@ -29,7 +29,7 @@ class TodoyuCalendarReminder extends TodoyuCalendarEventAssignment {
 	/**
 	 * Get starting time of event of reminder
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getEventStartDate() {
 		return $this->getEvent()->getDateStart();
@@ -40,8 +40,8 @@ class TodoyuCalendarReminder extends TodoyuCalendarEventAssignment {
 	/**
 	 * Get scheduled reminder time
 	 *
-	 * @param	Integer		$reminderType
-	 * @return	Integer
+	 * @param	integer		$reminderType
+	 * @return	integer
 	 */
 	public function getDateRemind($reminderType = CALENDAR_TYPE_EVENTREMINDER_EMAIL) {
 		$typePrefix	= TodoyuCalendarReminderManager::getReminderTypePrefix($reminderType);
@@ -54,7 +54,7 @@ class TodoyuCalendarReminder extends TodoyuCalendarEventAssignment {
 	/**
 	 * Get reminder date for email
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateRemindEmail() {
 		return $this->getDateRemind(CALENDAR_TYPE_EVENTREMINDER_EMAIL);
@@ -65,7 +65,7 @@ class TodoyuCalendarReminder extends TodoyuCalendarEventAssignment {
 	/**
 	 * Get reminder date for popup
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getDateRemindPopup() {
 		return $this->getDateRemind(CALENDAR_TYPE_EVENTREMINDER_POPUP);
@@ -76,7 +76,7 @@ class TodoyuCalendarReminder extends TodoyuCalendarEventAssignment {
 	/**
 	 * Check whether reminder has a reminder date for email
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasEmailReminder() {
 		return $this->getDateRemindEmail() > 0;
@@ -87,7 +87,7 @@ class TodoyuCalendarReminder extends TodoyuCalendarEventAssignment {
 	/**
 	 * Check whether reminder has a reminder date for popup
 	 *
-	 * @return	Boolean
+	 * @return	boolean
 	 */
 	public function hasPopupReminder() {
 		return $this->getDateRemindPopup() > 0;
@@ -98,8 +98,8 @@ class TodoyuCalendarReminder extends TodoyuCalendarEventAssignment {
 	/**
 	 * Get amount of time before event when given reminder type is scheduled
 	 *
-	 * @param	Integer		$type
-	 * @return	Integer|Boolean
+	 * @param	integer		$type
+	 * @return	integer|Boolean
 	 */
 	public function getAdvanceTime($type = CALENDAR_TYPE_EVENTREMINDER_EMAIL) {
 		$dateRemind	= $this->getDateRemind($type);
@@ -116,7 +116,7 @@ class TodoyuCalendarReminder extends TodoyuCalendarEventAssignment {
 	/**
 	 * Get advance time for email reminder
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getAdvanceTimeEmail() {
 		return $this->getAdvanceTime(CALENDAR_TYPE_EVENTREMINDER_EMAIL);
@@ -127,7 +127,7 @@ class TodoyuCalendarReminder extends TodoyuCalendarEventAssignment {
 	/**
 	 * Get advance time for popup reminder
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	public function getAdvanceTimePopup() {
 		return $this->getAdvanceTime(CALENDAR_TYPE_EVENTREMINDER_POPUP);
@@ -138,8 +138,8 @@ class TodoyuCalendarReminder extends TodoyuCalendarEventAssignment {
 	/**
 	 * Check whether email reminding for this event/person is disabled
 	 *
-	 * @param	Integer		$reminderType
-	 * @return	Boolean
+	 * @param	integer		$reminderType
+	 * @return	boolean
 	 */
 	protected function isDisabled($reminderType) {
 		$typePrefix	= TodoyuCalendarReminderManager::getReminderTypePrefix($reminderType);

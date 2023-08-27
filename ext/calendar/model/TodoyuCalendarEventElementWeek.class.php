@@ -41,7 +41,7 @@ class TodoyuCalendarEventElementWeek extends TodoyuCalendarEventElementDayWeek {
 	/**
 	 * Get width of the total space which is available for the events of a day
 	 *
-	 * @return	Integer
+	 * @return	integer
 	 */
 	protected function getViewWidth() {
 		return $this->getView()->isWeekendDisplayed() ? CALENDAR_WEEK_EVENT_WIDTH : CALENDAR_WEEK_FIVEDAY_EVENT_WIDTH;
@@ -52,7 +52,7 @@ class TodoyuCalendarEventElementWeek extends TodoyuCalendarEventElementDayWeek {
 	/**
 	 * Get name of the view
 	 *
-	 * @return	String
+	 * @return	string
 	 */
 	public function getViewName() {
 		return $this->getView()->getName();
@@ -63,7 +63,7 @@ class TodoyuCalendarEventElementWeek extends TodoyuCalendarEventElementDayWeek {
 	/**
 	 *
 	 *
-	 * @param	Integer		$date
+	 * @param	integer		$date
 	 * @return	Array
 	 */
 	protected function getElementTemplateData($range = 0) {
@@ -80,8 +80,8 @@ class TodoyuCalendarEventElementWeek extends TodoyuCalendarEventElementDayWeek {
 	 * Get position styles
 	 * Add top position key
 	 *
-	 * @param	Integer		$date
-	 * @return	String[]
+	 * @param	integer		$date
+	 * @return	string[]
 	 */
 	protected function getPositionStyles($date) {
 		$styles	= parent::getPositionStyles($date);
@@ -96,8 +96,8 @@ class TodoyuCalendarEventElementWeek extends TodoyuCalendarEventElementDayWeek {
 	/**
 	 * Render event for a day in week view
 	 *
-	 * @param	Integer		$date
-	 * @return	String
+	 * @param	integer		$date
+	 * @return	string
 	 */
 	public function render(TodoyuDayRange $range = null) {
 		$tmpl	= $this->getTemplate();

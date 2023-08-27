@@ -29,8 +29,8 @@ class TodoyuSysmanagerExtInstallerRenderer {
 	/**
 	 * Render dialog for extension update
 	 *
-	 * @param	String		$ext
-	 * @return	String
+	 * @param	string		$ext
+	 * @return	string
 	 */
 	public static function renderMessageInstallSuccess($ext) {
 		$tmpl	= 'ext/sysmanager/view/extension/message-install-success.tmpl';
@@ -46,8 +46,8 @@ class TodoyuSysmanagerExtInstallerRenderer {
 	/**
 	 *
 	 *
-	 * @param	String	$ext
-	 * @return	String
+	 * @param	string	$ext
+	 * @return	string
 	 */
 	public static function renderMessageUninstalledSuccess($ext) {
 		$tmpl	= 'ext/sysmanager/view/extension/message-uninstall-success.tmpl';
@@ -63,8 +63,8 @@ class TodoyuSysmanagerExtInstallerRenderer {
 	/**
 	 * Render installation error notification message
 	 *
-	 * @param	String	$extKey
-	 * @return	String
+	 * @param	string	$extKey
+	 * @return	string
 	 * @todo	Template is hard coded html
 	 */
 	public static function renderMessageInstallError($extKey) {

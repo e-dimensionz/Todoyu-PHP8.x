@@ -7,10 +7,10 @@ Event Hooks
 
 #loginpage.login
 	Login was successful
-	@param	Integer		$idPerson
+	@param	integer		$idPerson
 
 
 #loginpage.login.failed
 	Login failed
-	@param	String		$username
-	@param	String		$passHash
+	@param	string		$username
+	@param	string		$passHash
