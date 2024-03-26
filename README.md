@@ -1,3 +1,10 @@
+# IMPORTANT
+THE CODE IS UNSTABLE AND NOT READY FOR USE YET! For a stable version, please use the PHP7.x version [here](https://github.com/e-dimensionz/Todoyu-PHP8.x/)
+
+
+We are getting there. We use this software as well so we are desperate to getting it live. Any help would speed up progress
+
+
 # Todoyu for PHP7 and PHP8!
 
 This is the latest version of `todoyu` ported/modded to work with PHP 8.x.
